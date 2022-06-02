@@ -5,6 +5,7 @@
 ## Tutorials
 
 * [Decentralised Identifiers](tutorials/decentralised-identifiers/README.md)
+  * [Using cheqd Cosmos CLI to manage DID Documents](tutorials/decentralised-identifiers/using-cheqd-cosmos-cli-to-manage-did-documents.md)
   * [Creating DID + DID Doc with cheqd CLI](tutorials/decentralised-identifiers/creating-did-+-did-doc-with-cheqd-cli.md)
   * [Creating DID + DID Doc with VDR Tools](tutorials/decentralised-identifiers/creating-did-+-did-doc-with-vdr-tools.md)
 * [Schemas](tutorials/schemas/README.md)
