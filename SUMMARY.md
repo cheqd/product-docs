@@ -5,9 +5,11 @@
 ## Tutorials
 
 * [Decentralised Identifiers](tutorials/decentralised-identifiers/README.md)
-  * [Using cheqd Cosmos CLI to manage DID Documents](tutorials/decentralised-identifiers/using-cheqd-cosmos-cli-to-manage-did-documents.md)
-  * [Creating DID + DID Doc with cheqd CLI](tutorials/decentralised-identifiers/creating-did-+-did-doc-with-cheqd-cli.md)
-  * [Creating DID + DID Doc with VDR Tools](tutorials/decentralised-identifiers/creating-did-+-did-doc-with-vdr-tools.md)
+  * [cheqd CLI](tutorials/decentralised-identifiers/cheqd-cli/README.md)
+    * [Using cheqd Cosmos CLI to manage DID Documents](tutorials/decentralised-identifiers/cheqd-cli/using-cheqd-cosmos-cli-to-manage-did-documents.md)
+    * [Creating DID + DID Doc with cheqd CLI](tutorials/decentralised-identifiers/cheqd-cli/creating-did-+-did-doc-with-cheqd-cli.md)
+  * [VDR tools](tutorials/decentralised-identifiers/vdr-tools/README.md)
+    * [Identity transactions with VDR tools CLI](tutorials/decentralised-identifiers/vdr-tools/identity-transactions-with-vdr-tools-cli.md)
 * [Schemas](tutorials/schemas/README.md)
   * [Creating a Schema using cheqd CLI](tutorials/schemas/creating-a-schema-using-cheqd-cli.md)
   * [Creating a Schema using schema.org](tutorials/schemas/creating-a-schema-using-schema.org.md)
