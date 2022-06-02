@@ -32,6 +32,6 @@ This repository is intended to clearly lay out and explain cheqd's approach to d
 [verifiable-credentials](architecture/verifiable-credentials/)
 {% endcontent-ref %}
 
-{% content-ref url="architecture/resources-and-schemas/" %}
-[resources-and-schemas](architecture/resources-and-schemas/)
+{% content-ref url="architecture/resources.md" %}
+[resources.md](architecture/resources.md)
 {% endcontent-ref %}
