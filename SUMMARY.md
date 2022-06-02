@@ -4,15 +4,14 @@
 
 ## Tutorials
 
-* [Decentralised Identifiers](tutorials/decentralised-identifiers/README.md)
-  * [cheqd CLI](tutorials/decentralised-identifiers/cheqd-cli/README.md)
-    * [Using cheqd Cosmos CLI to manage DID Documents](tutorials/decentralised-identifiers/cheqd-cli/using-cheqd-cosmos-cli-to-manage-did-documents.md)
-    * [Creating DID + DID Doc with cheqd CLI](tutorials/decentralised-identifiers/cheqd-cli/creating-did-+-did-doc-with-cheqd-cli.md)
-  * [VDR tools](tutorials/decentralised-identifiers/vdr-tools/README.md)
-    * [Identity transactions with VDR tools CLI](tutorials/decentralised-identifiers/vdr-tools/identity-transactions-with-vdr-tools-cli.md)
-* [Schemas](tutorials/schemas/README.md)
-  * [Creating a Schema using cheqd CLI](tutorials/schemas/creating-a-schema-using-cheqd-cli.md)
-  * [Creating a Schema using schema.org](tutorials/schemas/creating-a-schema-using-schema.org.md)
+* [cheqd CLI](tutorials/cheqd-cli/README.md)
+  * [Using cheqd Cosmos CLI to manage DID Documents](tutorials/cheqd-cli/using-cheqd-cosmos-cli-to-manage-did-documents.md)
+  * [Creating DID + DID Doc with cheqd CLI](tutorials/cheqd-cli/creating-did-+-did-doc-with-cheqd-cli.md)
+  * [Schemas](tutorials/cheqd-cli/schemas/README.md)
+    * [Creating a Schema using cheqd CLI](tutorials/cheqd-cli/schemas/creating-a-schema-using-cheqd-cli.md)
+    * [Creating a Schema using schema.org](tutorials/cheqd-cli/schemas/creating-a-schema-using-schema.org.md)
+* [VDR tools](tutorials/vdr-tools/README.md)
+  * [Identity transactions with VDR tools CLI](tutorials/vdr-tools/identity-transactions-with-vdr-tools-cli.md)
 * [DID Resolver](tutorials/did-resolver/README.md)
   * [Using full cheqd DID resolver](tutorials/did-resolver/using-full-cheqd-did-resolver.md)
   * [Using light cheqd DID resolver](tutorials/did-resolver/using-light-cheqd-did-resolver.md)

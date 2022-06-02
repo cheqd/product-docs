@@ -8,12 +8,12 @@ This repository is intended to clearly lay out and explain cheqd's approach to d
 
 ### Tutorials
 
-{% content-ref url="tutorials/decentralised-identifiers/" %}
-[decentralised-identifiers](tutorials/decentralised-identifiers/)
+{% content-ref url="tutorials/cheqd-cli/" %}
+[cheqd-cli](tutorials/cheqd-cli/)
 {% endcontent-ref %}
 
-{% content-ref url="tutorials/schemas/" %}
-[schemas](tutorials/schemas/)
+{% content-ref url="tutorials/vdr-tools/" %}
+[vdr-tools](tutorials/vdr-tools/)
 {% endcontent-ref %}
 
 {% content-ref url="tutorials/did-resolver/" %}
