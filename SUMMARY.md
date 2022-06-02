@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Page 1](README.md)
+* [cheqd Identity Documentation](README.md)
 
 ## Tutorials
 
@@ -25,4 +25,4 @@
   * [JSON / JSON-LD](architecture/verifiable-credentials/json-json-ld.md)
   * [AnonCreds Compatibility](architecture/verifiable-credentials/anoncreds-compatibility/README.md)
     * [Credential Definitions](architecture/verifiable-credentials/anoncreds-compatibility/credential-definitions.md)
-* [Schemas](architecture/schemas.md)
+* [Resources](architecture/resources.md)
