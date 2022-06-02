@@ -29,5 +29,5 @@
   * [JSON / JSON-LD](architecture/verifiable-credentials/json-json-ld.md)
   * [AnonCreds Compatibility](architecture/verifiable-credentials/anoncreds-compatibility/README.md)
     * [Credential Definitions](architecture/verifiable-credentials/anoncreds-compatibility/credential-definitions.md)
-* [DID Resolution](architecture/did-resolution.md)
+* [DID Resolver](architecture/did-resolver.md)
 * [DID URL Dereferencing](architecture/did-url-dereferencing.md)

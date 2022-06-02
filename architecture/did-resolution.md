@@ -1,2 +1,0 @@
-# DID Resolution
-
