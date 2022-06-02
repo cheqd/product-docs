@@ -28,22 +28,10 @@ This repository is intended to clearly lay out and explain cheqd's approach to d
 [decentralised-identifiers](architecture/decentralised-identifiers/)
 {% endcontent-ref %}
 
-{% content-ref url="architecture/resources.md" %}
-[resources.md](architecture/resources.md)
-{% endcontent-ref %}
-
-{% content-ref url="architecture/wallet.md" %}
-[wallet.md](architecture/wallet.md)
-{% endcontent-ref %}
-
 {% content-ref url="architecture/verifiable-credentials/" %}
 [verifiable-credentials](architecture/verifiable-credentials/)
 {% endcontent-ref %}
 
-{% content-ref url="architecture/did-resolver.md" %}
-[did-resolver.md](architecture/did-resolver.md)
-{% endcontent-ref %}
-
-{% content-ref url="architecture/did-url-dereferencing.md" %}
-[did-url-dereferencing.md](architecture/did-url-dereferencing.md)
+{% content-ref url="architecture/resources.md" %}
+[resources.md](architecture/resources.md)
 {% endcontent-ref %}
