@@ -1,4 +1,4 @@
-# DID URL Dereferencing
+# 🔀 DID URL Dereferencing
 
 #### Resolving DID vs Dereferencing DID
 

@@ -1,4 +1,4 @@
-# DID Resolver
+# 🔃 DID Resolver
 
 ## DID Resolver Architecture
 

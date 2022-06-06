@@ -1,2 +1,2 @@
-# Decentralised Identifiers (DIDs)
+# 🆔 Decentralised Identifiers (DIDs)
 

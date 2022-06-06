@@ -1,7 +1,5 @@
 # VDR tools
 
-##
-
 ### Overview
 
 There are two command line interface (CLI) tools for interacting with a running `cheqd-node` instance:
