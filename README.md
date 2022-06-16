@@ -24,12 +24,12 @@ This repository is intended to clearly lay out and explain cheqd's approach to d
 
 ### Architecture
 
-{% content-ref url="architecture/decentralised-identifiers/" %}
-[decentralised-identifiers](architecture/decentralised-identifiers/)
+{% content-ref url="architecture/decentralised-identifiers-dids/" %}
+[decentralised-identifiers-dids](architecture/decentralised-identifiers-dids/)
 {% endcontent-ref %}
 
-{% content-ref url="architecture/resources.md" %}
-[resources.md](architecture/resources.md)
+{% content-ref url="architecture/resources-and-schemas/" %}
+[resources-and-schemas](architecture/resources-and-schemas/)
 {% endcontent-ref %}
 
 {% content-ref url="architecture/wallet.md" %}
