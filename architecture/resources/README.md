@@ -1,3 +1,3 @@
-# ⏹ Resources & Schemas
+# ⏺ Resources
 
 Todo
