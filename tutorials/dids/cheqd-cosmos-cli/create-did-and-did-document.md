@@ -149,13 +149,13 @@ Now that we have our DIDDoc prepared we can send it to the pool.
 We can use the following command to send the DIDDoc:
 
 ```
-cheqd-noded tx cheqd create-did "$(cat diddoc.json)" "did:cheqd:testnet:zJ5EDiiiKWDyo79n#key1" --ver-key "FxaJOy4HFoC2Enu1SizKtU0L+hmBRBAEp+B4TopfQoyetOF5T68Ks3db5Yy9ykFdgEboPUes3m6wvXNLpbv+Q==" --from <alias-to-cosmos-key>  --node https://rpc.testnet.cheqd.network:443 --chain-id cheqd-testnet-4 --fees 5000000ncheq
+cheqd-noded tx cheqd create-did "$(cat diddoc.json)" "did:cheqd:testnet:zJ5EDiiiKWDyo79n#key1" "FxaJOy4HFoC2Enu1SizKtU0L+hmBRBAEp+B4TopfQoyetOF5T68Ks3db5Yy9ykFdgEboPUes3m6wvXNLpbv+Q==" --from <alias-to-cosmos-key>  --node https://rpc.testnet.cheqd.network:443 --chain-id cheqd-testnet-4 --fees 5000000ncheq
 ```
 
 Where:
 
 * `"did:cheqd:testnet:zJ5EDiiiKWDyo79n#key1"` is the `id` of `verification_method` section
-* `--ver-key` - is from `keys.txt` file from the [step](https://github.com/cheqd/cheqd-node/diffs/2?base\_sha=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&branch=DEV-890-cheqd-cli-docs\&commentable=true\&name=DEV-890-cheqd-cli-docs\&pull\_number=283\&qualified\_name=refs%2Fheads%2FDEV-890-cheqd-cli-docs\&sha1=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&sha2=4b36c0a5f767b7d4fb91341bc732d54471702dac\&short\_path=1840e4b\&unchanged=expanded\&w=false#1-generate-verification-key), `priv_key_base_64` field.
+* "FxaJOy4HFoC2Enu1SizKtU0L+hmBRBAEp+B4TopfQoyetOF5T68Ks3db5Yy9ykFdgEboPUes3m6wvXNLpbv+Q==" is from keys.txt file from the step, priv_key_base_64 field.
 * `--from` - should be an alias of your cosmos keys.
 
 After you execute the command you will receive `"code": 0"`if the DID was successfully written to the ledger. We can do a full query to check this as well. In case of other error codes field `raw_logs` can help with figuring out the case. For example:
