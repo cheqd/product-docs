@@ -27,7 +27,7 @@
   * [vdr-tools](tutorials/dids/vdr-tools/README.md)
     * [Identity transactions with VDR tools CLI](tutorials/dids/vdr-tools/create-did-and-did-document.md)
 * [✅ Verifiable Credentials](tutorials/verifiable-credentials/README.md)
-    * [Veramo SDK]tutorials/verifiable-credentials/veramo-sdk/README.md
+    * [Veramo SDK](tutorials/verifiable-credentials/veramo-sdk/README.md)
 * [⏺ Resources](tutorials/resources/README.md)
 * [🔀 Resolver](tutorials/resolver/README.md)
   * [Using cheqd Universal Resolver driver](tutorials/resolver/using-cheqd-universal-resolver-driver.md)
