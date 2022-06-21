@@ -1,2 +1,2 @@
-# DID Resolver
+# 🔀 Resolver
 
