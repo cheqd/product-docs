@@ -21,8 +21,8 @@
 
 * [🆔 DIDs](tutorials/dids/README.md)
   * [cheqd Cosmos CLI](tutorials/dids/cheqd-cosmos-cli/README.md)
-    * [Creating DID + DID Doc with cheqd CLI](tutorials/dids/cheqd-cosmos-cli/create-did-and-did-document.md)
-    * [Using cheqd Cosmos CLI to manage DID Documents](tutorials/dids/cheqd-cosmos-cli/update-and-manage-did-document.md)
+    * [Create DID and DID Document](tutorials/dids/cheqd-cosmos-cli/create-did-and-did-document.md)
+    * [Update and manage DID Documents](tutorials/dids/cheqd-cosmos-cli/update-and-manage-did-document.md)
   * [cheqd Node SDK](tutorials/dids/cheqd-node-sdk/README.md)
   * [VDR Tools](tutorials/dids/vdr-tools/README.md)
     * [Identity transactions with VDR tools CLI](tutorials/dids/vdr-tools/create-did-and-did-document.md)
