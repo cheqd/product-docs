@@ -34,6 +34,8 @@ $ cat keys.txt
 "priv_key_base_64":"FxaJOy4HFoC2Enu1SizKtU0L+hmBRBAEpC+B4TopfQoyetOF5T68Ks3db5Yy9ykFdgEboPUes3m6wvXNLpbv+Q=="}
 ```
 
+**Please take it into account that this keys will be used for updating the DID-Doc too. If you want to manage created DID-Doc in future it would be great to save this keys somewhere in safe.**
+
 #### 2. Get multibase58 string
 
 It needs for inserting it into the DID-doc (`public_key_multibase` field in `verification_method` section)
