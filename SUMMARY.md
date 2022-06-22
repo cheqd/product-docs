@@ -5,6 +5,8 @@
 ## Architecture
 
 * [🆔 DIDs](architecture/dids/README.md)
+  * [cheqd DID Method](architecture/dids/cheqd-did-method.md)
+* [Page 1](architecture/page-1.md)
 * [✅ Verifiable Credentials](architecture/verifiable-credentials/README.md)
   * [JSON based JWT](architecture/verifiable-credentials/json-based-jwt.md)
   * [JSON-LD](architecture/verifiable-credentials/json-ld.md)
