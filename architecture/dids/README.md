@@ -8,8 +8,12 @@ If you want to learn more about what DIDs are, please go over to our learning si
 
 ## cheqd DID method
 
-## DID spec registries
+{% content-ref url="cheqd-did-method.md" %}
+[cheqd-did-method.md](cheqd-did-method.md)
+{% endcontent-ref %}
 
-## DID Test Suite
+## W3C DID Test Suite
 
-{% embed url="https://github.com/w3c/did-test-suite/pull/209" %}
+{% content-ref url="w3c-did-test-suite.md" %}
+[w3c-did-test-suite.md](w3c-did-test-suite.md)
+{% endcontent-ref %}

@@ -1,4 +1,4 @@
-# ✅ Verifiable Credentials
+# Verifiable Credentials
 
 Todo
 
