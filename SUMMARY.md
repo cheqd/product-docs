@@ -31,6 +31,8 @@
 * [✅ Verifiable Credentials](tutorials/verifiable-credentials/README.md)
   * [Veramo SDK](tutorials/verifiable-credentials/veramo-sdk.md)
 * [⏺ Resources](tutorials/resources/README.md)
+  * [cheqd Cosmos CLI](tutorials/resources/cheqd-cosmos-cli/README.md)
+    * [Create Resource](tutorials/resources/cheqd-cosmos-cli/create-resource.md)
 * [🔀 Resolver](tutorials/resolver/README.md)
   * [Using cheqd Universal Resolver driver](tutorials/resolver/using-cheqd-universal-resolver-driver.md)
   * [Using full cheqd DID resolver](tutorials/resolver/using-full-cheqd-did-resolver.md)
