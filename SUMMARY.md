@@ -16,9 +16,9 @@
   * [Schemas](architecture/resources/schemas.md)
   * [Governance Framework](architecture/resources/governance-framework.md)
 * [🔀 Resolver](architecture/resolver/README.md)
-  * [Full DID Resolver](architecture/resolver/full-did-resolver.md)
-  * [Light DID Resolver](architecture/resolver/light-did-resolver.md)
-  * [Universal Resolver Driver](architecture/resolver/universal-resolver-driver.md)
+  * [🌕 Full DID Resolver](architecture/resolver/full-did-resolver.md)
+  * [🌗 Light DID Resolver](architecture/resolver/light-did-resolver.md)
+  * [🛰 Universal Resolver Driver](architecture/resolver/universal-resolver-driver.md)
   * [DID URL Dereferencing](architecture/resolver/did-url-dereferencer.md)
 * [🗂 Wallet](architecture/wallet.md)
 
