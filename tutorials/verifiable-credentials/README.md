@@ -1,5 +1,2 @@
-# Verifiable Credentials
+# ✅ Verifiable Credentials
 
-Todo
-
-test

@@ -1,3 +1,3 @@
-# ⏹ Resolver
+# 🔀 Resolver
 
 Todo
