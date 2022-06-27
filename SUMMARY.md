@@ -39,7 +39,6 @@
   * [AnonCreds](architecture/verifiable-credentials/anoncreds/README.md)
     * [Credential Definitions](architecture/verifiable-credentials/anoncreds/credential-definitions.md)
 * [⏺ Resources](architecture/resources/README.md)
-  * [Credential Definitions](architecture/resources/credential-definitions.md)
   * [Schemas](architecture/resources/schemas.md)
 * [🔀 Resolver](architecture/resolver/README.md)
   * [DID URL Dereferencing](architecture/resolver/did-url-dereferencer.md)
