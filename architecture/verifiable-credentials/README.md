@@ -23,3 +23,9 @@ For this reason, cheqd intends to support all mainstream types of Verifiable Cre
 {% content-ref url="anoncreds/" %}
 [anoncreds](anoncreds/)
 {% endcontent-ref %}
+
+## cheqd node SDK architecture and tooling
+
+cheqd packages up its tools for creating and resolving Verifiable Credentials into a digestible toolkit. Read more about cheqd's SDK architecture on our Product site here:
+
+{% embed url="https://product.cheqd.io/" %}
