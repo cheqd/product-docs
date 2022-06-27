@@ -18,11 +18,7 @@ cheqd's fork of this library can be found below:
 
 {% embed url="https://github.com/cheqd/did-jwt-vc" %}
 
-## Issue Credential using JSON based JWT
+## Issue Credential using JSON JWT
 
 To start using this functionality, you can follow the tutorials here:
-
-{% content-ref url="../../tutorials/verifiable-credentials/veramo-cli-sdk/json-based-jwt/issue-verifiable-credential.md" %}
-[issue-verifiable-credential.md](../../tutorials/verifiable-credentials/veramo-cli-sdk/json-based-jwt/issue-verifiable-credential.md)
-{% endcontent-ref %}
 

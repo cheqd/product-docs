@@ -4,7 +4,7 @@
 _Much of the work in this page is influenced, iterated or directly replicated from_ [_Kaliya Young's_](https://identitywoman.net/about-kaliya/bio/) _excellent document on_ [_Verifiable Credential Flavors Explained_](https://www.lfph.io/wp-content/uploads/2021/02/Verifiable-Credentials-Flavors-Explained.pdf)_. We intend to give appropriate credit to this work, as expressed under a_ [_Creative Commons Attribution 4.0 International License_](https://creativecommons.org/licenses/by/4.0/)_._
 {% endhint %}
 
-### What are AnonCreds?
+## What are AnonCreds?
 
 AnonCreds are a **type** or **flavour** of Verifiable Credentials that were originally developed by the company [Evernym](https://www.evernym.com/), and were subsequently adopted by the [Sovrin Foundation](https://sovrin.org/) as part of the 'Indy' codebase that was contributed to [Hyperledger](https://www.hyperledger.org/), a [Linux Foundation](https://linuxfoundation.org/) project. This codebase was forked into the [Hyperledger Indy](https://www.hyperledger.org/use/hyperledger-indy) project for ledger code, [Hyperledger Ursa](https://www.hyperledger.org/use/ursa) for cryptographic libraries, and the ledger-agnostic Hyperledger Aries codebase for agent, wallet, and credentialing code.
 
@@ -38,11 +38,15 @@ AnonCreds have been the subject of heavy debate within the decentralized identit
 
 Nonetheless, many proponents of SSI contend that AnonCreds are still the most production-ready Credential types at this present instance. Certainly, AnonCreds are the only off-the-shelf Credential type that can provide privacy-preserving functionality such as predicate proofs, which is why, for example, Governments such as [BC-Gov](https://digital.gov.bc.ca/digital-trust/projects-and-initiatives/credentials-for-people/) are large proponents of AnonCreds.
 
+## AnonCreds support
+
+cheqd intends to directly support AnonCreds in a W3C compliant format.
+
 ### Why is AnonCred support important?
 
 Whilst AnonCreds are not the end-game Credential type, they are currently in a functional state. Other Credential types, such as JSON-LD with BBS+ signatures, can provide a lot of equivalent functionality, but are currently not production ready. Therefore, in this interim period, it is important for cheqd to provide support for AnonCreds in order to enable partners with existing clients to use cheqd and existing Indy ledgers without any hiccups.
 
-## What does AnonCred support look like?
+### What does AnonCred support look like?
 
 Our aim is to support the functionality enabled by [identity-domain transactions in by Hyperledger Indy](https://github.com/hyperledger/indy-node/blob/master/docs/source/transactions.md) into `cheqd-node`. This will partly enable the goal of allowing use cases of existing SSI networks on Hyperledger Indy to be supported by the cheqd network.&#x20;
 
@@ -52,7 +56,21 @@ Importantly, we want to make sure that this work is done in a manner which remai
 
 One of the aforementioned ways AnonCreds differ from JSON and JSON-LD Credentials is the way Schemas are stored. With JSON and JSON-LD Credentials, schemas are generally stored off-ledger. A common place for schemas to be stored is on [schema.org](https://schema.org/). This enables the schema to be updated or changed far more easily. However, [schema.org](https://schema.org/) is a centralised web domain, which presents a single point of failure for the entire SSI ecosystem, if schemas cannot be properly fetched. For this reason, cheqd is reworking the way that schemas are stored, within the parameters of DID Core and the Verifiable Credential Data Model.
 
+### **How does cheqd support CL-Schemas?**
+
+The way cheqd facilitates Resources on-ledger is **crucial to understanding** how AnonCreds are supported.&#x20;
+
+{% hint style="info" %}
+Please take time to read the section on Resources to understand this approach
+{% endhint %}
+
+{% content-ref url="../../resources/" %}
+[resources](../../resources/)
+{% endcontent-ref %}
+
 **How does this make it compatible?**
+
+Through linking on-ledger CL-Schemas to DID Documents, and tying them to Issuer DID Documents, we replicate the functionality of Link Secrets.&#x20;
 
 We want to avoid making a new Credential standard, and as such, we want to use the existing W3C VC spec to get as close to AnonCreds as possible.&#x20;
 
@@ -66,14 +84,12 @@ The table below summarises where we are at:
 | Predicate proofs              | Supported | In progress          | We need to look into this in more detail. We may be able to use the existing 1-1 encoding Credentials to facilitate this with BBS+ (would be pretty cool and would align with AnonCreds' plan for v2.0) |
 | Privacy preserving revocation | Supported | In progress          | Pending cheqd's revocation method. Not required for basic AnonCreds. But yes, this would not be **full** AnonCreds until the revocation registry is ready.                                              |
 
-### **How does cheqd support CL-Schemas?**
-
-{% content-ref url="../../resources/schemas.md" %}
-[schemas.md](../../resources/schemas.md)
-{% endcontent-ref %}
-
 ### **How does cheqd support CredDefs?**
 
 {% content-ref url="credential-definitions.md" %}
 [credential-definitions.md](credential-definitions.md)
 {% endcontent-ref %}
+
+### **How does cheqd support privacy preserving revocation?**
+
+**\<todo>**
