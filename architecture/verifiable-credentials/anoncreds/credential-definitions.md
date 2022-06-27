@@ -2,7 +2,11 @@
 
 \<to be expanded on>
 
-What goes into a CredDef?&#x20;
+## Overview
+
+\<todo>
+
+### What goes into a CredDef?&#x20;
 
 [https://indyscan.io/tx/SOVRIN\_MAINNET/domain/56496](https://indyscan.io/tx/SOVRIN\_MAINNET/domain/56496)
 
