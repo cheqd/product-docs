@@ -1,5 +1,7 @@
 # ✅ Verifiable Credentials
 
+## Overview
+
 A Verifiable Credential (VC) is a tamper-evident credential that has authorship that can be cryptographically verified. Verifiable credentials can be used to build [verifiable presentations](https://www.w3.org/TR/vc-data-model/#dfn-verifiable-presentations), which can also be cryptographically verified. The [claims](https://www.w3.org/TR/vc-data-model/#dfn-claims) in a credential can be about different [subjects](https://www.w3.org/TR/vc-data-model/#dfn-subjects).
 
 If you want to learn more about what Verifiable Credentials are, please go over to our learning site here:
