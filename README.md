@@ -8,13 +8,6 @@ This repository is intended to clearly lay out and explain cheqd's approach to d
 
 ## :arrow\_forward: Quick start for identity docs
 
-### :books: Tutorials
-
-* [Decentralised Identifiers (DIDs) ](tutorials/dids/)
-* [Verifiable Credentials](tutorials/verifiable-credentials/)
-* [Resources](tutorials/resources/)
-* [Resolver](tutorials/resolver/)
-
 ### :construction\_site: Architecture
 
 * [Decentralised Identifiers (DIDs) ](architecture/dids/)
@@ -22,6 +15,13 @@ This repository is intended to clearly lay out and explain cheqd's approach to d
 * [Resources](architecture/resolver/)
 * [Resolver](architecture/resolver/)
 * [Wallet](architecture/wallet.md)
+
+### :books: Tutorials
+
+* [Decentralised Identifiers (DIDs) ](tutorials/dids/)
+* [Verifiable Credentials](tutorials/verifiable-credentials/)
+* [Resources](tutorials/resources/)
+* [Resolver](tutorials/resolver/)
 
 ## 💬 Community
 

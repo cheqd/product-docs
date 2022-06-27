@@ -2,6 +2,26 @@
 
 * [cheqd Identity Documentation](README.md)
 
+## Architecture
+
+* [🆔 DIDs](architecture/dids/README.md)
+  * [cheqd DID Method](architecture/dids/cheqd-did-method.md)
+  * [W3C DID Test Suite](architecture/dids/w3c-did-test-suite.md)
+* [✅ Verifiable Credentials](architecture/verifiable-credentials/README.md)
+  * [JSON based JWT](architecture/verifiable-credentials/json-based-jwt.md)
+  * [JSON-LD](architecture/verifiable-credentials/json-ld.md)
+  * [AnonCreds](architecture/verifiable-credentials/anoncreds/README.md)
+    * [Credential Definitions](architecture/verifiable-credentials/anoncreds/credential-definitions.md)
+* [⏺ Resources](architecture/resources/README.md)
+  * [Schemas](architecture/resources/schemas.md)
+  * [Governance Framework](architecture/resources/governance-framework.md)
+* [🔀 Resolver](architecture/resolver/README.md)
+  * [Full DID Resolver](architecture/resolver/full-did-resolver.md)
+  * [Light DID Resolver](architecture/resolver/light-did-resolver.md)
+  * [Universal Resolver Driver](architecture/resolver/universal-resolver-driver.md)
+  * [DID URL Dereferencing](architecture/resolver/did-url-dereferencer.md)
+* [🗂 Wallet](architecture/wallet.md)
+
 ## Tutorials
 
 * [🆔 DIDs](tutorials/dids/README.md)
@@ -27,23 +47,3 @@
   * [Using cheqd Universal Resolver driver](tutorials/resolver/using-cheqd-universal-resolver-driver.md)
   * [Using full cheqd DID resolver](tutorials/resolver/using-full-cheqd-did-resolver.md)
   * [Using light cheqd DID resolver](tutorials/resolver/using-light-cheqd-did-resolver.md)
-
-## Architecture
-
-* [🆔 DIDs](architecture/dids/README.md)
-  * [cheqd DID Method](architecture/dids/cheqd-did-method.md)
-  * [W3C DID Test Suite](architecture/dids/w3c-did-test-suite.md)
-* [✅ Verifiable Credentials](architecture/verifiable-credentials/README.md)
-  * [JSON based JWT](architecture/verifiable-credentials/json-based-jwt.md)
-  * [JSON-LD](architecture/verifiable-credentials/json-ld.md)
-  * [AnonCreds](architecture/verifiable-credentials/anoncreds/README.md)
-    * [Credential Definitions](architecture/verifiable-credentials/anoncreds/credential-definitions.md)
-* [⏺ Resources](architecture/resources/README.md)
-  * [Schemas](architecture/resources/schemas.md)
-  * [Governance Framework](architecture/resources/governance-framework.md)
-* [🔀 Resolver](architecture/resolver/README.md)
-  * [Full DID Resolver](architecture/resolver/full-did-resolver.md)
-  * [Light DID Resolver](architecture/resolver/light-did-resolver.md)
-  * [Universal Resolver Driver](architecture/resolver/universal-resolver-driver.md)
-  * [DID URL Dereferencing](architecture/resolver/did-url-dereferencer.md)
-* [🗂 Wallet](architecture/wallet.md)
