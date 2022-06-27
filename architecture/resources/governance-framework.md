@@ -26,7 +26,7 @@ Governance Framework
 }
 ```
 
-## Creating Governance Resource
+## Creating on-ledger Governance Framework
 
 ### 1. Create a Collection DID Document&#x20;
 
