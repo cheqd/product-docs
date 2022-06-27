@@ -1,6 +1,8 @@
 # ⏺ Resources
 
-## Resources&#x20;
+## Overview
+
+cheqd has built a **Resources Module** to extend the functionality of the network.&#x20;
 
 A **Resource** is a blob of information stored on-ledger, within a specific syntax. The use of Resources is potentially very broad; they can provide many different roles, such as:
 
@@ -9,27 +11,42 @@ A **Resource** is a blob of information stored on-ledger, within a specific synt
 * An **image file** (Company logo, brandmark, which can be pulled directly by block explorers and other ledger applications)&#x20;
 * A **revocation registry** (more on this in a future blog)&#x20;
 
+Through extending the use of DIDs to identify other on-ledger resources, trust can begin to be chained. This begins to enable new use cases, such as:
+
+| Audience              | Quick wins                                                                                                                                                                                                                                                    | Longer term strategic objectives                                                                                                                                                                                                                                   |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **SSI Community**     | Create a much more **secure, resilient and decentralised format for storing schemas** than [schema.org](https://schema.org/)                                                                                                                                  | Lay the technical foundations for **supporting** [**AnonCreds**](https://hyperledger-indy.readthedocs.io/projects/sdk/en/latest/docs/design/002-anoncreds/README.html) **compatible Verifiable Credentials on cheqd**, in addition to support for JSON and JSON-LD |
+| **Web 3.0 community** | Extend the [Trust over IP Resource Parameter Specification](https://wiki.trustoverip.org/display/HOME/DID+URL+Resource+Parameter+Specification), **** enabling **DIDs to act as #Web3 hyperlinks for any on (or off) ledger URL, Resource, file, or content** | Enable Web3 Companies to use on-ledger Resources to **fetch company information (such as logos, token info, relevant token APIs)** to **populate Block Explorers and Exchanges**, rather than through Keybase or manual processes.                                 |
+
+{% hint style="info" %}
+You can think of it as a hyperlink for #Web3. But unlike a hyperlink, it is possible to specify the type of resource to be retrieved, and reject anything unexpected.
+{% endhint %}
+
+## Resources
+
+Resources defined in this architecture are identified with a unique identifier (UUID), and are stored within a **Collection** (more on this below). This enables unique resources to be stored directly on-ledger and be **retrievable through DID resolution** and **dereferencing**.&#x20;
+
 For simplicity, we will focus on the use case where a Resource is **a schema**.&#x20;
 
 However, it is important to note that the same logic used in fetching schemas from the ledger can be applied to any of the aforementioned types of Resources.&#x20;
 
-Resources defined in this architecture are identified with a unique identifier (UUID), and are stored within a **Collection** (more on this below). The syntax of a Resource is as follows:
+The syntax of a Resource is as follows:
 
 ```json
 Resource1
 {
-  "collection_id":      "46e2af9a-2ea0-4815-999d-730a6778227c",
-  "id":                 "0f964a80-5d18-4867-83e3-b47f5a756f02",
-  "name":               "DegreeLaw",
-  "resource_type":      "CL-Schema",
-  "mime_type":          "application/json"
-  "Data":               "<json string '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_score\"\"degree_class\"]}` in bytes>"
-
-  ...
-  "Created":            "2022-04-20T20:19:19Z”,
-  "Checksum":         "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
-  "previous_version_id": "688e0e6f-74dd-43cc-9078-09e4fa05cacb",
-  "next_version_id":     null
+  "header": {
+    "collectionId":       "46e2af9a-2ea0-4815-999d-730a6778227c",
+    "id":                 "0f964a80-5d18-4867-83e3-b47f5a756f02",
+    "name":               "DegreeLaw",
+    "resourceType":       "CL-Schema",
+    "mimeType":           "application/json"
+    "created":            "2022-04-20T20:19:19Z",
+    "checksum":           "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
+    "previousVersionId:   "688e0e6f-74dd-43cc-9078-09e4fa05cacb",
+    "nextVersionId:       null
+  },
+  "data":                 <json string '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_score\"\"degree_class\"]}` in bytes>,
 }
 ```
 
@@ -37,9 +54,9 @@ Resource1
 
 A **Collection** is a group of **Resources** stored directly on-ledger, within the state of the ledger. This means that Collections are written **within** **transactions** on the ledger, and therefore, their authenticity is secured by the consensus and propagation of the nodes on the ledger.&#x20;
 
-Collections can store any type of Resource, but for the purpose of this documentation we will focus on the use case where the Collection is storing a set of schemas.&#x20;
+Collections can store any type of Resource, but for the purpose of this documentation we will focus on the use case where the **Collection is storing a set of schemas**.&#x20;
 
-Collections are identified by a Collection ID which is a unique identifier (UUID) which is different from any Resource ID stored within it.&#x20;
+Collections are identified by a **Collection ID** which is a **unique identifier (UUID)** which is **different from any Resource ID** stored within it.&#x20;
 
 For example:
 
@@ -201,18 +218,18 @@ OUTPUT:
 ```json
 Resource1
 {
-  "collection_id":      "46e2af9a-2ea0-4815-999d-730a6778227c",
-  "id":                 "0f964a80-5d18-4867-83e3-b47f5a756f02",
-  "name":               "DegreeLaw",
-  "resource_type":      "CL-Schema",
-  "mime_type":          "application/json"
-  "Data":               "<json string '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_score\"\"degree_class\"]}` in bytes>"
-
-  ...
-  "Created":            "2022-04-20T20:19:19Z”,
-  "Checksum":         "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
-  "previous_version_id": "688e0e6f-74dd-43cc-9078-09e4fa05cacb",
-  "next_version_id":     null
+  "header": {
+    "collectionId":      "46e2af9a-2ea0-4815-999d-730a6778227c",
+    "id":                 "0f964a80-5d18-4867-83e3-b47f5a756f02",
+    "name":               "DegreeLaw",
+    "resourceType":      "CL-Schema",
+    "mimeType":          "application/json"
+    "created":            "2022-04-20T20:19:19Z",
+    "checksum":           "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
+    "previousVersionId:   "688e0e6f-74dd-43cc-9078-09e4fa05cacb",
+    "nextVersionId:     null
+  },
+  "data":               <json string '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_score\"\"degree_class\"]}` in bytes>,
 }
 ```
 
@@ -235,19 +252,20 @@ Or,
 Returning:
 
 ```json
+Resource1
 {
-  "collection_id":      "46e2af9a-2ea0-4815-999d-730a6778227c",
-  "id":                 "688e0e6f-74dd-43cc-9078-09e4fa05cacb",
-  "name":               "DegreeLaw",
-  "resource_type":      "CL-Schema",
-  "mime_type":          "application/json"
-  "Data":               "<json string '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_percentage\"]}` in bytes>"
-
-  ...
-  "Created":            "2015-02-20T14:12:57Z",
-  "Checksum":         "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
-  "previous_version_id": null,
-  "next_version_id":     "0f964a80-5d18-4867-83e3-b47f5a756f02"
+  "header": {
+    "collectionId":      "46e2af9a-2ea0-4815-999d-730a6778227c",
+    "id":                "688e0e6f-74dd-43cc-9078-09e4fa05cacb",
+    "name":              "DegreeLaw",
+    "resourceType":      "CL-Schema",
+    "mimeType":          "application/json"
+    "created":           "2015-02-20T14:12:57Z",
+    "checksum":          "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
+    "previousVersionId:  null,
+    "nextVersionId:      "0f964a80-5d18-4867-83e3-b47f5a756f02",
+  }
+  "data":                "<json string '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_percentage\"]}` in bytes>"
 }
 ```
 
@@ -264,19 +282,20 @@ Or,
 Returning:
 
 ```json
+Resource1
 {
-  "collection_id":      "46e2af9a-2ea0-4815-999d-730a6778227c",
-  "id":                 "0f964a80-5d18-4867-83e3-b47f5a756f02",
-  "name":               "DegreeLaw",
-  "resource_type":      "CL-Schema",
-  "mime_type":          "application/json"
-  "Data":               "<json string '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_score\"\"degree_class\"]}` in bytes>"
-
-  ...
-  "Created":            "2022-04-20T20:19:19Z”,
-  "Checksum":         "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
-  "previous_version_id": "688e0e6f-74dd-43cc-9078-09e4fa05cacb",
-  "next_version_id":     null
+  "header": {
+    "collectionId":       "46e2af9a-2ea0-4815-999d-730a6778227c",
+    "id":                 "0f964a80-5d18-4867-83e3-b47f5a756f02",
+    "name":               "DegreeLaw",
+    "resourceType":       "CL-Schema",
+    "mimeType":           "application/json"
+    "created":            "2022-04-20T20:19:19Z",
+    "checksum":           "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
+    "previousVersionId:   "688e0e6f-74dd-43cc-9078-09e4fa05cacb",
+    "nextVersionId:       null
+  },
+  "data":                 <json string '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_score\"\"degree_class\"]}` in bytes>,
 }
 ```
 
