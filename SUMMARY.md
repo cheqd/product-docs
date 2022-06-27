@@ -40,6 +40,7 @@
     * [Credential Definitions](architecture/verifiable-credentials/anoncreds/credential-definitions.md)
 * [⏺ Resources](architecture/resources/README.md)
   * [Schemas](architecture/resources/schemas.md)
+  * [Governance Framework](architecture/resources/governance-framework.md)
 * [🔀 Resolver](architecture/resolver/README.md)
   * [DID URL Dereferencing](architecture/resolver/did-url-dereferencer.md)
 * [🗂 Wallet](architecture/wallet.md)

@@ -18,18 +18,18 @@ Resources defined in this architecture are identified with a unique identifier (
 ```json
 Resource1
 {
-  "collection_id":      "46e2af9a-2ea0-4815-999d-730a6778227c",
-  "id":                 "0f964a80-5d18-4867-83e3-b47f5a756f02",
-  "name":               "DegreeLaw",
-  "resource_type":      "CL-Schema",
-  "mime_type":          "application/json"
-  "Data":               "<json string '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_score\"\"degree_class\"]}` in bytes>"
-
-  ...
-  "Created":            "2022-04-20T20:19:19Z”,
-  "Checksum":         "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
-  "previous_version_id": "688e0e6f-74dd-43cc-9078-09e4fa05cacb",
-  "next_version_id":     null
+  "header": {
+    "collectionId":       "46e2af9a-2ea0-4815-999d-730a6778227c",
+    "id":                 "0f964a80-5d18-4867-83e3-b47f5a756f02",
+    "name":               "DegreeLaw",
+    "resourceType":       "CL-Schema",
+    "mimeType":           "application/json"
+    "created":            "2022-04-20T20:19:19Z",
+    "checksum":           "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
+    "previousVersionId:   "688e0e6f-74dd-43cc-9078-09e4fa05cacb",
+    "nextVersionId:       null
+  },
+  "data":                 <json string '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_score\"\"degree_class\"]}` in bytes>,
 }
 ```
 
@@ -37,9 +37,9 @@ Resource1
 
 A **Collection** is a group of **Resources** stored directly on-ledger, within the state of the ledger. This means that Collections are written **within** **transactions** on the ledger, and therefore, their authenticity is secured by the consensus and propagation of the nodes on the ledger.&#x20;
 
-Collections can store any type of Resource, but for the purpose of this documentation we will focus on the use case where the Collection is storing a set of schemas.&#x20;
+Collections can store any type of Resource, but for the purpose of this documentation we will focus on the use case where the **Collection is storing a set of schemas**.&#x20;
 
-Collections are identified by a Collection ID which is a unique identifier (UUID) which is different from any Resource ID stored within it.&#x20;
+Collections are identified by a **Collection ID** which is a **unique identifier (UUID)** which is **different from any Resource ID** stored within it.&#x20;
 
 For example:
 
@@ -201,18 +201,18 @@ OUTPUT:
 ```json
 Resource1
 {
-  "collection_id":      "46e2af9a-2ea0-4815-999d-730a6778227c",
-  "id":                 "0f964a80-5d18-4867-83e3-b47f5a756f02",
-  "name":               "DegreeLaw",
-  "resource_type":      "CL-Schema",
-  "mime_type":          "application/json"
-  "Data":               "<json string '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_score\"\"degree_class\"]}` in bytes>"
-
-  ...
-  "Created":            "2022-04-20T20:19:19Z”,
-  "Checksum":         "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
-  "previous_version_id": "688e0e6f-74dd-43cc-9078-09e4fa05cacb",
-  "next_version_id":     null
+  "header": {
+    "collectionId":      "46e2af9a-2ea0-4815-999d-730a6778227c",
+    "id":                 "0f964a80-5d18-4867-83e3-b47f5a756f02",
+    "name":               "DegreeLaw",
+    "resourceType":      "CL-Schema",
+    "mimeType":          "application/json"
+    "created":            "2022-04-20T20:19:19Z",
+    "checksum":           "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
+    "previousVersionId:   "688e0e6f-74dd-43cc-9078-09e4fa05cacb",
+    "nextVersionId:     null
+  },
+  "data":               <json string '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_score\"\"degree_class\"]}` in bytes>,
 }
 ```
 
@@ -235,19 +235,20 @@ Or,
 Returning:
 
 ```json
+Resource1
 {
-  "collection_id":      "46e2af9a-2ea0-4815-999d-730a6778227c",
-  "id":                 "688e0e6f-74dd-43cc-9078-09e4fa05cacb",
-  "name":               "DegreeLaw",
-  "resource_type":      "CL-Schema",
-  "mime_type":          "application/json"
-  "Data":               "<json string '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_percentage\"]}` in bytes>"
-
-  ...
-  "Created":            "2015-02-20T14:12:57Z",
-  "Checksum":         "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
-  "previous_version_id": null,
-  "next_version_id":     "0f964a80-5d18-4867-83e3-b47f5a756f02"
+  "header": {
+    "collectionId":      "46e2af9a-2ea0-4815-999d-730a6778227c",
+    "id":                "688e0e6f-74dd-43cc-9078-09e4fa05cacb",
+    "name":              "DegreeLaw",
+    "resourceType":      "CL-Schema",
+    "mimeType":          "application/json"
+    "created":           "2015-02-20T14:12:57Z",
+    "checksum":          "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
+    "previousVersionId:  null,
+    "nextVersionId:      "0f964a80-5d18-4867-83e3-b47f5a756f02",
+  }
+  "data":                "<json string '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_percentage\"]}` in bytes>"
 }
 ```
 
@@ -264,19 +265,20 @@ Or,
 Returning:
 
 ```json
+Resource1
 {
-  "collection_id":      "46e2af9a-2ea0-4815-999d-730a6778227c",
-  "id":                 "0f964a80-5d18-4867-83e3-b47f5a756f02",
-  "name":               "DegreeLaw",
-  "resource_type":      "CL-Schema",
-  "mime_type":          "application/json"
-  "Data":               "<json string '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_score\"\"degree_class\"]}` in bytes>"
-
-  ...
-  "Created":            "2022-04-20T20:19:19Z”,
-  "Checksum":         "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
-  "previous_version_id": "688e0e6f-74dd-43cc-9078-09e4fa05cacb",
-  "next_version_id":     null
+  "header": {
+    "collectionId":       "46e2af9a-2ea0-4815-999d-730a6778227c",
+    "id":                 "0f964a80-5d18-4867-83e3-b47f5a756f02",
+    "name":               "DegreeLaw",
+    "resourceType":       "CL-Schema",
+    "mimeType":           "application/json"
+    "created":            "2022-04-20T20:19:19Z",
+    "checksum":           "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
+    "previousVersionId:   "688e0e6f-74dd-43cc-9078-09e4fa05cacb",
+    "nextVersionId:       null
+  },
+  "data":                 <json string '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_score\"\"degree_class\"]}` in bytes>,
 }
 ```
 
