@@ -6,7 +6,7 @@ JSON-LD is a lightweight [Linked Data format](https://en.wikipedia.org/wiki/Link
 
 The main difference between JSON-LD credentials and JSON credentials is the inclusion of a @`context` field within the credential payload. In JSON-LD, the `@context` [property](https://www.w3.org/TR/vc-data-model/#dfn-property) can also be used to communicate other details, such as datatype information, language information, transformation rules, and so on, which are beyond the needs of this specification, but might be useful in the future or to related work.&#x20;
 
-```
+```json
 EXAMPLE from VC Data Model: Usage of the @context property
 {
   "@context": [
