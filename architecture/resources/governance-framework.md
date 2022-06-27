@@ -8,7 +8,7 @@
 
 cheqd could create a Resource as follows for its Governance Framework
 
-```
+```json
 Governance Framework
 {
   "header": {
@@ -30,7 +30,7 @@ Governance Framework
 
 ### 1. Create a Collection DID Document&#x20;
 
-```
+```json
 {
   "id": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9",
   "alsoKnownAs": "https://gov.cheqd.io/"
@@ -64,7 +64,7 @@ cheqd-noded tx resource create-resource "{
 
 ### 3. Update the Collection DID Document with appropriate service section
 
-```
+```json
 {
   "id": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9",
   "alsoKnownAs": "https://gov.cheqd.io/"
@@ -96,7 +96,7 @@ cheqd-noded tx resource create-resource "{
 
 ## Referencing Governance Framework resource in Issuer DID
 
-```
+```json
 {
   "id": "did:cheqd:mainnet:17dd8754-c5ad-45d3-8f6c-078bfa72c63c",
   "verification_method": [
