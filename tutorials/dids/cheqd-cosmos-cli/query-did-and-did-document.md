@@ -5,6 +5,7 @@ We assumed, that there is already set up environment with operator's keys and et
 
 The next documents can be helpful for managing the DID-Docs:
 
+- [Set up environment with docker](./environment-preps.md)
 - [Created the DID-Doc](./create-did-and-did-document.md)
 - [Update the DID-Doc](./update-and-manage-did-document.md)  
 

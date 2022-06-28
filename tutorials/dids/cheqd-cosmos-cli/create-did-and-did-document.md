@@ -16,6 +16,8 @@ If you don't currently have Ubuntu 20.04 installed on your machine you can use V
 
 Please ensure you are running the correct version of testnet. You can check which is the current version of testnet [here](https://rpc.testnet.cheqd.network/abci\_info?).
 
+Also, for making your environment faster you can follow the next tutorial about [setting up docker](./environment-preps.md)
+
 ### How to send a DIDDoc to the testnet
 
 #### 1. Generate verification key

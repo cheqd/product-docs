@@ -1,11 +1,18 @@
+# Updating DID + DID Doc with cheqd CLI
+
+## Tutorial for updating a DID + DIDDoc with cheqd CLI
+
 ### Overview
 
 [cheqd Cosmos CLI](https://github.com/cheqd/cheqd-node/blob/4b36c0a5f767b7d4fb91341bc732d54471702dac/docs/cheqd-cli/README.md) can be used for managing Decentralised Identifiers (DIDs) and DID Documents, as well as updating existing DIDs based on the [`did:cheqd` DID method](https://github.com/cheqd/cheqd-node/blob/4b36c0a5f767b7d4fb91341bc732d54471702dac/architecture/adr-list/adr-002-cheqd-did-method.md).
 
 **Crypto commands in cheqd CLI - EXPERIMENTAL FUNCTIONALITY - Do not use in production!**
 
-For creating such DID-Docs the [next document](./create-did-and-did-document.md) can be used.
-Current document is mostly about updating already existed DID-Doc.
+Links to related docs:
+
+* For creating such DID-Docs the [next document](./create-did-and-did-document.md) can be used.
+
+* For making your environment faster: [setting up docker](./environment-preps.md)
 
 #### Update DID Document
 
