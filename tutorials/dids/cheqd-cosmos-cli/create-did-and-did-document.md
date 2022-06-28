@@ -16,6 +16,8 @@ If you don't currently have Ubuntu 20.04 installed on your machine you can use V
 
 Please ensure you are running the correct version of testnet. You can check which is the current version of testnet [here](https://rpc.testnet.cheqd.network/abci\_info?).
 
+Also, for making your environment faster you can follow the next tutorial about [setting up docker](./environment-preps.md)
+
 ### How to send a DIDDoc to the testnet
 
 #### 1. Generate verification key
@@ -33,6 +35,8 @@ $ cat keys.txt
 {"pub_key_base_64":"MnrTheU+vCrN3W+WMvcpBXYBG6D1HrN5usL1zS6W7/k=","pub_key_multibase_58":"",\
 "priv_key_base_64":"FxaJOy4HFoC2Enu1SizKtU0L+hmBRBAEpC+B4TopfQoyetOF5T68Ks3db5Yy9ykFdgEboPUes3m6wvXNLpbv+Q=="}
 ```
+
+**Please take it into account that this keys will be used for updating the DID-Doc too. If you want to manage created DID-Doc in future it would be great to save this keys somewhere in safe.**
 
 #### 2. Get multibase58 string
 
