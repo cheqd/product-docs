@@ -14,7 +14,7 @@ In order to create a DIDDoc using the instructions outlined in this tutorial, yo
 
 If you don't currently have Ubuntu 20.04 installed on your machine, you can use VirtualBox or [Docker](https://github.com/cheqd/cheqd-node/diffs/2?base\_sha=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&branch=DEV-890-cheqd-cli-docs\&commentable=true\&name=DEV-890-cheqd-cli-docs\&pull\_number=283\&qualified\_name=refs%2Fheads%2FDEV-890-cheqd-cli-docs\&sha1=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&sha2=4b36c0a5f767b7d4fb91341bc732d54471702dac\&short\_path=1840e4b\&unchanged=expanded\&w=false#requirements-from-os-side)
 
-Please ensure you are running the correct version that mainnet runs. You can check which is the current version of testnet.
+Please ensure you are running the correct version that mainnet runs. You can [check which is the current version of mainnet here](https://rpc.mainnet.cheqd.network/abci\_info?).
 
 ### How to send a Resource to the mainnet
 
