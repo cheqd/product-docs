@@ -14,13 +14,19 @@ In order to create a DIDDoc using the instructions outlined in this tutorial, yo
 
 If you don't currently have Ubuntu 20.04 installed on your machine, you can use VirtualBox or [Docker](https://github.com/cheqd/cheqd-node/diffs/2?base\_sha=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&branch=DEV-890-cheqd-cli-docs\&commentable=true\&name=DEV-890-cheqd-cli-docs\&pull\_number=283\&qualified\_name=refs%2Fheads%2FDEV-890-cheqd-cli-docs\&sha1=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&sha2=4b36c0a5f767b7d4fb91341bc732d54471702dac\&short\_path=1840e4b\&unchanged=expanded\&w=false#requirements-from-os-side)
 
-Please ensure you are running the correct version that testnet runs. You can check which is the current version of testnet [here](https://rpc.testnet.cheqd.network/abci\_info?).
+Please ensure you are running the correct version that mainnet runs. You can check which is the current version of testnet.
 
-### How to send a Resource to the testnet
+### How to send a Resource to the mainnet
 
 #### 1. Create a DIDDoc
 
 If you already have a DIDDoc and corresponding keys, you can skip this step.
+
+To create a DIDDoc, you can follow the [create DIDDoc tutorial here](../../dids/cheqd-cosmos-cli/create-did-and-did-document.md).&#x20;
+
+Let's presume the DID for the DID Doc is as follows:
+
+`did:cheqd:mainnet:6h7fjuw37gbf9ioty633bnd7thf65hs1`
 
 #### 2. Create unique-id for our Resource
 
@@ -54,29 +60,29 @@ cheqd-noded tx resource create-resource \
 
 Where:
 
-* `<collection-id>` - the last fragment of the corresponding DID
-* `<resource-id>` - unique resource ID within the collection. UUID format is used;.
+* `<collection-id>` - this should be the **same unique identifier** as that after the namespace of the corresponding DID created in step 1
+* `<resource-id>` - unique resource ID within the collection. UUID format is used
 * `<name>` - arbitrary human-readable string used to identify the resource
-* `<resource-type>` - valid values are: `CL-Schema`, `JSONSchema2020`
+* `<resource-type>` - suggested values are: `CL-Schema`, `JSONSchema2020`
 * `<mime-type>` - [mime type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics\_of\_HTTP/MIME\_types) of the resource
 * `<file-path>` - path to file with resource content
-* `<signatures>` - to create a resource, you need the same set of signatures as for DIDDoc update. Provide signatures the same way as during resource creation or modification.
+* `<signatures>` - to create a resource, you need the same set of signatures as for carrying out a DIDDoc update. Provide signatures the same way as during resource creation or modification, in step 1.
 
 Example:
 
 ```
 cheqd-noded tx resource create-resource \
-    MjM2NjkKMjM2NjkK \
+    6h7fjuw37gbf9ioty633bnd7thf65hs1 \
     49610df5-5998-4b72-b28f-02b7f776156f \
-    'CL-Schema 1' \
+    'universityDegree' \
     CL-Schema\
     application/json \
     schema.json \
-    did:cheqd:testnet:MjM2NjkKMjM2NjkK#key1 \
+    did:cheqd:mainnet:6h7fjuw37gbf9ioty633bnd7thf65hs1#key1 \
     l6KUjm...jz8Un7QCbrW1KPE6gSyg== \
      --from <your-account> \
      --node https://rpc.cheqd.network:443 \
-     --chain-id cheqd-testnet-4 \
+     --chain-id cheqd-mainnet-1 \
      --gas auto \
      --gas-adjustment 1.3 \
      --gas-prices 25ncheq
@@ -101,14 +107,14 @@ cheqd-noded query resource resource \
 
 where:
 
-* `<collection-id>` - the last fragment of the DIDDoc related to the resource
+* `<collection-id>` - the **same unique identifier** as that after the namespace of the corresponding DID created in step 1
 * `<resource-id>` - unique ID of the resource within the collection of resources associated with the DIDDoc
 
 In our example:
 
 ```
 cheqd-noded query resource resource \
-    MjM2NjkKMjM2NjkK \
+    6h7fjuw37gbf9ioty633bnd7thf65hs1 \
     49610df5-5998-4b72-b28f-02b7f776156f \
     --node https://rpc.cheqd.network:443
 ```
