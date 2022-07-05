@@ -1,3 +1,3 @@
-# Full DID Resolver
+# 🌕 Full DID Resolver
 
 \<Todo>

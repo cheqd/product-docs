@@ -4,6 +4,12 @@
 
 [ToIP recommends making Governance Frameworks available through DID URLs](https://wiki.trustoverip.org/pages/viewpage.action?pageId=71241), which would typically be a text file, a [Markdown file](https://en.wikipedia.org/wiki/Markdown), PDF etc. This, for example, can enable parties building self-sovereign identity ecosystems to use DIDs to reference Governance Frameworks they conform to, at different levels of the technical stack.
 
+## Resource syntax
+
+Governance Frameworks as resources would use the same syntax as other resources on cheqd.
+
+![cheqd Governance Frameworks as resources](<../../.gitbook/assets/Governance Framework Resource syntax.png>)
+
 ## Example of Resource for Governance Framework
 
 cheqd could create a Resource as follows for its Governance Framework
@@ -24,6 +30,10 @@ Governance Framework
   "data":                 <cheqdGovFramework.md>,
 }
 ```
+
+Full Governance Framework resource identifier:
+
+`did:cheqd:mainnet:`<mark style="color:orange;">`93235d54-53cc-42b9-ae77-f99efe9eadc9`</mark>`/resources/`<mark style="color:green;">`8da12c4a-fa16-4895-b6c6-fc7cbdf62193`</mark>
 
 ## Creating on-ledger Governance Framework
 
