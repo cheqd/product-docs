@@ -15,14 +15,13 @@ Governance Framework
     "collectionId":       "93235d54-53cc-42b9-ae77-f99efe9eadc9",
     "id":                 "8da12c4a-fa16-4895-b6c6-fc7cbdf62193",
     "name":               "cheqdGovernanceFramework",
-    "resourceType":       "Text",
-    "mimeType":           "text/plain"
+    "resourceType":       "markdown",
     "created":            "2022-06-20T14:12:53Z",
     "checksum":           "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
     "previousVersionId:   "adb023ce-3b6d-48c3-aadd-134837ba62fa",
     "nextVersionId:       null
   },
-  "data":                 <cheqdGovFramework.data>,
+  "data":                 <cheqdGovFramework.md>,
 }
 ```
 
@@ -33,7 +32,6 @@ Governance Framework
 ```json
 {
   "id": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9",
-  "alsoKnownAs": "https://gov.cheqd.io/"
   "verification_method": [
     {
       "id": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9",
@@ -52,14 +50,21 @@ Governance Framework
 Using the same private verification key as is created to authenticate with the DID Document, create and sign a transaction to create a resource for the Governance Framework
 
 ```
-cheqd-noded tx resource create-resource "{
-                                          \"collectionId\":  \"93235d54-53cc-42b9-ae77-f99efe9eadc9\",
-                                          \"id\":             \"adb023ce-3b6d-48c3-aadd-134837ba62fa\",
-                                          \"name\":           \"cheqdGovernanceFramework\",
-                                          \"resourceType\":  \"Text\",
-                                          \"mimeType\":      \"text/plain\"
-                                         }" cheqdGovFramework.data\
-                                          --private-key <private-identity-key-by-collection->
+cheqd-noded tx resource create-resource 
+   -- collection-id 93235d54-53cc-42b9-ae77-f99efe9eadc9 \
+   -- resource-id adb023ce-3b6d-48c3-aadd-134837ba62fa \
+   -- resource-name cheqdGovernanceFramework \
+   -- resource-type markdown \
+   -- resource-file cheqdGovFramework.md \
+   -- public-key did:cheqd:mainnet:c867a477-4f57-4131-a2ed-680e5fd9f970#key1 \
+   -- private-key l6KUjm...jz8Un7QCbrW1KPE6gSyg \
+   --from <your-account> \
+   --node https://rpc.cheqd.network:443 \ 
+   --chain-id cheqd-mainnet-1 \
+   --gas auto \
+   --gas-adjustment 1.3 \
+   --gas-prices 25ncheq
+
 ```
 
 ### 3. Update the Collection DID Document with appropriate service section
@@ -67,7 +72,6 @@ cheqd-noded tx resource create-resource "{
 ```json
 {
   "id": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9",
-  "alsoKnownAs": "https://gov.cheqd.io/"
   "verification_method": [
     {
       "id": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9",
@@ -82,7 +86,7 @@ cheqd-noded tx resource create-resource "{
   "service": [
     {
         "id": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9#cheqdGovernanceFramework",
-        "type": "Text",
+        "type": "markdown",
         "serviceEndpoint": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9/resources/adb023ce-3b6d-48c3-aadd-134837ba62fa"]
     }
     {
@@ -123,7 +127,7 @@ cheqd-noded tx resource create-resource "{
     },
     {
         "id": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9#cheqdGovernanceFramework",
-        "type": "text",
+        "type": "markdown",
         "serviceEndpoint": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9/resources/adb023ce-3b6d-48c3-aadd-134837ba62fa"
     }
   ]
