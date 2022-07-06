@@ -41,13 +41,12 @@ Resource1
     "id":                 "0f964a80-5d18-4867-83e3-b47f5a756f02",
     "name":               "DegreeLaw",
     "resourceType":       "CL-Schema",
-    "mimeType":           "application/json"
     "created":            "2022-04-20T20:19:19Z",
     "checksum":           "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
     "previousVersionId:   "688e0e6f-74dd-43cc-9078-09e4fa05cacb",
     "nextVersionId:       null
   },
-  "data":                 <json string '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_score\"\"degree_class\"]}` in bytes>,
+  "data":                 <ClSchema.json including '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_score\"\"degree_class\"]}` in bytes>,
 }
 ```
 
@@ -184,7 +183,7 @@ Currently, there are two formally recorded types in the [DID Spec Registries](ht
 * "Type" = LinkedDomains; and&#x20;
 * "Type" = DIDCommMessaging&#x20;
 
-In order to make schemas on ledger feasible, we are defining multiple new types which denote different types of schemas on-ledger, such as:&#x20;
+In order to make schemas on ledger feasible, we are suggesting multiple new types which denote different types of schemas on-ledger, such as:&#x20;
 
 * "Type" = CL-Schema&#x20;
 * "Type" = JSONSchema2020&#x20;
@@ -199,7 +198,7 @@ The `ResourceType` must be non-null and provided by the client app. cheqd will N
 
 #### **MediaType**
 
-A Golang library is used to derive and set media type based on the file extension of provided file. This makes it much simpler to maintain, since cheqd are not gatekeeping a list as such, and there’s libraries that can do this. See [golang’s main repo](https://github.com/golang/go/blob/master/src/mime/mediatype.go), other [alternatives](https://stackoverflow.com/questions/51209439/mime-type-checking-of-files-uploaded-golang),
+A Golang library is used to derive and set media type based on the **file extension of provided resource file**. This makes it much simpler to maintain, since cheqd are not gatekeeping a list as such, and there’s libraries that can do this. See [golang’s main repo](https://github.com/golang/go/blob/master/src/mime/mediatype.go), other [alternatives](https://stackoverflow.com/questions/51209439/mime-type-checking-of-files-uploaded-golang),
 
 #### "serviceEndpoint" = URL to fetch specific Resource on-ledger&#x20;
 
@@ -224,17 +223,16 @@ Resource1
     "id":                 "0f964a80-5d18-4867-83e3-b47f5a756f02",
     "name":               "DegreeLaw",
     "resourceType":      "CL-Schema",
-    "mimeType":          "application/json"
     "created":            "2022-04-20T20:19:19Z",
     "checksum":           "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
     "previousVersionId:   "688e0e6f-74dd-43cc-9078-09e4fa05cacb",
     "nextVersionId:     null
   },
-  "data":               <json string '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_score\"\"degree_class\"]}` in bytes>,
+  "data":               <CLSchema.json including '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_score\"\"degree_class\"]}` in bytes>,
 }
 ```
 
-#### Versioning and Archiving Resources&#x20;
+### Versioning and Archiving Resources&#x20;
 
 As shown in the example above, there may be **previous** and **next** versions of the **Resource** **ID**.
 
@@ -260,13 +258,12 @@ Resource1
     "id":                "688e0e6f-74dd-43cc-9078-09e4fa05cacb",
     "name":              "DegreeLaw",
     "resourceType":      "CL-Schema",
-    "mimeType":          "application/json"
     "created":           "2015-02-20T14:12:57Z",
     "checksum":          "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
     "previousVersionId:  null,
     "nextVersionId:      "0f964a80-5d18-4867-83e3-b47f5a756f02",
   }
-  "data":                "<json string '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_percentage\"]}` in bytes>"
+  "data":                "<CLSchema.json including '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_percentage\"]}` in bytes>"
 }
 ```
 
@@ -290,13 +287,12 @@ Resource1
     "id":                 "0f964a80-5d18-4867-83e3-b47f5a756f02",
     "name":               "DegreeLaw",
     "resourceType":       "CL-Schema",
-    "mimeType":           "application/json"
     "created":            "2022-04-20T20:19:19Z",
     "checksum":           "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
     "previousVersionId:   "688e0e6f-74dd-43cc-9078-09e4fa05cacb",
     "nextVersionId:       null
   },
-  "data":                 <json string '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_score\"\"degree_class\"]}` in bytes>,
+  "data":                 <CLSchema.json including '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_score\"\"degree_class\"]}` in bytes>,
 }
 ```
 
@@ -304,7 +300,7 @@ As you can see, the more recent version of the Resource **shares the** **same Co
 
 Therefore, this architecture **easily allows historic Resources to be fetched, recovered and verified against**. For example, if you were presented a Law Degree Credential from 2015, you would still be able to prove that it conformed to the correct schema at the time of its issuance, even if the latest schema had been updated in 2022.&#x20;
 
-#### Linking Resource and Collection to DID Document&#x20;
+### Linking Resource and Collection to DID Document&#x20;
 
 The logic for tying a Resource within a Collection together with its DID Document is carried out by the ledger itself, through the **Resource module**.&#x20;
 
@@ -337,7 +333,7 @@ Through an update DID operation, the authorised party will be able to **update t
     }
 ```
 
-#### Collection DID Document metadata includes Resource IDs&#x20;
+### Collection DID Document metadata includes Resource IDs&#x20;
 
 After the Resource has been linked to the Collection DID Document (this is done when the Create Resource transaction is committed, where the same keys are used to sign the transaction), it will be referenced within the **Collection DID Document metadata itself**, in the following format.
 
@@ -403,8 +399,7 @@ Once a Collection DID Document has been created and is tied to the appropriate R
     {
         "id": "did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c#DegreeMath",
         "type": "CL-Schema",
-        "serviceEndpoint": 
-"https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c/resources/99b40fd8-fade-483c-bff4-f037b26dd810"
+        "serviceEndpoint": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c/resources/99b40fd8-fade-483c-bff4-f037b26dd810"
     }
   ]
 }
