@@ -8,7 +8,7 @@
 
 Governance Frameworks as resources would use the same syntax as other resources on cheqd.
 
-![cheqd Governance Frameworks as resources](<../../.gitbook/assets/Governance Framework Resource syntax.png>)
+![cheqd Governance Frameworks as a resource](<../../.gitbook/assets/Governance Framework Resource syntax.png>)
 
 ## Example of Resource for Governance Framework
 
