@@ -108,7 +108,7 @@ Where:
 * `<key-alias>` - a key alias for the verification method identifier
 * `<verification-public-key-multibase>` - result of this [step](https://github.com/cheqd/cheqd-node/diffs/2?base\_sha=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&branch=DEV-890-cheqd-cli-docs\&commentable=true\&name=DEV-890-cheqd-cli-docs\&pull\_number=283\&qualified\_name=refs%2Fheads%2FDEV-890-cheqd-cli-docs\&sha1=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&sha2=4b36c0a5f767b7d4fb91341bc732d54471702dac\&short\_path=1840e4b\&unchanged=expanded\&w=false#2-get-multibase58-string)
 * `<auth-key-alias>` - alias of authentication key.
-* `<service-key>` - alias for service. More information [here](https://github.com/cheqd/cheqd-node/blob/DEV-890-cheqd-cli-docs/architecture/adr-list/adr-002-cheqd-did-method.md#service)
+* `<service-key>` - alias for service. More information [here](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method)
 * `<URI-to-object>` - URI according to the spec [rfc3986](https://www.rfc-editor.org/rfc/rfc3986)
 
 In our example:
