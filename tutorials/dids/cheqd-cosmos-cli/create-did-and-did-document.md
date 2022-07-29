@@ -104,9 +104,9 @@ Within this template we will be required to enter a number of fields
 Where:
 
 * `<namespace>` - for now it can `testnet` or `mainnet` . For this flow we use `testnet`
-* `<unique-id>` - identifier, created on the [step](https://github.com/cheqd/cheqd-node/diffs/2?base\_sha=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&branch=DEV-890-cheqd-cli-docs\&commentable=true\&name=DEV-890-cheqd-cli-docs\&pull\_number=283\&qualified\_name=refs%2Fheads%2FDEV-890-cheqd-cli-docs\&sha1=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&sha2=4b36c0a5f767b7d4fb91341bc732d54471702dac\&short\_path=1840e4b\&unchanged=expanded\&w=false#3-create-unique-id-for-our-did)
+* `<unique-id>` - identifier, created a step #3
 * `<key-alias>` - a key alias for the verification method identifier
-* `<verification-public-key-multibase>` - result of this [step](https://github.com/cheqd/cheqd-node/diffs/2?base\_sha=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&branch=DEV-890-cheqd-cli-docs\&commentable=true\&name=DEV-890-cheqd-cli-docs\&pull\_number=283\&qualified\_name=refs%2Fheads%2FDEV-890-cheqd-cli-docs\&sha1=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&sha2=4b36c0a5f767b7d4fb91341bc732d54471702dac\&short\_path=1840e4b\&unchanged=expanded\&w=false#2-get-multibase58-string)
+* `<verification-public-key-multibase>` - result of step #1
 * `<auth-key-alias>` - alias of authentication key.
 * `<service-key>` - alias for service. More information [here](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method)
 * `<URI-to-object>` - URI according to the spec [rfc3986](https://www.rfc-editor.org/rfc/rfc3986)
@@ -115,7 +115,7 @@ In our example:
 
 * `did:cheqd:<namespace>:<unique-id>` - would be `did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe`
 * `did:cheqd:<namespace>:<unique-id>#<key-alias>` - `did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe#key1`
-* `<verification-public-key-multibase>` - key from this [step](https://github.com/cheqd/cheqd-node/diffs/2?base\_sha=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&branch=DEV-890-cheqd-cli-docs\&commentable=true\&name=DEV-890-cheqd-cli-docs\&pull\_number=283\&qualified\_name=refs%2Fheads%2FDEV-890-cheqd-cli-docs\&sha1=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&sha2=4b36c0a5f767b7d4fb91341bc732d54471702dac\&short\_path=1840e4b\&unchanged=expanded\&w=false#2-get-multibase58-string). As result `z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE`
+* `<verification-public-key-multibase>` - key from step #1. The result should look something like: `z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE`
 * `did:cheqd:<namespace>:<unique-id>#<auth-key-alias>` - let it be:
 
 `did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe#key1`
@@ -178,7 +178,7 @@ cheqd-noded query cheqd did "<identifier-of-your-DIDDoc>" --node https://rpc.tes
 
 where:
 
-* `<identifier-of-your-DIDDoc>` - identifier with template `"did:cheqd:<namespace>:<unique-id>"` and `<unique-id>` is from [step](https://github.com/cheqd/cheqd-node/diffs/2?base\_sha=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&branch=DEV-890-cheqd-cli-docs\&commentable=true\&name=DEV-890-cheqd-cli-docs\&pull\_number=283\&qualified\_name=refs%2Fheads%2FDEV-890-cheqd-cli-docs\&sha1=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&sha2=4b36c0a5f767b7d4fb91341bc732d54471702dac\&short\_path=1840e4b\&unchanged=expanded\&w=false#3-create-unique-id-for-our-did)
+* `<identifier-of-your-DIDDoc>` - identifier with template `"did:cheqd:<namespace>:<unique-id>"` and `<unique-id>` is from step #3
 
 In our example:
 
