@@ -17,7 +17,6 @@
   * [Governance Framework](design/resources/governance-framework.md)
 * [🔀 Resolver](design/resolver/README.md)
   * [🌕 Full DID Resolver](design/resolver/full-did-resolver.md)
-  * [🌗 Light DID Resolver](design/resolver/light-did-resolver.md)
   * [🛰 Universal Resolver Driver](design/resolver/universal-resolver-driver.md)
   * [DID URL Dereferencing](design/resolver/did-url-dereferencer.md)
 * [🗂 Wallet](design/wallet.md)

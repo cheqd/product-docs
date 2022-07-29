@@ -1,3 +1,0 @@
-# 🌗 Light DID Resolver
-
-\<Todo>

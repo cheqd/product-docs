@@ -12,7 +12,7 @@ This tutorial uses cheqd node CLI to send a DIDDoc.
 
 In order to create a DIDDoc using the instructions outlined in this tutorial, you must be using Ubuntu 20.04 terminal. You'll find all the information required to setup your Ubuntu 20.04 terminal at the end of this tutorial.
 
-If you don't currently have Ubuntu 20.04 installed on your machine you can use VirtualBox or [Docker](https://github.com/cheqd/cheqd-node/diffs/2?base\_sha=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&branch=DEV-890-cheqd-cli-docs\&commentable=true\&name=DEV-890-cheqd-cli-docs\&pull\_number=283\&qualified\_name=refs%2Fheads%2FDEV-890-cheqd-cli-docs\&sha1=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&sha2=4b36c0a5f767b7d4fb91341bc732d54471702dac\&short\_path=1840e4b\&unchanged=expanded\&w=false#requirements-from-os-side)
+If you don't currently have Ubuntu 20.04 installed on your machine you can use VirtualBox or [use our Docker setup](https://docs.cheqd.io/node/docs/setup-and-configure/docker-install).
 
 Please ensure you are running the correct version of testnet. You can check which is the current version of testnet [here](https://rpc.testnet.cheqd.network/abci\_info?).
 
@@ -24,13 +24,13 @@ Also, for making your environment faster you can follow the next tutorial about 
 
 First we'll need to generate a verification key:
 
-```
+```bash
 cheqd-noded debug ed25519 random >> keys.txt
 ```
 
 The result should look like the following:
 
-```
+```bash
 $ cat keys.txt
 {"pub_key_base_64":"MnrTheU+vCrN3W+WMvcpBXYBG6D1HrN5usL1zS6W7/k=","pub_key_multibase_58":"",\
 "priv_key_base_64":"FxaJOy4HFoC2Enu1SizKtU0L+hmBRBAEpC+B4TopfQoyetOF5T68Ks3db5Yy9ykFdgEboPUes3m6wvXNLpbv+Q=="}
@@ -122,7 +122,7 @@ In our example:
 
 **After these preparations, the base DIDDoc will look like**
 
-```
+```jsonc
 {
   "id": "did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe",
   "verification_method": [
@@ -152,7 +152,7 @@ Now that we have our DIDDoc prepared we can send it to the pool.
 
 We can use the following command to send the DIDDoc:
 
-```
+```bash
 cheqd-noded tx cheqd create-did "$(cat diddoc.json)" "did:cheqd:testnet:zJ5EDiiiKWDyo79n#key1" "FxaJOy4HFoC2Enu1SizKtU0L+hmBRBAEp+B4TopfQoyetOF5T68Ks3db5Yy9ykFdgEboPUes3m6wvXNLpbv+Q==" --from <alias-to-cosmos-key>  --node https://rpc.testnet.cheqd.network:443 --chain-id cheqd-testnet-4 --fees 5000000ncheq
 ```
 

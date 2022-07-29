@@ -18,10 +18,6 @@ Each implementation of the cheqd DID Resolver is **decoupled from the cheqd netw
 [full-did-resolver.md](full-did-resolver.md)
 {% endcontent-ref %}
 
-{% content-ref url="light-did-resolver.md" %}
-[light-did-resolver.md](light-did-resolver.md)
-{% endcontent-ref %}
-
 {% content-ref url="universal-resolver-driver.md" %}
 [universal-resolver-driver.md](universal-resolver-driver.md)
 {% endcontent-ref %}
