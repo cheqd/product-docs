@@ -26,12 +26,11 @@ According to [DID Resolution v0.2](https://w3c-ccg.github.io/did-resolution/), a
 
 If the input [DID URL](https://w3c-ccg.github.io/did-resolution/#dfn-did-url) contains the [DID parameter](https://www.w3.org/TR/did-core/#did-parameters) `service` and optionally the `relativeRef` DID parameter.
 
-1.
-   1. For example:
+For example:
 
-* ```
-  did:example:1234?service=files&relativeRef=%2Fmyresume%2Fdoc%3Fversion%3Dlatest
-  ```
+ ```
+did:example:1234?service=files&relativeRef=%2Fmyresume%2Fdoc%3Fversion%3Dlatest
+```
 
 or;
 
