@@ -10,11 +10,11 @@ This repository is intended to clearly lay out and explain cheqd's approach to d
 
 ### :construction\_site: Architecture
 
-* [Decentralised Identifiers (DIDs) ](architecture/dids/)
-* [Verifiable Credentials](architecture/verifiable-credentials/)
-* [Resources](architecture/resolver/)
-* [Resolver](architecture/resolver/)
-* [Wallet](architecture/wallet.md)
+* [Decentralised Identifiers (DIDs) ](design/dids/)
+* [Verifiable Credentials](design/verifiable-credentials/)
+* [Resources](design/resolver/)
+* [Resolver](design/resolver/)
+* [Wallet](design/wallet.md)
 
 ### :books: Tutorials
 
