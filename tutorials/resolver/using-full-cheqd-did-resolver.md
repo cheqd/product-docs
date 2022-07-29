@@ -1,13 +1,8 @@
 # Using full cheqd DID resolver
 
-
-
-
 ## Overview
 
 This page describes how to use and set up the `full` [cheqd DID Resolver application](https://github.com/cheqd/did-resolver).
-
-Details on possible flows and infrastructure in [ADR 010: DID Resolver](architecture/adr-list/adr-002-did-resolver.md).
 
 ## Setup
 

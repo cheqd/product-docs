@@ -1,28 +1,27 @@
 # Table of contents
 
-* [cheqd Identity Documentation](README.md)
+* [Identity Documentation for cheqd](README.md)
 
-## Architecture
+## 🗺 Design
 
-* [🆔 DIDs](architecture/dids/README.md)
-  * [cheqd DID Method](architecture/dids/cheqd-did-method.md)
-  * [W3C DID Test Suite](architecture/dids/w3c-did-test-suite.md)
-* [✅ Verifiable Credentials](architecture/verifiable-credentials/README.md)
-  * [JSON based JWT](architecture/verifiable-credentials/json-based-jwt.md)
-  * [JSON-LD](architecture/verifiable-credentials/json-ld.md)
-  * [AnonCreds](architecture/verifiable-credentials/anoncreds/README.md)
-    * [Credential Definitions](architecture/verifiable-credentials/anoncreds/credential-definitions.md)
-* [⏺ Resources](architecture/resources/README.md)
-  * [Schemas](architecture/resources/schemas.md)
-  * [Governance Framework](architecture/resources/governance-framework.md)
-* [🔀 Resolver](architecture/resolver/README.md)
-  * [🌕 Full DID Resolver](architecture/resolver/full-did-resolver.md)
-  * [🌗 Light DID Resolver](architecture/resolver/light-did-resolver.md)
-  * [🛰 Universal Resolver Driver](architecture/resolver/universal-resolver-driver.md)
-  * [DID URL Dereferencing](architecture/resolver/did-url-dereferencer.md)
-* [🗂 Wallet](architecture/wallet.md)
+* [🆔 DIDs](design/dids/README.md)
+  * [cheqd DID Method](design/dids/cheqd-did-method.md)
+  * [W3C DID Test Suite](design/dids/w3c-did-test-suite.md)
+* [✅ Verifiable Credentials](design/verifiable-credentials/README.md)
+  * [JSON based JWT](design/verifiable-credentials/json-based-jwt.md)
+  * [JSON-LD](design/verifiable-credentials/json-ld.md)
+  * [AnonCreds](design/verifiable-credentials/anoncreds/README.md)
+    * [Credential Definitions](design/verifiable-credentials/anoncreds/credential-definitions.md)
+* [⏺ Resources](design/resources/README.md)
+  * [Schemas](design/resources/schemas.md)
+  * [Governance Framework](design/resources/governance-framework.md)
+* [🔀 Resolver](design/resolver/README.md)
+  * [🌕 Full DID Resolver](design/resolver/full-did-resolver.md)
+  * [🛰 Universal Resolver Driver](design/resolver/universal-resolver-driver.md)
+  * [DID URL Dereferencing](design/resolver/did-url-dereferencer.md)
+* [🗂 Wallet](design/wallet.md)
 
-## Tutorials
+## 📖 Tutorials
 
 * [🆔 DIDs](tutorials/dids/README.md)
   * [cheqd Cosmos CLI](tutorials/dids/cheqd-cosmos-cli/README.md)
@@ -47,3 +46,21 @@
   * [Using cheqd Universal Resolver driver](tutorials/resolver/using-cheqd-universal-resolver-driver.md)
   * [Using full cheqd DID resolver](tutorials/resolver/using-full-cheqd-did-resolver.md)
   * [Using light cheqd DID resolver](tutorials/resolver/using-light-cheqd-did-resolver.md)
+
+## 🤓 Architecture
+
+* [Architecture Decision Record (ADR) Process](architecture/README.md)
+* [List of ADRs](architecture/adr-list/README.md)
+
+## 🤝 Contributing to cheqd
+
+* [Contributor Guide](CONTRIBUTING.md)
+* [License](LICENSE.md)
+* [Code of Conduct](CODE_OF_CONDUCT.md)
+* [Security Policy](SECURITY.md)
+
+## 🆘 Support
+
+* [System Status](https://status.cheqd.net)
+* [Slack Channel](http://cheqd.link/join-cheqd-slack)
+* [Discord](http://cheqd.link/discord-github)
