@@ -13,18 +13,17 @@ git clone git@github.com:cheqd/did-resolver.git
 cd did-resolver/docker
 ```
 
-Build a docker container 
+Build a docker container
 
 ```bash
 docker compose --profile full build
 ```
 
-Start the docker container 
+Start the docker container
 
 ```bash
 docker compose --profile full up
 ```
-
 
 ## Configure application
 
@@ -47,8 +46,9 @@ logLevel: "warn"
 ```
 
 ### Settings
+
 * **ledger**
-  * **networks** : A string describing the sources that the resolver will use and their routing. Format `<did-namespace>=<resource_url>:<resource_port>;...` 
+  * **networks** : A string describing the sources that the resolver will use and their routing. Format `<did-namespace>=<resource_url>:<resource_port>;...`
     * Example: `mainnet=grpc.cheqd.net:443;testnet=grpc.cheqd.network:443`
   * **useTls**
   * **timeout** : Time of waiting answer from a ledger (URLs from `network`)
@@ -74,7 +74,7 @@ Example. Setup with setting environment variables inline.
 RESOLVER_PORT="1313" docker compose --profile full up
 ```
 
-### Settings
+### Docker compose settings
 
 * **RESOLVER_PORT** (by default: `1313`) - port which will be used for incoming requests on resolver side.
 * **CHEQD_RESOLVER_HOME_DIR** (by default: `/home/cheqd-resolver`) - a directory for config file **inside** a docker container.

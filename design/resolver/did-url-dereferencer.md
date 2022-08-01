@@ -67,8 +67,8 @@ did:example:1234/custom/path?customquery
 
 Outcome:
 
-- The applicable [DID method](https://w3c-ccg.github.io/did-resolution/#dfn-method) _MAY_ specify how to dereference the input [DID URL](https://w3c-ccg.github.io/did-resolution/#dfn-did-url).
-- The client _MAY_ be able to dereference the input [DID URL](https://w3c-ccg.github.io/did-resolution/#dfn-did-url) in an application-specific way.
+* The applicable [DID method](https://w3c-ccg.github.io/did-resolution/#dfn-method) _MAY_ specify how to dereference the input [DID URL](https://w3c-ccg.github.io/did-resolution/#dfn-did-url).
+* The client _MAY_ be able to dereference the input [DID URL](https://w3c-ccg.github.io/did-resolution/#dfn-did-url) in an application-specific way.
 
 #### 4. Not able to dereference
 
@@ -102,5 +102,5 @@ did:example:1g2eub9t35y935y9?service=files&relativeRef=%2Fmyresume%2Fdoc%3Fversi
 
 Outcome:
 
-- Append the [DID fragment](https://w3c-ccg.github.io/did-resolution/#dfn-did-fragment) to the output [service endpoint](https://w3c-ccg.github.io/did-resolution/#dfn-service-endpoint) URL. In other words, the output [service endpoint](https://w3c-ccg.github.io/did-resolution/#dfn-service-endpoint) URL "inherits" the [DID fragment](https://w3c-ccg.github.io/did-resolution/#dfn-did-fragment) of the input [DID URL](https://w3c-ccg.github.io/did-resolution/#dfn-did-url).
-- Return the output [service endpoint](https://w3c-ccg.github.io/did-resolution/#dfn-service-endpoint) URL.
+* Append the [DID fragment](https://w3c-ccg.github.io/did-resolution/#dfn-did-fragment) to the output [service endpoint](https://w3c-ccg.github.io/did-resolution/#dfn-service-endpoint) URL. In other words, the output [service endpoint](https://w3c-ccg.github.io/did-resolution/#dfn-service-endpoint) URL "inherits" the [DID fragment](https://w3c-ccg.github.io/did-resolution/#dfn-did-fragment) of the input [DID URL](https://w3c-ccg.github.io/did-resolution/#dfn-did-url).
+* Return the output [service endpoint](https://w3c-ccg.github.io/did-resolution/#dfn-service-endpoint) URL.

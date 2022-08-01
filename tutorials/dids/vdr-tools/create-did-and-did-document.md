@@ -204,12 +204,12 @@ CreateAttribResponse {
 
 - `key`(string): A unique key is used to store these attributes in a state
 
-**Response validation**
+Response validation:
 
 - A DID transaction with `id` from `UpdateAttribRequest`must already be in a ledger created by `CreateDidRequest`
 - `CreateAttribRequest` must be signed by the DID from `did` field. It means that this DID must be an owner of this ATTRIB transaction.
 
-#### Update ATTRIB
+### Update ATTRIB
 
 cheqd-sdk functionL
 `build_update_attrib_request(id, raw)`
@@ -247,7 +247,7 @@ Response validation:
 - A DID transaction with `id` from `UpdateAttribRequest`must already be in a ledger created by `CreateDidRequest`
 - `UpdateAttribRequest` must be signed by DID from `did` field. It means that this DID must be an owner of this ATTRIB transaction.
 
-#### Get ATTRIB
+### Get ATTRIB
 
 cheqd-sdk function:
 

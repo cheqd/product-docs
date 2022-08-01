@@ -120,7 +120,7 @@ In our example:
 
 `did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe#key1`
 
-**After these preparations, the base DIDDoc will look like**
+After these preparations, the base DIDDoc will look like:
 
 ```json
 {

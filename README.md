@@ -18,7 +18,7 @@ This repository is intended to clearly lay out and explain cheqd's approach to d
 
 ### :books: Tutorials
 
-* [Decentralised Identifiers (DIDs) ](tutorials/dids/)
+* [Decentralised Identifiers (DIDs)](tutorials/dids/)
 * [Verifiable Credentials](tutorials/verifiable-credentials/)
 * [Resources](tutorials/resources/)
 * [Resolver](tutorials/resolver/)

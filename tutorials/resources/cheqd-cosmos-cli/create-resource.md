@@ -98,7 +98,7 @@ After you execute the command, you will receive `"code": 0"`if the DID was succe
 
 Finally, to check that the DID was successfully written, we can use the following query:
 
-```
+```bash
 cheqd-noded query resource resource \
     <collection-id> \
     <resource-id> \
