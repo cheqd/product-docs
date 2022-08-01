@@ -4,9 +4,8 @@
 
 [DID methods](https://www.w3.org/TR/did-core/#dfn-did-methods) are the mechanism by which a particular type of [DID](https://www.w3.org/TR/did-core/#dfn-decentralized-identifiers) and its associated [DID document](https://www.w3.org/TR/did-core/#dfn-did-documents) are created, resolved, updated, and deactivated.
 
-Please find our cheqd DID method architecture decision record in the link below:
+Please find our [cheqd DID method architecture decision record here. ](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method)
 
-{% embed url="https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method" %}
 
 ### Why is the cheqd DID Method notable?
 
