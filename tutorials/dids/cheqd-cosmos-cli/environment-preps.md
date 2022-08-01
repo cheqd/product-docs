@@ -19,7 +19,7 @@ cheqd-noded keys add <cheqd-operator-name> --recover --keyring-backend test
 
 where, `cheqd-operator-name` it's name of alias for storing your keys locally, whatever you want.
 
-## Exampe of working with test account.
+## Example of working with a test account
 
 For example, for test purposes let's create a key with alias `operator`:
 

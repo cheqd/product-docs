@@ -74,7 +74,7 @@ Outcome:
 
 If neither this algorithm, nor the applicable [DID method](https://w3c-ccg.github.io/did-resolution/#dfn-method), nor the client is able to dereference the input [DID URL](https://w3c-ccg.github.io/did-resolution/#dfn-did-url):
 
-- Return a null result.
+* Return a null result.
 
 ### [DID Resolution v0.2](https://w3c-ccg.github.io/did-resolution/): DID URL Deferencing flows for Secondary resource
 
