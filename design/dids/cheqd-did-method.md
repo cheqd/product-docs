@@ -1,13 +1,12 @@
 # cheqd DID Method
 
-## cheqd DID Method
+## Overview
 
 [DID methods](https://www.w3.org/TR/did-core/#dfn-did-methods) are the mechanism by which a particular type of [DID](https://www.w3.org/TR/did-core/#dfn-decentralized-identifiers) and its associated [DID document](https://www.w3.org/TR/did-core/#dfn-did-documents) are created, resolved, updated, and deactivated.
 
-Please find our [cheqd DID method architecture decision record here. ](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method)
+Please find our [cheqd DID method architecture decision record here](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method).
 
-
-### Why is the cheqd DID Method notable?
+## Why is the cheqd DID Method notable?
 
 The cheqd DID method enables:
 
@@ -21,7 +20,7 @@ The cheqd DID method enables:
 
 ## W3C DID Spec Registries
 
-You can also find the cheqd DID method formally registered in the [W3C DID Spec Registries](https://www.w3.org/TR/did-spec-registries/). 
+You can also find the cheqd DID method formally registered in the [W3C DID Spec Registries](https://www.w3.org/TR/did-spec-registries/).
 
 The DID Spec Registries acts as a canonical place for on-ledger implementation standards, including DID Methods.  
 

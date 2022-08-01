@@ -52,4 +52,3 @@ Parties will be able to use cheqd [on-ledger Resources](./) to anchor other type
 {% content-ref url="../../tutorials/resources/cheqd-cosmos-cli/create-resource.md" %}
 [create-resource.md](../../tutorials/resources/cheqd-cosmos-cli/create-resource.md)
 {% endcontent-ref %}
-

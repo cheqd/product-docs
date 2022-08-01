@@ -16,7 +16,6 @@ cheqd's fork of this library can be found below:
 
 [cheqd/did-provider-cheqd](https://github.com/cheqd/did-provider-cheqd)
 
-
 ## Issue Credential using JSON based JWT
 
-To start using this functionality, you can follow the tutorials for this an all other steps on [our identity docs site. ](https://docs.cheqd.io/identity/tutorials/verifiable-credentials)
+To start using this functionality, you can follow the tutorials for this an all other steps on [our identity docs site](https://docs.cheqd.io/identity/tutorials/verifiable-credentials).

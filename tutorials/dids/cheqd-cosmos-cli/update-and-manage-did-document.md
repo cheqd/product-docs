@@ -18,14 +18,14 @@ Links to related docs:
 
 Assumptions:
 
-- Cause it's not a production solution, we assume that the user stored somewhere public/private keys during the DID-Doc creation process.
-- For updating some of part in DID-Doc it's required to send the whole updated DID-Doc. It's not possible for now to send just changed fields/parts.
+* Given this is NOT a production solution, we assume that the user stores their public/private keys somewhere during the DID-Doc creation process
+* To update some parts of the DID-Doc you'll need to send the whole updated DID-Doc. It's not possible for now to send just changed fields/parts.
 
 Arguments:
 
 * `DIDDoc_in_JSON`: A string with updated DID Document in Json format. `id` is not changeable field and mast be used from creation transaction. Base example:
 
-```
+```bash
 {
   "id": "did:cheqd:<namespace>:<unique-id>",
   "verification_method": [
@@ -43,7 +43,7 @@ Arguments:
 ```
 
 * `id` feild for `verification_method` section: key identifier in the following format: `did:cheqd:<namespace>:<unique-id>#<key-alias>`. Exapmle: `did:cheqd:testnet:zJ5EDiiiKWDyo79n#key1`.
-*  Base64 encoded ed25519 private key to sign identity message with. A pair for the key which was used for the DID creation.\
+* Base64 encoded ed25519 private key to sign identity message with. A pair for the key which was used for the DID creation.\
   Use for testing purposes only because the key will be stored in shell history!
 * `--from`: Cosmos account key which will pay fees for the transaction ordering.
 * `--node`: IP address or URL of node to send request to
@@ -52,24 +52,24 @@ Arguments:
 
 Command:
 
-```
+```bash
 cheqd-noded tx cheqd update-did <DIDDoc_in_JSON> <did_verification_method_id> <identity_private_key_BASE_64> \
   --from <cosmos_account> --node <url> --chain-id <chain> --fees <fee>
 ```
 
 Example:
 
-```
+```bash
 cheqd-noded tx cheqd update-did '{"id": "did:cheqd:testnet:zJ5EDiiiKWDyo79n",\
-                                   "verification_method": [{\
+                                  "verification_method": [{\
                                      "id": "did:cheqd:testnet:zJ5EDiiiKWDyo79n#key1",\
                                      "type": "Ed25519VerificationKey2020",\
                                      "controller": "id:cheqd:testnet:zJ5EDiiiKWDyo79n",\
                                      "public_key_multibase": "zCeJfYbiFoUcENEjuxnU9ez6VBZjxavTjSZtHP6y226fp"\
-                                   }],\
-                                   "authentication": [\
+                                  }],\
+                                  "authentication": [\
                                      "id:cheqd:testnet:zJ5EDiiiKWDyo79n#key1"\
-                                   ]\
+                                  ]\
                                  }' \
   "id:cheqd:testnet:zJ5EDiiiKWDyo79n#key1" \
   "FxaJOy4HFoC2Enu1SizKtU0L+hmBRBAEpC+B4TopfQoyetOF5T68Ks3db5Yy9ykFdgEboPUes3m6wvXNLpbv+Q==" \
@@ -78,7 +78,7 @@ cheqd-noded tx cheqd update-did '{"id": "did:cheqd:testnet:zJ5EDiiiKWDyo79n",\
 
 BTW, it can be more useful to prepare json file using your favorite editor and after that run the command as:
 
-```
+```bash
 cheqd-noded tx cheqd update-did "$(cat diddoc.json)" "FxaJOy4HFoC2Enu1SizKtU0L+hmBRBAEpC+B4TopfQoyetOF5T68Ks3db5Yy9ykFdgEboPUes3m6wvXNLpbv+Q==" \
   --from my_account --node http://nodes.testnet.cheqd.network:26657 --chain-id cheqd-testnet-4 --fees 5000000ncheq
 ```

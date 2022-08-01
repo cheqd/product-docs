@@ -143,4 +143,3 @@ cheqd-noded tx resource create-resource
   ]
 }
 ```
-

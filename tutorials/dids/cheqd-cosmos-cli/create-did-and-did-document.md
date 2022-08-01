@@ -42,20 +42,20 @@ $ cat keys.txt
 
 It needs for inserting it into the DID-doc (`public_key_multibase` field in `verification_method` section)
 
-```
+```bash
 cheqd-noded debug encoding base64-multibase58 <pub_key_base_64>
 ```
 
 Based on the working example in this tutorial the result will be:
 
-```
+```bash
 $ cheqd-noded debug encoding base64-multibase58 MnrTheU+vCrN3W+WMvcpBXYBG6D1HrN5usL1zS6W7/k=
 z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE
 ```
 
 And the response will be:
 
-```
+```bash
 z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE
 ```
 
@@ -65,7 +65,7 @@ To create a `unique-id` for our DID we can use first 32 symbols of `multibase58`
 
 For example, we can truncate previous one:
 
-```
+```bash
 printf '%.32s\n' `cheqd-noded debug encoding base64-multibase58 <pub_key_base_64>`
 ```
 
@@ -77,7 +77,7 @@ Next we can compile our DIDDoc.
 
 Copy and paste the template below into your terminal. We will add additional required information into the blank fields `<xxxxx>` in the next steps.
 
-```
+```bash
 {
   "id": "did:cheqd:<namespace>:<unique-id>",
   "verification_method": [
@@ -122,7 +122,7 @@ In our example:
 
 **After these preparations, the base DIDDoc will look like**
 
-```jsonc
+```json
 {
   "id": "did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe",
   "verification_method": [
@@ -164,7 +164,7 @@ Where:
 
 After you execute the command you will receive `"code": 0"`if the DID was successfully written to the ledger. We can do a full query to check this as well. In case of other error codes field `raw_logs` can help with figuring out the case. For example:
 
-```
+```bash
 "code":1201,"data":"","raw_log":"failed to execute message; message index: 0: id:cheqd:testnet:fcbarcelona: DID Doc not found"
 ```
 
@@ -172,7 +172,7 @@ After you execute the command you will receive `"code": 0"`if the DID was succes
 
 Finally, to check that the DID was successfully written we can use the following query:
 
-```
+```bash
 cheqd-noded query cheqd did "<identifier-of-your-DIDDoc>" --node https://rpc.testnet.cheqd.network:443
 ```
 
@@ -182,7 +182,7 @@ where:
 
 In our example:
 
-```
+```bash
 cheqd-noded query cheqd did "did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe" --node https://rpc.testnet.cheqd.network:443
 ```
 
@@ -198,29 +198,29 @@ For example, let it be a docker image, cause it's the most fastest way to start 
 
 The next command can help:
 
-```
+```bash
 docker run -it --rm -u root --entrypoint bash ghcr.io/cheqd/cheqd-node:0.4.0
 ```
 
 After that, we need to install needed package for process SSL certificates:
 
-```
+```bash
 apt update && apt install ca-certificates -y
 ```
 
 Also, it can help to setup your favourite editor, for example `vim` :
 
-```
+```bash
 apt install vim -y
 ```
 
 The next step is to change user to `cheqd` and restore operator's keys:
 
-```
+```bash
 su cheqd
 ```
 
-```
+```bash
 cheqd-noded keys add <cheqd-operator-name> --recover
 ```
 
