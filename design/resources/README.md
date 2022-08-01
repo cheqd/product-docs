@@ -417,8 +417,6 @@ Moreover, the Resource referenced in the Issuer DID Document does not need to be
 
 Read more:
 
-{% content-ref url="../verifiable-credentials/anoncreds/" %}
-[anoncreds](../verifiable-credentials/anoncreds/)
-{% endcontent-ref %}
+- [AnonCreds Design (Hyperledger Indy SDK](https://hyperledger-indy.readthedocs.io/projects/sdk/en/latest/docs/design/002-anoncreds/README.html))
 
-{% embed url="https://github.com/cheqd/node-docs/blob/adr-008-resources-updates/architecture/adr-list/adr-008-ledger-resources.md" %}
+- [ADR 008: On-ledger Resources with DIDs](https://github.com/cheqd/node-docs/blob/adr-008-resources-updates/architecture/adr-list/adr-008-ledger-resources.md)
