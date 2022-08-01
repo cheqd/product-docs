@@ -13,7 +13,7 @@
 
 This Architecture Decision Record (ADR) defines the architecture of two DID resolvers:
 
-- A **full** cheqd DID Resolver, as a library written in Go, or as a standalone web service (the goal of which is to generate a spec compliant DIDDoc, based on the [cheqd DID method](adr-002-cheqd-did-method.md)), through communicating with a cheqd node at the gPRC endpoint; and
+- A **full** cheqd DID Resolver, as a library written in Go, or as a standalone web service (the goal of which is to generate a spec compliant DIDDoc, based on the [cheqd DID method](https://github.com/cheqd/node-docs/blob/main/architecture/adr-list/adr-002-cheqd-did-method.md)), through communicating with a cheqd node at the gPRC endpoint; and
 - A [Universal Resolver Driver](https://github.com/decentralized-identity/universal-resolver) (the goal of this, as a **proxy resolver**, is to **relay requests to the full DID resolver**, and to provide greater accessibility to third parties resolving cheqd DIDs).
 
 This ADR will also address the following architectural considerations:
@@ -26,7 +26,7 @@ This ADR will also address the following architectural considerations:
 
 ## Context
 
-DID resolution is the process of **resolving a DID to fetch a DID document** by using the "Read" operation of the applicable DID method, in our case, the [cheqd DID method](adr-002-cheqd-did-method.md).
+DID resolution is the process of **resolving a DID to fetch a DID document** by using the "Read" operation of the applicable DID method, in our case, the [cheqd DID method](https://github.com/cheqd/node-docs/blob/main/architecture/adr-list/adr-002-cheqd-did-method.md).
 
 All conforming DID resolvers implement the functions below, which have the following abstract forms:
 
@@ -51,13 +51,13 @@ Both implementations of the cheqd DID resolver are decoupled from the cheqd netw
 
 The overall DID resolver architecture is detailed by the following flow:
 
-![cheqd did resolver](../../assets/adr-010-did-resolver/universal-resolver-sequence-diagram.png)
-[Figure 1: cheqd resolution sequence diagram.](../../assets/adr-010-did-resolver/universal-resolver-sequence-diagram.puml)
+![cheqd did resolver](../assets/adr-001-did-resolver/universal-resolver-sequence-diagram.png)
+[Figure 1: cheqd resolution sequence diagram.](../assets/adr-001-did-resolver/universal-resolver-sequence-diagram.puml)
 
 cheqd DID Document resolution is built to be lightweight and simple. Instead of needing to handle requests and threads in parallel, the resolover is built to handle all threads concurrently. This design principle will reduce the risk of large quantities of threads and requests blocking the efficiency of the service.
 
-![cheqd did resolver class diagram](../../assets/adr-010-did-resolver/resolver-class-diagram.png)
-[Figure 2: cheqd protobuf -> JSON marshalling.](../../assets/adr-010-did-resolver/resolver-class-diagram.puml)
+![cheqd did resolver class diagram](../assets/adr-001-did-resolver/resolver-class-diagram.png)
+[Figure 2: cheqd protobuf -> JSON marshalling.](../assets/adr-001-did-resolver/resolver-class-diagram.puml)
 
 ## Resolution rules
 
