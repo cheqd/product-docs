@@ -22,6 +22,8 @@ The cheqd DID method enables:
 
 ## W3C DID Spec Registries
 
-You can also find the cheqd DID method formally registered in the [W3C DID Spec Registries](https://www.w3.org/TR/did-spec-registries/). The DID Spec Registries acts as a canonical place for on-ledger implementation standards, including DID Methods.
+You can also find the cheqd DID method formally registered in the [W3C DID Spec Registries](https://www.w3.org/TR/did-spec-registries/). 
 
-{% embed url="https://github.com/w3c/did-spec-registries/blob/main/methods/cheqd.json" %}
+The DID Spec Registries acts as a canonical place for on-ledger implementation standards, including DID Methods.  
+
+See cheqd's did method at [did:cheqd](https://github.com/w3c/did-test-suite/blob/main/packages/did-core-test-server/suites/implementations/did-cheqd.json)
