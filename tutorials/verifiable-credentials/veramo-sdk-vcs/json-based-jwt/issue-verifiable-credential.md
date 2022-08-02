@@ -8,13 +8,15 @@ This tutorial offers step-by-step guidance on how to issue a [JSON credential](h
 
 ### Pre-requisites
 
-The subject (holder) of this credential will be a [`did:key`](https://github.com/w3c-ccg/did-method-key) DID. 
+> The subject (holder) of this credential will be a [`did:key`](https://github.com/w3c-ccg/did-method-key) DID.
 
 If you have not yet created a [`did:key`](https://github.com/w3c-ccg/did-method-key) DID for the subject, see `create-subject-did` tutorial.  
 
 The issuer of the DID will also be required, retrieved from your local agent.
 
 Issuing a Verifiable Credential can be achieved through both the Veramo CLI, or directly through an application, setup to read and write to the cheqd ledger, using the Veramo SDK for cheqd.
+
+>Ensure you have saved the [`agent.yml`](https://raw.githubusercontent.com/cheqd/did-provider-cheqd/main/agent.yml) file in your local project directory.
 
 For full information on the architecture, setup and cofig, check [`did-provider-cheqd`]().
 

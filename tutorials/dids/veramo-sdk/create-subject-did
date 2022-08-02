@@ -17,6 +17,8 @@ Create a subject [`did:key`](https://github.com/w3c-ccg/did-method-key) DID   ca
 
 For full information on the architecture, setup and cofig, check [`did-provider-cheqd`]().
 
+>Note: Ensure you have saved the [`agent.yml`](https://raw.githubusercontent.com/cheqd/did-provider-cheqd/main/agent.yml) file in your local project directory.
+
 ### Steps
 
 #### Step 1

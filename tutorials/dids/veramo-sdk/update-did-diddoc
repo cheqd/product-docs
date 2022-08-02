@@ -12,4 +12,6 @@ This can be achieved through both the Veramo CLI, or directly through an applica
 
 For full information on the architecture, setup and cofig, check [`did-provider-cheqd`]().
 
+>Note: Ensure you have saved the [`agent.yml`](https://raw.githubusercontent.com/cheqd/did-provider-cheqd/main/agent.yml) file in your local project directory.
+
 ### Steps

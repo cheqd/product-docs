@@ -14,6 +14,8 @@ The verifier of the Verifiable Presentation will be the issuer,holding the DID t
 
 For full information on the architecture, setup and cofig, check [`did-provider-cheqd`]().
 
+>Ensure you have saved the [`agent.yml`](https://raw.githubusercontent.com/cheqd/did-provider-cheqd/main/agent.yml) file in your local project directory.
+
 ### Steps
 
 #### Step 1
