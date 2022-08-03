@@ -35,18 +35,71 @@ Since [cheqd uses the Cosmos SDK blockchain framework](https://blog.cheqd.io/why
 
 Cosmos SDK framework typically provides [gRPC/gRPC-Web, JSON-RPC, and REST API endpoints for on-ledger modules](https://docs.cosmos.network/master/core/grpc_rest.html) and functionality.
 
-For example, `did:cheqd:testnet:DAzMQo4MDMxCjgwM` can be fetched using the native Cosmos SDK REST API endpoint (or equivalent endpoints). In case of the cheqd network *testnet*, an instance of this REST API along with the DID would be [api.cheqd.network/cheqd/v1/did/did:cheqd:testnet:DAzMQo4MDMxCjgwM](https://api.cheqd.network/cheqd/v1/did/did:cheqd:testnet:DAzMQo4MDMxCjgwM) which returns the following response:
+For example, `did:cheqd:testnet:DAzMQo4MDMxCjgwM` can be fetched using the native Cosmos SDK REST API endpoint (or equivalent endpoints). This provides responses that would meet the abstract definition of a `resolve` function as defined in the DID Core specification.
 
+In case of the cheqd network *testnet*, an instance of this `resolve` endpoint through the Cosmos SDK REST API would be [api.cheqd.network/cheqd/v1/did/did:cheqd:testnet:DAzMQo4MDMxCjgwM](https://api.cheqd.network/cheqd/v1/did/did:cheqd:testnet:DAzMQo4MDMxCjgwM) which returns the following response:
 
+```jsonc
+{
+  "did": {
+    "context": [
+    ],
+    "id": "did:cheqd:testnet:DAzMQo4MDMxCjgwM",
+    "controller": [
+    ],
+    "verification_method": [
+      {
+        "id": "did:cheqd:testnet:DAzMQo4MDMxCjgwM#key1",
+        "type": "Ed25519VerificationKey2020",
+        "controller": "did:cheqd:testnet:DAzMQo4MDMxCjgwM",
+        "public_key_jwk": [
+        ],
+        "public_key_multibase": "z6jVkB274neVf7iJETpMECwznBF8wDe8tpvF4BZLRZgMU"
+      }
+    ],
+    "authentication": [
+      "did:cheqd:testnet:DAzMQo4MDMxCjgwM#key1"
+    ],
+    "assertion_method": [
+    ],
+    "capability_invocation": [
+    ],
+    "capability_delegation": [
+    ],
+    "key_agreement": [
+    ],
+    "service": [
+    ],
+    "also_known_as": [
+    ]
+  },
+  "metadata": {
+    "created": "2022-07-19T08:29:07Z",
+    "updated": "",
+    "deactivated": false,
+    "version_id": "57543FA1D9C56033BABBFA3A438E0A149E01BBB89E6D666ACE1243455AA6F2BC",
+    "resources": [
+      "44547089-170b-4f5a-bcbc-06e46e0089e4"
+    ]
+  }
+}
+```
+
+As you can see in the response body above, this is the raw Protobuf fetched from the cheqd testnet ledger, marshalled into a JSON form. Crucially, this form has certain deviations from the JSON/JSON-LD production expected in DID Core specification:
+
+1. JSON key names that correlate to DID Core properties are listed in [`snake_case`](https://en.wikipedia.org/wiki/Snake_case), rather than [`camelCase`](https://en.wikipedia.org/wiki/Camel_case) as required. This is because Protobuf standard linting rules require these properties to be defined in `snake_case`.
+2. DID Core properties with empty values are still shown in this JSON, whereas the requirement is to drop them from standards-compliant DIDDoc representations.
 
 ### Resolve Representation function
+
+The `resolveRepresentation` abstract function, as defined in DID Core specification, is intended to address concerns similar to the ones highlighted above to product a [standards-compliant JSON/JSON-LD representation](https://www.w3.org/TR/did-core/#did-resolution) of a DIDDoc.
 
 ```js
 resolveRepresentation(did, resolutionOptions) → 
 « didResolutionMetadata, didDocumentStream, didDocumentMetadata »
 ```
 
-For example, `did:cheqd:testnet:DAzMQo4MDMxCjgwM` resolves to the following response, containing Resolution Metadata, DIDDoc, and DIDDoc Metadata:
+For example, `did:cheqd:testnet:DAzMQo4MDMxCjgwM` *should* return a response similar to the one below containing Resolution Metadata, DIDDoc, and DIDDoc Metadata. This representation *is* meant to be compliant with the DID Core resolution requirements:
 
 ```jsonc
 {
@@ -90,23 +143,17 @@ For example, `did:cheqd:testnet:DAzMQo4MDMxCjgwM` resolves to the following resp
 }
 ```
 
-## Architecture
+## Architectural patterns for resolving DIDDocs from cheqd ledger
 
-Since cheqd uses the Cosmos SDK and is built within the Cosmos ecosystem, data written to the ledger uses the serialisation method Google Protocol Buffers (protobuf). Therefore, in order to conform with the correct syntax and structure for the map produced after resolution, cheqd's DID Resolver will implement a resolveRepresentation function that is able to take output in protobuf and convert it into a corresponding, conformant map in JSON, according to the [DID Core Recommendation](https://www.w3.org/TR/did-core/).
+This ADR will add a new application/library for did-resolution based on the DID resolution implementations described throughout this ADR. We decided to design multiple implementations of the cheqd DID Resolver to suit different clients and audiences, which may want to consume cheqd DIDs for different purposes.
 
-This Architecture Decision Record (ADR) defines the architecture of a cheqd DID Resolver in multiple implementations:
+Importantly, each implementation of the cheqd DID Resolver is decoupled from the cheqd network, which means updating the resolver does not require updating the application on the node side. This avoids having to go through an on-ledger governance vote, and voting period to make a change. In addition, the separation of the system into microservices provides more flexibility to third parties in how they choose to resolve cheqd DIDs.
 
 - A **full cheqd DID Resolver** to generate a spec compliant DIDDoc, based on the [cheqd DID method](https://github.com/cheqd/node-docs/blob/main/architecture/adr-list/adr-002-cheqd-did-method.md), through communicating with a cheqd node at the gPRC endpoint. This can be implemented as:
   - A **library written in Go** which can be imported directly into client applications, or
   - A **standalone web service**, which acts as a proxy to forward requests to the cheqd node.
 - A **light cheqd DID Resolver**, run on [Cloudflare Workers](https://workers.cloudflare.com/), presenting a highly accessible and easily deployable instance of the cheqd DID Resolver, with a lower computational footprint than the full cheqd DID Resolver;
 - A **[Universal Resolver Driver](https://github.com/decentralized-identity/universal-resolver)** packaged using [Docker Containers](https://www.docker.com/resources/what-container/), presenting a readily consumable, lightweight and secure instance of either the **full** cheqd DID Resolver or the **light** cheqd DID Resolver.
-
-## Decision
-
-This ADR will add a new application/library for did-resolution based on the DID resolution implementations described throughout this ADR. We decided to design multiple implementations of the cheqd DID Resolver to suit different clients and audiences, which may want to consume cheqd DIDs for different purposes.
-
-Importantly, each implementation of the cheqd DID Resolver is decoupled from the cheqd network, which means updating the resolver does not require updating the application on the node side. This avoids having to go through an on-ledger governance vote, and voting period to make a change. In addition, the separation of the system into microservices provides more flexibility to third parties in how they choose to resolve cheqd DIDs.
 
 ## Overall architecture diagram
 
