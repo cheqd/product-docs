@@ -1,12 +1,10 @@
-# Issue Verifiable Credential
+# Issue JSON based JWT Verifiable Credential
 
-## Tutorial for issuing a JSON based JWT verifiable credential
-
-### Overview
+## Overview
 
 This tutorial offers step-by-step guidance on how to issue a [JSON credential](https://www.w3.org/TR/vc-data-model/#json), encoded as a [JWT (JSON Web Token)](https://www.w3.org/TR/vc-data-model/#json-web-token), a [W3C compliant proof format.](https://www.w3.org/TR/vc-data-model/#proof-formats)
 
-### Pre-requisites
+## Pre-requisites
 
 > The subject (holder) of this credential will be a [`did:key`](https://github.com/w3c-ccg/did-method-key) DID.
 
@@ -16,13 +14,13 @@ The issuer of the DID will also be required, retrieved from your local agent.
 
 Issuing a Verifiable Credential can be achieved through both the Veramo CLI, or directly through an application, setup to read and write to the cheqd ledger, using the Veramo SDK for cheqd.
 
->Ensure you have saved the [`agent.yml`](https://raw.githubusercontent.com/cheqd/did-provider-cheqd/main/agent.yml) file in your local project directory.
+> Ensure you have saved the [`agent.yml`](https://raw.githubusercontent.com/cheqd/did-provider-cheqd/main/agent.yml) file in your local project directory.
 
 For full information on the architecture, setup and cofig, check [`did-provider-cheqd`]().
 
-### Steps
+## Steps
 
-#### Step 1
+### Step 1
 
 Begin credential creation using:
 
@@ -30,51 +28,61 @@ Begin credential creation using:
 veramo credential create --json
 ```
 
-#### Step 2
+### Step 2
 
 Select which credential proof format you would like to use.
 
 You will have the option to select `jwt` or `lds`.
 
-Currently `jwt` is the only proof format enabled with the Veramo SDK for cheqd.
+Select `jwt`.
 
-#### Step 3
+> Currently `jwt` is the only proof format enabled with the Veramo SDK for cheqd.
+
+### Step 3
 
 Specify issuer DID.
 
 Select which Issuer DID you would like to use from those available in your local agent.
 
-#### Step 4
+For example:
+
+`did:cheqd:mainnet:zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX`
+
+### Step 4
 
 Specify subject DID.
 
 Select which subject DID you would like to use from those available in your local agent.
 
-#### Step 5
+For example:
+
+`did:key:z6Mkktr27VZ7TTFoTsD9p79JwtGnQDgJWKGrxJ79quE7M5Yx`
+
+### Step 5
 
 Specify your Verifiable Credential Type.
 
-This is currently free-text however you can hit enter to use `Verifiable Credential` as the default credential name.
+> This is currently free-text however you can hit enter to use `VerifiableCredential` as the default credential name.
 
-#### Step 6
+### Step 6
 
 Specify claim type (name)
 
 Enter the purpose of the claim. This refers to the type of claim (e.g. name)
 
-#### Step 7
+### Step 7
 
 Claim value refers to the name of the credential owner (e.g. `Alice`). Using the CLI in it’s current state you will be able to create one claim.
 
-#### Step 8
+### Step 8
 
 Select credential revocability
 
-Currently revocation is not supported by cheqd.
+> Currently revocation is not supported by cheqd.
 
 Select `No`
 
-#### Step 9
+### Step 9
 
 Your credential will now be auto-generated.
 
