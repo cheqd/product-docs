@@ -43,7 +43,7 @@ For example, `did:cheqd:testnet:DAzMqo4MDMxCjgwM` resolves to the following resp
 ```json
 {
     "didResolutionMetadata": {
-        "contentType": "text/html",
+        "contentType": "application/did+json",
         "retrieved": "2022-08-03T09:52:49Z",
         "did": {
             "didString": "did:cheqd:testnet:DAzMQo4MDMxCjgwM",
