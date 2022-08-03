@@ -89,10 +89,10 @@ Since cheqd uses the Cosmos SDK and is built within the Cosmos ecosystem, data w
 This Architecture Decision Record (ADR) defines the architecture of a cheqd DID Resolver in multiple implementations:
 
 - A **full cheqd DID Resolver** to generate a spec compliant DIDDoc, based on the [cheqd DID method](https://github.com/cheqd/node-docs/blob/main/architecture/adr-list/adr-002-cheqd-did-method.md), through communicating with a cheqd node at the gPRC endpoint. This can be implemented as:
-    - A **library written in Go** which can be imported directly into client applications, or
-    - A **standalone web service**, which acts as a proxy to forward requests to the cheqd node.
-- A **light cheqd DID Resolver**, run on [Cloudflare Workers](https://workers.cloudflare.com/), presenting a highly accessible and easily deployable instance of the cheqd DID Resolver, with a lower computational footprint than the full cheqd DID Resolver; 
-- A **[Universal Resolver Driver](https://github.com/decentralized-identity/universal-resolver)** packaged using [Docker Containers](https://www.docker.com/resources/what-container/), presenting a readily consumable, lightweight and secure instance of either the **full** cheqd DID Resolver or the **light** cheqd DID Resolver. 
+  - A **library written in Go** which can be imported directly into client applications, or
+  - A **standalone web service**, which acts as a proxy to forward requests to the cheqd node.
+- A **light cheqd DID Resolver**, run on [Cloudflare Workers](https://workers.cloudflare.com/), presenting a highly accessible and easily deployable instance of the cheqd DID Resolver, with a lower computational footprint than the full cheqd DID Resolver;
+- A **[Universal Resolver Driver](https://github.com/decentralized-identity/universal-resolver)** packaged using [Docker Containers](https://www.docker.com/resources/what-container/), presenting a readily consumable, lightweight and secure instance of either the **full** cheqd DID Resolver or the **light** cheqd DID Resolver.
 
 ## Decision
 
@@ -147,12 +147,14 @@ The flow for DID resolution is illustrated in the third "Client <-> Web Service 
 
 ## 3. Universal Resolver Driver
 
+<!-- markdown-link-check-disable-next-line -->
 The Decentralised Identity Foundation (DIF) has a publicly accessible Universal Resolver, which can be found at <https://dev.uniresolver.io>
 
 The Universal Resolver is a landing page and search engine for multiple DID Resolvers, each with their own Universal Resolver Driver. Universal Resolver Drivers are all packaged up as [Docker Containers](https://www.docker.com/resources/what-container/), which makes it much easier for clients to import and directly support multiple drivers.
 
 The flow for resolving a DID using this implementation is as follows:
 
+<!-- markdown-link-check-disable-next-line -->
 - A client sends a request to <https://dev.uniresolver.io>.
 - The Universal Resolver on DIF servers uses the cheqd Universal Resolver Driver to redirect client request to the full cheqd DID Resolver.
 - cheqd full DID Resolver gets DID Doc in protobuf format from the ledger through the Cosmos SDK gRPC API.
