@@ -37,45 +37,45 @@ The `resolve` function is intended to provide [resolution of a DID to as a JSON/
 
 For example, `did:cheqd:testnet:DAzMqo4MDMxCjgwM` resolves to the following response, containing Resolution Metadata, DIDDoc, and DIDDoc Metadata:
 
-```jsonc
+```json
 {
     "didResolutionMetadata": {
-        "contentType": "application/did+ld+json",
-        "retrieved": "2022-08-01T19:34:30Z",
-        "did":{
-            "didString": "did:cheqd:testnet:DAzMqo4MDMxCjgwM",
-            "methodSpecificId": "DAzMqo4MDMxCjgwM",
+        "contentType": "text/html",
+        "retrieved": "2022-08-03T09:52:49Z",
+        "did": {
+            "didString": "did:cheqd:testnet:DAzMQo4MDMxCjgwM",
+            "methodSpecificId": "DAzMQo4MDMxCjgwM",
             "method": "cheqd"
+        }
     },
     "didDocument": {
-        "@context": "https://www.w3.org/ns/did/v1",
-        "id": "did:cheqd:testnet:DAzMqo4MDMxCjgwM",
-        "verificationMethod": [{
-            "id": "did:cheqd:testnet:DAzMqo4MDMxCjgwM#key1",
-            "type": "Ed25519VerificationKey2018",
-            "controller": "did:example:123456789abcdefghi",
-            "publicKeyBase58": "H3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV",
-        "authentication": [
-            "did:cheqd:testnet:DAzMqo4MDMxCjgwM#key1"
+        "id": "did:cheqd:testnet:DAzMQo4MDMxCjgwM",
+        "verificationMethod": [
+            {
+                "id": "did:cheqd:testnet:DAzMQo4MDMxCjgwM#key1",
+                "type": "Ed25519VerificationKey2020",
+                "controller": "did:cheqd:testnet:DAzMQo4MDMxCjgwM",
+                "publicKeyMultibase": "z6jVkB274neVf7iJETpMECwznBF8wDe8tpvF4BZLRZgMU"
+            }
         ],
-        "service": [{
-            "id":"did:cheqd:testnet:DAzMqo4MDMxCjgwM#website",
-            "type": "linkedDomains",
-            "serviceEndpoint": "https://cheqd.io/"
-        }]
+        "authentication": [
+            "did:cheqd:testnet:DAzMQo4MDMxCjgwM#key1"
+        ]
     },
     "didDocumentMetadata": {
-        "created": "2022-07-01T15:34:30Z",
-        "updated": null,
-        "versionId":"57543FA1D9C56033BABBFA3A438E0A149E01BBB89E6D666ACE1243455AA6F2BC",
-        "resources":[{
-            "resourceURI": "did:cheqd:testnet:DAzMqo4MDMxCjgwM/resources/44547089-170b-bcbc-06e46e0089e4",
-            "resourceName": "CommunitySchema",
-            "resourceType": "CL-Schema",
-            "mediaType": "application/json",
-            "created": "2022-07-01T15:34:30Z"
-        }]
-    }   
+        "created": "2022-07-19T08:29:07Z",
+        "versionId": "57543FA1D9C56033BABBFA3A438E0A149E01BBB89E6D666ACE1243455AA6F2BC",
+        "resources": [
+            {
+                "resourceURI": "did:cheqd:testnet:DAzMQo4MDMxCjgwM/resources/44547089-170b-4f5a-bcbc-06e46e0089e4",
+                "name": "DemoResource",
+                "resourceType": "CL-Schema",
+                "mediaType": "application/json",
+                "created": "2022-07-19T08:40:00Z",
+                "checksum": "eyAiY29udGVudCI6ICJ0ZXN0IGRhdGEiIH0K47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+            }
+        ]
+    }
 }
 ```
 
