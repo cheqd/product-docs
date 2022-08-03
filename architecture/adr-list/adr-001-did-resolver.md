@@ -40,7 +40,7 @@ resolveRepresentation(did, resolutionOptions) →
 « didResolutionMetadata, didDocumentStream, didDocumentMetadata »
 ```
 
-For example, `did:cheqd:testnet:DAzMqo4MDMxCjgwM` resolves to the following response, containing Resolution Metadata, DIDDoc, and DIDDoc Metadata:
+For example, `did:cheqd:testnet:DAzMQo4MDMxCjgwM` resolves to the following response, containing Resolution Metadata, DIDDoc, and DIDDoc Metadata:
 
 ```jsonc
 {
