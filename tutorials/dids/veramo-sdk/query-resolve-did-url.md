@@ -1,18 +1,18 @@
 # Querying and resolving a DID URL
 
-## Tutorial for querying and resolving a DID URL
-
-### Overview
+## Overview
 
 This tutorial offers step-by-step guidance on how to query and resolve a DID URL.
 
 This can be achieved through both the Veramo CLI, or directly through an application, setup to read and write to the cheqd ledger, using the Veramo SDK for cheqd.
 
-### Pre-requisites
+## Pre-requisites
 
 For full information on the architecture, setup and cofig, check [`did-provider-cheqd`]().
 
-### Steps
+## Steps
+
+### Step 1
 
 Use `veramo did resolve` to resolve did
 
@@ -21,6 +21,8 @@ e.g.:
 ```bash
 veramo did resolve did:cheqd:mainnet:zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX
 ```
+
+### Step 2
 
 The output should look like the following:
 
@@ -36,9 +38,6 @@ The output should look like the following:
     }
   },
   "didDocument": {
-    "authentication": [
-      "did:cheqd:mainnet:zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX#key1"
-    ],
     "id": "did:cheqd:mainnet:zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX",
     "verificationMethod": [
       {
@@ -50,6 +49,9 @@ The output should look like the following:
           "x": "jaa70K9yy4Tw-YEsA2T4F10jsQuFdpVJN9LLhjmOUGw"
         },
         "type": "JsonWebKey2020"
+    "authentication": [
+      "did:cheqd:mainnet:zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX#key1"
+        ],    
       }
     ]
   },
