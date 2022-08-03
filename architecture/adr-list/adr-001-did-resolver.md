@@ -24,12 +24,14 @@ All conforming DID resolvers implement `resolve` and `resolveRepresentation` abs
 
 ### Resolve function
 
+The `resolve` function is intended to fetch the *abstract* form of the DID Document, as stored on the ledger. This abstract/raw form [may *not* necessarily be in JSON/JSON-LD format](https://www.w3.org/TR/did-core/#did-resolution) as the underlying data persistence layer where the DIDDoc is stored for any particular method might use different serialisation/storage formats.
+
 ```js
 resolve(did, resolutionOptions) → 
 « didResolutionMetadata, didDocument, didDocumentMetadata »
 ```
 
-The `resolve` function is intended to fetch the *abstract* form of the DID Document, as stored on the ledger.
+Since [cheqd uses the Cosmos SDK blockchain framework](https://blog.cheqd.io/why-cheqd-has-joined-the-cosmos-4db8845722c5), the underlying data storage and retrieval ("resolve") mechanisms used rely on those offered by the [Cosmos SDK framework](https://docs.cosmos.network/master/intro/overview.html). data written to the ledger uses the serialisation method Google Protocol Buffers (protobuf). 
 
 ### Resolve Representation function
 
@@ -40,45 +42,45 @@ resolveRepresentation(did, resolutionOptions) →
 
 For example, `did:cheqd:testnet:DAzMqo4MDMxCjgwM` resolves to the following response, containing Resolution Metadata, DIDDoc, and DIDDoc Metadata:
 
-```json
+```jsonc
 {
-    "didResolutionMetadata": {
-        "contentType": "application/did+json",
-        "retrieved": "2022-08-03T09:52:49Z",
-        "did": {
-            "didString": "did:cheqd:testnet:DAzMQo4MDMxCjgwM",
-            "methodSpecificId": "DAzMQo4MDMxCjgwM",
-            "method": "cheqd"
-        }
-    },
-    "didDocument": {
-        "id": "did:cheqd:testnet:DAzMQo4MDMxCjgwM",
-        "verificationMethod": [
-            {
-                "id": "did:cheqd:testnet:DAzMQo4MDMxCjgwM#key1",
-                "type": "Ed25519VerificationKey2020",
-                "controller": "did:cheqd:testnet:DAzMQo4MDMxCjgwM",
-                "publicKeyMultibase": "z6jVkB274neVf7iJETpMECwznBF8wDe8tpvF4BZLRZgMU"
-            }
-        ],
-        "authentication": [
-            "did:cheqd:testnet:DAzMQo4MDMxCjgwM#key1"
-        ]
-    },
-    "didDocumentMetadata": {
-        "created": "2022-07-19T08:29:07Z",
-        "versionId": "57543FA1D9C56033BABBFA3A438E0A149E01BBB89E6D666ACE1243455AA6F2BC",
-        "resources": [
-            {
-                "resourceURI": "did:cheqd:testnet:DAzMQo4MDMxCjgwM/resources/44547089-170b-4f5a-bcbc-06e46e0089e4",
-                "name": "DemoResource",
-                "resourceType": "CL-Schema",
-                "mediaType": "application/json",
-                "created": "2022-07-19T08:40:00Z",
-                "checksum": "eyAiY29udGVudCI6ICJ0ZXN0IGRhdGEiIH0K47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
-            }
-        ]
+  "didResolutionMetadata": {
+    "contentType": "application/did+ld+json",
+    "retrieved": "2022-08-03T09:52:49Z",
+    "did": {
+      "didString": "did:cheqd:testnet:DAzMQo4MDMxCjgwM",
+      "methodSpecificId": "DAzMQo4MDMxCjgwM",
+      "method": "cheqd"
     }
+  },
+  "didDocument": {
+    "id": "did:cheqd:testnet:DAzMQo4MDMxCjgwM",
+    "verificationMethod": [
+      {
+        "id": "did:cheqd:testnet:DAzMQo4MDMxCjgwM#key1",
+        "type": "Ed25519VerificationKey2020",
+        "controller": "did:cheqd:testnet:DAzMQo4MDMxCjgwM",
+        "publicKeyMultibase": "z6jVkB274neVf7iJETpMECwznBF8wDe8tpvF4BZLRZgMU"
+      }
+    ],
+    "authentication": [
+      "did:cheqd:testnet:DAzMQo4MDMxCjgwM#key1"
+    ]
+  },
+  "didDocumentMetadata": {
+    "created": "2022-07-19T08:29:07Z",
+    "versionId": "57543FA1D9C56033BABBFA3A438E0A149E01BBB89E6D666ACE1243455AA6F2BC",
+    "resources": [
+      {
+        "resourceURI": "did:cheqd:testnet:DAzMQo4MDMxCjgwM/resources/44547089-170b-4f5a-bcbc-06e46e0089e4",
+        "name": "DemoResource",
+        "resourceType": "CL-Schema",
+        "mediaType": "application/json",
+        "created": "2022-07-19T08:40:00Z",
+        "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298"
+      }
+    ]
+  }
 }
 ```
 
