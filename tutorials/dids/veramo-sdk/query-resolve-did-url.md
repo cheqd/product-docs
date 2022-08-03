@@ -26,10 +26,6 @@ The output should look like the following:
 
 ```jsonc
 {
-  "didDocumentMetadata": {
-    "created": "2022-05-13T14:01:20Z",
-    "versionId": "B55E82F3022593C2A55D08484D658003B1685177197796FA00B56440671DB842"
-  },
   "didResolutionMetadata": {
     "contentType": "application/did+json",
     "retrieved": "2022-07-28T15:05:06Z",
@@ -56,5 +52,9 @@ The output should look like the following:
         "type": "JsonWebKey2020"
       }
     ]
+  },
+    "didDocumentMetadata": {
+    "created": "2022-05-13T14:01:20Z",
+    "versionId": "B55E82F3022593C2A55D08484D658003B1685177197796FA00B56440671DB842"
   }
 }
