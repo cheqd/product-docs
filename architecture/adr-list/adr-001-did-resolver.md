@@ -1,6 +1,6 @@
 # ADR 001: DID Resolver
 
-# Status
+## Status
 
 | Category | Status |
 | :--- | :--- |
@@ -9,20 +9,20 @@
 | **Implementation Status** | In Progress |
 | **Start Date** | 22 February 2022 |
 
-# Summary
+## Summary
 
 This Architecture Decision Record (ADR) defines the architecture of a cheqd DID Resolver in multiple implementations:
 
 - A **full cheqd DID Resolver** to generate a spec compliant DIDDoc, based on the [cheqd DID method](https://github.com/cheqd/node-docs/blob/main/architecture/adr-list/adr-002-cheqd-did-method.md), through communicating with a cheqd node at the gPRC endpoint. This can be implemented as:
-    - A **library written in Go** which can be imported directly into client applications, or
-    - A **standalone web service**, which acts as a proxy to forward requests to the cheqd node.
-- A **light cheqd DID Resolver**, run on [Cloudflare Workers](https://workers.cloudflare.com/), presenting a highly accessible and easily deployable instance of the cheqd DID Resolver, with a lower computational footprint than the full cheqd DID Resolver; 
-- A **[Universal Resolver Driver](https://github.com/decentralized-identity/universal-resolver)** packaged using [Docker Containers](https://www.docker.com/resources/what-container/), presenting a readily consumable, lightweight and secure instance of either the **full** cheqd DID Resolver or the **light** cheqd DID Resolver. 
+  - A **library written in Go** which can be imported directly into client applications, or
+  - A **standalone web service**, which acts as a proxy to forward requests to the cheqd node.
+- A **light cheqd DID Resolver**, run on [Cloudflare Workers](https://workers.cloudflare.com/), presenting a highly accessible and easily deployable instance of the cheqd DID Resolver, with a lower computational footprint than the full cheqd DID Resolver;
+- A **[Universal Resolver Driver](https://github.com/decentralized-identity/universal-resolver)** packaged using [Docker Containers](https://www.docker.com/resources/what-container/), presenting a readily consumable, lightweight and secure instance of either the **full** cheqd DID Resolver or the **light** cheqd DID Resolver.
 
-# Context
+## Context
 
 DID resolution is the process of **resolving a DID to fetch a DID document** by using the "Read" operation of the applicable DID method, in our case, the [cheqd DID method](https://github.com/cheqd/node-docs/blob/main/architecture/adr-list/adr-002-cheqd-did-method.md).
-
+>
 All conforming DID resolvers implement the functions below, which have the following abstract forms:
 
 ```ignorelang
@@ -40,13 +40,13 @@ These two functions enable:
 
 For example, the following DID:
 
-```
+```text
 did:cheqd:testnet:DAzMqo4MDMxCjgwM
 ```
 
 should resolves in full to:
 
-```
+```json
 {
     "didResolutionMetadata": {
         "contentType": "application/did+ld+json",
@@ -90,9 +90,9 @@ should resolves in full to:
 
 Since cheqd uses the Cosmos SDK and is built within the Cosmos ecosystem, data written to the ledger uses the serialisation method Google Protocol Buffers (protobuf). Therefore, in order to conform with the correct syntax and structure for the map produced after resolution, cheqd's DID Resolver will implement a resolveRepresentation function that is able to take output in protobuf and convert it into a corresponding, conformant map in JSON, according to the [DID Core Recommendation](https://www.w3.org/TR/did-core/).
 
-# Decision
+## Decision
 
-This ADR will add a new application/library for did-resolution based on the DID resolution implementations described throughout this ADR. We decided to design multiple implementations of the cheqd DID Resolver to suit different clients and audiences, which may want to consume cheqd DIDs for different purposes. 
+This ADR will add a new application/library for did-resolution based on the DID resolution implementations described throughout this ADR. We decided to design multiple implementations of the cheqd DID Resolver to suit different clients and audiences, which may want to consume cheqd DIDs for different purposes.
 
 Importantly, each implementation of the cheqd DID Resolver is decoupled from the cheqd network, which means updating the resolver does not require updating the application on the node side. This avoids having to go through an on-ledger governance vote, and voting period to make a change. In addition, the separation of the system into microservices provides more flexibility to third parties in how they choose to resolve cheqd DIDs.
 
@@ -105,7 +105,7 @@ The following architecture diagram illustrates multiple flows for resolving a ch
 
 ## Full DID Resolver
 
-### 1. Client implements the **full cheqd DID Resolver** as a Library into their own application.
+### 1. Client implements the **full cheqd DID Resolver** as a Library into their own application
 
 In this case, the Go module can be imported simply into a client's own libraries by using the following:
 
@@ -124,9 +124,9 @@ The flow for resolving a DID using this implementation is as follows:
 
 The flow for DID resolution is illustrated in the third "Client <-> Ledger" section from [figure 1](../assets/adr-001-did-resolver/universal-resolver-sequence-diagram.puml).
 
-### 2. Client uses the **full cheqd DID Resolver** through a web service 
+### 2. Client uses the **full cheqd DID Resolver** through a web service
 
-In this case, a client may not want to implement the full cheqd resolver in their own application, but may prefer to use a more lightweight web service. 
+In this case, a client may not want to implement the full cheqd resolver in their own application, but may prefer to use a more lightweight web service.
 
 The flow for resolving a DID using this implementation is as follows:
 
@@ -170,11 +170,11 @@ cheqd DID Document resolution is built to be lightweight and simple. Instead of 
 ![cheqd did resolver class diagram](../assets/adr-001-did-resolver/resolver-class-diagram.png)
 [Figure 2: cheqd protobuf -> JSON marshalling.](../assets/adr-001-did-resolver/resolver-class-diagram.puml)
 
-# Resolution rules
+## Resolution rules
 
 The cheqd DID Resolver complies with the rules defined in [Decentralized Identifier Resolution (DID Resolution) v0.2](https://w3c-ccg.github.io/did-resolution). This section clarifies and expands some descriptions specific to cheqd.
 
-## Supported types
+### Supported types
 
 [RFC 9110 HTTP Semantics](https://www.rfc-editor.org/rfc/rfc9110.html#name-accept) says:
 
@@ -188,7 +188,7 @@ At the same time, [Resolution specification](https://w3c-ccg.github.io/did-resol
 
 This means that the `ContentType` from HTTP response body should be the same as the HTTP response header `Content-Type`, and should be one of types from the `Accept` request HTTP header.
 
-### [8.1 HTTP(S) Binding](https://w3c-ccg.github.io/did-resolution/#bindings-https) has been used for defining a list of available types for DID resolution:
+#### [8.1 HTTP(S) Binding](https://w3c-ccg.github.io/did-resolution/#bindings-https) has been used for defining a list of available types for DID resolution
 
 - Accept request HTTP header contains `application/did+ld+json`
   - Response HTTP header: `Content-Type: application/did+ld+json`
@@ -217,7 +217,7 @@ This means that the `ContentType` from HTTP response body should be the same as 
     - didResolutionMetadata / dereferencingMetadata contains a property error with value representationNotSupported
     - didResolutionMetadata / dereferencingMetadata `ContentType` field is `application/json`;
 
-## Errors
+### Errors
 
 The DID resolution output should always conform to the following format: `( didResolutionMetadata, didDocument, didDocumentMetadata )`
 If the resolution is unsuccessful, the DID resolver should return the following result:
@@ -232,7 +232,7 @@ The DID dereferencing output should always conform to the following format: `( d
 - contentStream: null
 - contentMetadata: `[]`
 
-### Error list
+#### Error list
 
 - **invalidDid** - DID does not conform to the rule of the [DID Syntax](https://www.w3.org/TR/did-core/#did-syntax)
   - response status code 400
@@ -249,11 +249,11 @@ The DID dereferencing output should always conform to the following format: `( d
 - `didDocumentMetadata` property deactivated with value `true`
   - response status code 410
 
-# Resources
+## Resources
 
-cheqd has implemented resources on ledger within its update 0.6.x. Resources will be shown within DIDDoc metadata. 
+cheqd has implemented resources on ledger within its update 0.6.x. Resources will be shown within DIDDoc metadata.
 
-## Resource resolution
+### Resource resolution
 
 The following syntax can be used in DID Resolution to fetch resources or previews of resources:
 
@@ -270,13 +270,12 @@ The following syntax can be used in DID Resolution to fetch resources or preview
 - `/1.0/identifiers/<did>/resources/<resource_id>/metadata`
   - Return resource metadata (without data)
 
-
-# References
+## References
 
 - [W3C Decentralized Identifiers (DIDs)](https://www.w3.org/TR/did-core/) specification
 - [DID Core Specification Test Suite](https://w3c.github.io/did-test-suite/)
 
-# Unresolved questions
+## Unresolved questions
 
 - Should the web service find another node for the request if it is not possible to connect to the cheqd node? Should the web service need to have a pool of trusted nodes for routing requests?
 - How should synchronous response to client requests be handled, if needed in the future?
