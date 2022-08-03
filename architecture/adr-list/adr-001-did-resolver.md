@@ -14,26 +14,29 @@
 
 The [`did:cheqd` method ADR](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method) defines how DIDs are created and read from ledger. According to the [W3C DID Core specification](https://w3c.github.io/did-core/), DID methods are expected to provide [standards-compliant methods of DID and DID Document ("DIDDoc") production](https://w3c.github.io/did-core/#production-and-consumption).
 
-The [cheqd DID Resolver](https://github.com/cheqd/did-resolver) is designed to implement the [W3C DID Resolution specification](https://w3c-ccg.github.io/did-resolution/).
+The [cheqd DID Resolver](https://github.com/cheqd/did-resolver) is designed to implement the [W3C DID *Resolution* specification](https://w3c-ccg.github.io/did-resolution/) for [`did:cheqd`](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method) method.
 
 ## Context
 
-[DID resolution](https://meet.google.com/xip-iwcs-kdj?authuser=0) is the process through which DIDs, associated DIDDocs, and other resources can be accessed using the "Read" functions of a DID method (in our case, the [cheqd DID method](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method)).
-
-There is [a defined algorithm with standardised behaviour for expected and unexpected inputs](https://w3c-ccg.github.io/did-resolution/#resolving-algorithm) sent to DID resolution software. The purpose of a DID Resolver for `did:cheqd` would be to implement such an algorithm for interactions with the cheqd ledger.
-
-### Resolving a `did:cheqd` entry
+The DID Resolution specification prescribes [a defined algorithm with standardised behaviour for expected and unexpected inputs](https://w3c-ccg.github.io/did-resolution/#resolving-algorithm) that a conforming DID method must be able to produce.
 
 All conforming DID resolvers implement `resolve` and `resolveRepresentation` abstract functions, as defined in the [DID Resolution specification](https://w3c-ccg.github.io/did-resolution/#resolving).
 
-#### Resolve function
+### Resolve function
 
 ```js
 resolve(did, resolutionOptions) → 
 « didResolutionMetadata, didDocument, didDocumentMetadata »
 ```
 
-The `resolve` function is intended to provide [resolution of a DID to as a JSON/JSON-LD map](https://w3c.github.io/did-core/#json) with the relevant DID Resolution Metadata, DID Document and DID Document Metadata populated.
+The `resolve` function is intended to fetch the *abstract* form of the DID Document, as stored on the ledger.
+
+### Resolve Representation function
+
+```js
+resolveRepresentation(did, resolutionOptions) → 
+« didResolutionMetadata, didDocumentStream, didDocumentMetadata »
+```
 
 For example, `did:cheqd:testnet:DAzMqo4MDMxCjgwM` resolves to the following response, containing Resolution Metadata, DIDDoc, and DIDDoc Metadata:
 
@@ -79,25 +82,7 @@ For example, `did:cheqd:testnet:DAzMqo4MDMxCjgwM` resolves to the following resp
 }
 ```
 
-
-#### Resolve Representation function
-
-```js
-resolveRepresentation(did, resolutionOptions) → 
-« didResolutionMetadata, didDocumentStream, didDocumentMetadata »
-```
-
-- **resolveRepresentation function**: the resolution of a byte stream format of a DID (in say JSON, JSON-LD or CBOR) back into the [map](https://www.w3.org/TR/did-core/#did-resolution) structure.
-
-For example, the following DID:
-
-```text
-did:cheqd:testnet:DAzMqo4MDMxCjgwM
-```
-
-should resolves in full to:
-
-
+## Architecture
 
 Since cheqd uses the Cosmos SDK and is built within the Cosmos ecosystem, data written to the ledger uses the serialisation method Google Protocol Buffers (protobuf). Therefore, in order to conform with the correct syntax and structure for the map produced after resolution, cheqd's DID Resolver will implement a resolveRepresentation function that is able to take output in protobuf and convert it into a corresponding, conformant map in JSON, according to the [DID Core Recommendation](https://www.w3.org/TR/did-core/).
 
@@ -109,7 +94,7 @@ This Architecture Decision Record (ADR) defines the architecture of a cheqd DID 
 - A **light cheqd DID Resolver**, run on [Cloudflare Workers](https://workers.cloudflare.com/), presenting a highly accessible and easily deployable instance of the cheqd DID Resolver, with a lower computational footprint than the full cheqd DID Resolver; 
 - A **[Universal Resolver Driver](https://github.com/decentralized-identity/universal-resolver)** packaged using [Docker Containers](https://www.docker.com/resources/what-container/), presenting a readily consumable, lightweight and secure instance of either the **full** cheqd DID Resolver or the **light** cheqd DID Resolver. 
 
-# Decision
+## Decision
 
 This ADR will add a new application/library for did-resolution based on the DID resolution implementations described throughout this ADR. We decided to design multiple implementations of the cheqd DID Resolver to suit different clients and audiences, which may want to consume cheqd DIDs for different purposes.
 
