@@ -173,6 +173,13 @@ Both of the architectural patterns above are designed so that a **[Universal Res
 
 ### "Full" cheqd DID Resolver
 
+The "Full" cheqd DID Resolver is able to use `github.com/cheqd/cheqd-node` as a Golang module for send `resolve` requests to a cheqd node instance to fetch DIDDoc / Resources from the ledger.
+
+Since the "Full" cheqd DID Resolver is wrapped for usage as a Docker container image using the Universal Resolver specification, the end-to-end sequence diagram for our DID Resolver would look like below:
+
+![cheqd "Full" DID Resolver sequence diagram](../../.gitbook/assets/cheqd-full-did-resolver-sequence-diagram.png)
+*Figure 1: "Full" cheqd DID Resolver sequence diagram ([editable version](https://swimlanes.io/u/CE_Rjphs9?rev=7))*
+
 ## Marshalling Protobuf to JSON
 
 Since Cosmos handles data in a format called protobuf, it is necessary to convert this format to JSON to remain compliant with the [DID Core Recommendation](https://www.w3.org/TR/did-core/#did-resolution). This process is commonly referred to as marshalling.
