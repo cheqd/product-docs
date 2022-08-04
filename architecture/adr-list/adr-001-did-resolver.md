@@ -309,46 +309,46 @@ Given the drawbacks associated with a *Light cheqd DID Resolver* being unable to
 
 ### Universal Resolver driver for `did:cheqd`
 
-<!-- markdown-link-check-disable-next-line -->
-The Decentralised Identity Foundation (DIF) has a publicly accessible Universal Resolver, which can be found at <https://dev.uniresolver.io>
+Compiled packages/binaries for the *Full cheqd DID Resolver* will be made available as a Docker container image with standardised Docker Compose configuration as defined in the [Universal Resolver driver development guide](https://github.com/decentralized-identity/universal-resolver/blob/main/docs/driver-development.md) to provide an easy mechanism for DID Resolution operators to incorporate `did:cheqd` as one of the supported DID methods they handle.
 
-The Universal Resolver is a landing page and search engine for multiple DID Resolvers, each with their own Universal Resolver Driver. Universal Resolver Drivers are all packaged up as [Docker Containers](https://www.docker.com/resources/what-container/), which makes it much easier for clients to import and directly support multiple drivers.
+### Configuration properties for Universal Resolver driver
 
-The flow for resolving a DID using this implementation is as follows:
+1. Operators should be able to configure gRPC endpoints for mainnet as as testnet (or any other cheqd network namespaces) so that a single DID Resolver instance can resolve requests to any network. (E.g., [grpc.cheqd.net](https://grpc.cheqd.net) for mainnet, [grpc.cheqd.network](https://grpc.cheqd.network) for testnet)
+2. For each supported cheqd network namespace (e.g., mainnet, testnet), operators should be able to define *one* or more upstream cheqd node gRPC endpoints. (E.g., additional fallback endpoints besides [grpc.cheqd.net](https://grpc.cheqd.net) for mainnet.) In case any one of the upstream endpoints is unavailable, this allows the DID Resolver to try a different upstream gRPC endpoint for resiliency.
+3. Operators should be able to define whether their gRPC pull/request is **secure** (default, carried out over HTTP.2 with TLS handshake) or **insecure** (optional, equivalent to a `grpcurl -plaintext` connection downgrade). This accommodates scenarios where gRPC endpoints may not necessarily be equipped to handle TLS handshakes, since the default Cosmos SDK / cheqd node configuration endpoints do not have TLS certificates defined.
 
-<!-- markdown-link-check-disable-next-line -->
-- A client sends a request to <https://dev.uniresolver.io>.
-- The Universal Resolver on DIF servers uses the cheqd Universal Resolver Driver to redirect client request to the full cheqd DID Resolver.
-- cheqd full DID Resolver gets DID Doc in protobuf format from the ledger through the Cosmos SDK gRPC API.
-- cheqd full DID Resolver generates a response for the client's request based on received DID Doc.
-- cheqd full DID Resolver sends a response to the client through the cheqd Universal Resolver Driver and Universal Resolver itself.
+## Consequences
 
-### 1. Client implements the **full cheqd DID Resolver** as a Library into their own application
+### Backwards Compatibility
 
-In this case, the Go module can be imported simply into a client's own libraries by using the following:
+1. Not applicable, since this would be the first release of cheqd DID Resolver
 
-```ignorelang
+### Positive
+
+1. *Full cheqd DID Resolver* reuses existing code to handle some parts of resolve and representing DIDDocs.
+2. Universal Resolver driver implementation provides a standardised way of incorporating `did:cheqd` into Universal Resolver instances that support multiple DID methods.
+
+### Negative
+
+1. Use of a custom DID URL path (e.g., `/1.0/identifiers/{did}/resources/{resource-id}` can be non-standard). Efforts should be made to see if this can implemented instead using DID URL *queries* according to the [Trust over IP Foundation "DID URL Resource Parameter" specification](https://wiki.trustoverip.org/display/HOME/DID+URL+Resource+Parameter+Specification).
+
+### Neutral
+
+1. Lack of a *Light cheqd DID Resolver*, at least initially, might not give an easy and computationally-cheap alternative to running Docker containers.
+
+
+### Ability for third-party applications to consume *Full cheqd DID Resolver* as a module
+
+Third-party applications that want to implement their own DID Resolver implementations for cheqd can consume the current implementation as a Golang module:
+
+```golang
 import (
-     "github.com/cheqd/cheqd-did-resolver/services"
+  "github.com/cheqd/cheqd-did-resolver/services"
 )
 ```
-
-The flow for resolving a DID using this implementation is as follows:
-
-- A client imports the library as a go module into their own application
-- Using the library, the client makes a request directly to the cheqd node, or alternatively, to their own node on the cheqd network
-- Requests will query the Cosmos gRPC endpoint to return a DID Document and associated metadata in protobuf format
-- The client application will unmarshal the protobuf into a JSON format which is compliant with [W3C DID Core](https://www.w3.org/TR/did-core/).
-
-The flow for DID resolution is illustrated in the third "Client <-> Ledger" section from [figure 1](../assets/adr-001-did-resolver/universal-resolver-sequence-diagram.puml).
 
 ## References
 
 - [W3C Decentralized Identifiers (DIDs)](https://www.w3.org/TR/did-core/) recommendation
 - [W3C Decentralized Identifier Resolution (DID Resolution)](https://w3c-ccg.github.io/did-resolution/) specification
 - [DID Core Specification Test Suite](https://w3c.github.io/did-test-suite/)
-
-## Unresolved questions
-
-- Should the web service find another node for the request if it is not possible to connect to the cheqd node? Should the web service need to have a pool of trusted nodes for routing requests?
-- How should synchronous response to client requests be handled, if needed in the future?
