@@ -129,7 +129,7 @@ For example, a `resolveRepresentation` function *could* derive a valid standards
   "didDocumentMetadata": {
     "created": "2022-07-19T08:29:07Z",
     "versionId": "57543FA1D9C56033BABBFA3A438E0A149E01BBB89E6D666ACE1243455AA6F2BC",
-    "linkedResources": [
+    "linkedResourceMetadata": [
       {
         "resourceURI": "did:cheqd:testnet:DAzMQo4MDMxCjgwM/resources/44547089-170b-4f5a-bcbc-06e46e0089e4",
         "resourceCollectionId": "DAzMQo4MDMxCjgwM",
@@ -153,17 +153,23 @@ As described above, the abstract `resolve` function is already available for the
 
 This objective has certain advantages:
 
-1. Updates to DID Resolver code can be carried out and released independently of cheqd-node releases. As a consequence, there's no need to go through an on-ledger governance vote, and voting period to make a change to `resolveRepresentation`.
-2. A separate web service module would allow for flexibility in how to handle complex scenarios on DID URL Dereferencing, error code handling for DID URL requests, and safely handling content transport for various media types.
-3. Making the DID Resolver a standalone, non-ledger module allows for an operator of this web service to *independently* scale their service horizontally and vertically.
+- Updates to DID Resolver code can be carried out and released independently of cheqd-node releases. As a consequence, there's no need to go through an on-ledger governance vote, and voting period to make a change to `resolveRepresentation`.
+- A separate web service module would allow for flexibility in how to handle complex scenarios on DID URL Dereferencing, error code handling for DID URL requests, and safely handling content transport for various media types.
+- Making the DID Resolver a standalone, non-ledger module allows for an operator of this web service to *independently* scale their service horizontally and vertically.
 
-We explored multiple architectural patterns for how a DID Resolver could be implemented for the cheqd ledger. The objective here was to explore and provide DID resolution operators multiple approaches for running resolution service, each with their own pros and cons (which are discussed below).
+We explored two architectural patterns for how a DID Resolver could be implemented for the cheqd ledger. The objective here was to explore and provide DID resolution operators multiple approaches for running resolution service, each with their own pros and cons (which are discussed below).
 
-Both of the architectural patterns below were designed to so that a **[Universal Resolver driver for `did:cheqd`](https://github.com/decentralized-identity/universal-resolver)** could be created. The Universal Resolver project aims to provide a common REST API definition for DID Resolution where each DID method can provide a Docker container that with an easy-to-deploy mechanism for the specific DID method.
+1. **"Full" cheqd DID Resolver**
+   1. Since the [cheqd-node ledger](https://github.com/cheqd/cheqd-node) / Cosmos SDK is written in Golang, this resolver would consist of Golang libraries imported from the existing ledger code. This promotes code reuse.
+   2. Data would be fetched from the ledger using the gRPC endpoint on a node, which allows it (by default) to take place over an encrypted channel [since gRPC uses HTTP/2](https://grpc.io/).
+   3. Data retrieved would be in the native Protobuf representation as stored on ledger, thus allowing data integrity computations to be made.
+2. **"Light" cheqd DID Resolver**
+   1. Universal Resolver drivers are designed to be run as Docker containers. A limitation of this approach is that the computation footprint of a compute resource can be quite high, e.g., a Docker container may be 100 MB+ in size and [suffer from slow startup times in a "cold-start" scenario](https://mikhail.io/serverless/coldstarts/aws/).
+   2. Thus, our "Light" DID Resolver idea was to explore using [Cloudflare Workers](https://workers.cloudflare.com/), a lightweight serverless compute platform. As a comparison, [Cloudflare Workers are limited to 1 MB in size](https://developers.cloudflare.com/workers/platform/limits/) and [have extremely low cold-start times](https://blog.cloudflare.com/eliminating-cold-starts-with-cloudflare-workers/). (We use Cloudflare Workers in [our Cosmos SDK Custom Data API](https://github.com/cheqd/data-api), for example.)
+   3. Cloudflare Workers can also be deployed outside the Cloudflare service in a Docker container using [Miniflare](https://miniflare.dev/). This could be used to provide a Docker container deployment option for the Universal Resolver `did:cheqd` driver.
+   4. However, [a limitation of Cloudflare Workers is they do not allow a gRPC *request* to be made](https://community.cloudflare.com/t/can-i-make-a-grpc-request-from-a-worker/157450/4) to an external endpoint. This would force the "Light" cheqd Resolver to use the gRPC-Web / REST endpoint `resolve` implementation to fetch data from the ledger. This could be considered a higher risk profile in terms of data integrity by resolver operators / client applications.
 
-- A **full cheqd DID Resolver** to generate a spec compliant DIDDoc, based on the [cheqd DID method](https://github.com/cheqd/node-docs/blob/main/architecture/adr-list/adr-002-cheqd-did-method.md), through communicating with a cheqd node at the gPRC endpoint. This can be implemented as:
-  - A **library written in Go** which can be imported directly into client applications, or
-- A **light cheqd DID Resolver**, run on [Cloudflare Workers](https://workers.cloudflare.com/), presenting a highly accessible and easily deployable instance of the cheqd DID Resolver, with a lower computational footprint than the full cheqd DID Resolver;
+Both of the architectural patterns above are designed so that a **[Universal Resolver driver for `did:cheqd`](https://github.com/decentralized-identity/universal-resolver)** could be created. The Universal Resolver project aims to provide a common REST API definition for DID Resolution where each DID method can provide a Docker container that with an easy-to-deploy mechanism for the specific DID method.
 
 ## Overall architecture diagram
 
