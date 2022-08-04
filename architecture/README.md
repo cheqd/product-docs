@@ -1,6 +1,6 @@
 # Architecture Decision Record (ADR) Process
 
-This is a location to record all high-level architecture decisions for **identity features and functionality** on [cheqd network](https://docs.cheqd.io/node/).
+This is a location to record all high-level architecture decisions for **identity features and functionality** on [cheqd network](https://docs.cheqd.io/identity/).
 
 Architecture Decision Records directly linked to on-ledger functionality is [documented separately on the cheqd ledger/node documentation](https://docs.cheqd.io/node/architecture/adr-list) site.
 
