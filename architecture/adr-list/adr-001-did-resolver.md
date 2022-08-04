@@ -171,70 +171,86 @@ We explored two architectural patterns for how a DID Resolver could be implement
 
 Both of the architectural patterns above are designed so that a **[Universal Resolver driver for `did:cheqd`](https://github.com/decentralized-identity/universal-resolver)** could be created. The Universal Resolver project aims to provide a common REST API definition for DID Resolution where each DID method can provide a Docker container that with an easy-to-deploy mechanism for the specific DID method.
 
-### "Full" cheqd DID Resolver
+### *Full* cheqd DID Resolver
 
-The "Full" cheqd DID Resolver is able to use `github.com/cheqd/cheqd-node` as a Golang module for send `resolve` requests to a cheqd node instance to fetch DIDDoc / Resources from the ledger.
+The *Full cheqd DID Resolver* is able to use `github.com/cheqd/cheqd-node` as a Golang module for send `resolve` requests to a cheqd node instance to fetch DIDDoc / Resources from the ledger.
 
-Since the "Full" cheqd DID Resolver is wrapped for usage as a Docker container image using the Universal Resolver specification, the end-to-end sequence diagram for our DID Resolver would look like below:
+Since the *Full cheqd DID Resolver* is wrapped for usage as a Docker container image using the Universal Resolver specification, the end-to-end sequence diagram for our DID Resolver would look like below:
 
-![cheqd "Full" DID Resolver sequence diagram](../../.gitbook/assets/cheqd-full-did-resolver-sequence-diagram.png)
+![*Full cheqd DID Resolver* sequence diagram](../../.gitbook/assets/cheqd-full-did-resolver-sequence-diagram.png)
 *Figure 1: "Full" cheqd DID Resolver sequence diagram ([editable version](https://swimlanes.io/u/CE_Rjphs9?rev=7))*
 
-## Marshalling Protobuf to JSON
+The *Full cheqd DID Resolver* is designed to handle requests concurrently, while reducing the risk of large quantities of threads and requests blocking the efficiency of the on-ledger services.
 
-Since Cosmos handles data in a format called protobuf, it is necessary to convert this format to JSON to remain compliant with the [DID Core Recommendation](https://www.w3.org/TR/did-core/#did-resolution). This process is commonly referred to as marshalling.
+#### Fetching Protobuf from ledger and converting it to JSON
 
-cheqd DID Document resolution is built to be lightweight and simple. Instead of needing to handle requests and threads in parallel, the resolover is built to handle all threads concurrently. This design principle will reduce the risk of large quantities of threads and requests blocking the efficiency of the service.
+Since Cosmos SDK SDK encodes data in Protobuf, the DID Resolver "[marshalls](https://en.wikipedia.org/wiki/Marshalling_(computer_science))" them to JSON. The software class diagram below describes how these components/methods are tied together:
 
-![cheqd did resolver class diagram](../assets/adr-001-did-resolver/resolver-class-diagram.png)
-[Figure 2: cheqd protobuf -> JSON marshalling.](../assets/adr-001-did-resolver/resolver-class-diagram.puml)
+![*Full cheqd DID Resolver* class diagram](../../.gitbook/assets/cheqd-full-did-resolver-class-diagram.png)
+*Figure 2: "Full" cheqd DID Resolver class diagram*
 
-## Resolution rules
+Marshalling/unmarshalling requests back-and-forth between Protobuf and JSON is carried out by services in the "Full" DID Resolver
 
-The cheqd DID Resolver complies with the rules defined in [Decentralized Identifier Resolution (DID Resolution) v0.2](https://w3c-ccg.github.io/did-resolution). This section clarifies and expands some descriptions specific to cheqd.
+![*Full cheqd DID Resolver* Protobuf <-> JSON marshalling](../../.gitbook/assets/cheqd-did-resolver-protobuf-json-marshalling.png)
+*Figure 3: "Full" cheqd DID Resolver Protobuf <-> JSON marshalling ([editable version](https://swimlanes.io/u/2W1PQKx_s?rev=4))*
 
-### Supported types
+### Resolution rules
 
-[RFC 9110 HTTP Semantics](https://www.rfc-editor.org/rfc/rfc9110.html#name-accept) says:
+The cheqd DID Resolver complies with the rules and algorithm defined in [Decentralized Identifier Resolution (DID Resolution) v0.2](https://w3c-ccg.github.io/did-resolution). This section clarifies and expands some descriptions specific to cheqd.
 
-> The "Accept" header field can be used by user agents to specify their preferences regarding response media types.
+The [DID Resolution specification HTTP(S) bindings](https://w3c-ccg.github.io/did-resolution/#bindings-https) section states that:
 
-This means that a response in the "Content-Type" header field should contain one of types from a request "Accept" header field.
+> If the output of the DID URL dereferencing function contains the `didDocumentStream`:
+>
+> - If the value of the `Accept` HTTP header is absent or `application/did+ld+json` (or other media type of a conformant representation of a DID document):
+>   - The HTTP response status code MUST be `200`.
+>   - The HTTP response MUST contain a `Content-Type` header. The value of this header MUST be `application/did+ld+json` (or other media type of a conformant representation of a DID document).
+> - The HTTP response body MUST contain the `didDocumentStream`, in the representation corresponding to the `Accept` HTTP header.
 
-At the same time, [Resolution specification](https://w3c-ccg.github.io/did-resolution/#bindings-https) requires:
+Since the cheqd DID Resolver APIs are REST APIs, the default `Content-Type: application/did+ld+json` encoding is used if the `Accept` header is not explicitly set since it matches the `Accept: */*` header that most client applications send.
 
-> The HTTP response body MUST contain the didDocumentStream, in the representation corresponding to the Accept HTTP header.
+#### `Accept` header is `application/did+ld+json` OR blank OR `*/*`
 
-This means that the `ContentType` from HTTP response body should be the same as the HTTP response header `Content-Type`, and should be one of types from the `Accept` request HTTP header.
+- **Response HTTP header**: `Content-Type: application/did+ld+json`
+- **Response HTTP body**
+  - `didDocument` / `contentStream` contains `@context` section;
+  - `didResolutionMetadata` / `dereferencingMetadata` `contentType` field is `application/did+ld+json`
 
-#### [8.1 HTTP(S) Binding](https://w3c-ccg.github.io/did-resolution/#bindings-https) has been used for defining a list of available types for DID resolution
+#### `Accept` request HTTP header contains `application/ld+json;profile="https://w3id.org/did-resolution"`
 
-- Accept request HTTP header contains `application/did+ld+json`
-  - Response HTTP header: `Content-Type: application/did+ld+json`
-  - Response HTTP body
-    - didDocument / contentStream contains `@context` section;
-    - didResolutionMetadata / dereferencingMetadata `ContentType` field is `application/did+ld+json`;
-- Accept request HTTP header contains `application/ld+json;profile="https://w3id.org/did-resolution"`
-  - Response HTTP header: `Content-Type: application/ld+json;profile="https://w3id.org/did-resolution`
-  - Response HTTP body
-    - didDocument / contentStream contains `@context` section;
-    - didResolutionMetadata / dereferencingMetadata `ContentType` field is `application/ld+json;profile="https://w3id.org/did-resolution`;
-- Accept request HTTP header contains `application/did+json`
-  - Response HTTP header: `Content-Type: application/did+json`
-  - Response HTTP body
-    - didDocument / contentStream DOES NOT contain `@context` section;
-    - didResolutionMetadata / dereferencingMetadata `ContentType` field is `application/did+json`;
-- Accept request HTTP header contains `*/*`
-  - Response HTTP header: `Content-Type: application/did+ld+json`
-  - Response HTTP body
-    - didDocument / contentStream contains `@context` section;
-    - didResolutionMetadata / dereferencingMetadata `ContentType` field is `application/did+ld+json`;
-- Accept request HTTP header does not contain any of the types above
-  - Response HTTP header: `Content-Type: application/json`
-  - Response HTTP body
-    - didDocument / contentStream is `[]`;
-    - didResolutionMetadata / dereferencingMetadata contains a property error with value representationNotSupported
-    - didResolutionMetadata / dereferencingMetadata `ContentType` field is `application/json`;
+- **Response HTTP header**: `Content-Type: application/ld+json;profile="https://w3id.org/did-resolution`
+- **Response HTTP body**
+  - `didDocument` / `contentStream` contains `@context` section;
+  - `didResolutionMetadata` / `dereferencingMetadata` `contentType` field is `application/ld+json;profile="https://w3id.org/did-resolution`
+
+#### `Accept` request HTTP header contains `application/did+json`
+
+- **Response HTTP header**: `Content-Type: application/did+json`
+- **Response HTTP body**
+  - `didDocument` / `contentStream` DOES NOT contain `@context` section;
+  - `didResolutionMetadata` / `dereferencingMetadata` `ContentType` field is `application/did+json`
+
+#### DID URL Dereferencing result is the *actual* Resource on-ledger
+
+If the result of DID URL Dereferencing is *not* `didDocumentStream` but a *`Resource`*, then cheqd DID Resolver sets the `Content-Type` header to the `mediaType` defined in the Resource metadata.
+
+- **Request** HTTP headers
+  - `Accept` should allow `*/*` *or* match the `mediaType` of the Resource
+  - [`Accept-Encoding`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding) may be allowed compression methods (e.g., `gzip`, `compress`, etc.)
+- **Response** HTTP headers
+  - `Content-Type` should be set to `mediaType>` of the Resource
+  - `Content-Encoding` should be set to a valid content compression method in `Accept-Encoding` and response compressed accordingly
+  - [`Content-Length`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Length) should be set to the Resource size, in decimal bytes
+- **Response HTTP body**
+  - Resource, encoded correctly according to the `mediaType`
+
+#### `Accept` request HTTP header does not contain valid `Content-Type`
+
+- **Response HTTP header**: `Content-Type: application/json`
+- **Response HTTP body**
+  - `didDocument` / `contentStream` is `[]`;
+  - `didResolutionMetadata` / `dereferencingMetadata` contains a property error with value `representationNotSupported`
+  - `didResolutionMetadata` / `dereferencingMetadata` `ContentType` field is `application/json`
 
 ### Errors
 
@@ -304,8 +320,6 @@ The flow for resolving a DID using this implementation is as follows:
 - cheqd full DID Resolver gets DID Doc in protobuf format from the ledger through the Cosmos SDK gRPC API.
 - cheqd full DID Resolver generates a response for the client's request based on received DID Doc.
 - cheqd full DID Resolver sends a response to the client through the cheqd Universal Resolver Driver and Universal Resolver itself.
-
-The flow for DID resolution is illustrated in the third "Client <-> Universal Resolver" section from [figure 1](../assets/adr-001-did-resolver/universal-resolver-sequence-diagram.puml).
 
 ### 1. Client implements the **full cheqd DID Resolver** as a Library into their own application
 
