@@ -11,15 +11,15 @@ The team behind the core cheqd product/tech stack have extensive experience work
 * [Universal Resolver support](../../architecture/adr-list/adr-001-did-resolver.md) provides an easy way to integrate cheqd into SSI and non-SSI applications.
 * We aim to provide backwards compatibility with client applications designed for Hyperledger Indy (`did:indy:` and `did:sov:` methods) through a blend of [on-ledger functionality such as Resources](../resources/README.md) and SDKs while *also* providing a future-compatible mode with more complex DIDDocs than those possible on Hyperledger Indy.
 
-## W3C DID Spec Registries
+## W3C DID Specification compliance
+
+### DID Spec Registries
 
 You can also find the cheqd DID method formally registered in the [W3C DID Spec Registries](https://www.w3.org/TR/did-spec-registries/#did-methods), the canonical registry for DID methods.
 
-## W3C DID Core Test suite
+### DID Core Test suite
 
 Standards-compliance tests with the [W3C DID Core Test suite](https://w3c.github.io/did-test-suite/) is also [available and updated regularly for `did:cheqd`](https://w3c.github.io/did-test-suite/#M8).
-
-### DID Core Test suite results
 
 There are three components that the DID Core Test suite checks for specification compliance: DID Methods, DID Resolvers, and DID URL Dereferencers. These can be viewed at:
 
