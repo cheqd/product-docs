@@ -8,7 +8,7 @@
 | **ADR Stage** | DRAFT |
 | **Implementation Status** | In Progress |
 | **Start Date** | 2022-02-22 |
-| **Last Updated** | 2022-08-02 |
+| **Last Updated** | 2022-08-04 |
 
 ## Summary
 
@@ -333,7 +333,8 @@ The following syntax can be used in DID Resolution to fetch resources or preview
 
 ## References
 
-- [W3C Decentralized Identifiers (DIDs)](https://www.w3.org/TR/did-core/) specification
+- [W3C Decentralized Identifiers (DIDs)](https://www.w3.org/TR/did-core/) recommendation
+- [W3C Decentralized Identifier Resolution (DID Resolution)](https://w3c-ccg.github.io/did-resolution/) specification
 - [DID Core Specification Test Suite](https://w3c.github.io/did-test-suite/)
 
 ## Unresolved questions
