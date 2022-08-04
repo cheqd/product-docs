@@ -92,4 +92,4 @@ The table below summarises where we are at:
 
 ### **How does cheqd support privacy preserving revocation?**
 
-**\<todo>**
+\<todo>

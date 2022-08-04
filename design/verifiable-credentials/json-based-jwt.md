@@ -8,21 +8,14 @@ JWTs are widely used in legacy identity infrastructure, underlying the framework
 
 ## DID JWT VC
 
-DID-JWT-VC is a library that enables users to create and verify W3C Verifiable Credentials and Presentations in JWT format.
+DID-JWT-VC is a library that enables users to create and verify W3C Verifiable Credentials and Presentations in JWT format. [Find out more at [decentralized-identity/did-jwt-vc](https://github.com/decentralized-identity/did-jwt-vc).
 
-{% embed url="https://github.com/decentralized-identity/did-jwt-vc" %}
-
-cheqd has forked this library to include the ability to create and verify W3C Verifiable Credentials and Presentations in JWT format using cheqd DIDs. In time, cheqd intends to merge this fork back into the upstream did-jwt-vc repository to ensure alignment between cheqd's work and future updates to the main repo.&#x20;
+cheqd has forked this library to include the ability to create and verify W3C Verifiable Credentials and Presentations in JWT format using cheqd DIDs. In time, cheqd intends to merge this fork back into the upstream did-jwt-vc repository to ensure alignment between cheqd's work and future updates to the main repo.
 
 cheqd's fork of this library can be found below:
 
-{% embed url="https://github.com/cheqd/did-jwt-vc" %}
+[cheqd/did-provider-cheqd](https://github.com/cheqd/did-provider-cheqd)
 
 ## Issue Credential using JSON based JWT
 
-To start using this functionality, you can follow the tutorials here:
-
-{% content-ref url="../../tutorials/verifiable-credentials/veramo-cli-sdk/json-based-jwt/issue-verifiable-credential.md" %}
-[issue-verifiable-credential.md](../../tutorials/verifiable-credentials/veramo-cli-sdk/json-based-jwt/issue-verifiable-credential.md)
-{% endcontent-ref %}
-
+To start using this functionality, you can follow the tutorials for this an all other steps on [our identity docs site](https://docs.cheqd.io/identity/tutorials/verifiable-credentials).

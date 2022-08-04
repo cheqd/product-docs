@@ -10,4 +10,6 @@ description: >-
 
 ## Proposed
 
+1. [ADR 001: **DID Resolver**](adr-001-did-resolver.md)
+
 ## Draft

@@ -54,7 +54,7 @@
 
 ## 🤝 Contributing to cheqd
 
-* [Contributor Guide](CONTRIBUTING.md)
+* Contributor Guide - coming soon
 * [License](LICENSE.md)
 * [Code of Conduct](CODE_OF_CONDUCT.md)
 * [Security Policy](SECURITY.md)

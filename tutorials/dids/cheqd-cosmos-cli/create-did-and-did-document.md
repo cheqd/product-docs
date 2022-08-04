@@ -42,20 +42,20 @@ $ cat keys.txt
 
 It needs for inserting it into the DID-doc (`public_key_multibase` field in `verification_method` section)
 
-```
+```bash
 cheqd-noded debug encoding base64-multibase58 <pub_key_base_64>
 ```
 
 Based on the working example in this tutorial the result will be:
 
-```
+```bash
 $ cheqd-noded debug encoding base64-multibase58 MnrTheU+vCrN3W+WMvcpBXYBG6D1HrN5usL1zS6W7/k=
 z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE
 ```
 
 And the response will be:
 
-```
+```bash
 z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE
 ```
 
@@ -65,7 +65,7 @@ To create a `unique-id` for our DID we can use first 32 symbols of `multibase58`
 
 For example, we can truncate previous one:
 
-```
+```bash
 printf '%.32s\n' `cheqd-noded debug encoding base64-multibase58 <pub_key_base_64>`
 ```
 
@@ -77,7 +77,7 @@ Next we can compile our DIDDoc.
 
 Copy and paste the template below into your terminal. We will add additional required information into the blank fields `<xxxxx>` in the next steps.
 
-```
+```bash
 {
   "id": "did:cheqd:<namespace>:<unique-id>",
   "verification_method": [
@@ -104,25 +104,25 @@ Within this template we will be required to enter a number of fields
 Where:
 
 * `<namespace>` - for now it can `testnet` or `mainnet` . For this flow we use `testnet`
-* `<unique-id>` - identifier, created on the [step](https://github.com/cheqd/cheqd-node/diffs/2?base\_sha=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&branch=DEV-890-cheqd-cli-docs\&commentable=true\&name=DEV-890-cheqd-cli-docs\&pull\_number=283\&qualified\_name=refs%2Fheads%2FDEV-890-cheqd-cli-docs\&sha1=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&sha2=4b36c0a5f767b7d4fb91341bc732d54471702dac\&short\_path=1840e4b\&unchanged=expanded\&w=false#3-create-unique-id-for-our-did)
+* `<unique-id>` - identifier, created a step #3
 * `<key-alias>` - a key alias for the verification method identifier
-* `<verification-public-key-multibase>` - result of this [step](https://github.com/cheqd/cheqd-node/diffs/2?base\_sha=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&branch=DEV-890-cheqd-cli-docs\&commentable=true\&name=DEV-890-cheqd-cli-docs\&pull\_number=283\&qualified\_name=refs%2Fheads%2FDEV-890-cheqd-cli-docs\&sha1=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&sha2=4b36c0a5f767b7d4fb91341bc732d54471702dac\&short\_path=1840e4b\&unchanged=expanded\&w=false#2-get-multibase58-string)
+* `<verification-public-key-multibase>` - result of step #1
 * `<auth-key-alias>` - alias of authentication key.
-* `<service-key>` - alias for service. More information [here](https://github.com/cheqd/cheqd-node/blob/DEV-890-cheqd-cli-docs/architecture/adr-list/adr-002-cheqd-did-method.md#service)
+* `<service-key>` - alias for service. More information [here](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method)
 * `<URI-to-object>` - URI according to the spec [rfc3986](https://www.rfc-editor.org/rfc/rfc3986)
 
 In our example:
 
 * `did:cheqd:<namespace>:<unique-id>` - would be `did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe`
 * `did:cheqd:<namespace>:<unique-id>#<key-alias>` - `did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe#key1`
-* `<verification-public-key-multibase>` - key from this [step](https://github.com/cheqd/cheqd-node/diffs/2?base\_sha=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&branch=DEV-890-cheqd-cli-docs\&commentable=true\&name=DEV-890-cheqd-cli-docs\&pull\_number=283\&qualified\_name=refs%2Fheads%2FDEV-890-cheqd-cli-docs\&sha1=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&sha2=4b36c0a5f767b7d4fb91341bc732d54471702dac\&short\_path=1840e4b\&unchanged=expanded\&w=false#2-get-multibase58-string). As result `z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE`
+* `<verification-public-key-multibase>` - key from step #1. The result should look something like: `z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE`
 * `did:cheqd:<namespace>:<unique-id>#<auth-key-alias>` - let it be:
 
 `did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe#key1`
 
-**After these preparations, the base DIDDoc will look like**
+After these preparations, the base DIDDoc will look like:
 
-```jsonc
+```json
 {
   "id": "did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe",
   "verification_method": [
@@ -164,7 +164,7 @@ Where:
 
 After you execute the command you will receive `"code": 0"`if the DID was successfully written to the ledger. We can do a full query to check this as well. In case of other error codes field `raw_logs` can help with figuring out the case. For example:
 
-```
+```bash
 "code":1201,"data":"","raw_log":"failed to execute message; message index: 0: id:cheqd:testnet:fcbarcelona: DID Doc not found"
 ```
 
@@ -172,17 +172,17 @@ After you execute the command you will receive `"code": 0"`if the DID was succes
 
 Finally, to check that the DID was successfully written we can use the following query:
 
-```
+```bash
 cheqd-noded query cheqd did "<identifier-of-your-DIDDoc>" --node https://rpc.testnet.cheqd.network:443
 ```
 
 where:
 
-* `<identifier-of-your-DIDDoc>` - identifier with template `"did:cheqd:<namespace>:<unique-id>"` and `<unique-id>` is from [step](https://github.com/cheqd/cheqd-node/diffs/2?base\_sha=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&branch=DEV-890-cheqd-cli-docs\&commentable=true\&name=DEV-890-cheqd-cli-docs\&pull\_number=283\&qualified\_name=refs%2Fheads%2FDEV-890-cheqd-cli-docs\&sha1=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&sha2=4b36c0a5f767b7d4fb91341bc732d54471702dac\&short\_path=1840e4b\&unchanged=expanded\&w=false#3-create-unique-id-for-our-did)
+* `<identifier-of-your-DIDDoc>` - identifier with template `"did:cheqd:<namespace>:<unique-id>"` and `<unique-id>` is from step #3
 
 In our example:
 
-```
+```bash
 cheqd-noded query cheqd did "did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe" --node https://rpc.testnet.cheqd.network:443
 ```
 
@@ -198,29 +198,29 @@ For example, let it be a docker image, cause it's the most fastest way to start 
 
 The next command can help:
 
-```
+```bash
 docker run -it --rm -u root --entrypoint bash ghcr.io/cheqd/cheqd-node:0.4.0
 ```
 
 After that, we need to install needed package for process SSL certificates:
 
-```
+```bash
 apt update && apt install ca-certificates -y
 ```
 
 Also, it can help to setup your favourite editor, for example `vim` :
 
-```
+```bash
 apt install vim -y
 ```
 
 The next step is to change user to `cheqd` and restore operator's keys:
 
-```
+```bash
 su cheqd
 ```
 
-```
+```bash
 cheqd-noded keys add <cheqd-operator-name> --recover
 ```
 

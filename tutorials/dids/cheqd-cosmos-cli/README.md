@@ -1,2 +1,1 @@
 # cheqd-cosmos-cli
-
