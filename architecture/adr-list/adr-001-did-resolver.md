@@ -155,18 +155,15 @@ This objective has certain advantages:
 
 1. Updates to DID Resolver code can be carried out and released independently of cheqd-node releases. As a consequence, there's no need to go through an on-ledger governance vote, and voting period to make a change to `resolveRepresentation`.
 2. A separate web service module would allow for flexibility in how to handle complex scenarios on DID URL Dereferencing, error code handling for DID URL requests, and safely handling content transport for various media types.
-3. In addition, the separation of the system into microservices provides more flexibility to third parties in how they choose to resolve cheqd DIDs.
+3. Making the DID Resolver a standalone, non-ledger module allows for an operator of this web service to *independently* scale their service horizontally and vertically.
 
+We explored multiple architectural patterns for how a DID Resolver could be implemented for the cheqd ledger. The objective here was to explore and provide DID resolution operators multiple approaches for running resolution service, each with their own pros and cons (which are discussed below).
 
-When exploring the We decided to design multiple implementations of the cheqd DID Resolver to suit different clients and audiences, which may want to consume cheqd DIDs for different purposes.
-
-Importantly, each implementation of the cheqd DID Resolver is decoupled from the cheqd network, which means updating the resolver does not require updating the application on the node side. This avoids having to go through an on-ledger governance vote, and voting period to make a change. In addition, the separation of the system into microservices provides more flexibility to third parties in how they choose to resolve cheqd DIDs.
+Both of the architectural patterns below were designed to so that a **[Universal Resolver driver for `did:cheqd`](https://github.com/decentralized-identity/universal-resolver)** could be created. The Universal Resolver project aims to provide a common REST API definition for DID Resolution where each DID method can provide a Docker container that with an easy-to-deploy mechanism for the specific DID method.
 
 - A **full cheqd DID Resolver** to generate a spec compliant DIDDoc, based on the [cheqd DID method](https://github.com/cheqd/node-docs/blob/main/architecture/adr-list/adr-002-cheqd-did-method.md), through communicating with a cheqd node at the gPRC endpoint. This can be implemented as:
   - A **library written in Go** which can be imported directly into client applications, or
-  - A **standalone web service**, which acts as a proxy to forward requests to the cheqd node.
 - A **light cheqd DID Resolver**, run on [Cloudflare Workers](https://workers.cloudflare.com/), presenting a highly accessible and easily deployable instance of the cheqd DID Resolver, with a lower computational footprint than the full cheqd DID Resolver;
-- A **[Universal Resolver Driver](https://github.com/decentralized-identity/universal-resolver)** packaged using [Docker Containers](https://www.docker.com/resources/what-container/), presenting a readily consumable, lightweight and secure instance of either the **full** cheqd DID Resolver or the **light** cheqd DID Resolver.
 
 ## Overall architecture diagram
 
