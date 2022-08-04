@@ -36,7 +36,7 @@ did:cheqd:mainnet:**93235d54-53cc-42b9-ae77-f99efe9eadc9**/resources/**8da12c4a-
 
 ## Creating on-ledger Governance Framework
 
-### 1. Create a Collection DID Document&#x20;
+### 1. Create a Collection DID Document
 
 ```json
 {
@@ -49,14 +49,14 @@ did:cheqd:mainnet:**93235d54-53cc-42b9-ae77-f99efe9eadc9**/resources/**8da12c4a-
       "public_key_multibase": "<verification-public-key-multibase>"
     }
   ],
-  "authentication": [
+  "authentication":
     "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9#key1"
 }
 ```
 
 ### 2. Create Governance Framework Resource
 
-Using the same private verification key as is created to authenticate with the DID Document, create and sign a transaction to create a resource for the Governance Framework
+Using the same private verification key which was created to authenticate the DID Document, next create and sign a transaction to create a resource for the Governance Framework.
 
 ```bash
 cheqd-noded tx resource create-resource 
@@ -73,12 +73,12 @@ cheqd-noded tx resource create-resource
    --gas auto \
    --gas-adjustment 1.3 \
    --gas-prices 25ncheq
-
+   
 ```
 
 ### 3. Update the Collection DID Document with appropriate service section
 
-```json
+```jsonc
 {
   "id": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9",
   "verification_method": [
@@ -94,10 +94,10 @@ cheqd-noded tx resource create-resource
   ],
   "service": [
     {
-        "id": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9#cheqdGovernanceFramework",
-        "type": "markdown",
-        "serviceEndpoint": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9/resources/adb023ce-3b6d-48c3-aadd-134837ba62fa"]
-    }
+       "id": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9#cheqdGovernanceFramework",
+       "type": "markdown",
+       "serviceEndpoint": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9/resources/adb023ce-3b6d-48c3-aadd-134837ba62fa"
+    },
     {
         "id": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9#GovernanceFrameworkWebsite",
         "type": "LinkedDomains",
@@ -109,7 +109,7 @@ cheqd-noded tx resource create-resource
 
 ## Referencing Governance Framework resource in Issuer DID
 
-```json
+```jsonc
 {
   "id": "did:cheqd:mainnet:17dd8754-c5ad-45d3-8f6c-078bfa72c63c",
   "verification_method": [
