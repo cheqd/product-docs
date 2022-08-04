@@ -99,7 +99,7 @@ resolveRepresentation(did, resolutionOptions) →
 « didResolutionMetadata, didDocumentStream, didDocumentMetadata »
 ```
 
-For example, `did:cheqd:testnet:DAzMQo4MDMxCjgwM` *should* return a response similar to the one below containing Resolution Metadata, DIDDoc, and DIDDoc Metadata. This representation *is* meant to be compliant with the DID Core resolution requirements:
+For example, a `resolveRepresentation` function *could* derive a valid standards-compliant representation of `did:cheqd:testnet:DAzMQo4MDMxCjgwM` from the above `resolve` function. The response would be similar to the one below containing Resolution Metadata, DIDDoc, and DIDDoc Metadata:
 
 ```jsonc
 {
@@ -129,23 +129,36 @@ For example, `did:cheqd:testnet:DAzMQo4MDMxCjgwM` *should* return a response sim
   "didDocumentMetadata": {
     "created": "2022-07-19T08:29:07Z",
     "versionId": "57543FA1D9C56033BABBFA3A438E0A149E01BBB89E6D666ACE1243455AA6F2BC",
-    "resources": [
+    "linkedResources": [
       {
         "resourceURI": "did:cheqd:testnet:DAzMQo4MDMxCjgwM/resources/44547089-170b-4f5a-bcbc-06e46e0089e4",
-        "name": "DemoResource",
+        "resourceCollectionId": "DAzMQo4MDMxCjgwM",
+        "resourceId": "44547089-170b-4f5a-bcbc-06e46e0089e4",
+        "resourceName": "DemoResource",
         "resourceType": "CL-Schema",
         "mediaType": "application/json",
         "created": "2022-07-19T08:40:00Z",
-        "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298"
+        "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
+        "previousVersionId": null, // null if no previous version, otherwise, resourceId of previous version
+        "nextVersionId": null, // null if no new version, otherwise, resourceId of new version
       }
     ]
   }
 }
 ```
 
-## Architectural patterns for resolving DIDDocs from cheqd ledger
+## Architecture of DID Resolver for cheqd
 
-This ADR will add a new application/library for did-resolution based on the DID resolution implementations described throughout this ADR. We decided to design multiple implementations of the cheqd DID Resolver to suit different clients and audiences, which may want to consume cheqd DIDs for different purposes.
+As described above, the abstract `resolve` function is already available for the cheqd ledger via the default Cosmos SDK gRPC/REST API endpoints. Our primary objective with building a DID Resolver for cheqd was to design this `resolveRepresentation` piece as a standalone component that was *not* packaged within the [cheqd-node ledger code](https://github.com/cheqd/cheqd-node).
+
+This objective has certain advantages:
+
+1. Updates to DID Resolver code can be carried out and released independently of cheqd-node releases. As a consequence, there's no need to go through an on-ledger governance vote, and voting period to make a change to `resolveRepresentation`.
+2. A separate web service module would allow for flexibility in how to handle complex scenarios on DID URL Dereferencing, error code handling for DID URL requests, and safely handling content transport for various media types.
+3. In addition, the separation of the system into microservices provides more flexibility to third parties in how they choose to resolve cheqd DIDs.
+
+
+When exploring the We decided to design multiple implementations of the cheqd DID Resolver to suit different clients and audiences, which may want to consume cheqd DIDs for different purposes.
 
 Importantly, each implementation of the cheqd DID Resolver is decoupled from the cheqd network, which means updating the resolver does not require updating the application on the node side. This avoids having to go through an on-ledger governance vote, and voting period to make a change. In addition, the separation of the system into microservices provides more flexibility to third parties in how they choose to resolve cheqd DIDs.
 
