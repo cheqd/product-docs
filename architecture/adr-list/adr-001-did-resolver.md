@@ -313,8 +313,8 @@ Compiled packages/binaries for the *Full cheqd DID Resolver* will be made availa
 
 ### Configuration properties for Universal Resolver driver
 
-1. Operators should be able to configure gRPC endpoints for mainnet as as testnet (or any other cheqd network namespaces) so that a single DID Resolver instance can resolve requests to any network. (E.g., [grpc.cheqd.net](https://grpc.cheqd.net) for mainnet, [grpc.cheqd.network](https://grpc.cheqd.network) for testnet)
-2. For each supported cheqd network namespace (e.g., mainnet, testnet), operators should be able to define *one* or more upstream cheqd node gRPC endpoints. (E.g., additional fallback endpoints besides [grpc.cheqd.net](https://grpc.cheqd.net) for mainnet.) In case any one of the upstream endpoints is unavailable, this allows the DID Resolver to try a different upstream gRPC endpoint for resiliency.
+1. Operators should be able to configure gRPC endpoints for mainnet as as testnet (or any other cheqd network namespaces) so that a single DID Resolver instance can resolve requests to any network. (E.g., `grpc.cheqd.net`for mainnet, `grpc.cheqd.network` for testnet)
+2. For each supported cheqd network namespace (e.g., mainnet, testnet), operators should be able to define *one* or more upstream cheqd node gRPC endpoints. (E.g., additional fallback endpoints besides `grpc.cheqd.net` for mainnet.) In case any one of the upstream endpoints is unavailable, this allows the DID Resolver to try a different upstream gRPC endpoint for resiliency.
 3. Operators should be able to define whether their gRPC pull/request is **secure** (default, carried out over HTTP.2 with TLS handshake) or **insecure** (optional, equivalent to a `grpcurl -plaintext` connection downgrade). This accommodates scenarios where gRPC endpoints may not necessarily be equipped to handle TLS handshakes, since the default Cosmos SDK / cheqd node configuration endpoints do not have TLS certificates defined.
 
 ## Consequences
@@ -326,7 +326,8 @@ Compiled packages/binaries for the *Full cheqd DID Resolver* will be made availa
 ### Positive
 
 1. *Full cheqd DID Resolver* reuses existing code to handle some parts of resolve and representing DIDDocs.
-2. Universal Resolver driver implementation provides a standardised way of incorporating `did:cheqd` into Universal Resolver instances that support multiple DID methods.
+2. Third-party applications that want to implement their own DID Resolver implementations for cheqd can consume the current implementation as a Golang module (e.g., `import "github.com/cheqd/cheqd-did-resolver/services"`).
+3. Universal Resolver driver implementation provides a standardised way of incorporating `did:cheqd` into Universal Resolver instances that support multiple DID methods.
 
 ### Negative
 
@@ -336,19 +337,9 @@ Compiled packages/binaries for the *Full cheqd DID Resolver* will be made availa
 
 1. Lack of a *Light cheqd DID Resolver*, at least initially, might not give an easy and computationally-cheap alternative to running Docker containers.
 
-
-### Ability for third-party applications to consume *Full cheqd DID Resolver* as a module
-
-Third-party applications that want to implement their own DID Resolver implementations for cheqd can consume the current implementation as a Golang module:
-
-```golang
-import (
-  "github.com/cheqd/cheqd-did-resolver/services"
-)
-```
-
 ## References
 
 - [W3C Decentralized Identifiers (DIDs)](https://www.w3.org/TR/did-core/) recommendation
 - [W3C Decentralized Identifier Resolution (DID Resolution)](https://w3c-ccg.github.io/did-resolution/) specification
+- [Universal Resolver driver development](https://github.com/decentralized-identity/universal-resolver/blob/main/docs/driver-development.md) guide
 - [DID Core Specification Test Suite](https://w3c.github.io/did-test-suite/)
