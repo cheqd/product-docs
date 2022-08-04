@@ -10,7 +10,7 @@ This repository is intended to clearly lay out and explain cheqd's approach to d
 
 ### :construction\_site: Architecture
 
-* [Decentralised Identifiers (DIDs)](design/dids/README.md)
+* [Decentralised Identifiers (DIDs)](design/did/README.md)
 * [Verifiable Credentials](design/verifiable-credentials/README.md)
 * [Resources](design/resources/README.md)
 * [Resolver](design/resolver/README.md)

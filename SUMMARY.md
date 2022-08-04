@@ -4,9 +4,7 @@
 
 ## 🗺 Design
 
-* [🆔 DIDs](design/dids/README.md)
-  * [cheqd DID Method](design/dids/cheqd-did-method.md)
-  * [W3C DID Test Suite](design/dids/w3c-did-test-suite.md)
+* [🆔 cheqd DID method](design/did/README.md)
 * [✅ Verifiable Credentials](design/verifiable-credentials/README.md)
   * [JSON based JWT](design/verifiable-credentials/json-based-jwt.md)
   * [JSON-LD](design/verifiable-credentials/json-ld.md)
