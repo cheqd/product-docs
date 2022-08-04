@@ -194,7 +194,7 @@ Marshalling/unmarshalling requests back-and-forth between Protobuf and JSON is c
 ![*Full cheqd DID Resolver* Protobuf <-> JSON marshalling](../../.gitbook/assets/cheqd-did-resolver-protobuf-json-marshalling.png)
 *Figure 3: "Full" cheqd DID Resolver Protobuf <-> JSON marshalling ([editable version](https://swimlanes.io/u/2W1PQKx_s?rev=4))*
 
-### Resolution rules
+### DID URL Resolution / Dereferencing rules
 
 The cheqd DID Resolver complies with the rules and algorithm defined in [Decentralized Identifier Resolution (DID Resolution) v0.2](https://w3c-ccg.github.io/did-resolution). This section clarifies and expands some descriptions specific to cheqd.
 
@@ -211,101 +211,103 @@ Since the cheqd DID Resolver APIs are REST APIs, the default `Content-Type: appl
 
 #### `Accept` header is `application/did+ld+json` OR blank OR `*/*`
 
-- **Response HTTP header**: `Content-Type: application/did+ld+json`
-- **Response HTTP body**
+- **Response** HTTP headers
+  - Status code `200 OK`
+  - `Content-Type: application/did+ld+json`
+- **Response** HTTP body
   - `didDocument` / `contentStream` contains `@context` section;
   - `didResolutionMetadata` / `dereferencingMetadata` `contentType` field is `application/did+ld+json`
 
 #### `Accept` request HTTP header contains `application/ld+json;profile="https://w3id.org/did-resolution"`
 
-- **Response HTTP header**: `Content-Type: application/ld+json;profile="https://w3id.org/did-resolution`
-- **Response HTTP body**
+- **Response** HTTP headers
+  - Status code `200 OK`
+  - `Content-Type: application/ld+json;profile="https://w3id.org/did-resolution`
+- **Response** HTTP body
   - `didDocument` / `contentStream` contains `@context` section;
   - `didResolutionMetadata` / `dereferencingMetadata` `contentType` field is `application/ld+json;profile="https://w3id.org/did-resolution`
 
 #### `Accept` request HTTP header contains `application/did+json`
 
-- **Response HTTP header**: `Content-Type: application/did+json`
+- **Response** HTTP headers
+  - Status code `200 OK`
+  - `Content-Type: application/did+json`
 - **Response HTTP body**
   - `didDocument` / `contentStream` DOES NOT contain `@context` section;
   - `didResolutionMetadata` / `dereferencingMetadata` `ContentType` field is `application/did+json`
 
-#### DID URL Dereferencing result is the *actual* Resource on-ledger
+### On-ledger Resource resolution rules
 
-If the result of DID URL Dereferencing is *not* `didDocumentStream` but a *`Resource`*, then cheqd DID Resolver sets the `Content-Type` header to the `mediaType` defined in the Resource metadata.
+Requests to fetch on-ledger cheqd Resources are considered as a DID URL Dereferencing scenario it uses [DID URL paths](https://w3c.github.io/did-core/#path) to lead to a Resource object, rather than a DIDDoc.
 
-- **Request** HTTP headers
-  - `Accept` should allow `*/*` *or* match the `mediaType` of the Resource
-  - [`Accept-Encoding`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding) may be allowed compression methods (e.g., `gzip`, `compress`, etc.)
-- **Response** HTTP headers
-  - `Content-Type` should be set to `mediaType>` of the Resource
-  - `Content-Encoding` should be set to a valid content compression method in `Accept-Encoding` and response compressed accordingly
-  - [`Content-Length`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Length) should be set to the Resource size, in decimal bytes
-- **Response HTTP body**
-  - Resource, encoded correctly according to the `mediaType`
+On the other hand, on-ledger cheqd Resources *metadata* requests are handled like DID URL Resolution since the result is a subsection of `didDocumentMetadata` specific to that resource.
 
-#### `Accept` request HTTP header does not contain valid `Content-Type`
+API endpoints related to on-ledger cheqd Resources are described below. All of these request *types* are `GET` requests, with `POST` and `PUT` requests disallowed.
 
-- **Response HTTP header**: `Content-Type: application/json`
-- **Response HTTP body**
-  - `didDocument` / `contentStream` is `[]`;
-  - `didResolutionMetadata` / `dereferencingMetadata` contains a property error with value `representationNotSupported`
-  - `didResolutionMetadata` / `dereferencingMetadata` `ContentType` field is `application/json`
+#### Get a specific Resource
 
-### Errors
+Returns the Resource data/payload stored on ledger for specified resource. `HEAD` request *type* is also allowed for this endpoint since it can be used for [HTTP content negotiation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation) phase by client applications. In this case, *only* the HTTP **Response** headers are returned without the body.
+
+**Endpoint**: `/1.0/identifiers/<did>/resources/<resource_id>`
+
+1. **Request** HTTP headers
+   1. `Accept` should allow `*/*` *or* match the `mediaType` of the Resource
+   2. [`Accept-Encoding`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding) may be allowed compression methods (e.g., `gzip`, `compress`, etc.)
+2. **Response** HTTP headers
+   1. Status code `200 OK`
+   2. `Content-Type` should be set to `mediaType>` of the Resource
+   3. `Content-Encoding` should be set to a valid content compression method in `Accept-Encoding` and response compressed accordingly
+   4. [`Content-Length`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Length) should be set to the Resource size, in decimal bytes
+3. **Response** HTTP body
+   1. Resource, encoded correctly according to the `mediaType`
+
+#### Get *metadata* for a specific resource
+
+Return metadata for a specified resource. This is effectively a portion of the DIDDoc Metadata block.
+
+**Endpoint**: `/1.0/identifiers/<did>/resources/<resource_id>/metadata`
+
+#### Get metadata for *all* Resources linked to a DID
+
+Returns metadata for all Resources directly linked to/controlled by a DID. This is effectively the full `linkedResourceMetadata` section in DIDDoc Metadata block.
+
+**Endpoint**: `/1.0/identifiers/<did>/resources/all`
+
+##### Alternative endpoints
+
+1. `/1.0/identifiers/<did>/resources/`
+   1. Status code `301`
+   2. Redirect to `/resources/all`
+2. `/1.0/identifiers/<did>/resources`
+   1. Throw an `invalidDidUrl` error
+
+### Error handling
+
+The DID Resolution specification [defines an algorithm for how invalid DID URL Resolution/Dereferencing errors](https://w3c-ccg.github.io/did-resolution/#resolving-algorithm) should be handled. The cheqd DID Resolver aims to implement all of these scenarios, with the [correct HTTP Response status codes based on the specific error](https://w3c-ccg.github.io/did-resolution/#bindings) encountered.
+
+#### DID Resolution errors
 
 The DID resolution output should always conform to the following format: `( didResolutionMetadata, didDocument, didDocumentMetadata )`
+
 If the resolution is unsuccessful, the DID resolver should return the following result:
 
-- didResolutionMetadata contains `"error" : "<Error message>"`
-- didDocument: null
-- didDocumentMetadata: `[]`
+- `didResolutionMetadata` contains `"error" : "<Error message>"`
+- `didDocument`: null
+- `didDocumentMetadata`: `[]`
+
+#### DID URL Dereferencing errors
 
 The DID dereferencing output should always conform to the following format: `( dereferencingMetadata, contentStream, contentMetadata )`
 
-- dereferencingMetadata contains `"error" : "<Error message>"`
-- contentStream: null
-- contentMetadata: `[]`
+- `dereferencingMetadata` contains `"error" : "<Error message>"`
+- `contentStream`: null
+- `contentMetadata`: `[]`
 
-#### Error list
+## Decision
 
-- **invalidDid** - DID does not conform to the rule of the [DID Syntax](https://www.w3.org/TR/did-core/#did-syntax)
-  - response status code 400
-- **invalidDidUrl** - DID URL does not conform to the rule of the [DID URL Syntax](https://www.w3.org/TR/did-core/#did-url-syntax)
-  - response status code 400
-- **notFound** - DID Doc, Resource or DID Doc fragment does not exist in a ledger
-  - response status code 404
-- **representationNotSupported** - Resolution `Accept` option or dereferencing for this DID URL is not supported
-  - response status code 406
-- **methodNotSupported** - DID method of the input DID is not supported
-  - response status code 406
-- **internalError** - an unexpected error occurs during DID Resolution or DID URL dereferencing
-  - response status code 500
-- `didDocumentMetadata` property deactivated with value `true`
-  - response status code 410
+Given the drawbacks associated with a *Light cheqd DID Resolver* being unable to send gRPC requests to a cheqd node instance, the decision was taken to (initially) implement the *Full cheqd DID Resolver* architecture. Future work might separately consider and design a *Light* DID Resolver profile that can work with Cloudflare Workers while also allowing deployment through Docker.
 
-## Resources
-
-cheqd has implemented resources on ledger within its update 0.6.x. Resources will be shown within DIDDoc metadata.
-
-### Resource resolution
-
-The following syntax can be used in DID Resolution to fetch resources or previews of resources:
-
-- `/1.0/identifiers/<did>/resources/all`
-  - Return everything within the Collection of Resources in a preview format, without presenting the actual data within the resources.
-- `/1.0/identifiers/<did>/resources/`
-  - Status code 301
-  - Redirect to `/resources/all`
-- `/1.0/identifiers/<did>/resources`
-  - Error -> invalidDidUrl
-- `/1.0/identifiers/<did>/resources/<resource_id>`
-  - Return resource data for specific resource
-  - ContentType = MediaType
-- `/1.0/identifiers/<did>/resources/<resource_id>/metadata`
-  - Return resource metadata (without data)
-
-## 3. Universal Resolver Driver
+### Universal Resolver driver for `did:cheqd`
 
 <!-- markdown-link-check-disable-next-line -->
 The Decentralised Identity Foundation (DIF) has a publicly accessible Universal Resolver, which can be found at <https://dev.uniresolver.io>
