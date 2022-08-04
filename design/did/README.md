@@ -1,4 +1,4 @@
-# cheqd DID Method
+# 🆔 cheqd DID Method
 
 The [cheqd DID method](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method) is a [W3C Decentralized Identifiers (DID)](https://www.w3.org/TR/did-core/#dfn-decentralized-identifiers) specification-compliant DID method.
 
@@ -15,4 +15,14 @@ The team behind the core cheqd product/tech stack have extensive experience work
 
 You can also find the cheqd DID method formally registered in the [W3C DID Spec Registries](https://www.w3.org/TR/did-spec-registries/#did-methods), the canonical registry for DID methods.
 
+## W3C DID Core Test suite
+
 Standards-compliance tests with the [W3C DID Core Test suite](https://w3c.github.io/did-test-suite/) is also [available and updated regularly for `did:cheqd`](https://w3c.github.io/did-test-suite/#M8).
+
+### DID Core Test suite results
+
+There are three components that the DID Core Test suite checks for specification compliance: DID Methods, DID Resolvers, and DID URL Dereferencers. These can be viewed at:
+
+* **DID Methods**: [`did:cheqd` Test suite results](https://github.com/w3c/did-test-suite/blob/main/packages/did-core-test-server/suites/implementations/did-cheqd.json)
+* **DID Resolution**: [cheqd DID Resolver test results](https://github.com/w3c/did-test-suite/blob/main/packages/did-core-test-server/suites/implementations/resolver-did-cheqd.json)
+* **DID URL Dereferencing**: [cheqd DID Resolver dereferencing tests](https://github.com/w3c/did-test-suite/blob/main/packages/did-core-test-server/suites/implementations/dereferencer-cheqd.json)
