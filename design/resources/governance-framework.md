@@ -14,8 +14,7 @@ Governance Frameworks as resources would use the same syntax as other resources 
 
 cheqd could create a Resource as follows for its Governance Framework
 
-```json
-Governance Framework
+```jsonc
 {
   "header": {
     "collectionId":       "93235d54-53cc-42b9-ae77-f99efe9eadc9",
@@ -24,16 +23,16 @@ Governance Framework
     "resourceType":       "text/markdown",
     "created":            "2022-06-20T14:12:53Z",
     "checksum":           "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
-    "previousVersionId:   "adb023ce-3b6d-48c3-aadd-134837ba62fa",
-    "nextVersionId:       null
+    "previousVersionId":   "adb023ce-3b6d-48c3-aadd-134837ba62fa",
+    "nextVersionId": null
   },
-  "data":                 <cheqdGovFramework.md>,
+  "data": "<cheqdGovFramework.md>",
 }
 ```
 
 Full Governance Framework resource identifier:
 
-`did:cheqd:mainnet:`<mark style="color:orange;">`93235d54-53cc-42b9-ae77-f99efe9eadc9`</mark>`/resources/`<mark style="color:green;">`8da12c4a-fa16-4895-b6c6-fc7cbdf62193`</mark>
+did:cheqd:mainnet:**93235d54-53cc-42b9-ae77-f99efe9eadc9**/resources/**8da12c4a-fa16-4895-b6c6-fc7cbdf62193**
 
 ## Creating on-ledger Governance Framework
 
@@ -59,7 +58,7 @@ Full Governance Framework resource identifier:
 
 Using the same private verification key as is created to authenticate with the DID Document, create and sign a transaction to create a resource for the Governance Framework
 
-```
+```bash
 cheqd-noded tx resource create-resource 
    -- collection-id 93235d54-53cc-42b9-ae77-f99efe9eadc9 \
    -- resource-id adb023ce-3b6d-48c3-aadd-134837ba62fa \
@@ -143,4 +142,3 @@ cheqd-noded tx resource create-resource
   ]
 }
 ```
-

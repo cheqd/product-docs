@@ -7,23 +7,23 @@ For such purpose, `docker` is supposed to be as the main tool for getting such e
 
 Our target OS system is Ubuntu 20.04. For start playing the next command can help:
 
-```
+```bash
 docker run -it --rm -u cheqd --entrypoint bash ghcr.io/cheqd/cheqd-node:0.4.0
 ```
 
 The next step is to restore operator's keys:
 
-```
+```bash
 cheqd-noded keys add <cheqd-operator-name> --recover --keyring-backend test
 ```
 
 where, `cheqd-operator-name` it's name of alias for storing your keys locally, whatever you want.
 
-## Exampe of working with test account.
+## Example of working with a test account
 
 For example, for test purposes let's create a key with alias `operator`:
 
-```
+```bash
 ~ docker run -it --rm -u cheqd ghcr.io/cheqd/cheqd-node:0.4.0 keys add operator --keyring-backend test
 - name: operator
   type: local
@@ -42,7 +42,7 @@ The main bullets here:
 
 Having this mnemonic phrase the user is able to restore their keys whenever they want. For continue playing a user needs to run:
 
-```
+```bash
 ~ docker run -it --rm -u cheqd --entrypoint bash ghcr.io/cheqd/cheqd-node:0.4.0
 cheqd@8c3f88f653ab:~$ cheqd-noded keys add operator --recover --keyring-backend test
 > Enter your bip39 mnemonic
