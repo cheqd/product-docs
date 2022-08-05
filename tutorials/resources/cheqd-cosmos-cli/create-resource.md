@@ -86,8 +86,8 @@ cheqd-noded tx resource create-resource \
 
 After you execute the command, you will receive `"code": 0"`if the Resource was successfully written to the ledger. We can do a full query to check this as well. In case of other error codes, field `raw_logs` can help with figuring out the case. For example:
 
-```bash
-"code":1201,"data":"","raw_log":"failed to execute message; message index: 0: id:cheqd:testnet:fcbarcelona: DID Doc not found"
+```json
+{"code":1201,"data":"","raw_log":"failed to execute message; message index: 0: id:cheqd:testnet:fcbarcelona: DID Doc not found"}
 ```
 
 #### 5. Check that Resource was successfully written to the ledger

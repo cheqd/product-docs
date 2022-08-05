@@ -8,7 +8,7 @@ JWTs are widely used in legacy identity infrastructure, underlying the framework
 
 ## DID JWT VC
 
-DID-JWT-VC is a library that enables users to create and verify W3C Verifiable Credentials and Presentations in JWT format. [Find out more at [decentralized-identity/did-jwt-vc](https://github.com/decentralized-identity/did-jwt-vc).
+DID-JWT-VC is a library that enables users to create and verify W3C Verifiable Credentials and Presentations in JWT format. Find out more at [decentralized-identity/did-jwt-vc](https://github.com/decentralized-identity/did-jwt-vc).
 
 cheqd has forked this library to include the ability to create and verify W3C Verifiable Credentials and Presentations in JWT format using cheqd DIDs. In time, cheqd intends to merge this fork back into the upstream did-jwt-vc repository to ensure alignment between cheqd's work and future updates to the main repo.
 
