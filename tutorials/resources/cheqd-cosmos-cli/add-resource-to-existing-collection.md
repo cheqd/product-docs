@@ -1,10 +1,10 @@
-# Add Resource Version
+# Add new Resource to existing Collection
 
-## Tutorial for creating a new Resource version with cheqd CLI
+## Tutorial for creating a new Resource version within an existing Collection using cheqd CLI
 
 ### Overview
 
-The purpose of this document is to outline how someone can create a new Resource version on the cheqd network.
+The purpose of this document is to outline how someone can create a new Resource version, within an existing Collection on the cheqd network.
 
 This tutorial uses cheqd node CLI.
 
@@ -16,7 +16,7 @@ If you don't currently have Ubuntu 20.04 installed on your machine, you can use 
 
 Please ensure you are running the correct version that mainnet runs. You can [check which is the current version of mainnet here](https://rpc.mainnet.cheqd.network/abci\_info?).
 
-### How to create a new Resource version on the mainnet
+### How to create a new Resource version within an existing collection on cheqd mainnet
 
 #### 1. Create a DIDDoc
 
@@ -34,12 +34,12 @@ If you already have a Resource, you can skip this step.
 
 To create a Resource, you can follow the [create Resource tutorial here](create-resource.md).&#x20;
 
-Let's presume unique ID and the name for the Resource are as follows:
+Let's presume ID and the name for the Resource are as follows:
 
-* Unique ID: `49610df5-5998-4b72-b28f-02b7f776156f`
-* Name: `universityDegree`
+* Resource ID: `49610df5-5998-4b72-b28f-02b7f776156f`
+* Resource Name: `universityDegree`
 
-#### 3. Generate an unique-id for the new Resource version
+#### 3. Generate a unique-id for the new Resource version
 
 UUIDs are used to identify Resources. In unix like systems, `uuidgen` tool can be used to generate a new one:
 
@@ -54,9 +54,9 @@ Resource content should be placed in a file and stored locally.
 
 #### 5. Send the new version to the pool
 
-Resources with the same collection ID and name are grouped into version sets. Each resource in such a set has a link to the previous version (exception is the first version) and the next version (if it's not the last version at the moment).
+Resources with the same Collection ID and name are grouped into version sets. Each resource in such a set has a link to the previous version (except the first version) and the next version (if it's not the most recent version).
 
-To create a resource and mark it as a new version of the existing one, we need to pass the same `collection-id` and `name` as in the previous version. Links between versions will be created automatically if needed.
+To create a resource and mark it as a new version within a particular group, we need to use the same `collection-id` and `name` as in the previous version. Links between versions will be created automatically.
 
 New versions have dedicated unique IDs and can be referenced and retrieved as any other resources.
 
@@ -101,7 +101,7 @@ cheqd-noded tx resource create-resource \
      --gas-prices 25ncheq
 ```
 
-After you execute the command, you will receive `"code": 0"`if a new version of the Resource was successfully written to the ledger. We can do a full query to check this as well. In case of other error codes, field `raw_logs` can help with figuring out the case. For example:
+After you execute the command, you will receive `"code": "0"` if a new version of the Resource was successfully written to the ledger. We can do a full query to check this as well. In case of other error codes, field `raw_logs` can help with figuring out the case. For example:
 
 ```
 "code":1201,"data":"","raw_log":"failed to execute message; message index: 0: id:cheqd:testnet:fcbarcelona: DID Doc not found"
