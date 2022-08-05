@@ -32,7 +32,7 @@ Let's presume the DID for the DID Doc is as follows:
 
 UUIDs are used to identify Resources. In unix like systems, `uuidgen` tool can be used to generate a new one:
 
-```
+```bash
 $ uuidgen
 e7b662f8-d3f8-4a83-bd00-2cdcd6cc50ab
 ```
@@ -45,7 +45,7 @@ Resource content should be placed in a file and stored locally.
 
 Command format:
 
-```
+```bash
 cheqd-noded tx resource create-resource \
     --collection-id <collection-id>
     --resource-id <resource-id>
@@ -67,7 +67,7 @@ Where:
 
 Example:
 
-```
+```bash
 cheqd-noded tx resource create-resource \
     --collection-id 6h7fjuw37gbf9ioty633bnd7thf65hs1 \
     --resource-id 49610df5-5998-4b72-b28f-02b7f776156f \
@@ -86,15 +86,15 @@ cheqd-noded tx resource create-resource \
 
 After you execute the command, you will receive `"code": 0"`if the Resource was successfully written to the ledger. We can do a full query to check this as well. In case of other error codes, field `raw_logs` can help with figuring out the case. For example:
 
-```
-"code":1201,"data":"","raw_log":"failed to execute message; message index: 0: id:cheqd:testnet:fcbarcelona: DID Doc not found"
+```json
+{"code":1201,"data":"","raw_log":"failed to execute message; message index: 0: id:cheqd:testnet:fcbarcelona: DID Doc not found"}
 ```
 
 #### 5. Check that Resource was successfully written to the ledger
 
 Finally, to check that the DID was successfully written, we can use the following query:
 
-```
+```bash
 cheqd-noded query resource resource \
     <collection-id> \
     <resource-id> \
@@ -108,7 +108,7 @@ where:
 
 In our example:
 
-```
+```bash
 cheqd-noded query resource resource \
     6h7fjuw37gbf9ioty633bnd7thf65hs1 \
     49610df5-5998-4b72-b28f-02b7f776156f \
@@ -127,29 +127,29 @@ For example, let it be a docker image, because it's the fastest way to start pla
 
 The next command can help:
 
-```
+```bash
 docker run -it --rm -u root --entrypoint bash ghcr.io/cheqd/cheqd-node:0.4.0
 ```
 
 After that, we need to install needed package for process SSL certificates:
 
-```
+```bash
 apt update && apt install ca-certificates -y
 ```
 
 Also, it can help to setup your favourite editor, for example `vim` :
 
-```
+```bash
 apt install vim -y
 ```
 
 The next step is to change user to `cheqd` and restore operator's keys:
 
-```
+```bash
 su cheqd
 ```
 
-```
+```bash
 cheqd-noded keys add <cheqd-operator-name> --recover
 ```
 
