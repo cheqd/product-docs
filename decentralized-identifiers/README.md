@@ -1,4 +1,4 @@
-# 🆔 cheqd DID Method
+# 🆔 DID Method
 
 The [cheqd DID method](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method) is a [W3C Decentralized Identifiers (DID)](https://www.w3.org/TR/did-core/#dfn-decentralized-identifiers) specification-compliant DID method.
 
