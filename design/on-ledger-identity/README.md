@@ -4,6 +4,10 @@ The [cheqd DID method](https://docs.cheqd.io/node/architecture/adr-list/adr-002-
 
 The team behind the core cheqd product/tech stack have extensive experience working in [self-sovereign identity (SSI) / decentralized identity](https://learn.cheqd.io/overview/introduction-to-decentralised-identity). Many of the design decisions and product features available on cheqd network are meant to address real-world issues with SSI adoption that the team faced.
 
+> **Learn more about the `did:cheqd` method**
+>
+> Details of the `did:cheqd` method are described in the [Architecture Decision Record for the cheqd DID method](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method)
+
 ## What's *different* about the cheqd DID method
 
 * Built using the [Cosmos SDK framework](https://cosmos.network/), which allows for high-scalability and fault-tolerance due to its [Tendermint consensus protocol](https://tendermint.com/), and integration with a wide range of [inter-blockchain communication](https://ibcprotocol.org/). You can [read more about why cheqd decided to build using Cosmos SDK](https://blog.cheqd.io/why-cheqd-has-joined-the-cosmos-4db8845722c5) (instead of Indy, Ethereum, Polkadot, Solana etc).
