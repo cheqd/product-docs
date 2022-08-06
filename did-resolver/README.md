@@ -16,6 +16,10 @@ Cosmos SDK [uses Protobuf (Protocol Buffers) encoding for its wire protocol](htt
 
 The cheqd DID Resolver uses these existing gRPC/REST API endpoints to carry out DID URL Resolution and Dereferencing *not* packaged within the [cheqd-node ledger code](https://github.com/cheqd/cheqd-node).
 
+> **📝 Architecture Decision Record for cheqd DID Resolver**
+>
+> Full discussion and details on the [design of cheqd DID Resolver are available in its ADR](../architecture/adr-list/adr-001-did-resolver.md)
+
 ## Deployment patterns for cheqd DID Resolver
 
 The current implementation of **[Universal Resolver driver for `did:cheqd`](https://github.com/decentralized-identity/universal-resolver)** uses the *Full cheqd DID Resolver* deployment pattern described below.
