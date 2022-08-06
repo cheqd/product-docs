@@ -1,3 +1,0 @@
-# 🌕 Full DID Resolver
-
-\<Todo>
