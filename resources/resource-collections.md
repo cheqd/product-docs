@@ -1,89 +1,68 @@
-# ⏺ Resources
+# ↣ Collections of Resources
 
-## Overview
+Resources are identified with a [`did:cheqd` Decentralized Identifier](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method) with a unique identifier (UUID) that acts as a permanently-accessible link to fetch the resources from the cheqd ledger.
 
-cheqd has built a **Resources Module** to extend the functionality of the network.
+Multiple, linked resources can be stored in a **Collection**, for example, different versions of the same Resource over a period of time or semantically-linked resources. This enables unique resources to be stored directly on-ledger and be **retrievable through DID resolution** and **dereferencing**.
 
-A **Resource** is a blob of information stored on-ledger, within a specific syntax. The use of Resources is potentially very broad; they can provide many different roles, such as:
+For simplicity, we will focus on the use case where a Resource is a **schema**. The same logic used in fetching schemas from the ledger can be applied to any of the aforementioned types of Resources.
 
-* A **schema** (Camenisch-Lysyanskaya ‘CL’, JSON-LD, JSON)
-* A **schema overlay** (such as [OCA](https://humancolossus.foundation/blog/cjzegoi58xgpfzwxyrqlroy48dihwz))
-* A **document** (such as a Governance Framework in Markdown, like [proposed by ToIP](https://wiki.trustoverip.org/pages/viewpage.action?pageId=71241))
-* An **image file** (Company logo, brandmark, which can be pulled directly by block explorers and other ledger applications)
-* A **revocation registry** (more on this in a future blog)
-
-Through extending the use of DIDs to identify other on-ledger resources, trust can begin to be chained. This begins to enable new use cases, such as:
-
-| Audience              | Quick wins                                                                                                                                                                                                                                                    | Longer term strategic objectives                                                                                                                                                                                                                                   |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **SSI Community**     | Create a much more **secure, resilient and decentralised format for storing schemas** than [schema.org](https://schema.org/)                                                                                                                                  | Lay the technical foundations for **supporting** [**AnonCreds**](https://hyperledger-indy.readthedocs.io/projects/sdk/en/latest/docs/design/002-anoncreds/README.html) **compatible Verifiable Credentials on cheqd**, in addition to support for JSON and JSON-LD |
-| **Web 3.0 community** | Extend the [Trust over IP Resource Parameter Specification](https://wiki.trustoverip.org/display/HOME/DID+URL+Resource+Parameter+Specification), enabling **DIDs to act as #Web3 hyperlinks for any on (or off) ledger URL, Resource, file, or content** | Enable Web3 Companies to use on-ledger Resources to **fetch company information (such as logos, token info, relevant token APIs)** to **populate Block Explorers and Exchanges**, rather than through Keybase or manual processes.                                 |
-
-{% hint style="info" %}
-You can think of it as a hyperlink for #Web3. But unlike a hyperlink, it is possible to specify the type of resource to be retrieved, and reject anything unexpected.
-{% endhint %}
-
-## Resources
-
-Resources defined in this architecture are identified with a unique identifier (UUID), and are stored within a **Collection** (more on this below). This enables unique resources to be stored directly on-ledger and be **retrievable through DID resolution** and **dereferencing**.
-
-For simplicity, we will focus on the use case where a Resource is **a schema**.
-
-However, it is important to note that the same logic used in fetching schemas from the ledger can be applied to any of the aforementioned types of Resources.
-
-The syntax of a Resource is as follows:
+The syntax of a Resource metadata is as follows:
 
 ```jsonc
-Resource1
-{
-  "header": {
-    "collectionId":       "46e2af9a-2ea0-4815-999d-730a6778227c",
-    "id":                 "0f964a80-5d18-4867-83e3-b47f5a756f02",
-    "name":               "DegreeLaw",
-    "resourceType":       "CL-Schema",
-    "created":            "2022-04-20T20:19:19Z",
-    "checksum":           "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
-    "previousVersionId":   "688e0e6f-74dd-43cc-9078-09e4fa05cacb",
-    "nextVersionId":       null
-  },
-  "data":                 <ClSchema.json including '{\"attrNames\":[\"last_name\",\"first_name\"\"degree_type\"\"graduation_year\"\"degree_score\"\"degree_class\"]}` in bytes>,
-}
+"linkedResourceMetadata": [
+  {
+    "resourceURI": "did:cheqd:testnet:DAzMQo4MDMxCjgwM/resources/44547089-170b-4f5a-bcbc-06e46e0089e4",
+    "resourceCollectionId": "DAzMQo4MDMxCjgwM",
+    "resourceId": "44547089-170b-4f5a-bcbc-06e46e0089e4",
+    "resourceName": "PassportSchema",
+    "resourceType": "CL-Schema",
+    "mediaType": "application/json",
+    "created": "2022-07-19T08:40:00Z",
+    "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
+    "previousVersionId": null, // null if no previous version, otherwise, resourceId of previous version
+    "nextVersionId": null, // null if no new version, otherwise, resourceId of new version
+  }
+]
 ```
 
 ## Collections
 
-A **Collection** is a group of **Resources** stored directly on-ledger, within the state of the ledger. This means that Collections are written **within** **transactions** on the ledger, and therefore, their authenticity is secured by the consensus and propagation of the nodes on the ledger.
+A **Collection** is a group of **Resources** stored directly on-ledger, and therefore, their authenticity is secured by the consensus of the ledger.
 
-Collections can store any type of Resource, but for the purpose of this documentation we will focus on the use case where the **Collection is storing a set of schemas**.
+Collections can store any type of Resource, but for the purpose of this documentation we will focus on the use case where the Collection is *used for storing a set of schemas*.
 
-Collections are identified by a **Collection ID** which is a **unique identifier (UUID)** which is **different from any Resource ID** stored within it.
-
-For example:
+Collections are identified by a **Collection ID** which is a **unique identifier** of the **linked DID**. It is separate and differenet from the **Resource ID**, as shown below:
 
 ```jsonc
-{
-  "collection_id":      "46e2af9a-2ea0-4815-999d-730a6778227c",
-  "id":                 "0f964a80-5d18-4867-83e3-b47f5a756f02",
-  "name":               "DegreeLaw",
-  "resource_type":      "CL-Schema",
-  "mime_type":          "application/json",
-  "created":            "2022-04-20T20:19:19Z",
-  "checksum":           "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
-  "previous_version_id": "688e0e6f-74dd-43cc-9078-09e4fa05cacb",
-  "next_version_id":     null,
-
-  "id":                 "99b40fd8-fade-483c-bff4-f037b26dd810",
-  "name":               "DegreeMath",
-  "resource_type":      "CL-Schema",
-  "mime_type":          "application/json",
-  "created":            "2022-04-20T20:19:19Z",
-  "checksum":           "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
-  "previous_version_id": "bd77dccf-bab4-4d02-8873-27962c2c55ba",
-  "next_version_id":     null,
-}
+"linkedResourceMetadata": [
+  { // First version of a Resource called PassportSchema
+    "resourceURI": "did:cheqd:testnet:DAzMQo4MDMxCjgwM/resources/44547089-170b-4f5a-bcbc-06e46e0089e4",
+    "resourceCollectionId": "DAzMQo4MDMxCjgwM", // Common collection ID
+    "resourceId": "44547089-170b-4f5a-bcbc-06e46e0089e4", // Old Resource ID and version number
+    "resourceName": "PassportSchema", // Resource name remains the same
+    "resourceType": "CL-Schema",
+    "mediaType": "application/json",
+    "created": "2022-07-19T08:40:00Z",
+    "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298", // Old version checksum
+    "previousVersionId": null, // null, since no previous version
+    "nextVersionId": "bb2118f3-5e55-4510-b420-33ef9e1726d2", // Points to next version below
+  },
+  { // Second version of a Resource called PassportSchema
+    "resourceURI": "did:cheqd:testnet:DAzMQo4MDMxCjgwM/resources/bb2118f3-5e55-4510-b420-33ef9e1726d2",
+    "resourceCollectionId": "DAzMQo4MDMxCjgwM", // Common collection ID
+    "resourceId": "bb2118f3-5e55-4510-b420-33ef9e1726d2", // New Resource ID and version number
+    "resourceName": "PassportSchema", // Resource name remains the same
+    "resourceType": "CL-Schema",
+    "mediaType": "application/json",
+    "created": "2022-08-07T08:40:00Z",
+    "checksum": "9123dcbb0b42652b0e105956c68d3ca2ff34584f324fa41a29aedd32b883e131", // New version checksum
+    "previousVersionId": "44547089-170b-4f5a-bcbc-06e46e0089e4", // Points to previous version above
+    "nextVersionId": null, // null if no new version
+  }
+]
 ```
 
-Notably, in the example above, it does not show the actual data / schema attributes within the specific resource. It only shows what we refer to as a **‘Resource Preview’**.
+Note that the Linked Resource output above does not show the actual data / schema attributes when displaying all Resources in this Collection. It only shows Resource *metadata*.
 
 This logic prevents `GetResourceCollection` requests returning large quantities of data, which may be stored across multiple Resources within a Collection.
 
@@ -99,13 +78,8 @@ The DID Document acts as metadata, providing information about the **Collection*
 
 Moreover, each specific **Resource** within a **Collection** can be fetched via a DID Document relating to a Collection, through the use of the `‘service’` section.
 
-Next, we will explain how Collections are intrinsically linked to their DID Documents and how Resources can be directly fetched.
-
-### Overall structure
-
-_Figure 1_ below shows a complete topology of the architecture, including where different layers of the structure interact with each other.
-
-![Figure 1: cheqd resources architecture diagram](<../../.gitbook/assets/cheqd Resource full architecture.png>)
+![cheqd resources overview diagram](../.gitbook/assets/resource-overview-diagram.png)
+*Figure 1: Overview diagram of cheqd on-ledger resources, including where different layers of the structure interact with each other*
 
 Since the overall structure of our resource implementation is complex and has multiple layers, we will explain each component in turn.
 
