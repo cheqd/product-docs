@@ -4,7 +4,7 @@
 
 ## 🗺 Design
 
-* [🆔 cheqd DID method](design/did/README.md)
+* [🆔 cheqd DID method](design/on-ledger-identity/README.md)
 * [✅ Verifiable Credentials](design/verifiable-credentials/README.md)
   * [JSON based JWT](design/verifiable-credentials/json-based-jwt.md)
   * [JSON-LD](design/verifiable-credentials/json-ld.md)
