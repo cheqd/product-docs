@@ -33,54 +33,13 @@ Any [valid IANA Media Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Ba
 
 A [Golang library is used to derive and set media type](https://ipfs.io/) based on the **file extension of provided resource file**. This makes it much simpler to maintain, since there is no list of file types that the cheqd ledger needs to gatekeep.
 
-## Collections containing Resources
+## Resources within Collections
 
 A **Collection** is a group of **Resources** stored directly on-ledger, and therefore, their authenticity is secured by the consensus of the ledger.
 
 Collections can store any type of Resource, but for the purpose of this documentation we will focus on the use case where the Collection is *used for storing a set of schemas*.
 
-Collections are identified by a **Collection ID** which is a **unique identifier** of the **linked DID**. It is separate and differenet from the **Resource ID**, as shown below:
-
-```jsonc
-"linkedResourceMetadata": [
-  { // First version of a Resource called PassportSchema
-    "resourceURI": "did:cheqd:testnet:DAzMQo4MDMxCjgwM/resources/44547089-170b-4f5a-bcbc-06e46e0089e4",
-    "resourceCollectionId": "DAzMQo4MDMxCjgwM", // Common collection ID
-    "resourceId": "44547089-170b-4f5a-bcbc-06e46e0089e4", // Old Resource ID and version number
-    "resourceName": "PassportSchema", // Resource name remains the same
-    "resourceType": "CL-Schema",
-    "mediaType": "application/json",
-    "created": "2022-07-19T08:40:00Z",
-    "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298", // Old version checksum
-    "previousVersionId": null, // null, since no previous version
-    "nextVersionId": "bb2118f3-5e55-4510-b420-33ef9e1726d2", // Points to next version below
-  },
-  { // Second version of a Resource called PassportSchema
-    "resourceURI": "did:cheqd:testnet:DAzMQo4MDMxCjgwM/resources/bb2118f3-5e55-4510-b420-33ef9e1726d2",
-    "resourceCollectionId": "DAzMQo4MDMxCjgwM", // Common collection ID
-    "resourceId": "bb2118f3-5e55-4510-b420-33ef9e1726d2", // New Resource ID and version number
-    "resourceName": "PassportSchema", // Resource name remains the same
-    "resourceType": "CL-Schema",
-    "mediaType": "application/json",
-    "created": "2022-08-07T08:40:00Z",
-    "checksum": "9123dcbb0b42652b0e105956c68d3ca2ff34584f324fa41a29aedd32b883e131", // New version checksum
-    "previousVersionId": "44547089-170b-4f5a-bcbc-06e46e0089e4", // Points to previous version above
-    "nextVersionId": null, // null if no new version
-  }
-]
-```
-
-Note that the Linked Resource output above does not show the actual data / schema attributes when displaying all Resources in this Collection. It only shows Resource *metadata*.
-
-This logic prevents `GetResourceCollection` requests returning large quantities of data, which may be stored across multiple Resources within a Collection.
-
-In order to fetch the actual data, it is necessary to query **the specific Resource**, rather than **the entire Collection**.
-
-For more information about the particulars of requests and responses, please refer to our [**ADR on Resources on ledger**](https://github.com/cheqd/node-docs/blob/adr-008-resources-updates/architecture/adr-list/adr-008-ledger-resources.md).
-
-## Referencing Collections and Resources
-
-The most important concept used in this architecture is that each on-ledger **Collection** is **identified using a DID** and is **described using a *DID Document***.
+The most important concept used in this design is that each on-ledger **Collection** is **identified using a DID** and is **described using a *DID Document***.
 
 The DID Document acts as metadata, providing information about the **Collection**, such as who is able to update it, when it was created and what are the latest and deprecated versions of **Resources** within the **Collection**.
 
@@ -203,6 +162,47 @@ While we prefer that [Resources are created on ledger](README.md) for the benefi
   "serviceEndpoint": "https://github.com/cheqd/node/docs/SCHEMA.md"
 }
 ```
+
+## Resource metadata within Collections
+
+Collections are identified by a **Collection ID** which is a **unique identifier** of the **linked DID**. Within the *DID Document Metadata* of the *Collection DIDDoc*, the Linked Resource metadata describes Resources within this Collection:
+
+```jsonc
+"linkedResourceMetadata": [
+  { // First version of a Resource called PassportSchema
+    "resourceURI": "did:cheqd:testnet:DAzMQo4MDMxCjgwM/resources/44547089-170b-4f5a-bcbc-06e46e0089e4",
+    "resourceCollectionId": "DAzMQo4MDMxCjgwM", // Common collection ID
+    "resourceId": "44547089-170b-4f5a-bcbc-06e46e0089e4", // Old Resource ID and version number
+    "resourceName": "PassportSchema", // Resource name remains the same
+    "resourceType": "CL-Schema",
+    "mediaType": "application/json",
+    "created": "2022-07-19T08:40:00Z",
+    "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298", // Old version checksum
+    "previousVersionId": null, // null, since no previous version
+    "nextVersionId": "bb2118f3-5e55-4510-b420-33ef9e1726d2", // Points to next version below
+  },
+  { // Second version of a Resource called PassportSchema
+    "resourceURI": "did:cheqd:testnet:DAzMQo4MDMxCjgwM/resources/bb2118f3-5e55-4510-b420-33ef9e1726d2",
+    "resourceCollectionId": "DAzMQo4MDMxCjgwM", // Common collection ID
+    "resourceId": "bb2118f3-5e55-4510-b420-33ef9e1726d2", // New Resource ID and version number
+    "resourceName": "PassportSchema", // Resource name remains the same
+    "resourceType": "CL-Schema",
+    "mediaType": "application/json",
+    "created": "2022-08-07T08:40:00Z",
+    "checksum": "9123dcbb0b42652b0e105956c68d3ca2ff34584f324fa41a29aedd32b883e131", // New version checksum
+    "previousVersionId": "44547089-170b-4f5a-bcbc-06e46e0089e4", // Points to previous version above
+    "nextVersionId": null, // null if no new version
+  }
+]
+```
+
+Note that the Linked Resource output above does not show the actual data / schema attributes when displaying all Resources in this Collection. It only shows Resource *metadata*.
+
+This logic prevents `GetResourceCollection` requests returning large quantities of data, which may be stored across multiple Resources within a Collection.
+
+In order to fetch the actual data, it is necessary to query **the specific Resource**, rather than **the entire Collection**.
+
+For more information about the particulars of requests and responses, please refer to our [**ADR on Resources on ledger**](https://github.com/cheqd/node-docs/blob/adr-008-resources-updates/architecture/adr-list/adr-008-ledger-resources.md).
 
 ## Versioning and Archiving Resources
 
