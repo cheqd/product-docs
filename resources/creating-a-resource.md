@@ -68,9 +68,13 @@ This step is *optional*, since the Resource and its metadata is already availabl
 ]
 ```
 
-## Using Resources from an Issuer DIDDoc
+## Using Resources as a Credential Issuer
 
-Once a Collection DID Document has been created and is tied to the appropriate Resources, an **Issuer** may want to **update their own DID Document** to demonstrate that such Resources are used by the Issuer. An example of an Issuer DID Document which references a Collection DID Document, Collection and specific Resource is shown in the example below:
+### 1. Referencing existing Resources from an Issuer DIDDoc
+
+Once a Collection DID Document has been created and is tied to the appropriate Resources, an **Issuer** may want to **update their own DID Document** to demonstrate that such Resources are used by the Issuer.
+
+An example of an Issuer DID Document which references a Collection DID Document, Collection and specific Resource is shown in the example below:
 
 ```json
 {
@@ -106,13 +110,13 @@ Once a Collection DID Document has been created and is tied to the appropriate R
 }
 ```
 
-In this case, an **Issuer will carry out a manual update to their DID Document**, through authenticating with their appropriate verification keys and:
+In this case, an **Issuer can update to their DID Document**, authenticating with their appropriate verification keys and:
 
 * Specify the **Collection DID URL** within the “`id`” fields of the ‘`service`’ sections, within which the Issuer wants to reference that particular Collection.
 * Specify the `resourceName` as the **fragment (#)** appended to the end of the **service ‘`id`’ URL**
 * Specify the **same URL as is defined within the Collection DID URL** to directly point-to and fetch the specific Resource, **within the `serviceEndpoint` field**.
 
-Through linking in this way, the **Issuer is able to clearly and transparently illustrate, for example, which Schemas it conforms to when issuing Verifiable Credentials**. Or alternatively, the Issuer could use this to point to the canonical and latest version of their Governance Framework.
+Through linking in this way, the Issuer is able to clearly and transparently illustrate, for example, which Schemas it conforms to when issuing Verifiable Credentials. Or alternatively, the Issuer could use this to point to the canonical and latest version of their Governance Framework.
 
 Moreover, the Resource referenced in the Issuer DID Document does not need to be controlled by the Issuer, they could show conformance to any Schema, controlled by any party. This architecture therefore provides a W3C compliant and highly flexible way to tie Resources to DIDs.
 
