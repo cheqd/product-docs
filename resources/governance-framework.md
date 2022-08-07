@@ -95,7 +95,7 @@ cheqd-noded tx resource create-resource
   "service": [
     {
        "id": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9#cheqdGovernanceFramework",
-       "type": "markdown",
+       "type": "LinkedResource",
        "serviceEndpoint": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9/resources/adb023ce-3b6d-48c3-aadd-134837ba62fa"
     },
     {
@@ -136,7 +136,7 @@ cheqd-noded tx resource create-resource
     },
     {
         "id": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9#cheqdGovernanceFramework",
-        "type": "markdown",
+        "type": "LinkedResource",
         "serviceEndpoint": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9/resources/adb023ce-3b6d-48c3-aadd-134837ba62fa"
     }
   ]
