@@ -86,7 +86,7 @@ CreateDidResponse {
 
 - `CreateDidRequest` must be signed by the DID from `id` field. It means that this DID must be an owner of this DID transaction.
 
-## Update DID
+### Update DID
 
 #### Command
 
@@ -127,7 +127,7 @@ UpdateDidResponse {
 - A transaction with `id` from `UpdateDidRequest`must already be in a ledger created by `CreateDidRequest`
 - `UpdateDidRequest` must be signed by the DID from `id` field. It means that this DID must be an owner of this DID transaction.
 
-## Get DID
+### Get DID
 
 #### Command
 

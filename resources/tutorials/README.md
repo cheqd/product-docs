@@ -1,6 +1,6 @@
 # Creating a Resource with cheqd node CLI
 
-The purpose of this document is to outline how someone can create a Resource on the cheqd network using [cheqd node CLI](https://docs.cheqd.io/node/docs/cheqd-cli). The process that's followed is similar to what's described in the [high-level Resource creation flow](../creating-a-resource.md).
+The purpose of this document is to outline how someone can create a Resource on the cheqd network using [cheqd Cosmos CLI](../../decentralized-identifiers/cheqd-cosmos-cli/README.md). The process that's followed is similar to what's described in the [high-level Resource creation flow](../creating-a-resource.md).
 
 ## Pre-requisites
 
@@ -108,4 +108,4 @@ cheqd-noded query resource resource \
     --node https://rpc.cheqd.network:443
 ```
 
-If you've come this far and successfully executed these steps, **congratulations!** You've created a resource on cheqd ledger - hopefully the first of many.
+**Congratulations!** You've successfully created a resource on cheqd ledger; hopefully, the first of many.
