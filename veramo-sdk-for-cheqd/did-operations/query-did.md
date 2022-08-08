@@ -1,18 +1,14 @@
-# Querying and resolving a DID URL
+# Querying a DID using Veramo CLI
 
-## Overview
+Follow these instructions to query a DID, read DIDDoc contents, and resolve DID URLs from the cheqd ledger using Veramo CLI.
 
-This tutorial offers step-by-step guidance on how to query and resolve a DID URL.
+## Before you begin
 
-This can be achieved through both the Veramo CLI, or directly through an application, setup to read and write to the cheqd ledger, using the Veramo SDK for cheqd.
+* Make sure you've [done the pre-requisite setup](README.md)
 
-## Pre-requisites
+## Resolving `did:cheqd` URLs from ledger
 
-For full information on the architecture, setup and cofig, check [`did-provider-cheqd`](https://github.com/cheqd/did-provider-cheqd).
-
-## Steps
-
-### Step 1
+### 1. Invoke Veramo CLI's DID resolver function
 
 Use `veramo did resolve` to resolve did
 
@@ -22,7 +18,7 @@ e.g.:
 veramo did resolve did:cheqd:mainnet:zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX
 ```
 
-### Step 2
+### 2. Inspect DID/DIDDoc output
 
 The output should look like the following:
 
