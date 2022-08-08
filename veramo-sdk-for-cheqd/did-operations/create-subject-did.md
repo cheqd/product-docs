@@ -1,6 +1,4 @@
-# Create a new subject DID with did:key
-
-## Overview
+# Create an off-ledger DID for credential subjects with Veramo CLI
 
 This tutorial offers step-by-step guidance on how to create a subject DID to be used for a holder that will receive a Verifiable Credentials, using the Veramo SDK for cheqd.
 
@@ -12,37 +10,31 @@ It is also easily managable by a client agent as a full ledger backup for the wr
 
 Creating a subject [`did:key`](https://github.com/w3c-ccg/did-method-key) DID can be achieved through both the Veramo CLI, or directly through an application that has been setup to read and write to the cheqd ledger, using the Veramo SDK for cheqd.
 
-## Pre-requisites
+## Before you begin
 
-For full information on the architecture, setup and cofig, check [`did-provider-cheqd`](https://github.com/cheqd/did-provider-cheqd).
+* Make sure you've [done the pre-requisite setup](README.md)
 
->Note: Ensure you have saved the [`agent.yml`](https://raw.githubusercontent.com/cheqd/did-provider-cheqd/main/agent.yml) file in your local project directory.
+## Creating off-ledger `did:key` DIDs
 
-## Steps
+### 1. Invoke Veramo CLI DID create function
 
-### Step 1
-
-Create a new subject did, used for the recipient of the Verifiable Credential and Verifiable Presentation using:
+This off-ledger DID, of type `did:key`, is used for the recipient of the Verifiable Credential and Verifiable Presentation using:
 
 ```bash
 veramo did create
 ```
 
-### Step 2
-
-Select identifier provider.
+### 2. Select the `did:key` provider
 
 Select `did:key`
 
-### Step 3
+### 3. Select the Key Management System (KMS)
 
 Select key management system (KMS). The [`agent.yml`](https://github.com/cheqd/did-provider-cheqd/blob/main/agent.yml) file used for the Veramo SDK for cheqd has a preloaded local key management system which is bootstrapped along with the CLI.
 
 This provides a sqlite file which is dumped to your specified root directory.
 
-### Step 4
-
-Enter alias.
+### 4. Enter an alias for the DID
 
 This is the nickname for your did, which will be managed by the key management system (KMS). Naming this to something more memorable will help when retrieving dids from your KMS.
 
