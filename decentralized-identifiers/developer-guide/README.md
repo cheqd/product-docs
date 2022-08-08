@@ -4,7 +4,7 @@ This document describes the possible ways to use [cheqd product identity feature
 
 > This is an **advanced** guide for those who want to develop applications that directly interact with the ledger code.
 >
-> Most developers should start with our pre-built SDKs such as [Veramo SDK for cheqd](../veramo-sdk-for-cheqd/README.md) or the cheqd-node Cosmos CLI.
+> Most developers should start with our pre-built SDKs such as [Veramo SDK for cheqd](../../veramo-sdk-for-cheqd/README.md) or the cheqd-node Cosmos CLI.
 
 ## Overview
 
@@ -12,8 +12,8 @@ The [ledger code package `cheqd-node`](https://github.com/cheqd/cheqd-node) is b
 
 There are two custom modules on cheqd ledger related to identity functionality:
 
-1. `cheqd` module, for everything related to [Decentralized Identifiers (DIDs)](README.md)
-2. `resource` module, for [Resources on-ledger](../resources/README.md)
+1. `cheqd` module, for everything related to [Decentralized Identifiers (DIDs)](../README.md)
+2. `resource` module, for [Resources on-ledger](../../resources/README.md)
 
 ## Developing Golang apps for cheqd
 

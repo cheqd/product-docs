@@ -12,7 +12,7 @@ The team behind the core cheqd product/tech stack have extensive experience work
 
 * Built using the [Cosmos SDK framework](https://cosmos.network/), which allows for high-scalability and fault-tolerance due to its [Tendermint consensus protocol](https://tendermint.com/), and integration with a wide range of [inter-blockchain communication](https://ibcprotocol.org/). You can [read more about why cheqd decided to build using Cosmos SDK](https://blog.cheqd.io/why-cheqd-has-joined-the-cosmos-4db8845722c5) (instead of Indy, Ethereum, Polkadot, Solana etc).
 * Writing cheqd DIDs and DIDDocs costs significantly less and consumes lower computationtal resources than other popular blockchains used for digital identity use cases (such as [Hyperledger Indy](https://wiki.hyperledger.org/display/indy)). The run cost of a cheqd network ledger can be 50-60% cheaper than an Indy network of equivalent number of nodes.
-* [Universal Resolver support](../../architecture/adr-list/adr-001-did-resolver.md) provides an easy way to integrate cheqd into SSI and non-SSI applications.
+* [Universal Resolver support](../did-resolver/README.md) provides an easy way to integrate cheqd into SSI and non-SSI applications.
 * We aim to provide backwards compatibility with client applications designed for Hyperledger Indy (`did:indy:` and `did:sov:` methods) through a blend of [on-ledger functionality such as Resources](../resources/README.md) and SDKs while *also* providing a future-compatible mode with more complex DIDDocs than those possible on Hyperledger Indy.
 
 ## W3C DID Specification compliance
