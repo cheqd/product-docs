@@ -1,2 +1,0 @@
-# cheqd Cosmos CLI
-
