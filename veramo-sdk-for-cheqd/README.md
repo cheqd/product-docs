@@ -40,4 +40,4 @@ For other applications, see:
 
 * [Veramo Node.js tutorial](https://veramo.io/docs/node_tutorials/node_setup_identifiers)
 * [Veramo React tutorial](https://veramo.io/docs/react_tutorials/react_setup_resolver)
-* [Veramo React Native tutorial](https://veramo.io/docs/react_native_tutorials/react_native_setup_identifers)
+* [Veramo React Native tutorial](https://veramo.io/docs/react_native_tutorials/react_native_setup_identifiers)
