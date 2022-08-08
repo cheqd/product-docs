@@ -20,6 +20,7 @@
   * [↣ Collections of Resources](resources/resource-collections.md)
   * [🧑‍⚖️ Governance Frameworks as Resources](resources/governance-framework.md)
 * [📚 Creating a Resource using cheqd Cosmos CLI](resources/tutorials/README.md)
+  * [📚 Publishing a new Resource version](resources/tutorials/add-resource-to-existing-collection.md)
 
 ## 🛂 Using decentralised identity in Apps
 

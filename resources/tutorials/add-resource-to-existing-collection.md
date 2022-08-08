@@ -1,38 +1,38 @@
-# Creating a Resource with cheqd Cosmos CLI
+# Adding a new Resource to an existing Collection using cheqd Cosmos CLI
 
-The purpose of this document is to outline how someone can create a Resource on the cheqd network using [cheqd Cosmos CLI](../../decentralized-identifiers/cheqd-cosmos-cli/README.md). The process that's followed is similar to what's described in the [high-level Resource creation flow](../creating-a-resource.md).
+The purpose of this document is to describe how someone can create [a *new* Resource on under an existing *Collection*](../resource-collections.md).
+
+This tutorial uses the [cheqd Cosmos CLI](https://docs.cheqd.io/node/docs/cheqd-cli), similar to the [creating a new Resource tutorial](README.md).
 
 ## Pre-requisites
 
 1. Install the latest stable cheqd-node CLI, either as a [standalone binary](https://github.com/cheqd/cheqd-node/releases/latest) or [Docker container image](https://github.com/cheqd/cheqd-node/pkgs/container/cheqd-cli).
 2. Acquire test CHEQ tokens through [our testnet faucet](https://testnet-faucet.cheqd.io) (if creating it on our testnet), or [CHEQ tokens](https://app.osmosis.zone/?from=OSMO&to=CHEQ) (if you plan on creating it on mainnet).
+3. An [existing DID + DIDDoc created on cheqd ledger](../../decentralized-identifiers/cheqd-cosmos-cli/README.md)
+4. Having [a Resource already created](README.md) under this DIDDoc Collection
 
-## Creating a new Resource linked to a DID
+## Adding a new Resource to an existing DIDDoc Collection
 
-### 1. Create a new DID + DIDDoc
-
-*Note: If you already have a DIDDoc and corresponding keys, you can skip this step.*
-
-To create a DIDDoc, you can follow the instructions to [create a DID with cheqd Cosmos CLI](../../decentralized-identifiers/cheqd-cosmos-cli/README.md).
-
-Let's assume the DID for the DIDDoc is as follows:
-
-`did:cheqd:mainnet:6h7fjuw37gbf9ioty633bnd7thf65hs1`
-
-### 2. Create a UUID for the Resource
+### 1. Generate a new UUID for the new Resource version
 
 [UUIDs are used to identify Resources](../creating-a-resource.md). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
 
 ```bash
 $ uuidgen
-e7b662f8-d3f8-4a83-bd00-2cdcd6cc50ab
+c8ef6d88-ee0c-4ca4-9fd6-f9e17f6f8f3f
 ```
 
-### 3. Prepare a file with Resource content
+### 2. Prepare a file with Resource content
 
 Resource content should be placed in a file and stored locally.
 
-### 4. Send DIDDoc to the ledger
+### 3. Publish the new Resource version to the ledger
+
+Resources with the same Collection ID and name are grouped into version sets. Each resource in such a set has a link to the previous version (except the first version) and the next version (if it's not the most recent version).
+
+To create a resource and mark it as a new version within a particular group, we need to use the same `collection-id` and `name` as in the previous version. Links between versions will be created automatically.
+
+New versions have dedicated unique IDs and can be referenced and retrieved as any other resources.
 
 #### Command
 
@@ -61,10 +61,10 @@ cheqd-noded tx resource create-resource \
 ```bash
 cheqd-noded tx resource create-resource \
     --collection-id 6h7fjuw37gbf9ioty633bnd7thf65hs1 \
-    --resource-id 49610df5-5998-4b72-b28f-02b7f776156f \
+    --resource-id c8ef6d88-ee0c-4ca4-9fd6-f9e17f6f8f3f \
     --resource-name 'universityDegree' \
     --resource-type CL-Schema\
-    --resource-file schema.json \
+    --resource-file schema-v2.json \
     did:cheqd:mainnet:6h7fjuw37gbf9ioty633bnd7thf65hs1#key1 \
     l6KUjm...jz8Un7QCbrW1KPE6gSyg== \
      --from <your-account> \
@@ -87,9 +87,9 @@ Otherwise, the `raw_logs` field in the response can help figure out why somethin
 }
 ```
 
-### 5. Check that Resource was successfully written to the ledger
+### 4. Check that new Resource version was successfully written to the ledger
 
-Finally, to check that the DID was successfully written, we can use the following query:
+Finally, to check that the resource was successfully written, we can use the following query:
 
 ```bash
 cheqd-noded query resource resource \
@@ -108,8 +108,27 @@ cheqd-noded query resource resource \
 ```bash
 cheqd-noded query resource resource \
     6h7fjuw37gbf9ioty633bnd7thf65hs1 \
-    49610df5-5998-4b72-b28f-02b7f776156f \
+    c8ef6d88-ee0c-4ca4-9fd6-f9e17f6f8f3f \
     --node https://rpc.cheqd.network:443
 ```
 
-**Congratulations!** You've successfully created a resource on cheqd ledger; hopefully, the first of many.
+#### Result
+
+```jsonc
+"resource": {
+    "header": {
+        "collection_id": "6h7fjuw37gbf9ioty633bnd7thf65hs1",
+        "id": "c8ef6d88-ee0c-4ca4-9fd6-f9e17f6f8f3f",
+        "name": "universityDegree",
+        "resource_type": "CL-Schema",
+        "media_type": "application/json",
+        "created": "2022-08-04T17:18:20Z",
+        "checksum": "eyAiY29udGVudCI6ICJ0ZXN0IGRhdGEiIH0K47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=",
+        "previous_version_id": "49610df5-5998-4b72-b28f-02b7f776156f",
+        "next_version_id": ""
+    },
+    "data": "..."
+}
+```
+
+Notice that `header.previous_version_id` was set to the ID of the previous version. Correspondingly, `next_version` was updated to `c8ef6d88-ee0c-4ca4-9fd6-f9e17f6f8f3f` for the previous version of the resource.
