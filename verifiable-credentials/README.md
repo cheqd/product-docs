@@ -1,7 +1,5 @@
 # ✅ Verifiable Credentials
 
-## Overview
-
 A Verifiable Credential (VC) is a tamper-evident credential that has authorship that can be cryptographically verified. Verifiable credentials can be used to build [verifiable presentations](https://www.w3.org/TR/vc-data-model/#dfn-verifiable-presentations), which can also be cryptographically verified. The [claims](https://www.w3.org/TR/vc-data-model/#dfn-claims) in a credential can be about different [subjects](https://www.w3.org/TR/vc-data-model/#dfn-subjects).
 
 If you want to learn more about what [Verifiable Credentials are, please go over to our learning site here.](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-verifiable-credential-vc)
@@ -12,18 +10,18 @@ There are multiple different types of Verifiable Credentials, each with differen
 
 For this reason, cheqd intends to support all mainstream types of Verifiable Credential, in order to best support its partners building on the network:
 
-{% content-ref url="json-based-jwt.md" %}
-[json-based-jwt.md](json-based-jwt.md)
-{% endcontent-ref %}
+### JSON/JWT-based Verifiable Credentials
 
-{% content-ref url="json-ld.md" %}
-[json-ld.md](json-ld.md)
-{% endcontent-ref %}
+[JSON/JWT-VCs](json-jwt-credentials.md) are currently possible with live demos available in [our identity demo wallet](wallet.md)
 
-{% content-ref url="anoncreds/" %}
-[anoncreds](anoncreds/)
-{% endcontent-ref %}
+### JSON-LD Verifiable Credentials
 
-## cheqd node SDK architecture and tooling
+[JSON-LD Credentials](json-ld-credentials.md) can be supported in theory, with compatible SDKs.
 
-cheqd packages up its tools for creating and resolving Verifiable Credentials into a digestible toolkit. [Read more about cheqd's SDK architecture on our Product site.](https://product.cheqd.io/)
+### AnonCreds Credentials
+
+[AnonCreds Credentials can be supported on cheqd](anoncreds/README.md) with our [Resources on-ledger module](../resources/README.md).
+
+> **Learn more about our client app SDK roadmap on our product site**
+>
+> Our [Product Update & Roadmaps site](https://product.cheqd.io) has the latest updates for business & developer teams looking to use our Product SDKs and integrate functionality into their own applications
