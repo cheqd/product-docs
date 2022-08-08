@@ -21,7 +21,7 @@ Let's assume the DID for the DIDDoc is as follows:
 
 ### 2. Create a UUID for the Resource
 
-UUIDs are used to identify Resources. On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
+[UUIDs are used to identify Resources](../creating-a-resource.md). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
 
 ```bash
 $ uuidgen
@@ -34,39 +34,37 @@ Resource content should be placed in a file and stored locally.
 
 ### 4. Send DIDDoc to the ledger
 
-#### Command format
+#### Command
 
 ```bash
 cheqd-noded tx resource create-resource \
-    <collection-id> \
-    <resource-id> \
-    <name> \
-    <resource-type> \
-    <mime-type> \
-    <file-path> \
-    <signatyre-1-key-id> \
-    <signature-1-data> \
-    <other-signatures>
+    --collection-id <collection-id>
+    --resource-id <resource-id>
+    --resource-name <resource-name>
+    --resource-type <resource-type>
+    --resource-file <resource-file>
+    <ver-method-id-1> <priv-key-1>
+    <ver-method-id-N> <priv-key-N>
 ```
 
 #### Parameters
 
 * `<collection-id>`: This should be the **same unique identifier** as that after the namespace of the corresponding DID created in step 1
 * `<resource-id>`: Unique resource ID within the collection in UUID format
-* `<name>`: Arbitrary human-readable string used to identify the resource
+* `<resource-name>`: Arbitrary human-readable string used to identify the resource
 * `<resource-type>`: Resource type, such as `CL-Schema`, `JSONSchema2020`, etc
-* `<file-path>`: Path to file with resource content
-* `<signatures>`: To create a resource, you need the same set of signatures as for carrying out a DIDDoc update. Provide signatures the same way as during resource creation or modification, in step 1.
+* `<resource-file>`: Path to file with resource content
+* `<ver-method-id-1>`, `<priv-key-1>`, `<ver-method-id-N>`,  `<priv-key-N>`: To create a resource, you need the same set of signatures as for carrying out a DIDDoc update. Provide signatures the same way as during resource creation or modification, in step 1.
 
 #### Example
 
 ```bash
 cheqd-noded tx resource create-resource \
-    6h7fjuw37gbf9ioty633bnd7thf65hs1 \
-    49610df5-5998-4b72-b28f-02b7f776156f \
-    'universityDegree' \
-    CL-Schema\
-    schema.json \
+    --collection-id 6h7fjuw37gbf9ioty633bnd7thf65hs1 \
+    --resource-id 49610df5-5998-4b72-b28f-02b7f776156f \
+    --resource-name 'universityDegree' \
+    --resource-type CL-Schema\
+    --resource-file schema.json \
     did:cheqd:mainnet:6h7fjuw37gbf9ioty633bnd7thf65hs1#key1 \
     l6KUjm...jz8Un7QCbrW1KPE6gSyg== \
      --from <your-account> \
@@ -77,10 +75,16 @@ cheqd-noded tx resource create-resource \
      --gas-prices 25ncheq
 ```
 
-After you execute the command, you will receive `"code": 0"`if the DID was successfully written to the ledger. We can do a full query to check this as well. In case of other error codes, field `raw_logs` can help with figuring out the case. For example:
+After you execute the command, you will receive `"code": 0"` if the resource was successfully written to the ledger.
 
-```bash
-"code":1201,"data":"","raw_log":"failed to execute message; message index: 0: id:cheqd:testnet:fcbarcelona: DID Doc not found"
+Otherwise, the `raw_logs` field in the response can help figure out why something went wrong. For example:
+
+```jsonc
+{
+    "code": 1201,
+    "data":"",
+    "raw_log":"failed to execute message; message index: 0: id:cheqd:testnet:fcbarcelona: DID Doc not found"
+}
 ```
 
 ### 5. Check that Resource was successfully written to the ledger
@@ -94,12 +98,12 @@ cheqd-noded query resource resource \
     --node https://rpc.cheqd.network:443
 ```
 
-where:
+#### Parameters
 
 * `<collection-id>`: The **same unique identifier** as that after the namespace of the corresponding DID created in step 1
 * `<resource-id>`: Unique ID of the resource within the collection of resources associated with the DIDDoc
 
-In our example:
+#### Example
 
 ```bash
 cheqd-noded query resource resource \
