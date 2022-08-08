@@ -1,6 +1,6 @@
 # Table of contents
 
-* [cheqd Identity Documentation](README.md)
+* [Identity Documentation for cheqd](README.md)
 
 ## 💫 On-Ledger Identity
 
