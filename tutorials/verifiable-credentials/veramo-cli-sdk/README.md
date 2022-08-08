@@ -1,2 +1,0 @@
-# Veramo CLI / SDK
-

@@ -1,3 +1,0 @@
-# Issue Verifiable Credential
-
-Todo
