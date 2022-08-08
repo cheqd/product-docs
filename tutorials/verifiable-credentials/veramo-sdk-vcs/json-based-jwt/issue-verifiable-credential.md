@@ -16,7 +16,7 @@ Issuing a Verifiable Credential can be achieved through both the Veramo CLI, or 
 
 > Ensure you have saved the [`agent.yml`](https://raw.githubusercontent.com/cheqd/did-provider-cheqd/main/agent.yml) file in your local project directory.
 
-For full information on the architecture, setup and cofig, check [`did-provider-cheqd`]().
+For full information on the architecture, setup and cofig, check [`did-provider-cheqd`](https://github.com/cheqd/did-provider-cheqd).
 
 ## Steps
 

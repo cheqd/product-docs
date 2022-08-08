@@ -1,20 +1,20 @@
 # Verify a JSON based JWT Verifiable Credential
 
-# Overview
+## Overview
 
 This tutorial offers step-by-step guidance on how to verify a [JSON credential](https://www.w3.org/TR/vc-data-model/#json), encoded as a [JWT (JSON Web Token)](https://www.w3.org/TR/vc-data-model/#json-web-token), a [W3C compliant proof format.](https://www.w3.org/TR/vc-data-model/#proof-formats)
 
 Verifying a Verifiable Credential can be achieved through both the Veramo CLI, or directly through an application, setup to read and write to the cheqd ledger, using the Veramo SDK for cheqd.
 
-# Pre-requisites
+## Pre-requisites
 
 To verify a Verifiable Credential you will need to first issue one to a subject. See the tutorial for issuing a Verifiable Credential for this.
 
-For full information on the architecture, setup and config, check [`did-provider-cheqd`]().
+For full information on the architecture, setup and config, check [`did-provider-cheqd`](https://github.com/cheqd/did-provider-cheqd).
 
-# Steps
+## Steps
 
-## Step 1
+### Step 1
 
 Begin credential verification, entering the json file name **before** the veramo credential verify command:
 
@@ -22,7 +22,7 @@ Begin credential verification, entering the json file name **before** the veramo
 cat cred.json | veramo credential verify
 ```
 
-## Step 2
+### Step 2
 
 If the credential can be verified correctly, the output will demonstrate this with the response:
 

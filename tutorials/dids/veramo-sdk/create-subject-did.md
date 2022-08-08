@@ -6,7 +6,7 @@ This tutorial offers step-by-step guidance on how to create a subject DID to be 
 
 We chose to use [`did:key`](https://github.com/w3c-ccg/did-method-key) for the holder because the [`did:key`](https://w3c-ccg.github.io/did-method-key/) specification has a lot synergy with cheqd did method, [`did:cheqd`](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method).
 
-Using [`did:key`](https://github.com/w3c-ccg/did-method-key) also keeps holder DIDs off-ledger. This is very important for the privacy and data protection of the holder. If holder DIDs and DIDDocs were stored on-ledger, this could constitute a risk where data written within the DIDDoc could not be removed in line with a holder's right to be forgotten. 
+Using [`did:key`](https://github.com/w3c-ccg/did-method-key) also keeps holder DIDs off-ledger. This is very important for the privacy and data protection of the holder. If holder DIDs and DIDDocs were stored on-ledger, this could constitute a risk where data written within the DIDDoc could not be removed in line with a holder's right to be forgotten.
 
 It is also easily managable by a client agent as a full ledger backup for the writing of a DID / DID Doc is not required, thereby making it easily reproducable in a client environment.
 
@@ -14,7 +14,7 @@ Creating a subject [`did:key`](https://github.com/w3c-ccg/did-method-key) DID ca
 
 ## Pre-requisites
 
-For full information on the architecture, setup and cofig, check [`did-provider-cheqd`]().
+For full information on the architecture, setup and cofig, check [`did-provider-cheqd`](https://github.com/cheqd/did-provider-cheqd).
 
 >Note: Ensure you have saved the [`agent.yml`](https://raw.githubusercontent.com/cheqd/did-provider-cheqd/main/agent.yml) file in your local project directory.
 

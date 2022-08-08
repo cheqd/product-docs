@@ -8,7 +8,7 @@ This can be achieved through both the Veramo CLI, or directly through an applica
 
 ## Pre-requisites
 
-For full information on the architecture, setup and cofig, check [`did-provider-cheqd`]().
+For full information on the architecture, setup and cofig, check [`did-provider-cheqd`](https://github.com/cheqd/did-provider-cheqd).
 
 ## Steps
 
