@@ -1,10 +1,6 @@
-# Identity transactions with VDR tools CLI
+# Using VDR Tools CLI with cheqd ledger
 
-## Overview
-
-This page describes how identity domain transactions need to be implemented by client-side applications/libraries such as [Evernym VDR Tools](https://gitlab.com/evernym/verity/vdr-tools).
-
-Details on how identity transactions are defined is available in [ADR 002: Identity entities and transactions](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method).
+This page describes how [identity-domain transactions can be integrated in 3rd party applications](README.md) such as [Evernym VDR Tools](https://gitlab.com/evernym/verity/vdr-tools).
 
 ## Base write flow
 
@@ -52,11 +48,11 @@ Details on how identity transactions are defined is available in [ADR 002: Ident
 
 ### Create DID
 
-#### cheqd-sdk function
+#### Command
 
 `build_create_did_request(id, verkey, alias)`
 
-Request format:
+#### Request format
 
 ```bash
 CreateDidRequest 
@@ -76,7 +72,7 @@ CreateDidRequest
 - `verkey` (base58-encoded string, possibly starting with "~~"; optional): Target verification key. It can start with "~~", which means that it is an abbreviated `verkey` and should be 16 bytes long when decoded. Otherwise, it's a full `verkey` which should be 32 bytes long when decoded.
 - `alias` (string; optional)
 
-Response format:
+#### Response format
 
 ```bash
 CreateDidResponse {
@@ -86,17 +82,17 @@ CreateDidResponse {
 
 - `key`(string): A unique key is used to store this DID in a state
 
-Response validation:
+#### Response validation
 
 - `CreateDidRequest` must be signed by the DID from `id` field. It means that this DID must be an owner of this DID transaction.
 
 ## Update DID
 
-cheqd-sdk function:
+#### Command
 
 `build_update_did_request(id, verkey, alias)`
 
-Request format:
+#### Request format
 
 ```bash
 UpdateDidRequest 
@@ -116,7 +112,7 @@ UpdateDidRequest
 - `verkey` (base58-encoded string, possibly starting with "~~"; optional): Target verification key. It can start with "~~", which means that it is an abbreviated `verkey` and should be 16 bytes long when decoded. Otherwise, it's a full `verkey` which should be 32 bytes long when decoded.
 - `alias` (string; optional).
 
-Response format
+#### Response format
 
 ```bash
 UpdateDidResponse {
@@ -126,20 +122,20 @@ UpdateDidResponse {
 
 - `key`(string): A unique key is used to store this DID in a state
 
-Response validation:
+#### Response validation
 
 - A transaction with `id` from `UpdateDidRequest`must already be in a ledger created by `CreateDidRequest`
 - `UpdateDidRequest` must be signed by the DID from `id` field. It means that this DID must be an owner of this DID transaction.
 
 ## Get DID
 
-cheqd-sdk function:
+#### Command
 
 `build_query_get_did(id)`
 
 - `id` (base58-encoded string): Target DID as base58-encoded string for 16 or 32 byte DID value.
 
-Request formatL
+#### Request format
 
 ```bash
 Request 
@@ -156,7 +152,7 @@ Request
 - `height`: Ledger height (size). `None` for auto calculation
 - `prove`: Boolean value. `True` for getting state proof in a pool response
 
-Response format:
+#### Response format
 
 ```bash
 QueryGetDidResponse{
@@ -165,296 +161,5 @@ QueryGetDidResponse{
                "verkey": "~HmUWn928bnFT6Ephf65YXv",
                "alias": "DID for Alice"
              },
-}
-```
-
-## ATTRIB transactions
-
-### Create ATTRIB
-
-cheqd-sdk function:
-
-`build_create_attrib_request(did, raw)`
-
-Request format
-
-```bash
-CreateAttribRequest 
-{
-    "data": {
-               "did": "GEzcdDLhCpGCYRHW82kjHd",
-               "raw": "{'name': 'Alice'}"
-             },
-    "owner": "GEzcdDLhCpGCYRHW82kjHd",
-    "signature": "49W5WP5jr7x1fZhtpAhHFbuUDqUYZ3AKht88gUjrz8TEJZr5MZUPjskpfBFdboLPZXKjbGjutoVascfKiMD5W7Ba",
-    "metadata": {}
-}
-```
-
-- `did` (base58-encoded string): Target DID as base58-encoded string for 16 or 32 byte DID value.
-- `raw` (JSON; mutually exclusive with `hash` and `enc`): Raw data represented as JSON, where the key is attribute name and value is attribute value.
-
-Response format:
-
-```bash
-CreateAttribResponse {
-    "key": "attrib:GEzcdDLhCpGCYRHW82kjHd" 
-}
-```
-
-- `key`(string): A unique key is used to store these attributes in a state
-
-Response validation:
-
-- A DID transaction with `id` from `UpdateAttribRequest`must already be in a ledger created by `CreateDidRequest`
-- `CreateAttribRequest` must be signed by the DID from `did` field. It means that this DID must be an owner of this ATTRIB transaction.
-
-### Update ATTRIB
-
-cheqd-sdk functionL
-`build_update_attrib_request(id, raw)`
-
-Request format:
-
-```bash
-UpdateAttribRequest 
-{
-    "data": {
-               "did": "GEzcdDLhCpGCYRHW82kjHd",
-               "raw": "{'name': 'Alice'}"
-             },
-    "owner": "GEzcdDLhCpGCYRHW82kjHd",
-    "signature": "49W5WP5jr7x1fZhtpAhHFbuUDqUYZ3AKht88gUjrz8TEJZr5MZUPjskpfBFdboLPZXKjbGjutoVascfKiMD5W7Ba",
-    "metadata": {}
-}
-```
-
-- `did` (base58-encoded string): Target DID as base58-encoded string for 16 or 32 byte DID value.
-- `raw` (JSON; mutually exclusive with `hash` and `enc`): Raw data represented as JSON, where the key is attribute name and value is attribute value.
-
-Response format:
-
-```bash
-UpdateAttribResponse {
-        "key": "attrib:GEzcdDLhCpGCYRHW82kjHd" 
-}
-```
-
-- `key`(string): A unique key is used to store these attributes in a state
-
-Response validation:
-
-- A DID transaction with `id` from `UpdateAttribRequest`must already be in a ledger created by `CreateDidRequest`
-- `UpdateAttribRequest` must be signed by DID from `did` field. It means that this DID must be an owner of this ATTRIB transaction.
-
-### Get ATTRIB
-
-cheqd-sdk function:
-
-`build_query_get_attrib(did)`
-
-- `did` (base58-encoded string) Target DID as base58-encoded string for 16 or 32 byte DID value.
-
-Request format:
-
-```bash
-Request 
-{
-    "path": "/store/cheqd/key",
-    "data": <bytes>,
-    "height": 642,
-    "prove": true
-}
-```
-
-- `path`: Path for RPC endpoint for cheqd pool
-- `data`: Query with an entity key from a state. String `did:<id>` encoded to bytes
-- `height`: Ledger height (size). `None` for auto calculation
-- `prove`: Boolean value. `True` for getting state proof in a pool response
-
-Response format:
-
-```bash
-QueryGetAttribResponse{
-        "attrib": {
-               "did": "GEzcdDLhCpGCYRHW82kjHd",
-               "raw": "{'name': 'Alice'}"
-             },
-}
-```
-
-## SCHEMA transactions
-
-### Create SCHEMA
-
-cheqd-sdk function:
-
-`build\_create\_schema\_request\(version, name, attr\_names\)`
-
-Request format:
-
-```bash
-CreateSchemaRequest 
-{
-    "data": {
-            "version": "1.0",
-            "name": "Degree",
-            "attr_names": ["undergrad", "last_name", "first_name", "birth_date", "postgrad", "expiry_date"]
-             },
-    "owner": "GEzcdDLhCpGCYRHW82kjHd",
-    "signature": "49W5WP5jr7x1fZhtpAhHFbuUDqUYZ3AKht88gUjrz8TEJZr5MZUPjskpfBFdboLPZXKjbGjutoVascfKiMD5W7Ba",
-    "metadata": {}
-}
-```
-
-- `attr_names`(array): Array of attribute name strings (125 attributes maximum)
-- `name`(string): Schema's name string
-- `version`(string): Schema's version string
-
-Response format:
-
-```bash
-CreateSchemaResponse {
-        "key": "schema:GEzcdDLhCpGCYRHW82kjHd:Degree:1.0" 
-}
-```
-
-- `key`(string): A key is used to store this schema in a state
-
-Response validation:
-
-- A SCHEMA transaction with DID from `owner` field must already be in a ledger created by `CreateDidRequest`
-- `CreateSchemaRequest` must be signed by DID from `owner` field.
-
-### Get Schema
-
-cheqd-sdk function:
-
-`build\_query\_get\_schema\(name, version, owner\)`
-
-- `name`(string): Schema's name string
-- `version`(string): Schema's version string
-- `owner` (string): Schema's owner did
-
-Request format:
-
-```bash
-Request 
-{
-    "path": "/store/cheqd/key",
-    "data": <bytes>,
-    "height": 642,
-    "prove": true
-}
-```
-
-- `path`: Path for RPC Endpoint for cheqd pool
-- `data`: Query with an entity key from a state. String `schema:<owner>:<name>:<version>` encoded to bytes
-- `height`: Ledger height (size). `None` for auto calculation;
-- `prove`: Boolean value. `True` for getting state proof in a pool response.
-
-Response format:
-
-```bash
-QueryGetSchemaResponse{
-        "attrib": {
-                "version": "1.0",
-                "name": "Degree",
-                "attr_names": ["undergrad", "last_name", "first_name", "birth_date", "postgrad", "expiry_date"]
-             },
-}
-```
-
-## CRED\_DEF Transactions
-
-### Create Credential Definition
-
-cheqd-sdk function:
-
-`build\_create\_cred\_def\_request\(cred\_def, schema\_id, signature\_type, tag\)`
-
-Request format:
-
-```bash
-CreateCredDefRequest 
-{
-    "data": {
-                "signature_type": "CL",
-                "schema_id": "schema:GEzcdDLhCpGCYRHW82kjHd:Degree:1.0",
-                "tag": "some_tag",    
-                "cred_def": {
-                    "primary": ....,
-                    "revocation": ....
-            },
-    "owner": "GEzcdDLhCpGCYRHW82kjHd",
-    "signature": "49W5WP5jr7x1fZhtpAhHFbuUDqUYZ3AKht88gUjrz8TEJZr5MZUPjskpfBFdboLPZXKjbGjutoVascfKiMD5W7Ba",
-    "metadata": {}
-}
-```
-
-- `cred_def` (dict): Dictionary with Credential Definition's data:
-  - `primary` (dict): Primary credential public key
-  - `revocation` (dict): Revocation credential public key
-- `schema_id` (string): Schema's key from a state
-- `signature_type` (string): Type of the Credential Definition (that is credential signature). `CL` (Camenisch-Lysyanskaya) is the only supported type now.
-- `tag` (string, optional): A unique tag to have multiple public keys for the same Schema and type issued by the same DID. A default tag `tag` will be used if not specified.
-
-Response formatL
-
-```bash
-CreateCredDefResponse {
-        "key": "cred_def:GEzcdDLhCpGCYRHW82kjHd:schema:GEzcdDLhCpGCYRHW82kjHd:Degree:1.0:some_tag:CL" 
-}
-```
-
-- `key`(string): A unique key that is used to store this Credential Definition in a state
-
-Response validation:
-
-- A CRED\_DEF transaction with DID from `owner` field must already be in a ledger created by `CreateDidRequest`
-- `CreateCredDefRequest` must be signed by DID from `owner` field.
-
-### Get Credential Definition
-
-cheqd-sdk function:
-
-```bash
-`build\_query\_get\_cred\_def\(name, version, owner\)`
-```
-
-- `schema_id`(string): Schema's key from a state
-- `signature_type`(string): Type of the Credential Definition (that is credential signature). CL (Camenisch-Lysyanskaya) is the only supported type now.
-- `owner` (string): Credential Definition's owner DID
-- `tag` (string, optional): A unique tag to have multiple public keys for the same Schema and type issued by the same DID. A default tag `tag` will be used if not specified.
-
-Request format:
-
-```bash
-Request 
-{
-    "path": "/store/cheqd/key",
-    "data": <bytes>,
-    "height": 642,
-    "prove": true
-}
-```
-
-- `path`: Path for RPC endpoint for cheqd pool
-- `data`: Query with an entity key from a state. String `cred_def:<owner>:<schema_id>:<tag>:<signature_type>` encoded to bytes
-- `height`: Ledger height (size). `None` for auto calculation
-- `prove`: Boolean value. `True` for getting state proof in a pool response.
-
-Response format:
-
-```bash
-QueryGetCredDefResponse{
-    "cred_def": {
-            "signature_type": "CL",
-            "schema_id": "schema:GEzcdDLhCpGCYRHW82kjHd:Degree:1.0",
-            "tag": "some_tag",    
-            "cred_def": {
-                "primary": "...",// Primary
-                "revocation": "..." // Revocation registry
-        },
 }
 ```
