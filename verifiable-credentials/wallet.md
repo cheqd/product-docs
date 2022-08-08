@@ -1,21 +1,19 @@
-# 🗂 Wallet
-
-## Overview
+# 🗂 Identity Wallet Demo
 
 cheqd has designed a wallet to demonstrate and test its DeFi functionality as well as its identity tooling.
 
 [CHEQ Wallet](https://wallet.cheqd.io) allows users to perform standard DeFi activities on Cosmos such as staking/delegating, voting on governance Proposals, and sending tokens. Crucially, the CHEQ wallet goes one step further than this, offering the ability to store and share [Verifiable Credentials](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-verifiable-credential-vc).
 
-### 🔥 Features
+## 🔥 Features
 
 * Access your CHEQ wallet account by connecting to the [Keplr browser extension](https://keplr.app)
 * Send CHEQ tokens
 * Delegate, undelegate and redelegate to validators
 * Store and share digital identity credentials
 
-### 🧑‍💻🛠 Developer Guide
+## 🧑‍💻🛠 Developer Guide
 
-#### Setup
+### Setup
 
 There are two `package.json` in this repository. You can use a package manager like Yarn or NPM to install dependencies.
 
@@ -26,7 +24,7 @@ yarn install
 cd ../..
 ```
 
-#### Build
+### Build
 
 You can build your app with Yarn or similar package managers.
 
@@ -40,7 +38,7 @@ The installation and build steps can be executed together using the `Makefile` i
 make build
 ```
 
-#### Run
+### Run
 
 Serve the app by using this command:
 
@@ -48,6 +46,6 @@ Serve the app by using this command:
 yarn start
 ```
 
-### 🙌 Acknowledgments
+## 🙌 Acknowledgments
 
 This repo is forked from the [LUM network wallet](https://github.com/lum-network/wallet) which also uses [Lum Network's Javascript SDK](https://github.com/lum-network/sdk-javascript).
