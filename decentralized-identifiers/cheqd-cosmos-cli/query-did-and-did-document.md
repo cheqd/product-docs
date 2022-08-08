@@ -1,25 +1,22 @@
-# Overview
+# Querying a DID
 
-This document is describing how to get already created DID-Doc from cheqd ledger.
-We assumed, that there is already set up environment with operator's keys and etc.
+## Pre-requisite
 
-The next documents can be helpful for managing the DID-Docs:
+An existing `did:cheqd` entry created using any SDK/CLI. For development purposes, this can be done using [the `cheqd-node` Cosmos CLI](README.md).
 
-- [Set up environment with docker](./environment-preps.md)
-- [Created the DID-Doc](./create-did-and-did-document.md)
-- [Update the DID-Doc](./update-and-manage-did-document.md)  
+> NOTE: Use the [**cheqd DID Resolver**](../../did-resolver/README.md) for production-grade usage
+>
+> Querying using the Cosmos CLI is useful for development purposes, but the [DID Resolver](../../did-resolver/README.md) is designed for programmatic usage. Production-grade SDKs such as [Veramo SDK for cheqd](../../veramo-sdk-for-cheqd/README.md) also rely on the DID Resolver package.
 
-## Querying a DID
+## Querying DIDDocs for existing DIDs
 
-For fetching the DID Document associated with an existing DID on cheqd networks the command can be used:
-
-Command:
+### Command
 
 ```bash
 cheqd-noded query cheqd did <id> --chain-id <chain-id> --node <node-rpc-endpoint>
 ```
 
-Example:
+### Example
 
 ```bash
 cheqd-noded query cheqd did did:cheqd:testnet:zJ5EDiiiKWDyo79n --chain-id cheqd-testnet-4 --node http://rpc.testnet.cheqd.network:26657
