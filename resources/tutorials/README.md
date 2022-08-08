@@ -13,7 +13,7 @@ The purpose of this document is to outline how someone can create a Resource on 
 
 *Note: If you already have a DIDDoc and corresponding keys, you can skip this step.*
 
-To create a DIDDoc, you can follow the [create DIDDoc tutorial here](../../dids/cheqd-cosmos-cli/create-did-and-did-document.md).
+To create a DIDDoc, you can follow the instructions to [create a DID with cheqd Cosmos CLI](../../decentralized-identifiers/cheqd-cosmos-cli/README.md).
 
 Let's assume the DID for the DIDDoc is as follows:
 
