@@ -16,6 +16,9 @@ New DID creation can also be done by passing a full-body DIDoc payload in JSON, 
 
 ## 📝 Architecture
 
+![Veramo SDK for cheqd architecture](../.gitbook/assets/veramo-sdk-for-cheqd-arch.png)
+*Figure 1: Veramo SDK for cheqd architecture with components ([editable Draw.io version](../.gitbook/assets/veramo-sdk-for-cheqd.drawio))*
+
 `did-provider-cheqd` consumes functionality that exists within the [`@cheqd/sdk` NPM package](https://www.npmjs.com/package/@cheqd/sdk) in a way that complies to the Veramo `AbstractIdentifierProvider`. (You don't need to call this package separately as it's already included as a dependency in `package.json`.) The `@cheqd/sdk` package adds Cosmos SDK specific functionality such as signing transactions, paying for ledger fees, etc.
 
 For identity-related keys, this plugin uses [Veramo's Key Management System (KMS)](https://www.npmjs.com/package/@veramo/key-manager) to manage keys for create and update operations.
