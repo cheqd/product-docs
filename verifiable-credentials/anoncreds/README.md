@@ -8,7 +8,7 @@ _Much of the work in this page is influenced, iterated or directly replicated fr
 
 AnonCreds are a **type** or **flavour** of Verifiable Credentials that were originally developed by the company [Evernym](https://www.evernym.com/), and were subsequently adopted by the [Sovrin Foundation](https://sovrin.org/) as part of the 'Indy' codebase that was contributed to [Hyperledger](https://www.hyperledger.org/), a [Linux Foundation](https://linuxfoundation.org/) project. This codebase was forked into the [Hyperledger Indy](https://www.hyperledger.org/use/hyperledger-indy) project for ledger code, [Hyperledger Ursa](https://www.hyperledger.org/use/ursa) for cryptographic libraries, and the ledger-agnostic Hyperledger Aries codebase for agent, wallet, and credentialing code.
 
-AnonCreds are now far more widely adopted, through organisations such as the [Government of British Colombia](https://digital.gov.bc.ca/digital-trust/projects-and-initiatives/credentials-for-people/), [IDunion](https://idunion.org/projekt/?lang=en) and the [IATA Travel Pass](https://www.evernym.com/travelpass/).&#x20;
+AnonCreds are now far more widely adopted, through organisations such as the [Government of British Colombia](https://digital.gov.bc.ca/digital-trust/projects-and-initiatives/credentials-for-people/), [IDunion](https://idunion.org/projekt/?lang=en) and the [IATA Travel Pass](https://www.evernym.com/travelpass/).
 
 ### How are AnonCreds different to other Credential types?
 
@@ -21,7 +21,7 @@ AnonCreds were designed to provide additional privacy benefits, compared with JS
 * **Predicate proofs:** Through the use of link secrets and Indy schemas, it is possible to present an assertion, such as "date\_of\_birth is more than 18 years ago)", without revealing any additional information.
 * **Privacy preserving revocation:** Using cryptographic accumulators and 'tails files', revocation statuses can be queried without creating a chain of correlation through which a user's privacy can be compromised.
 
-The ZKP-CL processing model requires that the credential’s schema is defined and posted to an Indy ledger. The credential issuer follows the pre-defined schema. They leverage the CL Signature suite to sign each statement in the credential. The credential is anchored to a link secret that is known only to the holder (stored in the holder’s software), and when the holder is issued a credential, it packages up a cryptographic commitment to the link secret within another long number that the issuer uses for the credential ID.&#x20;
+The ZKP-CL processing model requires that the credential’s schema is defined and posted to an Indy ledger. The credential issuer follows the pre-defined schema. They leverage the CL Signature suite to sign each statement in the credential. The credential is anchored to a link secret that is known only to the holder (stored in the holder’s software), and when the holder is issued a credential, it packages up a cryptographic commitment to the link secret within another long number that the issuer uses for the credential ID.
 
 A metaphor for this is that of a digital watermark; the link secret is like a stamp that is used to create a watermark. The stamp used to create the watermark is NOT packaged up or put in the credential in any form; all that is in the credential is very-hard-to-fake evidence that the holder possesses the stamp and is capable of generating such watermarks. Unlike non-ZKP methods, zero-knowledge methods generally do not share a correlatable identifier (such as a persistent or public DID) and also do not reveal actual signatures. Instead, they only reveal a cryptographic proof of a valid signature. This means the holder of the credential cannot be correlated just by presenting a proof of the credential (this is the primary privacy problem with public/private key cryptography that ZKP-CL Signatures were invented to solve over a decade ago).
 
@@ -34,7 +34,7 @@ AnonCreds have been the subject of heavy debate within the decentralized identit
 * **Interoperability:** AnonCreds are **** intrinsically tied to Hyperledger Indy, and largely to Hyperledger Aries. Historically, they cannot be written to other Layer 1 Utilities, nor are they compliant with the W3C Verifiable Credential data model, given their core architectural differences. As such, this shoehorns adopters into a particular tech stack, which although open source, is largely reliant on the Indy/Aries community for updates, since there is no formal Standard.
 * [AnonCreds v1](https://github.com/AnonCreds-WG/anoncreds-spec) is being proposed as a Standard and is in the process of being taken to the [Internet Engineering Task Force (IETF)](https://www.ietf.org/).
 * **Scalability:** The use of ZKP-CL signatures, whilst certainly containing benefits from a privacy perspective, are very large files which can lead to inefficiencies when used at scale in production environments.
-* Hyperledger Indy has performance and scalability issues when it comes to running more than 25 nodes in terms of its throughput. Its method of revocation also generates very large files, which is very slow to compute in a low-latency environment.&#x20;
+* Hyperledger Indy has performance and scalability issues when it comes to running more than 25 nodes in terms of its throughput. Its method of revocation also generates very large files, which is very slow to compute in a low-latency environment.
 
 Nonetheless, many proponents of SSI contend that AnonCreds are still the most production-ready Credential types at this present instance. Certainly, AnonCreds are the only off-the-shelf Credential type that can provide privacy-preserving functionality such as predicate proofs, which is why, for example, Governments such as [BC-Gov](https://digital.gov.bc.ca/digital-trust/projects-and-initiatives/credentials-for-people/) are large proponents of AnonCreds.
 
@@ -48,7 +48,7 @@ Whilst AnonCreds are not the end-game Credential type, they are currently in a f
 
 ### What does AnonCred support look like?
 
-Our aim is to support the functionality enabled by [identity-domain transactions in by Hyperledger Indy](https://github.com/hyperledger/indy-node/blob/master/docs/source/transactions.md) into `cheqd-node`. This will partly enable the goal of allowing use cases of existing SSI networks on Hyperledger Indy to be supported by the cheqd network.&#x20;
+Our aim is to support the functionality enabled by [identity-domain transactions in by Hyperledger Indy](https://github.com/hyperledger/indy-node/blob/master/docs/source/transactions.md) into `cheqd-node`. This will partly enable the goal of allowing use cases of existing SSI networks on Hyperledger Indy to be supported by the cheqd network.
 
 Importantly, we want to make sure that this work is done in a manner which remains W3C compliant and interoperable.
 
@@ -58,7 +58,7 @@ One of the aforementioned ways AnonCreds differ from JSON and JSON-LD Credential
 
 ### **How does cheqd support CL-Schemas?**
 
-The way cheqd facilitates Resources on-ledger is **crucial to understanding** how AnonCreds are supported.&#x20;
+The way cheqd facilitates Resources on-ledger is **crucial to understanding** how AnonCreds are supported.
 
 {% hint style="info" %}
 Please take time to read the section on Resources to understand this approach
@@ -70,9 +70,9 @@ Please take time to read the section on Resources to understand this approach
 
 **How does this make it compatible?**
 
-Through linking on-ledger CL-Schemas to DID Documents, and tying them to Issuer DID Documents, we replicate the functionality of Link Secrets.&#x20;
+Through linking on-ledger CL-Schemas to DID Documents, and tying them to Issuer DID Documents, we replicate the functionality of Link Secrets.
 
-We want to avoid making a new Credential standard, and as such, we want to use the existing W3C VC spec to get as close to AnonCreds as possible.&#x20;
+We want to avoid making a new Credential standard, and as such, we want to use the existing W3C VC spec to get as close to AnonCreds as possible.
 
 The table below summarises where we are at:
 

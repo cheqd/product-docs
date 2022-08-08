@@ -6,7 +6,7 @@
 
 \<todo>
 
-### What goes into a CredDef?&#x20;
+### What goes into a CredDef?
 
 [https://indyscan.io/tx/SOVRIN\_MAINNET/domain/56496](https://indyscan.io/tx/SOVRIN\_MAINNET/domain/56496)
 

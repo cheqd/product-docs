@@ -38,4 +38,4 @@ EXAMPLE from VC Data Model: Usage of the @context property
 
 ## cheqd JSON-LD implementation
 
-cheqd's work on JSON-LD is in progress. _cheq_ back here soon to get more information about how cheqd is supporting this Credential type.&#x20;
+cheqd's work on JSON-LD is in progress. _cheq_ back here soon to get more information about how cheqd is supporting this Credential type.

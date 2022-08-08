@@ -22,7 +22,7 @@ Please ensure you are running the correct version that mainnet runs. You can [ch
 
 If you already have a DIDDoc and corresponding keys, you can skip this step.
 
-To create a DIDDoc, you can follow the [create DIDDoc tutorial here](../../dids/cheqd-cosmos-cli/create-did-and-did-document.md).&#x20;
+To create a DIDDoc, you can follow the [create DIDDoc tutorial here](../../dids/cheqd-cosmos-cli/create-did-and-did-document.md).
 
 Let's presume the DID for the DID Doc is as follows:
 
