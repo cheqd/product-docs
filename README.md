@@ -1,27 +1,25 @@
-# cheqd Identity Documentation
+# Identity Documentation for cheqd
 
-## :information\_source: Overview
+**[cheqd](https://learn.cheqd.io)** is a purpose-built network for decentralised identity. This documentation site provides **technical docs** for all **identity features & functionality** on the cheqd network.
 
-**cheqd** is a purpose-built network for decentralised identity.
+You can dive more into...
 
-This repository is intended to clearly lay out and explain cheqd's approach to decentralised identity functionality.
+* 💫 On-Ledger Identity features on cheqd, such as:
+  * [🆔 cheqd DID method](decentralized-identifiers/README.md)
+  * [🔍 DID Resolver](did-resolver/README.md)
+  * [🧰 On-Ledger Resources](resources/README.md)
+* 🛂 Using decentralised identity in Apps
+  * [🛠 Veramo SDK for cheqd](veramo-sdk-for-cheqd/README.md)
+  * [✅ Verifiable Credentials](verifiable-credentials/README.md)
+  * [👜 Demo Wallet for identity](verifiable-credentials/wallet.md)
+* 🤓 [List of Architecture Decision Records](architecture/adr-list/README.md)
 
-## :arrow\_forward: Quick start for identity docs
+## 📖 Other useful documentation sites for cheqd
 
-### :construction\_site: Architecture
-
-* [Decentralised Identifiers (DIDs) ](design/dids/)
-* [Verifiable Credentials](design/verifiable-credentials/)
-* [Resources](design/resolver/)
-* [Resolver](design/resolver/)
-* [Wallet](design/wallet.md)
-
-### :books: Tutorials
-
-* [Decentralised Identifiers (DIDs) ](tutorials/dids/)
-* [Verifiable Credentials](tutorials/verifiable-credentials/)
-* [Resources](tutorials/resources/)
-* [Resolver](tutorials/resolver/)
+* [**Technical Docs** for **cheqd node/ledger**](https://docs.cheqd.io/node)
+* [**Product Updates & Roadmap**](https://product.cheqd.io)
+* Learn the [**basics of cheqd**](https://learn.cheqd.io) (for a general audience)
+* cheqd's [**decentralised Governance Framework**](https://gov.cheqd.io)
 
 ## 💬 Community
 

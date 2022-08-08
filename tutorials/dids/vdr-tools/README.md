@@ -1,2 +1,0 @@
-# vdr-tools
-
