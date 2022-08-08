@@ -1,3 +1,0 @@
-# Verify Verifiable Presentation
-
-Todo

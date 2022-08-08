@@ -1,49 +1,40 @@
-# Create Resource
+# Creating a Resource with cheqd node CLI
 
-## Tutorial for creating a Resource with cheqd CLI
+The purpose of this document is to outline how someone can create a Resource on the cheqd network using [cheqd node CLI](https://docs.cheqd.io/node/docs/cheqd-cli). The process that's followed is similar to what's described in the [high-level Resource creation flow](../creating-a-resource.md).
 
-### Overview
+## Pre-requisites
 
-The purpose of this document is to outline how someone can create a Resource on the cheqd network.
+1. Install the latest stable cheqd-node CLI, either as a [standalone binary](https://github.com/cheqd/cheqd-node/releases/latest) or [Docker container image](https://github.com/cheqd/cheqd-node/pkgs/container/cheqd-cli).
+2. Acquire test CHEQ tokens through [our testnet faucet](https://testnet-faucet.cheqd.io) (if creating it on our testnet), or [CHEQ tokens](https://app.osmosis.zone/?from=OSMO&to=CHEQ) (if you plan on creating it on mainnet).
 
-This tutorial uses cheqd node CLI to send a DIDDoc.
+## Creating a new Resource linked to a DID
 
-### Pre-requisites
+### 1. Create a new DID + DIDDoc
 
-In order to create a DIDDoc using the instructions outlined in this tutorial, you must be using Ubuntu 20.04 terminal. You'll find all the information required to setup your Ubuntu 20.04 terminal at the end of this tutorial.
-
-If you don't currently have Ubuntu 20.04 installed on your machine, you can use VirtualBox or [Docker](https://github.com/cheqd/cheqd-node/diffs/2?base\_sha=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&branch=DEV-890-cheqd-cli-docs\&commentable=true\&name=DEV-890-cheqd-cli-docs\&pull\_number=283\&qualified\_name=refs%2Fheads%2FDEV-890-cheqd-cli-docs\&sha1=204959755a2a1d4662b1e8d58e2160f17fa4fca8\&sha2=4b36c0a5f767b7d4fb91341bc732d54471702dac\&short\_path=1840e4b\&unchanged=expanded\&w=false#requirements-from-os-side)
-
-Please ensure you are running the correct version that mainnet runs. You can [check which is the current version of mainnet here](https://rpc.mainnet.cheqd.network/abci\_info?).
-
-### How to send a Resource to the mainnet
-
-#### 1. Create a DIDDoc
-
-If you already have a DIDDoc and corresponding keys, you can skip this step.
+*Note: If you already have a DIDDoc and corresponding keys, you can skip this step.*
 
 To create a DIDDoc, you can follow the [create DIDDoc tutorial here](../../dids/cheqd-cosmos-cli/create-did-and-did-document.md).
 
-Let's presume the DID for the DID Doc is as follows:
+Let's assume the DID for the DIDDoc is as follows:
 
 `did:cheqd:mainnet:6h7fjuw37gbf9ioty633bnd7thf65hs1`
 
-#### 2. Create unique-id for our Resource
+### 2. Create a UUID for the Resource
 
-UUIDs are used to identify Resources. In unix like systems, `uuidgen` tool can be used to generate a new one:
+UUIDs are used to identify Resources. On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
 
 ```bash
 $ uuidgen
 e7b662f8-d3f8-4a83-bd00-2cdcd6cc50ab
 ```
 
-#### 3. Prepare a file with Resource content
+### 3. Prepare a file with Resource content
 
 Resource content should be placed in a file and stored locally.
 
-#### 4. Send DIDDoc to the pool
+### 4. Send DIDDoc to the ledger
 
-Command format:
+#### Command format
 
 ```bash
 cheqd-noded tx resource create-resource \
@@ -58,17 +49,16 @@ cheqd-noded tx resource create-resource \
     <other-signatures>
 ```
 
-Where:
+#### Parameters
 
-* `<collection-id>` - this should be the **same unique identifier** as that after the namespace of the corresponding DID created in step 1
-* `<resource-id>` - unique resource ID within the collection. UUID format is used
-* `<name>` - arbitrary human-readable string used to identify the resource
-* `<resource-type>` - suggested values are: `CL-Schema`, `JSONSchema2020`
-* `<mime-type>` - [mime type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics\_of\_HTTP/MIME\_types) of the resource
-* `<file-path>` - path to file with resource content
-* `<signatures>` - to create a resource, you need the same set of signatures as for carrying out a DIDDoc update. Provide signatures the same way as during resource creation or modification, in step 1.
+* `<collection-id>`: This should be the **same unique identifier** as that after the namespace of the corresponding DID created in step 1
+* `<resource-id>`: Unique resource ID within the collection in UUID format
+* `<name>`: Arbitrary human-readable string used to identify the resource
+* `<resource-type>`: Resource type, such as `CL-Schema`, `JSONSchema2020`, etc
+* `<file-path>`: Path to file with resource content
+* `<signatures>`: To create a resource, you need the same set of signatures as for carrying out a DIDDoc update. Provide signatures the same way as during resource creation or modification, in step 1.
 
-Example:
+#### Example
 
 ```bash
 cheqd-noded tx resource create-resource \
@@ -76,7 +66,6 @@ cheqd-noded tx resource create-resource \
     49610df5-5998-4b72-b28f-02b7f776156f \
     'universityDegree' \
     CL-Schema\
-    application/json \
     schema.json \
     did:cheqd:mainnet:6h7fjuw37gbf9ioty633bnd7thf65hs1#key1 \
     l6KUjm...jz8Un7QCbrW1KPE6gSyg== \
@@ -94,7 +83,7 @@ After you execute the command, you will receive `"code": 0"`if the DID was succe
 "code":1201,"data":"","raw_log":"failed to execute message; message index: 0: id:cheqd:testnet:fcbarcelona: DID Doc not found"
 ```
 
-#### 5. Check that Resource was successfully written to the ledger
+### 5. Check that Resource was successfully written to the ledger
 
 Finally, to check that the DID was successfully written, we can use the following query:
 
@@ -107,8 +96,8 @@ cheqd-noded query resource resource \
 
 where:
 
-* `<collection-id>` - the **same unique identifier** as that after the namespace of the corresponding DID created in step 1
-* `<resource-id>` - unique ID of the resource within the collection of resources associated with the DIDDoc
+* `<collection-id>`: The **same unique identifier** as that after the namespace of the corresponding DID created in step 1
+* `<resource-id>`: Unique ID of the resource within the collection of resources associated with the DIDDoc
 
 In our example:
 
@@ -119,42 +108,4 @@ cheqd-noded query resource resource \
     --node https://rpc.cheqd.network:443
 ```
 
-**Congratulations! You've created your first, of many, Resources on cheqd!**
-
-### Requirements from OS side
-
-Our target OS system is Ubuntu 20.04.
-
-In this case, for running demo flow, we can use variants: Virtualbox or docker.
-
-For example, let it be a docker image, because it's the fastest way to start playing.
-
-The next command can help:
-
-```bash
-docker run -it --rm -u root --entrypoint bash ghcr.io/cheqd/cheqd-node:0.4.0
-```
-
-After that, we need to install needed package for process SSL certificates:
-
-```bash
-apt update && apt install ca-certificates -y
-```
-
-Also, it can help to setup your favourite editor, for example `vim` :
-
-```bash
-apt install vim -y
-```
-
-The next step is to change user to `cheqd` and restore operator's keys:
-
-```bash
-su cheqd
-```
-
-```bash
-cheqd-noded keys add <cheqd-operator-name> --recover
-```
-
-where, `cheqd-operator-name` it's name of alias for storing your keys locally, whatever you want.
+If you've come this far and successfully executed these steps, **congratulations!** You've created a resource on cheqd ledger - hopefully the first of many.
