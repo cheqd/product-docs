@@ -1,4 +1,4 @@
-# 🪄 Creating a Resource
+# ⏳ Workflow for creating Resources
 
 The logic for creating a new on-ledger Resource [within a Collection](resource-collections.md) together with its DID Document is handled through the **Resource module**.
 

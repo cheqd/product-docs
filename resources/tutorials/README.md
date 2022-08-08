@@ -1,4 +1,4 @@
-# Creating a Resource with cheqd node CLI
+# Creating a Resource with cheqd Cosmos CLI
 
 The purpose of this document is to outline how someone can create a Resource on the cheqd network using [cheqd Cosmos CLI](../../decentralized-identifiers/cheqd-cosmos-cli/README.md). The process that's followed is similar to what's described in the [high-level Resource creation flow](../creating-a-resource.md).
 

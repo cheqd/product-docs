@@ -1,4 +1,4 @@
-# Creating DID + DID Doc with cheqd Cosmos CLI
+# 📚 Creating DID + DID Doc with cheqd Cosmos CLI
 
 The purpose of this document is to describe how a DID (and associated DIDDoc) can be created using [the `cheqd-node` Cosmos CLI](https://docs.cheqd.io/node/docs/cheqd-cli).
 
