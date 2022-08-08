@@ -1,20 +1,14 @@
-# Creating a DID + DID Doc with the Veramo SDK for cheqd
+# Creating a new DID using Veramo CLI
 
-## Overview
+Follow these instructions to create a new DID and publish the associated DIDDoc on cheqd ledger.
 
-This tutorial offers step-by-step guidance for creating a DID + DIDDoc with the Veramo SDK for cheqd. This can be achieved through both the Veramo CLI, or directly through an application, setup to read and write to the cheqd ledger, using the Veramo SDK for cheqd.
+## Before you begin
 
-For full information on the architecture, setup and cofig, check did-provider-cheqd.
+* Make sure you've [done the pre-requisite setup](README.md)
 
-## Pre-requisites
+## Creating a new DID on cheqd ledger
 
-For full information on the architecture, setup and cofig, check [`did-provider-cheqd`](https://github.com/cheqd/did-provider-cheqd).
-
->Note: Ensure you have saved the [`agent.yml`](https://raw.githubusercontent.com/cheqd/did-provider-cheqd/main/agent.yml) file in your local project directory.
-
-## Steps
-
-### Step 1
+### 1. Prepare the DID & DIDDoc contents
 
 Before creating a DID, you will need to prepare the `args.json` file.
 
@@ -48,9 +42,7 @@ To do this, see the example `args.json` file below, ensuring you specify:
 }
 ```
 
-### Step 2
-
-Create a cheqd DID (Identifier) using:
+### 2. Generate a unique identifier for the DID
 
 ```bash
 veramo execute -m cheqdCreateIdentifier --argsFile ./args.json
