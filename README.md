@@ -18,7 +18,7 @@ You can dive more into...
 
 * [**Technical Docs** for **cheqd node/ledger**](https://docs.cheqd.io/node)
 * [**Product Updates & Roadmap**](https://product.cheqd.io)
-* Learn the [**basics of cheqd** ](https://learn.cheqd.io) (for a general audience)
+* Learn the [**basics of cheqd**](https://learn.cheqd.io) (for a general audience)
 * cheqd's [**decentralised Governance Framework**](https://gov.cheqd.io)
 
 ## 💬 Community
