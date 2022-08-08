@@ -36,38 +36,26 @@ Types and utilities are available for re-use for each module as well. The `utils
 
 ### Sending transactions to ledger
 
-After compiling a message (), you can use gRPC protocol for sending such message to the ledger. For example, package from google: `google.golang.org/grpc`.
-The list of endpoints can be found in a swagger config file (it's not deployed yet):
+After compiling a message (in your custom application), you can make a gRPC call to the ledger with your message.
 
-```link
-https://github.com/cheqd/cheqd-node/blob/main/docs/identity-api/swagger.yaml
-```
+> [**cheqd DID Resolver**](https://github.com/cheqd/did-resolver) is a real-world example of a Golang app built using `cheqd-node` primitives
+>
+> This allowed us to decouple DID Resolution logic from the ledger, while re-utilising existing code.
 
-### P.S
+## Developing in other languages for cheqd
 
-Real example of using `cheqd-node` as sdk can be found in `did-resolver`, especially in package:
+In general, the process building applications that work with cheqd in other languages follows very similar logic as described above for Golang apps.
 
-```link
-https://github.com/cheqd/did-resolver/tree/main/services
-```
+> Example 1: [**Veramo SDK for cheqd**](../../veramo-sdk-for-cheqd/README.md)
+>
+> **Veramo SDK for cheqd** combines the base NPM packages mentioned above to integrate cheqd ledger functionality into the 3rd party [Veramo SDK](https://veramo.io).
 
-## Other languages
+The high-level steps are:
 
-In general, the process of communication between ledger and a client can be divided into the next steps:
+1. **Consume Protobofs for cheqd**: Our [Buf.build packages for cheqd](https://github.com/cheqd/did-resolver) can make this take simpler for many languages. *A real-world example of this is the [`@cheqd/ts-proto`](https://github.com/cheqd/ts-proto) TypeScript NPM package.*
+2. **Prepare and sign the message correctly**: This relies partly on understanding general Cosmos SDK message format and transaction signing, as well as any cheqd-specific bits. *A real-world example of this is the [`@cheqd/sdk`](https://github.com/cheqd/sdk) NPM package that consumes `@cheqd/ts-proto` NPM package.*
+3. **Send the message to ledger using gRPC/RPC**: Once a message/transaction is correctly compiled and signed, standard transport libraries can be used to target the [gRPC/RPC endpoints](https://docs.cosmos.network/master/core/grpc_rest.html) for a `cheqd-node` instance.
 
-- Prepare the message
-- Send it to the ledger and process the result
-
-So, due to this plan, in case of using other language, not goland, all you need is:
-
-- Make it possible to generate the code from protobufs.
-- Use such classes/interfaces/objects for building a message
-- Use gRPC or just RPC interfaces for sending the message. Just for RPC the address like [node-ip]:26657 is used by default.
-- Process the result by using also the same objects from protobufs
-
-For example, there is a project `libvdrtools` which is written on Rust and using our protobufs for communicating with ledger.
-Here is the URL:
-
-```link
-https://gitlab.com/evernym/verity/vdr-tools/-/tree/main/libvdrtools/src/services/cheqd_ledger
-```
+> Example 2: [**Everynym VDR Tools**](vdr-tools-with-cheqd.md)
+>
+> [**Evernym's VDR Tools SDK**](https://gitlab.com/evernym/verity/vdr-tools/-/tree/main/libvdrtools/src/services/cheqd_ledger) is an independent implementation written in Rust that [integrates some cheqd ledger functionality](vdr-tools-with-cheqd.md).
