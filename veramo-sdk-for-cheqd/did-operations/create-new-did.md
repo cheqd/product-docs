@@ -42,7 +42,7 @@ To do this, see the example `args.json` file below, ensuring you specify:
 }
 ```
 
-### 2. Generate a unique identifier for the DID
+### 2. Create a unique identifier for the DID
 
 ```bash
 veramo execute -m cheqdCreateIdentifier --argsFile ./args.json
