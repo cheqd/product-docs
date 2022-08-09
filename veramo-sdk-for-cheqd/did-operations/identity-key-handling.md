@@ -1,27 +1,28 @@
-
-# Generating identity keys using the Veramo SDK CLI
+# Identity key management using Veramo SDK CLI
 
 Follow these instructions to:
 
-1. Generate identity key pairs (public and private keys)
+1. Generate identity public/private keypairs
 2. Generate identity keys WITH a DIDDoc
-3. Convert the identity key pairs generated within the Veramo agent into your own choice of key encoding
+3. Convert identity key pairs generated using Veramo agent to other key encoding formats
 
-## Before you begin
-
-* Make sure you've [done the pre-requisite setup](README.md)
+> ⚠️ **Before you begin...**
+>
+> Make sure you've correctly [configured the cheqd plugin's agent settings](../setup-cli.md) for Veramo CLI
 
 ## Generating identity keys
 
-These keys are generated in a plug and play format ready to be inserted into the DID create of DID update method.
+### Method 1: Standalone key creation
 
-Use the command below to generate identity keys:
+You can generate identity keys standalone in a plug-and-play format for future use in [create DID](README.md) or [update DID](update-did.md) transactions.
+
+#### Command
 
 ```bash
 veramo execute -m cheqdGenerateIdentityKeys
 ```
 
-This should return:
+#### Output
 
 ```bash
 Method:  cheqdGenerateIdentityKeys
@@ -40,15 +41,17 @@ Result : {
 }
 ```
 
-## Generating DIDDoc & identity keys
+### Method 2: Generating identity keys on-the-fly with DIDDocs
 
-Use the command below to generate identity keys WITH a DIDDOC
+Instead of creating identity keys standalone, you can also generate them along with a DIDDoc template.
+
+#### Command
 
 ```bash
 veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "Ed25519VerificationKey2020", "methodSpecificIdAlgo": "base58btc", "methodSpecificIdLength": 16, "network": "testnet"}'
 ```
 
-This should return:
+#### Output
 
 ```bash
 Method:  cheqdGenerateDidDoc
@@ -99,9 +102,9 @@ Result : {
 
 ## Converting identity keys
 
-If after you have generated keys using the approach above, you need to use them outside of the Veramo agent, you can use your own choice of key encoding by converting them.
+If you want to use identity keys outside of Veramo CLI, you can convert keys from one format to another.
 
-For example, if you would like to convert from `hex` to `base64` you can use the following generic approach:
+For example, if you would like to convert from `hex` to `base64`, you can use the following generic approach:
 
 ```typescript
 import { fromString, toString } from 'uint8arrays'
