@@ -39,3 +39,7 @@ Credential verification is done by decoding the JWT proof and checking if it's t
 ```bash
 Credential could not be verified 
 ```
+
+## Next steps
+
+Look into [how this credential can be shown to others](../verifiable-presentations/README.md) through Verifiable Presentations.
