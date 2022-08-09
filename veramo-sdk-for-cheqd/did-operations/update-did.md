@@ -1,73 +1,46 @@
 # Update an existing cheqd DID using Veramo CLI
 
-Follow these instructions to update an existing `did:cheqd` entry on ledger using the Veramo CLI.
+Follow these instructions to update an existing `did:cheqd` entry on cheqd ledger.
 
-## Before you begin
+> ⚠️ **Before you begin...**
+>
+> Make sure you've correctly [configured the cheqd plugin's agent settings](../setup-cli.md) for Veramo CLI
 
-* Make sure you've [done the pre-requisite setup](README.md)
+## Instructions
 
-## Steps
+### 1. Fetch the latest version of the DIDDoc from the ledger
 
-### 1. Fetch current state of did doc
+Use `veramo did resolve <did>` (as explained in the [*Querying a DID* article](query-did.md)) to resolve a DID and its latest state from the ledger.
 
-Fetch a did from the list stored in local KMS
+This is recommended as a best-practice, since the DIDDoc could have been changed during a previous update operation by other controllers, or from a different machine.
 
-> Use `veramo did list` to fetch the DID from your DID list. If you already have the DID URL there is no need to do this.
+If you're *absolutely* sure that the DIDDoc version stored locally is up-to-date, you can view it using `veramo did list <alias>`
 
-Use `veramo did resolve` to resolve did and get the latest version of the did document.
+### 2. Prepare DIDDoc contents
 
-e.g.:
+Before updating the DID, you will need to prepare the updated DIDDoc and parameters for the transaction in an `args.json` file.
 
-```bash
-veramo did resolve did:cheqd:mainnet:zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX
-```
+This file can be saved whereever you choose, but the location must be specified in the create DID command used in Step 2. (By default, it will be saved under the project root directory.)
 
-### 2. Prepare the updated DID + DIDDoc contents
+#### Parameters
 
-Before updating a DID, you will need to prepare the updated `args.json` file.
+* `kms` (default `local`): Key Management System (KMS) to be used for storage.
+* `alias`: A human-friendly alias for the DID. Only used locally when referencing operations in Veramo CLI.
+* `document`: Full body of the DID Document *including* updated sections.
+* `keys`: Keys used to sign the DIDDoc. These must match the ones specified in the DIDDoc, otherwise an error will be thrown.
 
-This file can be saved whereever you choose, but the location must be specified in the update DID command used in the later step (by default it will be saved under the project root directory).
-
-To do this, see the example `args.json` file below, ensuring you specify:
-
-* `kms`
-* `did`
-* `document`
-* `keys`
-
-In addition to the changes made to the DIDDoc itself, you must also add the `versionId` in the DIDDoc `document` field.
-
-The `versionId` refers to the transaction hash that you need to fetch the DID version from (this should be in the Tendermint TX hash format).
-
-e.g. `EF072CC45F2839652A60BF392BAB4D1913A9D2728CCAFD32AF7384DBD13F7FE5`.
-
-> Note: `keys` must match those specified in the DIDDoc used, otherwise an error will be thrown.
-
-```jsonc
-{
-    "kms": "local",
-    "did": "`<didURL>",
-    "document": {}, // updated DIDDoc
-    "keys": [
-        {
-            "publicKeyHex": "<public_key_in_hex_encoding>",
-            "privateKeyHex": "<private_key_in_hex_encoding>",
-            "kid": "<equal_to_public_key_hex>",
-            "type": "Ed25519"
-        },
-        {
-            // add additional key if required
-        }
-    ]
-}
-```
+In addition to the changes made to the DIDDoc itself, you must also add the `versionId` in the DIDDoc `document` field. The [`versionId` is the same as the Tendermint transaction hash of the latest version of the DIDDoc](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method), e.g., `EF072CC45F2839652A60BF392BAB4D1913A9D2728CCAFD32AF7384DBD13F7FE5`.
 
 ### 3. Update existing DID
 
 Use the command below to construct and broadcast update transaction.
 
 ```bash
-veramo execute -m cheqdUpdateIdentifier --argsFile ./args.json
+veramo execute -m cheqdUpdateIdentifier --argsFile path/to/args.json
 ```
 
-If you would like to fetch the updated DIDDoc body following the successful DID update result, follow the DID resolution steps (detailed in step 1).
+If you would like to fetch the updated DIDDoc body following the successful DID update result, execute the `resolve` command as outlined in Step 1.
+
+## Next steps
+
+DID update operations can be complicated, especially when changing or updating keys, using multiple keys etc. Understand the [design of the cheqd DID method](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method) and [*Verification Relationships* in the W3C DID Core specification](https://w3c.github.io/did-core/#verification-relationships) to understand the logic that is applied in these scenarios.
