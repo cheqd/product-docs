@@ -1,9 +1,51 @@
-# DID Operations with Veramo SDK for cheqd
+# Creating a new DID using Veramo CLI
 
-This set of of tutorials/instructions will describe how to use [Veramo SDK for cheqd](../README.md) with DID operations such as *Create*, *Update*, and *Query*.
+Follow these instructions to create a new DID and publish the associated DIDDoc on cheqd ledger.
 
-## Pre-requisites
+> ⚠️ **Before you begin...**
+>
+> Make sure you've correctly [configured the cheqd plugin's agent settings](../setup-cli.md) for Veramo CLI
 
-For full information on the architecture, setup and cofig, check [`did-provider-cheqd`](https://github.com/cheqd/did-provider-cheqd).
+## Creating a new DID on cheqd ledger
 
->Note: Ensure you have saved the [`agent.yml`](https://raw.githubusercontent.com/cheqd/did-provider-cheqd/main/agent.yml) file in your local project directory.
+### 1. Prepare the DID & DIDDoc contents
+
+Before creating a DID, you will need to prepare the `args.json` file.
+
+This file can be saved whereever you choose, but the location must be specified in the create DID command used in Step 2 (by default it will be saved under the project root directory).
+
+To do this, see the example `args.json` file below, ensuring you specify:
+
+* `kms`
+* `alias`
+* `document`
+* `keys`
+
+> Note: `keys` must match those specified in the DIDDoc used, otherwise an error will be thrown.
+
+```jsonc
+{
+    "kms": "local",
+    "alias": "veramo-specific-alias-refers-to-did",
+    "document": {}, // DIDDoc
+    "keys": [
+        {
+            "publicKeyHex": "<public_key_in_hex_encoding>",
+            "privateKeyHex": "<private_key_in_hex_encoding>",
+            "kid": "<equal_to_public_key_hex>",
+            "type": "Ed25519"
+        },
+        {
+            // add additional key if required
+        }
+    ]
+}
+```
+
+### 2. Create a unique identifier for the DID
+
+```bash
+veramo execute -m cheqdCreateIdentifier --argsFile ./args.json
+```
+
+If you do not specify the --argsFile in the previous step, you can simple paste a JSON inline argument object by using the `--argsJSON`  flag, followed by the JSON payload.
