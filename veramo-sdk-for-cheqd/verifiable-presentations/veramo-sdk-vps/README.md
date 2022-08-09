@@ -48,11 +48,11 @@ Specify the Presentation type. This can be the same as the Verifiable Credential
 
 ### Step 6
 
-Select credential you would like to use to create your Verifiable Presentation. If you have not yet created a credential, use the tutorial for creating a verifiable credential, available in the [verifiable credentials tutorial docs](https://docs.cheqd.io/identity/tutorials/verifiable-credentials).
+Select credential you would like to use to create your Verifiable Presentation. If you have not yet created a credential, use the tutorial for creating a verifiable credential.
 
 ### Step 7
 
-Specify whether you would like to add another credential. 
+Specify whether you would like to add another credential.
 
 A presentation can use claims from multiple presentations.
 
