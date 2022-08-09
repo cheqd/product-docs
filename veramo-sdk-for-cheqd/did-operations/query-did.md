@@ -1,18 +1,16 @@
 # Querying a DID using Veramo CLI
 
-Follow these instructions to query a DID, read DIDDoc contents, and resolve DID URLs from the cheqd ledger using Veramo CLI.
+Follow these instructions to query a DID from cheqd ledger.
 
-## Before you begin
+> ⚠️ **Before you begin...**
+>
+> Make sure you've correctly [configured the cheqd plugin's agent settings](../setup-cli.md) for Veramo CLI
 
-* Make sure you've [done the pre-requisite setup](README.md)
-
-## Resolving `did:cheqd` URLs from ledger
+## Instructions
 
 ### 1. Invoke Veramo CLI's DID resolver function
 
-Use `veramo did resolve` to resolve did
-
-e.g.:
+Use `veramo did resolve <did>` to resolve a DID. For example:
 
 ```bash
 veramo did resolve did:cheqd:mainnet:zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX
