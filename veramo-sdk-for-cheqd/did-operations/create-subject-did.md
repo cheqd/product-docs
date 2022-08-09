@@ -1,6 +1,12 @@
 # Create an off-ledger DID for credential subjects with Veramo CLI
 
-This tutorial offers step-by-step guidance on how to create a subject DID to be used for a holder that will receive a Verifiable Credentials, using the Veramo SDK for cheqd.
+This tutorial offers step-by-step guidance on how to create a subject DID to be used for a holder that will receive a Verifiable Credentials.
+
+> ⚠️ **Before you begin...**
+>
+> Make sure you've correctly [configured the cheqd plugin's agent settings](../setup-cli.md) for Veramo CLI
+
+## Background
 
 We chose to use [`did:key`](https://github.com/w3c-ccg/did-method-key) for the holder because the [`did:key`](https://w3c-ccg.github.io/did-method-key/) specification has a lot synergy with cheqd did method, [`did:cheqd`](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method).
 
@@ -10,11 +16,7 @@ It is also easily managable by a client agent as a full ledger backup for the wr
 
 Creating a subject [`did:key`](https://github.com/w3c-ccg/did-method-key) DID can be achieved through both the Veramo CLI, or directly through an application that has been setup to read and write to the cheqd ledger, using the Veramo SDK for cheqd.
 
-## Before you begin
-
-* Make sure you've [done the pre-requisite setup](README.md)
-
-## Creating off-ledger `did:key` DIDs
+## Instructions
 
 ### 1. Invoke Veramo CLI DID create function
 
@@ -24,26 +26,24 @@ This off-ledger DID, of type `did:key`, is used for the recipient of the Verifia
 veramo did create
 ```
 
-### 2. Select the `did:key` provider
+### 2. Select the `did:key` provider and KMS
 
-Select `did:key`
+Select `did:key` as the provider when prompted as well as a key management system (KMS) to use (default is `local`).
 
-### 3. Select the Key Management System (KMS)
+The [`agent.yml`](https://github.com/cheqd/did-provider-cheqd/blob/main/agent.yml) file used for the Veramo SDK for cheqd has a preloaded local key management system which is bootstrapped along with the CLI.
 
-Select key management system (KMS). The [`agent.yml`](https://github.com/cheqd/did-provider-cheqd/blob/main/agent.yml) file used for the Veramo SDK for cheqd has a preloaded local key management system which is bootstrapped along with the CLI.
+The KMS is stored in a local SQLite database.
 
-This provides a sqlite file which is dumped to your specified root directory.
+### 3. Enter an alias for the DID
 
-### 4. Enter an alias for the DID
-
-This is the nickname for your did, which will be managed by the key management system (KMS). Naming this to something more memorable will help when retrieving dids from your KMS.
-
-For example, enter `'John government ID`’.
+This is the nickname for your DID, which will be managed by Veramo KMS. Providing a memorable alias will help reference this for future uses, e.g., `Alice off ledger DID`.
 
 Once you have entered this, you will receive a response in a table, e.g:
 
 | provider                  | alias                  | did |   |
 | :--------------------- | :----------------------- | :----------------- | :------------------------------ |
-| did:key     | John government ID  | `did:key:z6MkjxdqDUWoudesywsGYbzGozUeVYiYVArdoqPcMV6m6MG4`                                |
+| did:key     | Alice off ledger DID  | `did:key:z6MkjxdqDUWoudesywsGYbzGozUeVYiYVArdoqPcMV6m6MG4`                                |
 
-Your `did:key` has now been created.
+## Next steps
+
+If you got the table above, your off-ledger `did:key` has been created
