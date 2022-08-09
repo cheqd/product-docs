@@ -30,4 +30,4 @@ This package works alongside other base Veramo packages:
 * [`@veramo/cli`](https://www.npmjs.com/package/@veramo/cli)
 * [`@veramo/credential-w3c`](https://www.npmjs.com/package/@veramo/credential-w3c)
 
-Find out about [other Veramo plug-ins in their documentation](https://veramo.io/docs/veramo_agent/plugins/).
+Find out about [other Veramo plug-ins in their official documentation](https://veramo.io/docs/veramo_agent/plugins/).
