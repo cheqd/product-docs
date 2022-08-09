@@ -54,3 +54,8 @@ The output should look like the following:
     "versionId": "B55E82F3022593C2A55D08484D658003B1685177197796FA00B56440671DB842"
   }
 }
+```
+
+## Next steps
+
+DID queries are passed and handled using the [cheqd DID Resolver](../../did-resolver/README.md). You can also check out the API endpoints exposed by the DID Resolver to understand how this can be fetched/consumed outside Veramo CLI.
