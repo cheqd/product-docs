@@ -1,67 +1,57 @@
-# Create Verifiable Presentation
-
-## Overview
+# Create Verifiable Presentations using Veramo CLI
 
 This tutorial offers step-by-step guidance on how to create a [Verifiable Presentation](https://w3c-ccg.github.io/vp-request-spec/).
 
-Creating a Verifiable Presentation can be achieved through both the Veramo CLI, or directly through an application, setup to read and write to the cheqd ledger, using the Veramo SDK for cheqd.
+> ⚠️ **Before you begin...**
+>
+> Make sure you've correctly [configured the cheqd plugin's agent settings](../setup-cli.md) for Veramo CLI
 
-## Pre-requisites
+## Background
 
-A Verifiable Presentation will always be created by the holder themselves. Therefore this part will use the `did:key` that was created for the subject.
+A Verifiable Presentation is a way a credential holder can generate cryptographicall-verifiable proof that they are in posession of the identity keys (e.g., `did:key`) the credential was issued to.
 
-For full information on the architecture, setup and cofig, check [`did-provider-cheqd`](https://github.com/cheqd/did-provider-cheqd).
+This is important because [just the Verifiable Credential and its JWT proof](../verifiable-credentials/verify-jwt-vc.md), on its own, is susceptible to [*replay attacks*](https://en.wikipedia.org/wiki/Replay_attack) where intercepted Verifiable Credentials could be played back.
 
->Ensure you have saved the [`agent.yml`](https://raw.githubusercontent.com/cheqd/did-provider-cheqd/main/agent.yml) file in your local project directory.
+The process of creating a *Verifiable Presentation* is one way of addressing these security concerns.
 
-## Steps
+## Instructions
 
-### Step 1
+### 1. Start generating Verifiable Presentation
 
-Begin creating a Verifiable Presentation with:
+Begin the process of creating a Verifiable Presentation using:
 
 ```bash
 veramo presentation create
 ```
 
-### Step 2
+### 2. Choose holder/subject identity key to sign the presentation
 
-Specify the subject to be used for the Variable Presentation creation (i.e. chosen holder `did:key`)
+Specify the subject identity key to be used for signing Verifiable Presentation, e.g., chosen holder `did:key`.
 
-### Step 3
+### 3. Specify the `Tag` for the Verifiable Presentation
 
-Specify the `Tag` for the Verifiable Presentation.
+Hit *Enter* to accept the default at this step
 
-To accept the default hit enter.
+### 4. Specify the verifier ID
 
-### Step 4
+Select the DID of the verifier from the options presented. In a very simplistic scenario, the verifier could be the same as the issuer, e.g., a scenario where the holder returns a period of time to show they were issued a credential.
 
-Specify the Verifier ID.
+### 5. Specify presentation type
 
-In this case the verifier is the issuer (as the verifier is requesting information from the issuer to ascertain that the credential has been issued by the legitimate authority.
+This can be the same as the Verifiable Credential, or a sub-section of it. Choose *Enter* for default.
 
-Select the issuer DID you would like to use from the issuer DIDs presented.
+### 6. Select the credential(s) to be included in the presentation
 
-### Step 5
+You can select one or more Verifiable Credentials to bundle up into the Verifiable Presentation.
 
-Specify the Presentation type. This can be the same as the Verifiable Credential or a subpart of it.
+### 7. View the Verifiable Presentation
 
-### Step 6
+After these choices are made, the Verifiable Presentation will be displayed in JSON format along with JWT proof.
 
-Select credential you would like to use to create your Verifiable Presentation. If you have not yet created a credential, use the tutorial for creating a verifiable credential.
+You can save this output for future steps.
 
-### Step 7
+## Next steps
 
-Specify whether you would like to add another credential.
+In a real-world usage scenario, the Verifiable Presentation output generated above would be electronically (e.g., as API messages) or non-electronically (e.g., encoded to a QR code) shared with the verifier/recipient.
 
-A presentation can use claims from multiple presentations.
-
-### Step 8
-
-You’ll now see your Verifiable Presentation, both in the JSON format and JWT.
-
-Save the Verifiable Presentation JWT.  
-
-### Step 9
-
-Save the JWT as a txt file under the root directory of your project.
+Verifiers/recipients would then be able to [verify the Verifiable Presentation](verify-presentation.md) to check cryptographically the contents are untampered.
