@@ -17,6 +17,7 @@ New DID creation can also be done by passing a full-body DIDoc payload in JSON, 
 ## 📝 Architecture
 
 ![Veramo SDK for cheqd architecture](../.gitbook/assets/veramo-sdk-for-cheqd-arch.png)
+
 *Figure 1: Veramo SDK for cheqd architecture with components ([editable Draw.io version](../.gitbook/assets/veramo-sdk-for-cheqd.drawio))*
 
 `did-provider-cheqd` consumes functionality that exists within the [`@cheqd/sdk` NPM package](https://www.npmjs.com/package/@cheqd/sdk) in a way that complies to the Veramo `AbstractIdentifierProvider`. (You don't need to call this package separately as it's already included as a dependency in `package.json`.) The `@cheqd/sdk` package adds Cosmos SDK specific functionality such as signing transactions, paying for ledger fees, etc.
@@ -30,17 +31,3 @@ This package works alongside other base Veramo packages:
 * [`@veramo/credential-w3c`](https://www.npmjs.com/package/@veramo/credential-w3c)
 
 Find out about [other Veramo plug-ins in their documentation](https://veramo.io/docs/veramo_agent/plugins/).
-
-## 🧑‍💻🛠 Developer Guide
-
-### Pre-Requisites
-
-Depending on the type of application you are looking to develop, you will need to install a different set of packages.
-
-If you're looking to use the Veramo CLI with cheqd or develop a proof-of-concept application, use the [official Veramo CLI setup guide](https://veramo.io/docs/veramo_agent/cli_tool/).
-
-For other applications, see:
-
-* [Veramo Node.js tutorial](https://veramo.io/docs/node_tutorials/node_setup_identifiers)
-* [Veramo React tutorial](https://veramo.io/docs/react_tutorials/react_setup_resolver)
-* [Veramo React Native tutorial](https://veramo.io/docs/react_native_tutorials/react_native_setup_identifiers)
