@@ -105,4 +105,4 @@ At this last step, Veramo CLI generates the credential based on the inputs above
 
 ## Next steps
 
-You can save the generated Verifiable Credential, as you can later use it to [verify the credential cryptographically](verify-jwt-vc.md) or generate *presentations* to show the credential to others.
+You can save the generated Verifiable Credential, as you can later use it to [verify the credential cryptographically](verify-jwt-vc.md) or [generate *presentations* to show the credential](../verifiable-presentations/README.md) to others.
