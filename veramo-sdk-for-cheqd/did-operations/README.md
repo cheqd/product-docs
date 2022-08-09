@@ -8,9 +8,31 @@ Follow these instructions to create a new DID and publish the associated DIDDoc 
 
 ## Instructions
 
-### 1. Prepare the DID & DIDDoc contents
+### 1. Prepare identity keys
+
+For all of the following steps, you'll need identity keys to digitally sign the transaction. There are two ways to do this:
+
+#### Using standalone keys
+
+Follow [*Method 1* in the key management guide](identity-key-handling.md)
+
+```bash
+veramo execute -m cheqdGenerateIdentityKeys
+```
+
+#### Create keys along with a DIDDoc template
+
+Follow [*Method 2* in the key management guide](identity-key-handling.md):
+
+```bash
+veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "Ed25519VerificationKey2020", "methodSpecificIdAlgo": "base58btc", "methodSpecificIdLength": 16, "network": "testnet"}'
+```
+
+### 2. Prepare/edit DIDDoc contents
 
 Before creating a DID, you will need to prepare the `args.json` file. This file can be saved whereever you choose, but the location must be specified in the create DID command used in Step 2. (By default, it will be saved under the project root directory.)
+
+If you used *Method 2* in the previous step, you can use the output of that as a starting point for this file.
 
 #### Example file
 
@@ -40,7 +62,7 @@ Before creating a DID, you will need to prepare the `args.json` file. This file 
 * `document`: Full body of the DID Document
 * `keys`: Keys used to sign the DIDDoc. These must match the ones specified in the DIDDoc, otherwise an error will be thrown.
 
-### 2. Create a unique identifier for the DID
+### 3. Create new DID and publish DIDDoc
 
 ```bash
 veramo execute -m cheqdCreateIdentifier --argsFile path/to/args.json
