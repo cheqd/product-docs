@@ -179,7 +179,7 @@ Since the *Full cheqd DID Resolver* is wrapped for usage as a Docker container i
 
 ![*Full cheqd DID Resolver* sequence diagram](../../.gitbook/assets/cheqd-full-did-resolver-sequence-diagram.png)
 
-*Figure 1: "Full" cheqd DID Resolver sequence diagram ([editable version](https://swimlanes.io/u/CE_Rjphs9?rev=7))*
+*Figure 1:* "Full" cheqd DID Resolver sequence diagram ([editable version](https://swimlanes.io/u/CE_Rjphs9?rev=7))
 
 The *Full cheqd DID Resolver* is designed to handle requests concurrently, while reducing the risk of large quantities of threads and requests blocking the efficiency of the on-ledger services.
 
@@ -188,13 +188,14 @@ The *Full cheqd DID Resolver* is designed to handle requests concurrently, while
 Since Cosmos SDK SDK encodes data in Protobuf, the DID Resolver "[marshalls](https://en.wikipedia.org/wiki/Marshalling_(computer_science))" them to JSON. The software class diagram below describes how these components/methods are tied together:
 
 ![*Full cheqd DID Resolver* class diagram](../../.gitbook/assets/cheqd-full-did-resolver-class-diagram.png)
-*Figure 2: "Full" cheqd DID Resolver class diagram*
+
+*Figure 2:* "Full" cheqd DID Resolver class diagram
 
 Marshalling/unmarshalling requests back-and-forth between Protobuf and JSON is carried out by services in the "Full" DID Resolver
 
 ![*Full cheqd DID Resolver* Protobuf <-> JSON marshalling](../../.gitbook/assets/cheqd-did-resolver-protobuf-json-marshalling.png)
 
-*Figure 3: "Full" cheqd DID Resolver Protobuf <-> JSON marshalling ([editable version](https://swimlanes.io/u/2W1PQKx_s?rev=4))*
+*Figure 3:* "Full" cheqd DID Resolver Protobuf <-> JSON marshalling ([editable version](https://swimlanes.io/u/2W1PQKx_s?rev=4))
 
 ### DID URL Resolution / Dereferencing rules
 

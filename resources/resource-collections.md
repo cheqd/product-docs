@@ -46,7 +46,8 @@ The DID Document acts as metadata, providing information about the **Collection*
 Moreover, each specific **Resource** within a **Collection** can be fetched via a DID Document relating to a Collection, through the use of the `‘service’` section.
 
 ![cheqd resources overview diagram](../.gitbook/assets/resource-overview-diagram.png)
-*Figure 1: Overview diagram of cheqd on-ledger resources, including where different layers of the structure interact with each other*
+
+*Figure 1*: Overview diagram of cheqd on-ledger resources, including where different layers of the structure interact with each other
 
 Since the overall structure of our resource implementation is complex and has multiple layers, we will explain each component in turn.
 
