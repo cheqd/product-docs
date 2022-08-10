@@ -78,7 +78,7 @@ At this last step, Veramo CLI generates the credential based on the inputs above
 
 #### Example Verifiable Credential
 
-```jsonc
+```json
 {
   "credentialSubject": {
     "name": "Alice",

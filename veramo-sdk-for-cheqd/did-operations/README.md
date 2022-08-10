@@ -36,7 +36,7 @@ If you used *Method 2* in the previous step, you can use the output of that as a
 
 #### Example file
 
-```jsonc
+```json
 {
     "kms": "local",
     "alias": "veramo-specific-alias-refers-to-did",

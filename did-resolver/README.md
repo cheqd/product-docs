@@ -33,7 +33,8 @@ The *Full cheqd DID Resolver* is able to use `github.com/cheqd/cheqd-node` as a 
 Since the *Full cheqd DID Resolver* is wrapped for usage as a Docker container image using the Universal Resolver specification, the end-to-end sequence diagram for our DID Resolver would look like below:
 
 ![*Full cheqd DID Resolver* sequence diagram](../.gitbook/assets/cheqd-full-did-resolver-sequence-diagram.png)
-*Figure 1: "Full" cheqd DID Resolver sequence diagram ([editable version](https://swimlanes.io/u/CE_Rjphs9?rev=7))*
+
+*Figure 1*: "Full" cheqd DID Resolver sequence diagram ([editable version](https://swimlanes.io/u/CE_Rjphs9?rev=7))
 
 1. Since the [cheqd-node ledger](https://github.com/cheqd/cheqd-node) / Cosmos SDK is written in Golang, this resolver would consist of Golang libraries imported from the existing ledger code. This promotes code reuse.
 2. Data would be fetched from the ledger using the gRPC endpoint on a node, which allows it (by default) to take place over an encrypted channel [since gRPC uses HTTP/2](https://grpc.io/).

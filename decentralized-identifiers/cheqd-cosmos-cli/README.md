@@ -106,7 +106,7 @@ In this template, you'll need to replace some values (as described in the [cheqd
 
 For example, the populated DIDDoc file might look like:
 
-```jsonc
+```json
 {
   "id": "did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe",
   "verification_method": [

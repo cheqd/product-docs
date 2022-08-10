@@ -20,7 +20,7 @@ veramo did resolve did:cheqd:mainnet:zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX
 
 The output should look like the following:
 
-```jsonc
+```json
 {
   "didResolutionMetadata": {
     "contentType": "application/did+json",

@@ -32,7 +32,7 @@ nano diddoc.json
 
 For example, we can [take the DIDDoc created previously](README.md) and change the Service Endpoint from `bar.example.com` to `foo.example.com`:
 
-```jsonc
+```json
 {
   "id": "did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe",
   "verification_method": [

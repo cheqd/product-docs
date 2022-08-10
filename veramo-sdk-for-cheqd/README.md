@@ -22,7 +22,7 @@ New DID creation can also be done by passing a full-body DIDoc payload in JSON, 
 
 ![Veramo SDK for cheqd architecture](../.gitbook/assets/veramo-sdk-for-cheqd-arch.png)
 
-*Figure 1: Veramo SDK for cheqd architecture with components ([editable Draw.io version](../.gitbook/assets/veramo-sdk-for-cheqd.drawio))*
+*Figure 1:* Veramo SDK for cheqd architecture with components ([editable Draw.io version](../.gitbook/assets/veramo-sdk-for-cheqd.drawio))
 
 `did-provider-cheqd` consumes functionality that exists within the [`@cheqd/sdk` NPM package](https://www.npmjs.com/package/@cheqd/sdk) in a way that complies to the Veramo `AbstractIdentifierProvider`. (You don't need to call this package separately as it's already included as a dependency in `package.json`.)
 

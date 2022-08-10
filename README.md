@@ -6,15 +6,15 @@
 
 ### 💫 Identity Features on cheqd ledger
 
-* [🆔 cheqd DID method](decentralized-identifiers/README.md)
-* [🔍 DID Resolver](did-resolver/README.md)
-* [💾 On-Ledger Resources](resources/README.md)
+* [🆔 cheqd DID method](https://docs.cheqd.io/identity/ledger-identity/decentralized-identifiers)
+* [🔍 DID Resolver](https://docs.cheqd.io/identity/ledger-identity/did-resolver)
+* [💾 On-Ledger Resources](https://docs.cheqd.io/identity/ledger-resources/resources)
 
 ### 🛂 Building Decentralized Identity Apps
 
-* [🛠 Veramo SDK for cheqd](veramo-sdk-for-cheqd/README.md)
-* [✅ Verifiable Credentials](verifiable-credentials/README.md)
-* [👜 Demo Wallet for identity](verifiable-credentials/wallet.md)
+* [🛠 Veramo SDK for cheqd](https://docs.cheqd.io/identity/building-decentralized-identity-apps/veramo-sdk-for-cheqd)
+* [✅ Verifiable Credentials](https://docs.cheqd.io/identity/building-decentralized-identity-apps/verifiable-credentials)
+* [👜 Demo Wallet for identity](https://docs.cheqd.io/identity/building-decentralized-identity-apps/wallet)
 
 ## 📖 Other useful documentation sites for cheqd
 

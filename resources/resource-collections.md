@@ -10,7 +10,7 @@ For simplicity, we will focus on the use case where a Resource is a **schema**. 
 
 The syntax of a Resource metadata is as follows:
 
-```jsonc
+```json
 "linkedResourceMetadata": [
   {
     "resourceURI": "did:cheqd:testnet:DAzMQo4MDMxCjgwM/resources/44547089-170b-4f5a-bcbc-06e46e0089e4",
@@ -46,7 +46,8 @@ The DID Document acts as metadata, providing information about the **Collection*
 Moreover, each specific **Resource** within a **Collection** can be fetched via a DID Document relating to a Collection, through the use of the `‘service’` section.
 
 ![cheqd resources overview diagram](../.gitbook/assets/resource-overview-diagram.png)
-*Figure 1: Overview diagram of cheqd on-ledger resources, including where different layers of the structure interact with each other*
+
+*Figure 1*: Overview diagram of cheqd on-ledger resources, including where different layers of the structure interact with each other
 
 Since the overall structure of our resource implementation is complex and has multiple layers, we will explain each component in turn.
 
@@ -54,7 +55,7 @@ Since the overall structure of our resource implementation is complex and has mu
 
 Let’s take a look at a **DID Document for a Collection**, and break it down:
 
-```jsonc
+```json
 {
   "id": "did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c",
   "verification_method": [
@@ -118,7 +119,7 @@ The `type` within the Service section denotes the Service Endpoint is of type Li
 
 The *actual* Resource Type is specified in the Resource Metadata.
 
-```jsonc
+```json
 {
   // ...
   "resourceType": "CL-Schema"
@@ -132,7 +133,7 @@ The contents in the `serviceEndpoint` is intended to directly link to or resolve
 
 If the Service Endpoint is a DID URL, the client application would need to be capable of handling DID URLs and how to resolve them. In practice, this might meant having access to an instance of [Universal Resolver](https://github.com/decentralized-identity/universal-resolver) with the `did:cheqd` driver.
 
-```jsonc
+```json
 {
   "id": "did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c#DegreeLaw",
   "type": "LinkedResource",
@@ -143,7 +144,7 @@ If the Service Endpoint is a DID URL, the client application would need to be ca
 
 For compatibility with a wider range of applications, our recommendation is to specify this as an HTTP URL. Note that the `resolver.cheqd.net` prefix can easily be replaced by a client application to utilise a different Universal Resolver instance instead (similar to ["gateways" in IPFS](https://docs.ipfs.tech/concepts/ipfs-gateway/#overview)).
 
-```jsonc
+```json
 {
   "id": "did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c#DegreeLaw",
   "type": "LinkedResource",
@@ -154,7 +155,7 @@ For compatibility with a wider range of applications, our recommendation is to s
 
 While we prefer that [Resources are created on ledger](README.md) for the benefits they offer, the same technique of referencing via a DID URL can also apply to Service Endpoints that aren't necessarily stored on cheqd ledger (or other ledgers:
 
-```jsonc
+```json
 {
   "id": "did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c#Markdown",
   "type": "LinkedResource",
@@ -167,7 +168,7 @@ While we prefer that [Resources are created on ledger](README.md) for the benefi
 
 Collections are identified by a **Collection ID** which is a **unique identifier** of the **linked DID**. Within the *DID Document Metadata* of the *Collection DIDDoc*, the Linked Resource metadata describes Resources within this Collection:
 
-```jsonc
+```json
 "linkedResourceMetadata": [
   { // First version of a Resource called PassportSchema
     "resourceURI": "did:cheqd:testnet:DAzMQo4MDMxCjgwM/resources/44547089-170b-4f5a-bcbc-06e46e0089e4",

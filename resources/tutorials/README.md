@@ -79,7 +79,7 @@ After you execute the command, you will receive `"code": 0"` if the resource was
 
 Otherwise, the `raw_logs` field in the response can help figure out why something went wrong. For example:
 
-```jsonc
+```json
 {
     "code": 1201,
     "data":"",
