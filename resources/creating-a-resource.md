@@ -27,7 +27,7 @@ This allows for multi-signature scenarios as well, in case the controllers of th
 
 Once the Resource is created, metadata related to it will be referenced within the **Collection DID Document metadata**, in the following format.
 
-```jsonc
+```json
 "didDocumentMetadata": {
   "created": "2022-07-19T08:29:07Z",
   "versionId": "57543FA1D9C56033BABBFA3A438E0A149E01BBB89E6D666ACE1243455AA6F2BC",
@@ -58,7 +58,7 @@ Through an update DID operation, the authorised party can **update the Service s
 
 This step is *optional*, since the Resource and its metadata is already available as described above.
 
-```jsonc
+```json
 "service": [
   {
     "id": "did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c#DegreeLaw",

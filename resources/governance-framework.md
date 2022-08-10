@@ -20,7 +20,7 @@ did:cheqd:mainnet:**93235d54-53cc-42b9-ae77-f99efe9eadc9**/resources/**8da12c4a-
 
 cheqd could create a Resource as follows for its Governance Framework
 
-```jsonc
+```json
 "linkedResourceMetadata": [
   {
     "resourceURI": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9/resources/8da12c4a-fa16-4895-b6c6-fc7cbdf62193",
@@ -80,7 +80,7 @@ cheqd-noded tx resource create-resource
 
 ### 3. Update the Collection DID Document with appropriate service section
 
-```jsonc
+```json
 {
   "id": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9",
   "verification_method": [
@@ -111,7 +111,7 @@ cheqd-noded tx resource create-resource
 
 ### 4. Referencing Governance Framework resource in Issuer DID
 
-```jsonc
+```json
 {
   "id": "did:cheqd:mainnet:17dd8754-c5ad-45d3-8f6c-078bfa72c63c",
   "verification_method": [

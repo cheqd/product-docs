@@ -39,7 +39,7 @@ For example, `did:cheqd:testnet:DAzMQo4MDMxCjgwM` can be fetched using the nativ
 
 In case of the cheqd network *testnet*, an instance of this `resolve` endpoint through the Cosmos SDK REST API would be [api.cheqd.network/cheqd/v1/did/did:cheqd:testnet:DAzMQo4MDMxCjgwM](https://api.cheqd.network/cheqd/v1/did/did:cheqd:testnet:DAzMQo4MDMxCjgwM) which returns the following response:
 
-```jsonc
+```json
 {
   "did": {
     "context": [
@@ -101,7 +101,7 @@ resolveRepresentation(did, resolutionOptions) →
 
 For example, a `resolveRepresentation` function *could* derive a valid standards-compliant representation of `did:cheqd:testnet:DAzMQo4MDMxCjgwM` from the above `resolve` function. The response would be similar to the one below containing Resolution Metadata, DIDDoc, and DIDDoc Metadata:
 
-```jsonc
+```json
 {
   "didResolutionMetadata": {
     "contentType": "application/did+ld+json",
