@@ -26,6 +26,7 @@
 
 * [🛠 Veramo SDK for cheqd](veramo-sdk-for-cheqd/README.md)
   * [👉 Setting up Veramo CLI for cheqd](veramo-sdk-for-cheqd/setup-cli.md)
+    * [🤨 Troubleshooting Veramo CLI setup](veramo-sdk-for-cheqd/troubleshooting-setup.md)
   * [🆔 Create a DID](veramo-sdk-for-cheqd/did-operations/README.md)
     * [Querying a DID](veramo-sdk-for-cheqd/did-operations/query-did.md)
     * [Update an existing DID](veramo-sdk-for-cheqd/did-operations/update-did.md)
@@ -44,7 +45,7 @@
 
 ## 👷 Architecture
 
-* [Architecture Decision Record (ADR) Process](architecture/README.md)
+* [👷 Architecture Decision Record (ADR) Process](architecture/README.md)
 * [List of ADRs](architecture/adr-list/README.md)
   * [ADR 001: DID Resolver](architecture/adr-list/adr-001-did-resolver.md)
 

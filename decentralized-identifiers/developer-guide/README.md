@@ -1,4 +1,4 @@
-# Developing custom apps that use identity transactions on `cheqd-node`
+# 💻 Developer guide for cheqd ledger
 
 This document describes the possible ways to use [cheqd product identity features](https://product.cheqd.io/).
 

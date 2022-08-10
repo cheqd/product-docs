@@ -1,4 +1,4 @@
-# 🧰 On-Ledger Resources
+# 💾 On-Ledger Resources
 
 cheqd has built an **On-Ledger Resources Module** to extend the functionality of our decentralised identity network, providing capabilities not found on other self-sovereign identity networks.
 
