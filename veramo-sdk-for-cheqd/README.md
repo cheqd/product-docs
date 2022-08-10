@@ -14,11 +14,17 @@ The package's core functionality is borrowed from [Veramo Core NPM package](http
 
 New DID creation can also be done by passing a full-body DIDoc payload in JSON, rather than having to assemble the document field-by-field.
 
+> **Learn how to [configure and setup Veramo CLI for working with cheqd](setup-cli.md) network**
+>
+> Our [Veramo CLI setup guide](setup-cli.md) provides step-by-step instructions on how to configure your installation for cheqd network
+
 ## 📝 Architecture
 
-`did-provider-cheqd` consumes functionality that exists within the [`@cheqd/sdk` NPM package](https://www.npmjs.com/package/@cheqd/sdk) in a way that complies to the Veramo `AbstractIdentifierProvider`. (You don't need to call this package separately as it's already included as a dependency in `package.json`.) The `@cheqd/sdk` package adds Cosmos SDK specific functionality such as signing transactions, paying for ledger fees, etc.
+![Veramo SDK for cheqd architecture](../.gitbook/assets/veramo-sdk-for-cheqd-arch.png)
 
-For identity-related keys, this plugin uses [Veramo's Key Management System (KMS)](https://www.npmjs.com/package/@veramo/key-manager) to manage keys for create and update operations.
+*Figure 1: Veramo SDK for cheqd architecture with components ([editable Draw.io version](../.gitbook/assets/veramo-sdk-for-cheqd.drawio))*
+
+`did-provider-cheqd` consumes functionality that exists within the [`@cheqd/sdk` NPM package](https://www.npmjs.com/package/@cheqd/sdk) in a way that complies to the Veramo `AbstractIdentifierProvider`. (You don't need to call this package separately as it's already included as a dependency in `package.json`.)
 
 This package works alongside other base Veramo packages:
 
@@ -26,15 +32,19 @@ This package works alongside other base Veramo packages:
 * [`@veramo/cli`](https://www.npmjs.com/package/@veramo/cli)
 * [`@veramo/credential-w3c`](https://www.npmjs.com/package/@veramo/credential-w3c)
 
-Find out about [other Veramo plug-ins in their documentation](https://veramo.io/docs/veramo_agent/plugins/).
+The `@cheqd/sdk` package adds Cosmos SDK specific functionality such as signing transactions, paying for ledger fees, etc.
 
-## 🧑‍💻🛠 Developer Guide
+For identity-related keys, this plugin uses [Veramo's Key Management System (KMS)](https://www.npmjs.com/package/@veramo/key-manager) to manage keys for create and update operations.
 
-### Pre-Requisites
+Find out about [other Veramo plug-ins in their official documentation](https://veramo.io/docs/veramo_agent/plugins/).
+
+## Working with Veramo SDK for cheqd outside of Veramo CLI
+
+We provide a quick-start [setup guide for working with cheqd network using Veramo CLI](setup-cli.md).
+
+You can use our Veramo plugin in non-CLI contexts as well, for example, for integrating into custom applications
 
 Depending on the type of application you are looking to develop, you will need to install a different set of packages.
-
-If you're looking to use the Veramo CLI with cheqd or develop a proof-of-concept application, use the [official Veramo CLI setup guide](https://veramo.io/docs/veramo_agent/cli_tool/).
 
 For other applications, see:
 

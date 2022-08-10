@@ -2,7 +2,7 @@
 
 * [Identity Documentation for cheqd](README.md)
 
-## 💫 On-Ledger Identity
+## 💫 Ledger Identity
 
 * [🆔 cheqd DID method](decentralized-identifiers/README.md)
   * [📚 Creating a DID with cheqd Cosmos CLI](decentralized-identifiers/cheqd-cosmos-cli/README.md)
@@ -13,18 +13,28 @@
 * [Developer Guide for interacting with cheqd ledger](decentralized-identifiers/developer-guide/README.md)
   * [Using VDR Tools CLI with cheqd ledger](decentralized-identifiers/developer-guide/vdr-tools-with-cheqd.md)
 
-## 🧰 On-Ledger Resources
+## 🧰 Ledger Resources
 
-* [🧰 What are on-ledger Resources?](resources/README.md)
+* [🤔 What are on-ledger Resources?](resources/README.md)
 * [⏳ Workflow for creating Resources](resources/creating-a-resource.md)
   * [↣ Collections of Resources](resources/resource-collections.md)
   * [🧑‍⚖️ Governance Frameworks as Resources](resources/governance-framework.md)
 * [📚 Creating a Resource using cheqd Cosmos CLI](resources/tutorials/README.md)
   * [📚 Publishing a new Resource version](resources/tutorials/add-resource-to-existing-collection.md)
 
-## 🛂 Using decentralised identity in Apps
+## 🛂 Building Decentralized Identity Apps
 
 * [🛠 Veramo SDK for cheqd](veramo-sdk-for-cheqd/README.md)
+  * [👉 Setting up Veramo CLI for cheqd](veramo-sdk-for-cheqd/setup-cli.md)
+  * [🆔 Create a DID](veramo-sdk-for-cheqd/did-operations/README.md)
+    * [Querying a DID](veramo-sdk-for-cheqd/did-operations/query-did.md)
+    * [Update an existing DID](veramo-sdk-for-cheqd/did-operations/update-did.md)
+    * [Off-ledger subject DIDs](veramo-sdk-for-cheqd/did-operations/create-subject-did.md)
+    * [Managing identity keys](veramo-sdk-for-cheqd/did-operations/identity-key-handling.md)
+  * [✅ Create a Credential](veramo-sdk-for-cheqd/verifiable-credentials/README.md)
+    * [Verify a JSON Credential](veramo-sdk-for-cheqd/verifiable-credentials/verify-jwt-vc.md)
+  * [🔐 Create a Verifiable Presentation](veramo-sdk-for-cheqd/verifiable-presentations/README.md)
+    * [Verify a JWT Presentation](veramo-sdk-for-cheqd/verifiable-presentations/verify-presentation.md)
 * [✅ Verifiable Credentials](verifiable-credentials/README.md)
   * [JSON/JWT-based Credentials](verifiable-credentials/json-jwt-credentials.md)
   * [JSON-LD Credentials](verifiable-credentials/json-ld-credentials.md)
