@@ -178,6 +178,7 @@ The *Full cheqd DID Resolver* is able to use `github.com/cheqd/cheqd-node` as a 
 Since the *Full cheqd DID Resolver* is wrapped for usage as a Docker container image using the Universal Resolver specification, the end-to-end sequence diagram for our DID Resolver would look like below:
 
 ![*Full cheqd DID Resolver* sequence diagram](../../.gitbook/assets/cheqd-full-did-resolver-sequence-diagram.png)
+
 *Figure 1: "Full" cheqd DID Resolver sequence diagram ([editable version](https://swimlanes.io/u/CE_Rjphs9?rev=7))*
 
 The *Full cheqd DID Resolver* is designed to handle requests concurrently, while reducing the risk of large quantities of threads and requests blocking the efficiency of the on-ledger services.
@@ -192,6 +193,7 @@ Since Cosmos SDK SDK encodes data in Protobuf, the DID Resolver "[marshalls](htt
 Marshalling/unmarshalling requests back-and-forth between Protobuf and JSON is carried out by services in the "Full" DID Resolver
 
 ![*Full cheqd DID Resolver* Protobuf <-> JSON marshalling](../../.gitbook/assets/cheqd-did-resolver-protobuf-json-marshalling.png)
+
 *Figure 3: "Full" cheqd DID Resolver Protobuf <-> JSON marshalling ([editable version](https://swimlanes.io/u/2W1PQKx_s?rev=4))*
 
 ### DID URL Resolution / Dereferencing rules
