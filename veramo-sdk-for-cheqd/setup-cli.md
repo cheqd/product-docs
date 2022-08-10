@@ -9,10 +9,38 @@ If you're looking to use the Veramo CLI with cheqd or develop a proof-of-concept
 This step is exactly [as described in Veramo CLI docs](https://veramo.io/docs/veramo_agent/cli_tool/):
 
 ```bash
-npm i @veramo/cli -g
+npm i @veramo/cli@3.1.6-next.160 -g
 ```
 
-### 2. Clone the `did-provider-cheqd` repo
+> If you have stricter permissions when installing the package, prepend `sudo`.
+
+i.e:
+
+```bash
+sudo npm install @veramo/cli@3.1.6-next.160 -g
+```
+
+### 2. Install the `did-provider-cheqd` package
+
+Navigate to NPM global modules installation directory. Within unix operation systems, this generally lies at:
+
+```bash
+/usr/local/lib/node_modules
+```
+
+Once here, navigate to Veramo CLI global installation directory, using:
+
+```bash
+cd @veramo/cli
+```
+
+Finally, install the latest version of `did-provider-cheqd`, with:
+
+```bash
+npm install @cheqd/did-provider-cheqd@latest
+```
+
+### 3. Clone the `did-provider-cheqd` repo
 
 Specifically, you need the [`agent.yml`](https://raw.githubusercontent.com/cheqd/did-provider-cheqd/main/agent.yml) file that contains the configuration for cheqd network.
 
@@ -22,7 +50,13 @@ If you execute commands from the directory where you have cloned this repo, then
 veramo <command> --config /path/to/agent.yml
 ```
 
-### 3. Generate a new local database encryption key
+> To check that you have the correct dependencies installed and your `agent.yml` file is configured correctly, use:
+
+```bash
+veramo config check -f /path/to/agent.yml
+```
+
+### 4. Generate a new local database encryption key
 
 By default, the `did-provider-cheqd` package has a default SQLite database password, but it's a good idea to modify and change this to a new key unique to your install.
 
@@ -39,7 +73,13 @@ or replace the default agent.yml 'dbEncryptionKey' constant
 
 Take the key generated and replace the value under `dbEncryptionKey` in the `agent.yml` file.
 
-### 4. Set your DID Resolver endpoint
+> To check that you have the correct dependencies installed and your `agent.yml` file is configured correctly, use:
+
+```bash
+veramo config check -f /path/to/agent.yml
+```
+
+### 5. Set your DID Resolver endpoint
 
 In order to be able to read/query `did:cheqd` entries from the ledger, you need to configure a REST API endpoint for a [cheqd DID Resolver](https://github.com/cheqd/did-resolver) instance.
 
@@ -94,7 +134,13 @@ universal-resolver:
     - url: https://dev.uniresolver.io/1.0/identifiers/
 ```
 
-### 5. Configure your cheqd/Cosmos account keys and RPC endpoints
+> To check that you have the correct dependencies installed and your `agent.yml` file is configured correctly, use:
+
+```bash
+veramo config check -f /path/to/agent.yml
+```
+
+### 6. Configure your cheqd/Cosmos account keys and RPC endpoints
 
 While reading/querying from the cheqd ledger incurs no cost, if you want to [create/update a DID](did-operations/README.md) to cheqd ledger, you need to pay transaction fees for the ledger writes.
 
@@ -122,9 +168,15 @@ didManager:
 
 You need to configure this in under `didManager` section as shown above, where you'll need to edit:
 
-1. `cosmosPayerMnemonic`: [Mnemonic associated with your cheqd/Comsos SDK account](https://docs.cheqd.io/node/docs/cheqd-cli/cheqd-cli-key-management). This is only stored locally, and the mnemonic is used to reconstitute the account address and keys used to pay for the transaction.
+1. `cosmosPayerMnemonic`: [Mnemonic associated with your cheqd/Cosmos SDK account](https://docs.cheqd.io/node/docs/cheqd-cli/cheqd-cli-key-management). This is only stored locally, and the mnemonic is used to reconstitute the account address and keys used to pay for the transaction.
 2. `rpcUrl`: For both `did:cheqd:mainnet:` as well as `did:cheqd:testnet:` sections, you can specify a Cosmos SDK RPC endpoint. This endpoint is where transactions are sent to. By default, this is populated with `rpc.cheqd.net` (for *mainnet*) and `rpc.cheqd.network` (for *testnet*), but you can can modify this to [a different hosted RPC endpoint for cheqd](https://cosmos.directory/cheqd/nodes) or even your own local/private RPC endpoint.
 3. `defaultProvider`: The default cheqd network is set to `did:cheqd:testnet` to allow developers to test out network functionality. However, if you prefer, you can switch this out to `did:cheqd:mainnet` instead.
+
+> To check that you have the correct dependencies installed and your `agent.yml` file is configured correctly, use:
+
+```bash
+veramo config check -f /path/to/agent.yml
+```
 
 ## Test your configuration
 
