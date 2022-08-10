@@ -10,10 +10,10 @@
   * [📚 Updating existing DIDs with cheqd Cosmos CLI](decentralized-identifiers/cheqd-cosmos-cli/update-and-manage-did-document.md)
 * [🔍 DID Resolver](did-resolver/README.md)
   * [🧑‍💻 Setting up cheqd DID Resolver](did-resolver/setting-up-did-resolver.md)
-* [Developer Guide for interacting with cheqd ledger](decentralized-identifiers/developer-guide/README.md)
-  * [Using VDR Tools CLI with cheqd ledger](decentralized-identifiers/developer-guide/vdr-tools-with-cheqd.md)
+* [💻 Developer Guide for cheqd ledger](decentralized-identifiers/developer-guide/README.md)
+  * [Using VDR Tools CLI with cheqd](decentralized-identifiers/developer-guide/vdr-tools-with-cheqd.md)
 
-## 🧰 Ledger Resources
+## 💾 Ledger Resources
 
 * [🤔 What are on-ledger Resources?](resources/README.md)
 * [⏳ Workflow for creating Resources](resources/creating-a-resource.md)
@@ -42,7 +42,7 @@
     * [Credential Definitions](verifiable-credentials/anoncreds/credential-definitions.md)
 * [👜 Demo Wallet for identity](verifiable-credentials/wallet.md)
 
-## 🤓 Architecture
+## 👷 Architecture
 
 * [Architecture Decision Record (ADR) Process](architecture/README.md)
 * [List of ADRs](architecture/adr-list/README.md)

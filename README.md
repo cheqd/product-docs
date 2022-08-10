@@ -2,17 +2,19 @@
 
 **[cheqd](https://learn.cheqd.io)** is a purpose-built network for decentralised identity. This documentation site provides **technical docs** for all **identity features & functionality** on the cheqd network.
 
-You can dive more into...
+## 🍽 Contents
 
-* 💫 On-Ledger Identity features on cheqd, such as:
-  * [🆔 cheqd DID method](decentralized-identifiers/README.md)
-  * [🔍 DID Resolver](did-resolver/README.md)
-  * [🧰 On-Ledger Resources](resources/README.md)
-* 🛂 Using decentralised identity in Apps
-  * [🛠 Veramo SDK for cheqd](veramo-sdk-for-cheqd/README.md)
-  * [✅ Verifiable Credentials](verifiable-credentials/README.md)
-  * [👜 Demo Wallet for identity](verifiable-credentials/wallet.md)
-* 🤓 [List of Architecture Decision Records](architecture/adr-list/README.md)
+### 💫 Identity Features on cheqd ledger
+
+* [🆔 cheqd DID method](decentralized-identifiers/README.md)
+* [🔍 DID Resolver](did-resolver/README.md)
+* [💾 On-Ledger Resources](resources/README.md)
+
+### 🛂 Building Decentralized Identity Apps
+
+* [🛠 Veramo SDK for cheqd](veramo-sdk-for-cheqd/README.md)
+* [✅ Verifiable Credentials](verifiable-credentials/README.md)
+* [👜 Demo Wallet for identity](verifiable-credentials/wallet.md)
 
 ## 📖 Other useful documentation sites for cheqd
 
