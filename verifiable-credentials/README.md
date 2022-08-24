@@ -20,7 +20,7 @@ For this reason, cheqd intends to support all mainstream types of Verifiable Cre
 
 ### AnonCreds Credentials
 
-[AnonCreds Credentials can be supported on cheqd](../building-decentralized-identity-apps/verifiable-credentials/anoncreds.md) with our [Resources on-ledger module](../resources/).
+[AnonCreds Credentials can be supported on cheqd](anoncreds/) with our [Resources on-ledger module](../resources/).
 
 > **Learn more about our client app SDK roadmap on our product site**
 >

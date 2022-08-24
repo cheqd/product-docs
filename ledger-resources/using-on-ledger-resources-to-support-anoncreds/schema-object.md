@@ -103,7 +103,9 @@ cheqd-noded tx resource create-resource \
 In the example above, the file `degreeSchema.json` would contain the following content:
 
 ```
+
 {
+"AnonCredsSchema": {
     "attr_names": [
         "birthlocation",
         "facephoto",
@@ -116,10 +118,18 @@ In the example above, the file `degreeSchema.json` would contain the following c
     ],
     "name": "degreeSchema",
     "version": "1.5.7"
+},
+"AnonCredsObjectMetadata": {
+  "objectFamily": "anoncreds",
+  "objectFamilyVersion": "v2",
+  "objectType": "2",
+  "publisherDid": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K",
+  "name": "degreeSchema",
+  "objectURI": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497"
 }
 ```
 
-The cheqd ledger will not provide any checks on the Schema Object Content. Therefore, it is the responsibility of the Schema creator to make sure that the `name` and `version` match the resource metadata.&#x20;
+The cheqd ledger will not provide any checks on the Schema Object Content. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct.&#x20;
 
 ### cheqd Schema Metadata
 

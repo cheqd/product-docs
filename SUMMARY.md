@@ -23,6 +23,7 @@
   * [📚 Publishing a new Resource version](resources/tutorials/add-resource-to-existing-collection.md)
 * [🔒 Using on-ledger resources to support AnonCreds](ledger-resources/using-on-ledger-resources-to-support-anoncreds/README.md)
   * [Schema Object](ledger-resources/using-on-ledger-resources-to-support-anoncreds/schema-object.md)
+  * [CredDef Object](ledger-resources/using-on-ledger-resources-to-support-anoncreds/creddef-object.md)
 
 ## 🛂 Building Decentralized Identity Apps
 
@@ -41,7 +42,7 @@
 * [✅ Verifiable Credentials](verifiable-credentials/README.md)
   * [JSON/JWT-based Credentials](verifiable-credentials/json-jwt-credentials.md)
   * [JSON-LD Credentials](verifiable-credentials/json-ld-credentials.md)
-  * [AnonCreds](building-decentralized-identity-apps/verifiable-credentials/anoncreds.md)
+  * [AnonCreds](verifiable-credentials/anoncreds/README.md)
 * [👜 Demo Wallet for identity](verifiable-credentials/wallet.md)
 
 ## Architecture
