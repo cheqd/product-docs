@@ -102,32 +102,30 @@ cheqd-noded tx resource create-resource \
 
 In the example above, the file `degreeSchema.json` would contain the following content:
 
-```
-
+<pre><code>
 {
-"AnonCredsSchema": {
-    "attr_names": [
-        "birthlocation",
-        "facephoto",
-        "expiry_date",
-        "citizenship",
-        "name",
-        "birthdate",
-        "firstname",
-        "uuid"
-    ],
-    "name": "degreeSchema",
-    "version": "1.5.7"
-},
-"AnonCredsObjectMetadata": {
-  "objectFamily": "anoncreds",
-  "objectFamilyVersion": "v2",
-  "objectType": "2",
-  "publisherDid": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K",
-  "name": "degreeSchema",
-  "objectURI": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497"
-}
-```
+<strong>    "AnonCredsSchema": {
+</strong>        "attr_names": [
+            "birthlocation",
+            "facephoto",
+            "expiry_date",
+            "citizenship",
+            "name",
+            "birthdate",
+            "firstname",
+            "uuid"
+        ],
+        "name": "degreeSchema",
+        "version": "1.5.7"
+    },
+    "AnonCredsObjectMetadata": {
+      "objectFamily": "anoncreds",
+      "objectFamilyVersion": "v2",
+      "objectType": "2",
+      "publisherDid": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K",
+      "name": "degreeSchema",
+      "objectURI": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497"
+<strong>}</strong></code></pre>
 
 The cheqd ledger will not provide any checks on the Schema Object Content. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct.&#x20;
 
