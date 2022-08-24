@@ -1,19 +1,19 @@
-# Creating a Resource with cheqd Cosmos CLI
+# 📚 Creating a Resource using cheqd Cosmos CLI
 
-The purpose of this document is to outline how someone can create a Resource on the cheqd network using [cheqd Cosmos CLI](../../decentralized-identifiers/cheqd-cosmos-cli/README.md). The process that's followed is similar to what's described in the [high-level Resource creation flow](../creating-a-resource.md).
+The purpose of this document is to outline how someone can create a Resource on the cheqd network using [cheqd Cosmos CLI](../../decentralized-identifiers/cheqd-cosmos-cli/). The process that's followed is similar to what's described in the [high-level Resource creation flow](../creating-a-resource.md).
 
 ## Pre-requisites
 
 1. Install the latest stable cheqd-node CLI, either as a [standalone binary](https://github.com/cheqd/cheqd-node/releases/latest) or [Docker container image](https://github.com/cheqd/cheqd-node/pkgs/container/cheqd-cli).
-2. Acquire test CHEQ tokens through [our testnet faucet](https://testnet-faucet.cheqd.io) (if creating it on our testnet), or [CHEQ tokens](https://app.osmosis.zone/?from=OSMO&to=CHEQ) (if you plan on creating it on mainnet).
+2. Acquire test CHEQ tokens through [our testnet faucet](https://testnet-faucet.cheqd.io) (if creating it on our testnet), or [CHEQ tokens](https://app.osmosis.zone/?from=OSMO\&to=CHEQ) (if you plan on creating it on mainnet).
 
 ## Creating a new Resource linked to a DID
 
 ### 1. Create a new DID + DIDDoc
 
-*Note: If you already have a DIDDoc and corresponding keys, you can skip this step.*
+_Note: If you already have a DIDDoc and corresponding keys, you can skip this step._
 
-To create a DIDDoc, you can follow the instructions to [create a DID with cheqd Cosmos CLI](../../decentralized-identifiers/cheqd-cosmos-cli/README.md).
+To create a DIDDoc, you can follow the instructions to [create a DID with cheqd Cosmos CLI](../../decentralized-identifiers/cheqd-cosmos-cli/).
 
 Let's assume the DID for the DIDDoc is as follows:
 
@@ -54,7 +54,7 @@ cheqd-noded tx resource create-resource \
 * `<resource-name>`: Arbitrary human-readable string used to identify the resource
 * `<resource-type>`: Resource type, such as `CL-Schema`, `JSONSchema2020`, etc
 * `<resource-file>`: Path to file with resource content
-* `<ver-method-id-1>`, `<priv-key-1>`, `<ver-method-id-N>`,  `<priv-key-N>`: To create a resource, you need the same set of signatures as for carrying out a DIDDoc update. Provide signatures the same way as during resource creation or modification, in Step 1.
+* `<ver-method-id-1>`, `<priv-key-1>`, `<ver-method-id-N>`, `<priv-key-N>`: To create a resource, you need the same set of signatures as for carrying out a DIDDoc update. Provide signatures the same way as during resource creation or modification, in Step 1.
 
 #### Example
 

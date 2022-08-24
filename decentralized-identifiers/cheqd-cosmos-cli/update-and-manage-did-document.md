@@ -1,24 +1,24 @@
-# Updating an existing DID with cheqd Cosmos CLI
+# 📚 Updating existing DIDs with cheqd Cosmos CLI
 
-The purpose of this document is to describe how an existing DID (and associated DIDDoc) can be *updated* using [the `cheqd-node` Cosmos CLI](https://docs.cheqd.io/node/docs/cheqd-cli).
+The purpose of this document is to describe how an existing DID (and associated DIDDoc) can be _updated_ using [the `cheqd-node` Cosmos CLI](https://docs.cheqd.io/node/docs/cheqd-cli).
 
 > **NOTE: The procedures below are only recommended for development purposes!**
 >
 > Using `cheqd-node` Cosmos CLI for real-world production usage is not recommended, since the identity keys are passed in raw form to the CLI. This is fine in development/testing usage, but is not recommend for mainnet.
 >
-> Developers are encouraged to use [production-grade CLI tools such as Veramo SDK for cheqd](../../veramo-sdk-for-cheqd/README.md) or look at [our developer guide on how to integrate custom applications](../developer-guide/README.md).
+> Developers are encouraged to use [production-grade CLI tools such as Veramo SDK for cheqd](../../veramo-sdk-for-cheqd/) or look at [our developer guide on how to integrate custom applications](../developer-guide/).
 
 ## Setup
 
 ### Pre-Requisites
 
-* Learn how to [create a DID with cheqd Cosmos CLI](README.md)
+* Learn how to [create a DID with cheqd Cosmos CLI](./)
 * [Query an existing DID/DIDDoc](query-did-and-did-document.md) with cheqd Cosmos CLI
 
 ### Assumptions
 
 * Given this procedure below is intended for development/training purposes, we assume that the user stores their public/private keys safely during the DID creation process and has access to it.
-* Updating a DIDDoc requires the *full* updated DIDDoc to be sent. Only the updated/changed parts cannot be sent. This accounts for scenarios where the DIDDoc may have been updated on ledger, but the local copy is not synced with the latest changes.
+* Updating a DIDDoc requires the _full_ updated DIDDoc to be sent. Only the updated/changed parts cannot be sent. This accounts for scenarios where the DIDDoc may have been updated on ledger, but the local copy is not synced with the latest changes.
 
 ## Update an existing DID
 
@@ -30,7 +30,7 @@ Use a text editor like `nano` to edit the body of the DIDDoc (the example below 
 nano diddoc.json
 ```
 
-For example, we can [take the DIDDoc created previously](README.md) and change the Service Endpoint from `bar.example.com` to `foo.example.com`:
+For example, we can [take the DIDDoc created previously](./) and change the Service Endpoint from `bar.example.com` to `foo.example.com`:
 
 ```json
 {
@@ -56,7 +56,7 @@ For example, we can [take the DIDDoc created previously](README.md) and change t
 
 ### 2. Send an update DID transaction to the ledger
 
-Send the updated DIDDoc to the ledger. This *must* be signed with the correct identity keys:
+Send the updated DIDDoc to the ledger. This _must_ be signed with the correct identity keys:
 
 ```bash
 cheqd-noded tx cheqd update-did <DIDDoc_in_JSON> <did_verification_method_id> <identity_private_key_BASE_64> \

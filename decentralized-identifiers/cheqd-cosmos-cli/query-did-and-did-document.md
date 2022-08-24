@@ -1,12 +1,12 @@
-# Querying DIDs with cheqd Cosmos CLI
+# 📚 Querying DIDs with cheqd Cosmos CLI
 
 ## Pre-requisite
 
-An existing `did:cheqd` entry created using any SDK/CLI. For development purposes, this can be done using [the `cheqd-node` Cosmos CLI](README.md).
+An existing `did:cheqd` entry created using any SDK/CLI. For development purposes, this can be done using [the `cheqd-node` Cosmos CLI](./).
 
-> NOTE: Use the [**cheqd DID Resolver**](../../did-resolver/README.md) for production-grade usage
+> NOTE: Use the [**cheqd DID Resolver**](../../did-resolver/) for production-grade usage
 >
-> Querying using the Cosmos CLI is useful for development purposes, but the [DID Resolver](../../did-resolver/README.md) is designed for programmatic usage. Production-grade SDKs such as [Veramo SDK for cheqd](../../veramo-sdk-for-cheqd/README.md) also rely on the DID Resolver package.
+> Querying using the Cosmos CLI is useful for development purposes, but the [DID Resolver](../../did-resolver/) is designed for programmatic usage. Production-grade SDKs such as [Veramo SDK for cheqd](../../veramo-sdk-for-cheqd/) also rely on the DID Resolver package.
 
 ## Querying DIDDocs for existing DIDs
 

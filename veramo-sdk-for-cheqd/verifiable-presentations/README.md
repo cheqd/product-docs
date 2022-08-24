@@ -1,4 +1,4 @@
-# Create Verifiable Presentations using Veramo CLI
+# 🔐 Create a Verifiable Presentation
 
 This tutorial offers step-by-step guidance on how to create a [Verifiable Presentation](https://w3c-ccg.github.io/vp-request-spec/).
 
@@ -10,9 +10,9 @@ This tutorial offers step-by-step guidance on how to create a [Verifiable Presen
 
 A Verifiable Presentation is a way a credential holder can generate cryptographicall-verifiable proof that they are in posession of the identity keys (e.g., `did:key`) the credential was issued to.
 
-This is important because [just the Verifiable Credential and its JWT proof](../verifiable-credentials/verify-jwt-vc.md), on its own, is susceptible to [*replay attacks*](https://en.wikipedia.org/wiki/Replay_attack) where intercepted Verifiable Credentials could be played back.
+This is important because [just the Verifiable Credential and its JWT proof](../verifiable-credentials/verify-jwt-vc.md), on its own, is susceptible to [_replay attacks_](https://en.wikipedia.org/wiki/Replay\_attack) where intercepted Verifiable Credentials could be played back.
 
-The process of creating a *Verifiable Presentation* is one way of addressing these security concerns.
+The process of creating a _Verifiable Presentation_ is one way of addressing these security concerns.
 
 ## Instructions
 
@@ -30,7 +30,7 @@ Specify the subject identity key to be used for signing Verifiable Presentation,
 
 ### 3. Specify the `Tag` for the Verifiable Presentation
 
-Hit *Enter* to accept the default at this step
+Hit _Enter_ to accept the default at this step
 
 ### 4. Specify the verifier ID
 
@@ -38,7 +38,7 @@ Select the DID of the verifier from the options presented. In a very simplistic 
 
 ### 5. Specify presentation type
 
-This can be the same as the Verifiable Credential, or a sub-section of it. Choose *Enter* for default.
+This can be the same as the Verifiable Credential, or a sub-section of it. Choose _Enter_ for default.
 
 ### 6. Select the credential(s) to be included in the presentation
 

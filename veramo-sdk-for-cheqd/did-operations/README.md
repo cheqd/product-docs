@@ -1,4 +1,4 @@
-# Creating a new DID using Veramo CLI
+# 🆔 Create a DID
 
 Follow these instructions to create a new DID and publish the associated DIDDoc on cheqd ledger.
 
@@ -14,7 +14,7 @@ For all of the following steps, you'll need identity keys to digitally sign the 
 
 #### Using standalone keys
 
-Follow [*Method 1* in the key management guide](identity-key-handling.md)
+Follow [_Method 1_ in the key management guide](identity-key-handling.md)
 
 ```bash
 veramo execute -m cheqdGenerateIdentityKeys
@@ -22,7 +22,7 @@ veramo execute -m cheqdGenerateIdentityKeys
 
 #### Create keys along with a DIDDoc template
 
-Follow [*Method 2* in the key management guide](identity-key-handling.md):
+Follow [_Method 2_ in the key management guide](identity-key-handling.md):
 
 ```bash
 veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "Ed25519VerificationKey2020", "methodSpecificIdAlgo": "base58btc", "methodSpecificIdLength": 16, "network": "testnet"}'
@@ -32,7 +32,7 @@ veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "Ed2551
 
 Before creating a DID, you will need to prepare the `args.json` file. This file can be saved whereever you choose, but the location must be specified in the create DID command used in Step 2. (By default, it will be saved under the project root directory.)
 
-If you used *Method 2* in the previous step, you can use the output of that as a starting point for this file.
+If you used _Method 2_ in the previous step, you can use the output of that as a starting point for this file.
 
 #### Example file
 
@@ -76,4 +76,4 @@ If your transaction is successful, you'll receive a success message along with t
 
 ### Troubleshooting
 
-1. Bear in mind that the that transaction fees are paid by the cheqd/Cosmos account set in the agent configuration file. If that account has insufficient balance (a typical create DID transaction would be ~500k ncheq), your transaction might fail.
+1. Bear in mind that the that transaction fees are paid by the cheqd/Cosmos account set in the agent configuration file. If that account has insufficient balance (a typical create DID transaction would be \~500k ncheq), your transaction might fail.

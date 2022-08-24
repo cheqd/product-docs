@@ -10,17 +10,19 @@
   * [📚 Updating existing DIDs with cheqd Cosmos CLI](decentralized-identifiers/cheqd-cosmos-cli/update-and-manage-did-document.md)
 * [🔍 DID Resolver](did-resolver/README.md)
   * [🧑‍💻 Setting up cheqd DID Resolver](did-resolver/setting-up-did-resolver.md)
-* [💻 Developer Guide for cheqd ledger](decentralized-identifiers/developer-guide/README.md)
+* [Developer Guide for cheqd ledger](decentralized-identifiers/developer-guide/README.md)
   * [Using VDR Tools CLI with cheqd](decentralized-identifiers/developer-guide/vdr-tools-with-cheqd.md)
 
-## 💾 Ledger Resources
+## 🧰 Ledger Resources
 
-* [🤔 What are on-ledger Resources?](resources/README.md)
+* [🧰 What are on-ledger Resources?](resources/README.md)
 * [⏳ Workflow for creating Resources](resources/creating-a-resource.md)
   * [↣ Collections of Resources](resources/resource-collections.md)
   * [🧑‍⚖️ Governance Frameworks as Resources](resources/governance-framework.md)
 * [📚 Creating a Resource using cheqd Cosmos CLI](resources/tutorials/README.md)
   * [📚 Publishing a new Resource version](resources/tutorials/add-resource-to-existing-collection.md)
+* [🔒 Using on-ledger resources to support AnonCreds](ledger-resources/using-on-ledger-resources-to-support-anoncreds/README.md)
+  * [Schema Object](ledger-resources/using-on-ledger-resources-to-support-anoncreds/schema-object.md)
 
 ## 🛂 Building Decentralized Identity Apps
 
@@ -39,20 +41,19 @@
 * [✅ Verifiable Credentials](verifiable-credentials/README.md)
   * [JSON/JWT-based Credentials](verifiable-credentials/json-jwt-credentials.md)
   * [JSON-LD Credentials](verifiable-credentials/json-ld-credentials.md)
-  * [AnonCreds](verifiable-credentials/anoncreds/README.md)
-    * [Credential Definitions](verifiable-credentials/anoncreds/credential-definitions.md)
+  * [AnonCreds](building-decentralized-identity-apps/verifiable-credentials/anoncreds.md)
 * [👜 Demo Wallet for identity](verifiable-credentials/wallet.md)
 
-## 👷 Architecture
+## Architecture
 
-* [👷 Architecture Decision Record (ADR) Process](architecture/README.md)
+* [Architecture Decision Record (ADR) Process](architecture/README.md)
 * [List of ADRs](architecture/adr-list/README.md)
   * [ADR 001: DID Resolver](architecture/adr-list/adr-001-did-resolver.md)
 
 ## ⚖️ Legal
 
 * [License](LICENSE.md)
-* [Code of Conduct](CODE_OF_CONDUCT.md)
+* [Code of Conduct](CODE\_OF\_CONDUCT.md)
 * [Security Policy](SECURITY.md)
 
 ## 🆘 Support

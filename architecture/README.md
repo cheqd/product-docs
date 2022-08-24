@@ -1,4 +1,4 @@
-# 👷 Architecture Decision Record (ADR) Process
+# Architecture Decision Record (ADR) Process
 
 This is a location to record all high-level architecture decisions for **identity features and functionality** on [cheqd network](https://docs.cheqd.io/identity/).
 

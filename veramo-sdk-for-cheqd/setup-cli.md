@@ -1,18 +1,18 @@
-# 🧑‍💻🛠 Setting up Veramo SDK for cheqd
+# 👉 Setting up Veramo CLI for cheqd
 
-If you're looking to use the Veramo CLI with cheqd or develop a proof-of-concept application, use the [official Veramo CLI setup guide](https://veramo.io/docs/veramo_agent/cli_tool/).
+If you're looking to use the Veramo CLI with cheqd or develop a proof-of-concept application, use the [official Veramo CLI setup guide](https://veramo.io/docs/veramo\_agent/cli\_tool/).
 
 ## Step 1: Install requisite packages
 
 ### 1.1. Install Veramo CLI
 
-This step is exactly [as described in Veramo CLI docs](https://veramo.io/docs/veramo_agent/cli_tool/):
+This step is exactly [as described in Veramo CLI docs](https://veramo.io/docs/veramo\_agent/cli\_tool/):
 
 ```bash
 npm i @veramo/cli@3.1.6-next.160 -g
 ```
 
-*Note:* Depending on your system permissions, you might be prompted for additional permissions. Add `sudo` to the beginning of the command in case that happens.
+_Note:_ Depending on your system permissions, you might be prompted for additional permissions. Add `sudo` to the beginning of the command in case that happens.
 
 Verify the installation was correct and installed the specified version using:
 
@@ -41,7 +41,7 @@ You can do this in terminal through:
 wget -c https://raw.githubusercontent.com/cheqd/did-provider-cheqd/main/agent.yml
 ```
 
-*Note:* Alternatively, you can also fetch this by [cloning](https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls) the [`did-provider-cheqd`](https://github.com/cheqd/did-provider-cheqd) repository.
+_Note:_ Alternatively, you can also fetch this by [cloning](https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls) the [`did-provider-cheqd`](https://github.com/cheqd/did-provider-cheqd) repository.
 
 ### 2.2. Open the `agent.yml` file in an editor to customise the config
 
@@ -89,9 +89,9 @@ If you want, you can replace the `url` property with a different REST API endpoi
 
 #### Alternative/Optional: Use Universal Resolver instead
 
-> *Note:* This configuration is an advanced step and **not recommended** for most users. Skip it and continue to the next step in most cases, unless you know why you want to switch the resolver interface.
+> _Note:_ This configuration is an advanced step and **not recommended** for most users. Skip it and continue to the next step in most cases, unless you know why you want to switch the resolver interface.
 
-If you plan on interacting with multiple DID methods using Veramo CLI, you can alternatively query `did:cheqd` using [a Universal Resolver instance](https://dev.uniresolver.io/) instead. This allows your CLI configuration to handle [*any* DID method supported by Universal Resolver](https://github.com/decentralized-identity/universal-resolver).
+If you plan on interacting with multiple DID methods using Veramo CLI, you can alternatively query `did:cheqd` using [a Universal Resolver instance](https://dev.uniresolver.io/) instead. This allows your CLI configuration to handle [_any_ DID method supported by Universal Resolver](https://github.com/decentralized-identity/universal-resolver).
 
 Firstly, comment out the custom `did-cheqd-resolver` entry and uncomment the `universal-resolver` entry. This tells Veramo CLI to use the Universal Resolver interface for `did:cheqd`.
 
@@ -131,7 +131,7 @@ universal-resolver:
 
 ### 2.5. Configure your cheqd/Cosmos account keys and RPC endpoints
 
-While reading/querying from the cheqd ledger incurs no cost, if you want to [create/update a DID](did-operations/README.md) to cheqd ledger, you need to pay transaction fees for the ledger writes.
+While reading/querying from the cheqd ledger incurs no cost, if you want to [create/update a DID](did-operations/) to cheqd ledger, you need to pay transaction fees for the ledger writes.
 
 ```yaml
 # DID Manager
@@ -158,7 +158,7 @@ didManager:
 You need to configure this in under `didManager` section as shown above, where you'll need to edit:
 
 1. `cosmosPayerMnemonic`: [Mnemonic associated with your cheqd/Cosmos SDK account](https://docs.cheqd.io/node/docs/cheqd-cli/cheqd-cli-key-management). This is only stored locally, and the mnemonic is used to reconstitute the account address and keys used to pay for the transaction.
-2. `rpcUrl`: For both `did:cheqd:mainnet:` as well as `did:cheqd:testnet:` sections, you can specify a Cosmos SDK RPC endpoint. This endpoint is where transactions are sent to. By default, this is populated with `rpc.cheqd.net` (for *mainnet*) and `rpc.cheqd.network` (for *testnet*), but you can can modify this to [a different hosted RPC endpoint for cheqd](https://cosmos.directory/cheqd/nodes) or even your own local/private RPC endpoint.
+2. `rpcUrl`: For both `did:cheqd:mainnet:` as well as `did:cheqd:testnet:` sections, you can specify a Cosmos SDK RPC endpoint. This endpoint is where transactions are sent to. By default, this is populated with `rpc.cheqd.net` (for _mainnet_) and `rpc.cheqd.network` (for _testnet_), but you can can modify this to [a different hosted RPC endpoint for cheqd](https://cosmos.directory/cheqd/nodes) or even your own local/private RPC endpoint.
 3. `defaultProvider`: The default cheqd network is set to `did:cheqd:testnet` to allow developers to test out network functionality. However, if you prefer, you can switch this out to `did:cheqd:mainnet` instead.
 
 ### 2.6. Save the `agent.yml` file and exit
@@ -179,4 +179,4 @@ Your Veramo configuration seems fine. An agent can be created and the 'agent.exe
 
 ## Next steps
 
-Now that your Veramo CLI installation is successfully set up to work with cheqd, try following our tutorials for [creating a new DID](README.md) or [querying existing DIDs](did-operations/query-did.md).
+Now that your Veramo CLI installation is successfully set up to work with cheqd, try following our tutorials for [creating a new DID](./) or [querying existing DIDs](did-operations/query-did.md).

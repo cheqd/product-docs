@@ -1,15 +1,15 @@
-# Adding a new Resource to an existing Collection using cheqd Cosmos CLI
+# 📚 Publishing a new Resource version
 
-The purpose of this document is to describe how someone can create [a *new* Resource on under an existing *Collection*](../resource-collections.md).
+The purpose of this document is to describe how someone can create [a _new_ Resource on under an existing _Collection_](../resource-collections.md).
 
-This tutorial uses the [cheqd Cosmos CLI](https://docs.cheqd.io/node/docs/cheqd-cli), similar to the [creating a new Resource tutorial](README.md).
+This tutorial uses the [cheqd Cosmos CLI](https://docs.cheqd.io/node/docs/cheqd-cli), similar to the [creating a new Resource tutorial](./).
 
 ## Pre-requisites
 
 1. Install the latest stable cheqd-node CLI, either as a [standalone binary](https://github.com/cheqd/cheqd-node/releases/latest) or [Docker container image](https://github.com/cheqd/cheqd-node/pkgs/container/cheqd-cli).
-2. Acquire test CHEQ tokens through [our testnet faucet](https://testnet-faucet.cheqd.io) (if creating it on our testnet), or [CHEQ tokens](https://app.osmosis.zone/?from=OSMO&to=CHEQ) (if you plan on creating it on mainnet).
-3. An [existing DID + DIDDoc created on cheqd ledger](../../decentralized-identifiers/cheqd-cosmos-cli/README.md)
-4. Having [a Resource already created](README.md) under this DIDDoc Collection
+2. Acquire test CHEQ tokens through [our testnet faucet](https://testnet-faucet.cheqd.io) (if creating it on our testnet), or [CHEQ tokens](https://app.osmosis.zone/?from=OSMO\&to=CHEQ) (if you plan on creating it on mainnet).
+3. An [existing DID + DIDDoc created on cheqd ledger](../../decentralized-identifiers/cheqd-cosmos-cli/)
+4. Having [a Resource already created](./) under this DIDDoc Collection
 
 ## Adding a new Resource to an existing DIDDoc Collection
 
@@ -54,7 +54,7 @@ cheqd-noded tx resource create-resource \
 * `<resource-name>`: Arbitrary human-readable string used to identify the resource
 * `<resource-type>`: Resource type, such as `CL-Schema`, `JSONSchema2020`, etc
 * `<resource-file>`: Path to file with resource content
-* `<ver-method-id-1>`, `<priv-key-1>`, `<ver-method-id-N>`,  `<priv-key-N>`: To create a resource, you need the same set of signatures as for carrying out a DIDDoc update. Provide signatures the same way as during resource creation or modification, in Step 1.
+* `<ver-method-id-1>`, `<priv-key-1>`, `<ver-method-id-N>`, `<priv-key-N>`: To create a resource, you need the same set of signatures as for carrying out a DIDDoc update. Provide signatures the same way as during resource creation or modification, in Step 1.
 
 #### Example
 
