@@ -35,6 +35,7 @@ Prior to creating a [CRED\_DEF](https://anoncreds-wg.github.io/anoncreds-spec/#t
                 "facephoto": "124...240",
                 "expiry_date": "057...124",
                 "citizenship": "966...235",
+                "master_secret": "562...831",
                 "name": "574...152",
                 "birthdate": "235...113",
                 "firstname": "103...443",

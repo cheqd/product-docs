@@ -10,7 +10,7 @@ This documentation will guide an implementor of AnonCreds on cheqd on how to rep
 
 Each Schema Object within the [AnonCreds specification](https://anoncreds-wg.github.io/anoncreds-spec/) has its own unique `schema_id`.
 
-The `schema_id` is a **composite** of the following set of elements:
+The Schema ID is a **composite** of the following set of elements:
 
 * `publisher DID`: is a [string](https://infra.spec.whatwg.org/#string). The DID of the Schema Publisher.
 * `object type`: An integer denoting the type of object. `2` is used for Schemas.
