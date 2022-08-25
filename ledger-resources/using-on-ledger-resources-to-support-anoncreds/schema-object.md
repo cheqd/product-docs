@@ -70,40 +70,19 @@ cheqd resources module uses the following format:
 
 `did:cheqd:mainnet:<SchemaProposerId>/resources/<SchemaResourceId>`
 
-Rather than using a composite string for the Schema Resource ID. The cheqd AnonCreds object method uses a UUID.&#x20;
+Rather than using a composite string for the Schema Resource ID. The cheqd AnonCreds object method uses a UUID to identify the Schema Object Content which includes additional Schema Object Content Metadata, providing the required fields for equivalence with Hyperledger Indy implementations.&#x20;
 
 For example, the following DID URL is cheqd's representation of a `schema_id`:
 
 `did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497`
 
-### create Schema transaction
+### cheqd Schema Object Content
 
-To create a Schema on cheqd, you need to carry out a resource transaction, specifying the following information.&#x20;
+Before creating any on-ledger transaction, it is important to assemble to required Schema Object Content and save it as a file locally.&#x20;
 
-```
-cheqd-noded tx resource create-resource \
-    --collection-id 7BPMqYgYLQni258J8JPS8K \
-    --resource-id 6259d357-eeb1-4b98-8bee-12a8390d3497 \
-    --resource-name 'degreeSchema' \
-    --resource-type CL-Schema \
-    --resource-version 1.5.7 \
-    --resource-file degreeSchema.json \
-    did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K#key1 \
-    l6KUjm...jz8Un7QCbrW1KPE6gSyg== \
-     --from <your-account> \
-     --node https://rpc.cheqd.network:443 \
-     --chain-id cheqd-mainnet-1 \
-     --gas auto \
-     --gas-adjustment 1.3 \
-     --gas-prices 25ncheq
-```
+&#x20;In the example below, the content should be saved as a file, for example: `degreeSchema.json` with the following content:
 
-### cheqd Schema Object content
-
-In the example above, the file `degreeSchema.json` would contain the following content:
-
-<pre><code>
-{
+<pre><code>{
 <strong>    "AnonCredsSchema": {
 </strong>        "attr_names": [
             "birthlocation",
@@ -123,13 +102,48 @@ In the example above, the file `degreeSchema.json` would contain the following c
       "objectFamilyVersion": "v2",
       "objectType": "2",
       "publisherDid": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K",
-      "name": "degreeSchema",
       "objectURI": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497"
 <strong>}</strong></code></pre>
 
-The cheqd ledger will not provide any checks on the Schema Object Content. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct.&#x20;
+This implementation uses AnonCredsObjectMetadata to provide equivalency between cheqd's AnonCreds Object Method and other AnonCreds Object Methods, including the fields, where:
 
-### cheqd Schema Metadata
+| Object Metadata field | Response                                                   | Equivalency                            |
+| --------------------- | ---------------------------------------------------------- | -------------------------------------- |
+| objectFamily          | anoncreds                                                  | did:Indy Objects Method                |
+| objectFamilyVersion   | v2                                                         | did:Indy Objects Method                |
+| objectType            | 2                                                          | Legacy Hyperledger Indy Objects Method |
+| publisherDid          | DID of the schema publisher                                | Legacy Hyperledger Indy Objects Method |
+| objectUri             | Fully qualified DID URL to easily access the Schema Object |                                        |
+
+{% hint style="info" %}
+Note: The cheqd ledger will not provide any checks on the Schema Object Content or Metadata. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct.&#x20;
+{% endhint %}
+
+### create Schema transaction
+
+To create a Schema on cheqd, you need to carry out a resource transaction, specifying the following information.&#x20;
+
+```
+cheqd-noded tx resource create-resource \
+    --collection-id 7BPMqYgYLQni258J8JPS8K \
+    --resource-id 6259d357-eeb1-4b98-8bee-12a8390d3497 \
+    --resource-name degreeSchema \
+    --resource-type CL-Schema \
+    --resource-version 1.5.7 \
+    --resource-file degreeSchema.json \
+    did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K#key1 \
+    l6KUjm...jz8Un7QCbrW1KPE6gSyg== \
+     --from <your-account> \
+     --node https://rpc.cheqd.network:443 \
+     --chain-id cheqd-mainnet-1 \
+     --gas auto \
+     --gas-adjustment 1.3 \
+     --gas-prices 25ncheq
+```
+
+Note that this transaction includes the file `degreeSchema.json` that was formatted prior to creating the transaction.
+
+### cheqd resource Metadata
 
 Once you have created your resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K`
 
@@ -155,11 +169,11 @@ Rather than requiring a specific GET_SCHEMA function and interface to fetch the 
 
 Like the AnonCreds `schema_id,` it is possible to obtain the Schema Object Content by querying the Schema Publisher DID, Schema name and Schema Version. The following query will dereference to the Schema Object Content itself:&#x20;
 
-`did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K?resouceName=degreeSchema&resouceVersion=1.5.7`
+`did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K?resouceName=degreeSchema&resourceType=CL-Schema&resouceVersion=1.5.7`
 
 2\. Query by resource ID
 
-For applications which are cheqd-aware, it would be possible to find the Schema Object Content via the resourceId using a fully formed DID URL path or query, for example:&#x20;
+For applications which are cheqd-aware, it would be possible to find the Schema Object Content via the `resourceId` using a fully qualified DID URL path or query, for example:&#x20;
 
 `did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497`
 
