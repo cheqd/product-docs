@@ -21,7 +21,7 @@ Prior to creating a [CRED\_DEF](https://anoncreds-wg.github.io/anoncreds-spec/#t
 ```json
 {
 "AnonCredsCredDef: {
-  "ref": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",,
+  "ref": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
   "signature_type": "CL",
   "tag": "degreeCredDef"
   },
@@ -45,9 +45,9 @@ Prior to creating a [CRED\_DEF](https://anoncreds-wg.github.io/anoncreds-spec/#t
       "rctxt": "774...977",
       "s": "750..893",
       "z": "632...005"
-      }
-   "issuerDid": "did:cheqd:mainnet:6b245956-331f-45e4-bf98-9032cf15dbf4",      
-   "objectUri": "did:cheqd:mainnet:6b245956-331f-45e4-bf98-9032cf15dbf4/resources/c3bf9bf3-b2de-434b-8689-ad363b62641c"
+      }    
+  "issuerDid": "did:cheqd:mainnet:6b245956-331f-45e4-bf98-9032cf15dbf4",      
+  "objectUri": "did:cheqd:mainnet:6b245956-331f-45e4-bf98-9032cf15dbf4/resources/c3bf9bf3-b2de-434b-8689-ad363b62641c"
   },  
 }
 ```
