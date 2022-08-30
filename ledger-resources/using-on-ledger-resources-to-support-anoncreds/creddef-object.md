@@ -88,7 +88,7 @@ An example of CredDef Object content is below:
       "z": "632...005"
     }
   },
-  "ref": 7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7,
+  "ref": "7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7",
   "signature_type": "CL",
   "tag": "credDefDegree"
 }
