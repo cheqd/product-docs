@@ -17,7 +17,7 @@ Like with [Schema Objects](schema-object.md), each CredDef Object ID (`cred_def_
 * `issuer DID`: The DID of the Issuer, the issuer of the credentials that will utilise the CredDef.
 * `object type`: The type of object. `3` is used for CredDefs.
 * `signature_type`: The `signature_type` item for the CredDef (this is 'CL' in the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec/))
-* `Schema_id`: Also referred to as the `ref,` this should be a [URL](https://www.rfc-editor.org/rfc/rfc1738) for the `schema_id.`
+* `schema_id`: Also referred to as the `ref,` this should be a [URL](https://www.rfc-editor.org/rfc/rfc1738) for the `schema_id.`
 * `tag`: A unique name or tag given to the CredDef.
 
 {% hint style="info" %}
