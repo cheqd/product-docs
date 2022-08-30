@@ -2,7 +2,7 @@
 
 ## Overview
 
-In AnonCreds, Credential Definitions are used to specify the following information all in one place, to create an immutable record of:
+In [AnonCreds](https://anoncreds-wg.github.io/anoncreds-spec/), Credential Definitions are used to specify the following information all in one place, to create an immutable record of:
 
 1. The DID of the credential issuer
 2. The schema the issued credentials will be based upon
@@ -10,20 +10,127 @@ In AnonCreds, Credential Definitions are used to specify the following informati
 4. A cryptographic secret, embedded within the CredDef Object content, creating an uncorrelatable 'link secret' between the issuer and holder
 5. Information necessary for the revocation of credentials, if revocation is to be enabled by the Issuer for this type of credential (Optional).
 
+### CredDef Object ID
+
+Like with [Schema Objects](schema-object.md), each CredDef Object ID (`cred_def_id`) is a **composite** string, consisting of the following elements:
+
+* `issuer DID`: The DID of the Issuer, the issuer of the credentials that will utilise the CredDef.
+* `object type`: The type of object. `3` is used for CredDefs.
+* `signature_type`: The `signature_type` item for the CredDef (this is 'CL' in the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec/))
+* `Schema_id`: Also referred to as the `ref,` this should be a [URL](https://www.rfc-editor.org/rfc/rfc1738) for the `schema_id.`
+* `tag`: A unique name or tag given to the CredDef.
+
+{% hint style="info" %}
+Note: the schema_id as part of the_ cred\_def\_id is a recent change from the AnonCreds Working Group. Previously, this was the Schema TXN ID. However, the Schema TXN ID could not accommodate for non-Hyperledger Indy networks.
+{% endhint %}
+
+The `cred_def_id` therefore is formatted in the following way:
+
+```
+<issuerDid>:<objectType>:<signatureType>:<schemaId>:<tag>
+```
+
+For example an AnonCreds `cred_def_id` could be:
+
+```
+zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree
+```
+
+Through combining each of the components into one string, it provides client applications all of the information they need to know about the schema in a simple and easily consumable format.&#x20;
+
+### AnonCreds CredDef Object Content
+
+Credential Definition Object Content is distinct in the way it is structured. The inputs and outputs generated when creating a CredDef are as follows:
+
+#### Create CredDef input:
+
+The following inputs are required to create a CredDef:
+
+* A [schema](https://anoncreds-wg.github.io/anoncreds-spec/#term:schema) on which the CredDef will be based
+* A `tag`, an arbitrary string defined by the Issuer, enabling an Issuer to create multiple CredDefs for the same schema.
+* An optional flag `support_revocation` (default `false`) which if true generates some additional data in the CredDef to enable credential revocation.
+
+#### Create CredDef output
+
+The output of a create CredDef transaction is a JSON structure that is generated using cryptographic primitives.&#x20;
+
+A CredDef has a couple of important characteristics:
+
+1. Each of the schema attributes is individually signed using a public key fragment.
+2. Each CredDef includes a `master_secret` attribute. This value is blindly contributed to the credential during issuance and used to bind the issued credential to the entity it was issued to.
+3. The output includes the:
+   1. `ref` (`schema_id`)
+   2. `signature_type`
+   3. `tag`
+
+Further details regarding the use of cryptographic primatives are described in the [CredDefs section of the AnonCreds specification here](https://anoncreds-wg.github.io/anoncreds-spec/#generating-a-cred\_def-without-revocation-support).
+
+An example of CredDef Object content is below:
+
+```json
+{
+  "data": {
+    "primary": {
+      "n": "779...397",
+      "r": {
+            "birthdate": "294...298",
+            "birthlocation": "533...284",
+            "citizenship": "894...102",
+            "expiry_date": "650...011",
+            "facephoto": "870...274",
+            "firstname": "656...226",
+            "master_secret": "521...922",
+            "name": "410...200",
+            "uuid": "226...757"
+      },
+      "rctxt": "774...977",
+      "s": "750..893",
+      "z": "632...005"
+    }
+  },
+  "ref": 7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7,
+  "signature_type": "CL",
+  "tag": "credDefDegree"
+}
+```
+
+The composite string of the `cred_def_id` should include the same values as are in the CredDef Object Content.&#x20;
+
+## cheqd AnonCreds Object Method for CredDefs
+
+### cheqd CredDef ID
+
+cheqd [on-ledger resources](../../resources/) identify individual resources using DID URLs.&#x20;
+
+cheqd resources module uses the following format:
+
+`did:cheqd:mainnet:<IssuerDid>/resources/<CredDefResourceId>`
+
+Rather than using a composite string for the CredDef Resource ID. The cheqd AnonCreds object method uses a UUID to identify the CredDef Object Content which includes additional CredDef Object Content Metadata, providing the required fields for equivalence with Hyperledger Indy implementations.&#x20;
+
+For example, the following DID URL is cheqd's representation of a `cred_def_id`:
+
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0`
 
 
-Prior to creating a [CRED\_DEF](https://anoncreds-wg.github.io/anoncreds-spec/#term:cred\_def), the Issuer must get an instance of the [SCHEMA](https://anoncreds-wg.github.io/anoncreds-spec/#term:schema) upon which the [CRED\_DEF](https://anoncreds-wg.github.io/anoncreds-spec/#term:cred\_def) will be created, including the identifier for the [SCHEMA](https://anoncreds-wg.github.io/anoncreds-spec/#term:schema) in the form of a SchemaId. If the Issuer is also the [SCHEMA Publisher](https://anoncreds-wg.github.io/anoncreds-spec/#term:schema-publisher), they will already have the [SchemaId](https://anoncreds-wg.github.io/anoncreds-spec/#term:schema). If not, the Issuer must request that information from the VDR on which the [SCHEMA](https://anoncreds-wg.github.io/anoncreds-spec/#term:schema) is published. Hyperledger Indy requires that the [SCHEMA](https://anoncreds-wg.github.io/anoncreds-spec/#term:schema) and [CRED\_DEF](https://anoncreds-wg.github.io/anoncreds-spec/#term:cred\_def) must be on the same ledger instance.
 
+### cheqd CredDef Object Content
 
+Before creating any on-ledger transaction, it is important to assemble to required CredDef Object Content and save it as a file locally.&#x20;
 
+cheqd's approach to AnonCreds CredDefs implements the following logic:
 
+1. The required content of the CredDef which can be provided in a network-agnostic fashion should be included in the body of the content.
+2. Anything that is network-specific should be included within AnonCreds Object Metadata.&#x20;
+
+&#x20;In the example below, the content should be saved as a file, for example: credDefDegree`.json` with the following content:
 
 ```json
 {
 "AnonCredsCredDef: {
   "ref": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
   "signature_type": "CL",
-  "tag": "degreeCredDef"
+  "tag": "credDefDegree"
   },
 "AnonCredsObjectMetadata": {
   "data": {
@@ -46,30 +153,82 @@ Prior to creating a [CRED\_DEF](https://anoncreds-wg.github.io/anoncreds-spec/#t
       "s": "750..893",
       "z": "632...005"
       }    
-  "issuerDid": "did:cheqd:mainnet:6b245956-331f-45e4-bf98-9032cf15dbf4",      
-  "objectUri": "did:cheqd:mainnet:6b245956-331f-45e4-bf98-9032cf15dbf4/resources/c3bf9bf3-b2de-434b-8689-ad363b62641c"
+  "issuerDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
+  "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0"
   },  
 }
 ```
 
-The [CRED\_DEF](https://anoncreds-wg.github.io/anoncreds-spec/#term:cred\_def) is a JSON structure that is generated using cryptographic primitives (described below) given the following inputs.
+This implementation uses AnonCredsObjectMetadata to provide equivalency between cheqd's AnonCreds Object Method and other AnonCreds Object Methods, including the fields, where:
 
-* A [SCHEMA](https://anoncreds-wg.github.io/anoncreds-spec/#term:schema) for the credential type.
-* A `tag`, an arbitrary string defined by the Issuer, enabling an Issuer to create multiple [CRED\_DEF](https://anoncreds-wg.github.io/anoncreds-spec/#term:cred\_def)s for the same [SCHEMA](https://anoncreds-wg.github.io/anoncreds-spec/#term:schema).
-* An optional flag `support_revocation` (default `false`) which if true generates some additional data in the [CRED\_DEF](https://anoncreds-wg.github.io/anoncreds-spec/#term:cred\_def) to enable credential revocation. The additional data generated when this flag is `true` is covered in the [next section](https://anoncreds-wg.github.io/anoncreds-spec/#issuer-create-and-publish-revocation-registry-object) of this document.
+| Object Metadata field | Response                                                         | Method Specification              |
+| --------------------- | ---------------------------------------------------------------- | --------------------------------- |
+| data                  | cryptographically signed attributes                              | Legacy Hyperledger Objects Method |
+| issuerDid             | Fully qualified DID to easily identify the issuer of the CredDef | cheqd Objects Method              |
+| objectUri             | Fully qualified DID URL to easily access the Schema Object       | cheqd Objects Method              |
 
+{% hint style="info" %}
+Note: The cheqd ledger will not provide any checks on the Schema Object Content or Metadata. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct.&#x20;
+{% endhint %}
 
+### create CredDef transaction
 
-### CredDef Object ID
+To create a CredDef on cheqd, you need to carry out a resource transaction, specifying the following information.&#x20;
 
 ```
-<issuer DID>:<object type>:<signature_type>:<SCHEMA TXN_ID>:tag>
+cheqd-noded tx resource create-resource \
+    --collection-id zF7rhDBfUt9d1gJPjx7s1J \
+    --resource-id 77465164-5646-42d9-9a0a-f7b2dcb855c0 \
+    --resource-name credDefDegree \
+    --resource-type CL \
+    --resource-file credDefDegree.json \
+    did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J#key1 \
+    l6KUjm...jz8Un7QCbrW1KPE6gSyg== \
+     --from <your-account> \
+     --node https://rpc.cheqd.network:443 \
+     --chain-id cheqd-mainnet-1 \
+     --gas auto \
+     --gas-adjustment 1.3 \
+     --gas-prices 25ncheq
 ```
 
-The elements of the identifier, separated by `:`'s are:
+Note that this transaction includes the file `credDefDegree.json` that was formatted prior to creating the transaction.
 
-* `issuer DID`: The DID of the Issuer, the issuer of the [CRED\_DEF](https://anoncreds-wg.github.io/anoncreds-spec/#term:cred\_def).
-* `object type`: The type of object. `3` is used for [CRED\_DEF](https://anoncreds-wg.github.io/anoncreds-spec/#term:cred\_def)s.
-* `signature_type`: The `signature_type` item from the [CRED\_DEF](https://anoncreds-wg.github.io/anoncreds-spec/#term:cred\_def).
-* `SCHEMA TXN_ID`: The `ref` item from the [CRED\_DEF](https://anoncreds-wg.github.io/anoncreds-spec/#term:cred\_def)
-* `tag`: The `tag` item from the [CRED\_DEF](https://anoncreds-wg.github.io/anoncreds-spec/#term:cred\_def).
+### cheqd resource Metadata
+
+Once you have created your resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:`zF7rhDBfUt9d1gJPjx7s1J
+
+```
+"resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0",
+    "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
+    "resourceId": "77465164-5646-42d9-9a0a-f7b2dcb855c0",
+    "resourceName": "credDefDegree",
+    "resourceType": "CL",
+    "mediaType": "application/json",
+    "created": "2022-07-19T08:40:00Z",
+    "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
+    "previousVersionId": null,
+    "nextVersionId": null
+```
+
+### Fetching a cheqd CredDef Object
+
+Rather than requiring a specific GET\__CRED\_DEF_ function and interface to fetch the CredDef Object Content (such as that required on Indy for the __ `cred_def_id` __ (zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree), existing DID Resolvers will be able to query for the CredDef Object Content using the following parameters:
+
+1. Query by name and version
+
+Like the AnonCreds `cred_def_id,` it is possible to obtain the CredDef Object Content by querying the CredDef Publisher DID and CredDef tag. The following query will dereference to the Schema Object Content itself:&#x20;
+
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=credDefDegree&resourceType=CL`
+
+2\. Query by resource ID
+
+For applications which are cheqd-aware, it would be possible to find the Schema Object Content via the `resourceId` using a fully qualified DID URL path or query, for example:&#x20;
+
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0`
+
+or,&#x20;
+
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceId=77465164-5646-42d9-9a0a-f7b2dcb855c0`
+
+###

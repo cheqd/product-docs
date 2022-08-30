@@ -10,7 +10,7 @@ This documentation will guide an implementor of AnonCreds on cheqd on how to rep
 
 Each Schema Object within the [AnonCreds specification](https://anoncreds-wg.github.io/anoncreds-spec/) has its own unique `schema_id`.
 
-The Schema ID is a **composite** of the following set of elements:
+The `schema_id` is a **composite** of the following set of elements:
 
 * `publisher DID`: is a [string](https://infra.spec.whatwg.org/#string). The DID of the Schema Publisher.
 * `object type`: An integer denoting the type of object. `2` is used for Schemas.
@@ -26,6 +26,8 @@ For example an AnonCreds `schema_id` could be:
 ```bash
 7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7
 ```
+
+Through combining each of the components into one string, it provides client applications all of the information they need to know about the schema in a simple and easily consumable format.&#x20;
 
 ### AnonCreds Schema Object Content
 
@@ -82,38 +84,38 @@ Before creating any on-ledger transaction, it is important to assemble to requir
 
 &#x20;In the example below, the content should be saved as a file, for example: `degreeSchema.json` with the following content:
 
-<pre><code>{
-<strong>    "AnonCredsSchema": {
-</strong>        "attr_names": [
-            "birthlocation",
-            "facephoto",
-            "expiry_date",
-            "citizenship",
-            "name",
-            "birthdate",
-            "firstname",
-            "uuid"
-        ],
-        "name": "degreeSchema",
-        "version": "1.5.7"
+<pre class="language-json"><code class="lang-json">{
+"AnonCredsSchema": {
+    "attr_names": [
+        "birthlocation",
+        "facephoto",
+        "expiry_date",
+        "citizenship",
+        "name",
+        "birthdate",
+        "firstname",
+        "uuid"
+    ],
+    "name": "degreeSchema",
+    "version": "1.5.7"
     },
-    "AnonCredsObjectMetadata": {
-      "objectFamily": "anoncreds",
-      "objectFamilyVersion": "v2",
-      "objectType": "2",
-      "publisherDid": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K",
-      "objectURI": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497"
+"AnonCredsObjectMetadata": {
+    "objectFamily": "anoncreds",
+    "objectFamilyVersion": "v2",
+    "objectType": "2",
+    "publisherDid": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K",
+    "objectURI": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497"
 <strong>}</strong></code></pre>
 
 This implementation uses AnonCredsObjectMetadata to provide equivalency between cheqd's AnonCreds Object Method and other AnonCreds Object Methods, including the fields, where:
 
-| Object Metadata field | Response                                                   | Equivalency                            |
+| Object Metadata field | Response                                                   | Method Specification                   |
 | --------------------- | ---------------------------------------------------------- | -------------------------------------- |
 | objectFamily          | anoncreds                                                  | did:Indy Objects Method                |
 | objectFamilyVersion   | v2                                                         | did:Indy Objects Method                |
 | objectType            | 2                                                          | Legacy Hyperledger Indy Objects Method |
 | publisherDid          | DID of the schema publisher                                | Legacy Hyperledger Indy Objects Method |
-| objectUri             | Fully qualified DID URL to easily access the Schema Object |                                        |
+| objectUri             | Fully qualified DID URL to easily access the Schema Object | cheqd Objects Method                   |
 
 {% hint style="info" %}
 Note: The cheqd ledger will not provide any checks on the Schema Object Content or Metadata. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct.&#x20;
@@ -161,9 +163,9 @@ Once you have created your resource on cheqd, the following metadata will be gen
     "nextVersionId": null
 ```
 
-### Fetching a cheqd schema object
+### Fetching a cheqd Schema Object
 
-Rather than requiring a specific GET_SCHEMA function and interface to fetch the Schema Object Content (such as that required on Indy for the_ `schema_id` __ 7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7), existing DID Resolvers will be able to query for the Schema Object Content using the following parameters:
+Rather than requiring a specific GET_SCHEMA function and interface to fetch the Schema Object Content (such as that required on Indy for the_ `schema_id` __ (7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7), existing DID Resolvers will be able to query for the Schema Object Content using the following parameters:
 
 1. Query by name and version
 
