@@ -114,7 +114,7 @@ This implementation uses AnonCredsObjectMetadata to provide equivalency between 
 | objectFamily          | anoncreds                                                  | did:Indy Objects Method                |
 | objectFamilyVersion   | v2                                                         | did:Indy Objects Method                |
 | objectType            | 2                                                          | Legacy Hyperledger Indy Objects Method |
-| publisherDid          | DID of the schema publisher                                | Legacy Hyperledger Indy Objects Method |
+| publisherDid          | DID of the Schema Publisher                                | Legacy Hyperledger Indy Objects Method |
 | objectUri             | Fully qualified DID URL to easily access the Schema Object | cheqd Objects Method                   |
 
 {% hint style="info" %}

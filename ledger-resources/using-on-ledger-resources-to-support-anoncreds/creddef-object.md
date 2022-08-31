@@ -264,7 +264,7 @@ This implementation uses AnonCredsObjectMetadata to provide equivalency between 
 | objectFamilyVersion   | v2                                                               | did:indy Objects Method            |
 | objectType            | 3                                                                | Legacy Indy Objects Method         |
 | issuerDid             | Fully qualified DID to easily identify the issuer of the CredDef | cheqd Objects Method               |
-| objectUri             | Fully qualified DID URL to easily access the Schema Object       | cheqd Objects Method               |
+| objectUri             | Fully qualified DID URL to easily access the CredDef Object      | cheqd Objects Method               |
 
 {% hint style="info" %}
 Note: The cheqd ledger will not provide any checks on the Schema Object Content or Metadata. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct.&#x20;

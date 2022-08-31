@@ -45,7 +45,7 @@ Through combining each of the components into one string, it provides client app
 
 ### AnonCreds Revocation Registry Definition Object Content
 
-The required content and data model for the Revocation Registry Definition Object are as follows:
+The required content and data model for the AnonCreds Revocation Registry Definition Object are as follows:
 
 * `credDefId`: the input parameter `cred_def_id`, [further explained here](creddef-object.md).&#x20;
 * `id`: the identifier of the [Revocation Registry Definition Object](revocation-registry-definition-object.md#anoncreds-revocation-registry-definition-object-id), defined above.
@@ -109,7 +109,7 @@ cheqd's approach to AnonCreds Revocation Registry Definition Objects implements 
 In the example below, the content should be saved as a file, for example: `degreeCredRevocRegDef.json` with the following content:
 
 <pre class="language-json"><code class="lang-json">{
-"AnonCredsCredDef: {
+"AnonCredsRevRegDef: {
   "credDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0",
   "id": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
   "revocDefType": "CL_ACCUM",
@@ -133,15 +133,19 @@ In the example below, the content should be saved as a file, for example: `degre
   "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df"
 }</code></pre>
 
+{% hint style="info" %}
+Note: The Credential Definition ID specified must have enabled revocation support for the Revocation Registry Definition to be able to created.
+{% endhint %}
+
 This implementation uses AnonCredsObjectMetadata to provide equivalency between cheqd's AnonCreds Object Method and other AnonCreds Object Methods, including the fields, where:
 
-| Object Metadata field | Response                                                         | Method Specification / Equivalency |
-| --------------------- | ---------------------------------------------------------------- | ---------------------------------- |
-| objectFamily          | anoncreds                                                        | did:indy Objects Method            |
-| objectFamilyVersion   | v2                                                               | did:indy Objects Method            |
-| objectType            | 4                                                                | Legacy Indy Objects Method         |
-| issuerDid             | Fully qualified DID to easily identify the issuer of the CredDef | cheqd Objects Method               |
-| objectUri             | Fully qualified DID URL to easily access the Schema Object       | cheqd Objects Method               |
+| Object Metadata field | Response                                                                        | Method Specification / Equivalency |
+| --------------------- | ------------------------------------------------------------------------------- | ---------------------------------- |
+| objectFamily          | anoncreds                                                                       | did:indy Objects Method            |
+| objectFamilyVersion   | v2                                                                              | did:indy Objects Method            |
+| objectType            | 4                                                                               | Legacy Indy Objects Method         |
+| issuerDid             | Fully qualified DID to easily identify the publisher of the Revocation Registry | cheqd Objects Method               |
+| objectUri             | Fully qualified DID URL to easily access the Revocation Registry Definition     | cheqd Objects Method               |
 
 ### create Revocation Registry Definition transaction
 
@@ -200,13 +204,11 @@ Importantly, this allows each new resource to be indexed and versioned by their:
 
 New resources can be created to update the existing CredDef or RevRegDef, whilst maintaining the historical state of the previous versions. See the documentation on [Publishing a New Version of a Resource](../../resources/tutorials/add-resource-to-existing-collection.md) to understand this further.
 
-
-
 ### Fetching a cheqd Revocation Registry Definition Object
 
 Rather than requiring a specific _GET\_REV\_REG_ function and interface to fetch the Revocation Registry Definition Object Content (such as that required on Indy), existing DID Resolvers will be able to query for the Revocation Registry Definition Object Content using the following parameters:
 
-#### Query by `name` and `version`
+#### Query by name and version
 
 Like the AnonCreds `cred_def_id,` it is possible to obtain the CredDef Object Content by querying the CredDef Publisher DID and CredDef tag. The following query will dereference to the Schema Object Content itself:&#x20;
 
