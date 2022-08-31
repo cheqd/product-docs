@@ -1,8 +1,8 @@
 # 🔒 Using on-ledger resources to support AnonCreds
 
-## AnonCreds support
+## cheqd AnonCreds Object Method
 
-cheqd intends to directly support AnonCreds in a W3C compliant format using its [on-ledger resource module](../../resources/).
+cheqd intends to directly support AnonCreds in a W3C compliant format using its [on-ledger resource module](../../resources/) in an AnonCreds Object Method.&#x20;
 
 ### Why is AnonCreds support important?
 
