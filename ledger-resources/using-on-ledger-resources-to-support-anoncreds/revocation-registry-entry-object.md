@@ -51,6 +51,8 @@ For example:
 }
 ```
 
+Therefore, for each new Revocation Registry Entry, the 'ID' remains the same, as does the `revocRegType` and `revocRegDefId` - the only value that changes is the `accum,` reflecting the delta between the previous and most recent Revocation Registry Entries. ``&#x20;
+
 ## cheqd AnonCreds Object Method for Revocation Registry Definition Objects
 
 ### cheqd Revocation Registry Entry Object ID
@@ -68,7 +70,7 @@ For example, the following DID URL is cheqd's representation of a `revocRegRevEn
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887`
 
 {% hint style="warning" %}
-Unlike in Hyperledger Indy implementations, cheqd uses a **unique identifier for each specific Revocation Registry Entry ID**. This enables better indexing and searchability.&#x20;
+Important: Unlike in Hyperledger Indy implementations, cheqd uses a **unique identifier for each specific Revocation Registry Entry ID**. This enables better indexing and searchability.&#x20;
 {% endhint %}
 
 ### cheqd Revocation Registry Entry Object Content
