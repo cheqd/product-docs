@@ -138,7 +138,7 @@ cheqd-noded tx resource create-resource \
 Once you have created your Revocation Registry Entry as a resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J`
 
 ```
-"resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
+"resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887",
     "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
     "resourceId": "9d26b902-555d-43bd-bac3-0bedeb462887",
     "resourceName": "degreeCredRevocRegEntry",
@@ -152,6 +152,76 @@ Once you have created your Revocation Registry Entry as a resource on cheqd, the
 
 {% hint style="info" %}
 Next and Previous Revocation Registry Entries will appear in the resource Metadata when a new Revocation Registry Entry is made with the same resourceName and resourceType
+{% endhint %}
+
+### Linking Revocation Registry Entries
+
+To Create a new Revocation Registry Entry as a **new version** of a previous Revocation Registry Entry, you need to create a new resource.
+
+You must:
+
+1. Generate a new UUID for the `resourceId`
+2. Specify the same `collectionId`
+3. Specify the same `resourceName`
+4. Specify the same `resourceType`
+5. Attach to the transaction the new `resourceFile` with the latest `accum` value.
+
+For example, using the cheqd Cosmos CLI to demonstrate this, a transaction may look like:
+
+```
+cheqd-noded tx resource create-resource \
+    --collection-id zF7rhDBfUt9d1gJPjx7s1J \
+    --resource-id c154bc07-43f7-4b69-ac0c-5514001f2ca3 \
+    --resource-name degreeCredRevocRegEntry \
+    --resource-type CL_ACCUM \
+    --resource-file degreeCredRevocRegEntry2.json \
+    did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J#key1 \
+    l6KUjm...jz8Un7QCbrW1KPE6gSyg== \
+     --from <your-account> \
+     --node https://rpc.cheqd.network:443 \
+     --chain-id cheqd-mainnet-1 \
+     --gas auto \
+     --gas-adjustment 1.3 \
+     --gas-prices 25ncheq
+```
+
+Where, `degreeCredRevocRegEntry2.json` contains an updated `accum` value and `objectUri`, such as:
+
+```
+{
+"AnonCredsRevRegEntry: {
+  "revocDefType": "CL_ACCUM",
+  "revocRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
+  "value": {
+    "accum": "52 87D...95B"
+  }
+"AnonCredsObjectMetadata: {
+  "objectFamily": "anoncreds",
+  "objectFamilyVersion": "v2",
+  "objectType": "5",  
+  "issuerDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
+  "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/c154bc07-43f7-4b69-ac0c-5514001f2ca3"
+  }
+}
+```
+
+Once the transaction has been created, the `resourceMetadata` will look like the following:
+
+```
+"resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/c154bc07-43f7-4b69-ac0c-5514001f2ca3",
+    "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
+    "resourceId": "c154bc07-43f7-4b69-ac0c-5514001f2ca3",
+    "resourceName": "degreeCredRevocRegEntry",
+    "resourceType": "CL_ACCUM",
+    "mediaType": "application/json",
+    "created": "2022-09-01T04:30:01Z",
+    "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
+    "previousVersionId": "c154bc07-43f7-4b69-ac0c-5514001f2ca3", // points to previous Revocation Registry Entry
+    "nextVersionId": null
+```
+
+{% hint style="info" %}
+Note: The previousVersionId will now link to the previous Revocation Registry Entry
 {% endhint %}
 
 ### Traversing Revocation Registry Entries using a DID Resolver
