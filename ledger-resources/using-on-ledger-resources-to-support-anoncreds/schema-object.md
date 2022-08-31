@@ -88,7 +88,7 @@ Before creating any on-ledger transaction, it is important to assemble to requir
 
 ```json
 {
-"AnonCredsSchema": {
+"AnonCredsObject": {
     "attr_names": [
         "birthlocation",
         "facephoto",
@@ -104,8 +104,9 @@ Before creating any on-ledger transaction, it is important to assemble to requir
     },
 "AnonCredsObjectMetadata": {
     "objectFamily": "anoncreds",
-    "objectFamilyVersion": "v2",
+    "objectFamilyVersion": "v1",
     "objectType": "2",
+    "typeName": "SCHEMA",
     "publisherDid": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K",
     "objectURI": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497"
     },
@@ -117,8 +118,9 @@ This implementation uses AnonCredsObjectMetadata to provide equivalency between 
 | Object Metadata field | Response                                                   | Method Specification                   |
 | --------------------- | ---------------------------------------------------------- | -------------------------------------- |
 | objectFamily          | anoncreds                                                  | did:Indy Objects Method                |
-| objectFamilyVersion   | v2                                                         | did:Indy Objects Method                |
+| objectFamilyVersion   | v1                                                         | did:Indy Objects Method                |
 | objectType            | 2                                                          | Legacy Hyperledger Indy Objects Method |
+| typeName              | `SCHEMA`                                                   | Legacy Hyperledger Indy Objects Method |
 | publisherDid          | DID of the Schema Publisher                                | Legacy Hyperledger Indy Objects Method |
 | objectUri             | Fully qualified DID URL to easily access the Schema Object | cheqd Objects Method                   |
 
@@ -135,7 +137,7 @@ cheqd-noded tx resource create-resource \
     --collection-id 7BPMqYgYLQni258J8JPS8K \
     --resource-id 6259d357-eeb1-4b98-8bee-12a8390d3497 \
     --resource-name degreeSchema \
-    --resource-type CL-Schema \
+    --resource-type schema \
     --resource-version 1.5.7 \
     --resource-file degreeSchema.json \
     did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K#key1 \
@@ -159,7 +161,7 @@ Once you have created your resource on cheqd, the following metadata will be gen
     "resourceCollectionId": "7BPMqYgYLQni258J8JPS8K",
     "resourceId": "6259d357-eeb1-4b98-8bee-12a8390d3497",
     "resourceName": "degreeSchema",
-    "resourceType": "CL-Schema",
+    "resourceType": "schema",
     "resourceVersion": "1.5.7",
     "mediaType": "application/json",
     "created": "2022-07-19T08:40:00Z",
@@ -176,11 +178,11 @@ Rather than requiring a specific GET_SCHEMA function and interface to fetch the 
 
 Like the AnonCreds `schema_id,` it is possible to obtain the Schema Object Content by querying the Schema Publisher DID, Schema name and Schema Version. The following query will dereference to the Schema Object Content itself:&#x20;
 
-`did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K?resouceName=degreeSchema&resourceType=CL-Schema&resouceVersion=1.5.7`
+`did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K?resouceName=degreeSchema&resourceType=schema&resouceVersion=1.5.7`
 
 using a DID Resolver:
 
-`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K?resouceName=degreeSchema&resourceType=CL-Schema&resouceVersion=1.5.7`
+`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K?resouceName=degreeSchema&resourceType=schema&resouceVersion=1.5.7`
 
 #### Query by resource ID
 

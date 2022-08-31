@@ -69,8 +69,12 @@ For example, the following DID URL is cheqd's representation of a `revocRegRevEn
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887`
 
+{% hint style="info" %}
+Unlike in Hyperledger Indy implementations, cheqd uses a **unique identifier for each specific Revocation Registry Entry ID**. This enables better indexing and searchability.&#x20;
+{% endhint %}
+
 {% hint style="warning" %}
-Important: Unlike in Hyperledger Indy implementations, cheqd uses a **unique identifier for each specific Revocation Registry Entry ID**. This enables better indexing and searchability.&#x20;
+For conformance with the cheqd AnonCreds Object Method, each Revocation Registry Entry **MUST** be created in the **same Collection** as the Revocation Registry Definition Object.
 {% endhint %}
 
 ### cheqd Revocation Registry Entry Object Content
@@ -86,7 +90,7 @@ In the example below, the content should be saved as a file, for example: `degre
 
 ```json
 {
-"AnonCredsRevRegEntry: {
+"AnonCredsObject: {
   "revocDefType": "CL_ACCUM",
   "revocRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
   "value": {
@@ -94,7 +98,7 @@ In the example below, the content should be saved as a file, for example: `degre
   }
 "AnonCredsObjectMetadata: {
   "objectFamily": "anoncreds",
-  "objectFamilyVersion": "v2",
+  "objectFamilyVersion": "v1",
   "objectType": "5",  
   "issuerDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
   "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887"
@@ -107,8 +111,9 @@ This implementation uses AnonCredsObjectMetadata to provide equivalency between 
 | Object Metadata field | Response                                                                        | Method Specification / Equivalency |
 | --------------------- | ------------------------------------------------------------------------------- | ---------------------------------- |
 | objectFamily          | anoncreds                                                                       | did:indy Objects Method            |
-| objectFamilyVersion   | v2                                                                              | did:indy Objects Method            |
+| objectFamilyVersion   | v1                                                                              | did:indy Objects Method            |
 | objectType            | 5                                                                               | Legacy Indy Objects Method         |
+| typeName              | `CL_ACCUM`                                                                      | Legacy Indy Objects Method         |
 | issuerDid             | Fully qualified DID to easily identify the publisher of the Revocation Registry | cheqd Objects Method               |
 | objectUri             | Fully qualified DID URL to easily access the Revocation Registry Entry          | cheqd Objects Method               |
 

@@ -173,7 +173,7 @@ In the example below, the content should be saved as a file, for example: `credD
 
 ```json
 {
-"AnonCredsCredDef: {
+"AnonCredsObject: {
   "data": {
     "primary": {
       "n": "779...397",
@@ -199,8 +199,9 @@ In the example below, the content should be saved as a file, for example: `credD
 }
 "AnonCredsObjectMetadata": { 
   "objectFamily": "anoncreds",
-  "objectFamilyVersion": "v2",
+  "objectFamilyVersion": "v1",
   "objectType": "3",
+  "typeName": "CLAIM_DEF",
   "issuerDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
   "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0"
   }
@@ -211,7 +212,7 @@ Or with revocation:
 
 ```json
 {
-"AnonCredsCredDef: {
+"AnonCredsObject: {
   "data": {
     "primary": {
       "n": "779...397",
@@ -250,8 +251,9 @@ Or with revocation:
 }
 "AnonCredsObjectMetadata": { 
   "objectFamily": "anoncreds",
-  "objectFamilyVersion": "v2",
+  "objectFamilyVersion": "v1",
   "objectType": "3",
+  "typeName": "CLAIM_DEF",
   "issuerDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
   "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0"
   }
@@ -263,8 +265,9 @@ This implementation uses AnonCredsObjectMetadata to provide equivalency between 
 | Object Metadata field | Response                                                         | Method Specification / Equivalency |
 | --------------------- | ---------------------------------------------------------------- | ---------------------------------- |
 | objectFamily          | anoncreds                                                        | did:indy Objects Method            |
-| objectFamilyVersion   | v2                                                               | did:indy Objects Method            |
+| objectFamilyVersion   | v1                                                               | did:indy Objects Method            |
 | objectType            | 3                                                                | Legacy Indy Objects Method         |
+| typeName              | `CLAIM_DEF`                                                      | Legacy Indy Objects Method         |
 | issuerDid             | Fully qualified DID to easily identify the issuer of the CredDef | cheqd Objects Method               |
 | objectUri             | Fully qualified DID URL to easily access the CredDef Object      | cheqd Objects Method               |
 

@@ -109,7 +109,7 @@ cheqd's approach to AnonCreds Revocation Registry Definition Objects implements 
 In the example below, the content should be saved as a file, for example: `degreeCredRevocRegDef.json` with the following content:
 
 <pre class="language-json"><code class="lang-json">{
-"AnonCredsRevRegDef: {
+"AnonCredsObject: {
   "credDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0",
   "id": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
   "revocDefType": "CL_ACCUM",
@@ -127,8 +127,9 @@ In the example below, the content should be saved as a file, for example: `degre
   }
 "AnonCredsObjectMetadata" {  
 <strong>  "objectFamily": "anoncreds",
-</strong>  "objectFamilyVersion": "v2",
+</strong>  "objectFamilyVersion": "v1",
   "objectType": "4",  
+  "typeName": "REVOC_REG_DEF"
   "issuerDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
   "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df"
 <strong>  }
@@ -143,8 +144,9 @@ This implementation uses AnonCredsObjectMetadata to provide equivalency between 
 | Object Metadata field | Response                                                                        | Method Specification / Equivalency |
 | --------------------- | ------------------------------------------------------------------------------- | ---------------------------------- |
 | objectFamily          | anoncreds                                                                       | did:indy Objects Method            |
-| objectFamilyVersion   | v2                                                                              | did:indy Objects Method            |
+| objectFamilyVersion   | v1                                                                              | did:indy Objects Method            |
 | objectType            | 4                                                                               | Legacy Indy Objects Method         |
+| typeName              | `REVOC_REG_DEF`                                                                 | Legacy Indy Objects Method         |
 | issuerDid             | Fully qualified DID to easily identify the publisher of the Revocation Registry | cheqd Objects Method               |
 | objectUri             | Fully qualified DID URL to easily access the Revocation Registry Definition     | cheqd Objects Method               |
 
@@ -157,7 +159,7 @@ cheqd-noded tx resource create-resource \
     --collection-id zF7rhDBfUt9d1gJPjx7s1J \
     --resource-id af20b1f0-5c4d-4037-9669-eaedddb9c2df \
     --resource-name degreeRevocRegDef \
-    --resource-type CL_ACCUM \
+    --resource-type revocRegDef \
     --resource-file degreeRevocRegDef.json \
     did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J#key1 \
     l6KUjm...jz8Un7QCbrW1KPE6gSyg== \
@@ -186,7 +188,7 @@ Once you have created your Revocation Registry as a resource on cheqd, the follo
     "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
     "resourceId": "af20b1f0-5c4d-4037-9669-eaedddb9c2df",
     "resourceName": "degreeRevocRegDef",
-    "resourceType": "CL_ACCUM",
+    "resourceType": "revocRegDef",
     "mediaType": "application/json",
     "created": "2022-08-21T08:40:00Z",
     "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
@@ -213,11 +215,11 @@ Rather than requiring a specific _GET\_REV\_REG_ function and interface to fetch
 
 Like the AnonCreds `cred_def_id,` it is possible to obtain the CredDef Object Content by querying the CredDef Publisher DID and CredDef tag. The following query will dereference to the Schema Object Content itself:&#x20;
 
-`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=degreeRevocRegDef&resourceType=CL_ACCUM`
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=degreeRevocRegDef&resourceType=revocRegDef`
 
 using a DID Resolver:
 
-`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=degreeRevocRegDef&resourceType=CL_ACCUM`
+`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=degreeRevocRegDef&resourceType=revocRegDef`
 
 This would return the AnonCredsCredDef data and the AnonCredsObjectMetadata.
 
