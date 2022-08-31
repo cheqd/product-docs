@@ -2,7 +2,12 @@
 
 ## Overview
 
-Published [REV\_REG\_ENTRY](https://anoncreds-wg.github.io/anoncreds-spec/#term:rev\_reg\_entry) objects contain the state of the [REV\_REG](https://anoncreds-wg.github.io/anoncreds-spec/#term:rev\_reg) at a given point in time such that [holders](https://anoncreds-wg.github.io/anoncreds-spec/#term:holders) can generate a proof of non-revocation (or not) about their specific credential and [verifiers](https://anoncreds-wg.github.io/anoncreds-spec/#term:verifiers) can verify that proof. An initial [REV\_REG\_ENTRY](https://anoncreds-wg.github.io/anoncreds-spec/#term:rev\_reg\_entry) is generated and published immediately on creation of the [REV\_REG](https://anoncreds-wg.github.io/anoncreds-spec/#term:rev\_reg) so that it can be used immediately by [holders](https://anoncreds-wg.github.io/anoncreds-spec/#term:holders). Over time, additional [REV\_REG\_ENTRY](https://anoncreds-wg.github.io/anoncreds-spec/#term:rev\_reg\_entry) objects are generated and published as the revocation status of one or more credentials within the [REV\_REG](https://anoncreds-wg.github.io/anoncreds-spec/#term:rev\_reg) change.
+In the AnonCreds Specification, Revocation Registry Entry Objects contain the state of the Revocation Registry at a given point in time. This enables:
+
+1. Holders of Verifiable Credentials to generate a proof of non-revocation (or not) about their specific credential; and
+2. Verifiers to be able to verify that proof.&#x20;
+
+An initial Revocation Registry Entry is generated and published immediately on creation of the [Revocation Registry Definition Object](revocation-registry-definition-object.md) so that it can be used immediately by holders. Over time, additional Revocation Registry Entry Objects are generated and published as the revocation status of one or more credentials within the Revocation Registry change.
 
 ### AnonCreds Revocation Registry Entry ID
 
