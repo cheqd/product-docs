@@ -18,12 +18,9 @@ Importantly, we want to make sure that this work is done in a manner which remai
 
 There are multiple specific AnonCreds transaction types that cheqd needs to support. This documentation will provide guidance and instructions on how equivalent AnonCreds formats can be replicated using cheqd resources, for:
 
-* Schema Objects
-* Credential Definition Objects
-* Revocation Registry Objects
-* Revocation Registry Entries
+* [Schema Objects](schema-object.md)
+* [Credential Definition Objects](creddef-object.md)
+* [Revocation Registry Definition Objects](revocation-registry-definition-object.md)
+* [Revocation Registry Entry Objects](revocation-registry-entry-object.md)
 
-Through creating compatible formats for the above, cheqd will theoretically be able to support AnonCreds issuance data flows, including
-
-* Credential offer
-* Credential request
+Through creating compatible formats for the above, cheqd will theoretically be able to support AnonCreds issuance data flows, via existing SDKs such as Hyperledger Aries Libraries.&#x20;
