@@ -28,7 +28,7 @@ For example:
 ```
 
 {% hint style="warning" %}
-Important: Each AnonCreds Revocation Registry Entry has the **same ID** for a given Revocation Registry Definition.&#x20;
+Important: Each AnonCreds Revocation Registry Entry has the **same ID** for a given Revocation Registry Definition Object.&#x20;
 {% endhint %}
 
 ### AnonCreds Revocation Registry Entry Content
@@ -37,7 +37,7 @@ The required content and data model for the AnonCreds Revocation Registry Entry 
 
 1. `revocDefType`: as [defined here](revocation-registry-definition-object.md#anoncreds-revocation-registry-definition-object-id)
 2. `revocRegDefId`: as [defined here](revocation-registry-definition-object.md#anoncreds-revocation-registry-definition-object-id)
-3. `accum`:  the calculated cryptographic accumulator reflecting the initial state of the Revocation Registry Definition.&#x20;
+3. `accum`:  the calculated cryptographic accumulator reflecting the initial state of the Revocation Registry Definition Object.&#x20;
 
 For example:
 
@@ -112,9 +112,9 @@ This implementation uses AnonCredsObjectMetadata to provide equivalency between 
 | issuerDid             | Fully qualified DID to easily identify the publisher of the Revocation Registry | cheqd Objects Method               |
 | objectUri             | Fully qualified DID URL to easily access the Revocation Registry Entry          | cheqd Objects Method               |
 
-### create Revocation Registry Definition transaction
+### cheqd Revocation Registry Entry transaction
 
-To create a Revocation Registry Entry on cheqd, you need to carry out a resource transaction, specifying the following information.&#x20;
+To create a Revocation Registry Entry on cheqd, you need to carry out a resource transaction, specifying the following information (if using the [cheqd Cosmos CLI](../../resources/tutorials/)).&#x20;
 
 ```
 cheqd-noded tx resource create-resource \
@@ -166,7 +166,7 @@ You must:
 4. Specify the same `resourceType`
 5. Attach to the transaction the new `resourceFile` with the latest `accum` value.
 
-For example, using the cheqd Cosmos CLI to demonstrate this, a transaction may look like:
+For example, using the [cheqd Cosmos CLI](../../resources/tutorials/) to demonstrate this, a transaction may look like:
 
 ```
 cheqd-noded tx resource create-resource \
@@ -221,14 +221,14 @@ Once the transaction has been created, the `resourceMetadata` will look like the
 ```
 
 {% hint style="info" %}
-Note: The previousVersionId will now link to the previous Revocation Registry Entry
+Note: The previousVersionId will now link to the previous Revocation Registry Entry ID
 {% endhint %}
 
 ### Traversing Revocation Registry Entries using a DID Resolver
 
-#### Obtain all Revocation Registry Entry Content
+Using existing DID Resolvers, it is possible to traverse the history of Revocation Registry Entries to query deltas in the cryptographic accumulator in order to produce proofs of non-revocation required in the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec).&#x20;
 
-Using existing DID Resolvers, it is made possible to traverse the history of Revocation Registry Entries to query deltas in the cryptographic accumulator in order to produce a proof of non-revocation.&#x20;
+#### Obtain all Revocation Registry Entry Content
 
 A DID URL such as the following will display all of the accumulators associated with a particular Revocation Registry:
 
