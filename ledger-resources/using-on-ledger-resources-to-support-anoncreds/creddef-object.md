@@ -65,7 +65,7 @@ A CredDef has a couple of important characteristics:
 
 Further details regarding the use of cryptographic primatives are described in the [CredDefs section of the AnonCreds specification here](https://anoncreds-wg.github.io/anoncreds-spec/#generating-a-cred\_def-without-revocation-support).
 
-An example of CredDef Object content is below:
+An example of a CredDef Object content without revocation is below:
 
 ```json
 {
@@ -95,6 +95,52 @@ An example of CredDef Object content is below:
 ```
 
 The composite string of the `cred_def_id` should include the same values as are in the CredDef Object Content.&#x20;
+
+{% hint style="info" %}
+Note: In the AnonCreds Specification the 'ref' is currently the Schema TXN ID. However, since this would not work for ledgers other than Indy, we propose changing this to a 'string' and referencing the SCHEMA\_ID
+{% endhint %}
+
+An example of a CredDef Object content with revocation is below:
+
+```json
+{
+  "data": {
+    "primary": {
+      "n": "779...397",
+      "r": {
+            "birthdate": "294...298",
+            "birthlocation": "533...284",
+            "citizenship": "894...102",
+            "expiry_date": "650...011",
+            "facephoto": "870...274",
+            "firstname": "656...226",
+            "master_secret": "521...922",
+            "name": "410...200",
+            "uuid": "226...757"
+      },
+      "rctxt": "774...977",
+      "s": "750..893",
+      "z": "632...005"
+    }
+    "revocation": {
+      "g": "1 154...813 1 11C...D0D 2 095..8A8",
+      "g_dash": "1 1F0...000",
+      "h": "1 131...8A8",
+      "h0": "1 1AF...8A8",
+      "h1": "1 242...8A8",
+      "h2": "1 072...8A8",
+      "h_cap": "1 196...000",
+      "htilde": "1 1D5...8A8",
+      "pk": "1 0E7...8A8",
+      "u": "1 18E...000",
+      "y": "1 068...000"
+    }
+  },
+  "ref": "7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7",
+  "signature_type": "CL",
+  "tag": "credDefDegree"
+}
+```
 
 ## cheqd AnonCreds Object Method for CredDefs
 
@@ -128,11 +174,6 @@ cheqd's approach to AnonCreds CredDefs implements the following logic:
 ```json
 {
 "AnonCredsCredDef: {
-  "ref": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
-  "signature_type": "CL",
-  "tag": "credDefDegree"
-  },
-"AnonCredsObjectMetadata": {
   "data": {
     "primary": {
       "n": "779...397",
@@ -152,7 +193,16 @@ cheqd's approach to AnonCreds CredDefs implements the following logic:
       "rctxt": "774...977",
       "s": "750..893",
       "z": "632...005"
-      }    
+      }   
+  "ref": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
+  "signature_type": "CL",
+  "tag": "credDefDegree"
+  },
+"AnonCredsObjectMetadata": { 
+  "objectFamily": "anoncreds",
+  "objectFamilyVersion": "v2",
+  "objectType": "3",
+  "signatureType": "CL",  
   "issuerDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
   "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0"
   },  
@@ -161,11 +211,14 @@ cheqd's approach to AnonCreds CredDefs implements the following logic:
 
 This implementation uses AnonCredsObjectMetadata to provide equivalency between cheqd's AnonCreds Object Method and other AnonCreds Object Methods, including the fields, where:
 
-| Object Metadata field | Response                                                         | Method Specification              |
-| --------------------- | ---------------------------------------------------------------- | --------------------------------- |
-| data                  | cryptographically signed attributes                              | Legacy Hyperledger Objects Method |
-| issuerDid             | Fully qualified DID to easily identify the issuer of the CredDef | cheqd Objects Method              |
-| objectUri             | Fully qualified DID URL to easily access the Schema Object       | cheqd Objects Method              |
+| Object Metadata field | Response                                                         | Method Specification / Equivalency |
+| --------------------- | ---------------------------------------------------------------- | ---------------------------------- |
+| objectFamily          | anoncreds                                                        | did:indy Objects Method            |
+| objectFamilyVersion   | v2                                                               | did:indy Objects Method            |
+| objectType            | 3                                                                | Legacy Indy Objects Method         |
+| singatureType         | CL                                                               | Legacy Indy Objects Method         |
+| issuerDid             | Fully qualified DID to easily identify the issuer of the CredDef | cheqd Objects Method               |
+| objectUri             | Fully qualified DID URL to easily access the Schema Object       | cheqd Objects Method               |
 
 {% hint style="info" %}
 Note: The cheqd ledger will not provide any checks on the Schema Object Content or Metadata. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct.&#x20;
@@ -221,6 +274,8 @@ Like the AnonCreds `cred_def_id,` it is possible to obtain the CredDef Object Co
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=credDefDegree&resourceType=CL`
 
+This would return the AnonCredsCredDef data and the AnonCredsObjectMetadata.
+
 2\. Query by resource ID
 
 For applications which are cheqd-aware, it would be possible to find the Schema Object Content via the `resourceId` using a fully qualified DID URL path or query, for example:&#x20;
@@ -230,5 +285,7 @@ For applications which are cheqd-aware, it would be possible to find the Schema 
 or,&#x20;
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceId=77465164-5646-42d9-9a0a-f7b2dcb855c0`
+
+This would return the AnonCredsCredDef data and the AnonCredsObjectMetadata.
 
 ###
