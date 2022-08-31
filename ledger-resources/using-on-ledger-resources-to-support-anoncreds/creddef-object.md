@@ -10,7 +10,7 @@ In [AnonCreds](https://anoncreds-wg.github.io/anoncreds-spec/), Credential Defin
 4. A cryptographic secret, embedded within the CredDef Object content, creating an uncorrelatable 'link secret' between the issuer and holder
 5. Information necessary for the revocation of credentials, if revocation is to be enabled by the Issuer for this type of credential (Optional).
 
-### CredDef Object ID
+### AnonCreds CredDef Object ID
 
 Like with [Schema Objects](schema-object.md), each CredDef Object ID (`cred_def_id`) is a **composite** string, consisting of the following elements:
 
@@ -36,7 +36,7 @@ For example an AnonCreds `cred_def_id` could be:
 zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree
 ```
 
-Through combining each of the components into one string, it provides client applications all of the information they need to know about the schema in a simple and easily consumable format.&#x20;
+Through combining each of the components into one string, it provides client applications all of the information they need to know about the CredDef in a simple and easily consumable format.&#x20;
 
 ### AnonCreds CredDef Object Content
 
@@ -46,7 +46,7 @@ Credential Definition Object Content is distinct in the way it is structured. Th
 
 The following inputs are required to create a CredDef:
 
-* A [schema](https://anoncreds-wg.github.io/anoncreds-spec/#term:schema) on which the CredDef will be based
+* A schema on which the CredDef will be based
 * A `tag`, an arbitrary string defined by the Issuer, enabling an Issuer to create multiple CredDefs for the same schema.
 * An optional flag `support_revocation` (default `false`) which if true generates some additional data in the CredDef to enable credential revocation.
 
@@ -94,7 +94,7 @@ An example of a CredDef Object content without revocation is below:
 }
 ```
 
-The composite string of the `cred_def_id` should include the same values as are in the CredDef Object Content.&#x20;
+The composite string of the `cred_def_id` should include the **same values** as are in the CredDef Object Content.&#x20;
 
 {% hint style="info" %}
 Note: In the AnonCreds Specification the 'ref' is currently the Schema TXN ID. However, since this would not work for ledgers other than Indy, we propose changing this to a 'string' and referencing the SCHEMA\_ID
@@ -160,11 +160,11 @@ For example, the following DID URL is cheqd's representation of a `cred_def_id`:
 
 ### cheqd CredDef Object Content
 
-Before creating any on-ledger transaction, it is important to assemble to required CredDef Object Content and save it as a file locally.&#x20;
+Before creating any on-ledger resource transaction, it is important to assemble to required CredDef Object Content and save it as a file locally.&#x20;
 
 cheqd's approach to AnonCreds CredDefs implements the following logic:
 
-1. The required content of the CredDef which can be provided in a network-agnostic fashion should be included in the body of the content.
+1. The required (network-agnostic) content of the CredDef should be included in the body of the content.
 2. Anything that is network-specific should be included within AnonCreds Object Metadata.&#x20;
 
 In the example below, the content should be saved as a file, for example: `credDefDegree.json` with the following content (without revocation):
@@ -199,7 +199,6 @@ In the example below, the content should be saved as a file, for example: `credD
   "objectFamily": "anoncreds",
   "objectFamilyVersion": "v2",
   "objectType": "3",
-  "signatureType": "CL",  
   "issuerDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
   "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0"
   },  
@@ -251,7 +250,6 @@ Or with revocation:
   "objectFamily": "anoncreds",
   "objectFamilyVersion": "v2",
   "objectType": "3",
-  "signatureType": "CL",  
   "issuerDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
   "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0"
   },  
@@ -265,7 +263,6 @@ This implementation uses AnonCredsObjectMetadata to provide equivalency between 
 | objectFamily          | anoncreds                                                        | did:indy Objects Method            |
 | objectFamilyVersion   | v2                                                               | did:indy Objects Method            |
 | objectType            | 3                                                                | Legacy Indy Objects Method         |
-| singatureType         | CL                                                               | Legacy Indy Objects Method         |
 | issuerDid             | Fully qualified DID to easily identify the issuer of the CredDef | cheqd Objects Method               |
 | objectUri             | Fully qualified DID URL to easily access the Schema Object       | cheqd Objects Method               |
 
@@ -298,7 +295,7 @@ Note that this transaction includes the file `credDefDegree.json` that was forma
 
 ### cheqd resource Metadata
 
-Once you have created your resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:`zF7rhDBfUt9d1gJPjx7s1J
+Once you have created your resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J`
 
 ```
 "resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0",
@@ -317,23 +314,35 @@ Once you have created your resource on cheqd, the following metadata will be gen
 
 Rather than requiring a specific GET\__CRED\_DEF_ function and interface to fetch the CredDef Object Content (such as that required on Indy for the __ `cred_def_id` __ (zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree), existing DID Resolvers will be able to query for the CredDef Object Content using the following parameters:
 
-1. Query by name and version
+#### Query by name and version
 
 Like the AnonCreds `cred_def_id,` it is possible to obtain the CredDef Object Content by querying the CredDef Publisher DID and CredDef tag. The following query will dereference to the Schema Object Content itself:&#x20;
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=credDefDegree&resourceType=CL`
 
+using a DID Resolver:
+
+`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=credDefDegree&resourceType=CL`
+
 This would return the AnonCredsCredDef data and the AnonCredsObjectMetadata.
 
-2\. Query by resource ID
+#### Query by resource ID
 
 For applications which are cheqd-aware, it would be possible to find the Schema Object Content via the `resourceId` using a fully qualified DID URL path or query, for example:&#x20;
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0`
 
+using a DID Resolver:
+
+`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0`
+
 or,&#x20;
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceId=77465164-5646-42d9-9a0a-f7b2dcb855c0`
+
+using a DID Resolver:
+
+`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceId=77465164-5646-42d9-9a0a-f7b2dcb855c0`
 
 This would return the AnonCredsCredDef data and the AnonCredsObjectMetadata.
 

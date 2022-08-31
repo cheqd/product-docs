@@ -24,7 +24,7 @@
 * [🔒 Using on-ledger resources to support AnonCreds](ledger-resources/using-on-ledger-resources-to-support-anoncreds/README.md)
   * [Schema Object](ledger-resources/using-on-ledger-resources-to-support-anoncreds/schema-object.md)
   * [CredDef Object](ledger-resources/using-on-ledger-resources-to-support-anoncreds/creddef-object.md)
-  * [Revocation Registry Object](ledger-resources/using-on-ledger-resources-to-support-anoncreds/revocation-registry-object.md)
+  * [Revocation Registry Definition Object](ledger-resources/using-on-ledger-resources-to-support-anoncreds/revocation-registry-definition-object.md)
 
 ## 🛂 Building Decentralized Identity Apps
 

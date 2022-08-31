@@ -167,18 +167,30 @@ Once you have created your resource on cheqd, the following metadata will be gen
 
 Rather than requiring a specific GET_SCHEMA function and interface to fetch the Schema Object Content (such as that required on Indy for the_ `schema_id` __ (7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7), existing DID Resolvers will be able to query for the Schema Object Content using the following parameters:
 
-1. Query by name and version
+#### Query by name and version
 
 Like the AnonCreds `schema_id,` it is possible to obtain the Schema Object Content by querying the Schema Publisher DID, Schema name and Schema Version. The following query will dereference to the Schema Object Content itself:&#x20;
 
 `did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K?resouceName=degreeSchema&resourceType=CL-Schema&resouceVersion=1.5.7`
 
-2\. Query by resource ID
+using a DID Resolver:
+
+`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K?resouceName=degreeSchema&resourceType=CL-Schema&resouceVersion=1.5.7`
+
+#### Query by resource ID
 
 For applications which are cheqd-aware, it would be possible to find the Schema Object Content via the `resourceId` using a fully qualified DID URL path or query, for example:&#x20;
 
 `did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497`
 
+using a DID Resolver:
+
+`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497`
+
 or,&#x20;
 
 `did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K?resourceId=6259d357-eeb1-4b98-8bee-12a8390d3497`
+
+using a DID Resolver:
+
+`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K?resourceId=6259d357-eeb1-4b98-8bee-12a8390d3497`

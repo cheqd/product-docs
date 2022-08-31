@@ -1,2 +1,0 @@
-# Revocation Registry Object
-
