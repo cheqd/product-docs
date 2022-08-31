@@ -84,7 +84,8 @@ Before creating any on-ledger transaction, it is important to assemble to requir
 
 &#x20;In the example below, the content should be saved as a file, for example: `degreeSchema.json` with the following content:
 
-<pre class="language-json"><code class="lang-json">{
+```json
+{
 "AnonCredsSchema": {
     "attr_names": [
         "birthlocation",
@@ -105,7 +106,9 @@ Before creating any on-ledger transaction, it is important to assemble to requir
     "objectType": "2",
     "publisherDid": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K",
     "objectURI": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497"
-<strong>}</strong></code></pre>
+    },
+}
+```
 
 This implementation uses AnonCredsObjectMetadata to provide equivalency between cheqd's AnonCreds Object Method and other AnonCreds Object Methods, including the fields, where:
 

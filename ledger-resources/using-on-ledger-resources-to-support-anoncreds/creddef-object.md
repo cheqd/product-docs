@@ -91,6 +91,7 @@ An example of a CredDef Object content without revocation is below:
   "ref": "7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7",
   "signature_type": "CL",
   "tag": "credDefDegree"
+  }
 }
 ```
 
@@ -139,6 +140,7 @@ An example of a CredDef Object content with revocation is below:
   "ref": "7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7",
   "signature_type": "CL",
   "tag": "credDefDegree"
+  }
 }
 ```
 
@@ -201,7 +203,7 @@ In the example below, the content should be saved as a file, for example: `credD
   "objectType": "3",
   "issuerDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
   "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0"
-  },  
+  }
 }
 ```
 
@@ -252,7 +254,7 @@ Or with revocation:
   "objectType": "3",
   "issuerDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
   "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0"
-  },  
+  }
 }
 ```
 

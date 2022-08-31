@@ -131,7 +131,8 @@ In the example below, the content should be saved as a file, for example: `degre
   "objectType": "4",  
   "issuerDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
   "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df"
-}</code></pre>
+<strong>  }
+</strong><strong>}</strong></code></pre>
 
 {% hint style="info" %}
 Note: The Credential Definition ID specified must have enabled revocation support for the Revocation Registry Definition to be able to created.

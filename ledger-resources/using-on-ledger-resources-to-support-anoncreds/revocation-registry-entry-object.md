@@ -98,6 +98,7 @@ In the example below, the content should be saved as a file, for example: `degre
   "objectType": "5",  
   "issuerDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
   "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887"
+  }
 }
 ```
 
