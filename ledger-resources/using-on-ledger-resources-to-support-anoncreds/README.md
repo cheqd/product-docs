@@ -6,7 +6,9 @@ cheqd intends to directly support AnonCreds in a W3C compliant format using its 
 
 ### Why is AnonCreds support important?
 
-Whilst AnonCreds are not the end-game Credential type, they are currently in a functional state. Other Credential types, such as JSON-LD with BBS+ signatures, can provide a lot of equivalent functionality, but are currently not production ready. Therefore, in this interim period, it is important for cheqd to provide support for AnonCreds in order to enable partners with existing clients to use cheqd and existing Indy ledgers without any hiccups.
+Whilst AnonCreds are only one _flavour_ of Verifiable Credentials, they are currently in a functional state and are heavily used by cheqd partners. Other Credential types, such as JSON-LD with BBS+ signatures, can provide a lot of equivalent functionality, but are currently not production ready.&#x20;
+
+Therefore, it is important for cheqd to provide support for AnonCreds in order to enable partners with existing clients using AnonCreds to use cheqd and existing Indy ledgers without additional technical challenges.
 
 ### What does AnonCreds support look like?
 
