@@ -148,6 +148,8 @@ Next and Previous Revocation Registry Entries will appear in the resource Metada
 
 ### Traversing Revocation Registry Entries using a DID Resolver
 
+#### Obtain all Revocation Registry Entry Content
+
 Using existing DID Resolvers, it is made possible to traverse the history of Revocation Registry Entries to query deltas in the cryptographic accumulator in order to produce a proof of non-revocation.&#x20;
 
 A DID URL such as the following will display all of the accumulators associated with a particular Revocation Registry:
@@ -158,3 +160,26 @@ using a DID Resolver:
 
 `https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&all`
 
+{% hint style="info" %}
+It is recommended that applications using this revocation method implement a way of caching a historical list of accumulators and deltas to prevent the application from having to fetch the entire list of Revocation Registry Entries every time a proof of non-revocation is required.
+{% endhint %}
+
+#### Obtain Revocation Registry Entry Content at a point in time
+
+Furthermore, it will be possible to query Revocation Entries at certain times. This may be very useful if you want to prove whether a Verifiable Credential was valid in the past.&#x20;
+
+For example:
+
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&versionAt=2022-08-21T08:40:00Z`
+
+#### Obtain latest Revocation Registry Entry
+
+It will be very common for a proof of non-revocation to require the latest Revocation Registry Entry and work its way back from there.&#x20;
+
+The following DID URL will be able to call the latest Revocation Registry Entry
+
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&latest`
+
+using a DID Resolver:
+
+`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&latest`
