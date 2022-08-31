@@ -2,7 +2,7 @@
 
 ## Overview
 
-In the AnonCreds Specification, Revocation Registry Entry Objects contain the state of the Revocation Registry at a given point in time. This enables:
+In the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec), Revocation Registry Entry Objects contain the state of the Revocation Registry at a given point in time. This enables:
 
 1. Holders of Verifiable Credentials to generate a proof of non-revocation (or not) about their specific credential; and
 2. Verifiers to be able to verify that proof.&#x20;

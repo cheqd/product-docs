@@ -284,7 +284,7 @@ cheqd-noded tx resource create-resource \
     --collection-id zF7rhDBfUt9d1gJPjx7s1J \
     --resource-id 77465164-5646-42d9-9a0a-f7b2dcb855c0 \
     --resource-name credDefDegree \
-    --resource-type CL \
+    --resource-type claimDef \
     --resource-file credDefDegree.json \
     did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J#key1 \
     l6KUjm...jz8Un7QCbrW1KPE6gSyg== \
@@ -307,7 +307,7 @@ Once you have created your resource on cheqd, the following metadata will be gen
     "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
     "resourceId": "77465164-5646-42d9-9a0a-f7b2dcb855c0",
     "resourceName": "credDefDegree",
-    "resourceType": "CL",
+    "resourceType": "claimDef",
     "mediaType": "application/json",
     "created": "2022-07-19T08:40:00Z",
     "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
@@ -323,11 +323,11 @@ Rather than requiring a specific GET\__CRED\_DEF_ function and interface to fetc
 
 Like the AnonCreds `cred_def_id,` it is possible to obtain the CredDef Object Content by querying the CredDef Publisher DID and CredDef tag. The following query will dereference to the Schema Object Content itself:&#x20;
 
-`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=credDefDegree&resourceType=CL`
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=credDefDegree&resourceType=claimDef`
 
 using a DID Resolver:
 
-`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=credDefDegree&resourceType=CL`
+`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=credDefDegree&resourceType=claimDef`
 
 This would return the AnonCredsCredDef data and the AnonCredsObjectMetadata.
 
