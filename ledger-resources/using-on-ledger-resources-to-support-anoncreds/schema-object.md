@@ -2,7 +2,9 @@
 
 ## Overview
 
-Schemas on AnonCreds are written directly to a [Verifiable Data Registry](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-decentralised-identifier-did/what-is-a-verifiable-data-registry), rather than using a centralized service such as [schema.org](https://schema.org/).&#x20;
+Schemas are used to list a set of attributes. Issuers of Verifiable Credentials may reference schemas within Credentials they issue in order to provide a layer of semantic interoperability with other issuers utilising the same schema.&#x20;
+
+In the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec), schemas are written directly to a [Verifiable Data Registry](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-decentralised-identifier-did/what-is-a-verifiable-data-registry), rather than using a centralized service such as [schema.org](https://schema.org/). Schemas are also associated with Credential Definitions, which are used to link the schema, issuer and holder together ([detailed further here](creddef-object.md)).
 
 This documentation will guide an implementor of AnonCreds on cheqd on how to replicate an AnonCreds Schema Object using [cheqd's resources on-ledger](../../resources/).
 
@@ -31,7 +33,7 @@ Through combining each of the components into one string, it provides client app
 
 ### AnonCreds Schema Object Content
 
-The actual Schema Object Content which is written to the Verifiable Data Registry, contains the following content:
+The actual Schema Object Content which is written to the Verifiable Data Registry, contains the following information:
 
 * `attr_names`: is the array of attribute names (claim names) that will constitute the AnonCred credential of this type.
 * `name`: is a [string](https://infra.spec.whatwg.org/#string), the name of the schema, which will be a part of the published `schema_id`.
