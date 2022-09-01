@@ -89,7 +89,7 @@ $ nano diddoc.json
   "service": [{
     "id":"did:cheqd:<namespace>:<unique-id>#<service-key>",
     "type": "LinkedDomains",
-    "serviceEndpoint": "<URI-to-object>"
+    "service_endpoint": "<URI-to-object>"
   }]
 }
 ```
@@ -123,7 +123,7 @@ For example, the populated DIDDoc file might look like:
   "service": [{
     "id":"did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe#linked-domain",
     "type": "LinkedDomains",
-    "serviceEndpoint": "https://bar.example.com"
+    "service_endpoint": "https://bar.example.com"
   }]
 }
 ```

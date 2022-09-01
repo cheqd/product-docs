@@ -27,7 +27,7 @@ This allows for multi-signature scenarios as well, in case the controllers of th
 
 Once the Resource is created, metadata related to it will be referenced within the **Collection DID Document metadata**, in the following format.
 
-```json
+```jsonc
 "didDocumentMetadata": {
   "created": "2022-07-19T08:29:07Z",
   "versionId": "57543FA1D9C56033BABBFA3A438E0A149E01BBB89E6D666ACE1243455AA6F2BC",
@@ -58,12 +58,12 @@ Through an update DID operation, the authorised party can **update the Service s
 
 This step is *optional*, since the Resource and its metadata is already available as described above.
 
-```json
+```jsonc
 "service": [
   {
     "id": "did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c#DegreeLaw",
     "type": "LinkedResource",
-    "serviceEndpoint": "did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c/resources/0f964a80-5d18-4867-83e3-b47f5a756f02"
+    "service_endpoint": "did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c/resources/0f964a80-5d18-4867-83e3-b47f5a756f02"
   }
 ]
 ```
@@ -94,17 +94,17 @@ An example of an Issuer DID Document which references a Collection DID Document,
     {
       "id": "did:cheqd:mainnet:17dd8754-c5ad-45d3-8f6c-078bfa72c63c#website",
       "type": "LinkedDomains",
-      "serviceEndpoint": "https://www.cheqd.io"
+      "service_endpoint": "https://www.cheqd.io"
     },
     {
         "id": "did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c#DegreeLaw",
         "type": "LinkedResource",
-        "serviceEndpoint": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c/resources/0f964a80-5d18-4867-83e3-b47f5a756f02"
+        "service_endpoint": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c/resources/0f964a80-5d18-4867-83e3-b47f5a756f02"
     },
     {
         "id": "did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c#DegreeMath",
         "type": "LinkedResource",
-        "serviceEndpoint": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c/resources/99b40fd8-fade-483c-bff4-f037b26dd810"
+        "service_endpoint": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c/resources/99b40fd8-fade-483c-bff4-f037b26dd810"
     }
   ]
 }
