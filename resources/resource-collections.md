@@ -10,7 +10,7 @@ For simplicity, we will focus on the use case where a Resource is a **schema**. 
 
 The syntax of a Resource metadata is as follows:
 
-```json
+```jsonc
 "linkedResourceMetadata": [
   {
     "resourceURI": "did:cheqd:testnet:DAzMQo4MDMxCjgwM/resources/44547089-170b-4f5a-bcbc-06e46e0089e4",
@@ -39,7 +39,7 @@ A **Collection** is a group of **Resources** stored directly on-ledger, and ther
 
 Collections can store any type of Resource, but for the purpose of this documentation we will focus on the use case where the Collection is _used for storing a set of schemas_.
 
-The most important concept used in this design is that each on-ledger **Collection** is **identified using a DID** and is **described using a **_**DID Document**_.
+The most important concept used in this design is that each on-ledger **Collection** is **identified using a DID** and is **described using a DID Document**.
 
 The DID Document acts as metadata, providing information about the **Collection**, such as who is able to update it, when it was created and what are the latest and deprecated versions of **Resources** within the **Collection**.
 

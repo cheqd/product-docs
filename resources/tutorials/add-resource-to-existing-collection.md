@@ -6,7 +6,7 @@ This tutorial uses the [cheqd Cosmos CLI](https://docs.cheqd.io/node/docs/cheqd-
 
 ## Pre-requisites
 
-1. Install the latest stable cheqd-node CLI, either as a [standalone binary](https://github.com/cheqd/cheqd-node/releases/latest) or [Docker container image](https://github.com/cheqd/cheqd-node/pkgs/container/cheqd-cli).
+1. Install the latest stable cheqd-node CLI, either as a [standalone binary](https://github.com/cheqd/cheqd-node/releases/latest) or [Docker container image](https://github.com/cheqd/cheqd-node/pkgs/container/cheqd-node).
 2. Acquire test CHEQ tokens through [our testnet faucet](https://testnet-faucet.cheqd.io) (if creating it on our testnet), or [CHEQ tokens](https://app.osmosis.zone/?from=OSMO\&to=CHEQ) (if you plan on creating it on mainnet).
 3. An [existing DID + DIDDoc created on cheqd ledger](../../decentralized-identifiers/cheqd-cosmos-cli/)
 4. Having [a Resource already created](./) under this DIDDoc Collection

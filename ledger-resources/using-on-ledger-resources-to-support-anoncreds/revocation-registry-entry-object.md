@@ -17,13 +17,13 @@ The only difference is that the Revocation Registry Entry ID includes the Revoca
 
 The structure of the AnonCreds Revocation Registry Entry ID is as follows:
 
-```
+```text
 <objectType><RevocRegDefId>
 ```
 
 For example:
 
-```
+```text
 5:zF7rhDBfUt9d1gJPjx7s1J:4:zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree:CL_ACCUM:degreeCredRevRegDef
 ```
 
@@ -90,18 +90,19 @@ In the example below, the content should be saved as a file, for example: `degre
 
 ```json
 {
-"AnonCredsObject: {
-  "revocDefType": "CL_ACCUM",
-  "revocRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
-  "value": {
-    "accum": "21 10B...33D"
-  }
-"AnonCredsObjectMetadata: {
-  "objectFamily": "anoncreds",
-  "objectFamilyVersion": "v1",
-  "objectType": "5",  
-  "issuerDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
-  "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887"
+  "AnonCredsObject": {
+    "revocDefType": "CL_ACCUM",
+    "revocRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
+    "value": {
+      "accum": "21 10B...33D"
+    },
+    "AnonCredsObjectMetadata": {
+      "objectFamily": "anoncreds",
+      "objectFamilyVersion": "v1",
+      "objectType": "5",
+      "issuerDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
+      "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887"
+    }
   }
 }
 ```
@@ -121,7 +122,7 @@ This implementation uses AnonCredsObjectMetadata to provide equivalency between 
 
 To create a Revocation Registry Entry on cheqd, you need to carry out a resource transaction, specifying the following information (if using the [cheqd Cosmos CLI](../../resources/tutorials/)).&#x20;
 
-```
+```bash
 cheqd-noded tx resource create-resource \
     --collection-id zF7rhDBfUt9d1gJPjx7s1J \
     --resource-id 9d26b902-555d-43bd-bac3-0bedeb462887 \
@@ -142,17 +143,19 @@ cheqd-noded tx resource create-resource \
 
 Once you have created your Revocation Registry Entry as a resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J`
 
-```
-"resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887",
-    "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
-    "resourceId": "9d26b902-555d-43bd-bac3-0bedeb462887",
-    "resourceName": "degreeCredRevocRegEntry",
-    "resourceType": "CL_ACCUM",
-    "mediaType": "application/json",
-    "created": "2022-08-21T08:40:00Z",
-    "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
-    "previousVersionId": null,
-    "nextVersionId": null
+```json
+{
+  "resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887",
+  "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
+  "resourceId": "9d26b902-555d-43bd-bac3-0bedeb462887",
+  "resourceName": "degreeCredRevocRegEntry",
+  "resourceType": "CL_ACCUM",
+  "mediaType": "application/json",
+  "created": "2022-08-21T08:40:00Z",
+  "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
+  "previousVersionId": null,
+  "nextVersionId": null
+}
 ```
 
 {% hint style="info" %}
@@ -173,7 +176,7 @@ You must:
 
 For example, using the [cheqd Cosmos CLI](../../resources/tutorials/) to demonstrate this, a transaction may look like:
 
-```
+```bash
 cheqd-noded tx resource create-resource \
     --collection-id zF7rhDBfUt9d1gJPjx7s1J \
     --resource-id c154bc07-43f7-4b69-ac0c-5514001f2ca3 \
@@ -192,37 +195,41 @@ cheqd-noded tx resource create-resource \
 
 Where, `degreeCredRevocRegEntry2.json` contains an updated `accum` value and `objectUri`, such as:
 
-```
+```json
 {
-"AnonCredsRevRegEntry: {
-  "revocDefType": "CL_ACCUM",
-  "revocRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
-  "value": {
-    "accum": "52 87D...95B"
-  }
-"AnonCredsObjectMetadata: {
-  "objectFamily": "anoncreds",
-  "objectFamilyVersion": "v2",
-  "objectType": "5",  
-  "issuerDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
-  "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/c154bc07-43f7-4b69-ac0c-5514001f2ca3"
+  "AnonCredsRevRegEntry": {
+    "revocDefType": "CL_ACCUM",
+    "revocRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
+    "value": {
+      "accum": "52 87D...95B"
+    },
+    "AnonCredsObjectMetadata": {
+      "objectFamily": "anoncreds",
+      "objectFamilyVersion": "v2",
+      "objectType": "5",
+      "issuerDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
+      "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/c154bc07-43f7-4b69-ac0c-5514001f2ca3"
+    }
   }
 }
 ```
 
 Once the transaction has been created, the `resourceMetadata` will look like the following:
 
-```
-"resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/c154bc07-43f7-4b69-ac0c-5514001f2ca3",
-    "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
-    "resourceId": "c154bc07-43f7-4b69-ac0c-5514001f2ca3",
-    "resourceName": "degreeCredRevocRegEntry",
-    "resourceType": "CL_ACCUM",
-    "mediaType": "application/json",
-    "created": "2022-09-01T04:30:01Z",
-    "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
-    "previousVersionId": "c154bc07-43f7-4b69-ac0c-5514001f2ca3", // points to previous Revocation Registry Entry
-    "nextVersionId": null
+```jsonc
+{
+  "resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/c154bc07-43f7-4b69-ac0c-5514001f2ca3",
+  "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
+  "resourceId": "c154bc07-43f7-4b69-ac0c-5514001f2ca3",
+  "resourceName": "degreeCredRevocRegEntry",
+  "resourceType": "CL_ACCUM",
+  "mediaType": "application/json",
+  "created": "2022-09-01T04:30:01Z",
+  "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
+  "previousVersionId": "c154bc07-43f7-4b69-ac0c-5514001f2ca3",
+  // points to previous Revocation Registry Entry
+  "nextVersionId": null
+}
 ```
 
 {% hint style="info" %}
