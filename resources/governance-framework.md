@@ -68,7 +68,7 @@ cheqd-noded tx resource create-resource
   -- resource-name cheqdGovernanceFramework \
   -- resource-type text/markdown \
   -- resource-file cheqdGovFramework.md \
-  -- public-key did:cheqd:mainnet:c867a477-4f57-4131-a2ed-680e5fd9f970#key1 \
+  -- public-key did:cheqd:mainnet:c867a477-4f57-4131-a2ed-680e5fd9f970#verkey1 \
   -- private-key l6KUjm...jz8Un7QCbrW1KPE6gSyg \
   --from <your-account> \
   --node https://rpc.cheqd.network:443 \ 
