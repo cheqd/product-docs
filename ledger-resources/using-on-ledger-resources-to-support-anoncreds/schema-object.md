@@ -132,7 +132,7 @@ Note: The cheqd ledger will not provide any checks on the Schema Object Content 
 
 To create a Schema on cheqd, you need to carry out a resource transaction, specifying the following information.&#x20;
 
-```
+```bash
 cheqd-noded tx resource create-resource \
     --collection-id 7BPMqYgYLQni258J8JPS8K \
     --resource-id 6259d357-eeb1-4b98-8bee-12a8390d3497 \
@@ -156,7 +156,7 @@ Note that this transaction includes the file `degreeSchema.json` that was format
 
 Once you have created your resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K`
 
-```
+```jsonc
 "resourceURI": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
     "resourceCollectionId": "7BPMqYgYLQni258J8JPS8K",
     "resourceId": "6259d357-eeb1-4b98-8bee-12a8390d3497",

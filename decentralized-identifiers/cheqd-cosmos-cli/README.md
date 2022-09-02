@@ -12,7 +12,7 @@ The purpose of this document is to describe how a DID (and associated DIDDoc) ca
 
 ### Pre-requisites
 
-1. Access to a [`cheqd-node` Cosmos CLI binary](https://github.com/cheqd/cheqd-node/releases). You can either get this from [our Github releases](https://github.com/cheqd/cheqd-node/releases), or [download the `cheqd-cli` Docker container image](https://github.com/cheqd/cheqd-node/pkgs/container/cheqd-cli).
+1. Access to a [`cheqd-node` Cosmos CLI binary](https://github.com/cheqd/cheqd-node/releases). You can either get this from [our Github releases](https://github.com/cheqd/cheqd-node/releases), or [download the `cheqd-cli` Docker container image](https://github.com/cheqd/cheqd-node/pkgs/container/cheqd-node).
 2. Understand how to use cheqd [accounts](https://docs.cheqd.io/node/docs/cheqd-cli/cheqd-cli-accounts) and [Cosmos SDK keys](https://docs.cheqd.io/node/docs/cheqd-cli/cheqd-cli-key-management).
 3. Tokens to pay for identity transactions, since all ledger transactions are metered.
    1. For testing purposes, CHEQ test tokens can be acquired from [our testnet faucet](https://testnet-faucet.cheqd.io/).
@@ -89,7 +89,7 @@ $ nano diddoc.json
   "service": [{
     "id":"did:cheqd:<namespace>:<unique-id>#<service-key>",
     "type": "LinkedDomains",
-    "serviceEndpoint": "<URI-to-object>"
+    "service_endpoint": "<URI-to-object>"
   }]
 }
 ```
@@ -123,7 +123,7 @@ For example, the populated DIDDoc file might look like:
   "service": [{
     "id":"did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe#linked-domain",
     "type": "LinkedDomains",
-    "serviceEndpoint": "https://bar.example.com"
+    "service_endpoint": "https://bar.example.com"
   }]
 }
 ```

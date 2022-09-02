@@ -31,13 +31,13 @@ Like both the [Schema Object ID](schema-object.md#anoncreds-schema-id) and the [
 
 The `revocRegDefId` therefore is formatted in the following way:
 
-```
+```text
 <publisherDid>:<objectType>:<credDefId>:<revRegType>:<tag>
 ```
 
 For example an AnonCreds `revocRegDefId` could be:
 
-```
+```text
 zF7rhDBfUt9d1gJPjx7s1J:4:zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree:CL_ACCUM:degreeCredRevRegDef
 ```
 
@@ -108,7 +108,8 @@ cheqd's approach to AnonCreds Revocation Registry Definition Objects implements 
 
 In the example below, the content should be saved as a file, for example: `degreeCredRevocRegDef.json` with the following content:
 
-<pre class="language-json"><code class="lang-json">{
+```jsonc
+{
 "AnonCredsObject: {
   "credDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0",
   "id": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
@@ -124,16 +125,17 @@ In the example below, the content should be saved as a file, for example: `degre
     },
     "tailsHash": "BrCqQS487HcdLeihGwnk65nWwavKYfrhSrMaUpYGvouH",
     "tailsLocation": "https://api.portal.streetcred.id/agent/tails/BrCqQS487HcdLeihGwnk65nWwavKYfrhSrMaUpYGvouH"
-  }
+  },
 "AnonCredsObjectMetadata" {  
-<strong>  "objectFamily": "anoncreds",
-</strong>  "objectFamilyVersion": "v1",
+ "objectFamily": "anoncreds",
+ "objectFamilyVersion": "v1",
   "objectType": "4",  
   "typeName": "REVOC_REG_DEF"
   "issuerDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
   "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df"
-<strong>  }
-</strong><strong>}</strong></code></pre>
+ }
+}
+```
 
 {% hint style="info" %}
 Note: The Credential Definition ID specified must have enabled revocation support for the Revocation Registry Definition to be able to created.
@@ -154,7 +156,7 @@ This implementation uses AnonCredsObjectMetadata to provide equivalency between 
 
 To create a Revocation Registry Definition on cheqd, you need to carry out a resource transaction, specifying the following information.&#x20;
 
-```
+```bash
 cheqd-noded tx resource create-resource \
     --collection-id zF7rhDBfUt9d1gJPjx7s1J \
     --resource-id af20b1f0-5c4d-4037-9669-eaedddb9c2df \
@@ -183,17 +185,19 @@ Note: This transaction includes the file `degreeRevocRegDef.json` that was forma
 
 Once you have created your Revocation Registry as a resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J`
 
-```
-"resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
-    "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
-    "resourceId": "af20b1f0-5c4d-4037-9669-eaedddb9c2df",
-    "resourceName": "degreeRevocRegDef",
-    "resourceType": "revocRegDef",
-    "mediaType": "application/json",
-    "created": "2022-08-21T08:40:00Z",
-    "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
-    "previousVersionId": null,
-    "nextVersionId": null
+```json
+{
+  "resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
+  "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
+  "resourceId": "af20b1f0-5c4d-4037-9669-eaedddb9c2df",
+  "resourceName": "degreeRevocRegDef",
+  "resourceType": "revocRegDef",
+  "mediaType": "application/json",
+  "created": "2022-08-21T08:40:00Z",
+  "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
+  "previousVersionId": null,
+  "nextVersionId": null
+}
 ```
 
 ### CredDef and RevRegDef Objects in the same Collection
@@ -242,4 +246,3 @@ using a DID Resolver:
 `https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceId=af20b1f0-5c4d-4037-9669-eaedddb9c2df`
 
 This would return the AnonCredsCredDef data and the AnonCredsObjectMetadata.
-

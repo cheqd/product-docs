@@ -49,7 +49,7 @@ For example, we can [take the DIDDoc created previously](./) and change the Serv
   "service": [{
     "id":"did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe#linked-domain",
     "type": "LinkedDomains",
-    "serviceEndpoint": "https://foo.example.com"
+    "service_endpoint": "https://foo.example.com"
   }]
 }
 ```

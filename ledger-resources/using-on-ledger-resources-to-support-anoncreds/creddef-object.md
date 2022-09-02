@@ -26,13 +26,13 @@ Note: the schema_id as part of the_ cred\_def\_id is a recent change from the An
 
 The `cred_def_id` therefore is formatted in the following way:
 
-```
+```text
 <issuerDid>:<objectType>:<signatureType>:<schemaId>:<tag>
 ```
 
 For example an AnonCreds `cred_def_id` could be:
 
-```
+```text
 zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree
 ```
 
@@ -42,7 +42,7 @@ Through combining each of the components into one string, it provides client app
 
 Credential Definition Object Content is distinct in the way it is structured. The inputs and outputs generated when creating a CredDef are as follows:
 
-#### Create CredDef input:
+#### Create CredDef input
 
 The following inputs are required to create a CredDef:
 
@@ -91,7 +91,6 @@ An example of a CredDef Object content without revocation is below:
   "ref": "7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7",
   "signature_type": "CL",
   "tag": "credDefDegree"
-  }
 }
 ```
 
@@ -140,7 +139,6 @@ An example of a CredDef Object content with revocation is below:
   "ref": "7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7",
   "signature_type": "CL",
   "tag": "credDefDegree"
-  }
 }
 ```
 
@@ -171,7 +169,7 @@ cheqd's approach to AnonCreds CredDefs implements the following logic:
 
 In the example below, the content should be saved as a file, for example: `credDefDegree.json` with the following content (without revocation):
 
-```json
+```jsonc
 {
 "AnonCredsObject: {
   "data": {
@@ -210,7 +208,7 @@ In the example below, the content should be saved as a file, for example: `credD
 
 Or with revocation:
 
-```json
+```jsonc
 {
 "AnonCredsObject: {
   "data": {
@@ -279,7 +277,7 @@ Note: The cheqd ledger will not provide any checks on the Schema Object Content 
 
 To create a CredDef on cheqd, you need to carry out a resource transaction, specifying the following information.&#x20;
 
-```
+```bash
 cheqd-noded tx resource create-resource \
     --collection-id zF7rhDBfUt9d1gJPjx7s1J \
     --resource-id 77465164-5646-42d9-9a0a-f7b2dcb855c0 \
@@ -302,26 +300,28 @@ Note that this transaction includes the file `credDefDegree.json` that was forma
 
 Once you have created your resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J`
 
-```
-"resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0",
-    "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
-    "resourceId": "77465164-5646-42d9-9a0a-f7b2dcb855c0",
-    "resourceName": "credDefDegree",
-    "resourceType": "claimDef",
-    "mediaType": "application/json",
-    "created": "2022-07-19T08:40:00Z",
-    "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
-    "previousVersionId": null,
-    "nextVersionId": null
+```json
+{
+   "resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0",
+   "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
+   "resourceId": "77465164-5646-42d9-9a0a-f7b2dcb855c0",
+   "resourceName": "credDefDegree",
+   "resourceType": "claimDef",
+   "mediaType": "application/json",
+   "created": "2022-07-19T08:40:00Z",
+   "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
+   "previousVersionId": null,
+   "nextVersionId": null
+}
 ```
 
 ### Fetching a cheqd CredDef Object
 
-Rather than requiring a specific GET\__CRED\_DEF_ function and interface to fetch the CredDef Object Content (such as that required on Indy for the __ `cred_def_id` __ (zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree), existing DID Resolvers will be able to query for the CredDef Object Content using the following parameters:
+Rather than requiring a specific GET_CRED_DEF function and interface to fetch the CredDef Object Content (such as that required on Indy for the `cred_def_id` (zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree), existing DID Resolvers will be able to query for the CredDef Object Content using the following parameters:
 
 #### Query by name and version
 
-Like the AnonCreds `cred_def_id,` it is possible to obtain the CredDef Object Content by querying the CredDef Publisher DID and CredDef tag. The following query will dereference to the Schema Object Content itself:&#x20;
+Like the AnonCreds `cred_def_id`, it is possible to obtain the CredDef Object Content by querying the CredDef Publisher DID and CredDef tag. The following query will dereference to the Schema Object Content itself:&#x20;
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=credDefDegree&resourceType=claimDef`
 
@@ -350,5 +350,3 @@ using a DID Resolver:
 `https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceId=77465164-5646-42d9-9a0a-f7b2dcb855c0`
 
 This would return the AnonCredsCredDef data and the AnonCredsObjectMetadata.
-
-###
