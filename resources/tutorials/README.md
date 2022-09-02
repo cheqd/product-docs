@@ -32,7 +32,7 @@ e7b662f8-d3f8-4a83-bd00-2cdcd6cc50ab
 
 Resource content should be placed in a file and stored locally.
 
-### 4. Send DIDDoc to the ledger
+### 4. Send Resource transaction to the ledger
 
 #### Command
 
