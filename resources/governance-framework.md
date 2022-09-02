@@ -12,7 +12,7 @@ A Governance Framework could be referenced using a DID URL, [just as any other R
 
 #### DID URL
 
-*Note:* This is an example of a DID URL construction, and it not the live [cheqd Governance Framework](https://gov.cheqd.io/).
+_Note:_ This is an example of a DID URL construction, and it not the live [cheqd Governance Framework](https://gov.cheqd.io/).
 
 did:cheqd:mainnet:**93235d54-53cc-42b9-ae77-f99efe9eadc9**/resources/**8da12c4a-fa16-4895-b6c6-fc7cbdf62193**
 
@@ -20,7 +20,7 @@ did:cheqd:mainnet:**93235d54-53cc-42b9-ae77-f99efe9eadc9**/resources/**8da12c4a-
 
 cheqd could create a Resource as follows for its Governance Framework
 
-```jsonc
+```
 "linkedResourceMetadata": [
   {
     "resourceURI": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9/resources/8da12c4a-fa16-4895-b6c6-fc7cbdf62193",
@@ -46,14 +46,14 @@ cheqd could create a Resource as follows for its Governance Framework
   "id": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9",
   "verification_method": [
     {
-      "id": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9",
+      "id": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9#verkey1",
       "type": "Ed25519VerificationKey2020",
       "controller": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9",
       "public_key_multibase": "<verification-public-key-multibase>"
     }
   ],
   "authentication":
-    "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9#key1"
+    "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9#verkey1"
 }
 ```
 
@@ -85,14 +85,14 @@ cheqd-noded tx resource create-resource
   "id": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9",
   "verification_method": [
     {
-      "id": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9",
+      "id": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9#verkey1",
       "type": "Ed25519VerificationKey2020",
       "controller": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9",
       "public_key_multibase": "<verification-public-key-multibase>"
     }
   ],
   "authentication": [
-    "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9#key1"
+    "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9#verkey1"
   ],
   "service": [
     {
@@ -116,14 +116,14 @@ cheqd-noded tx resource create-resource
   "id": "did:cheqd:mainnet:17dd8754-c5ad-45d3-8f6c-078bfa72c63c",
   "verification_method": [
     {
-      "id": "did:cheqd:mainnet:17dd8754-c5ad-45d3-8f6c-078bfa72c63c",
+      "id": "did:cheqd:mainnet:17dd8754-c5ad-45d3-8f6c-078bfa72c63c#verkey1",
       "type": "Ed25519VerificationKey2020",
       "controller": "did:cheqd:mainnet:17dd8754-c5ad-45d3-8f6c-078bfa72c63c",
       "public_key_multibase": "<verification-public-key-multibase>"
     }
   ],
   "authentication": [
-    "did:cheqd:mainnet:17dd8754-c5ad-45d3-8f6c-078bfa72c63c#key1"
+    "did:cheqd:mainnet:17dd8754-c5ad-45d3-8f6c-078bfa72c63c#verkey1"
   ],
   "service": [
     {
