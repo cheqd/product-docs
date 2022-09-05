@@ -36,6 +36,10 @@ $ uuidgen
 e7b662f8-d3f8-4a83-bd00-2cdcd6cc50ab
 ```
 
+{% hint style="info" %}
+Due to a known bug, please make sure that UUIDs generated and submitted to the ledger are in **lower case**.&#x20;
+{% endhint %}
+
 ### 4. Prepare/edit command arguments
 
 Before creating a Resource, you will need to prepare the `args.json` file. This file can be saved where ever you choose, but the location must be specified in the create Resource command used in Step 5. (By default, it will be saved under the project root directory.)
