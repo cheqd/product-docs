@@ -41,6 +41,8 @@
     * [Verify a JSON Credential](veramo-sdk-for-cheqd/verifiable-credentials/verify-jwt-vc.md)
   * [🔐 Create a Verifiable Presentation](veramo-sdk-for-cheqd/verifiable-presentations/README.md)
     * [Verify a JWT Presentation](veramo-sdk-for-cheqd/verifiable-presentations/verify-presentation.md)
+  * [💎 Create a Resource](building-decentralized-identity-apps/veramo-sdk-for-cheqd/create-a-resource/README.md)
+    * [Create a new resource version](building-decentralized-identity-apps/veramo-sdk-for-cheqd/create-a-resource/create-a-new-resource-version.md)
 * [✅ Verifiable Credentials](verifiable-credentials/README.md)
   * [JSON/JWT-based Credentials](verifiable-credentials/json-jwt-credentials.md)
   * [JSON-LD Credentials](verifiable-credentials/json-ld-credentials.md)
