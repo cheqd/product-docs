@@ -21,22 +21,22 @@ Like with [Schema Objects](schema-object.md), each CredDef Object ID (`cred_def_
 * `tag`: A unique name or tag given to the CredDef.
 
 {% hint style="info" %}
-Note: the schema_id as part of the_ cred\_def\_id is a recent change from the AnonCreds Working Group. Previously, this was the Schema TXN ID. However, the Schema TXN ID could not accommodate for non-Hyperledger Indy networks.
+Note: the schema\_id as part of the\_ cred\_def\_id is a recent change from the AnonCreds Working Group. Previously, this was the Schema TXN ID. However, the Schema TXN ID could not accommodate for non-Hyperledger Indy networks.
 {% endhint %}
 
 The `cred_def_id` therefore is formatted in the following way:
 
-```text
+```
 <issuerDid>:<objectType>:<signatureType>:<schemaId>:<tag>
 ```
 
 For example an AnonCreds `cred_def_id` could be:
 
-```text
+```
 zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree
 ```
 
-Through combining each of the components into one string, it provides client applications all of the information they need to know about the CredDef in a simple and easily consumable format.&#x20;
+Through combining each of the components into one string, it provides client applications all of the information they need to know about the CredDef in a simple and easily consumable format.
 
 ### AnonCreds CredDef Object Content
 
@@ -52,7 +52,7 @@ The following inputs are required to create a CredDef:
 
 #### Create CredDef output
 
-The output of a create CredDef transaction is a JSON structure that is generated using cryptographic primitives.&#x20;
+The output of a create CredDef transaction is a JSON structure that is generated using cryptographic primitives.
 
 A CredDef has a couple of important characteristics:
 
@@ -94,7 +94,7 @@ An example of a CredDef Object content without revocation is below:
 }
 ```
 
-The composite string of the `cred_def_id` should include the **same values** as are in the CredDef Object Content.&#x20;
+The composite string of the `cred_def_id` should include the **same values** as are in the CredDef Object Content.
 
 {% hint style="info" %}
 Note: In the AnonCreds Specification the 'ref' is currently the Schema TXN ID. However, since this would not work for ledgers other than Indy, we propose changing this to a 'string' and referencing the SCHEMA\_ID
@@ -146,13 +146,13 @@ An example of a CredDef Object content with revocation is below:
 
 ### cheqd CredDef ID
 
-cheqd [on-ledger resources](../../resources/) identify individual resources using DID URLs.&#x20;
+cheqd [on-ledger resources](../../resources/) identify individual resources using DID URLs.
 
 cheqd resources module uses the following format:
 
 `did:cheqd:mainnet:<IssuerDid>/resources/<CredDefResourceId>`
 
-Rather than using a composite string for the CredDef Resource ID. The cheqd AnonCreds object method uses a UUID to identify the CredDef Object Content which includes additional CredDef Object Content Metadata, providing the required fields for equivalence with Hyperledger Indy implementations.&#x20;
+Rather than using a composite string for the CredDef Resource ID. The cheqd AnonCreds object method uses a UUID to identify the CredDef Object Content which includes additional CredDef Object Content Metadata, providing the required fields for equivalence with Hyperledger Indy implementations.
 
 For example, the following DID URL is cheqd's representation of a `cred_def_id`:
 
@@ -160,16 +160,16 @@ For example, the following DID URL is cheqd's representation of a `cred_def_id`:
 
 ### cheqd CredDef Object Content
 
-Before creating any on-ledger resource transaction, it is important to assemble to required CredDef Object Content and save it as a file locally.&#x20;
+Before creating any on-ledger resource transaction, it is important to assemble to required CredDef Object Content and save it as a file locally.
 
 cheqd's approach to AnonCreds CredDefs implements the following logic:
 
 1. The required (network-agnostic) content of the CredDef should be included in the body of the content.
-2. Anything that is network-specific should be included within AnonCreds Object Metadata.&#x20;
+2. Anything that is network-specific should be included within AnonCreds Object Metadata.
 
 In the example below, the content should be saved as a file, for example: `credDefDegree.json` with the following content (without revocation):
 
-```jsonc
+```
 {
 "AnonCredsObject: {
   "data": {
@@ -200,15 +200,16 @@ In the example below, the content should be saved as a file, for example: `credD
   "objectFamilyVersion": "v1",
   "objectType": "3",
   "typeName": "CLAIM_DEF",
-  "issuerDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
-  "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0"
+  "publisherId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
+  "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0",
+  "objectId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J,3,CL,did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K,2,degreeSchema,1.5.7,credDefDegree"
   }
 }
 ```
 
 Or with revocation:
 
-```jsonc
+```
 {
 "AnonCredsObject: {
   "data": {
@@ -270,12 +271,12 @@ This implementation uses AnonCredsObjectMetadata to provide equivalency between 
 | objectUri             | Fully qualified DID URL to easily access the CredDef Object      | cheqd Objects Method               |
 
 {% hint style="info" %}
-Note: The cheqd ledger will not provide any checks on the Schema Object Content or Metadata. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct.&#x20;
+Note: The cheqd ledger will not provide any checks on the Schema Object Content or Metadata. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct.
 {% endhint %}
 
 ### create CredDef transaction
 
-To create a CredDef on cheqd, you need to carry out a resource transaction, specifying the following information.&#x20;
+To create a CredDef on cheqd, you need to carry out a resource transaction, specifying the following information.
 
 ```bash
 cheqd-noded tx resource create-resource \
@@ -317,11 +318,11 @@ Once you have created your resource on cheqd, the following metadata will be gen
 
 ### Fetching a cheqd CredDef Object
 
-Rather than requiring a specific GET_CRED_DEF function and interface to fetch the CredDef Object Content (such as that required on Indy for the `cred_def_id` (zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree), existing DID Resolvers will be able to query for the CredDef Object Content using the following parameters:
+Rather than requiring a specific GET\_CRED\_DEF function and interface to fetch the CredDef Object Content (such as that required on Indy for the `cred_def_id` (zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree), existing DID Resolvers will be able to query for the CredDef Object Content using the following parameters:
 
 #### Query by name and version
 
-Like the AnonCreds `cred_def_id`, it is possible to obtain the CredDef Object Content by querying the CredDef Publisher DID and CredDef tag. The following query will dereference to the Schema Object Content itself:&#x20;
+Like the AnonCreds `cred_def_id`, it is possible to obtain the CredDef Object Content by querying the CredDef Publisher DID and CredDef tag. The following query will dereference to the Schema Object Content itself:
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=credDefDegree&resourceType=claimDef`
 
@@ -333,7 +334,7 @@ This would return the AnonCredsCredDef data and the AnonCredsObjectMetadata.
 
 #### Query by resource ID
 
-For applications which are cheqd-aware, it would be possible to find the Schema Object Content via the `resourceId` using a fully qualified DID URL path or query, for example:&#x20;
+For applications which are cheqd-aware, it would be possible to find the Schema Object Content via the `resourceId` using a fully qualified DID URL path or query, for example:
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0`
 
@@ -341,7 +342,7 @@ using a DID Resolver:
 
 `https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0`
 
-or,&#x20;
+or,
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceId=77465164-5646-42d9-9a0a-f7b2dcb855c0`
 

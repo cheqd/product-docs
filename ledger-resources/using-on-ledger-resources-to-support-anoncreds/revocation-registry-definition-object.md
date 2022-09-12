@@ -7,12 +7,12 @@ In the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec/)
 1. `type` of Revocation Registry (In Indy this is always "`CL_ACCUM`").
 2. `cred_def_id`: Each Revocation Registry must be linked to one specific Credential Definition.
 3. `tag`: An issuer-specified name for the Revocation Registry, to ensure consistency when referencing the registry.
-4. `issuancetype`: The default state of Credentials - either revoked by default (“ISSUANCE\_ON\_DEMAND”), or non-revoked by default (“ISSUANCE\_BY\_DEFAULT”). There is debate in the AnonCreds community regarding deprecating the former, issuance on demand, for [privacy and correlation reasons explained here](https://anoncreds-wg.github.io/anoncreds-spec/#recommend-not-using-issuance\_on\_demand).&#x20;
+4. `issuancetype`: The default state of Credentials - either revoked by default (“ISSUANCE\_ON\_DEMAND”), or non-revoked by default (“ISSUANCE\_BY\_DEFAULT”). There is debate in the AnonCreds community regarding deprecating the former, issuance on demand, for [privacy and correlation reasons explained here](https://anoncreds-wg.github.io/anoncreds-spec/#recommend-not-using-issuance\_on\_demand).
 5. `maxCredNum`: The maximum amount of Credentials that can be revoked in the Revocation Registry before a new one needs to be started.
-6. `tailsLocation`: A [URL](https://www.rfc-editor.org/rfc/rfc1738) resolving to the location of the Tails File.&#x20;
+6. `tailsLocation`: A [URL](https://www.rfc-editor.org/rfc/rfc1738) resolving to the location of the Tails File.
 
 {% hint style="info" %}
-A Tails File is a large file containing a cryptographic accumulator value of prime numbers multiplied together. When a Credential is revoked, the value of the accumulator changes, removing the cryptographic value of the Credential as a factor of the accumulator value.&#x20;
+A Tails File is a large file containing a cryptographic accumulator value of prime numbers multiplied together. When a Credential is revoked, the value of the accumulator changes, removing the cryptographic value of the Credential as a factor of the accumulator value.
 {% endhint %}
 
 Each credential issued using the Revocation Registry Definition is given its own index (1 to the `maxCredNum`.
@@ -31,13 +31,13 @@ Like both the [Schema Object ID](schema-object.md#anoncreds-schema-id) and the [
 
 The `revocRegDefId` therefore is formatted in the following way:
 
-```text
+```
 <publisherDid>:<objectType>:<credDefId>:<revRegType>:<tag>
 ```
 
 For example an AnonCreds `revocRegDefId` could be:
 
-```text
+```
 zF7rhDBfUt9d1gJPjx7s1J:4:zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree:CL_ACCUM:degreeCredRevRegDef
 ```
 
@@ -47,7 +47,7 @@ Through combining each of the components into one string, it provides client app
 
 The required content and data model for the AnonCreds Revocation Registry Definition Object are as follows:
 
-* `credDefId`: the input parameter `cred_def_id`, [further explained here](creddef-object.md).&#x20;
+* `credDefId`: the input parameter `cred_def_id`, [further explained here](creddef-object.md).
 * `id`: the identifier of the [Revocation Registry Definition Object](revocation-registry-definition-object.md#anoncreds-revocation-registry-definition-object-id), defined above.
 * `revocDefType`: the input parameter `type`
 * `tag`: A unique name or tag given to the Revocation Registry Object.
@@ -79,19 +79,19 @@ For example, the on-ledger Revocation Registry Definition Object Content is as f
 }
 ```
 
-The composite string of the `revocRegDefId` should include the **same values** as are in the Revocation Registry Definition Object Content.&#x20;
+The composite string of the `revocRegDefId` should include the **same values** as are in the Revocation Registry Definition Object Content.
 
 ## cheqd AnonCreds Object Method for Revocation Registry Definition Objects
 
 ### cheqd Revocation Registry Definition Object ID
 
-cheqd [on-ledger resources](../../resources/) identify individual resources using DID URLs.&#x20;
+cheqd [on-ledger resources](../../resources/) identify individual resources using DID URLs.
 
 cheqd resources module uses the following format:
 
 `did:cheqd:mainnet:<issuerDid>/resources/<revRegDefResourceId>`
 
-Rather than using a composite string for the Revocation Registry Definition Resource ID. The cheqd AnonCreds object method uses a UUID to identify the Revocation Registry Definition Object Content which includes additional Revocation Registry Definition Object Content Metadata, providing the required fields for equivalence with Hyperledger Indy implementations.&#x20;
+Rather than using a composite string for the Revocation Registry Definition Resource ID. The cheqd AnonCreds object method uses a UUID to identify the Revocation Registry Definition Object Content which includes additional Revocation Registry Definition Object Content Metadata, providing the required fields for equivalence with Hyperledger Indy implementations.
 
 For example, the following DID URL is cheqd's representation of a `revocRegDefId`:
 
@@ -99,16 +99,16 @@ For example, the following DID URL is cheqd's representation of a `revocRegDefId
 
 ### cheqd Revocation Registry Definition Object Content
 
-Before creating any on-ledger resource transaction, it is important to assemble to required Revocation Registry Definition Object Content and save it as a file locally.&#x20;
+Before creating any on-ledger resource transaction, it is important to assemble to required Revocation Registry Definition Object Content and save it as a file locally.
 
 cheqd's approach to AnonCreds Revocation Registry Definition Objects implements the following logic:
 
 1. The required (ledger-agnostic) content of the Revocation Registry Definition Object Content should be included in the body of the content.
-2. Anything that is network-specific should be included within AnonCreds Object Metadata.&#x20;
+2. Anything that is network-specific should be included within AnonCreds Object Metadata.
 
 In the example below, the content should be saved as a file, for example: `degreeCredRevocRegDef.json` with the following content:
 
-```jsonc
+```
 {
 "AnonCredsObject: {
   "credDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0",
@@ -131,9 +131,9 @@ In the example below, the content should be saved as a file, for example: `degre
  "objectFamilyVersion": "v1",
   "objectType": "4",  
   "typeName": "REVOC_REG_DEF"
-  "issuerDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
-  "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df"
- }
+  "publisherId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
+  "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
+  "objectId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J,4,did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J,3,CL,did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K,2,degreeSchema,1.5.7,credDefDegree,CL_ACCUM,degreeCredRevRegDef"
 }
 ```
 
@@ -154,7 +154,7 @@ This implementation uses AnonCredsObjectMetadata to provide equivalency between 
 
 ### create Revocation Registry Definition transaction
 
-To create a Revocation Registry Definition on cheqd, you need to carry out a resource transaction, specifying the following information.&#x20;
+To create a Revocation Registry Definition on cheqd, you need to carry out a resource transaction, specifying the following information.
 
 ```bash
 cheqd-noded tx resource create-resource \
@@ -217,7 +217,7 @@ Rather than requiring a specific _GET\_REV\_REG_ function and interface to fetch
 
 #### Query by name and version
 
-Like the AnonCreds `cred_def_id,` it is possible to obtain the CredDef Object Content by querying the CredDef Publisher DID and CredDef tag. The following query will dereference to the Schema Object Content itself:&#x20;
+Like the AnonCreds `cred_def_id,` it is possible to obtain the CredDef Object Content by querying the CredDef Publisher DID and CredDef tag. The following query will dereference to the Schema Object Content itself:
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=degreeRevocRegDef&resourceType=revocRegDef`
 
@@ -229,7 +229,7 @@ This would return the AnonCredsCredDef data and the AnonCredsObjectMetadata.
 
 #### Query by resource ID
 
-For applications which are cheqd-aware, it would be possible to find the Schema Object Content via the `resourceId` using a fully qualified DID URL path or query, for example:&#x20;
+For applications which are cheqd-aware, it would be possible to find the Schema Object Content via the `resourceId` using a fully qualified DID URL path or query, for example:
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df`
 
@@ -237,7 +237,7 @@ using a DID Resolver:
 
 `https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df`
 
-or,&#x20;
+or,
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceId=af20b1f0-5c4d-4037-9669-eaedddb9c2df`
 

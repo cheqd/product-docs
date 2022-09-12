@@ -2,7 +2,7 @@
 
 ## Overview
 
-Schemas are used to list a set of attributes. Issuers of Verifiable Credentials may reference schemas within Credentials they issue in order to provide a layer of semantic interoperability with other issuers utilising the same schema.&#x20;
+Schemas are used to list a set of attributes. Issuers of Verifiable Credentials may reference schemas within Credentials they issue in order to provide a layer of semantic interoperability with other issuers utilising the same schema.
 
 In the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec), schemas are written directly to a [Verifiable Data Registry](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-decentralised-identifier-did/what-is-a-verifiable-data-registry), rather than using a centralized service such as [schema.org](https://schema.org/). Schemas are also associated with Credential Definitions, which are used to link the schema, issuer and holder together ([detailed further here](creddef-object.md)).
 
@@ -29,7 +29,7 @@ For example an AnonCreds `schema_id` could be:
 7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7
 ```
 
-Through combining each of the components into one string, it provides client applications all of the information they need to know about the schema in a simple and easily consumable format.&#x20;
+Through combining each of the components into one string, it provides client applications all of the information they need to know about the schema in a simple and easily consumable format.
 
 ### AnonCreds Schema Object Content
 
@@ -60,7 +60,7 @@ For example:
 
 Within the Schema Object Content, the `name` and the `version` should be the same as the `name` and `version` in the **composite** `schema_id.`
 
-Therefore, the schema\_id `"7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7"` identifies the Schema Object content above.&#x20;
+Therefore, the schema\_id `"7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7"` identifies the Schema Object content above.
 
 Once published on a Hyperledger Indy ledger, an additional identifier for the published schema, the `TXN_ID`, is available to those reading from the ledger
 
@@ -68,13 +68,13 @@ Once published on a Hyperledger Indy ledger, an additional identifier for the pu
 
 ### cheqd Schema ID
 
-cheqd [on-ledger resources](../../resources/) identify individual resources using DID URLs.&#x20;
+cheqd [on-ledger resources](../../resources/) identify individual resources using DID URLs.
 
 cheqd resources module uses the following format:
 
 `did:cheqd:mainnet:<SchemaProposerId>/resources/<SchemaResourceId>`
 
-Rather than using a composite string for the Schema Resource ID. The cheqd AnonCreds object method uses a UUID to identify the Schema Object Content which includes additional Schema Object Content Metadata, providing the required fields for equivalence with Hyperledger Indy implementations.&#x20;
+Rather than using a composite string for the Schema Resource ID. The cheqd AnonCreds object method uses a UUID to identify the Schema Object Content which includes additional Schema Object Content Metadata, providing the required fields for equivalence with Hyperledger Indy implementations.
 
 For example, the following DID URL is cheqd's representation of a `schema_id`:
 
@@ -82,9 +82,9 @@ For example, the following DID URL is cheqd's representation of a `schema_id`:
 
 ### cheqd Schema Object Content
 
-Before creating any on-ledger transaction, it is important to assemble to required Schema Object Content and save it as a file locally.&#x20;
+Before creating any on-ledger transaction, it is important to assemble to required Schema Object Content and save it as a file locally.
 
-&#x20;In the example below, the content should be saved as a file, for example: `degreeSchema.json` with the following content:
+In the example below, the content should be saved as a file, for example: `degreeSchema.json` with the following content:
 
 ```json
 {
@@ -107,9 +107,10 @@ Before creating any on-ledger transaction, it is important to assemble to requir
     "objectFamilyVersion": "v1",
     "objectType": "2",
     "typeName": "SCHEMA",
-    "publisherDid": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K",
-    "objectURI": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497"
-    },
+    "publisherId": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K",
+    "objectUri": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
+    "objectId": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K,2,degreeSchema,1.5.7"
+    }
 }
 ```
 
@@ -125,12 +126,12 @@ This implementation uses AnonCredsObjectMetadata to provide equivalency between 
 | objectUri             | Fully qualified DID URL to easily access the Schema Object | cheqd Objects Method                   |
 
 {% hint style="info" %}
-Note: The cheqd ledger will not provide any checks on the Schema Object Content or Metadata. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct.&#x20;
+Note: The cheqd ledger will not provide any checks on the Schema Object Content or Metadata. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct.
 {% endhint %}
 
 ### create Schema transaction
 
-To create a Schema on cheqd, you need to carry out a resource transaction, specifying the following information.&#x20;
+To create a Schema on cheqd, you need to carry out a resource transaction, specifying the following information.
 
 ```bash
 cheqd-noded tx resource create-resource \
@@ -156,7 +157,7 @@ Note that this transaction includes the file `degreeSchema.json` that was format
 
 Once you have created your resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K`
 
-```jsonc
+```
 "resourceURI": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
     "resourceCollectionId": "7BPMqYgYLQni258J8JPS8K",
     "resourceId": "6259d357-eeb1-4b98-8bee-12a8390d3497",
@@ -172,11 +173,11 @@ Once you have created your resource on cheqd, the following metadata will be gen
 
 ### Fetching a cheqd Schema Object
 
-Rather than requiring a specific GET_SCHEMA function and interface to fetch the Schema Object Content (such as that required on Indy for the_ `schema_id` __ (7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7), existing DID Resolvers will be able to query for the Schema Object Content using the following parameters:
+Rather than requiring a specific GET\_SCHEMA function and interface to fetch the Schema Object Content (such as that required on Indy for the `schema_id` (`7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7`), existing DID Resolvers will be able to query for the Schema Object Content using the following parameters:
 
 #### Query by name and version
 
-Like the AnonCreds `schema_id,` it is possible to obtain the Schema Object Content by querying the Schema Publisher DID, Schema name and Schema Version. The following query will dereference to the Schema Object Content itself:&#x20;
+Like the AnonCreds `schema_id,` it is possible to obtain the Schema Object Content by querying the Schema Publisher DID, Schema name and Schema Version. The following query will dereference to the Schema Object Content itself:
 
 `did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K?resouceName=degreeSchema&resourceType=schema&resouceVersion=1.5.7`
 
@@ -186,7 +187,7 @@ using a DID Resolver:
 
 #### Query by resource ID
 
-For applications which are cheqd-aware, it would be possible to find the Schema Object Content via the `resourceId` using a fully qualified DID URL path or query, for example:&#x20;
+For applications which are cheqd-aware, it would be possible to find the Schema Object Content via the `resourceId` using a fully qualified DID URL path or query, for example:
 
 `did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497`
 
@@ -194,7 +195,7 @@ using a DID Resolver:
 
 `https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497`
 
-or,&#x20;
+or,
 
 `did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K?resourceId=6259d357-eeb1-4b98-8bee-12a8390d3497`
 

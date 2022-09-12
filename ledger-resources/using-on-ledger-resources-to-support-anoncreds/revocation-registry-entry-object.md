@@ -5,7 +5,7 @@
 In the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec), Revocation Registry Entry Objects contain the state of the Revocation Registry at a given point in time. This enables:
 
 1. Holders of Verifiable Credentials to generate a proof of non-revocation (or not) about their specific credential; and
-2. Verifiers to be able to verify that proof.&#x20;
+2. Verifiers to be able to verify that proof.
 
 An initial Revocation Registry Entry is generated and published immediately on creation of the [Revocation Registry Definition Object](revocation-registry-definition-object.md) so that it can be used immediately by holders. Over time, additional Revocation Registry Entry Objects are generated and published as the revocation status of one or more credentials within the Revocation Registry change.
 
@@ -17,27 +17,27 @@ The only difference is that the Revocation Registry Entry ID includes the Revoca
 
 The structure of the AnonCreds Revocation Registry Entry ID is as follows:
 
-```text
+```
 <objectType><RevocRegDefId>
 ```
 
 For example:
 
-```text
+```
 5:zF7rhDBfUt9d1gJPjx7s1J:4:zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree:CL_ACCUM:degreeCredRevRegDef
 ```
 
 {% hint style="warning" %}
-Important: Each AnonCreds Revocation Registry Entry has the **same ID** for a given Revocation Registry Definition Object.&#x20;
+Important: Each AnonCreds Revocation Registry Entry has the **same ID** for a given Revocation Registry Definition Object.
 {% endhint %}
 
 ### AnonCreds Revocation Registry Entry Content
 
-The required content and data model for the AnonCreds Revocation Registry Entry Object  are as follows:
+The required content and data model for the AnonCreds Revocation Registry Entry Object are as follows:
 
 1. `revocDefType`: as [defined here](revocation-registry-definition-object.md#anoncreds-revocation-registry-definition-object-id)
 2. `revocRegDefId`: as [defined here](revocation-registry-definition-object.md#anoncreds-revocation-registry-definition-object-id)
-3. `accum`:  the calculated cryptographic accumulator reflecting the initial state of the Revocation Registry Definition Object.&#x20;
+3. `accum`: the calculated cryptographic accumulator reflecting the initial state of the Revocation Registry Definition Object.
 
 For example:
 
@@ -51,26 +51,26 @@ For example:
 }
 ```
 
-Therefore, for each new Revocation Registry Entry, the 'ID' remains the same, as does the `revocRegType` and `revocRegDefId` - the only value that changes is the `accum,` reflecting the delta between the previous and most recent Revocation Registry Entries. ``&#x20;
+Therefore, for each new Revocation Registry Entry, the 'ID' remains the same, as does the `revocRegType` and `revocRegDefId` - the only value that changes is the `accum,` reflecting the delta between the previous and most recent Revocation Registry Entries. \`\`
 
 ## cheqd AnonCreds Object Method for Revocation Registry Definition Objects
 
 ### cheqd Revocation Registry Entry Object ID
 
-cheqd [on-ledger resources](../../resources/) identify individual resources using DID URLs.&#x20;
+cheqd [on-ledger resources](../../resources/) identify individual resources using DID URLs.
 
 cheqd resources module uses the following format:
 
 `did:cheqd:mainnet:<issuerDid>/resources/<revRegRevEntryId>`
 
-Rather than using a composite string for the Revocation Registry Entry Resource ID. The cheqd AnonCreds object method uses a UUID to identify the Revocation Registry Entry Object Content which includes additional Revocation Registry Entry Object Content Metadata, providing the required fields for equivalence with Hyperledger Indy implementations.&#x20;
+Rather than using a composite string for the Revocation Registry Entry Resource ID. The cheqd AnonCreds object method uses a UUID to identify the Revocation Registry Entry Object Content which includes additional Revocation Registry Entry Object Content Metadata, providing the required fields for equivalence with Hyperledger Indy implementations.
 
 For example, the following DID URL is cheqd's representation of a `revocRegRevEntryId`:
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887`
 
 {% hint style="info" %}
-Unlike in Hyperledger Indy implementations, cheqd uses a **unique identifier for each specific Revocation Registry Entry ID**. This enables better indexing and searchability.&#x20;
+Unlike in Hyperledger Indy implementations, cheqd uses a **unique identifier for each specific Revocation Registry Entry ID**. This enables better indexing and searchability.
 {% endhint %}
 
 {% hint style="warning" %}
@@ -79,12 +79,12 @@ For conformance with the cheqd AnonCreds Object Method, each Revocation Registry
 
 ### cheqd Revocation Registry Entry Object Content
 
-Before creating any on-ledger resource transaction, it is important to assemble to required Revocation Registry Entry Object Content and save it as a file locally.&#x20;
+Before creating any on-ledger resource transaction, it is important to assemble to required Revocation Registry Entry Object Content and save it as a file locally.
 
 cheqd's approach to AnonCreds Revocation Entry Objects implements the following logic:
 
 1. The required (ledger-agnostic) content of the Revocation Registry Entry Object Content should be included in the body of the content.
-2. Anything that is network-specific should be included within AnonCreds Object Metadata.&#x20;
+2. Anything that is network-specific should be included within AnonCreds Object Metadata.
 
 In the example below, the content should be saved as a file, for example: `degreeCredRevocRegEntry1.json` with the following content:
 
@@ -100,8 +100,9 @@ In the example below, the content should be saved as a file, for example: `degre
       "objectFamily": "anoncreds",
       "objectFamilyVersion": "v1",
       "objectType": "5",
-      "issuerDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
-      "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887"
+      "publisherId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
+      "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887",
+      "objectId": "5,did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J,4,did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J,3,CL,did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K,2,degreeSchema,1.5.7,credDefDegree,CL_ACCUM,degreeCredRevRegDef"
     }
   }
 }
@@ -120,7 +121,7 @@ This implementation uses AnonCredsObjectMetadata to provide equivalency between 
 
 ### cheqd Revocation Registry Entry transaction
 
-To create a Revocation Registry Entry on cheqd, you need to carry out a resource transaction, specifying the following information (if using the [cheqd Cosmos CLI](../../resources/tutorials/)).&#x20;
+To create a Revocation Registry Entry on cheqd, you need to carry out a resource transaction, specifying the following information (if using the [cheqd Cosmos CLI](../../resources/tutorials/)).
 
 ```bash
 cheqd-noded tx resource create-resource \
@@ -216,7 +217,7 @@ Where, `degreeCredRevocRegEntry2.json` contains an updated `accum` value and `ob
 
 Once the transaction has been created, the `resourceMetadata` will look like the following:
 
-```jsonc
+```
 {
   "resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/c154bc07-43f7-4b69-ac0c-5514001f2ca3",
   "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
@@ -238,13 +239,13 @@ Note: The previousVersionId will now link to the previous Revocation Registry En
 
 ### Traversing Revocation Registry Entries using a DID Resolver
 
-Using existing DID Resolvers, it is possible to traverse the history of Revocation Registry Entries to query deltas in the cryptographic accumulator in order to produce proofs of non-revocation required in the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec).&#x20;
+Using existing DID Resolvers, it is possible to traverse the history of Revocation Registry Entries to query deltas in the cryptographic accumulator in order to produce proofs of non-revocation required in the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec).
 
 #### Obtain all Revocation Registry Entry Content
 
 A DID URL such as the following will display all of the accumulators associated with a particular Revocation Registry:
 
-&#x20;`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&all`
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&all`
 
 using a DID Resolver:
 
@@ -256,7 +257,7 @@ It is recommended that applications using this revocation method implement a way
 
 #### Obtain Revocation Registry Entry Content at a point in time
 
-Furthermore, it will be possible to query Revocation Entries at certain times. This may be very useful if you want to prove whether a Verifiable Credential was valid in the past.&#x20;
+Furthermore, it will be possible to query Revocation Entries at certain times. This may be very useful if you want to prove whether a Verifiable Credential was valid in the past.
 
 For example:
 
@@ -264,7 +265,7 @@ For example:
 
 #### Obtain latest Revocation Registry Entry
 
-It will be very common for a proof of non-revocation to require the latest Revocation Registry Entry and work its way back from there.&#x20;
+It will be very common for a proof of non-revocation to require the latest Revocation Registry Entry and work its way back from there.
 
 The following DID URL will be able to call the latest Revocation Registry Entry
 
