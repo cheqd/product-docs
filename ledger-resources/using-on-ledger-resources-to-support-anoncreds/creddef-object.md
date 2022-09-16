@@ -12,7 +12,13 @@ In [AnonCreds](https://anoncreds-wg.github.io/anoncreds-spec/), Credential Defin
 
 ### AnonCreds CredDef Object ID
 
-Like with [Schema Objects](schema-object.md), each CredDef Object ID (`cred_def_id`) is a **composite** string, consisting of the following elements:
+Each specific AnonCreds identifier must be defined within an AnonCreds Object Method in the [AnonCreds Object Method Registry](https://anoncreds-wg.github.io/anoncreds-objects-methods-registry/).
+
+This means that an AnonCreds CredDef Object ID does not need to be formatted in any particular syntax, in the latest version of the AnonCreds Specification.
+
+### Legacy AnonCreds CredDef Object ID
+
+Like with [Schema Objects](schema-object.md), each CredDef Object ID (`cred_def_id`) was previously a **composite** string, consisting of the following elements:
 
 * `issuer DID`: The DID of the Issuer, the issuer of the credentials that will utilise the CredDef.
 * `object type`: The type of object. `3` is used for CredDefs.
@@ -24,7 +30,7 @@ Like with [Schema Objects](schema-object.md), each CredDef Object ID (`cred_def_
 Note: the schema\_id as part of the\_ cred\_def\_id is a recent change from the AnonCreds Working Group. Previously, this was the Schema TXN ID. However, the Schema TXN ID could not accommodate for non-Hyperledger Indy networks.
 {% endhint %}
 
-The `cred_def_id` therefore is formatted in the following way:
+The `cred_def_id` therefore was formatted in the following way:
 
 ```
 <issuerDid>:<objectType>:<signatureType>:<schemaId>:<tag>
@@ -37,6 +43,10 @@ zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefD
 ```
 
 Through combining each of the components into one string, it provides client applications all of the information they need to know about the CredDef in a simple and easily consumable format.
+
+{% hint style="info" %}
+This is important to mention, since many client applications may still expect CredDef IDs or CredDef Content to contain the information or specific syntax of this Legacy `cred_def_id.`
+{% endhint %}
 
 ### AnonCreds CredDef Object Content
 
@@ -169,7 +179,7 @@ cheqd's approach to AnonCreds CredDefs implements the following logic:
 
 In the example below, the content should be saved as a file, for example: `credDefDegree.json` with the following content (without revocation):
 
-```
+```json
 {
 "AnonCredsObject: {
   "data": {
@@ -202,14 +212,14 @@ In the example below, the content should be saved as a file, for example: `credD
   "typeName": "CLAIM_DEF",
   "publisherId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
   "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0",
-  "objectId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J,3,CL,did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K,2,degreeSchema,1.5.7,credDefDegree"
+  "legacyObjectId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J,3,CL,did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K,2,degreeSchema,1.5.7,credDefDegree"
   }
 }
 ```
 
 Or with revocation:
 
-```
+```json
 {
 "AnonCredsObject: {
   "data": {
@@ -253,22 +263,24 @@ Or with revocation:
   "objectFamilyVersion": "v1",
   "objectType": "3",
   "typeName": "CLAIM_DEF",
-  "issuerDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
-  "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0"
+  "publisherDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
+  "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0",      
+  "legacyObjectId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J,3,CL,did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K,2,degreeSchema,1.5.7,credDefDegree"
   }
 }
 ```
 
 This implementation uses AnonCredsObjectMetadata to provide equivalency between cheqd's AnonCreds Object Method and other AnonCreds Object Methods, including the fields, where:
 
-| Object Metadata field | Response                                                         | Method Specification / Equivalency |
-| --------------------- | ---------------------------------------------------------------- | ---------------------------------- |
-| objectFamily          | anoncreds                                                        | did:indy Objects Method            |
-| objectFamilyVersion   | v1                                                               | did:indy Objects Method            |
-| objectType            | 3                                                                | Legacy Indy Objects Method         |
-| typeName              | `CLAIM_DEF`                                                      | Legacy Indy Objects Method         |
-| issuerDid             | Fully qualified DID to easily identify the issuer of the CredDef | cheqd Objects Method               |
-| objectUri             | Fully qualified DID URL to easily access the CredDef Object      | cheqd Objects Method               |
+| Object Metadata field | Response                                                                | Method Specification / Equivalency     |
+| --------------------- | ----------------------------------------------------------------------- | -------------------------------------- |
+| objectFamily          | anoncreds                                                               | did:indy Objects Method                |
+| objectFamilyVersion   | v1                                                                      | did:indy Objects Method                |
+| objectType            | 3                                                                       | Legacy Hyperledger Indy Objects Method |
+| typeName              | `CLAIM_DEF`                                                             | Legacy Hyperledger Indy Objects Method |
+| publisherId           | Fully qualified DID or URI to easily identify the issuer of the CredDef | cheqd Objects Method                   |
+| objectUri             | Fully qualified DID URL to easily access the CredDef Object             | cheqd Objects Method                   |
+| legacyObjectId        | The Legacy AnonCreds ID which may be expected by client applications    | Legacy Hyperledger Indy Objects Method |
 
 {% hint style="info" %}
 Note: The cheqd ledger will not provide any checks on the Schema Object Content or Metadata. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct.
@@ -318,17 +330,17 @@ Once you have created your resource on cheqd, the following metadata will be gen
 
 ### Fetching a cheqd CredDef Object
 
-Rather than requiring a specific GET\_CRED\_DEF function and interface to fetch the CredDef Object Content (such as that required on Indy for the `cred_def_id` (zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree), existing DID Resolvers will be able to query for the CredDef Object Content using the following parameters:
+Rather than requiring a specific GET\_CRED\_DEF function and interface to fetch the CredDef Object Content (such as that required on Indy for the `cred_def_id` (`zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree`), existing DID Resolvers will be able to query for the CredDef Object Content using the following parameters:
 
 #### Query by name and version
 
 Like the AnonCreds `cred_def_id`, it is possible to obtain the CredDef Object Content by querying the CredDef Publisher DID and CredDef tag. The following query will dereference to the Schema Object Content itself:
 
-`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=credDefDegree&resourceType=claimDef`
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=credDefDegree&resourceType=claimDef`
 
 using a DID Resolver:
 
-`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=credDefDegree&resourceType=claimDef`
+`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=credDefDegree&resourceType=claimDef`
 
 This would return the AnonCredsCredDef data and the AnonCredsObjectMetadata.
 

@@ -11,7 +11,13 @@ An initial Revocation Registry Entry is generated and published immediately on c
 
 ### AnonCreds Revocation Registry Entry ID
 
-The AnonCreds Revocation Registry Entry ID is very similar in composition to the [Revocation Registry Definition Object](revocation-registry-definition-object.md).
+Each specific AnonCreds identifier must be defined within an AnonCreds Object Method in the [AnonCreds Object Method Registry](https://anoncreds-wg.github.io/anoncreds-objects-methods-registry/).
+
+This means that an AnonCreds Revocation Registry Entry Object ID does not need to be formatted in any particular syntax, in the latest version of the AnonCreds Specification.
+
+### Legacy AnonCreds Revocation Registry Entry ID
+
+The Legacy AnonCreds Revocation Registry Entry ID was very similar in composition to the [Revocation Registry Definition Object](revocation-registry-definition-object.md).
 
 The only difference is that the Revocation Registry Entry ID includes the Revocation Registry Entry ID `objectType`, which is "`5`".
 
@@ -31,6 +37,10 @@ For example:
 Important: Each AnonCreds Revocation Registry Entry has the **same ID** for a given Revocation Registry Definition Object.
 {% endhint %}
 
+{% hint style="info" %}
+This is important to mention, since many client applications may still expect RevRegEntry IDs or RevRegEntry Content to contain the information or specific syntax of this Legacy `revocRegEntryId.`
+{% endhint %}
+
 ### AnonCreds Revocation Registry Entry Content
 
 The required content and data model for the AnonCreds Revocation Registry Entry Object are as follows:
@@ -43,10 +53,12 @@ For example:
 
 ```json
 {
-  "revocDefType": "CL_ACCUM",
-  "revocRegDefId": "Gs6cQcvrtWoZKsbBhD3dQJ:4:Gs6cQcvrtWoZKsbBhD3dQJ:3:CL:140389:mctc:CL_ACCUM:1-1024",
-  "value": {
-    "accum": "21 10B...33D"
+  "data": {
+    "revocDefType": "CL_ACCUM",
+    "revocRegDefId": "Gs6cQcvrtWoZKsbBhD3dQJ:4:Gs6cQcvrtWoZKsbBhD3dQJ:3:CL:140389:mctc:CL_ACCUM:1-1024",
+    "value": {
+      "accum": "21 10B...33D"
+    }
   }
 }
 ```
@@ -91,18 +103,20 @@ In the example below, the content should be saved as a file, for example: `degre
 ```json
 {
   "AnonCredsObject": {
-    "revocDefType": "CL_ACCUM",
-    "revocRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
-    "value": {
-      "accum": "21 10B...33D"
-    },
+    "data": {
+      "revocDefType": "CL_ACCUM",
+      "revocRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
+      "value": {
+        "accum": "21 10B...33D"
+      },
+    }
     "AnonCredsObjectMetadata": {
       "objectFamily": "anoncreds",
       "objectFamilyVersion": "v1",
       "objectType": "5",
       "publisherId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
       "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887",
-      "objectId": "5,did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J,4,did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J,3,CL,did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K,2,degreeSchema,1.5.7,credDefDegree,CL_ACCUM,degreeCredRevRegDef"
+      "legacyObjectId": "5,did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J,4,did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J,3,CL,did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K,2,degreeSchema,1.5.7,credDefDegree,CL_ACCUM,degreeCredRevRegDef"
     }
   }
 }
@@ -110,14 +124,15 @@ In the example below, the content should be saved as a file, for example: `degre
 
 This implementation uses AnonCredsObjectMetadata to provide equivalency between cheqd's AnonCreds Object Method and other AnonCreds Object Methods, including the fields, where:
 
-| Object Metadata field | Response                                                                        | Method Specification / Equivalency |
-| --------------------- | ------------------------------------------------------------------------------- | ---------------------------------- |
-| objectFamily          | anoncreds                                                                       | did:indy Objects Method            |
-| objectFamilyVersion   | v1                                                                              | did:indy Objects Method            |
-| objectType            | 5                                                                               | Legacy Indy Objects Method         |
-| typeName              | `CL_ACCUM`                                                                      | Legacy Indy Objects Method         |
-| issuerDid             | Fully qualified DID to easily identify the publisher of the Revocation Registry | cheqd Objects Method               |
-| objectUri             | Fully qualified DID URL to easily access the Revocation Registry Entry          | cheqd Objects Method               |
+| Object Metadata field | Response                                                                        | Method Specification / Equivalency      |
+| --------------------- | ------------------------------------------------------------------------------- | --------------------------------------- |
+| objectFamily          | anoncreds                                                                       | did:indy Objects Method                 |
+| objectFamilyVersion   | v1                                                                              | did:indy Objects Method                 |
+| objectType            | 5                                                                               | Legacy Hyperledger Indy Objects Method  |
+| typeName              | `CL_ACCUM`                                                                      | Legacy Hyperledeger Indy Objects Method |
+| publisherId           | Fully qualified DID to easily identify the publisher of the Revocation Registry | cheqd Objects Method                    |
+| objectUri             | Fully qualified DID URL to easily access the Revocation Registry Entry          | cheqd Objects Method                    |
+| legacyObjectId        | The Legacy AnonCreds ID which may be expected by client applications            | Legacy Hyperledger Indy Objects Method  |
 
 ### cheqd Revocation Registry Entry transaction
 
@@ -199,17 +214,20 @@ Where, `degreeCredRevocRegEntry2.json` contains an updated `accum` value and `ob
 ```json
 {
   "AnonCredsRevRegEntry": {
-    "revocDefType": "CL_ACCUM",
-    "revocRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
-    "value": {
-      "accum": "52 87D...95B"
-    },
+    "data": {
+      "revocDefType": "CL_ACCUM",
+      "revocRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
+      "value": {
+        "accum": "52 87D...95B"
+      },
+    }
     "AnonCredsObjectMetadata": {
       "objectFamily": "anoncreds",
       "objectFamilyVersion": "v2",
       "objectType": "5",
-      "issuerDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
-      "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/c154bc07-43f7-4b69-ac0c-5514001f2ca3"
+      "publisherId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
+      "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/c154bc07-43f7-4b69-ac0c-5514001f2ca3",
+      "legacyObjectId": "5,did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J,4,did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J,3,CL,did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K,2,degreeSchema,1.5.7,credDefDegree,CL_ACCUM,degreeCredRevRegDef"
     }
   }
 }
@@ -245,11 +263,11 @@ Using existing DID Resolvers, it is possible to traverse the history of Revocati
 
 A DID URL such as the following will display all of the accumulators associated with a particular Revocation Registry:
 
-`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&all`
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&all`
 
 using a DID Resolver:
 
-`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&all`
+`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&all`
 
 {% hint style="info" %}
 It is recommended that applications using this revocation method implement a way of caching a historical list of accumulators and deltas to prevent the application from having to fetch the entire list of Revocation Registry Entries every time a proof of non-revocation is required.
@@ -261,7 +279,7 @@ Furthermore, it will be possible to query Revocation Entries at certain times. T
 
 For example:
 
-`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&versionAt=2022-08-21T08:40:00Z`
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&versionAt=2022-08-21T08:40:00Z`
 
 #### Obtain latest Revocation Registry Entry
 
@@ -269,8 +287,8 @@ It will be very common for a proof of non-revocation to require the latest Revoc
 
 The following DID URL will be able to call the latest Revocation Registry Entry
 
-`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&latest`
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&latest`
 
 using a DID Resolver:
 
-`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resouceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&latest`
+`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&latest`

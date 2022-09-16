@@ -10,26 +10,34 @@ This documentation will guide an implementor of AnonCreds on cheqd on how to rep
 
 ### AnonCreds Schema ID
 
-Each Schema Object within the [AnonCreds specification](https://anoncreds-wg.github.io/anoncreds-spec/) has its own unique `schema_id`.
+Each specific AnonCreds identifier must be defined within an AnonCreds Object Method in the [AnonCreds Object Method Registry](https://anoncreds-wg.github.io/anoncreds-objects-methods-registry/).
 
-The `schema_id` is a **composite** of the following set of elements:
+This means that an AnonCreds Schema Object ID does not need to be formatted in any particular syntax, in the latest version of the AnonCreds Specification.
+
+### Legacy AnonCreds Schema ID
+
+Prior to the AnonCreds specification being updated, the `schema_id` was defined as a **composite** of the following set of elements:
 
 * `publisher DID`: is a [string](https://infra.spec.whatwg.org/#string). The DID of the Schema Publisher.
 * `object type`: An integer denoting the type of object. `2` is used for Schemas.
 * `name`: is a [string](https://infra.spec.whatwg.org/#string), the name of the schema
 * `version`: is a [string](https://infra.spec.whatwg.org/#string), the version of the schema in [semver](https://semver.org/) format. The three part, period (“.”) separated format MAY be enforced.
 
-The `schema_id` therefore is formatted in the following way:
+The `schema_id` therefore was formatted in the following way:
 
 `<publisherDid>:<objectType>:<name>:<version>`
 
-For example an AnonCreds `schema_id` could be:
+For example a Legacy AnonCreds `schema_id` could be:
 
 ```bash
 7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7
 ```
 
 Through combining each of the components into one string, it provides client applications all of the information they need to know about the schema in a simple and easily consumable format.
+
+{% hint style="info" %}
+This is important to mention, since many client applications may still expect Schema IDs or Schema Content to contain the information or syntax within this Legacy `schema_id.`
+{% endhint %}
 
 ### AnonCreds Schema Object Content
 
@@ -43,6 +51,7 @@ For example:
 
 ```json
 {
+  "data": {
     "attr_names": [
         "birthlocation",
         "facephoto",
@@ -55,6 +64,7 @@ For example:
     ],
     "name": "degreeSchema",
     "version": "1.5.7"
+  }
 }
 ```
 
@@ -89,6 +99,7 @@ In the example below, the content should be saved as a file, for example: `degre
 ```json
 {
 "AnonCredsObject": {
+  "data": {
     "attr_names": [
         "birthlocation",
         "facephoto",
@@ -109,21 +120,23 @@ In the example below, the content should be saved as a file, for example: `degre
     "typeName": "SCHEMA",
     "publisherId": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K",
     "objectUri": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
-    "objectId": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K,2,degreeSchema,1.5.7"
+    "legacyObjectId": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K,2,degreeSchema,1.5.7"
     }
+  }
 }
 ```
 
 This implementation uses AnonCredsObjectMetadata to provide equivalency between cheqd's AnonCreds Object Method and other AnonCreds Object Methods, including the fields, where:
 
-| Object Metadata field | Response                                                   | Method Specification                   |
-| --------------------- | ---------------------------------------------------------- | -------------------------------------- |
-| objectFamily          | anoncreds                                                  | did:Indy Objects Method                |
-| objectFamilyVersion   | v1                                                         | did:Indy Objects Method                |
-| objectType            | 2                                                          | Legacy Hyperledger Indy Objects Method |
-| typeName              | `SCHEMA`                                                   | Legacy Hyperledger Indy Objects Method |
-| publisherDid          | DID of the Schema Publisher                                | Legacy Hyperledger Indy Objects Method |
-| objectUri             | Fully qualified DID URL to easily access the Schema Object | cheqd Objects Method                   |
+| Object Metadata field | Response                                                             | Method Specification                   |
+| --------------------- | -------------------------------------------------------------------- | -------------------------------------- |
+| objectFamily          | anoncreds                                                            | did:Indy Objects Method                |
+| objectFamilyVersion   | v1                                                                   | did:Indy Objects Method                |
+| objectType            | 2                                                                    | Legacy Hyperledger Indy Objects Method |
+| typeName              | `SCHEMA`                                                             | Legacy Hyperledger Indy Objects Method |
+| publisherId           | Fully qualified DID or URI to easily identify the Schema Publisher   | cheqd Objects Method                   |
+| objectUri             | Fully qualified DID URL to easily access the Schema Object           | cheqd Objects Method                   |
+| legacyObjectId        | The Legacy AnonCreds ID which may be expected by client applications | Legacy Hyperledger Indy Objects Method |
 
 {% hint style="info" %}
 Note: The cheqd ledger will not provide any checks on the Schema Object Content or Metadata. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct.
