@@ -36,7 +36,7 @@ The `cred_def_id` therefore was formatted in the following way:
 <issuerDid>:<objectType>:<signatureType>:<schemaId>:<tag>
 ```
 
-For example an AnonCreds `cred_def_id` could be:
+For example a Legacy AnonCreds `cred_def_id` could be:
 
 ```
 zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree
@@ -46,6 +46,10 @@ Through combining each of the components into one string, it provides client app
 
 {% hint style="info" %}
 This is important to mention, since many client applications may still expect CredDef IDs or CredDef Content to contain the information or specific syntax of this Legacy `cred_def_id.`
+{% endhint %}
+
+{% hint style="info" %}
+This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds Objects Method](https://hyperledger-indy.readthedocs.io/projects/node/en/latest/requests.html#requests)
 {% endhint %}
 
 ### AnonCreds CredDef Object Content

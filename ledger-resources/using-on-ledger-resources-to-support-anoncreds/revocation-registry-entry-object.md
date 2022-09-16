@@ -41,6 +41,10 @@ Important: Each AnonCreds Revocation Registry Entry has the **same ID** for a gi
 This is important to mention, since many client applications may still expect RevRegEntry IDs or RevRegEntry Content to contain the information or specific syntax of this Legacy `revocRegEntryId.`
 {% endhint %}
 
+{% hint style="info" %}
+This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds Objects Method](https://hyperledger-indy.readthedocs.io/projects/node/en/latest/requests.html#requests)
+{% endhint %}
+
 ### AnonCreds Revocation Registry Entry Content
 
 The required content and data model for the AnonCreds Revocation Registry Entry Object are as follows:

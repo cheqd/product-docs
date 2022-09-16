@@ -39,6 +39,10 @@ Through combining each of the components into one string, it provides client app
 This is important to mention, since many client applications may still expect Schema IDs or Schema Content to contain the information or syntax within this Legacy `schema_id.`
 {% endhint %}
 
+{% hint style="info" %}
+This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds Objects Method](https://hyperledger-indy.readthedocs.io/projects/node/en/latest/requests.html#requests)
+{% endhint %}
+
 ### AnonCreds Schema Object Content
 
 The actual Schema Object Content which is written to the Verifiable Data Registry, contains the following information:
