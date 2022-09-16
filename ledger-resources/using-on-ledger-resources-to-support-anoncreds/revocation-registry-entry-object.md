@@ -21,7 +21,7 @@ The Legacy AnonCreds Revocation Registry Entry ID was very similar in compositio
 
 The only difference is that the Revocation Registry Entry ID includes the Revocation Registry Entry ID `objectType`, which is "`5`".
 
-The structure of the AnonCreds Revocation Registry Entry ID is as follows:
+The structure of the Legacy AnonCreds Revocation Registry Entry ID is as follows:
 
 ```
 <objectType><RevocRegDefId>

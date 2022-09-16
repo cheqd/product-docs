@@ -41,7 +41,7 @@ The `revocRegDefId` therefore was formatted in the following way:
 <publisherDid>:<objectType>:<credDefId>:<revRegType>:<tag>
 ```
 
-For example an AnonCreds `revocRegDefId` could be:
+For example a Legacy AnonCreds `revocRegDefId` could be:
 
 ```
 zF7rhDBfUt9d1gJPjx7s1J:4:zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree:CL_ACCUM:degreeCredRevRegDef
