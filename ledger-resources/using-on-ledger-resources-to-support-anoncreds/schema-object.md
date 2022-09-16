@@ -113,6 +113,7 @@ In the example below, the content should be saved as a file, for example: `degre
     "name": "degreeSchema",
     "version": "1.5.7"
     },
+  }
 "AnonCredsObjectMetadata": {
     "objectFamily": "anoncreds",
     "objectFamilyVersion": "v1",
