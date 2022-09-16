@@ -279,7 +279,7 @@ Furthermore, it will be possible to query Revocation Entries at certain times. T
 
 For example:
 
-`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&versionAt=2022-08-21T08:40:00Z`
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&versionTime=2022-08-21T08:40:00Z`
 
 #### Obtain latest Revocation Registry Entry
 
@@ -287,8 +287,8 @@ It will be very common for a proof of non-revocation to require the latest Revoc
 
 The following DID URL will be able to call the latest Revocation Registry Entry
 
-`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&latest`
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&latestVersion=true`
 
 using a DID Resolver:
 
-`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&latest`
+`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&latestVersion=true`
