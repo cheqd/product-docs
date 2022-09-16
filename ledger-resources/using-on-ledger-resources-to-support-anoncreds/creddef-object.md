@@ -110,7 +110,7 @@ An example of a CredDef Object content without revocation is below:
 }
 ```
 
-The composite string of the `cred_def_id` should include the **same values** as are in the CredDef Object Content.
+Using the Legacy AnonCreds Object method as a reference point, the composite string of the `cred_def_id` should include the **same values** as are in the CredDef Object Content.
 
 {% hint style="info" %}
 Note: In the AnonCreds Specification the 'ref' is currently the Schema TXN ID. However, since this would not work for ledgers other than Indy, we propose changing this to a 'string' and referencing the SCHEMA\_ID

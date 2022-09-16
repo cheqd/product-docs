@@ -72,9 +72,9 @@ For example:
 }
 ```
 
-Within the Schema Object Content, the `name` and the `version` should be the same as the `name` and `version` in the **composite** `schema_id.`
+Returning to the Legacy AnonCreds `schema_id` as a reference point, within the Schema Object Content, the `name` and the `version` should be the same as the `name` and `version` in the **composite** `schema_id.`
 
-Therefore, the schema\_id `"7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7"` identifies the Schema Object content above.
+Therefore, the schema\_id `"7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7"` would identify and resolve to the Schema Object content above.
 
 Once published on a Hyperledger Indy ledger, an additional identifier for the published schema, the `TXN_ID`, is available to those reading from the ledger
 

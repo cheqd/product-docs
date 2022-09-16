@@ -97,8 +97,6 @@ For example, the on-ledger Revocation Registry Definition Object Content is as f
 }
 ```
 
-The composite string of the `revocRegDefId` should include the **same values** as are in the Revocation Registry Definition Object Content.
-
 ## cheqd AnonCreds Object Method for Revocation Registry Definition Objects
 
 ### cheqd Revocation Registry Definition Object ID
