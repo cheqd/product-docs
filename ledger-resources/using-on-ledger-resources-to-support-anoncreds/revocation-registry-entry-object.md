@@ -269,11 +269,11 @@ Using existing DID Resolvers, it is possible to traverse the history of Revocati
 
 A DID URL such as the following will display all of the accumulators associated with a particular Revocation Registry:
 
-`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&all`
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&allResourceVersions=true`
 
 using a DID Resolver:
 
-`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&all`
+`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&allResourceVersions=true`
 
 {% hint style="info" %}
 It is recommended that applications using this revocation method implement a way of caching a historical list of accumulators and deltas to prevent the application from having to fetch the entire list of Revocation Registry Entries every time a proof of non-revocation is required.
@@ -293,8 +293,8 @@ It will be very common for a proof of non-revocation to require the latest Revoc
 
 The following DID URL will be able to call the latest Revocation Registry Entry
 
-`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&latestVersion=true`
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&latestResourceVersion=true`
 
 using a DID Resolver:
 
-`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&latestVersion=true`
+`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=degreeCredRevocRegEntry&resourceType=CL_ACCUM&latestResourceVersion=true`
