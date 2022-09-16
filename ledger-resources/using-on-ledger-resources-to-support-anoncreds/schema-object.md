@@ -6,7 +6,7 @@ Schemas are used to list a set of attributes. Issuers of Verifiable Credentials 
 
 In the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec), schemas are written directly to a [Verifiable Data Registry](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-decentralised-identifier-did/what-is-a-verifiable-data-registry), rather than using a centralized service such as [schema.org](https://schema.org/). Schemas are also associated with Credential Definitions, which are used to link the schema, issuer and holder together ([detailed further here](creddef-object.md)).
 
-This documentation will guide an implementor of AnonCreds on cheqd on how to replicate an AnonCreds Schema Object using [cheqd's resources on-ledger](../../resources/).
+This documentation will guide an implementor of AnonCreds on cheqd on how the cheqd AnonCreds Object Method defines and structures Schema IDs and associated content.&#x20;
 
 ### AnonCreds Schema ID
 

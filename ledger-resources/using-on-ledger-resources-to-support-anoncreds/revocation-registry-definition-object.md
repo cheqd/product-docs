@@ -19,6 +19,8 @@ Each credential issued using the Revocation Registry Definition is given its own
 
 While not required, the Indy community has created a component, the “[Indy Tails Server](https://github.com/bcgov/indy-tails-server),” which is basically a web server for storing Tails Files.
 
+This documentation will guide an implementor of AnonCreds on cheqd on how the cheqd AnonCreds Object Method defines and structures Revocation Registry Definition IDs and associated content.
+
 ### AnonCreds Revocation Registry Definition Object ID
 
 Each specific AnonCreds identifier must be defined within an AnonCreds Object Method in the [AnonCreds Object Method Registry](https://anoncreds-wg.github.io/anoncreds-objects-methods-registry/).

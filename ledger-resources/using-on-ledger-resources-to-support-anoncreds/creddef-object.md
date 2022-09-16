@@ -10,6 +10,8 @@ In [AnonCreds](https://anoncreds-wg.github.io/anoncreds-spec/), Credential Defin
 4. A cryptographic secret, embedded within the CredDef Object content, creating an uncorrelatable 'link secret' between the issuer and holder
 5. Information necessary for the revocation of credentials, if revocation is to be enabled by the Issuer for this type of credential (Optional).
 
+This documentation will guide an implementor of AnonCreds on cheqd on how the cheqd AnonCreds Object Method defines and structures CredDef IDs and associated content, with and without revocation enabled.&#x20;
+
 ### AnonCreds CredDef Object ID
 
 Each specific AnonCreds identifier must be defined within an AnonCreds Object Method in the [AnonCreds Object Method Registry](https://anoncreds-wg.github.io/anoncreds-objects-methods-registry/).

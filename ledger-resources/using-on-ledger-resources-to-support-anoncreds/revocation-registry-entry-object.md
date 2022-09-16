@@ -9,6 +9,8 @@ In the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec),
 
 An initial Revocation Registry Entry is generated and published immediately on creation of the [Revocation Registry Definition Object](revocation-registry-definition-object.md) so that it can be used immediately by holders. Over time, additional Revocation Registry Entry Objects are generated and published as the revocation status of one or more credentials within the Revocation Registry change.
 
+This documentation will guide an implementor of AnonCreds on cheqd on how the cheqd AnonCreds Object Method defines and structures Revocation Registry Entry IDs and associated content.
+
 ### AnonCreds Revocation Registry Entry ID
 
 Each specific AnonCreds identifier must be defined within an AnonCreds Object Method in the [AnonCreds Object Method Registry](https://anoncreds-wg.github.io/anoncreds-objects-methods-registry/).
