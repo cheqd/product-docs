@@ -2,7 +2,7 @@
 
 ## cheqd AnonCreds Object Method
 
-cheqd intends to directly support AnonCreds using its [on-ledger resource module](../../resources/) in an AnonCreds Object Method. With its resource module, cheqd will identify each on-ledger resource with a [DID Core](https://www.w3.org/TR/did-core/) compliant [DID URL](https://www.w3.org/TR/did-core/). This DID URL will be able to be dereferenced in order to fetch the resource.&#x20;
+cheqd intends to directly support AnonCreds using its [on-ledger resource module](../../resources/) in an AnonCreds Object Method. With its resource module, cheqd will identify each on-ledger resource with a [DID Core](https://www.w3.org/TR/did-core/) compliant [DID URL](https://www.w3.org/TR/did-core/). This DID URL will be able to be dereferenced in order to fetch the resource and associated metadata
 
 ### Why is AnonCreds support important?
 
