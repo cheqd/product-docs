@@ -21,11 +21,12 @@
   * [🧑‍⚖️ Governance Frameworks as Resources](resources/governance-framework.md)
 * [📚 Creating a Resource using cheqd Cosmos CLI](resources/tutorials/README.md)
   * [📚 Publishing a new Resource version](resources/tutorials/add-resource-to-existing-collection.md)
-* [🔒 Using on-ledger resources to support AnonCreds](ledger-resources/using-on-ledger-resources-to-support-anoncreds/README.md)
+* [🔒 Using on-ledger Resources to support AnonCreds](ledger-resources/using-on-ledger-resources-to-support-anoncreds/README.md)
   * [Schema Object](ledger-resources/using-on-ledger-resources-to-support-anoncreds/schema-object.md)
   * [CredDef Object](ledger-resources/using-on-ledger-resources-to-support-anoncreds/creddef-object.md)
   * [Revocation Registry Definition Object](ledger-resources/using-on-ledger-resources-to-support-anoncreds/revocation-registry-definition-object.md)
   * [Revocation Registry Entry Object](ledger-resources/using-on-ledger-resources-to-support-anoncreds/revocation-registry-entry-object.md)
+* [Using on-ledger Resources to support StatusList21](ledger-resources/using-on-ledger-resources-to-support-statuslist21.md)
 
 ## 🛂 Building Decentralized Identity Apps
 
