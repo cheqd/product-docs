@@ -40,13 +40,13 @@ The bitstring here is stored in the `encodedList` property. This value _MUST_ be
 
 More specifically, each value has the following definition and use:
 
-| Property                          | Description                                                                                                                                                                                                                                                                                                                                                                     |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`                              | The [verifiable credential](https://w3c-ccg.github.io/vc-status-list-2021/#dfn-verifiable-credentials) that contains the status list _MAY_ express an `id` property that matches the value specified in `statusListCredential` for the corresponding `StatusList2021Entry` (see [2.1 StatusList2021Entry](https://w3c-ccg.github.io/vc-status-list-2021/#statuslist2021entry)). |
-| `type`                            | The [verifiable credential](https://w3c-ccg.github.io/vc-status-list-2021/#dfn-verifiable-credentials) that contains the status list _MUST_ express a `type` property that includes the `StatusList2021Credential` value.                                                                                                                                                       |
-| `credentialSubject.type`          | The `type` of the credential [subject](https://w3c-ccg.github.io/vc-status-list-2021/#dfn-subjects), which is the status list, _MUST_ be `StatusList2021`.                                                                                                                                                                                                                      |
-| `credentialSubject.statusPurpose` | The purpose of the status entry _MUST_ be a string. While the value of the string is arbitrary, the following values _MUST_ be used for their intended purpose: **revocation** or **suspension.**                                                                                                                                                                               |
-| `credentialSubject.encodedList`   | The `encodedList` property of the credential _MUST_ be the GZIP-compressed, base-64 encoded bitstring values for the associated range of [verifiable credential](https://w3c-ccg.github.io/vc-status-list-2021/#dfn-verifiable-credentials) status values. The uncompressed bitstring _MUST_ be at least 16KB in size.                                                          |
+| Property                          | Description                                                                                                                                                                                                                                                                                        |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                              | The verifiable credential that contains the status list _MAY_ express an `id` property that matches the value specified in `statusListCredential` for the corresponding `StatusList2021Entry` (see [2.1 StatusList2021Entry](https://w3c-ccg.github.io/vc-status-list-2021/#statuslist2021entry)). |
+| `type`                            | The verifiable credential that contains the status list _MUST_ express a `type` property that includes the `StatusList2021Credential` value.                                                                                                                                                       |
+| `credentialSubject.type`          | The `type` of the credential subject, which is the status list, _MUST_ be `StatusList2021`.                                                                                                                                                                                                        |
+| `credentialSubject.statusPurpose` | The purpose of the status entry _MUST_ be a string. While the value of the string is arbitrary, the following values _MUST_ be used for their intended purpose: **revocation** or **suspension.**                                                                                                  |
+| `credentialSubject.encodedList`   | The `encodedList` property of the credential _MUST_ be the GZIP-compressed, base-64 encoded bitstring values for the associated range of verifiable credential status values. The uncompressed bitstring _MUST_ be at least 16KB in size.                                                          |
 
 When an issuer wants to issue a Verifiable Credential relying on StatusList21, they must include the following properties within the Verifiable Credential itself.
 
@@ -77,13 +77,13 @@ When an issuer wants to issue a Verifiable Credential relying on StatusList21, t
 
 Where,
 
-| Property               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`                   | The constraints on the `id` property are listed in the Verifiable Credentials Data Model specification \[[_VC-DATA-MODEL_](https://w3c-ccg.github.io/vc-status-list-2021/#bib-vc-data-model)]. The value is expected to be a URL that identifies the status information associated with the [verifiable credential](https://w3c-ccg.github.io/vc-status-list-2021/#dfn-verifiable-credentials). It _MUST NOT_ be the URL for the status list. |
-| type                   | The `type` property _MUST_ be `StatusList2021Entry`                                                                                                                                                                                                                                                                                                                                                                                           |
-| `statusPurpose`        | The purpose of the status entry _MUST_ be a string. While the value of the string is arbitrary, the following values _MUST_ be used for their intended purpose: **revocation** or **suspension**                                                                                                                                                                                                                                              |
-| `statusListIndex`      | The `statusListIndex` property _MUST_ be an arbitrary size integer greater than or equal to 0, expressed as a string. The value identifies the bit position of the status of the [verifiable credential](https://w3c-ccg.github.io/vc-status-list-2021/#dfn-verifiable-credentials).                                                                                                                                                          |
-| `statusListCredential` | The `statusListCredential` property _MUST_ be a URL to a [verifiable credential](https://w3c-ccg.github.io/vc-status-list-2021/#dfn-verifiable-credentials). When the URL is dereferenced, the resulting [verifiable credential](https://w3c-ccg.github.io/vc-status-list-2021/#dfn-verifiable-credentials) _MUST_ have `type` property that includes the `StatusList2021Credential` value.                                                   |
+| Property               | Description                                                                                                                                                                                                                                                                                                                                                      |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                   | The constraints on the `id` property are listed in the Verifiable Credentials Data Model specification \[[_VC-DATA-MODEL_](https://w3c-ccg.github.io/vc-status-list-2021/#bib-vc-data-model)]. The value is expected to be a URL that identifies the status information associated with the verifiable credential. It _MUST NOT_ be the URL for the status list. |
+| type                   | The `type` property _MUST_ be `StatusList2021Entry`                                                                                                                                                                                                                                                                                                              |
+| `statusPurpose`        | The purpose of the status entry _MUST_ be a string. While the value of the string is arbitrary, the following values _MUST_ be used for their intended purpose: **revocation** or **suspension**                                                                                                                                                                 |
+| `statusListIndex`      | The `statusListIndex` property _MUST_ be an arbitrary size integer greater than or equal to 0, expressed as a string. The value identifies the bit position of the status of the verifiable credential.                                                                                                                                                          |
+| `statusListCredential` | The `statusListCredential` property _MUST_ be a URL to a verifiable credential. When the URL is dereferenced, the resulting verifiable credential _MUST_ have `type` property that includes the `StatusList2021Credential` value.                                                                                                                                |
 
 As such, the issued Verifiable Credential references the StatusList Credential controlled and stored by the issuer.&#x20;
 
@@ -132,7 +132,7 @@ Let's assume that the following DID is created.
 
 #### Prepare encodedList content
 
-Prepare a file with the StatusList21 bitstring `encodedList` and encode it into `base64`.
+Prepare a file with the StatusList21 bitstring `encodedList` and encode it into `base64`, following the [same generate algorithm as in the StatusList21 Specification](https://w3c-ccg.github.io/vc-status-list-2021/#generate-algorithm).
 
 {% hint style="info" %}
 Note: The uncompressed bitstring _MUST_ be at least 16KB in size to maintain herd privacy for the holder.
@@ -147,7 +147,7 @@ $ base64 -w 0 <path-to-the-resource-file>
 Example:
 
 ```
-$ base64 -w 0 credentialsubject_encondedlist.txt
+$ base64 -w 0 credentialsubjectencondedlist.txt
 SGVsbG8sIHdvcmxk
 ```
 
@@ -229,7 +229,7 @@ Once created the StatusList21 Resource will be associated with the parent DID, a
 
 ### Issuing a Verifiable Credential referencing cheqd StatusList
 
-Follow the [instructions for issuing a Verifiable Credential here](../veramo-sdk-for-cheqd/verifiable-credentials/).
+Follow the [instructions for issuing a Verifiable Credential here](../veramo-sdk-for-cheqd/verifiable-credentials/), including the credentialStatus information, as shown in the example below:
 
 ```json
 {
@@ -247,7 +247,7 @@ Follow the [instructions for issuing a Verifiable Credential here](../veramo-sdk
   "credentialStatus": {
     "id": "did:cheqd:testnet:zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY/resources/4a71319b-00b1-4db9-bc05-56dc426f7062#94567"
     "type": "StatusList2021Entry",
-    "statusPurpose": "revocation",
+    "statusPurpose": "StatusList2021Revocation",
     "statusListIndex": "94567",
     "statusListResource": "did:cheqd:testnet:zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY/resources/4a71319b-00b1-4db9-bc05-56dc426f7062"
   },
@@ -263,13 +263,26 @@ Follow the [instructions for issuing a Verifiable Credential here](../veramo-sdk
 }
 ```
 
-Where,
+Where the values within the credentialSubject field are as follows:
 
-| Property               | Description                                                                                                                                                                                                                                                                          |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `id`                   | A specific DID URL dereferencing to the actual status of the Credential                                                                                                                                                                                                              |
-| type                   | The `type` property _MUST_ be `StatusList2021Entry`                                                                                                                                                                                                                                  |
-| `statusPurpose`        | The purpose of the status entry _MUST_ be a string. While the value of the string is arbitrary, the following values _MUST_ be used for their intended purpose: **revocation** or **suspension**                                                                                     |
-| `statusListIndex`      | The `statusListIndex` property _MUST_ be an arbitrary size integer greater than or equal to 0, expressed as a string. The value identifies the bit position of the status of the [verifiable credential](https://w3c-ccg.github.io/vc-status-list-2021/#dfn-verifiable-credentials). |
-| `statusListCredential` | The `statusListCredential` property _MUST_ is a DID URL to a statusList Resource. When the URL is dereferenced, the resulting Resource _MUST_ have `type` property that includes the `StatusList2021Credential` value.                                                               |
+| Property               | Description                                                                                                                                                                                                            |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                   | A specific DID URL dereferencing to the actual status of the Credential                                                                                                                                                |
+| type                   | The `type` property _MUST_ be `StatusList2021Entry`                                                                                                                                                                    |
+| `statusPurpose`        | The purpose of the status entry _MUST_ be a string. While the value of the string is arbitrary, the following values _MUST_ be used for their intended purpose: **revocation** or **suspension**                       |
+| `statusListIndex`      | The `statusListIndex` property _MUST_ be an arbitrary size integer greater than or equal to 0, expressed as a string. The value identifies the bit position of the status of the verifiable credential.                |
+| `statusListCredential` | The `statusListCredential` property _MUST_ is a DID URL to a statusList Resource. When the URL is dereferenced, the resulting Resource _MUST_ have `type` property that includes the `StatusList2021Credential` value. |
 
+#### Validate Algorithm for cheqd StatusList <a href="#x3-2-validate-algorithm" id="x3-2-validate-algorithm"></a>
+
+The following process, or one generating the exact output, _MUST_ be followed when validating a verifiable credential that is contained in a cheqd StatusList Resource.
+
+1. Let **credentialToValidate** be a verifiable credentials containing a `credentialStatus` entry that is a StatusList2021Entry, associated with an entry in a bitstring.
+2. Let **status purpose** be the value of `statusPurpose` in the `credentialStatus` entry in the **credentialToValidate**.
+3. Verify all proofs associated with the **credentialToValidate**. If a proof fails, return a validation error.
+4. Verify that the **status purpose** matches the `resourceType` value in the **StatusList21 Resource**.
+5. Let **compressed bitstring** be the value of the `encodedList` property of the **StatusList21 Resource**.
+6. Let **credentialIndex** be the value of the `statusListIndex` property of the bitstring in the **StatusList21 Resource**.
+7. Generate a **revocation bitstring** by passing **compressed bitstring** to the [Bitstring Expansion Algorithm](https://w3c-ccg.github.io/vc-status-list-2021/#bitstring-expansion-algorithm).
+8. Let **status** be the value of the bit at position **credentialIndex** in the **revocation bitstring**.
+9. Return `true` if **status** is 1, `false` otherwise.
