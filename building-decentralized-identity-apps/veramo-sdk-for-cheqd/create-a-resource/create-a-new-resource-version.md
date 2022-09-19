@@ -22,7 +22,7 @@ Follow [this](./) tutorial to create the first version of the resource.
 
 Resources with the same Collection ID and name are grouped into version sets. Each resource in such a set has a link to the previous version (except the first version) and the next version (if it's not the most recent version).
 
-To create a resource and mark it as a new version within a particular group, we need to use the same `collection-id` and `name` as in the previous version. Links between versions will be created automatically.
+To create a resource and mark it as a new version within a particular group, we need to use the same `collection-id, name` and `type` as in the previous version. Links between versions will be created automatically.
 
 New versions have dedicated unique IDs and can be referenced and retrieved as any other resources.
 
