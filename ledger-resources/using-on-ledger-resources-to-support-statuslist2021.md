@@ -1,20 +1,20 @@
-# Using on-ledger Resources to support StatusList21
+# ❌ Using on-ledger Resources to support StatusList2021
 
-The [StatusList21 Specification](https://w3c-ccg.github.io/vc-status-list-2021/#conceptual-framework) is a working document from the W3C to support a privacy-preserving, space-efficient, and high-performance mechanism for publishing status information such as suspension or revocation of [JSON](../verifiable-credentials/json-jwt-credentials.md) and [JSON-LD](../verifiable-credentials/json-ld-credentials.md) Verifiable Credentials.
+The [Status List 2021 Specification](https://w3c-ccg.github.io/vc-status-list-2021/#conceptual-framework) is a working document from the W3C to support a privacy-preserving, space-efficient, and high-performance mechanism for publishing status information such as suspension or revocation of [JSON](../verifiable-credentials/json-jwt-credentials.md) and [JSON-LD](../verifiable-credentials/json-ld-credentials.md) Verifiable Credentials.
 
-## Understanding StatusList21
+## Understanding Status List 2021
 
-StatusList21 utilises bitstrings to represent where a Verifiable Credential has been suspended/revoked or not. A bitstring can be thought of as a long list of 1s and 0s, where, if the binary value of the position in the list is 1 (one), the [verifiable credential](https://w3c-ccg.github.io/vc-status-list-2021/#dfn-verifiable-credentials) is revoked, if it is 0 (zero) it is not revoked.
+The [Status List 2021 Specification](https://w3c-ccg.github.io/vc-status-list-2021/) utilises [bitstrings](https://w3c-ccg.github.io/vc-status-list-2021/#conceptual-framework) to represent whether a Verifiable Credential has been suspended/revoked or not. A bitstring can be thought of as a long list of 1s and 0s, where, if the binary value of the position in the list is 1 (one), the [verifiable credential](https://w3c-ccg.github.io/vc-status-list-2021/#dfn-verifiable-credentials) is revoked, if it is 0 (zero) it is not revoked.
 
-<figure><img src="../.gitbook/assets/StatusList21 Bitstring.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/StatusList21 Bitstring.png" alt=""><figcaption><p>Graphic showing the StatusList 2021 Bitstring</p></figcaption></figure>
 
-Each issued Credential correlates with a position and index on the bitstring, so that a verifier will be able to correlate the value within the Credential against the public bitstring to ascertain whether the Credential has been revoked or not.
+Each issued Credential correlates with a position and index on the bitstring, so that a verifier will be able to correlate the value within the Credential against the public bitstring to ascertain whether the Credential has been revoked or not, using a [validate algorithm](https://w3c-ccg.github.io/vc-status-list-2021/#validate-algorithm) as well as a [bitstring expansion algorithm](https://w3c-ccg.github.io/vc-status-list-2021/#bitstring-expansion-algorithm).
 
 ### Where is the StatusList published?
 
-The issuer keeps a bitstring list of all Verifiable Credentials it has issued. The StatusList is published by the issuer **in the format of its own Verifiable Credential.** This Verifiable Credential is generally stored on a centralised server or domain to enable public accessiblility and read-access.
+The issuer keeps a bitstring list of all Verifiable Credentials it has issued. The StatusList is published by the issuer **in the format of its own Verifiable Credential.** This Verifiable Credential is generally hosted publicly on a centralised server or domain to enable third-party read-access.
 
-The following JSON format is the standard way for creating a StatusList21 definition, using a Verifiable Credential.
+The following JSON syntax shows the common format for creating a StatusList2021 definition, using a Verifiable Credential.
 
 ```json
 {
@@ -36,7 +36,11 @@ The following JSON format is the standard way for creating a StatusList21 defini
 
 ```
 
-The bitstring here is stored in the `encodedList` property. This value _MUST_ be a GZIP-compressed base-64 encoded bitstring value for the associated range of Verifiable Credential status values. The uncompressed bitstring _MUST_ be at least 16KB in size.
+The bitstring here is stored in the `encodedList` property. This value _MUST_ be a GZIP-compressed base-64 encoded bitstring value for the associated range of Verifiable Credential status values.&#x20;
+
+{% hint style="info" %}
+Note: The uncompressed bitstring _MUST_ be at least 16KB in size to maintain herd privacy for the holder.
+{% endhint %}
 
 More specifically, each value has the following definition and use:
 
@@ -48,7 +52,7 @@ More specifically, each value has the following definition and use:
 | `credentialSubject.statusPurpose` | The purpose of the status entry _MUST_ be a string. While the value of the string is arbitrary, the following values _MUST_ be used for their intended purpose: **revocation** or **suspension.**                                                                                                  |
 | `credentialSubject.encodedList`   | The `encodedList` property of the credential _MUST_ be the GZIP-compressed, base-64 encoded bitstring values for the associated range of verifiable credential status values. The uncompressed bitstring _MUST_ be at least 16KB in size.                                                          |
 
-When an issuer wants to issue a Verifiable Credential relying on StatusList21, they must include the following properties within the Verifiable Credential itself.
+When an issuer wants to issue a Verifiable Credential relying on StatusList2021, they must include the following `credentialStatus` properties within the Verifiable Credential itself.
 
 ```json
 {
@@ -75,7 +79,7 @@ When an issuer wants to issue a Verifiable Credential relying on StatusList21, t
 }
 ```
 
-Where,
+Where each property has the following meaning:
 
 | Property               | Description                                                                                                                                                                                                                                                                                                                                                      |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -85,21 +89,21 @@ Where,
 | `statusListIndex`      | The `statusListIndex` property _MUST_ be an arbitrary size integer greater than or equal to 0, expressed as a string. The value identifies the bit position of the status of the verifiable credential.                                                                                                                                                          |
 | `statusListCredential` | The `statusListCredential` property _MUST_ be a URL to a verifiable credential. When the URL is dereferenced, the resulting verifiable credential _MUST_ have `type` property that includes the `StatusList2021Credential` value.                                                                                                                                |
 
-As such, the issued Verifiable Credential references the StatusList Credential controlled and stored by the issuer.&#x20;
+As such, the issued Verifiable Credential references the centralised parent StatusList Credential controlled and stored by the issuer.&#x20;
 
-## StatusList21 using cheqd Resource Module
+## StatusList2021 using cheqd Resource Module
 
-The [StatusList21 Specification](https://w3c-ccg.github.io/vc-status-list-2021/) indicates that it may be desirable to store the actual StatusList using something like a [Content Distribution Network](https://w3c-ccg.github.io/vc-status-list-2021/#content-distribution-networks) to lessen the load on the server maintained by the issuer to return a result in real-time.
+The [Status List 2021 Specification](https://w3c-ccg.github.io/vc-status-list-2021/) indicates that it may be desirable to store the actual StatusList using something like a [Content Distribution Network](https://w3c-ccg.github.io/vc-status-list-2021/#content-distribution-networks) to lessen the load on the server maintained by the issuer to return a result in real-time.
 
-Using cheqd's Resource Module, the same benefits may be achieved.&#x20;
+Using cheqd's Resource Module, the same benefits may be achieved. In fact, storing a StatusList as an on-ledger Resource is a much better application of technology than using a Verifiable Credential for the same purpose.
 
 By storing a StatusList on the cheqd Network as a Resource, it creates a much more resilient and decentralised mechanism for storing and maintaining the revocation/suspension status of Verifiable Credentials. The [benefits of using the cheqd Resource module over traditional centralised architecture are detailed here](https://docs.cheqd.io/node/architecture/adr-list/adr-008-ledger-resources).
 
-Moreover, cheqd's Resource Module enables individual Resources to be referenced and retrieved using a DID URL in conformance with DID Core. This is being standardized within a specification called [DID URLs for Digital Resources](https://wiki.trustoverip.org/display/HOME/DID+URLs+for+Digital+Resources+Specification).&#x20;
+Moreover, cheqd's Resource Module enables individual Resources to be referenced and retrieved using a DID URL in conformance with DID Core. This is being standardized at [the Trust over IP Foundation](https://trustoverip.org/) within a specification called [DID URLs for Digital Resources](https://wiki.trustoverip.org/display/HOME/DID+URLs+for+Digital+Resources+Specification).&#x20;
 
 ### Creating a StatusList Resource using Veramo SDK for cheqd
 
-Using the cheqd Resource module, the same content and semantics of StatusList21 can be replicated, with additional benefits of enabling DID Resolvers to fetch the contents of the StatusList.&#x20;
+Using the cheqd Resource module, the same content and semantics of StatusList2021 can be replicated, with additional benefits of enabling DID Resolvers to fetch the contents of the StatusList.&#x20;
 
 #### Create a DID and DID Document with keys to manage the StatusList
 
@@ -132,7 +136,7 @@ Let's assume that the following DID is created.
 
 #### Prepare encodedList content
 
-Prepare a file with the StatusList21 bitstring `encodedList` and encode it into `base64`, following the [same generate algorithm as in the StatusList21 Specification](https://w3c-ccg.github.io/vc-status-list-2021/#generate-algorithm).
+Prepare a file with the StatusList2021 bitstring `encodedList` and encode it into `base64`, following the [same generate algorithm as in the Status List2021 Specification](https://w3c-ccg.github.io/vc-status-list-2021/#generate-algorithm).
 
 {% hint style="info" %}
 Note: The uncompressed bitstring _MUST_ be at least 16KB in size to maintain herd privacy for the holder.
@@ -160,7 +164,7 @@ $ uuidgen
 4a71319b-00b1-4db9-bc05-56dc426f7062
 ```
 
-#### Create a new Resource for the StatusList Resource
+#### Create a new Resource for the StatusList
 
 ```json
 {
@@ -168,8 +172,8 @@ $ uuidgen
     "payload": {
         "collectionId": "zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY",
         "id": "4a71319b-00b1-4db9-bc05-56dc426f7062",
-        "name": "ExampleStatusList21",
-        "resourceType": "StatusList21Revocation",
+        "name": "ExampleStatusList2021",
+        "resourceType": "StatusList2021Revocation",
         "data": "SGVsbG8sIHdvcmxk"
     },
     "signInputs": [{
@@ -180,9 +184,21 @@ $ uuidgen
 }
 ```
 
+|                  |                                                                                                                                                     |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **collectionId** |                                                                                                                                                     |
+| **id**           |                                                                                                                                                     |
+| **name**         | This must be a unique name indicating the `type` of Status List`,` but also a qualifying name for the List. For example: **ExampleStatusList2021.** |
+| **resourceType** | This must indicate the `statusPurpose.` This value should be either: **StatusList2021Revocation** or **StatusList2021Suspension**                   |
+| **data**         | Base 64 encoded file containing the full bitstring for the StatusList                                                                               |
+
+{% hint style="info" %}
+Note: If an issuer wants to create multiple StatusLists within the same Collection, they must have **unique** and **distinct names**.&#x20;
+{% endhint %}
+
 #### Note association between DID and Resource
 
-Once created the StatusList21 Resource will be associated with the parent DID, and referenced in the DID Document Metadata as follows:
+Once created, the StatusList2021 Resource will be associated with the parent DID, and referenced in the DID Document Metadata as follows:
 
 ```json
 {
@@ -214,8 +230,8 @@ Once created the StatusList21 Resource will be associated with the parent DID, a
         "resourceURI": "did:cheqd:testnet:zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY/resources/4a71319b-00b1-4db9-bc05-56dc426f7062",
         "resourceCollectionId": "zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY",
         "resourceId": "4a71319b-00b1-4db9-bc05-56dc426f7062",
-        "resourceName": "ExampleStatusList21",
-        "resourceType": "StatusList21Revocation",
+        "resourceName": "ExampleStatusList2021",
+        "resourceType": "StatusList2021Revocation",
         "mediaType": "application/json",
         "created": "2022-09-16T11:15:52Z",
         "checksum": "0f503dfbff29de9ac74fd07f1720ba560eb388e28062367884890c311736ec9d",
@@ -280,9 +296,9 @@ The following process, or one generating the exact output, _MUST_ be followed wh
 1. Let **credentialToValidate** be a verifiable credentials containing a `credentialStatus` entry that is a StatusList2021Entry, associated with an entry in a bitstring.
 2. Let **status purpose** be the value of `statusPurpose` in the `credentialStatus` entry in the **credentialToValidate**.
 3. Verify all proofs associated with the **credentialToValidate**. If a proof fails, return a validation error.
-4. Verify that the **status purpose** matches the `resourceType` value in the **StatusList21 Resource**.
-5. Let **compressed bitstring** be the value of the `encodedList` property of the **StatusList21 Resource**.
-6. Let **credentialIndex** be the value of the `statusListIndex` property of the bitstring in the **StatusList21 Resource**.
+4. Verify that the **status purpose** matches the `resourceType` value in the **StatusList2021 Resource**.
+5. Let **compressed bitstring** be the value of the `encodedList` property of the **StatusList2021 Resource**.
+6. Let **credentialIndex** be the value of the `statusListIndex` property of the bitstring in the **StatusList2021 Resource**.
 7. Generate a **revocation bitstring** by passing **compressed bitstring** to the [Bitstring Expansion Algorithm](https://w3c-ccg.github.io/vc-status-list-2021/#bitstring-expansion-algorithm).
 8. Let **status** be the value of the bit at position **credentialIndex** in the **revocation bitstring**.
 9. Return `true` if **status** is 1, `false` otherwise.

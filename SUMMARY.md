@@ -26,7 +26,7 @@
   * [CredDef Object](ledger-resources/using-on-ledger-resources-to-support-anoncreds/creddef-object.md)
   * [Revocation Registry Definition Object](ledger-resources/using-on-ledger-resources-to-support-anoncreds/revocation-registry-definition-object.md)
   * [Revocation Registry Entry Object](ledger-resources/using-on-ledger-resources-to-support-anoncreds/revocation-registry-entry-object.md)
-* [❌ Using on-ledger Resources to support StatusList21](ledger-resources/using-on-ledger-resources-to-support-statuslist21.md)
+* [❌ Using on-ledger Resources to support StatusList2021](ledger-resources/using-on-ledger-resources-to-support-statuslist2021.md)
 
 ## 🛂 Building Decentralized Identity Apps
 
