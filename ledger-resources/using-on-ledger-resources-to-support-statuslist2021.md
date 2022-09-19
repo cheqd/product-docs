@@ -184,13 +184,15 @@ $ uuidgen
 }
 ```
 
-|                  |                                                                                                                                                     |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **collectionId** |                                                                                                                                                     |
-| **id**           |                                                                                                                                                     |
-| **name**         | This must be a unique name indicating the `type` of Status List`,` but also a qualifying name for the List. For example: **ExampleStatusList2021.** |
-| **resourceType** | This must indicate the `statusPurpose.` This value should be either: **StatusList2021Revocation** or **StatusList2021Suspension**                   |
-| **data**         | Base 64 encoded file containing the full bitstring for the StatusList                                                                               |
+Where the fields within the payload have the following meaning:
+
+|                  |                                                                                                                                                    |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **collectionId** | The unique identifier of the parent DID, to link the Resource to a particular DID                                                                  |
+| **id**           | A UUID for the resource, to enable it to be specifically referenced and fetched                                                                    |
+| **name**         | This must be a unique name indicating the `type` of Status List`,` but also a qualifying name for the List. For example: **ExampleStatusList2021** |
+| **resourceType** | This must indicate the `statusPurpose.` This value should be either: **StatusList2021Revocation** or **StatusList2021Suspension**                  |
+| **data**         | Base 64 encoded file containing the full bitstring for the StatusList                                                                              |
 
 {% hint style="info" %}
 Note: If an issuer wants to create multiple StatusLists within the same Collection, they must have **unique** and **distinct names**.&#x20;
