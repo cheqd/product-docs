@@ -63,7 +63,7 @@ _Note_: You can use the same mnemonic for both mainnet and testnet, since the sa
 
 _Heads-up_: Even if you're trying it on `testnet` you still need to put `cosmosPayerMnemonic` for your `mainnet` (You can use the same `cosmosPayerMnemonic`). Otherwise, you will still be getting the same error as above when you run `veramo config check -f agent.yml`.
 
-### 3. Running `wget -c https://raw.githubusercontent.com/cheqd/did-provider-cheqd/main/agent.yml` command is giving you errors:
+### 3. Running `wget -c https://raw.githubusercontent.com/cheqd/did-provider-cheqd/main/agent.yml` command is giving you errors
 
 - First, create `agent.yml` file at `root` directory level.
 

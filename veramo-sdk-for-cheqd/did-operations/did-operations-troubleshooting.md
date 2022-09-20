@@ -2,15 +2,15 @@
 
 This guide provides common errors and potential fixes for them if you encountered errors when [creating did](create-subject-did.md).
 
-### 1. When generating keys along with a DIDDoc template
+## 1. When generating keys along with a DIDDoc template
 
-#### When running:
+When you try to generate `keys` along with `DiDDoc` template using command below
 
 ```bash
 veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "Ed25519VerificationKey2020", "methodSpecificIdAlgo": "base58btc", "methodSpecificIdLength": 16, "network": "testnet"}'
 ```
 
-If you encounter an error below:
+If you encounter an error below
 
 `Unexpected token v in JSON at position 1`
 
