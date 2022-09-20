@@ -14,7 +14,7 @@ Unable to create agent from ./agent.yml. Error creating @cheqd/did-provider-cheq
 
 This error typically happens when the version of `did-provider-cheqd` is incompatible with the version of Veramo CLI being used.
 
-This can happen if you *didn't* use the `npm -g` ("global") flag when installing the packages, *and* have a conflicting package version for any of the required packages in the folder where you executed this command from.
+This can happen if you _didn't_ use the `npm -g` ("global") flag when installing the packages, _and_ have a conflicting package version for any of the required packages in the folder where you executed this command from.
 
 To verify if this is the case, check the version number of globally-installed NPM packages. Your list may be shorter or longer than this list, but pay close attention to the `@cheqd/did-provider-cheqd` and `@veramo/cli` versions.
 
@@ -27,7 +27,7 @@ $npm list -g
 └── npm@8.16.0
 ```
 
-Compare and contrast this from the output from the *same* folder where the command failed without the `--global` / `-g` flag:
+Compare and contrast this from the output from the _same_ folder where the command failed without the `--global` / `-g` flag:
 
 ```bash
 $ npm list
@@ -43,7 +43,7 @@ $ npm list
 ├── ...
 ```
 
-In this example above, you'll see that the version of the `@veramo/cli` package is *not* the same one as the global one. This could equally happen with the `@cheqd/did-provider-cheqd` version.
+In this example above, you'll see that the version of the `@veramo/cli` package is _not_ the same one as the global one. This could equally happen with the `@cheqd/did-provider-cheqd` version.
 
 Doing a global install for both packages will ensure that you've got the correct packages, regardless of which folder the `agent.yml` file is kept in.
 
@@ -59,4 +59,12 @@ Your Veramo configuration seems fine. An agent can be created and the 'agent.exe
 
 This error is thrown if the `cosmosPayerMnemonic` value is set to an incorrect number of words (it should either be 12 or 24 words), or if it's left to the default value of `'your cosmos payer mnemonic'`.
 
-*Note*: You can use the same mnemonic for both mainnet and testnet, since the same account address has separate balances on different networks.
+_Note_: You can use the same mnemonic for both mainnet and testnet, since the same account address has separate balances on different networks.
+
+_Heads-up_: Even if you're trying it on `testnet` you still need to put `cosmosPayerMnemonic` for your `mainnet` (You can use the same `cosmosPayerMnemonic`). Otherwise, you will still be getting the same error as above when you run `veramo config check -f agent.yml`.
+
+### 3. Running `wget -c https://raw.githubusercontent.com/cheqd/did-provider-cheqd/main/agent.yml` command is giving you errors:
+
+- First, create `agent.yml` file at `root` directory level.
+
+- Second, go to this [url](https://raw.githubusercontent.com/cheqd/did-provider-cheqd/main/agent.yml), copy everything from there and paste it in your `agent.yml` file. And you're good to go. 😉
