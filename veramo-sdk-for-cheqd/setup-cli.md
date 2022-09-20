@@ -1,12 +1,14 @@
 # 👉 Setting up Veramo CLI for cheqd
 
-If you're looking to use the Veramo CLI with cheqd or develop a proof-of-concept application, use the [official Veramo CLI setup guide](https://veramo.io/docs/veramo\_agent/cli\_tool/).
+If you're looking to use the Veramo CLI with cheqd or develop a proof-of-concept application, use the [official Veramo CLI setup guide](https://veramo.io/docs/veramo_agent/cli_tool/).
 
 ## Step 1: Install requisite packages
 
+_Node version recommended `Nodev16`_
+
 ### 1.1. Install Veramo CLI
 
-This step is exactly [as described in Veramo CLI docs](https://veramo.io/docs/veramo\_agent/cli\_tool/):
+This step is exactly [as described in Veramo CLI docs](https://veramo.io/docs/veramo_agent/cli_tool/):
 
 ```bash
 npm i @veramo/cli@3.1.6-next.160 -g
@@ -78,9 +80,9 @@ In order to be able to read/query `did:cheqd` entries from the ledger, you need 
 
 ```yaml
 did-cheqd-resolver:
-  $require: '@cheqd/did-provider-cheqd?t=function&p=/cheqd#getResolver'
+  $require: "@cheqd/did-provider-cheqd?t=function&p=/cheqd#getResolver"
   $args:
-    - url: 'https://resolver.cheqd.net/1.0/identifiers/'
+    - url: "https://resolver.cheqd.net/1.0/identifiers/"
 ```
 
 The default value is set to `resolver.cheqd.net`, which is an instance of the cheqd DID Resolver hosted by the cheqd team. This DID Resolver instance can handle requests for `did:cheqd:mainnet` as well as `did:cheqd:testnet` namespaces.
@@ -98,7 +100,7 @@ Firstly, comment out the custom `did-cheqd-resolver` entry and uncomment the `un
 ```yaml
 # DID resolvers
 didResolver:
-  $require: '@veramo/did-resolver#DIDResolverPlugin'
+  $require: "@veramo/did-resolver#DIDResolverPlugin"
   $args:
     - resolver:
         $require: did-resolver#Resolver
@@ -124,7 +126,7 @@ Finally, uncomment and configure the `universal-resolver` interface:
 
 ```yaml
 universal-resolver:
-  $require: '@veramo/did-resolver#UniversalResolver'
+  $require: "@veramo/did-resolver#UniversalResolver"
   $args:
     - url: https://dev.uniresolver.io/1.0/identifiers/
 ```
@@ -136,23 +138,23 @@ While reading/querying from the cheqd ledger incurs no cost, if you want to [cre
 ```yaml
 # DID Manager
 didManager:
-...
-      defaultProvider: did:cheqd:testnet
-      providers:
-        did:cheqd:mainnet:
-          $require: '@cheqd/did-provider-cheqd#CheqdDIDProvider'
-          $args:
-            - defaultKms: local
-              cosmosPayerMnemonic: <your_cosmos_mnemonic_paying_for_did_txs>
-              networkType: mainnet
-              rpcUrl: 'https://rpc.cheqd.net'
-        did:cheqd:testnet:
-          $require: '@cheqd/did-provider-cheqd#CheqdDIDProvider'
-          $args:
-            - defaultKms: local
-              cosmosPayerMnemonic: <your_cosmos_mnemonic_paying_for_did_txs>
-              networkType: testnet
-              rpcUrl: 'https://rpc.cheqd.network'
+---
+defaultProvider: did:cheqd:testnet
+providers:
+  did:cheqd:mainnet:
+    $require: "@cheqd/did-provider-cheqd#CheqdDIDProvider"
+    $args:
+      - defaultKms: local
+        cosmosPayerMnemonic: <your_cosmos_mnemonic_paying_for_did_txs>
+        networkType: mainnet
+        rpcUrl: "https://rpc.cheqd.net"
+  did:cheqd:testnet:
+    $require: "@cheqd/did-provider-cheqd#CheqdDIDProvider"
+    $args:
+      - defaultKms: local
+        cosmosPayerMnemonic: <your_cosmos_mnemonic_paying_for_did_txs>
+        networkType: testnet
+        rpcUrl: "https://rpc.cheqd.network"
 ```
 
 You need to configure this in under `didManager` section as shown above, where you'll need to edit:
