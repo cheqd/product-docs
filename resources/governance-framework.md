@@ -20,7 +20,7 @@ did:cheqd:mainnet:**93235d54-53cc-42b9-ae77-f99efe9eadc9**/resources/**8da12c4a-
 
 cheqd could create a Resource as follows for its Governance Framework
 
-```
+```json
 "linkedResourceMetadata": [
   {
     "resourceURI": "did:cheqd:mainnet:93235d54-53cc-42b9-ae77-f99efe9eadc9/resources/8da12c4a-fa16-4895-b6c6-fc7cbdf62193",

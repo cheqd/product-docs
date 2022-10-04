@@ -123,4 +123,4 @@ Moreover, the Resource referenced in the Issuer DID Document does not need to be
 To find out more about the Indy AnonCreds design, and go deeper in the cheqd On-ledger Resources with DIDs, see below:
 
 * [AnonCreds Design (Hyperledger Indy SDK](https://hyperledger-indy.readthedocs.io/projects/sdk/en/latest/docs/design/002-anoncreds/README.html))
-* [ADR 008: On-ledger Resources with DIDs](https://docs.cheqd.io/node/architecture/adr-list/adr-008-identity-resources)
+* [ADR 008: On-ledger Resources with DIDs](https://docs.cheqd.io/node/architecture/adr-list/adr-008-ledger-resources)

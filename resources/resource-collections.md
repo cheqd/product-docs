@@ -2,7 +2,7 @@
 
 ## Metadata for a _single_ Resource
 
-Resources are identified with a [`did:cheqd` Decentralized Identifier](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method) with a unique identifier (UUID) that acts as a permanently-accessible link to fetch the resources from the cheqd ledger.
+Resources are identified with a [`did:cheqd` Decentralized Identifier](https://docs.cheqd.io/node/architecture/adr-list/adr-008-ledger-resources) with a unique identifier (UUID) that acts as a permanently-accessible link to fetch the resources from the cheqd ledger.
 
 Multiple, linked resources can be stored in a **Collection**, for example, different versions of the same Resource over a period of time or semantically-linked resources. This enables unique resources to be stored directly on-ledger and be **retrievable through DID resolution** and **dereferencing**.
 
