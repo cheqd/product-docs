@@ -56,6 +56,13 @@
 * [List of ADRs](architecture/adr-list/README.md)
   * [ADR 001: DID Resolver](architecture/adr-list/adr-001-did-resolver.md)
 
+## Codified Governance
+
+* [Creating a Codified Governance Model](codified-governance/creating-a-codified-governance-model/README.md)
+  * [Governance File](codified-governance/creating-a-codified-governance-model/governance-file.md)
+  * [Trust Registry](codified-governance/creating-a-codified-governance-model/trust-registry.md)
+  * [Presentation Exchange Definition](codified-governance/creating-a-codified-governance-model/presentation-exchange-definition.md)
+
 ## ⚖️ Legal
 
 * [License](LICENSE.md)
