@@ -4,7 +4,7 @@ This guide provides common errors and potential fixes for them if you encountere
 
 ## 1. When generating keys along with a DIDDoc template
 
-When you try to generate `keys` along with `DiDDoc` template using command below
+When you try to generate `keys` along with `DIDDoc` template using command below
 
 ```bash
 veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "Ed25519VerificationKey2020", "methodSpecificIdAlgo": "base58btc", "methodSpecificIdLength": 16, "network": "testnet"}'
@@ -14,7 +14,9 @@ If you encounter an error below
 
 `Unexpected token v in JSON at position 1`
 
-Create a `.json` file(in my case, I named it `idenity-keys-on-the-fly-with-did-docs.json` in same working directory level). Copy and paste the content from below in to your newly created `.json` file.
+Create a `.json` file (e.g. name it `idenity-keys-on-the-fly-with-did-docs.json` in same working directory level). 
+
+Copy and paste the content from below in to your newly created `.json` file.
 
 ```json
 {
@@ -31,7 +33,7 @@ Then, instead of passing it as argument, we'll pass it as a file. Use command be
 veramo execute -m cheqdGenerateDidDoc --argsFile identity-keys-on-the-fly-with-did-docs.json
 ```
 
-The above command will output something like this.(A template DID DOC with the keys)
+The above command will output something like this (i.e. a template DID DOC with the keys)
 
 ```bash
 { argsFile: 'identity-keys-on-the-fly-with-did-docs.json' }
@@ -80,7 +82,7 @@ Result : {
 }
 ```
 
-Then you can go back to your `args.json` file(If you didn't have one you can simply create one manually, and paste content below as template) which should be something like this at first.
+Then you can go back to your `args.json` file (if you didn't have one you can simply create one manually, and paste content below as template) which should be something like this at first.
 
 ```json
 {
@@ -141,7 +143,7 @@ After populating `keys` and `document` section. Your `args.json` file should loo
 }
 ```
 
-Then assuming you have enough `ncheq` tokens inside your wallet, you can run command below to create your DID.
+Assuming you have enough `ncheq` tokens inside your wallet, you can now run the ommand below to create your DID.
 
 ```bash
 veramo execute -m cheqdCreateIdentifier --argsFile path/to/args.json
@@ -151,11 +153,11 @@ If the above `cmd` resulted something like this:
 
 `Account does not exist on chain. Send some tokens there before trying to query sequence.`
 
-This means you don't have enough tokens in your wallet. You can go to cheqd's [faucet](http://testnet-faucet.cheqd.io/) to get your account some fake tokens.
+This means you don't have enough tokens in your wallet. 
+
+You can go to cheqd's [testnet faucet](http://testnet-faucet.cheqd.io/) to get your account some test tokens.
 
 After successfully creating your DID, you should see something like this:
-
-out put:
 
 ```bash
 Result : {
