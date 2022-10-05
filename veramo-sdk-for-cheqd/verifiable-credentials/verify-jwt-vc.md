@@ -37,7 +37,31 @@ Credential verified successfully
 Credential verification is done by decoding the JWT proof and checking if it's tampered or not. Feel free to test this yourself by tampering with the `jwt` contents in the credential:
 
 ```bash
-Credential could not be verified 
+Credential could not be verified
+```
+
+### 🤨 Troubleshoot verifying JWT credentials
+
+If you belive you did everything right(created a verifiable credential and you did not tamper it), and for some reason you're getting
+
+```bash
+Credential could not be verified
+```
+
+#### You can fix it the following way
+
+- First, make sure you are using a `node` with version `16` or above.
+
+- Second, Change veramo cli version to `@veramo/cli@3.1.6-next.170 -g` as previous versions cause few issues in verification. This will override the previous version you have installed.
+
+```bash
+    npm install -g @veramo/cli@3.1.6-next.170 -g
+```
+
+- Run command below to verify your JWT credential.
+
+```bash
+veramo credential verify -r <enter-the-JWT-here>
 ```
 
 ## Next steps

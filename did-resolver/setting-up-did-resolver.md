@@ -2,7 +2,7 @@
 
 This page describes how to use and set up the `full` [cheqd DID Resolver](https://github.com/cheqd/did-resolver) software package.
 
-If you do not want to install anything and just want to resolve a `did:cheqd` entry from the ledger, you can [load the REST API endpoint for resolver.cheqd.net in your browser](https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1JXfUY7oVWkY).
+If you do not want to install anything and just want to resolve a `did:cheqd` entry from the ledger, you can load the REST API endpoint for [resolver.cheqd.net](https://resolver.cheqd.net/) in your browser.
 
 Or, make a request from terminal to this hosted REST API:
 

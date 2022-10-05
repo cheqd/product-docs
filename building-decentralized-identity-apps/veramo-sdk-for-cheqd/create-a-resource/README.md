@@ -16,13 +16,14 @@ Follow [this](../../../veramo-sdk-for-cheqd/did-operations/) tutorial to generat
 
 Prepare a file with resource and encode it into `base64`. On Unix systems, you can use the following command:
 
-```
-$ base64 -w 0 <path-to-the-resource-file>
+```bash
+$ base64 -w 0 resource.txt
+<path-to-the-resource-file>
 ```
 
 Example:
 
-```
+```bash
 $ base64 -w 0 resource.txt
 SGVsbG8sIHdvcmxk
 ```
