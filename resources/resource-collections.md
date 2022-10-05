@@ -203,7 +203,7 @@ This logic prevents `GetResourceCollection` requests returning large quantities 
 
 In order to fetch the actual data, it is necessary to query **the specific Resource**, rather than **the entire Collection**.
 
-For more information about the particulars of requests and responses, please refer to our [**ADR on Resources on ledger**](https://github.com/cheqd/node-docs/blob/adr-008-resources-updates/architecture/adr-list/adr-008-ledger-resources.md).
+For more information about the particulars of requests and responses, please refer to our [**ADR on Resources on ledger**](https://docs.cheqd.io/node/architecture/adr-list/adr-008-ledger-resources).
 
 ## Versioning and Archiving Resources
 

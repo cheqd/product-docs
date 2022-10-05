@@ -68,7 +68,7 @@ In this tutorial, we will create a credential with only a single name-value pair
 
 JSON/JWT credentials anchored on cheqd are currently _not_ revocable, so please choose `No` at this step.
 
-[Privacy-preserving credential revocation](https://product.cheqd.io/product-essentials/identity-ledger/revocation-registry) is a major element of cheqd's roadmap.
+[Privacy-preserving credential revocation](https://product.cheqd.io/updates/roadmap/identity) is a major element of cheqd's roadmap.
 
 ### 10. Verifiable Credential is generated
 

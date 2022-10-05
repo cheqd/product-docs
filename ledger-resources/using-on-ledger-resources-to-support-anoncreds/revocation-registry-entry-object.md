@@ -13,13 +13,13 @@ This documentation will guide an implementor of AnonCreds on cheqd on how the ch
 
 ### AnonCreds Revocation Registry Entry ID
 
-Each specific AnonCreds identifier must be defined within an AnonCreds Object Method in the [AnonCreds Object Method Registry](https://anoncreds-wg.github.io/anoncreds-objects-methods-registry/).
+Each specific AnonCreds identifier must be defined within an AnonCreds Object Method in the [AnonCreds Object Method Registry](https://anoncreds-wg.github.io/anoncreds-spec/#anoncreds-objects-methods-registry)).
 
 This means that an AnonCreds Revocation Registry Entry Object ID does not need to be formatted in any particular syntax, in the latest version of the AnonCreds Specification.
 
 ### Legacy AnonCreds Revocation Registry Entry ID
 
-The Legacy AnonCreds Revocation Registry Entry ID was very similar in composition to the [Revocation Registry Definition Object](revocation-registry-definition-object.md).
+The Legacy AnonCreds Revocation Registry Entry ID was very similar in composition to the [Revocation Registry Definition Object](https://anoncreds-wg.github.io/anoncreds-spec/#anoncreds-objects-methods-registry).
 
 The only difference is that the Revocation Registry Entry ID includes the Revocation Registry Entry ID `objectType`, which is "`5`".
 
@@ -39,20 +39,15 @@ For example:
 Important: Each AnonCreds Revocation Registry Entry has the **same ID** for a given Revocation Registry Definition Object.
 {% endhint %}
 
-{% hint style="info" %}
-This is important to mention, since many client applications may still expect RevRegEntry IDs or RevRegEntry Content to contain the information or specific syntax of this Legacy `revocRegEntryId.`
-{% endhint %}
-
-{% hint style="info" %}
-This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds Objects Method](https://hyperledger-indy.readthedocs.io/projects/node/en/latest/requests.html#requests)
-{% endhint %}
+> This is important to mention, since many client applications may still expect RevRegEntry IDs or RevRegEntry Content to contain the information or specific syntax of this Legacy `revocRegEntryId.`
+This legacy format is now attributed to the Hyperledger Indy Legacy AnonCreds Objects Method
 
 ### AnonCreds Revocation Registry Entry Content
 
 The required content and data model for the AnonCreds Revocation Registry Entry Object are as follows:
 
-1. `revocDefType`: as [defined here](revocation-registry-definition-object.md#anoncreds-revocation-registry-definition-object-id)
-2. `revocRegDefId`: as [defined here](revocation-registry-definition-object.md#anoncreds-revocation-registry-definition-object-id)
+1. `revocDefType`
+2. `revocRegDefId`
 3. `accum`: the calculated cryptographic accumulator reflecting the initial state of the Revocation Registry Definition Object.
 
 For example:
@@ -87,13 +82,10 @@ For example, the following DID URL is cheqd's representation of a `revocRegRevEn
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887`
 
-{% hint style="info" %}
-Unlike in Hyperledger Indy implementations, cheqd uses a **unique identifier for each specific Revocation Registry Entry ID**. This enables better indexing and searchability.
-{% endhint %}
+> Unlike in Hyperledger Indy implementations, cheqd uses a **unique identifier for each specific Revocation Registry Entry ID**. This enables better indexing and searchability.
 
-{% hint style="warning" %}
-For conformance with the cheqd AnonCreds Object Method, each Revocation Registry Entry **MUST** be created in the **same Collection** as the Revocation Registry Definition Object.
-{% endhint %}
+
+>For conformance with the cheqd AnonCreds Object Method, each Revocation Registry Entry **MUST** be created in the **same Collection** as the Revocation Registry Definition Object.
 
 ### cheqd Revocation Registry Entry Object Content
 
