@@ -1,11 +1,12 @@
 ---
-description: >-
-  This page lists the ADRs that have been Accepted, Proposed, or in Draft stage.
+description: This page lists the ADRs that have been Accepted, Proposed, or in Draft stage.
 ---
 
 # List of ADRs
 
 ## Accepted
+
+1. [ADR 002: **On-Ledger Resources**](adr-002-on-ledger-resources.md)****
 
 ## Proposed
 
