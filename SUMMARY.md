@@ -1,5 +1,7 @@
 # Table of contents
 
+## ℹ Overview
+
 * [Identity Documentation for cheqd](README.md)
 
 ## 📖 tutorials
@@ -17,7 +19,7 @@
     * [Create a JSON (JWT) Verifiable Presentation](tutorials/verifiable-credentials-and-presentations/json-jwt/verifiable-presentations.md)
     * [Verify a JSON (JWT) Verifiable Presentation](tutorials/verifiable-credentials-and-presentations/json-jwt/verify-presentation.md)
 * [🔗 On-Ledger Resources](tutorials/on-ledger-resources/README.md)
-  * [Create an on-ledger  resource](tutorials/on-ledger-resources/create-a-resource.md)
+  * [Create an on-ledger resource](tutorials/on-ledger-resources/create-a-resource.md)
   * [Create a new version within existing collection](tutorials/on-ledger-resources/create-a-new-resource-version.md)
 * [🔄 DID Resolver setup](tutorials/DID-resolution.md)
 * [👜 Demo Wallet for identity setup](tutorials/wallet.md)
