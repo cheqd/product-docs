@@ -2,66 +2,66 @@
 
 * [Identity Documentation for cheqd](README.md)
 
-## 💫 Ledger Identity
+## 📖 tutorials
 
-* [🆔 cheqd DID method](decentralized-identifiers/README.md)
-  * [📚 Creating a DID with cheqd Cosmos CLI](decentralized-identifiers/cheqd-cosmos-cli/README.md)
-  * [📚 Querying DIDs with cheqd Cosmos CLI](decentralized-identifiers/cheqd-cosmos-cli/query-did-and-did-document.md)
-  * [📚 Updating existing DIDs with cheqd Cosmos CLI](decentralized-identifiers/cheqd-cosmos-cli/update-and-manage-did-document.md)
-* [🔍 DID Resolver](did-resolver/README.md)
-  * [🧑‍💻 Setting up cheqd DID Resolver](did-resolver/setting-up-did-resolver.md)
-* [Developer Guide for cheqd ledger](decentralized-identifiers/developer-guide/README.md)
-  * [Using VDR Tools CLI with cheqd](decentralized-identifiers/developer-guide/vdr-tools-with-cheqd.md)
+* [🆔 Decentralised Identifiers (DIDs)](tutorials/did-operations/README.md)
+  * [Create a DID](tutorials/did-operations/create-a-did.md)
+  * [Querying a DID](tutorials/did-operations/query-did.md)
+  * [Update an existing DID](tutorials/did-operations/update-did.md)
+  * [Off-ledger subject DIDs](tutorials/did-operations/create-subject-did.md)
+  * [Managing identity keys](tutorials/did-operations/identity-key-handling.md)
+* [📃 Verifiable Credentials and Presentations](tutorials/verifiable-credentials-and-presentations/README.md)
+  * [JSON (JWT)](tutorials/verifiable-credentials-and-presentations/json-jwt/README.md)
+    * [Issue a JSON (JWT) Verifiable Credential](tutorials/verifiable-credentials-and-presentations/json-jwt/verifiable-credentials.md)
+    * [Verify a JSON (JWT) Verifiable Credential](tutorials/verifiable-credentials-and-presentations/json-jwt/verify-jwt-vc.md)
+    * [Create a JSON (JWT) Verifiable Presentation](tutorials/verifiable-credentials-and-presentations/json-jwt/verifiable-presentations.md)
+    * [Verify a JSON (JWT) Verifiable Presentation](tutorials/verifiable-credentials-and-presentations/json-jwt/verify-presentation.md)
+* [🔗 On-Ledger Resources](tutorials/on-ledger-resources/README.md)
+  * [Create an on-ledger  resource](tutorials/on-ledger-resources/create-a-resource.md)
+  * [Create a new version within existing collection](tutorials/on-ledger-resources/create-a-new-resource-version.md)
+* [🔄 DID Resolver setup](tutorials/DID-resolution.md)
+* [👜 Demo Wallet for identity setup](tutorials/wallet.md)
 
-## 🧰 Ledger Resources
+## 📑 Guides
 
-* [🧰 What are on-ledger Resources?](resources/README.md)
-* [⏳ Workflow for creating Resources](resources/creating-a-resource.md)
-  * [↣ Collections of Resources](resources/resource-collections.md)
-  * [🧑‍⚖️ Governance Frameworks as Resources](resources/governance-framework.md)
-* [📚 Creating a Resource using cheqd Cosmos CLI](resources/tutorials/README.md)
-  * [📚 Publishing a new Resource version](resources/tutorials/add-resource-to-existing-collection.md)
-* [🔒 Using on-ledger Resources to support AnonCreds](ledger-resources/using-on-ledger-resources-to-support-anoncreds/README.md)
-  * [Schema Object](ledger-resources/using-on-ledger-resources-to-support-anoncreds/schema-object.md)
-  * [CredDef Object](ledger-resources/using-on-ledger-resources-to-support-anoncreds/creddef-object.md)
-  * [Revocation Registry Definition Object](ledger-resources/using-on-ledger-resources-to-support-anoncreds/revocation-registry-definition-object.md)
-  * [Revocation Registry Entry Object](ledger-resources/using-on-ledger-resources-to-support-anoncreds/revocation-registry-entry-object.md)
-* [❌ Using on-ledger Resources to support StatusList2021](ledger-resources/using-on-ledger-resources-to-support-statuslist2021.md)
+* [🆔 cheqd DID method](guides/decentralized-identifiers.md)
+* [📦 Software Development Kits (SDKs)](guides/software-development-kits-sdks/README.md)
+  * [🛠 Veramo SDK for cheqd](guides/software-development-kits-sdks/veramo-sdk-for-cheqd/README.md)
+    * [👉 Setting up Veramo CLI for cheqd](guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md)
+    * [🤨 Troubleshooting Veramo CLI setup](guides/software-development-kits-sdks/veramo-sdk-for-cheqd/troubleshooting-setup.md)
+  * [🛠 Hyperledger Aries Framework JavaScript](guides/software-development-kits-sdks/hyperledger-aries-framework-javascript.md)
+* [🔗 Understanding On-Ledger Resources](guides/resources/README.md)
+  * [Workflow for creating Resources](guides/resources/creating-a-resource.md)
+  * [🧑‍⚖️ Using on-ledger Resources to support Governance Frameworks](guides/resources/governance-framework.md)
+  * [❌ Using on-ledger Resources to support StatusList2021](guides/resources/using-on-ledger-resources-to-support-statuslist2021.md)
+  * [🔒 Using on-ledger Resources to support AnonCreds](guides/resources/using-on-ledger-resources-to-support-anoncreds/README.md)
+    * [Schema Object](guides/resources/using-on-ledger-resources-to-support-anoncreds/schema-object.md)
+    * [CredDef Object](guides/resources/using-on-ledger-resources-to-support-anoncreds/creddef-object.md)
+    * [Revocation Registry Definition Object](guides/resources/using-on-ledger-resources-to-support-anoncreds/revocation-registry-definition-object.md)
+    * [Revocation Registry Entry Object](guides/resources/using-on-ledger-resources-to-support-anoncreds/revocation-registry-entry-object.md)
+* [🔍 Understanding cheqd DID Resolver](guides/did-resolver.md)
+* [🧑⚖ Machine Readable Governance](guides/creating-a-codified-governance-model/README.md)
+  * [Governance File](guides/creating-a-codified-governance-model/governance-file.md)
+  * [Trust Registry](guides/creating-a-codified-governance-model/trust-registry.md)
+  * [Presentation Exchange Definition](guides/creating-a-codified-governance-model/presentation-exchange-definition.md)
 
-## 🛂 Building Decentralized Identity Apps
-
-* [🛠 Veramo SDK for cheqd](veramo-sdk-for-cheqd/README.md)
-  * [👉 Setting up Veramo CLI for cheqd](veramo-sdk-for-cheqd/setup-cli.md)
-    * [🤨 Troubleshooting Veramo CLI setup](veramo-sdk-for-cheqd/troubleshooting-setup.md)
-  * [🆔 Create a DID](veramo-sdk-for-cheqd/did-operations/README.md)
-    * [Querying a DID](veramo-sdk-for-cheqd/did-operations/query-did.md)
-    * [Update an existing DID](veramo-sdk-for-cheqd/did-operations/update-did.md)
-    * [Off-ledger subject DIDs](veramo-sdk-for-cheqd/did-operations/create-subject-did.md)
-    * [Managing identity keys](veramo-sdk-for-cheqd/did-operations/identity-key-handling.md)
-  * [✅ Create a Credential](veramo-sdk-for-cheqd/verifiable-credentials/README.md)
-    * [Verify a JSON Credential](veramo-sdk-for-cheqd/verifiable-credentials/verify-jwt-vc.md)
-  * [🔐 Create a Verifiable Presentation](veramo-sdk-for-cheqd/verifiable-presentations/README.md)
-    * [Verify a JWT Presentation](veramo-sdk-for-cheqd/verifiable-presentations/verify-presentation.md)
-  * [💎 Create a Resource](building-decentralized-identity-apps/veramo-sdk-for-cheqd/create-a-resource/README.md)
-    * [Create a new resource version](building-decentralized-identity-apps/veramo-sdk-for-cheqd/create-a-resource/create-a-new-resource-version.md)
-* [✅ Verifiable Credentials](verifiable-credentials/README.md)
-  * [JSON/JWT-based Credentials](verifiable-credentials/json-jwt-credentials.md)
-  * [JSON-LD Credentials](verifiable-credentials/json-ld-credentials.md)
-  * [AnonCreds](verifiable-credentials/anoncreds/README.md)
-* [👜 Demo Wallet for identity](verifiable-credentials/wallet.md)
-
-## Architecture
+## 🏗 Architecture
 
 * [Architecture Decision Record (ADR) Process](architecture/README.md)
 * [List of ADRs](architecture/adr-list/README.md)
   * [ADR 001: DID Resolver](architecture/adr-list/adr-001-did-resolver.md)
+  * [ADR 002: On-Ledger Resources](architecture/adr-list/adr-002-on-ledger-resources.md)
 
-## Codified Governance
+## 💫 Advanced features and alternatives
 
-* [Creating a Codified Governance Model](codified-governance/creating-a-codified-governance-model/README.md)
-  * [Governance File](codified-governance/creating-a-codified-governance-model/governance-file.md)
-  * [Trust Registry](codified-governance/creating-a-codified-governance-model/trust-registry.md)
-  * [Presentation Exchange Definition](codified-governance/creating-a-codified-governance-model/presentation-exchange-definition.md)
+* [🤓 Direct interaction with ledger code](advanced-features-and-alternatives/developer-guide.md)
+* [🛰 cheqd Cosmos CLI for identity](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/README.md)
+  * [📚 Creating a DID with cheqd Cosmos CLI](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/cheqd-cosmos-cli.md)
+  * [📚 Querying DIDs with cheqd Cosmos CLI](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/query-did-and-did-document.md)
+  * [📚 Updating existing DIDs with cheqd Cosmos CLI](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/update-and-manage-did-document.md)
+  * [📚 Creating a Resource using cheqd Cosmos CLI](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/tutorials.md)
+  * [📚 Publishing a new Resource version](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/add-resource-to-existing-collection.md)
+* [⚒ VDR Tools CLI with cheqd](advanced-features-and-alternatives/vdr-tools-with-cheqd.md)
 
 ## ⚖️ Legal
 

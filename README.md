@@ -1,20 +1,35 @@
 # Identity Documentation for cheqd
 
-**[cheqd](https://learn.cheqd.io)** is a purpose-built network for decentralised identity. This documentation site provides **technical docs** for all **identity features & functionality** on the cheqd network.
+[**cheqd**](https://learn.cheqd.io) is a purpose-built network for decentralised identity. This documentation site provides **technical docs** for all **identity features & functionality** on the cheqd network.
 
 ## 🍽 Contents
 
-### 💫 Identity Features on cheqd ledger
+### :book: Tutorials
 
-* [🆔 cheqd DID method](https://docs.cheqd.io/identity/ledger-identity/decentralized-identifiers)
-* [🔍 DID Resolver](https://docs.cheqd.io/identity/ledger-identity/did-resolver)
-* [💾 On-Ledger Resources](https://docs.cheqd.io/identity/ledger-resources/resources)
+* [🆔 Decentralised Identifiers (DIDs)](tutorials/did-operations/)
+* :page\_with\_curl: [Verifiable Credentials and Presentations](tutorials/verifiable-credentials-and-presentations/)
+* :link:[ On-Ledger Resources](tutorials/on-ledger-resources/)
+* :arrows\_counterclockwise:[ DID Resolver setup](tutorials/DID-resolution.md)
+* :handbag:[ Demo Wallet for identity setup](tutorials/wallet.md)
 
-### 🛂 Building Decentralized Identity Apps
+### :bookmark\_tabs: Guides
 
-* [🛠 Veramo SDK for cheqd](https://docs.cheqd.io/identity/building-decentralized-identity-apps/veramo-sdk-for-cheqd)
-* [✅ Verifiable Credentials](https://docs.cheqd.io/identity/building-decentralized-identity-apps/verifiable-credentials)
-* [👜 Demo Wallet for identity](https://docs.cheqd.io/identity/building-decentralized-identity-apps/wallet)
+* :id: [cheqd DID method](guides/decentralized-identifiers.md)
+* :package: [Software Development Kits (SDKs)](guides/software-development-kits-sdks/)
+* :link: [Understanding On-Ledger Resources](guides/resources/)
+* :arrows\_counterclockwise: [Understanding cheqd DID Resolver](guides/did-resolver.md)
+* :judge: [Machine Readable Governance](guides/creating-a-codified-governance-model/)
+
+### :construction\_site: Architecture
+
+* [Architecture Decision Record (ADR) Process](architecture/)
+* [List of ADRs](architecture/adr-list/)
+
+### :dizzy: Advanced features and alternatives
+
+* :nerd: [Direct interaction with ledger code](advanced-features-and-alternatives/developer-guide.md)
+* :satellite\_orbital: [cheqd Cosmos CLI for identity](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/)
+* :hammer\_pick: [VDR Tools CLI with cheqd](advanced-features-and-alternatives/vdr-tools-with-cheqd.md)
 
 ## 📖 Other useful documentation sites for cheqd
 
