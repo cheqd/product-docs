@@ -181,4 +181,4 @@ Your Veramo configuration seems fine. An agent can be created and the 'agent.exe
 
 ## Next steps
 
-Now that your Veramo CLI installation is successfully set up to work with cheqd, try following our tutorials for [creating a new DID](./) or [querying existing DIDs](../../../tutorials/did-operations/query-did.md).
+Now that your Veramo CLI installation is successfully set up to work with cheqd, try following our tutorials for [creating a new DID](../../../tutorials/did-operations/create-a-did.md) or [querying existing DIDs](../../../tutorials/did-operations/query-did.md).
