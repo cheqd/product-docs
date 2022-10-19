@@ -9,7 +9,7 @@
 * [🆔 Decentralised Identifiers (DIDs)](tutorials/did-operations/)
 * :page\_with\_curl: [Verifiable Credentials and Presentations](tutorials/verifiable-credentials-and-presentations/)
 * :link:[ On-Ledger Resources](tutorials/on-ledger-resources/)
-* :arrows\_counterclockwise:[ DID Resolver setup](tutorials/DID-resolution.md)
+* :arrows\_counterclockwise:[ DID Resolver setup](tutorials/did-resolution/setup-did-resolver.md)
 * :handbag:[ Demo Wallet for identity setup](tutorials/wallet.md)
 
 ### :bookmark\_tabs: Guides

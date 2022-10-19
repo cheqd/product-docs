@@ -21,7 +21,7 @@
 * [🔗 On-Ledger Resources](tutorials/on-ledger-resources/README.md)
   * [Create an on-ledger resource](tutorials/on-ledger-resources/create-a-resource.md)
   * [Create a new version within existing collection](tutorials/on-ledger-resources/create-a-new-resource-version.md)
-* [🔄 DID Resolver setup](tutorials/DID-resolution.md)
+* [🔄 DID Resolver setup](tutorials/did-resolution/setup-did-resolver.md)
 * [👜 Demo Wallet for identity setup](tutorials/wallet.md)
 
 ## 📑 Guides
