@@ -14,9 +14,9 @@ If you encounter an error below
 
 `Unexpected token v in JSON at position 1`
 
-Create a `.json` file (e.g. name it `idenity-keys-on-the-fly-with-did-docs.json` in same working directory level). 
+Create a `.json` file (e.g. name it `identity-keys-on-the-fly-with-did-docs.json` in same working directory level). 
 
-Copy and paste the content from below in to your newly created `.json` file.
+Copy and paste the content from below into your newly created `.json` file.
 
 ```json
 {
@@ -143,7 +143,7 @@ After populating `keys` and `document` section. Your `args.json` file should loo
 }
 ```
 
-Assuming you have enough `ncheq` tokens inside your wallet, you can now run the ommand below to create your DID.
+Assuming you have enough `ncheq` tokens inside your wallet, you can now run the command below to create your DID.
 
 ```bash
 veramo execute -m cheqdCreateIdentifier --argsFile path/to/args.json
@@ -183,4 +183,4 @@ Result : {
 }
 ```
 
-Notice, `controllerKeyId` is now the `publicKeyHex` you generated the firstly. i.e did is know assocaited to you via `publickKeyHex` or you're the controller of this the DID you created. 😄
+Notice, `controllerKeyId` is now the `publicKeyHex` you generated the firstly. i.e did is know associated to you via `publickKeyHex` or you're the controller of this the DID you created. 😄
