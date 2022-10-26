@@ -263,7 +263,7 @@ Where, `degreeCredRevocRegEntry2.json` contains an updated `accum`value, `index`
       "revocRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
       "value": {
         "accum": "88 46D...61B"
-        "index": ""55", "71", "82", "125", "133", "166", "208"
+        "index": "55", "71", "82", "125", "133", "166", "208"
       },
     }
     "AnonCredsObjectMetadata": {
