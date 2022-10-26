@@ -43,7 +43,7 @@ Important: Each AnonCreds Revocation Registry Entry has the **same ID** for a gi
 
 ### AnonCreds Revocation Registry Entry Content
 
-The required content and data model for the AnonCreds Revocation Registry Entry Object are as follows:
+The required content and data model for the **first** AnonCreds Revocation Registry Entry Object are as follows:
 
 1. `revocDefType`
 2. `revocRegDefId`
@@ -63,7 +63,29 @@ For example:
 }
 ```
 
-Therefore, for each new Revocation Registry Entry, the 'ID' remains the same, as does the `revocRegType` and `revocRegDefId` - the only value that changes is the `accum,` reflecting the delta between the previous and most recent Revocation Registry Entries. \`\`
+Therefore, for each new Revocation Registry Entry, the 'ID' remains the same, as does the `revocRegType` and `revocRegDefId` - the only value that changes is the `accum,` reflecting the delta between the previous and most recent Revocation Registry Entries.&#x20;
+
+The required content and data model for the **subsequent** AnonCreds Revocation Registry Entry Object are as follows:
+
+1. `revocDefType`
+2. `revocRegDefId`
+3. `accum`: the calculated cryptographic accumulator reflecting the initial state of the Revocation Registry Definition Object.
+4. `index`: the index or indices of the revoked credentials within the associated tails file.&#x20;
+
+For example:
+
+```json
+{
+  "data": {
+    "revocDefType": "CL_ACCUM",
+    "revocRegDefId": "Gs6cQcvrtWoZKsbBhD3dQJ:4:Gs6cQcvrtWoZKsbBhD3dQJ:3:CL:140389:mctc:CL_ACCUM:1-1024",
+    "value": {
+      "accum": "21 10B...33D"
+      "index": "151"
+    }
+  }
+}
+```
 
 ## cheqd AnonCreds Object Method for Revocation Registry Definition Objects
 
@@ -94,7 +116,7 @@ cheqd's approach to AnonCreds Revocation Entry Objects implements the following 
 1. The required (ledger-agnostic) content of the Revocation Registry Entry Object Content should be included in the body of the content.
 2. Anything that is network-specific should be included within AnonCreds Object Metadata.
 
-In the example below, the content should be saved as a file, for example: `degreeCredRevocRegEntry1.json` with the following content:
+In the example below, the **first entry** in a Revocation Registry should be saved as a file, for example: `degreeCredRevocRegEntry1.json` with the following content:
 
 ```json
 {
@@ -111,14 +133,41 @@ In the example below, the content should be saved as a file, for example: `degre
       "objectFamilyVersion": "v1",
       "objectType": "5",
       "publisherId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
-      "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887",
-      "legacyObjectId": "5,did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J,4,did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J,3,CL,did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K,2,degreeSchema,1.5.7,credDefDegree,CL_ACCUM,degreeCredRevRegDef"
+      "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887"
     }
   }
 }
 ```
 
-This implementation uses AnonCredsObjectMetadata to provide equivalency between cheqd's AnonCreds Object Method and other AnonCreds Object Methods, including the fields, where:
+The **subsequent entries** in the Revocation Registry should contain reference to the indices of the revoked credentials in the Tails File. For example:
+
+```json
+{
+  "AnonCredsObject": {
+    "data": {
+      "revocDefType": "CL_ACCUM",
+      "revocRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
+      "value": {
+        "accum": "21 10B...33D"
+        "index": "55", "125", "166", "208"
+      },
+    }
+    "AnonCredsObjectMetadata": {
+      "objectFamily": "anoncreds",
+      "objectFamilyVersion": "v1",
+      "objectType": "5",
+      "publisherId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
+      "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887"
+    }
+  }
+}
+```
+
+{% hint style="info" %}
+Note: For implementating AnonCreds Revocation Registry Entries on cheqd you can include **all revocation indices within each latest entry.** This is different to Hyperledger Indy, however, it makes the non-revocation proof far more simple, since only the latest entry is needed, rather than all the historic entries.
+{% endhint %}
+
+This implementation also uses AnonCredsObjectMetadata to provide equivalency between cheqd's AnonCreds Object Method and other AnonCreds Object Methods, including the fields, where:
 
 | Object Metadata field | Response                                                                        | Method Specification / Equivalency      |
 | --------------------- | ------------------------------------------------------------------------------- | --------------------------------------- |
@@ -128,7 +177,6 @@ This implementation uses AnonCredsObjectMetadata to provide equivalency between 
 | typeName              | `CL_ACCUM`                                                                      | Legacy Hyperledeger Indy Objects Method |
 | publisherId           | Fully qualified DID to easily identify the publisher of the Revocation Registry | cheqd Objects Method                    |
 | objectUri             | Fully qualified DID URL to easily access the Revocation Registry Entry          | cheqd Objects Method                    |
-| legacyObjectId        | The Legacy AnonCreds ID which may be expected by client applications            | Legacy Hyperledger Indy Objects Method  |
 
 ### cheqd Revocation Registry Entry transaction
 
@@ -184,7 +232,7 @@ You must:
 2. Specify the same `collectionId`
 3. Specify the same `resourceName`
 4. Specify the same `resourceType`
-5. Attach to the transaction the new `resourceFile` with the latest `accum` value.
+5. Attach to the transaction the new `resourceFile` with the latest `accum` value and `index` values.
 
 For example, using the [cheqd Cosmos CLI](../../../advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/tutorials.md) to demonstrate this, a transaction may look like:
 
@@ -205,7 +253,7 @@ cheqd-noded tx resource create-resource \
      --gas-prices 25ncheq
 ```
 
-Where, `degreeCredRevocRegEntry2.json` contains an updated `accum` value and `objectUri`, such as:
+Where, `degreeCredRevocRegEntry2.json` contains an updated `accum`value, `index` value and `objectUri`, such as:
 
 ```json
 {
@@ -214,7 +262,8 @@ Where, `degreeCredRevocRegEntry2.json` contains an updated `accum` value and `ob
       "revocDefType": "CL_ACCUM",
       "revocRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
       "value": {
-        "accum": "52 87D...95B"
+        "accum": "88 46D...61B"
+        "index": ""55", "71", "82", "125", "133", "166", "208"
       },
     }
     "AnonCredsObjectMetadata": {
@@ -222,8 +271,7 @@ Where, `degreeCredRevocRegEntry2.json` contains an updated `accum` value and `ob
       "objectFamilyVersion": "v2",
       "objectType": "5",
       "publisherId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
-      "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/c154bc07-43f7-4b69-ac0c-5514001f2ca3",
-      "legacyObjectId": "5,did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J,4,did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J,3,CL,did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K,2,degreeSchema,1.5.7,credDefDegree,CL_ACCUM,degreeCredRevRegDef"
+      "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/c154bc07-43f7-4b69-ac0c-5514001f2ca3"
     }
   }
 }

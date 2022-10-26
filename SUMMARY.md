@@ -42,7 +42,7 @@
     * [Revocation Registry Definition Object](guides/resources/using-on-ledger-resources-to-support-anoncreds/revocation-registry-definition-object.md)
     * [Revocation Registry Entry Object](guides/resources/using-on-ledger-resources-to-support-anoncreds/revocation-registry-entry-object.md)
 * [🔍 Understanding cheqd DID Resolver](guides/did-resolver.md)
-* [🧑⚖ Machine Readable Governance](guides/creating-a-codified-governance-model/README.md)
+* [🧑⚖ 🧑⚖ Machine Readable Governance](guides/creating-a-codified-governance-model/README.md)
   * [Governance File](guides/creating-a-codified-governance-model/governance-file.md)
   * [Trust Registry](guides/creating-a-codified-governance-model/trust-registry.md)
   * [Presentation Exchange Definition](guides/creating-a-codified-governance-model/presentation-exchange-definition.md)

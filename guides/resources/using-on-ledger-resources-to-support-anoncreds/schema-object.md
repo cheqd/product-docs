@@ -82,7 +82,7 @@ Once published on a Hyperledger Indy ledger, an additional identifier for the pu
 
 ### cheqd Schema ID
 
-cheqd [on-ledger resources](../../resources/) identify individual resources using DID URLs.
+cheqd [on-ledger resources](../) identify individual resources using DID URLs.
 
 cheqd resources module uses the following format:
 
@@ -124,8 +124,7 @@ In the example below, the content should be saved as a file, for example: `degre
     "objectType": "2",
     "typeName": "SCHEMA",
     "publisherId": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K",
-    "objectUri": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
-    "legacyObjectId": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K,2,degreeSchema,1.5.7"
+    "objectUri": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497"
     }
   }
 }
@@ -133,15 +132,14 @@ In the example below, the content should be saved as a file, for example: `degre
 
 This implementation uses AnonCredsObjectMetadata to provide equivalency between cheqd's AnonCreds Object Method and other AnonCreds Object Methods, including the fields, where:
 
-| Object Metadata field | Response                                                             | Method Specification                   |
-| --------------------- | -------------------------------------------------------------------- | -------------------------------------- |
-| objectFamily          | anoncreds                                                            | did:Indy Objects Method                |
-| objectFamilyVersion   | v1                                                                   | did:Indy Objects Method                |
-| objectType            | 2                                                                    | Legacy Hyperledger Indy Objects Method |
-| typeName              | `SCHEMA`                                                             | Legacy Hyperledger Indy Objects Method |
-| publisherId           | Fully qualified DID or URI to easily identify the Schema Publisher   | cheqd Objects Method                   |
-| objectUri             | Fully qualified DID URL to easily access the Schema Object           | cheqd Objects Method                   |
-| legacyObjectId        | The Legacy AnonCreds ID which may be expected by client applications | Legacy Hyperledger Indy Objects Method |
+| Object Metadata field | Response                                                           | Method Specification                   |
+| --------------------- | ------------------------------------------------------------------ | -------------------------------------- |
+| objectFamily          | anoncreds                                                          | did:Indy Objects Method                |
+| objectFamilyVersion   | v1                                                                 | did:Indy Objects Method                |
+| objectType            | 2                                                                  | Legacy Hyperledger Indy Objects Method |
+| typeName              | `SCHEMA`                                                           | Legacy Hyperledger Indy Objects Method |
+| publisherId           | Fully qualified DID or URI to easily identify the Schema Publisher | cheqd Objects Method                   |
+| objectUri             | Fully qualified DID URL to easily access the Schema Object         | cheqd Objects Method                   |
 
 {% hint style="info" %}
 Note: The cheqd ledger will not provide any checks on the Schema Object Content or Metadata. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct.

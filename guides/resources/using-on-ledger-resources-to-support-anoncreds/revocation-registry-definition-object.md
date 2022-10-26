@@ -150,8 +150,7 @@ In the example below, the content should be saved as a file, for example: `degre
   "objectType": "4",  
   "typeName": "REVOC_REG_DEF"
   "publisherId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
-  "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
-  "legacyObjectId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J,4,did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J,3,CL,did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K,2,degreeSchema,1.5.7,credDefDegree,CL_ACCUM,degreeCredRevRegDef"
+  "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df"
 }
 ```
 
@@ -165,7 +164,6 @@ In the example below, the content should be saved as a file, for example: `degre
 | typeName              | `REVOC_REG_DEF`                                                                        | Legacy Hyperledger Indy Objects Method |
 | publisherId           | Fully qualified URI or DID to easily identify the publisher of the Revocation Registry | cheqd Objects Method                   |
 | objectUri             | Fully qualified DID URL to easily access the Revocation Registry Definition            | cheqd Objects Method                   |
-| legacyObjectId        | The Legacy AnonCreds ID which may be expected by client applications                   | Legacy Hyperledger Indy Objects Method |
 
 ### create Revocation Registry Definition transaction
 

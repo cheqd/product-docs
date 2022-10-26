@@ -162,7 +162,7 @@ An example of a CredDef Object content with revocation is below:
 
 ### cheqd CredDef ID
 
-cheqd [on-ledger resources](../../resources/) identify individual resources using DID URLs.
+cheqd [on-ledger resources](../) identify individual resources using DID URLs.
 
 cheqd resources module uses the following format:
 
@@ -217,8 +217,7 @@ In the example below, the content should be saved as a file, for example: `credD
   "objectType": "3",
   "typeName": "CLAIM_DEF",
   "publisherId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
-  "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0",
-  "legacyObjectId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J,3,CL,did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K,2,degreeSchema,1.5.7,credDefDegree"
+  "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0"
   }
 }
 ```
@@ -270,8 +269,7 @@ Or with revocation:
   "objectType": "3",
   "typeName": "CLAIM_DEF",
   "publisherDid": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
-  "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0",      
-  "legacyObjectId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J,3,CL,did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K,2,degreeSchema,1.5.7,credDefDegree"
+  "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0"
   }
 }
 ```
@@ -286,7 +284,6 @@ This implementation uses AnonCredsObjectMetadata to provide equivalency between 
 | typeName              | `CLAIM_DEF`                                                             | Legacy Hyperledger Indy Objects Method |
 | publisherId           | Fully qualified DID or URI to easily identify the issuer of the CredDef | cheqd Objects Method                   |
 | objectUri             | Fully qualified DID URL to easily access the CredDef Object             | cheqd Objects Method                   |
-| legacyObjectId        | The Legacy AnonCreds ID which may be expected by client applications    | Legacy Hyperledger Indy Objects Method |
 
 {% hint style="info" %}
 Note: The cheqd ledger will not provide any checks on the Schema Object Content or Metadata. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct.

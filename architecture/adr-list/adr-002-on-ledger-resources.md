@@ -51,7 +51,7 @@ DIDs _can_ be stored on traditional centralised-storage endpoints (e.g., [`did:w
 
     1. See [notable examples of service outages](https://totaluptime.com/notable-network-and-cloud-outages-of-2021/) from major cloud providers: [Amazon Web Services (AWS)](https://awsmaniac.com/aws-outages/), [Microsoft Azure](https://www.theregister.com/2018/09/17/azure\_outage\_report/), [Google Cloud](https://www.thousandeyes.com/blog/google-cloud-platform-outage-analysis), [Facebook / Meta](https://en.wikipedia.org/wiki/2021\_Facebook\_outage), [GitHub](https://github.blog/2022-03-23-an-update-on-recent-service-disruptions/), [Cloudflare](https://blog.cloudflare.com/cloudflare-outage-on-june-21-2022/)...&#x20;
 
-    ![](<../../.gitbook/assets/On-ledger resources - Facebook global outage (3).png>)
+    ![](<../../.gitbook/assets/On-ledger resources - Facebook global outage (1).png>)
 
     _Figure 2: Graph showing drop in Facebook traffic from their global service outage in 2021 (source:_ [_Kentik_](https://www.kentik.com/blog/facebooks-historic-outage-explained/)_)_
 
