@@ -159,7 +159,7 @@ The **subsequent entries** in the Revocation Registry should contain reference t
       "objectFamilyVersion": "v1",
       "objectType": "5",
       "publisherId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
-      "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887"
+      "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/513d8a44-6188-41c2-8de8-eda562f82947"
     }
   }
 }
@@ -291,7 +291,7 @@ Once the transaction has been created, the `resourceMetadata` will look like the
   "mediaType": "application/json",
   "created": "2022-09-01T04:30:01Z",
   "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
-  "previousVersionId": "c154bc07-43f7-4b69-ac0c-5514001f2ca3",
+  "previousVersionId": "513d8a44-6188-41c2-8de8-eda562f82947",
   // points to previous Revocation Registry Entry
   "nextVersionId": null
 }
