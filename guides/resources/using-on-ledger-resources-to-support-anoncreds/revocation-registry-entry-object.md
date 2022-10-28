@@ -69,7 +69,7 @@ The required content and data model for the **subsequent** AnonCreds Revocation 
 
 1. `revocDefType`
 2. `revocRegDefId`
-3. `accum`: the calculated cryptographic accumulator reflecting the initial state of the Revocation Registry Definition Object.
+3. `accum`: the calculated cryptographic accumulator reflecting the most up-to-date state of the revocation registry, reflecting the changes after revocations have been made.
 4. `revoked`: the index or indices of the revoked credentials within the associated tails file.&#x20;
 
 For example:
@@ -80,7 +80,7 @@ For example:
     "revocDefType": "CL_ACCUM",
     "revocRegDefId": "Gs6cQcvrtWoZKsbBhD3dQJ:4:Gs6cQcvrtWoZKsbBhD3dQJ:3:CL:140389:mctc:CL_ACCUM:1-1024",
     "value": {
-      "accum": "21 10B...33D"
+      "accum": "15 05B...94D"
       "revoked": ["55", "125", "166", "208"]
     }
   }
@@ -148,7 +148,7 @@ The **subsequent entries** in the Revocation Registry should contain reference t
       "revocDefType": "CL_ACCUM",
       "revocRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
       "value": {
-        "accum": "21 10B...33D"
+        "accum": "15 05B...94D"
         "revoked": ["55", "125", "166", "208"]
       },
     }
@@ -253,7 +253,7 @@ cheqd-noded tx resource create-resource \
      --gas-prices 25ncheq
 ```
 
-Where, `degreeCredRevocRegEntry2.json` contains an updated `accum`value, `index` value and `objectUri`, such as:
+Where, `degreeCredRevocRegEntry2.json` contains an updated `accum` value, `revocation` value (the list of revoked indices), and unique `objectUri`, such as:
 
 ```json
 {
