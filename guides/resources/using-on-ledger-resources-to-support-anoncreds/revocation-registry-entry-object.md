@@ -70,7 +70,7 @@ The required content and data model for the **subsequent** AnonCreds Revocation 
 1. `revocDefType`
 2. `revocRegDefId`
 3. `accum`: the calculated cryptographic accumulator reflecting the initial state of the Revocation Registry Definition Object.
-4. `index`: the index or indices of the revoked credentials within the associated tails file.&#x20;
+4. `revoked`: the index or indices of the revoked credentials within the associated tails file.&#x20;
 
 For example:
 
@@ -81,7 +81,7 @@ For example:
     "revocRegDefId": "Gs6cQcvrtWoZKsbBhD3dQJ:4:Gs6cQcvrtWoZKsbBhD3dQJ:3:CL:140389:mctc:CL_ACCUM:1-1024",
     "value": {
       "accum": "21 10B...33D"
-      "index": "151"
+      "revoked": ["151"]
     }
   }
 }
@@ -149,7 +149,7 @@ The **subsequent entries** in the Revocation Registry should contain reference t
       "revocRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
       "value": {
         "accum": "21 10B...33D"
-        "index": "55", "125", "166", "208"
+        "revoked": ["55", "125", "166", "208"]
       },
     }
     "AnonCredsObjectMetadata": {
@@ -263,7 +263,7 @@ Where, `degreeCredRevocRegEntry2.json` contains an updated `accum`value, `index`
       "revocRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
       "value": {
         "accum": "88 46D...61B"
-        "index": "55", "71", "82", "125", "133", "166", "208"
+        "revoked": ["55", "71", "82", "125", "133", "166", "208"]
       },
     }
     "AnonCredsObjectMetadata": {
