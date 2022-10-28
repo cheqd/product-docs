@@ -81,7 +81,7 @@ For example:
     "revocRegDefId": "Gs6cQcvrtWoZKsbBhD3dQJ:4:Gs6cQcvrtWoZKsbBhD3dQJ:3:CL:140389:mctc:CL_ACCUM:1-1024",
     "value": {
       "accum": "21 10B...33D"
-      "revoked": ["151"]
+      "revoked": ["55", "125", "166", "208"]
     }
   }
 }
