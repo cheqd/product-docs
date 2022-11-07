@@ -11,16 +11,16 @@ _Node version recommended `Nodev16`_. You can install Node [here](https://nodejs
 This step is exactly [as described in Veramo CLI docs](https://veramo.io/docs/veramo_agent/cli_tool/):
 
 ```bash
-npm i @veramo/cli@3.1.6-next.160 -g
+npm i @veramo/cli@latest -g
 ```
 
 _Note:_ Depending on your system permissions, you might be prompted for additional permissions. Add `sudo` to the beginning of the command in case that happens.
 
-Verify the installation was correct and installed the specified version using:
+Verify the installation was correct. Command below should output latest version of veramo you installed.
 
 ```bash
 $ veramo -v
-3.1.6-next.160+6fbd22fa
+x.x.x
 ```
 
 ### 1.2. Install the `did-provider-cheqd` package
