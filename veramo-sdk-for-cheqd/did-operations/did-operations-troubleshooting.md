@@ -1,6 +1,6 @@
 # 🤨 Troubleshooting Create DID operation
 
-This guide provides common errors and potential fixes for them if you encountered errors when [creating did](create-subject-did.md).
+This guide provides common errors and potential fixes for them if you encountered errors when [creating a DID](../../tutorials/did-operations/create-a-did.md).
 
 ## 1. When generating keys along with a DIDDoc template
 
@@ -14,7 +14,7 @@ If you encounter an error below
 
 `Unexpected token v in JSON at position 1`
 
-Create a `.json` file (e.g. name it `identity-keys-on-the-fly-with-did-docs.json` in same working directory level). 
+Create a `.json` file (e.g. name it `identity-keys-on-the-fly-with-did-docs.json` in same working directory level).
 
 Copy and paste the content from below into your newly created `.json` file.
 
