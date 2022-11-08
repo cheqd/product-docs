@@ -19,7 +19,6 @@ jobs:
         with:
           config-file: '.github/linters/mlc_config.json'
           use-quiet-mode: 'yes'
-          use-verbose-mode: 'yes'
 
   super-lint:
     name: "Super Linter"
@@ -44,5 +43,4 @@ jobs:
         VALIDATE_GITHUB_ACTIONS: true
         VALIDATE_JSONC: true
         VALIDATE_MARKDOWN: true
-        VALIDATE_XML: true
         VALIDATE_YAML: true
