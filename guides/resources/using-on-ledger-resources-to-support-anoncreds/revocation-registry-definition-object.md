@@ -7,7 +7,7 @@ In the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec/)
 1. `type` of Revocation Registry (In Indy this is always "`CL_ACCUM`").
 2. `cred_def_id`: Each Revocation Registry must be linked to one specific Credential Definition.
 3. `tag`: An issuer-specified name for the Revocation Registry, to ensure consistency when referencing the registry.
-4. `issuancetype`: The default state of Credentials - either revoked by default (“ISSUANCE\_ON\_DEMAND”), or non-revoked by default (“ISSUANCE\_BY\_DEFAULT”). There is debate in the AnonCreds community regarding deprecating the former, issuance on demand, for [privacy and correlation reasons explained here](https://anoncreds-wg.github.io/anoncreds-spec/#recommend-not-using-issuance\_on\_demand).
+4. `issuancetype`: The default state of Credentials - either revoked by default (“ISSUANCE_ON_DEMAND”), or non-revoked by default (“ISSUANCE_BY_DEFAULT”). There is debate in the AnonCreds community regarding deprecating the former, issuance on demand, for [privacy and correlation reasons explained here](https://anoncreds-wg.github.io/anoncreds-spec/#recommend-not-using-issuance_on_demand).
 5. `maxCredNum`: The maximum amount of Credentials that can be revoked in the Revocation Registry before a new one needs to be started.
 6. `tailsLocation`: A [URL](https://www.rfc-editor.org/rfc/rfc1738) resolving to the location of the Tails File.
 
@@ -23,7 +23,7 @@ This documentation will guide an implementor of AnonCreds on cheqd on how the ch
 
 ### AnonCreds Revocation Registry Definition Object ID
 
-Each specific AnonCreds identifier must be defined within an AnonCreds Object Method in the [AnonCreds Object Method Registry](https://anoncreds-wg.github.io/anoncreds-objects-methods-registry/).
+Each specific AnonCreds identifier must be defined within an AnonCreds Object Method in the [AnonCreds Object Method Registry](https://hyperledger.github.io/anoncreds-spec/).
 
 This means that an AnonCreds Revocation Registry Object ID does not need to be formatted in any particular syntax, in the latest version of the AnonCreds Specification.
 
@@ -63,15 +63,15 @@ This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds O
 
 The required content and data model for the AnonCreds Revocation Registry Definition Object are as follows:
 
-* `credDefId`: the input parameter `cred_def_id`, [further explained here](creddef-object.md).
-* `id`: the identifier of the [Revocation Registry Definition Object](revocation-registry-definition-object.md#anoncreds-revocation-registry-definition-object-id), defined above.
-* `revocDefType`: the input parameter `type`
-* `tag`: A unique name or tag given to the Revocation Registry Object.
-* `issuanceType`: the input parameter `issuanceType`
-* `maxCredNum`: the input parameter `maxCredNum`
-* `z`: a public key used to sign the accumulator
-* `tailsHash`: the calculated hash of the contents of the Tails File, as described further in the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec).
-* `tailsFileLocation`: the input parameter `tailsLocation`
+- `credDefId`: the input parameter `cred_def_id`, [further explained here](creddef-object.md).
+- `id`: the identifier of the [Revocation Registry Definition Object](revocation-registry-definition-object.md#anoncreds-revocation-registry-definition-object-id), defined above.
+- `revocDefType`: the input parameter `type`
+- `tag`: A unique name or tag given to the Revocation Registry Object.
+- `issuanceType`: the input parameter `issuanceType`
+- `maxCredNum`: the input parameter `maxCredNum`
+- `z`: a public key used to sign the accumulator
+- `tailsHash`: the calculated hash of the contents of the Tails File, as described further in the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec).
+- `tailsFileLocation`: the input parameter `tailsLocation`
 
 For example, the on-ledger Revocation Registry Definition Object Content is as follows:
 
@@ -144,12 +144,12 @@ In the example below, the content should be saved as a file, for example: `degre
       "tailsLocation": "https://api.portal.streetcred.id/agent/tails/BrCqQS487HcdLeihGwnk65nWwavKYfrhSrMaUpYGvouH"
     },
   }
-"AnonCredsObjectMetadata" {  
+"AnonCredsObjectMetadata" {
   "objectFamily": "anoncreds",
   "objectFamilyVersion": "v1",
-  "objectType": "4",  
+  "objectType": "4",
   "typeName": "REVOC_REG_DEF"
-  "publisherId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
+  "publisherId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
   "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df"
 }
 ```
@@ -226,7 +226,7 @@ New resources can be created to update the existing CredDef or RevRegDef, whilst
 
 ### Fetching a cheqd Revocation Registry Definition Object
 
-Rather than requiring a specific _GET\_REV\_REG_ function and interface to fetch the Revocation Registry Definition Object Content (such as that required on Indy), existing DID Resolvers will be able to query for the Revocation Registry Definition Object Content using the following parameters:
+Rather than requiring a specific _GET_REV_REG_ function and interface to fetch the Revocation Registry Definition Object Content (such as that required on Indy), existing DID Resolvers will be able to query for the Revocation Registry Definition Object Content using the following parameters:
 
 Common and standardized `resource` parameters:
 

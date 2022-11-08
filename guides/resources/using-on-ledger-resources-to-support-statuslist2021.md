@@ -99,7 +99,7 @@ Using cheqd's Resource Module, the same benefits may be achieved. In fact, stori
 
 By storing a StatusList on the cheqd Network as a Resource, it creates a much more resilient and decentralised mechanism for storing and maintaining the revocation/suspension status of Verifiable Credentials. The [benefits of using the cheqd Resource module over traditional centralised architecture are detailed here](./).
 
-Moreover, cheqd's Resource Module enables individual Resources to be referenced and retrieved using a DID URL in conformance with DID Core. This is being standardized at [the Trust over IP Foundation](https://trustoverip.org/) within a specification called [DID URLs for Digital Resources](https://wiki.trustoverip.org/display/HOME/DID+URLs+for+Digital+Resources+Specification).&#x20;
+Moreover, cheqd's Resource Module enables individual Resources to be referenced and retrieved using a DID URL in conformance with DID Core. This is being standardized at [the Trust over IP Foundation](https://trustoverip.org/) within a specification called [DID URLs for Digital Resources](https://wiki.trustoverip.org/display/HOME/DID-Linked+Resources+Specification).&#x20;
 
 ### Creating a StatusList Resource using Veramo SDK for cheqd
 
@@ -168,19 +168,21 @@ $ uuidgen
 
 ```json
 {
-    "kms": "local",
-    "payload": {
-        "collectionId": "zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY",
-        "id": "4a71319b-00b1-4db9-bc05-56dc426f7062",
-        "name": "ExampleStatusList2021",
-        "resourceType": "StatusList2021Revocation",
-        "data": "SGVsbG8sIHdvcmxk"
-    },
-    "signInputs": [{
-        "verificationMethodId": "did:cheqd:testnet:zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY#verkey-1",
-        "keyType": "Ed25519",
-        "privateKeyHex": "0f5c124886178037952e87e0cdc55d185732577fca19ae877e64ac9ab24a0cc534e5326e70f1a42d785d93048aee806c359ec75a7b06f39253befd1746708438"
-    }]
+  "kms": "local",
+  "payload": {
+    "collectionId": "zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY",
+    "id": "4a71319b-00b1-4db9-bc05-56dc426f7062",
+    "name": "ExampleStatusList2021",
+    "resourceType": "StatusList2021Revocation",
+    "data": "SGVsbG8sIHdvcmxk"
+  },
+  "signInputs": [
+    {
+      "verificationMethodId": "did:cheqd:testnet:zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY#verkey-1",
+      "keyType": "Ed25519",
+      "privateKeyHex": "0f5c124886178037952e87e0cdc55d185732577fca19ae877e64ac9ab24a0cc534e5326e70f1a42d785d93048aee806c359ec75a7b06f39253befd1746708438"
+    }
+  ]
 }
 ```
 
@@ -204,21 +206,17 @@ Once created, the StatusList2021 Resource will be associated with the parent DID
 
 ```json
 {
-"didDocument": {
-    "@context": [
-      "https://www.w3.org/ns/did/v1"
-    ],
+  "didDocument": {
+    "@context": ["https://www.w3.org/ns/did/v1"],
     "id": "did:cheqd:testnet:zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY",
-    "controller": [
-      "did:cheqd:testnet:zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY"
-    ],
+    "controller": ["did:cheqd:testnet:zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY"],
     "verificationMethod": [
       {
         "id": "did:cheqd:testnet:zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY#verkey-1",
         "type": "Ed25519VerificationKey2020",
         "controller": "did:cheqd:testnet:zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY",
         "publicKeyMultibase": "zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpYAZPD1M9tvwyzE"
-      },
+      }
     ],
     "authentication": [
       "did:cheqd:testnet:zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY#verkey-1"
@@ -242,7 +240,7 @@ Once created, the StatusList2021 Resource will be associated with the parent DID
       }
     ]
   }
-}      
+}
 ```
 
 ### Creating new StatusList2021 Resource Version
@@ -259,19 +257,21 @@ For example:
 
 ```json
 {
-    "kms": "local",
-    "payload": {
-        "collectionId": "zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY", // Same Collection ID
-        "id": "6922ae19-777e-4e05-8b10-8a2f0a2d418d", // New unique ID
-        "name": "ExampleStatusList2021", // Same name
-        "resourceType": "StatusList2021Revocation",  // Same Resource Type
-        "data": "hwbWB8FnRwXxmxk" // New base 64 encoded value with updated bitstring
-    },
-    "signInputs": [{
-        "verificationMethodId": "did:cheqd:testnet:zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY#verkey-1", // Same Verification key
-        "keyType": "Ed25519",
-        "privateKeyHex": "0f5c124886178037952e87e0cdc55d185732577fca19ae877e64ac9ab24a0cc534e5326e70f1a42d785d93048aee806c359ec75a7b06f39253befd1746708438"
-    }]
+  "kms": "local",
+  "payload": {
+    "collectionId": "zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY", // Same Collection ID
+    "id": "6922ae19-777e-4e05-8b10-8a2f0a2d418d", // New unique ID
+    "name": "ExampleStatusList2021", // Same name
+    "resourceType": "StatusList2021Revocation", // Same Resource Type
+    "data": "hwbWB8FnRwXxmxk" // New base 64 encoded value with updated bitstring
+  },
+  "signInputs": [
+    {
+      "verificationMethodId": "did:cheqd:testnet:zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY#verkey-1", // Same Verification key
+      "keyType": "Ed25519",
+      "privateKeyHex": "0f5c124886178037952e87e0cdc55d185732577fca19ae877e64ac9ab24a0cc534e5326e70f1a42d785d93048aee806c359ec75a7b06f39253befd1746708438"
+    }
+  ]
 }
 ```
 
@@ -279,21 +279,17 @@ Resulting in the following metadata syntax:
 
 ```json
 {
-"didDocument": {
-    "@context": [
-      "https://www.w3.org/ns/did/v1"
-    ],
+  "didDocument": {
+    "@context": ["https://www.w3.org/ns/did/v1"],
     "id": "did:cheqd:testnet:zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY",
-    "controller": [
-      "did:cheqd:testnet:zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY"
-    ],
+    "controller": ["did:cheqd:testnet:zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY"],
     "verificationMethod": [
       {
         "id": "did:cheqd:testnet:zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY#verkey-1",
         "type": "Ed25519VerificationKey2020",
         "controller": "did:cheqd:testnet:zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY",
         "publicKeyMultibase": "zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpYAZPD1M9tvwyzE"
-      },
+      }
     ],
     "authentication": [
       "did:cheqd:testnet:zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY#verkey-1"
@@ -329,7 +325,7 @@ Resulting in the following metadata syntax:
       }
     ]
   }
-}    
+}
 ```
 
 ### Issuing a Verifiable Credential referencing cheqd StatusList

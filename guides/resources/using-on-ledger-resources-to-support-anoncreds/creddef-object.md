@@ -14,7 +14,7 @@ This documentation will guide an implementor of AnonCreds on cheqd on how the ch
 
 ### AnonCreds CredDef Object ID
 
-Each specific AnonCreds identifier must be defined within an AnonCreds Object Method in the [AnonCreds Object Method Registry](https://anoncreds-wg.github.io/anoncreds-objects-methods-registry/).
+Each specific AnonCreds identifier must be defined within an AnonCreds Object Method in the [AnonCreds Object Method Registry](https://hyperledger.github.io/anoncreds-spec/).
 
 This means that an AnonCreds CredDef Object ID does not need to be formatted in any particular syntax, in the latest version of the AnonCreds Specification.
 
@@ -22,14 +22,14 @@ This means that an AnonCreds CredDef Object ID does not need to be formatted in 
 
 Like with [Schema Objects](schema-object.md), each CredDef Object ID (`cred_def_id`) was previously a **composite** string, consisting of the following elements:
 
-* `issuer DID`: The DID of the Issuer, the issuer of the credentials that will utilise the CredDef.
-* `object type`: The type of object. `3` is used for CredDefs.
-* `signature_type`: The `signature_type` item for the CredDef (this is 'CL' in the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec/))
-* `schema_id`: Also referred to as the `ref,` this should be a [URL](https://www.rfc-editor.org/rfc/rfc1738) for the `schema_id.`
-* `tag`: A unique name or tag given to the CredDef.
+- `issuer DID`: The DID of the Issuer, the issuer of the credentials that will utilise the CredDef.
+- `object type`: The type of object. `3` is used for CredDefs.
+- `signature_type`: The `signature_type` item for the CredDef (this is 'CL' in the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec/))
+- `schema_id`: Also referred to as the `ref,` this should be a [URL](https://www.rfc-editor.org/rfc/rfc1738) for the `schema_id.`
+- `tag`: A unique name or tag given to the CredDef.
 
 {% hint style="info" %}
-Note: the schema\_id as part of the\_ cred\_def\_id is a recent change from the AnonCreds Working Group. Previously, this was the Schema TXN ID. However, the Schema TXN ID could not accommodate for non-Hyperledger Indy networks.
+Note: the schema_id as part of the\_ cred_def_id is a recent change from the AnonCreds Working Group. Previously, this was the Schema TXN ID. However, the Schema TXN ID could not accommodate for non-Hyperledger Indy networks.
 {% endhint %}
 
 The `cred_def_id` therefore was formatted in the following way:
@@ -62,9 +62,9 @@ Credential Definition Object Content is distinct in the way it is structured. Th
 
 The following inputs are required to create a CredDef:
 
-* A schema on which the CredDef will be based
-* A `tag`, an arbitrary string defined by the Issuer, enabling an Issuer to create multiple CredDefs for the same schema.
-* An optional flag `support_revocation` (default `false`) which if true generates some additional data in the CredDef to enable credential revocation.
+- A schema on which the CredDef will be based
+- A `tag`, an arbitrary string defined by the Issuer, enabling an Issuer to create multiple CredDefs for the same schema.
+- An optional flag `support_revocation` (default `false`) which if true generates some additional data in the CredDef to enable credential revocation.
 
 #### Create CredDef output
 
@@ -79,7 +79,7 @@ A CredDef has a couple of important characteristics:
    2. `signature_type`
    3. `tag`
 
-Further details regarding the use of cryptographic primatives are described in the [CredDefs section of the AnonCreds specification here](https://anoncreds-wg.github.io/anoncreds-spec/#generating-a-cred\_def-without-revocation-support).
+Further details regarding the use of cryptographic primatives are described in the [CredDefs section of the AnonCreds specification here](https://anoncreds-wg.github.io/anoncreds-spec/#generating-a-cred_def-without-revocation-support).
 
 An example of a CredDef Object content without revocation is below:
 
@@ -89,15 +89,15 @@ An example of a CredDef Object content without revocation is below:
     "primary": {
       "n": "779...397",
       "r": {
-            "birthdate": "294...298",
-            "birthlocation": "533...284",
-            "citizenship": "894...102",
-            "expiry_date": "650...011",
-            "facephoto": "870...274",
-            "firstname": "656...226",
-            "master_secret": "521...922",
-            "name": "410...200",
-            "uuid": "226...757"
+        "birthdate": "294...298",
+        "birthlocation": "533...284",
+        "citizenship": "894...102",
+        "expiry_date": "650...011",
+        "facephoto": "870...274",
+        "firstname": "656...226",
+        "master_secret": "521...922",
+        "name": "410...200",
+        "uuid": "226...757"
       },
       "rctxt": "774...977",
       "s": "750..893",
@@ -113,7 +113,7 @@ An example of a CredDef Object content without revocation is below:
 Using the Legacy AnonCreds Object method as a reference point, the composite string of the `cred_def_id` should include the **same values** as are in the CredDef Object Content.
 
 {% hint style="info" %}
-Note: In the AnonCreds Specification the 'ref' is currently the Schema TXN ID. However, since this would not work for ledgers other than Indy, we propose changing this to a 'string' and referencing the SCHEMA\_ID
+Note: In the AnonCreds Specification the 'ref' is currently the Schema TXN ID. However, since this would not work for ledgers other than Indy, we propose changing this to a 'string' and referencing the SCHEMA_ID
 {% endhint %}
 
 An example of a CredDef Object content with revocation is below:
@@ -211,12 +211,12 @@ In the example below, the content should be saved as a file, for example: `credD
   "signature_type": "CL",
   "tag": "credDefDegree"
 }
-"AnonCredsObjectMetadata": { 
+"AnonCredsObjectMetadata": {
   "objectFamily": "anoncreds",
   "objectFamilyVersion": "v1",
   "objectType": "3",
   "typeName": "CLAIM_DEF",
-  "publisherId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",      
+  "publisherId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
   "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0"
   }
 }
@@ -263,7 +263,7 @@ Or with revocation:
   "signature_type": "CL",
   "tag": "credDefDegree"
 }
-"AnonCredsObjectMetadata": { 
+"AnonCredsObjectMetadata": {
   "objectFamily": "anoncreds",
   "objectFamilyVersion": "v1",
   "objectType": "3",
@@ -318,22 +318,22 @@ Once you have created your resource on cheqd, the following metadata will be gen
 
 ```json
 {
-   "resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0",
-   "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
-   "resourceId": "77465164-5646-42d9-9a0a-f7b2dcb855c0",
-   "resourceName": "credDefDegree",
-   "resourceType": "claimDef",
-   "mediaType": "application/json",
-   "created": "2022-07-19T08:40:00Z",
-   "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
-   "previousVersionId": null,
-   "nextVersionId": null
+  "resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0",
+  "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
+  "resourceId": "77465164-5646-42d9-9a0a-f7b2dcb855c0",
+  "resourceName": "credDefDegree",
+  "resourceType": "claimDef",
+  "mediaType": "application/json",
+  "created": "2022-07-19T08:40:00Z",
+  "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
+  "previousVersionId": null,
+  "nextVersionId": null
 }
 ```
 
 ### Fetching a cheqd CredDef Object
 
-Rather than requiring a specific GET\_CRED\_DEF function and interface to fetch the CredDef Object Content (such as that required on Indy for the `cred_def_id` (`zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree`), existing DID Resolvers will be able to query for the CredDef Object Content using the following parameters:
+Rather than requiring a specific GET_CRED_DEF function and interface to fetch the CredDef Object Content (such as that required on Indy for the `cred_def_id` (`zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree`), existing DID Resolvers will be able to query for the CredDef Object Content using the following parameters:
 
 Common and standardized `resource` parameters:
 

@@ -10,7 +10,7 @@ This documentation will guide an implementor of AnonCreds on cheqd on how the ch
 
 ### AnonCreds Schema ID
 
-Each specific AnonCreds identifier must be defined within an AnonCreds Object Method in the [AnonCreds Object Method Registry](https://anoncreds-wg.github.io/anoncreds-objects-methods-registry/).
+Each specific AnonCreds identifier must be defined within an AnonCreds Object Method in the [AnonCreds Object Method Registry](https://hyperledger.github.io/anoncreds-spec/).
 
 This means that an AnonCreds Schema Object ID does not need to be formatted in any particular syntax, in the latest version of the AnonCreds Specification.
 
@@ -18,10 +18,10 @@ This means that an AnonCreds Schema Object ID does not need to be formatted in a
 
 Prior to the AnonCreds specification being updated, the `schema_id` was defined as a **composite** of the following set of elements:
 
-* `publisher DID`: is a [string](https://infra.spec.whatwg.org/#string). The DID of the Schema Publisher.
-* `object type`: An integer denoting the type of object. `2` is used for Schemas.
-* `name`: is a [string](https://infra.spec.whatwg.org/#string), the name of the schema
-* `version`: is a [string](https://infra.spec.whatwg.org/#string), the version of the schema in [semver](https://semver.org/) format. The three part, period (“.”) separated format MAY be enforced.
+- `publisher DID`: is a [string](https://infra.spec.whatwg.org/#string). The DID of the Schema Publisher.
+- `object type`: An integer denoting the type of object. `2` is used for Schemas.
+- `name`: is a [string](https://infra.spec.whatwg.org/#string), the name of the schema
+- `version`: is a [string](https://infra.spec.whatwg.org/#string), the version of the schema in [semver](https://semver.org/) format. The three part, period (“.”) separated format MAY be enforced.
 
 The `schema_id` therefore was formatted in the following way:
 
@@ -47,9 +47,9 @@ This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds O
 
 The actual Schema Object Content which is written to the Verifiable Data Registry, contains the following information:
 
-* `attr_names`: is the array of attribute names (claim names) that will constitute the AnonCred credential of this type.
-* `name`: is a [string](https://infra.spec.whatwg.org/#string), the name of the schema, which will be a part of the published `schema_id`.
-* `version`: is a [string](https://infra.spec.whatwg.org/#string), the version of the schema in [semver](https://semver.org/) format. The three part, period (“.”) separated format MAY be enforced. The `version` will be part of the published `schema_id`.
+- `attr_names`: is the array of attribute names (claim names) that will constitute the AnonCred credential of this type.
+- `name`: is a [string](https://infra.spec.whatwg.org/#string), the name of the schema, which will be a part of the published `schema_id`.
+- `version`: is a [string](https://infra.spec.whatwg.org/#string), the version of the schema in [semver](https://semver.org/) format. The three part, period (“.”) separated format MAY be enforced. The `version` will be part of the published `schema_id`.
 
 For example:
 
@@ -57,14 +57,14 @@ For example:
 {
   "data": {
     "attr_names": [
-        "birthlocation",
-        "facephoto",
-        "expiry_date",
-        "citizenship",
-        "name",
-        "birthdate",
-        "firstname",
-        "uuid"
+      "birthlocation",
+      "facephoto",
+      "expiry_date",
+      "citizenship",
+      "name",
+      "birthdate",
+      "firstname",
+      "uuid"
     ],
     "name": "degreeSchema",
     "version": "1.5.7"
@@ -74,7 +74,7 @@ For example:
 
 Returning to the Legacy AnonCreds `schema_id` as a reference point, within the Schema Object Content, the `name` and the `version` should be the same as the `name` and `version` in the **composite** `schema_id.`
 
-Therefore, the schema\_id `"7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7"` would identify and resolve to the Schema Object content above.
+Therefore, the schema_id `"7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7"` would identify and resolve to the Schema Object content above.
 
 Once published on a Hyperledger Indy ledger, an additional identifier for the published schema, the `TXN_ID`, is available to those reading from the ledger
 
@@ -189,7 +189,7 @@ Once you have created your resource on cheqd, the following metadata will be gen
 
 ### Fetching a cheqd Schema Object
 
-Rather than requiring a specific GET\_SCHEMA function and interface to fetch the Schema Object Content (such as that required on Indy for the `schema_id` (`7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7`), existing DID Resolvers will be able to query for the Schema Object Content using the following parameters:
+Rather than requiring a specific GET_SCHEMA function and interface to fetch the Schema Object Content (such as that required on Indy for the `schema_id` (`7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7`), existing DID Resolvers will be able to query for the Schema Object Content using the following parameters:
 
 Common and standardized `resource` parameters:
 
