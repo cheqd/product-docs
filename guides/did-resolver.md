@@ -12,9 +12,9 @@ The [cheqd DID Resolver](https://github.com/cheqd/did-resolver) is designed to i
 
 ## Design of cheqd DID Resolver
 
-Since [cheqd uses the Cosmos SDK blockchain framework](https://blog.cheqd.io/why-cheqd-has-joined-the-cosmos-4db8845722c5), the underlying data storage and retrieval mechanisms used rely on those offered by the [Cosmos SDK framework](https://docs.cosmos.network/master/intro/overview.html).
+Since [cheqd uses the Cosmos SDK blockchain framework](https://blog.cheqd.io/why-cheqd-has-joined-the-cosmos-4db8845722c5), the underlying data storage and retrieval mechanisms used rely on those offered by the [Cosmos SDK framework](https://docs.cosmos.network/main/intro/overview.html).
 
-Cosmos SDK [uses Protobuf (Protocol Buffers) encoding for its wire protocol](https://docs.cosmos.network/master/core/encoding.html) and provides [gRPC/gRPC-Web, JSON-RPC, and REST API endpoints for on-ledger modules](https://docs.cosmos.network/master/core/grpc\_rest.html) and functionality.
+Cosmos SDK [uses Protobuf (Protocol Buffers) encoding for its wire protocol](https://docs.cosmos.network/main/core/encoding.html) and provides [gRPC/gRPC-Web, JSON-RPC, and REST API endpoints for on-ledger modules](https://docs.cosmos.network/main/core/grpc_rest.html) and functionality.
 
 The cheqd DID Resolver uses these existing gRPC/REST API endpoints to carry out DID URL Resolution and Dereferencing _not_ packaged within the [cheqd-node ledger code](https://github.com/cheqd/cheqd-node).
 
@@ -36,7 +36,7 @@ Since the _Full cheqd DID Resolver_ is wrapped for usage as a Docker container i
 
 ![Full cheqd DID Resolver sequence diagram](../.gitbook/assets/cheqd-full-did-resolver-sequence-diagram.png)
 
-_Figure 1_: "Full" cheqd DID Resolver sequence diagram ([editable version](https://swimlanes.io/u/CE\_Rjphs9?rev=7))
+_Figure 1_: "Full" cheqd DID Resolver sequence diagram ([editable version](https://swimlanes.io/u/CE_Rjphs9?rev=7))
 
 1. Since the [cheqd-node ledger](https://github.com/cheqd/cheqd-node) / Cosmos SDK is written in Golang, this resolver would consist of Golang libraries imported from the existing ledger code. This promotes code reuse.
 2. Data would be fetched from the ledger using the gRPC endpoint on a node, which allows it (by default) to take place over an encrypted channel [since gRPC uses HTTP/2](https://grpc.io/).
