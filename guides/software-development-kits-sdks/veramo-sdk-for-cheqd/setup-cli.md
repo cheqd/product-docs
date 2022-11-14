@@ -19,7 +19,7 @@ _Note:_ Depending on your system permissions, you might be prompted for addition
 Verify the installation was correct. Command below should output latest version of veramo you installed.
 
 ```bash
-$ veramo -v
+veramo -v
 x.x.x
 ```
 
