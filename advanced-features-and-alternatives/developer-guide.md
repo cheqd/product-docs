@@ -27,12 +27,12 @@ Generated/built Protobuf for repeatable builds are also published to the [`cheqd
 
 Types and utilities are available for re-use for each module as well. The `utils` include functions for working with these custom modules, validation logic, etc.
 
-* `cheqd` (DID) module
-  * [`x/cheqd/types`](https://github.com/cheqd/cheqd-node/tree/main/x/cheqd/types)
-  * [`x/cheqd/utils`](https://github.com/cheqd/cheqd-node/tree/main/x/cheqd/utils)
-* `resource` module
-  * [`x/resource/types`](https://github.com/cheqd/cheqd-node/tree/main/x/resource/types)
-  * [`x/resource/utils`](https://github.com/cheqd/cheqd-node/tree/main/x/resource/utils)
+- `cheqd` (DID) module
+  - [`x/cheqd/types`](https://github.com/cheqd/cheqd-node/tree/main/x/cheqd/types)
+  - [`x/cheqd/utils`](https://github.com/cheqd/cheqd-node/tree/main/x/cheqd/utils)
+- `resource` module
+  - [`x/resource/types`](https://github.com/cheqd/cheqd-node/tree/main/x/resource/types)
+  - [`x/resource/utils`](https://github.com/cheqd/cheqd-node/tree/main/x/resource/utils)
 
 ### Sending transactions to ledger
 
@@ -54,8 +54,8 @@ The high-level steps are:
 
 1. **Consume Protobofs for cheqd**: Our [Buf.build packages for cheqd](https://github.com/cheqd/did-resolver) can make this take simpler for many languages. _A real-world example of this is the_ [_`@cheqd/ts-proto`_](https://github.com/cheqd/ts-proto) _TypeScript NPM package._
 2. **Prepare and sign the message correctly**: This relies partly on understanding general Cosmos SDK message format and transaction signing, as well as any cheqd-specific bits. _A real-world example of this is the_ [_`@cheqd/sdk`_](https://github.com/cheqd/sdk) _NPM package that consumes `@cheqd/ts-proto` NPM package._
-3. **Send the message to ledger using gRPC/RPC**: Once a message/transaction is correctly compiled and signed, standard transport libraries can be used to target the [gRPC/RPC endpoints](https://docs.cosmos.network/master/core/grpc\_rest.html) for a `cheqd-node` instance.
+3. **Send the message to ledger using gRPC/RPC**: Once a message/transaction is correctly compiled and signed, standard transport libraries can be used to target the [gRPC/RPC endpoints](https://docs.cosmos.network/main/core/grpc_rest.html) for a `cheqd-node` instance.
 
 > Example 2: [**Everynym VDR Tools**](vdr-tools-with-cheqd.md)
 >
-> [**Evernym's VDR Tools SDK**](https://gitlab.com/evernym/verity/vdr-tools/-/tree/main/libvdrtools/src/services/cheqd\_ledger) is an independent implementation written in Rust that [integrates some cheqd ledger functionality](vdr-tools-with-cheqd.md).
+> [**Evernym's VDR Tools SDK**](https://gitlab.com/evernym/verity/vdr-tools/-/tree/main/libvdrtools/src/services/cheqd_ledger) is an independent implementation written in Rust that [integrates some cheqd ledger functionality](vdr-tools-with-cheqd.md).

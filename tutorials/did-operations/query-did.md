@@ -16,6 +16,12 @@ Use `veramo did resolve <did>` to resolve a DID. For example:
 veramo did resolve did:cheqd:mainnet:zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX
 ```
 
+_TIp_: If you have followed along the process of creating a _did_. You can put your _did_ instead.
+
+```bash
+veramo did resolve did:cheqd:testnet:<your_did_>
+```
+
 ### 2. Inspect DID/DIDDoc output
 
 The output should look like the following:
@@ -45,7 +51,7 @@ The output should look like the following:
         "type": "JsonWebKey2020"
     "authentication": [
       "did:cheqd:mainnet:zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX#key1"
-        ],    
+        ],
       }
     ]
   },

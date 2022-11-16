@@ -28,6 +28,12 @@ Follow [_Method 2_ in the key management guide](identity-key-handling.md):
 veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "Ed25519VerificationKey2020", "methodSpecificIdAlgo": "base58btc", "methodSpecificIdLength": 16, "network": "testnet"}'
 ```
 
+After running the above command ,if you see an error below, follow our troubleshooting guide [here](https://github.com/cheqd/identity-docs/blob/main/veramo-sdk-for-cheqd/did-operations/did-operations-troubleshooting.md#1-when-generating-keys-along-with-a-diddoc-template) to fix it.
+
+```bash
+Unexpected token v in JSON at position 1
+```
+
 ### 2. Prepare/edit DIDDoc contents
 
 Before creating a DID, you will need to prepare the `args.json` file. This file can be saved whereever you choose, but the location must be specified in the create DID command used in Step 2. (By default, it will be saved under the project root directory.)
@@ -57,10 +63,10 @@ If you used _Method 2_ in the previous step, you can use the output of that as a
 
 #### Parameters
 
-* `kms` (default `local`): Key Management System (KMS) to be used for storage.
-* `alias`: A human-friendly alias for the DID. Only used locally when referencing operations in Veramo CLI.
-* `document`: Full body of the DID Document
-* `keys`: Keys used to sign the DIDDoc. These must match the ones specified in the DIDDoc, otherwise an error will be thrown.
+- `kms` (default `local`): Key Management System (KMS) to be used for storage.
+- `alias`: A human-friendly alias for the DID. Only used locally when referencing operations in Veramo CLI.
+- `document`: Full body of the DID Document
+- `keys`: Keys used to sign the DIDDoc. These must match the ones specified in the DIDDoc, otherwise an error will be thrown.
 
 ### 3. Create new DID and publish DIDDoc
 
