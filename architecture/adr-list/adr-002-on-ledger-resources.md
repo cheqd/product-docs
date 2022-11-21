@@ -12,8 +12,8 @@
 
 ## Summary
 
-This ADR defines how on-ledger resources (e.g., text, JSON, images, etc) can be created and referenced using [a persistent and unique `did:cheqd` DID URL](broken-reference).
-
+This ADR defines how on-ledger resources (e.g., text, JSON, images, etc) can be created and referenced using a persistent and unique `did:cheqd` DID URL.
+  
 Each on-ledger resource will be linked with a DID Document, with create/update operations controlled using the specified verification methods in the associated DID Document.
 
 ## Context
@@ -72,7 +72,7 @@ Despite these issues, many self-sovereign identity (SSI) implementations - _even
 
 > Example schema.org address with full URLs
 >
-> ```
+> ```bash
 > {
 >   "@type": "http://schema.org/Person",
 >   "http://schema.org/address": {
@@ -100,7 +100,7 @@ We took the following design principles into consideration, along with an explan
 4. **Design for DID-spec "dumb" as well as DID-spec "smart" client applications**: Many approaches in this space assume that client applications must be adept at parsing DIDDocs and resolving complex inter-DIDDoc relationships. We saw describing resources using DIDDocs as _metadata_ about the resource which _could_ be independently-parsed by "smart" client applications; while also providing a fallback approach for "dumb" client applications. We internally considered this as _"What if an identity wallet understood how to parse JSON, but didn't understand the DID Core spec?"_
 5. **Version controlled**: The ability to evolve a resource over time is critical for identity use cases. As described above, examples of this include when identity document schemas change, logos evolve, etc. Current approaches (such as Hyperledger Indy CredDefs) deal with this by creating entirely new, unlinked resources. We designed to make it easy, using existing DID Core specification techniques, so that client applications could query _"What was the version of a resource with **this** name on **this** date/time?"_
 6. **Make re-use of resources simple**: We liked the concept of [Schema.org](https://schema.org) in the sense that it promotes a common, machine-readable specification. Therefore, our design allows for patterns where the controllers of a DID can reference resources created by _other_ DID owners/controllers, e.g., referencing a pre-existing schema. Taking this line of thought further, it allows for an arbitrary depth of how resources can be nested, as long as they are discoverable/resolvable.
-7. **Not **_**all**_** types of resources should be stored on a ledger...but can be made discoverable through similar design patterns**: Distributed ledgers are great for redundancy, but the cost of this duplication (in terms of storage required by node, block size, transaction finality speeds, etc) can be quite significant. For instance, a distributed ledger is probably _not_ the best storage and retrieval mechanism for a video file (which can run into many GBs/TBs); or even a PDF larger than a few MBs. cheqd network [restricts the block size for an individual block to \~200 KB](broken-reference). This can be updated via an on-ledger vote, but the trade-off of asking node operators to provision ever-expanding storage would be not ideal. Our design therefore restricts the file/payload size of on-ledger resources (in our case, \~190 KB - giving enough room for transaction data besides the resource itself), while allowing the _same_ techniques below to be used for describing off-ledger resources. E.g., [our first DID on cheqd network](https://blog.cheqd.io/a-new-hope-in-the-data-wars-our-first-ever-non-fungible-did-on-the-cheqd-network-7649cad8cb06) references [a 7+ MB image accessible via IPFS](https://gateway.ipfs.io/ipfs/bafybeihetj2ng3d74k7t754atv2s5dk76pcqtvxls6dntef3xa6rax25xe). We recognise and accept that DID owners/creators may choose to use their own centralised/decentralised storage, and the design patterns described below accommodate that.
+7. **Not**_**all**_**types of resources should be stored on a ledger...but can be made discoverable through similar design patterns**: Distributed ledgers are great for redundancy, but the cost of this duplication (in terms of storage required by node, block size, transaction finality speeds, etc) can be quite significant. For instance, a distributed ledger is probably _not_ the best storage and retrieval mechanism for a video file (which can run into many GBs/TBs); or even a PDF larger than a few MBs. cheqd network [restricts the block size for an individual block to \~200 KB](broken-reference). This can be updated via an on-ledger vote, but the trade-off of asking node operators to provision ever-expanding storage would be not ideal. Our design therefore restricts the file/payload size of on-ledger resources (in our case, \~190 KB - giving enough room for transaction data besides the resource itself), while allowing the _same_ techniques below to be used for describing off-ledger resources. E.g., [our first DID on cheqd network](https://blog.cheqd.io/a-new-hope-in-the-data-wars-our-first-ever-non-fungible-did-on-the-cheqd-network-7649cad8cb06) references [a 7+ MB image accessible via IPFS](https://gateway.ipfs.io/ipfs/bafybeihetj2ng3d74k7t754atv2s5dk76pcqtvxls6dntef3xa6rax25xe). We recognise and accept that DID owners/creators may choose to use their own centralised/decentralised storage, and the design patterns described below accommodate that.
 
 ## Resources on cheqd ledger
 
@@ -120,7 +120,7 @@ Once a Resource has been created under a Resource Collection, the parent DIDDoc 
 
 The syntax of the linked Resource metadata is as follows:
 
-```
+```jsonc
 "didDocumentMetadata": {
     "created": "2020-12-20T19:17:47Z",
     "updated": "2020-12-20T19:19:47Z",
@@ -173,7 +173,7 @@ The rationale for linking to Resources in this manner, instead of creating a new
 
 Example of referencing a resource using the _service_ section:
 
-```
+```jsonc
   {
     "service": [{
       "id":"did:cheqd:testnet:DAzMQo4MDMxCjgwM#PassportSchema",
@@ -210,7 +210,7 @@ In addition to the above client-provided parameters, the ledger-side code will p
 
 Example using the Veramo CLI:
 
-```
+```jsonc
 {
     "kms": "local",
     "payload": { // example of resource header
@@ -242,7 +242,7 @@ Example using the Veramo CLI:
 
 Example:
 
-```
+```jsonc
 {
   "resourceCollectionId":      "DAzMQo4MDMxCjgwM",
   "resourceId":                "bb2118f3-5e55-4510-b420-33ef9e1726d2",
@@ -266,7 +266,7 @@ Example:
 
 Example:
 
-```
+```jsonc
 {
     "kms": "local",
     "payload": { // example of resource header
@@ -290,7 +290,7 @@ Example:
 
 Example:
 
-```
+```bash
 { "resource":  <Resource> }
 ```
 
@@ -300,7 +300,7 @@ Example:
 
 Example:
 
-```
+```bash
 { "collectionId": "DAzMQo4MDMxCjgwM" }
 ```
 
@@ -310,7 +310,7 @@ Example:
 
 Example:
 
-```
+```bash
 { "resources":  [<ResourceHeader1>, <ResourceHeader2>] }
 ```
 
@@ -321,7 +321,7 @@ Example:
 
 Example:
 
-```
+```jsonc
 { 
   "collectionId": "DAzMQo4MDMxCjgwM",
   "id": "bb2118f3-5e55-4510-b420-33ef9e1726d2"
@@ -334,7 +334,7 @@ Example:
 
 Example:
 
-```
+```bash
 { "resource":  <Resource> }
 ```
 
@@ -346,7 +346,7 @@ Example:
 
 Example:
 
-```
+```jsonc
 { 
   "collectionId":  "DAzMQo4MDMxCjgwM",
   "name":          "PassportSchema",
@@ -360,7 +360,7 @@ Example:
 
 Example:
 
-```
+```bash
 { "resources":  [<ResourceHeader1>, <ResourceHeader2>] }
 ```
 
@@ -390,7 +390,7 @@ Example:
 
 cheqd Cosmos CLI Example:
 
-```
+```jsonc
 cheqd-noded tx resource create-resource "{
                                           \"collection-id\":  \"DAzMQo4MDMxCjgwM\",
                                           \"resource-id\":             \"bb2118f3-5e55-4510-b420-33ef9e1726d2\",
@@ -449,7 +449,7 @@ We need to support resource resolution in the DID resolver.
 
 `CollectionId` field is an identifier of existing DIDDoc. There are no restrictions on the fields of this DIDDoc other than those described in [cheqd DID Method ADR](broken-reference) and [W3C DID specification](https://www.w3.org/TR/did-core/). DIDDoc must be located in the same ledger where the resource is created. A list of resources related to DIDDoc can be found in its metadata:
 
-```
+```jsonc
 QueryGetDidResponse {
   "did": {
     "id": "did:cheqd:mainnet:DAzMQo4MDMxCjgwM",
@@ -489,7 +489,7 @@ Example:
 
 Step 1. Resource exists in the ledger:
 
-```
+```jsonc
 { 
   "resourceURI": "did:cheqd:testnet:DAzMQo4MDMxCjgwM/resources/44547089-170b-4f5a-bcbc-06e46e0089e4",
     "resourceCollectionId": "DAzMQo4MDMxCjgwM", // Common collection ID
@@ -506,7 +506,7 @@ Step 1. Resource exists in the ledger:
 
 Step 2. Client send request for creating a new resource with a transaction MsgCreateResource
 
-```
+```jsonc
 MsgCreateResource for creating Resource2
 {
   "collectionId":   "DAzMQo4MDMxCjgwM", // same collection ID
@@ -514,13 +514,13 @@ MsgCreateResource for creating Resource2
   "name":           "PassportSchema", // same resource name
   "resourceType":   "CL-Schema", // same resource type
   
-  "data":           ...
+  "data":           "..."
 }
 ```
 
 Step 3. After the transaction applying
 
-```
+```jsonc
 "linkedResourceMetadata": [
   { // First version of a Resource called PassportSchema
     "resourceURI": "did:cheqd:testnet:DAzMQo4MDMxCjgwM/resources/44547089-170b-4f5a-bcbc-06e46e0089e4",
