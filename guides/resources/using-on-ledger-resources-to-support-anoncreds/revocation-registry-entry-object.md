@@ -27,13 +27,13 @@ The only difference is that the Revocation Registry Entry ID includes the Revoca
 
 The structure of the Legacy AnonCreds Revocation Registry Entry ID is as follows:
 
-```
+```bash
 <objectType><RevocRegDefId>
 ```
 
 For example:
 
-```
+```bash
 5:zF7rhDBfUt9d1gJPjx7s1J:4:zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree:CL_ACCUM:degreeCredRevRegDef
 ```
 
@@ -106,7 +106,6 @@ For example, the following DID URL is cheqd's representation of a `revocRegRevEn
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887`
 
 > Unlike in Hyperledger Indy implementations, cheqd uses a **unique identifier for each specific Revocation Registry Entry ID**. This enables better indexing and searchability.
-
 > For conformance with the cheqd AnonCreds Object Method, each Revocation Registry Entry **MUST** be created in the **same Collection** as the Revocation Registry Definition Object.
 
 ### cheqd Revocation Registry Entry Object Content
@@ -281,7 +280,7 @@ Where, `degreeCredRevocRegEntry2.json` contains an updated `accum` value, `revoc
 
 Once the transaction has been created, the `resourceMetadata` will look like the following:
 
-```
+```jsonc
 {
   "resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/c154bc07-43f7-4b69-ac0c-5514001f2ca3",
   "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
@@ -317,7 +316,7 @@ Common and standardized `resource` parameters:
 | `"versionId"`             | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?versionId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                                                                      |
 | `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2018-07-19T08:40:00Z                                                                                                                                                                                                                                                               |
 | `"linkedResource"`        | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?linkedResource=true // _note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document._                                                                                                                                                                                                         |
-| `"resourceMetadata"`      | [Boolean](https://infra.spec.whatwg.org/#booleans)            | <p>did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw&#x26;resourceType=JSONSchema2020&#x26;versionTime=2018-07-19T08:40:00Z&#x26;resourceMetadata=true</p><p>or,</p><p>did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceMetadata=true // <em>note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document.</em></p> |
+| `"resourceMetadata"`      | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw&#x26;resourceType=JSONSchema2020&#x26;versionTime=2018-07-19T08:40:00Z&#x26;resourceMetadata=true or, did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceMetadata=true // note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document. |
 | "`latestResourceVersion`" | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&latestResourceVersion=true                                                                                                                                                                                                                                                                     |
 | "`allResourceVersions`"   | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&allResourceVersions=true                                                                                                                                                                                                                                                                       |
 

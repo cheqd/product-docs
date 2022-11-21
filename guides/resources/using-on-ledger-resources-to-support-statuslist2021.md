@@ -144,13 +144,13 @@ Note: The uncompressed bitstring _MUST_ be at least 16KB in size to maintain her
 
 On Unix systems, you can use the following command:
 
-```
+```bash
 $ base64 -w 0 <path-to-the-resource-file>
 ```
 
 Example:
 
-```
+```bash
 $ base64 -w 0 credentialsubjectencondedlist.txt
 SGVsbG8sIHdvcmxk
 ```
@@ -374,7 +374,7 @@ Where the values within the credentialSubject field are as follows:
 | `statusListIndex`      | The `statusListIndex` property _MUST_ be an arbitrary size integer greater than or equal to 0, expressed as a string. The value identifies the bit position of the status of the verifiable credential.                |
 | `statusListCredential` | The `statusListCredential` property _MUST_ is a DID URL to a statusList Resource. When the URL is dereferenced, the resulting Resource _MUST_ have `type` property that includes the `StatusList2021Credential` value. |
 
-#### Validate Algorithm for cheqd StatusList <a href="#x3-2-validate-algorithm" id="x3-2-validate-algorithm"></a>
+#### Validate Algorithm for cheqd StatusList
 
 The following process, or one generating the exact output, _MUST_ be followed when validating a verifiable credential that is contained in a cheqd StatusList Resource.
 
