@@ -17,7 +17,7 @@
 
 * [🆔 Decentralised Identifiers (DIDs)](tutorials/did-operations/)
 * :page\_with\_curl: [Verifiable Credentials and Presentations](tutorials/verifiable-credentials-and-presentations/)
-* :link: Create [DID-Linked Resources](tutorials/on-ledger-resources/)
+* :link: [Create DID-Linked Resources](tutorials/on-ledger-resources/)
 * :arrows\_counterclockwise:[ DID Resolver setup](tutorials/DID-resolution.md)
 * :handbag:[ Demo Wallet for identity setup](tutorials/wallet.md)
 
