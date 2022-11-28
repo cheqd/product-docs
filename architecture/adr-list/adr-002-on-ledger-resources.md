@@ -28,7 +28,7 @@ Common types of resources that might be required to issue and validate Verifiabl
 * **Revocation status lists**: Allow recipients of a Verifiable Credential exchange to [check the revocation status of a credential](https://w3c.github.io/vc-data-model/#validity-checks) for validity. Prominent examples of this include the [W3C `Status List 2021`](https://w3c-ccg.github.io/vc-status-list-2021/) specification, [W3C `Revocation List 2020`](https://w3c-ccg.github.io/vc-status-rl-2020/), [Hyperledger Indy revocation registries](https://hyperledger-indy.readthedocs.io/projects/sdk/en/latest/docs/concepts/revocation/cred-revocation.html), etc.
 * **Visual representations for Verifiable Credentials**: Although Verifiable Credentials can be exchanged digitally, in practice most identity wallets want to present "human-friendly" representations. This allows the credential representation to be shown according to the brand guidelines of the issuer, [internationalisation ("i18n") translations](https://en.wikipedia.org/wiki/Internationalization\_and\_localization), etc. Examples of this include the [Overlays Capture Architecture (OCA) specification](https://oca.colossi.network/), [Apple Wallet PassKit](https://developer.apple.com/documentation/walletpasses) ("`.pkpass`"), [Google Wallet Pass](https://developers.google.com/wallet/generic), etc.
 
-<figure><img src="../../.gitbook/assets/On-ledger resources - boarding passes.jpeg" alt="Image of British Airways boarding passes in digital visual format"><figcaption><p><em>Figure 1: Mobile boarding passes in Apple Wallet showing different visual styles (source:</em> <a href="https://mediacentre.britishairways.com/pressrelease/details/86/2016-72/6130"><em>British Airways media centre</em></a><em>)</em></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/On-ledger resources - boarding passes.jpeg" alt=""><figcaption><p><em>Figure 1: Mobile boarding passes in Apple Wallet showing different visual styles (source:</em> <a href="https://mediacentre.britishairways.com/pressrelease/details/86/2016-72/6130"><em>British Airways media centre</em></a><em>)</em></p></figcaption></figure>
 
 Such visual representations can also be used to quickly communicate information visually during identity exchanges, such as airline mobile boarding passes. In the [example above from British Airways](https://mediacentre.britishairways.com/pressrelease/details/86/2016-72/6130), the pass at the front is for a "Gold" loyalty status member, whereas the pass at the back is for a "standard" loyalty status member. This information can be represented in a Verifiable Credential, of course, but the example here uses the Apple Wallet / Google Wallet formats to overlay a richer, "human-friendly" display.
 
@@ -51,14 +51,14 @@ DIDs _can_ be stored on traditional centralised-storage endpoints (e.g., [`did:w
 
     1. See [notable examples of service outages](https://totaluptime.com/notable-network-and-cloud-outages-of-2021/) from major cloud providers: [Amazon Web Services (AWS)](https://awsmaniac.com/aws-outages/), [Microsoft Azure](https://www.theregister.com/2018/09/17/azure\_outage\_report/), [Google Cloud](https://www.thousandeyes.com/blog/google-cloud-platform-outage-analysis), [Facebook / Meta](https://en.wikipedia.org/wiki/2021\_Facebook\_outage), [GitHub](https://github.blog/2022-03-23-an-update-on-recent-service-disruptions/), [Cloudflare](https://blog.cloudflare.com/cloudflare-outage-on-june-21-2022/)...
 
-    <figure><img src="../../.gitbook/assets/On-ledger resources - Facebook global outage (1) (1) (1).png" alt="Image of global Facebook outage"><figcaption></figcaption></figure>
+    ![](<../../.gitbook/assets/On-ledger resources - Facebook global outage (1) (1) (1).png>)
 
     _Figure 2: Graph showing drop in Facebook traffic from their global service outage in 2021 (source:_ [_Kentik_](https://www.kentik.com/blog/facebooks-historic-outage-explained/)_)_
 
     1. In particular, [the 2021 global Facebook outage](https://www.kentik.com/blog/facebooks-historic-outage-explained/) also [took down apps that used "Login with Facebook"](https://www.wired.com/story/why-facebook-instagram-whatsapp-went-down-outage/) functionality. This highlights the risks of "contagion impact" (e.g., [a _different_ Facebook outage took down Spotify, TikTok, Pinterest](https://www.engadget.com/facebook-sdk-spotify-tinder-tiktok-ios-outage-125806814.html)) of centralised digital systems - even ones run by extremely-capable tech providers.
 4. **Link rot**: "Link rot" happens when over time, URLs become inaccessible, either because the endpoint where the content was stored is no longer active, or the URL format itself changes. The graph below from [an analysis by _The New York Times_ of linkrot](https://www.cjr.org/analysis/linkrot-content-drift-new-york-times.php) shows degradation over time of URLs.
 
-<figure><img src="../../.gitbook/assets/On-ledger resources - Link Rot.jpeg" alt="Image of Link Rot over time"><figcaption></figcaption></figure>
+![](<../../.gitbook/assets/On-ledger resources - Link Rot.jpeg>)
 
 _Figure 3: Linkrot analysis over 1996-2019 by New York Times (source:_ [_Columbia Journalism Review / New York Times_](https://www.cjr.org/analysis/linkrot-content-drift-new-york-times.php)_)_
 
@@ -106,7 +106,7 @@ We took the following design principles into consideration, along with an explan
 
 Resources on cheqd ledger are collated under _Resource Collections_, which are defined as a list of resources linked to and controlled using a DID Document ("DIDDoc").
 
-<figure><img src="../../.gitbook/assets/On-ledger resources - flow simple.png" alt="Swimlanes for Resource creation"><figcaption><p><em>Figure 4: Overview of Resource and Resource Collection creation (</em><a href="https://swimlanes.io/u/GI-Jxpnr5"><em>editable version</em></a><em>)</em></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/On-ledger resources - flow simple.png" alt=""><figcaption><p><em>Figure 4: Overview of Resource and Resource Collection creation (</em><a href="https://swimlanes.io/u/GI-Jxpnr5"><em>editable version</em></a><em>)</em></p></figcaption></figure>
 
 To create a new Resource, a client application first needs to create a DID (or use an existing not [deactivated](broken-reference/) DID) along with its associated DIDDoc. This _resource-linked DID_ is the lowest, direct level of create/update/deactivate operation control that exists.
 
@@ -120,7 +120,7 @@ Once a Resource has been created under a Resource Collection, the parent DIDDoc 
 
 The syntax of the linked Resource metadata is as follows:
 
-```json
+```
 "didDocumentMetadata": {
     "created": "2020-12-20T19:17:47Z",
     "updated": "2020-12-20T19:19:47Z",
@@ -173,7 +173,7 @@ The rationale for linking to Resources in this manner, instead of creating a new
 
 Example of referencing a resource using the _service_ section:
 
-```json
+```
   {
     "service": [{
       "id":"did:cheqd:testnet:DAzMQo4MDMxCjgwM#PassportSchema",
@@ -187,7 +187,7 @@ Example of referencing a resource using the _service_ section:
 
 To create a new Resource, a client application first needs to create a DID (or use an existing [non-deactivated](broken-reference/) DID) along with its associated DIDDoc. This _resource-linked DID_ is the lowest, direct level of create/update/deactivate operation control that exits.
 
-<figure><img src="../../.gitbook/assets/On-ledger resources - flow detailed.png" alt="Complex swimlanes for resource creation"><figcaption><p><em>Figure 5: Detailed sequence diagram of Resource creation on cheqd (</em><a href="https://swimlanes.io/u/hjeucFOQA"><em>editable version</em></a><em>)</em></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/On-ledger resources - flow detailed.png" alt=""><figcaption><p><em>Figure 5: Detailed sequence diagram of Resource creation on cheqd (</em><a href="https://swimlanes.io/u/hjeucFOQA"><em>editable version</em></a><em>)</em></p></figcaption></figure>
 
 Resources must be under the maximum block size restrictions to be able to fit into a transaction. Currently this is [estimated to be \~190 KB on cheqd mainnet, based on the \~200 KB block size limit](broken-reference/) plus additional headroom for metadata that needs to be described in the `ResourceHeader`.
 
@@ -210,7 +210,7 @@ In addition to the above client-provided parameters, the ledger-side code will p
 
 Example using the Veramo CLI:
 
-```json
+```
 {
     "kms": "local",
     "payload": { // example of resource header
@@ -242,7 +242,7 @@ Example using the Veramo CLI:
 
 Example:
 
-```json
+```
 {
   "resourceCollectionId":      "DAzMQo4MDMxCjgwM",
   "resourceId":                "bb2118f3-5e55-4510-b420-33ef9e1726d2",
@@ -266,7 +266,7 @@ Example:
 
 Example:
 
-```json
+```
 {
     "kms": "local",
     "payload": { // example of resource header
@@ -321,7 +321,7 @@ Example:
 
 Example:
 
-```json
+```
 {
   "collectionId": "DAzMQo4MDMxCjgwM",
   "id": "bb2118f3-5e55-4510-b420-33ef9e1726d2"
@@ -346,7 +346,7 @@ Example:
 
 Example:
 
-```json
+```
 {
   "collectionId":  "DAzMQo4MDMxCjgwM",
   "name":          "PassportSchema",
@@ -390,7 +390,7 @@ Example:
 
 cheqd Cosmos CLI Example:
 
-```bash
+```
 cheqd-noded tx resource create-resource "{
                                           \"collection-id\":  \"DAzMQo4MDMxCjgwM\",
                                           \"resource-id\":             \"bb2118f3-5e55-4510-b420-33ef9e1726d2\",
@@ -449,7 +449,7 @@ We need to support resource resolution in the DID resolver.
 
 `CollectionId` field is an identifier of existing DIDDoc. There are no restrictions on the fields of this DIDDoc other than those described in [cheqd DID Method ADR](broken-reference/) and [W3C DID specification](https://www.w3.org/TR/did-core/). DIDDoc must be located in the same ledger where the resource is created. A list of resources related to DIDDoc can be found in its metadata:
 
-```json
+```
 QueryGetDidResponse {
   "did": {
     "id": "did:cheqd:mainnet:DAzMQo4MDMxCjgwM",
@@ -489,7 +489,7 @@ Example:
 
 Step 1. Resource exists in the ledger:
 
-```json
+```
 {
   "resourceURI": "did:cheqd:testnet:DAzMQo4MDMxCjgwM/resources/44547089-170b-4f5a-bcbc-06e46e0089e4",
     "resourceCollectionId": "DAzMQo4MDMxCjgwM", // Common collection ID
@@ -506,7 +506,7 @@ Step 1. Resource exists in the ledger:
 
 Step 2. Client send request for creating a new resource with a transaction MsgCreateResource
 
-```json
+```
 MsgCreateResource for creating Resource2
 {
   "collectionId":   "DAzMQo4MDMxCjgwM", // same collection ID
@@ -520,7 +520,7 @@ MsgCreateResource for creating Resource2
 
 Step 3. After the transaction applying
 
-```json
+```
 "linkedResourceMetadata": [
   { // First version of a Resource called PassportSchema
     "resourceURI": "did:cheqd:testnet:DAzMQo4MDMxCjgwM/resources/44547089-170b-4f5a-bcbc-06e46e0089e4",

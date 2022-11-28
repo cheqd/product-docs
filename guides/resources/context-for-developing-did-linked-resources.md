@@ -6,12 +6,12 @@ In self-sovereign identity (SSI) ecosystems, **“resources”** are often requi
 
 For example, common types of resources that might be required to issue and validate Verifiable Credentials are:
 
-* **Schemas;**
-* **Status lists;**
-* **Trust registries;**
-* **Visual Representations of Verifiable Credentials;**
-* **Documents; or**
-* **Logos**
+* Schemas;
+* Status lists;
+* Trust registries;
+* Visual Representations of Verifiable Credentials;
+* Documents; or
+* Logos
 
 ### Schemas
 
@@ -140,11 +140,13 @@ The high centralisation of cloud providers and history of noteworthy outages cle
 
 <figure><img src="../../.gitbook/assets/Worlds cloud infrastructure image.png" alt="Image of cloud infrastructure rankings"><figcaption><p>Source: <a href="https://cointelegraph.com/news/the-future-of-the-internet-inside-the-race-for-web3-s-infrastructure">CoinTelegraph “The future of the internet: Inside the race for Web3’s infrastructure’</a></p></figcaption></figure>
 
+_Figure 3: breakdown of global cloud providers market share_
+
 Beyond cloud providers, there are other events that exemplify the issuers relying on larger players. The [Facebook outage of 2021](https://www.kentik.com/blog/facebooks-historic-outage-explained/) (shown in the graph below) [took down apps that used “Login with Facebook”](https://web.archive.org/web/20211005032128/https://www.wired.com/story/why-facebook-instagram-whatsapp-went-down-outage/) functionality. This highlights the risks of “contagion impact” (e.g., [a different Facebook outage took down Spotify, TikTok, Pinterest](https://www.engadget.com/facebook-sdk-spotify-tinder-tiktok-ios-outage-125806814.html)) of centralised digital systems — even ones run by extremely-capable tech providers.
 
 <figure><img src="../../.gitbook/assets/On-ledger resources - Facebook global outage (1) (1) (1).png" alt="Image of global Facebook outage"><figcaption><p>Source: <a href="https://web.archive.org/web/20211005032128/https://www.wired.com/story/why-facebook-instagram-whatsapp-went-down-outage/">Why Facebook, Instagram, and WhatsApp All Went Down Today</a></p></figcaption></figure>
 
-_Figure 2: Graph showing drop in Facebook traffic from their global service outage in 2021 (source:_ [_Kentik_](https://www.kentik.com/blog/facebooks-historic-outage-explained/)_)_
+_Figure 4: Graph showing drop in Facebook traffic from their global service outage in 2021 (source:_ [_Kentik_](https://www.kentik.com/blog/facebooks-historic-outage-explained/)_)_
 
 Likewise, with decentralised identity, there has been excellent work to _decentralise,_ with standards that remove the need for centralised intermediaries — notably around [Verifiable Credentials](https://www.w3.org/TR/vc-data-model/) and the decentralised trust provided by [DID Authentication](https://www.w3.org/TR/did-core/). Yet, all of this excellent work may be eroded in practice, unless every component of an SSI ecosystem is able to maintain an equivalent level of decentralised trust. Resources are currently an area that has been _centralised_ for the sake of convenience.
 
@@ -154,13 +156,13 @@ Likewise, with decentralised identity, there has been excellent work to _decentr
 
 <figure><img src="../../.gitbook/assets/On-ledger resources - Link Rot.jpeg" alt="Image of Link Rot over time"><figcaption><p>Source: <a href="https://www.cjr.org/analysis/linkrot-content-drift-new-york-times.php">What the ephemerality of the Web means for your hyperlinks</a></p></figcaption></figure>
 
-_Figure 3: Linkrot analysis over 1996-2019 by New York Times (source:_ [_Columbia Journalism Review / New York Times_](https://www.cjr.org/analysis/linkrot-content-drift-new-york-times.php)_)_
+_Figure 5: Linkrot analysis over 1996-2019 by New York Times (source:_ [_Columbia Journalism Review / New York Times_](https://www.cjr.org/analysis/linkrot-content-drift-new-york-times.php)_)_
 
 For this reason, keeping an up-to-date version of the links themselves is crucial. Furthermore, a study of link rot found [at least 66.5% of links to sites in the last 9 years are dead](https://ahrefs.com/blog/link-rot-study/). This can have an adverse impact on the digital longevity of Verifiable Credentials if there’s “link rot” in the resources necessary to process the credential. For this reason, projects such as [The Internet Archive](https://archive.org/)’s [Wayback Machine](https://web.archive.org/) exist to snapshot digital ephemera before they are lost forever.
 
 <figure><img src="../../.gitbook/assets/Why are links lost diagram.png" alt="Image of why links are lost"><figcaption><p>Source: <a href="https://ahrefs.com/blog/link-rot-study/">Ahrefs Study on Link Rot</a></p></figcaption></figure>
 
-Figure 4: Diagram showing the various reasons why links are lost
+Figure 6: Diagram showing the various reasons why links are lost
 
 This illustrates that link rot can affect a **significant proportion** of links in a relatively small amount of time, and once again, looking at how resources are currently stored in SSI ecosystems, if the resource locations are moved and the links are broken, the Verifiable Credentials relying on these resources become unusable. Therefore, resources, once defined, should be architected to be used and referenced indefinitely, without being changed.
 
