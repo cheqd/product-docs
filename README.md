@@ -4,22 +4,22 @@
 
 ## 🍽 Contents
 
-### :book: Tutorials
-
-* [🆔 Decentralised Identifiers (DIDs)](tutorials/did-operations/)
-* :page\_with\_curl: [Verifiable Credentials and Presentations](tutorials/verifiable-credentials-and-presentations/)
-* :link: [DID-Linked Resources](tutorials/on-ledger-resources/)
-* :arrows\_counterclockwise:[ DID Resolver setup](tutorials/DID-resolution.md)
-* :handbag:[ Demo Wallet for identity setup](tutorials/wallet.md)
-
 ### :bookmark\_tabs: Guides
 
 * :id: [cheqd DID method](guides/decentralized-identifiers.md)
 * :package: [Software Development Kits (SDKs)](guides/software-development-kits-sdks/)
 * :link: [Understanding DID-Linked Resources](guides/resources/)
-* :unlock: [Understanding AnonCreds on cheqd](guides/using-on-ledger-resources-to-support-anoncreds/)
+* :unlock: [AnonCreds on cheqd](guides/using-on-ledger-resources-to-support-anoncreds/)
 * :arrows\_counterclockwise: [Understanding cheqd DID Resolver](guides/did-resolver.md)
 * :judge: [Smart Governance](guides/creating-a-codified-governance-model/)
+
+### :book: Tutorials
+
+* [🆔 Decentralised Identifiers (DIDs)](tutorials/did-operations/)
+* :page\_with\_curl: [Verifiable Credentials and Presentations](tutorials/verifiable-credentials-and-presentations/)
+* :link: Create [DID-Linked Resources](tutorials/on-ledger-resources/)
+* :arrows\_counterclockwise:[ DID Resolver setup](tutorials/DID-resolution.md)
+* :handbag:[ Demo Wallet for identity setup](tutorials/wallet.md)
 
 ### :construction\_site: Architecture
 
@@ -34,14 +34,14 @@
 
 ## 📖 Other useful documentation sites for cheqd
 
-* [**Technical Docs** for **cheqd node/ledger**](https://docs.cheqd.io/node)
-* [**Product Updates & Roadmap**](https://product.cheqd.io)
-* Learn the [**basics of cheqd**](https://learn.cheqd.io) (for a general audience)
-* cheqd's [**decentralised Governance Framework**](https://gov.cheqd.io)
+* [Technical Docs for cheqd node/ledger](https://docs.cheqd.io/node)
+* [Product Updates & Roadmap](https://product.cheqd.io)
+* Learn the [basics of cheqd](https://learn.cheqd.io) (for a general audience)
+* cheqd's [decentralised Governance Framework](https://gov.cheqd.io)
 
 ## 💬 Community
 
-The [**cheqd Community Slack**](http://cheqd.link/join-cheqd-slack) is our primary chat channel for the open-source community, software developers, and node operators.
+The [cheqd Community Slack](http://cheqd.link/join-cheqd-slack) is our primary chat channel for the open-source community, software developers, and node operators.
 
 Please reach out to us there for discussions, help, and feedback on the project.
 
