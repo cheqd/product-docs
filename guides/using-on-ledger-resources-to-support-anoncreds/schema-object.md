@@ -6,7 +6,7 @@ Schemas are used to list a set of attributes. Issuers of Verifiable Credentials 
 
 In the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec), schemas are written directly to a [Verifiable Data Registry](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-decentralised-identifier-did/what-is-a-verifiable-data-registry), rather than using a centralized service such as [schema.org](https://schema.org/). Schemas are also associated with Credential Definitions, which are used to link the schema, issuer and holder together ([detailed further here](creddef-object.md)).
 
-This documentation will guide an implementor of AnonCreds on cheqd on how the cheqd AnonCreds Object Method defines and structures Schema IDs and associated content.&#x20;
+This documentation will guide an implementor of AnonCreds on cheqd on how the cheqd AnonCreds Object Method defines and structures Schema IDs and associated content.
 
 ### AnonCreds Schema ID
 
@@ -18,10 +18,10 @@ This means that an AnonCreds Schema Object ID does not need to be formatted in a
 
 Prior to the AnonCreds specification being updated, the `schema_id` was defined as a **composite** of the following set of elements:
 
-- `publisher DID`: is a [string](https://infra.spec.whatwg.org/#string). The DID of the Schema Publisher.
-- `object type`: An integer denoting the type of object. `2` is used for Schemas.
-- `name`: is a [string](https://infra.spec.whatwg.org/#string), the name of the schema
-- `version`: is a [string](https://infra.spec.whatwg.org/#string), the version of the schema in [semver](https://semver.org/) format. The three part, period (“.”) separated format MAY be enforced.
+* `publisher DID`: is a [string](https://infra.spec.whatwg.org/#string). The DID of the Schema Publisher.
+* `object type`: An integer denoting the type of object. `2` is used for Schemas.
+* `name`: is a [string](https://infra.spec.whatwg.org/#string), the name of the schema
+* `version`: is a [string](https://infra.spec.whatwg.org/#string), the version of the schema in [semver](https://semver.org/) format. The three part, period (“.”) separated format MAY be enforced.
 
 The `schema_id` therefore was formatted in the following way:
 
@@ -47,9 +47,9 @@ This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds O
 
 The actual Schema Object Content which is written to the Verifiable Data Registry, contains the following information:
 
-- `attr_names`: is the array of attribute names (claim names) that will constitute the AnonCred credential of this type.
-- `name`: is a [string](https://infra.spec.whatwg.org/#string), the name of the schema, which will be a part of the published `schema_id`.
-- `version`: is a [string](https://infra.spec.whatwg.org/#string), the version of the schema in [semver](https://semver.org/) format. The three part, period (“.”) separated format MAY be enforced. The `version` will be part of the published `schema_id`.
+* `attr_names`: is the array of attribute names (claim names) that will constitute the AnonCred credential of this type.
+* `name`: is a [string](https://infra.spec.whatwg.org/#string), the name of the schema, which will be a part of the published `schema_id`.
+* `version`: is a [string](https://infra.spec.whatwg.org/#string), the version of the schema in [semver](https://semver.org/) format. The three part, period (“.”) separated format MAY be enforced. The `version` will be part of the published `schema_id`.
 
 For example:
 
@@ -74,7 +74,7 @@ For example:
 
 Returning to the Legacy AnonCreds `schema_id` as a reference point, within the Schema Object Content, the `name` and the `version` should be the same as the `name` and `version` in the **composite** `schema_id.`
 
-Therefore, the schema_id `"7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7"` would identify and resolve to the Schema Object content above.
+Therefore, the schema\_id `"7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7"` would identify and resolve to the Schema Object content above.
 
 Once published on a Hyperledger Indy ledger, an additional identifier for the published schema, the `TXN_ID`, is available to those reading from the ledger
 
@@ -82,7 +82,7 @@ Once published on a Hyperledger Indy ledger, an additional identifier for the pu
 
 ### cheqd Schema ID
 
-cheqd [on-ledger resources](../) identify individual resources using DID URLs.
+cheqd [on-ledger resources](../resources/) identify individual resources using DID URLs.
 
 cheqd resources module uses the following format:
 
@@ -173,7 +173,7 @@ Note that this transaction includes the file `degreeSchema.json` that was format
 
 Once you have created your resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K`
 
-```jsonc
+```
 "resourceURI": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
     "resourceCollectionId": "7BPMqYgYLQni258J8JPS8K",
     "resourceId": "6259d357-eeb1-4b98-8bee-12a8390d3497",
@@ -189,23 +189,23 @@ Once you have created your resource on cheqd, the following metadata will be gen
 
 ### Fetching a cheqd Schema Object
 
-Rather than requiring a specific GET_SCHEMA function and interface to fetch the Schema Object Content (such as that required on Indy for the `schema_id` (`7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7`), existing DID Resolvers will be able to query for the Schema Object Content using the following parameters:
+Rather than requiring a specific GET\_SCHEMA function and interface to fetch the Schema Object Content (such as that required on Indy for the `schema_id` (`7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7`), existing DID Resolvers will be able to query for the Schema Object Content using the following parameters:
 
 Common and standardized `resource` parameters:
 
-| Parameter                 | Type                                                          | Example                                                                                                                                                                                                                                                                                                                                                                                            |
-| ------------------------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"resourceId"`            | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                                                                     |
-| `"resourceName"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw                                                                                                                                                                                                                                                                                                                              |
-| `"resourceType"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020                                                                                                                                                                                                                                                                                                 |
-| `"resourceVersionId"`     | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceVersionId=1.3.1                                                                                                                                                                                                                                                                                                     |
-| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2015-03-11T05:30:02Z                                                                                                                                                                                                                                                               |
-| `"versionId"`             | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?versionId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                                                                      |
-| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2018-07-19T08:40:00Z                                                                                                                                                                                                                                                               |
-| `"linkedResource"`        | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?linkedResource=true // _note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document._                                                                                                                                                                                                         |
-| `"resourceMetadata"`      | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw&#x26;resourceType=JSONSchema2020&#x26;versionTime=2018-07-19T08:40:00Z&#x26;resourceMetadata=true or, did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceMetadata=true // note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document. |
-| "`latestResourceVersion`" | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&latestResourceVersion=true                                                                                                                                                                                                                                                                     |
-| "`allResourceVersions`"   | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&allResourceVersions=true                                                                                                                                                                                                                                                                       |
+| Parameter                 | Type                                                          | Example                                                                                                                                                                                                                                                                                                                                                    |
+| ------------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"resourceId"`            | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                             |
+| `"resourceName"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw                                                                                                                                                                                                                                                                                      |
+| `"resourceType"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020                                                                                                                                                                                                                                                         |
+| `"resourceVersionId"`     | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceVersionId=1.3.1                                                                                                                                                                                                                                                             |
+| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2015-03-11T05:30:02Z                                                                                                                                                                                                                       |
+| `"versionId"`             | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?versionId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                              |
+| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2018-07-19T08:40:00Z                                                                                                                                                                                                                       |
+| `"linkedResource"`        | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?linkedResource=true // _note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document._                                                                                                                                                                 |
+| `"resourceMetadata"`      | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2018-07-19T08:40:00Z\&resourceMetadata=true or, did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceMetadata=true // note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document. |
+| "`latestResourceVersion`" | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&latestResourceVersion=true                                                                                                                                                                                                                             |
+| "`allResourceVersions`"   | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&allResourceVersions=true                                                                                                                                                                                                                               |
 
 #### Query by name and version
 

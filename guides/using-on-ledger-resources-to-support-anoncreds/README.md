@@ -1,8 +1,14 @@
-# 🔒 Using on-ledger resources to support AnonCreds
+# 🔒 Understanding AnonCreds on cheqd
+
+## Overview
+
+For a full breakdown of how AnonCreds is being supported on cheqd, including relevant timelines for full completion, see the following link:
+
+{% embed url="https://product.cheqd.io/updates/anoncreds-on-cheqd" %}
 
 ## cheqd AnonCreds Object Method
 
-cheqd intends to directly support AnonCreds using its [on-ledger resource module](../../resources/) in an AnonCreds Object Method. With its resource module, cheqd will identify each on-ledger resource with a [DID Core](https://www.w3.org/TR/did-core/) compliant [DID URL](https://www.w3.org/TR/did-core/). This DID URL will be able to be dereferenced in order to fetch the resource and associated metadata.
+cheqd intends to directly support AnonCreds using its [on-ledger resource module](../resources/) in an AnonCreds Object Method. With its resource module, cheqd will identify each on-ledger resource with a [DID Core](https://www.w3.org/TR/did-core/) compliant [DID URL](https://www.w3.org/TR/did-core/). This DID URL will be able to be dereferenced in order to fetch the resource and associated metadata.
 
 ### Why is AnonCreds support important?
 
@@ -18,7 +24,7 @@ Importantly, we want to make sure that this work is done in a manner which bring
 
 ### Compatibility
 
-There are multiple specific AnonCreds transaction types that cheqd needs to support. This documentation will provide guidance and instructions on how equivalent AnonCreds formats can be replicated using cheqd resources, for:
+There are multiple specific AnonCreds transaction types that cheqd needs to support. This documentation will provide guidance and instructions on how equivalent AnonCreds formats can be replicated using cheqd DID-Linked resources, for:
 
 * [Schema Objects](schema-object.md)
 * [Credential Definition Objects](creddef-object.md)

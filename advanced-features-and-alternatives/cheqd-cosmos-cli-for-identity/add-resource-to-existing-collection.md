@@ -1,13 +1,13 @@
 # 📚 Publishing a new Resource version
 
-The purpose of this document is to describe how someone can create [a _new_ Resource on under an existing _Collection_](../../guides/resources/creating-a-resource.md).
+The purpose of this document is to describe how someone can create [a _new_ Resource on under an existing _Collection_](../../guides/resources/technical-composition-of-did-linked-resources/creating-a-resource.md).
 
 This tutorial uses the [cheqd Cosmos CLI](https://docs.cheqd.io/node/docs/cheqd-cli), similar to the [creating a new Resource tutorial](tutorials.md).
 
 ## Pre-requisites
 
 1. Install the latest stable cheqd-node CLI, either as a [standalone binary](https://github.com/cheqd/cheqd-node/releases/latest) or [Docker container image](https://github.com/cheqd/cheqd-node/pkgs/container/cheqd-node).
-2. Acquire test CHEQ tokens through [our testnet faucet](https://testnet-faucet.cheqd.io) (if creating it on our testnet), or [CHEQ tokens](https://app.osmosis.zone/?from=OSMO&to=CHEQ) (if you plan on creating it on mainnet).
+2. Acquire test CHEQ tokens through [our testnet faucet](https://testnet-faucet.cheqd.io) (if creating it on our testnet), or [CHEQ tokens](https://app.osmosis.zone/?from=OSMO\&to=CHEQ) (if you plan on creating it on mainnet).
 3. An [existing DID + DIDDoc created on cheqd ledger](cheqd-cosmos-cli.md)
 4. Having [a Resource already created](tutorials.md) under this DIDDoc Collection
 
@@ -15,7 +15,7 @@ This tutorial uses the [cheqd Cosmos CLI](https://docs.cheqd.io/node/docs/cheqd-
 
 ### 1. Generate a new UUID for the new Resource version
 
-[UUIDs are used to identify Resources](../../guides/resources/creating-a-resource.md). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
+[UUIDs are used to identify Resources](../../guides/resources/technical-composition-of-did-linked-resources/creating-a-resource.md). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
 
 ```bash
 $ uuidgen
@@ -49,12 +49,12 @@ cheqd-noded tx resource create-resource \
 
 #### Parameters
 
-- `<collection-id>`: This should be the **same unique identifier** as that after the namespace of the corresponding DID created in step 1
-- `<resource-id>`: Unique resource ID within the collection in UUID format
-- `<resource-name>`: Arbitrary human-readable string used to identify the resource
-- `<resource-type>`: Resource type, such as `CL-Schema`, `JSONSchema2020`, etc
-- `<resource-file>`: Path to file with resource content
-- `<ver-method-id-1>`, `<priv-key-1>`, `<ver-method-id-N>`, `<priv-key-N>`: To create a resource, you need the same set of signatures as for carrying out a DIDDoc update. Provide signatures the same way as during resource creation or modification, in Step 1.
+* `<collection-id>`: This should be the **same unique identifier** as that after the namespace of the corresponding DID created in step 1
+* `<resource-id>`: Unique resource ID within the collection in UUID format
+* `<resource-name>`: Arbitrary human-readable string used to identify the resource
+* `<resource-type>`: Resource type, such as `CL-Schema`, `JSONSchema2020`, etc
+* `<resource-file>`: Path to file with resource content
+* `<ver-method-id-1>`, `<priv-key-1>`, `<ver-method-id-N>`, `<priv-key-N>`: To create a resource, you need the same set of signatures as for carrying out a DIDDoc update. Provide signatures the same way as during resource creation or modification, in Step 1.
 
 #### Example
 
@@ -100,8 +100,8 @@ cheqd-noded query resource resource \
 
 #### Parameters
 
-- `<collection-id>`: The **same unique identifier** as that after the namespace of the corresponding DID created in step 1
-- `<resource-id>`: Unique ID of the resource within the collection of resources associated with the DIDDoc
+* `<collection-id>`: The **same unique identifier** as that after the namespace of the corresponding DID created in step 1
+* `<resource-id>`: Unique ID of the resource within the collection of resources associated with the DIDDoc
 
 #### Example
 

@@ -10,7 +10,7 @@ In [AnonCreds](https://anoncreds-wg.github.io/anoncreds-spec/), Credential Defin
 4. A cryptographic secret, embedded within the CredDef Object content, creating an uncorrelatable 'link secret' between the issuer and holder
 5. Information necessary for the revocation of credentials, if revocation is to be enabled by the Issuer for this type of credential (Optional).
 
-This documentation will guide an implementor of AnonCreds on cheqd on how the cheqd AnonCreds Object Method defines and structures CredDef IDs and associated content, with and without revocation enabled.&#x20;
+This documentation will guide an implementor of AnonCreds on cheqd on how the cheqd AnonCreds Object Method defines and structures CredDef IDs and associated content, with and without revocation enabled.
 
 ### AnonCreds CredDef Object ID
 
@@ -22,14 +22,14 @@ This means that an AnonCreds CredDef Object ID does not need to be formatted in 
 
 Like with [Schema Objects](schema-object.md), each CredDef Object ID (`cred_def_id`) was previously a **composite** string, consisting of the following elements:
 
-- `issuer DID`: The DID of the Issuer, the issuer of the credentials that will utilise the CredDef.
-- `object type`: The type of object. `3` is used for CredDefs.
-- `signature_type`: The `signature_type` item for the CredDef (this is 'CL' in the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec/))
-- `schema_id`: Also referred to as the `ref,` this should be a [URL](https://www.rfc-editor.org/rfc/rfc1738) for the `schema_id.`
-- `tag`: A unique name or tag given to the CredDef.
+* `issuer DID`: The DID of the Issuer, the issuer of the credentials that will utilise the CredDef.
+* `object type`: The type of object. `3` is used for CredDefs.
+* `signature_type`: The `signature_type` item for the CredDef (this is 'CL' in the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec/))
+* `schema_id`: Also referred to as the `ref,` this should be a [URL](https://www.rfc-editor.org/rfc/rfc1738) for the `schema_id.`
+* `tag`: A unique name or tag given to the CredDef.
 
 {% hint style="info" %}
-Note: the schema_id as part of the\_ cred_def_id is a recent change from the AnonCreds Working Group. Previously, this was the Schema TXN ID. However, the Schema TXN ID could not accommodate for non-Hyperledger Indy networks.
+Note: the schema\_id as part of the\_ cred\_def\_id is a recent change from the AnonCreds Working Group. Previously, this was the Schema TXN ID. However, the Schema TXN ID could not accommodate for non-Hyperledger Indy networks.
 {% endhint %}
 
 The `cred_def_id` therefore was formatted in the following way:
@@ -62,9 +62,9 @@ Credential Definition Object Content is distinct in the way it is structured. Th
 
 The following inputs are required to create a CredDef:
 
-- A schema on which the CredDef will be based
-- A `tag`, an arbitrary string defined by the Issuer, enabling an Issuer to create multiple CredDefs for the same schema.
-- An optional flag `support_revocation` (default `false`) which if true generates some additional data in the CredDef to enable credential revocation.
+* A schema on which the CredDef will be based
+* A `tag`, an arbitrary string defined by the Issuer, enabling an Issuer to create multiple CredDefs for the same schema.
+* An optional flag `support_revocation` (default `false`) which if true generates some additional data in the CredDef to enable credential revocation.
 
 #### Create CredDef output
 
@@ -79,7 +79,7 @@ A CredDef has a couple of important characteristics:
    2. `signature_type`
    3. `tag`
 
-Further details regarding the use of cryptographic primatives are described in the [CredDefs section of the AnonCreds specification here](https://anoncreds-wg.github.io/anoncreds-spec/#generating-a-cred_def-without-revocation-support).
+Further details regarding the use of cryptographic primatives are described in the [CredDefs section of the AnonCreds specification here](https://anoncreds-wg.github.io/anoncreds-spec/#generating-a-cred\_def-without-revocation-support).
 
 An example of a CredDef Object content without revocation is below:
 
@@ -113,7 +113,7 @@ An example of a CredDef Object content without revocation is below:
 Using the Legacy AnonCreds Object method as a reference point, the composite string of the `cred_def_id` should include the **same values** as are in the CredDef Object Content.
 
 {% hint style="info" %}
-Note: In the AnonCreds Specification the 'ref' is currently the Schema TXN ID. However, since this would not work for ledgers other than Indy, we propose changing this to a 'string' and referencing the SCHEMA_ID
+Note: In the AnonCreds Specification the 'ref' is currently the Schema TXN ID. However, since this would not work for ledgers other than Indy, we propose changing this to a 'string' and referencing the SCHEMA\_ID
 {% endhint %}
 
 An example of a CredDef Object content with revocation is below:
@@ -162,7 +162,7 @@ An example of a CredDef Object content with revocation is below:
 
 ### cheqd CredDef ID
 
-cheqd [on-ledger resources](../) identify individual resources using DID URLs.
+cheqd [on-ledger resources](../resources/) identify individual resources using DID URLs.
 
 cheqd resources module uses the following format:
 
@@ -333,23 +333,23 @@ Once you have created your resource on cheqd, the following metadata will be gen
 
 ### Fetching a cheqd CredDef Object
 
-Rather than requiring a specific GET_CRED_DEF function and interface to fetch the CredDef Object Content (such as that required on Indy for the `cred_def_id` (`zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree`), existing DID Resolvers will be able to query for the CredDef Object Content using the following parameters:
+Rather than requiring a specific GET\_CRED\_DEF function and interface to fetch the CredDef Object Content (such as that required on Indy for the `cred_def_id` (`zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree`), existing DID Resolvers will be able to query for the CredDef Object Content using the following parameters:
 
 Common and standardized `resource` parameters:
 
-| Parameter                 | Type                                                          | Example                                                                                                                                                                                                                                                                                                                                                                                            |
-| ------------------------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"resourceId"`            | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                                                                     |
-| `"resourceName"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw                                                                                                                                                                                                                                                                                                                              |
-| `"resourceType"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020                                                                                                                                                                                                                                                                                                 |
-| `"resourceVersionId"`     | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceVersionId=1.3.1                                                                                                                                                                                                                                                                                                     |
-| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2015-03-11T05:30:02Z                                                                                                                                                                                                                                                               |
-| `"versionId"`             | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?versionId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                                                                      |
-| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2018-07-19T08:40:00Z                                                                                                                                                                                                                                                               |
-| `"linkedResource"`        | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?linkedResource=true // _note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document._                                                                                                                                                                                                         |
-| `"resourceMetadata"`      | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw&#x26;resourceType=JSONSchema2020&#x26;versionTime=2018-07-19T08:40:00Z&#x26;resourceMetadata=true or, did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceMetadata=true // note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document. |
-| "`latestResourceVersion`" | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&latestResourceVersion=true                                                                                                                                                                                                                                                                     |
-| "`allResourceVersions`"   | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&allResourceVersions=true                                                                                                                                                                                                                                                                       |
+| Parameter                 | Type                                                          | Example                                                                                                                                                                                                                                                                                                                                                    |
+| ------------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"resourceId"`            | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                             |
+| `"resourceName"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw                                                                                                                                                                                                                                                                                      |
+| `"resourceType"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020                                                                                                                                                                                                                                                         |
+| `"resourceVersionId"`     | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceVersionId=1.3.1                                                                                                                                                                                                                                                             |
+| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2015-03-11T05:30:02Z                                                                                                                                                                                                                       |
+| `"versionId"`             | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?versionId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                              |
+| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2018-07-19T08:40:00Z                                                                                                                                                                                                                       |
+| `"linkedResource"`        | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?linkedResource=true // _note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document._                                                                                                                                                                 |
+| `"resourceMetadata"`      | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2018-07-19T08:40:00Z\&resourceMetadata=true or, did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceMetadata=true // note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document. |
+| "`latestResourceVersion`" | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&latestResourceVersion=true                                                                                                                                                                                                                             |
+| "`allResourceVersions`"   | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&allResourceVersions=true                                                                                                                                                                                                                               |
 
 #### Query by name and version
 

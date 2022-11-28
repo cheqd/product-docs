@@ -65,14 +65,14 @@ For example:
 }
 ```
 
-Therefore, for each new Revocation Registry Entry, the 'ID' remains the same, as does the `revocRegType` and `revocRegDefId` - the only value that changes is the `accum,` reflecting the delta between the previous and most recent Revocation Registry Entries.&#x20;
+Therefore, for each new Revocation Registry Entry, the 'ID' remains the same, as does the `revocRegType` and `revocRegDefId` - the only value that changes is the `accum,` reflecting the delta between the previous and most recent Revocation Registry Entries.
 
 The required content and data model for the **subsequent** AnonCreds Revocation Registry Entry Object are as follows:
 
 1. `revocDefType`
 2. `revocRegDefId`
 3. `accum`: the calculated cryptographic accumulator reflecting the most up-to-date state of the revocation registry, reflecting the changes after revocations have been made.
-4. `revoked`: the index or indices of the revoked credentials within the associated tails file.&#x20;
+4. `revoked`: the index or indices of the revoked credentials within the associated tails file.
 
 For example:
 
@@ -93,7 +93,7 @@ For example:
 
 ### cheqd Revocation Registry Entry Object ID
 
-cheqd [on-ledger resources](../) identify individual resources using DID URLs.
+cheqd [on-ledger resources](../resources/) identify individual resources using DID URLs.
 
 cheqd resources module uses the following format:
 
@@ -105,8 +105,7 @@ For example, the following DID URL is cheqd's representation of a `revocRegRevEn
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887`
 
-> Unlike in Hyperledger Indy implementations, cheqd uses a **unique identifier for each specific Revocation Registry Entry ID**. This enables better indexing and searchability.
-> For conformance with the cheqd AnonCreds Object Method, each Revocation Registry Entry **MUST** be created in the **same Collection** as the Revocation Registry Definition Object.
+> Unlike in Hyperledger Indy implementations, cheqd uses a **unique identifier for each specific Revocation Registry Entry ID**. This enables better indexing and searchability. For conformance with the cheqd AnonCreds Object Method, each Revocation Registry Entry **MUST** be created in the **same Collection** as the Revocation Registry Definition Object.
 
 ### cheqd Revocation Registry Entry Object Content
 
@@ -181,7 +180,7 @@ This implementation also uses AnonCredsObjectMetadata to provide equivalency bet
 
 ### cheqd Revocation Registry Entry transaction
 
-To create a Revocation Registry Entry on cheqd, you need to carry out a resource transaction, specifying the following information (if using the [cheqd Cosmos CLI](../../../advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/tutorials.md)).
+To create a Revocation Registry Entry on cheqd, you need to carry out a resource transaction, specifying the following information (if using the [cheqd Cosmos CLI](../../advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/tutorials.md)).
 
 ```bash
 cheqd-noded tx resource create-resource \
@@ -235,7 +234,7 @@ You must:
 4. Specify the same `resourceType`
 5. Attach to the transaction the new `resourceFile` with the latest `accum` value and `index` values.
 
-For example, using the [cheqd Cosmos CLI](../../../advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/tutorials.md) to demonstrate this, a transaction may look like:
+For example, using the [cheqd Cosmos CLI](../../advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/tutorials.md) to demonstrate this, a transaction may look like:
 
 ```bash
 cheqd-noded tx resource create-resource \
@@ -280,7 +279,7 @@ Where, `degreeCredRevocRegEntry2.json` contains an updated `accum` value, `revoc
 
 Once the transaction has been created, the `resourceMetadata` will look like the following:
 
-```jsonc
+```
 {
   "resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/c154bc07-43f7-4b69-ac0c-5514001f2ca3",
   "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
@@ -306,19 +305,19 @@ Using existing DID Resolvers, it is possible to traverse the history of Revocati
 
 Common and standardized `resource` parameters:
 
-| Parameter                 | Type                                                          | Example                                                                                                                                                                                                                                                                                                                                                                                            |
-| ------------------------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"resourceId"`            | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                                                                     |
-| `"resourceName"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw                                                                                                                                                                                                                                                                                                                              |
-| `"resourceType"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020                                                                                                                                                                                                                                                                                                 |
-| `"resourceVersionId"`     | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceVersionId=1.3.1                                                                                                                                                                                                                                                                                                     |
-| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2015-03-11T05:30:02Z                                                                                                                                                                                                                                                               |
-| `"versionId"`             | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?versionId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                                                                      |
-| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2018-07-19T08:40:00Z                                                                                                                                                                                                                                                               |
-| `"linkedResource"`        | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?linkedResource=true // _note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document._                                                                                                                                                                                                         |
-| `"resourceMetadata"`      | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw&#x26;resourceType=JSONSchema2020&#x26;versionTime=2018-07-19T08:40:00Z&#x26;resourceMetadata=true or, did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceMetadata=true // note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document. |
-| "`latestResourceVersion`" | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&latestResourceVersion=true                                                                                                                                                                                                                                                                     |
-| "`allResourceVersions`"   | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&allResourceVersions=true                                                                                                                                                                                                                                                                       |
+| Parameter                 | Type                                                          | Example                                                                                                                                                                                                                                                                                                                                                    |
+| ------------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"resourceId"`            | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                             |
+| `"resourceName"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw                                                                                                                                                                                                                                                                                      |
+| `"resourceType"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020                                                                                                                                                                                                                                                         |
+| `"resourceVersionId"`     | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceVersionId=1.3.1                                                                                                                                                                                                                                                             |
+| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2015-03-11T05:30:02Z                                                                                                                                                                                                                       |
+| `"versionId"`             | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?versionId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                              |
+| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2018-07-19T08:40:00Z                                                                                                                                                                                                                       |
+| `"linkedResource"`        | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?linkedResource=true // _note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document._                                                                                                                                                                 |
+| `"resourceMetadata"`      | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2018-07-19T08:40:00Z\&resourceMetadata=true or, did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceMetadata=true // note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document. |
+| "`latestResourceVersion`" | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&latestResourceVersion=true                                                                                                                                                                                                                             |
+| "`allResourceVersions`"   | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&allResourceVersions=true                                                                                                                                                                                                                               |
 
 #### Obtain all Revocation Registry Entry Content
 

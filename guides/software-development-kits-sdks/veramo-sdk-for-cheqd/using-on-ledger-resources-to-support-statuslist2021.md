@@ -1,4 +1,4 @@
-# ❌ Using on-ledger Resources to support StatusList2021
+# ❌ StatusList2021 support
 
 The [Status List 2021 Specification](https://w3c-ccg.github.io/vc-status-list-2021/#conceptual-framework) is a working document from the W3C to support a privacy-preserving, space-efficient, and high-performance mechanism for publishing status information such as suspension or revocation of JSON and JSON-LD Verifiable Credentials.
 
@@ -6,7 +6,7 @@ The [Status List 2021 Specification](https://w3c-ccg.github.io/vc-status-list-20
 
 The [Status List 2021 Specification](https://w3c-ccg.github.io/vc-status-list-2021/) utilises [bitstrings](https://w3c-ccg.github.io/vc-status-list-2021/#conceptual-framework) to represent whether a Verifiable Credential has been suspended/revoked or not. A bitstring can be thought of as a long list of 1s and 0s, where, if the binary value of the position in the list is 1 (one), the [verifiable credential](https://w3c-ccg.github.io/vc-status-list-2021/#dfn-verifiable-credentials) is revoked, if it is 0 (zero) it is not revoked.
 
-<figure><img src="../../.gitbook/assets/StatusList21 Bitstring.png" alt=""><figcaption><p>Graphic showing the StatusList 2021 Bitstring</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/StatusList21 Bitstring.png" alt=""><figcaption><p>Graphic showing the StatusList 2021 Bitstring</p></figcaption></figure>
 
 Each issued Credential correlates with a position and index on the bitstring, so that a verifier will be able to correlate the value within the Credential against the public bitstring to ascertain whether the Credential has been revoked or not, using a [validate algorithm](https://w3c-ccg.github.io/vc-status-list-2021/#validate-algorithm) as well as a [bitstring expansion algorithm](https://w3c-ccg.github.io/vc-status-list-2021/#bitstring-expansion-algorithm).
 
@@ -33,10 +33,9 @@ The following JSON syntax shows the common format for creating a StatusList2021 
     "encodedList": "H4sIAAAAAAAAA-3BMQEAAADTCoPVPbQwfoAAAAAAAAAAAAAAAAAAAAIC3AYbSVKsAQAAA"
   },
   "proof": { ... }
-
 ```
 
-The bitstring here is stored in the `encodedList` property. This value _MUST_ be a GZIP-compressed base-64 encoded bitstring value for the associated range of Verifiable Credential status values.&#x20;
+The bitstring here is stored in the `encodedList` property. This value _MUST_ be a GZIP-compressed base-64 encoded bitstring value for the associated range of Verifiable Credential status values.
 
 {% hint style="info" %}
 Note: The uncompressed bitstring _MUST_ be at least 16KB in size to maintain herd privacy for the holder.
@@ -89,7 +88,7 @@ Where each property has the following meaning:
 | `statusListIndex`      | The `statusListIndex` property _MUST_ be an arbitrary size integer greater than or equal to 0, expressed as a string. The value identifies the bit position of the status of the verifiable credential.                                                                                                                                                          |
 | `statusListCredential` | The `statusListCredential` property _MUST_ be a URL to a verifiable credential. When the URL is dereferenced, the resulting verifiable credential _MUST_ have `type` property that includes the `StatusList2021Credential` value.                                                                                                                                |
 
-As such, the issued Verifiable Credential references the centralised parent StatusList Credential controlled and stored by the issuer.&#x20;
+As such, the issued Verifiable Credential references the centralised parent StatusList Credential controlled and stored by the issuer.
 
 ## StatusList2021 using cheqd Resource Module
 
@@ -97,17 +96,17 @@ The [Status List 2021 Specification](https://w3c-ccg.github.io/vc-status-list-20
 
 Using cheqd's Resource Module, the same benefits may be achieved. In fact, storing a StatusList as an on-ledger Resource is a much better application of technology than using a Verifiable Credential for the same purpose.
 
-By storing a StatusList on the cheqd Network as a Resource, it creates a much more resilient and decentralised mechanism for storing and maintaining the revocation/suspension status of Verifiable Credentials. The [benefits of using the cheqd Resource module over traditional centralised architecture are detailed here](./).
+By storing a StatusList on the cheqd Network as a Resource, it creates a much more resilient and decentralised mechanism for storing and maintaining the revocation/suspension status of Verifiable Credentials. The [benefits of using the cheqd Resource module over traditional centralised architecture are detailed here](../../resources/).
 
-Moreover, cheqd's Resource Module enables individual Resources to be referenced and retrieved using a DID URL in conformance with DID Core. This is being standardized at [the Trust over IP Foundation](https://trustoverip.org/) within a specification called [DID URLs for Digital Resources](https://wiki.trustoverip.org/display/HOME/DID-Linked+Resources+Specification).&#x20;
+Moreover, cheqd's Resource Module enables individual Resources to be referenced and retrieved using a DID URL in conformance with DID Core. This is being standardized at [the Trust over IP Foundation](https://trustoverip.org/) within a specification called [DID URLs for Digital Resources](https://wiki.trustoverip.org/display/HOME/DID-Linked+Resources+Specification).
 
 ### Creating a StatusList Resource using Veramo SDK for cheqd
 
-Using the cheqd Resource module, the same content and semantics of StatusList2021 can be replicated, with additional benefits of enabling DID Resolvers to fetch the contents of the StatusList.&#x20;
+Using the cheqd Resource module, the same content and semantics of StatusList2021 can be replicated, with additional benefits of enabling DID Resolvers to fetch the contents of the StatusList.
 
 #### Create a DID and DID Document with keys to manage the StatusList
 
-You can follow the [tutorial to create a DID and DID Document here](../../tutorials/did-operations/create-a-did.md).&#x20;
+You can follow the [tutorial to create a DID and DID Document here](../../../tutorials/did-operations/create-a-did.md).
 
 Let's assume that the following DID is created.
 
@@ -157,7 +156,7 @@ SGVsbG8sIHdvcmxk
 
 #### Create a unique ID for the StatusList Resource
 
-[UUIDs are used to identify Resources](creating-a-resource.md). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
+[UUIDs are used to identify Resources](../../resources/technical-composition-of-did-linked-resources/creating-a-resource.md). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
 
 ```bash
 $ uuidgen
@@ -197,7 +196,7 @@ Where the fields within the payload have the following meaning:
 | **data**         | Base 64 encoded file containing the full bitstring for the StatusList                                                                              |
 
 {% hint style="info" %}
-Note: If an issuer wants to create multiple StatusLists within the same Collection, they must have **unique** and **distinct names**.&#x20;
+Note: If an issuer wants to create multiple StatusLists within the same Collection, they must have **unique** and **distinct names**.
 {% endhint %}
 
 #### Note association between DID and Resource
@@ -330,7 +329,7 @@ Resulting in the following metadata syntax:
 
 ### Issuing a Verifiable Credential referencing cheqd StatusList
 
-Follow the [instructions for issuing a Verifiable Credential here](../../tutorials/verifiable-credentials-and-presentations/json-jwt/verifiable-credentials.md), including the credentialStatus information, as shown in the example below:
+Follow the [instructions for issuing a Verifiable Credential here](../../../tutorials/verifiable-credentials-and-presentations/json-jwt/verifiable-credentials.md), including the credentialStatus information, as shown in the example below:
 
 ```json
 {

@@ -1,4 +1,4 @@
-# Create an on-ledger  resource
+# Create a DID-Linked Resource
 
 Follow these instructions to create a new DID and publish the associated DIDDoc on cheqd ledger.
 
@@ -30,7 +30,7 @@ SGVsbG8sIHdvcmxk
 
 ### 3. Create a UUID for the Resource
 
-[UUIDs are used to identify Resources](../../guides/resources/creating-a-resource.md). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
+[UUIDs are used to identify Resources](../../guides/resources/context-for-developing-did-linked-resources.md). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
 
 ```bash
 $ uuidgen

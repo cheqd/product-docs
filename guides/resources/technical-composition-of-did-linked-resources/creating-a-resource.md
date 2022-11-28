@@ -1,12 +1,12 @@
-# Workflow for creating Resources
+# Workflow for creating DID-Linked Resources
 
 The logic for creating a new on-ledger Resource within a Collection together with its DID Document is handled through the **Resource module**.
 
 ## Flow for creating a new Resource within a Collection
 
-### 1. Collection DID Document is created
+### 1. DID Document is created
 
-At the point the Collection DID Document is created, the service section does not reference any particular Resource. This will therefore be a very basic DID Document.
+Create a new DID Document for the Collection.
 
 Alternatively, any pre-existing DID Document can also be used.
 
@@ -16,8 +16,8 @@ An authorised party then creates a Resource, specifying:
 
 * A Collection ID with the same unique identifier as the Collection DID Document
 * A new Resource ID
-* Resource name, Resource type, Media Type
-* Any other basic details needed for the Resource
+* Resource name, Resource type
+* The actual file in a base-64 encoded format or as a path to the file.&#x20;
 
 The authorised party then signs this `createResource` request with the same `verificationMethod` or `authentication` keys as is specified within the Collection DID Document.
 
@@ -27,7 +27,7 @@ This allows for multi-signature scenarios as well, in case the controllers of th
 
 Once the Resource is created, metadata related to it will be referenced within the **Collection DID Document metadata**, in the following format.
 
-```jsonc
+```
 "didDocumentMetadata": {
   "created": "2022-07-19T08:29:07Z",
   "versionId": "57543FA1D9C56033BABBFA3A438E0A149E01BBB89E6D666ACE1243455AA6F2BC",
@@ -52,27 +52,13 @@ Importantly, this is again a **Resource Preview**, meaning that the actual data 
 
 To fetch the Resource, a client application would need to resolve the DID URL `did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c/resources/0f964a80-5d18-4867-83e3-b47f5a756f02`
 
-### 4. Collection DID Document updated to reference Resource (optional)
 
-Through an update DID operation, the authorised party can **update the Service section** within the **Collection DID Document** to **include the appropriate Collection and Resource IDs and Resource name**.
 
-This step is _optional_, since the Resource and its metadata is already available as described above.
+## (Optional) Using Resources as a Credential Issuer
 
-```jsonc
-"service": [
-  {
-    "id": "did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c#DegreeLaw",
-    "type": "LinkedResource",
-    "service_endpoint": "did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c/resources/0f964a80-5d18-4867-83e3-b47f5a756f02"
-  }
-]
-```
+### 1. Referencing existing Resources from an Issuer DIDDoc using the service section
 
-## Using Resources as a Credential Issuer
-
-### 1. Referencing existing Resources from an Issuer DIDDoc
-
-Once a Collection DID Document has been created and is tied to the appropriate Resources, an **Issuer** may want to **update their own DID Document** to demonstrate that such Resources are used by the Issuer.
+Once a Collection DID Document has been created and is tied to the appropriate Resources, an **Issuer** _may_ want to **update their own DID Document** to demonstrate that such Resources are used by the Issuer.
 
 An example of an Issuer DID Document which references a Collection DID Document, Collection and specific Resource is shown in the example below:
 
@@ -119,8 +105,3 @@ In this case, an **Issuer can update to their DID Document**, authenticating wit
 Through linking in this way, the Issuer is able to clearly and transparently illustrate, for example, which Schemas it conforms to when issuing Verifiable Credentials. Or alternatively, the Issuer could use this to point to the canonical and latest version of their Governance Framework.
 
 Moreover, the Resource referenced in the Issuer DID Document does not need to be controlled by the Issuer, they could show conformance to any Schema, controlled by any party. This architecture therefore provides a W3C compliant and highly flexible way to tie Resources to DIDs.
-
-To find out more about the Indy AnonCreds design, and go deeper in the cheqd On-ledger Resources with DIDs, see below:
-
-* [AnonCreds Design (Hyperledger Indy SDK](https://hyperledger-indy.readthedocs.io/projects/sdk/en/latest/docs/design/002-anoncreds/README.html))
-* [ADR 002: On-ledger Resources](../../architecture/adr-list/adr-002-on-ledger-resources.md)
