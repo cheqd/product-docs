@@ -4,9 +4,9 @@
 
 | Category                  | Status                                        |
 | :------------------------ | :-------------------------------------------- |
-| **Authors**               | Alex Tweeddale, Renata Toktar, Ankur Banerjee |
-| **ADR Stage**             | DRAFT                                         |
-| **Implementation Status** | In Progress                                   |
+| **Authors**               | Alex Tweeddale, Ankur Banerjee, Renata Toktar |
+| **ADR Stage**             | ACCEPTED                                         |
+| **Implementation Status** | Implemented           |
 | **Start Date**            | 2022-02-22                                    |
 | **Last Updated**          | 2022-08-04                                    |
 
