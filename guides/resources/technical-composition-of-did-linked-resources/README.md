@@ -26,7 +26,7 @@ For example, the following DID:
 
 will derive the Collection ID: **1f8e08a2-eeb6-40c3-9e01-33e4a0d1479d**
 
-<figure><img src="../../../.gitbook/assets/DID and Collection relationship (1).png" alt="Image showing how a Collection is derived from a DID"><figcaption><p>Image showing how a Collection is derived from a DID</p></figcaption></figure>
+<figure><img src="broken-reference" alt="Image showing how a Collection is derived from a DID"><figcaption><p>Image showing how a Collection is derived from a DID</p></figcaption></figure>
 
 A Collection is created using a _createResource_ transaction, and specifying the Collection ID as the same identifier as that of the parent DID.&#x20;
 
@@ -74,7 +74,7 @@ Once you have created a resource, the DID Document will automatically reference 
 
 This relationship is shown in the diagram below:
 
-<figure><img src="../../../.gitbook/assets/DIDDocumentMetadata (1).png" alt="Image showing how a DID Document references associated resources"><figcaption><p>Image showing how a DID Document references associated resources</p></figcaption></figure>
+<figure><img src="broken-reference" alt="Image showing how a DID Document references associated resources"><figcaption><p>Image showing how a DID Document references associated resources</p></figcaption></figure>
 
 For simplicity, we will focus on the use case where a Resource is a **schema**. The same logic used in fetching schemas from the ledger can be applied to any of the aforementioned types of Resources.
 
