@@ -28,7 +28,9 @@ Common types of resources that might be required to issue and validate Verifiabl
 * **Revocation status lists**: Allow recipients of a Verifiable Credential exchange to [check the revocation status of a credential](https://w3c.github.io/vc-data-model/#validity-checks) for validity. Prominent examples of this include the [W3C `Status List 2021`](https://w3c-ccg.github.io/vc-status-list-2021/) specification, [W3C `Revocation List 2020`](https://w3c-ccg.github.io/vc-status-rl-2020/), [Hyperledger Indy revocation registries](https://hyperledger-indy.readthedocs.io/projects/sdk/en/latest/docs/concepts/revocation/cred-revocation.html), etc.
 * **Visual representations for Verifiable Credentials**: Although Verifiable Credentials can be exchanged digitally, in practice most identity wallets want to present "human-friendly" representations. This allows the credential representation to be shown according to the brand guidelines of the issuer, [internationalisation ("i18n") translations](https://en.wikipedia.org/wiki/Internationalization\_and\_localization), etc. Examples of this include the [Overlays Capture Architecture (OCA) specification](https://oca.colossi.network/), [Apple Wallet PassKit](https://developer.apple.com/documentation/walletpasses) ("`.pkpass`"), [Google Wallet Pass](https://developers.google.com/wallet/generic), etc.
 
-<figure><img src="../../.gitbook/assets/On-ledger resources - boarding passes.jpeg" alt="Image of British Airways boarding passes in digital visual format"><figcaption><em>Figure 1: Mobile boarding passes in Apple Wallet showing different visual styles (source:</em> <a href="https://mediacentre.britishairways.com/pressrelease/details/86/2016-72/6130"><em>British Airways media centre</em></a><em>)</em></figcaption></figure>
+![Image of British Airways boarding passes in digital visual format](../../.gitbook/assets/boarding-pass.jpeg)
+
+*Figure 1: Mobile boarding passes in Apple Wallet showing different visual styles (source: [British Airways media centre](https://mediacentre.britishairways.com/pressrelease/details/86/2016-72/6130))*
 
 Such visual representations can also be used to quickly communicate information visually during identity exchanges, such as airline mobile boarding passes. In the [example above from British Airways](https://mediacentre.britishairways.com/pressrelease/details/86/2016-72/6130), the pass at the front is for a "Gold" loyalty status member, whereas the pass at the back is for a "standard" loyalty status member. This information can be represented in a Verifiable Credential, of course, but the example here uses the Apple Wallet / Google Wallet formats to overlay a richer, "human-friendly" display.
 
@@ -39,29 +41,27 @@ More broadly, there are other resources that might be relevant for issuers and v
 
 ### Rationale for storing resources on-ledger
 
-Decentralized Identifiers (DIDs) are often stored on ledgers (e.g., [cheqd](broken-reference/), [Hyperledger Indy](https://hyperledger.github.io/indy-did-method/), distributed storage (e.g., [IPFS](https://ipfs.io/) in [Sidetree](https://identity.foundation/sidetree/spec/)), or non-ledger distributed systems (e.g., [KERI](https://keri.one/)).
+Decentralized Identifiers (DIDs) are often stored on ledgers (e.g., [cheqd](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method/), [Hyperledger Indy](https://hyperledger.github.io/indy-did-method/), distributed storage (e.g., [IPFS](https://ipfs.io/) in [Sidetree](https://identity.foundation/sidetree/spec/)), or non-ledger distributed systems (e.g., [KERI](https://keri.one/)).
 
 #### Drawbacks of hosting resources on traditional web endpoints
 
-DIDs _can_ be stored on traditional centralised-storage endpoints (e.g., [`did:web`](https://w3c-ccg.github.io/did-method-web/), [`did:git`](https://github-did.com/)) but this comes with certain drawbacks:
+DIDs *can* be stored on traditional centralised-storage endpoints (e.g., [`did:web`](https://w3c-ccg.github.io/did-method-web/), [`did:git`](https://github-did.com/)) but this comes with certain drawbacks:
 
 1. **DIDs could be tampered by compromising the hosting provider**: DIDs and DID Documents ("DIDDocs") stored at a centralised web endpoint can be compromised and replaced by malicious actors.
 2. **Hosting providers could unilaterally cease to host particular clients**: Hosting providers could terminate accounts due to factors such as non-payment of fees, violation of Terms of Service, etc.
-3.  **Single point-of-failure in resiliency**: Even for highly-trusted and sophisticated hosting providers who may not present a risk of infrastructure being compromised, a service outage at the hosting provider can make a DID anchored on their systems inaccessible.
+3. **Single point-of-failure in resiliency**: Even for highly-trusted and sophisticated hosting providers who may not present a risk of infrastructure being compromised, a service outage at the hosting provider can make a DID anchored on their systems inaccessible.
 
-    1.  See [notable examples of service outages](https://totaluptime.com/notable-network-and-cloud-outages-of-2021/) from major cloud providers: [Amazon Web Services (AWS)](https://awsmaniac.com/aws-outages/), [Microsoft Azure](https://www.theregister.com/2018/09/17/azure\_outage\_report/), [Google Cloud](https://www.thousandeyes.com/blog/google-cloud-platform-outage-analysis), [Facebook / Meta](https://en.wikipedia.org/wiki/2021\_Facebook\_outage), [GitHub](https://github.blog/2022-03-23-an-update-on-recent-service-disruptions/), [Cloudflare](https://blog.cloudflare.com/cloudflare-outage-on-june-21-2022/)...\
+    1. See [notable examples of service outages](https://totaluptime.com/notable-network-and-cloud-outages-of-2021/) from major cloud providers: [Amazon Web Services (AWS)](https://awsmaniac.com/aws-outages/), [Microsoft Azure](https://www.theregister.com/2018/09/17/azure\_outage\_report/), [Google Cloud](https://www.thousandeyes.com/blog/google-cloud-platform-outage-analysis), [Facebook / Meta](https://en.wikipedia.org/wiki/2021\_Facebook\_outage), [GitHub](https://github.blog/2022-03-23-an-update-on-recent-service-disruptions/), [Cloudflare](https://blog.cloudflare.com/cloudflare-outage-on-june-21-2022/)...
 
+        ![Graph showing drop in Facebook traffic from their global service outage in 2021](../../.gitbook/assets/facebook-outage.png)
+        *Figure 2: Graph showing drop in Facebook traffic from their global service outage in 2021 (source: [*Kentik*](https://www.kentik.com/blog/facebooks-historic-outage-explained/))*
 
-        <figure><img src="../../.gitbook/assets/On-ledger resources - Facebook global outage.png" alt="Graph showing drop in Facebook traffic from their global service outage in 2021"><figcaption>Source: <a href="https://web.archive.org/web/20211005032128/https://www.wired.com/story/why-facebook-instagram-whatsapp-went-down-outage/">Why Facebook, Instagram, and WhatsApp All Went Down Today</a></figcaption></figure>
+    2. In particular, [the 2021 global Facebook outage](https://www.kentik.com/blog/facebooks-historic-outage-explained/) also [took down apps that used "Login with Facebook"](https://www.wired.com/story/why-facebook-instagram-whatsapp-went-down-outage/) functionality. This highlights the risks of "contagion impact" (e.g., [a *different* Facebook outage took down Spotify, TikTok, Pinterest](https://www.engadget.com/facebook-sdk-spotify-tinder-tiktok-ios-outage-125806814.html)) of centralised digital systems - even ones run by extremely-capable tech providers.
+4. **Link rot**: "Link rot" happens when over time, URLs become inaccessible, either because the endpoint where the content was stored is no longer active, or the URL format itself changes. The graph below from [an analysis by *The New York Times* of linkrot](https://www.cjr.org/analysis/linkrot-content-drift-new-york-times.php) shows degradation over time of URLs.
 
-    _Figure 2: Graph showing drop in Facebook traffic from their global service outage in 2021 (source:_ [_Kentik_](https://www.kentik.com/blog/facebooks-historic-outage-explained/)_)_
+![New York Times analysis of linkrot from 1998-2018](../../.gitbook/assets/link-rot-analysis.jpeg)
 
-    1. In particular, [the 2021 global Facebook outage](https://www.kentik.com/blog/facebooks-historic-outage-explained/) also [took down apps that used "Login with Facebook"](https://www.wired.com/story/why-facebook-instagram-whatsapp-went-down-outage/) functionality. This highlights the risks of "contagion impact" (e.g., [a _different_ Facebook outage took down Spotify, TikTok, Pinterest](https://www.engadget.com/facebook-sdk-spotify-tinder-tiktok-ios-outage-125806814.html)) of centralised digital systems - even ones run by extremely-capable tech providers.
-4. **Link rot**: "Link rot" happens when over time, URLs become inaccessible, either because the endpoint where the content was stored is no longer active, or the URL format itself changes. The graph below from [an analysis by _The New York Times_ of linkrot](https://www.cjr.org/analysis/linkrot-content-drift-new-york-times.php) shows degradation over time of URLs.
-
-<figure><img src="../../.gitbook/assets/On-ledger resources - Link Rot.jpeg" alt="Image of Link Rot over time"><figcaption></figcaption></figure>
-
-_Figure 3: Linkrot analysis over 1996-2019 by New York Times (source:_ [_Columbia Journalism Review / New York Times_](https://www.cjr.org/analysis/linkrot-content-drift-new-york-times.php)_)_
+*Figure 3: Linkrot analysis over 1996-2019 by New York Times (source: [Columbia Journalism Review / New York Times](https://www.cjr.org/analysis/linkrot-content-drift-new-york-times.php))*
 
 #### Risks applicable in the context of Verifiable Credentials
 
@@ -69,23 +69,23 @@ The issues highlighted above **a material difference to the longevity of Verifia
 
 For example, a passport ([which typically have a 5-10 year validity](https://en.wikipedia.org/wiki/Passport\_validity) issued as a Verifiable Credential anchored to a DID (regardless of whether the DID was on-ledger or not) might stop working if the credential schema, visual presentation format, or other necessary resources were stored off-ledger on traditional centralised storage.
 
-Despite these issues, many self-sovereign identity (SSI) implementations - _even ones that use ledgers / distributed systems for DIDs_ - often utilise centralised storage. From the [W3C Verifiable Credential Implementation Guide](https://w3c.github.io/vc-imp-guide/#creating-new-credential-types):
+Despite these issues, many self-sovereign identity (SSI) implementations - *even ones that use ledgers / distributed systems for DIDs* - often utilise centralised storage. From the [W3C Verifiable Credential Implementation Guide](https://w3c.github.io/vc-imp-guide/#creating-new-credential-types):
 
-> Example schema.org address with full URLs
->
-> ```bash
-> {
->   "@type": "http://schema.org/Person",
->   "http://schema.org/address": {
->     "@type": "http://schema.org/PostalAddress",
->     "http://schema.org/streetAddress": "123 Main St.",
->     "http://schema.org/addressLocality": "Blacksburg",
->     "http://schema.org/addressRegion": "VA",
->     "http://schema.org/postalCode": "24060",
->     "http://schema.org/addressCountry": "US"
->   }
-> }
-> ```
+Example schema.org address with full URLs:
+
+```json
+{
+  "@type": "http://schema.org/Person",
+    "http://schema.org/address": {
+    "@type": "http://schema.org/PostalAddress",
+    "http://schema.org/streetAddress": "123 Main St.",
+    "http://schema.org/addressLocality": "Blacksburg",
+    "http://schema.org/addressRegion": "VA",
+    "http://schema.org/postalCode": "24060",
+    "http://schema.org/addressCountry": "US"
+  }
+}
+```
 
 Using traditional web endpoints to store resources (such as schemas) that are critical for a Verifiable Credential to function undermines the benefits that persistently-accessible Decentralized Identifiers offer.
 
@@ -98,30 +98,32 @@ We took the following design principles into consideration, along with an explan
    1. If any individual node or endpoint is down, lookup requests can be sent to any other node on the network.
    2. In a catastrophic scenario where the network itself stops to exist, e.g., companies shutting down, getting acquired etc the on-ledger data can still be restored by digital archivists using ledger snapshots. A practical example of this is how [Cosmos Hub makes historical chain archives available](https://github.com/cosmos/gaia/blob/main/docs/resources/archives.md) which can be restored. While this can be cumbersome, we wanted to design for this as a fail-safe.
 3. **Extensible by default**: Our objective was to build a flexible design pattern that allowed developers to define and extend their own resource types. Trying to control what kinds of resources could be written to ledger would make the ledger-side logic complex. Instead, we opted for a design where the cheqd ledger acts agnostically to store resources, as long as correctly authorised, as a permanently-accessible endpoint.
-4. **Design for DID-spec "dumb" as well as DID-spec "smart" client applications**: Many approaches in this space assume that client applications must be adept at parsing DIDDocs and resolving complex inter-DIDDoc relationships. We saw describing resources using DIDDocs as _metadata_ about the resource which _could_ be independently-parsed by "smart" client applications; while also providing a fallback approach for "dumb" client applications. We internally considered this as _"What if an identity wallet understood how to parse JSON, but didn't understand the DID Core spec?"_
-5. **Version controlled**: The ability to evolve a resource over time is critical for identity use cases. As described above, examples of this include when identity document schemas change, logos evolve, etc. Current approaches (such as Hyperledger Indy CredDefs) deal with this by creating entirely new, unlinked resources. We designed to make it easy, using existing DID Core specification techniques, so that client applications could query _"What was the version of a resource with **this** name on **this** date/time?"_
-6. **Make re-use of resources simple**: We liked the concept of [Schema.org](https://schema.org) in the sense that it promotes a common, machine-readable specification. Therefore, our design allows for patterns where the controllers of a DID can reference resources created by _other_ DID owners/controllers, e.g., referencing a pre-existing schema. Taking this line of thought further, it allows for an arbitrary depth of how resources can be nested, as long as they are discoverable/resolvable.
-7. **Not**_**all**_**types of resources should be stored on a ledger...but can be made discoverable through similar design patterns**: Distributed ledgers are great for redundancy, but the cost of this duplication (in terms of storage required by node, block size, transaction finality speeds, etc) can be quite significant. For instance, a distributed ledger is probably _not_ the best storage and retrieval mechanism for a video file (which can run into many GBs/TBs); or even a PDF larger than a few MBs. cheqd network [restricts the block size for an individual block to \~200 KB](broken-reference/). This can be updated via an on-ledger vote, but the trade-off of asking node operators to provision ever-expanding storage would be not ideal. Our design therefore restricts the file/payload size of on-ledger resources (in our case, \~190 KB - giving enough room for transaction data besides the resource itself), while allowing the _same_ techniques below to be used for describing off-ledger resources. E.g., [our first DID on cheqd network](https://blog.cheqd.io/a-new-hope-in-the-data-wars-our-first-ever-non-fungible-did-on-the-cheqd-network-7649cad8cb06) references [a 7+ MB image accessible via IPFS](https://gateway.ipfs.io/ipfs/bafybeihetj2ng3d74k7t754atv2s5dk76pcqtvxls6dntef3xa6rax25xe). We recognise and accept that DID owners/creators may choose to use their own centralised/decentralised storage, and the design patterns described below accommodate that.
+4. **Design for DID-spec "dumb" as well as DID-spec "smart" client applications**: Many approaches in this space assume that client applications must be adept at parsing DIDDocs and resolving complex inter-DIDDoc relationships. We saw describing resources using DIDDocs as *metadata* about the resource which *could* be independently-parsed by "smart" client applications; while also providing a fallback approach for "dumb" client applications. We internally considered this as *"What if an identity wallet understood how to parse JSON, but didn't understand the DID Core spec?"*
+5. **Version controlled**: The ability to evolve a resource over time is critical for identity use cases. As described above, examples of this include when identity document schemas change, logos evolve, etc. Current approaches (such as Hyperledger Indy CredDefs) deal with this by creating entirely new, unlinked resources. We designed to make it easy, using existing DID Core specification techniques, so that client applications could query *"What was the version of a resource with **this** name on **this** date/time?"*
+6. **Make re-use of resources simple**: We liked the concept of [Schema.org](https://schema.org) in the sense that it promotes a common, machine-readable specification. Therefore, our design allows for patterns where the controllers of a DID can reference resources created by *other* DID owners/controllers, e.g., referencing a pre-existing schema. Taking this line of thought further, it allows for an arbitrary depth of how resources can be nested, as long as they are discoverable/resolvable.
+7. **Not *all* types of resources should be stored on a ledger...but can be made discoverable through similar design patterns**: Distributed ledgers are great for redundancy, but the cost of this duplication (in terms of storage required by node, block size, transaction finality speeds, etc) can be quite significant. For instance, a distributed ledger is probably *not* the best storage and retrieval mechanism for a video file (which can run into many GBs/TBs); or even a PDF larger than a few MBs. cheqd network [restricts the block size for an individual block to \~200 KB](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method/). This can be updated via an on-ledger vote, but the trade-off of asking node operators to provision ever-expanding storage would be not ideal. Our design therefore restricts the file/payload size of on-ledger resources (in our case, \~190 KB - giving enough room for transaction data besides the resource itself), while allowing the *same* techniques below to be used for describing off-ledger resources. E.g., [our first DID on cheqd network](https://blog.cheqd.io/a-new-hope-in-the-data-wars-our-first-ever-non-fungible-did-on-the-cheqd-network-7649cad8cb06) references [a 7+ MB image accessible via IPFS](https://gateway.ipfs.io/ipfs/bafybeihetj2ng3d74k7t754atv2s5dk76pcqtvxls6dntef3xa6rax25xe). We recognise and accept that DID owners/creators may choose to use their own centralised/decentralised storage, and the design patterns described below accommodate that.
 
 ## Resources on cheqd ledger
 
-Resources on cheqd ledger are collated under _Resource Collections_, which are defined as a list of resources linked to and controlled using a DID Document ("DIDDoc").
+Resources on cheqd ledger are collated under *Resource Collections*, which are defined as a list of resources linked to and controlled using a DID Document ("DIDDoc").
 
-<figure><img src="../../.gitbook/assets/On-ledger resources - flow simple.png" alt="Swimlanes for Resource creation"><figcaption><em>Figure 4: Overview of Resource and Resource Collection creation (</em><a href="https://swimlanes.io/u/GI-Jxpnr5"><em>editable version</em></a><em>)</em></figcaption></figure>
+![Swimlanes for Resource creation](../../.gitbook/assets/resource-flow-simple.png)
 
-To create a new Resource, a client application first needs to create a DID (or use an existing not [deactivated](broken-reference/) DID) along with its associated DIDDoc. This _resource-linked DID_ is the lowest, direct level of create/update/deactivate operation control that exists.
+*Figure 4: Overview of Resource and Resource Collection creation ([editable version](https://swimlanes.io/u/GI-Jxpnr5))*
 
-Individual Resources are uniquely identified by a common _Resource Name_ and common _Resource Type_ that MUST remain consistent across versions. The specific _version number_ of a Resource is described using the _Resource ID_, which is a [Universally-Unique Identifier (UUID)](https://en.wikipedia.org/wiki/Universally\_unique\_identifier). Since UUIDs can be generated by _any_ compatible software library, client applications are able to define this version number independent of the cheqd ledger. (This same technique and rationale is described in [ADR-002: cheqd DID method](broken-reference/)).
+To create a new Resource, a client application first needs to create a DID (or use an existing not [deactivated](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method#deactivate-did) DID) along with its associated DIDDoc. This *resource-linked DID* is the lowest, direct level of create/update/deactivate operation control that exists.
 
-This allows a _specific_ Resource version to be referenced in a Verifiable Credential, as well as allowing client applications to query historical/updated Resource versions along with metadata that describes how the Resource evolved within a Resource Collection.
+Individual Resources are uniquely identified by a common *Resource Name* and common *Resource Type* that MUST remain consistent across versions. The specific *version number* of a Resource is described using the *Resource ID*, which is a [Universally-Unique Identifier (UUID)](https://en.wikipedia.org/wiki/Universally\_unique\_identifier). Since UUIDs can be generated by *any* compatible software library, client applications are able to define this version number independent of the cheqd ledger. (This same technique and rationale is described in [ADR-002: cheqd DID method](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method)).
+
+This allows a *specific* Resource version to be referenced in a Verifiable Credential, as well as allowing client applications to query historical/updated Resource versions along with metadata that describes how the Resource evolved within a Resource Collection.
 
 ### Discoverability via DIDDoc Metadata
 
-Once a Resource has been created under a Resource Collection, the parent DIDDoc will automatically have an updated _didDocumentMetadata_ section, including _linkedResourceMetadata_.
+Once a Resource has been created under a Resource Collection, the parent DIDDoc will automatically have an updated *didDocumentMetadata* section, including *linkedResourceMetadata*.
 
 The syntax of the linked Resource metadata is as follows:
 
-```json
+```jsonc
 "didDocumentMetadata": {
     "created": "2020-12-20T19:17:47Z",
     "updated": "2020-12-20T19:19:47Z",
@@ -156,23 +158,23 @@ The syntax of the linked Resource metadata is as follows:
     }
 ```
 
-Importantly, we decided not to populate the actual resource data into the didDocumentMetadata, but instead, what we refer to as a _Resource Preview_ which contains all the metadata about the associated resources.
+Importantly, the actual resource body is not displayed inline in the `didDocumentMetadata` section, since the file/media type is hard to transform into JSON. Instead, the DID Document Metadata just shows the *Resource Metadata* for all resources in a collection.
 
-### _Optional_ Discoverability via DIDDoc Services
+### *Optional* Discoverability via DIDDoc Services
 
 Once a Resource has been created under a Resource Collection, the linked DIDDoc can be updated to provide a link to access it in the [service section](https://w3c.github.io/did-core/#services).
 
 The rationale for linking to Resources in this manner, instead of creating a new top-level section, are as follows:
 
-1. Client applications capable of doing [DID Resolution](https://w3c.github.io/did-core/#resolution) may have strong architectural assumptions to _only_ expect the default DID Core specification sections in a response. We considered the possibility that such applications might (incorrectly) reject the entire DIDDoc as malformed, or crash in the process of trying to parse the DIDDoc.
-2. On the other hand, [the _Service_ section in a DIDDoc](https://w3c.github.io/did-core/#services) is designed to be flexible and extensible by design. New DID Service types can be registered through [DID Specification Registries](https://www.w3.org/TR/did-spec-registries/) by anyone. We suggest a new service type called _LinkedResource_ should be used to reference any resource on cheqd within the service section. This is conceptually similar to the existing [_LinkedDomains_](https://www.w3.org/TR/did-spec-registries/#linkeddomains).
-3. In practice, we noted that client applications capable of DID Resolution will gracefully fail/ignore unknown Service types. Client applications that _do_ understand a particular Service type can continue parsing/resolving content they are designed to handle.
+1. Client applications capable of doing [DID Resolution](https://w3c.github.io/did-core/#resolution) may have strong architectural assumptions to *only* expect the default DID Core specification sections in a response. We considered the possibility that such applications might (incorrectly) reject the entire DIDDoc as malformed, or crash in the process of trying to parse the DIDDoc.
+2. On the other hand, [the *Service* section in a DIDDoc](https://w3c.github.io/did-core/#services) is designed to be flexible and extensible by design. New DID Service types can be registered through [DID Specification Registries](https://www.w3.org/TR/did-spec-registries/) by anyone. We suggest a new service type called *LinkedResource* should be used to reference any resource on cheqd within the service section. This is conceptually similar to the existing [*LinkedDomains*](https://www.w3.org/TR/did-spec-registries/#linkeddomains).
+3. In practice, we noted that client applications capable of DID Resolution will gracefully fail/ignore unknown Service types. Client applications that *do* understand a particular Service type can continue parsing/resolving content they are designed to handle.
 4. DIDDocs can reference other DIDDocs, such as when the [DID Controller](https://w3c.github.io/did-core/#did-controller) in one DIDDoc is specified as a [Verification Method](https://w3c.github.io/did-core/#verification-methods) in another DIDDoc. These links can be traversed using [DID URL dereferencing](https://w3c-ccg.github.io/did-resolution/#dereferencing).
 5. Historical versions of Resources can always be accessed by traversing forwards/backwards in the Resource Collection by checking if a particular Service ID has old/new versions.
-6. Multi-party control on Resource Collection updates is possible, since DIDs with multiple controllers specified in them _already_ handle this scenario. In the normal process of updating a DIDDoc with multiple controllers, rules can be defined by client applications and/or the ledger on whether all controllers sign an update, or whether an _m-of-n_ threshold needs to be applied. (Currently, the cheqd ledger requires all controllers to sign off on updates.)
-7. Since the [cheqd ledger does not co-relate the on-ledger cheqd/Cosmos accounts to keys that control DIDDocs](broken-reference/), this provides another layer of access control by allowing DIDDoc controllers to rotate keys, if required.
+6. Multi-party control on Resource Collection updates is possible, since DIDs with multiple controllers specified in them *already* handle this scenario. In the normal process of updating a DIDDoc with multiple controllers, rules can be defined by client applications and/or the ledger on whether all controllers sign an update, or whether an *m-of-n* threshold needs to be applied. (Currently, the cheqd ledger requires all controllers to sign off on updates.)
+7. Since the [cheqd ledger does not co-relate the on-ledger cheqd/Cosmos accounts to keys that control DIDDocs](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method/), this provides another layer of access control by allowing DIDDoc controllers to rotate keys, if required.
 
-Example of referencing a resource using the _service_ section:
+Example of referencing a resource using the *service* section:
 
 ```json
   {
@@ -184,32 +186,42 @@ Example of referencing a resource using the _service_ section:
   }
 ```
 
-### Creating a new Resource within a Resource Collection
+## Resource Collections and Resources
 
-To create a new Resource, a client application first needs to create a DID (or use an existing [non-deactivated](broken-reference/) DID) along with its associated DIDDoc. This _resource-linked DID_ is the lowest, direct level of create/update/deactivate operation control that exits.
+To create a new Resource, a client application first needs to create a DID (or use an existing [non-deactivated](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method/) DID) along with its associated DIDDoc. This *resource-linked DID* is the lowest, direct level of create/update/deactivate operation control that exits.
 
-<figure><img src="../../.gitbook/assets/On-ledger resources - flow detailed.png" alt="Complex swimlanes for resource creation"><figcaption><em>Figure 5: Detailed sequence diagram of Resource creation on cheqd (</em><a href="https://swimlanes.io/u/hjeucFOQA"><em>editable version</em></a><em>)</em></figcaption></figure>
+![Complex swimlanes for resource creation](../../.gitbook/assets/resource-flow-detailed.png)
 
-Resources must be under the maximum block size restrictions to be able to fit into a transaction. Currently this is [estimated to be \~190 KB on cheqd mainnet, based on the \~200 KB block size limit](broken-reference/) plus additional headroom for metadata that needs to be described in the `ResourceHeader`.
+*Figure 5: Detailed sequence diagram of Resource creation on cheqd ([editable version](https://swimlanes.io/u/hjeucFOQA))*
 
-#### Resource creation
+Resources must be under the maximum block size restrictions to be able to fit into a transaction. Currently this is [estimated to be \~190 KB on cheqd mainnet, based on the \~200 KB block size limit](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method/) plus additional headroom for metadata that needs to be described in the `ResourceHeader`.
 
-Each request to create a Resource _must_ provide the following parameters, supplied by the client application:
+### Resource metadata
 
-* **Resource Collection ID: (did:cheqd:...:) (supplied client-side)**
-* **Resource ID: UUID ➝ specific to resource, also effectively a version number (supplied client-side)**
-* **Resource Name: String (e.g., `CL-Schema1` (supplied client-side)**
-* **Resource Type (supplied client-side. It is recommended that new Resource Types are included in the** [**DID Spec Registries**](https://www.w3.org/TR/did-spec-registries/)**)**
+Each resource has *metadata* associated with it, some of which is supplied client-side by the SDKs/applications and some of which are calculated ledger-side.
+
+#### Fields related to Resources supplied client-side
+
+The following parameters *must* be supplied by the client-side application:
+
+1. **Resource Collection ID**: DID unique identifier, which equates to the Resource Collection, e.g., (did:cheqd:...:)`<did-unique-identifier>`
+2. **Resource ID**: Resource-specific UUID, e.g., `did:cheqd:...:<unique-identifier>/resources/<resource-identifier>`. Also effectively a version number for the resource.
+3. **Resource Name**: Human-readable and unique version name for a resource, e.g., `PassportSchema`.
+4. **Resource Type**: Human-readable resource type that references what specification the resource follows, e.g., `AnonCredsObject`, `StatusList2021` etc. It is recommended that new Resource Types are included in the [DID Spec Registries](https://www.w3.org/TR/did-spec-registries/)).
+
+#### Fields related to Resources computed ledger-side
 
 In addition to the above client-provided parameters, the ledger-side code will populate the following additional header fields (for properly-authenticated requests):
 
-* MediaType: (e.g. `application/json`/`image`/`application/octet-stream`/`text/plain`) (computed ledger-side) This is based on the file extension of the associated resource file.
-* Created: XMLDatetime (computed ledger-side)
-* Checksum: SHA-256 (computed ledger-side)
-* previousVersionId: `null` if first, otherwise ID as long as Name, ResourceType, and MimeType match previous version (computed ledger-side)
-* nextVersionId: `null` if first/latest, otherwise ID as long as Name, ResourceType, and MimeType match previous version (computed ledger-side)
+1. **Media Type**: Defines the file [IANA Media Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) based on the file extension of the associated resource file. E.g. `application/json`, `image/png`, `application/octet-stream`, `text/plain` etc.
+2. **Created**: Date the resource was created in [XMLDateTime](https://www.w3schools.com/XML/schema_dtypes_date.asp) format, e.g., `2022-07-19T08:40:00Z`.
+3. **Checksum**: [SHA-256 checksum](https://en.wikipedia.org/wiki/SHA-2) of the file, for file integrity checking during download.
+4. **Previous version ID**: Resource ID (UUID) of the *previous* resource version. This is determined based on unique combination of Resource Name, Resource Type, and Media Type. Set to `null` if it's the first version of a resource.
+5. **Next version ID**: Resource ID (UUID) of the *next* resource version. This is determined based on unique combination of Resource Name, Resource Type, and Media Type. Set to `null` if it's the first version of a resource.
 
-Example using the Veramo CLI:
+### Example requests/responses
+
+#### Example resource creation request
 
 ```json
 {
@@ -229,19 +241,7 @@ Example using the Veramo CLI:
 }
 ```
 
-#### ResourcePreview
-
-* Resource Collection ID: (did:cheqd:...:) (supplied client-side)\*\*
-* Resource ID: UUID ➝ specific to resource, also effectively a version number (supplied client-side)
-* Resource Name: String (e.g., `CL-Schema1` (supplied client-side)
-* Resource Type (supplied client-side)
-* MediaType: (e.g. `application/json`/`image`/`application/octet-stream`/`text/plain`) (computed ledger-side)
-* Created: XMLDatetime (computed ledger-side)
-* Checksum: SHA-256 (computed ledger-side)
-* previousVersionId: `null` if first, otherwise ID as long as Name, ResourceType, and MimeType match previous version (computed ledger-side)
-* nextVersionId: `null` if first/latest, otherwise ID as long as Name, ResourceType, and MimeType match previous version (computed ledger-side)
-
-Example:
+#### Example resource metadata request
 
 ```json
 {
@@ -257,15 +257,36 @@ Example:
 }
 ```
 
-#### MsgCreateResource
+## Resource operations
 
-* Collection ID: (did:cheqd:...:)`<identifier>` (supplied client-side)
-* ID: UUID ➝ specific to resource, also effectively a version number (supplied client-side)
-* Name: String (e.g., `CL-Schema1` (supplied client-side)
-* ResourceType (supplied client-side)\*\*
-* Data: `resource-file` Path to file with resource content
+This section defines the operations that can be carried out on Resources and Resources Collections.
 
-Example:
+### Create resource (`MsgCreateResource`)
+
+The `MsgCreateResource` transaction is used to create a new resource.
+
+#### Fields required
+
+1. **Resource Collection ID**: DID unique identifier, which equates to the Resource Collection, e.g., (did:cheqd:...:)`<did-unique-identifier>`
+2. **Resource ID**: Resource-specific UUID, e.g., `did:cheqd:...:<unique-identifier>/resources/<resource-identifier>`. Also effectively a version number for the resource.
+3. **Resource Name**: Human-readable and unique version name for a resource, e.g., `PassportSchema`.
+4. **Resource Type**: Human-readable resource type that references what specification the resource follows, e.g., `AnonCredsObject`, `StatusList2021` etc. It is recommended that new Resource Types are included in the [DID Spec Registries](https://www.w3.org/TR/did-spec-registries/)).
+5. **Resource file**: Path to file with resource content
+
+#### Ledger-side processing logic for Resource creation requests
+
+1. Check that associated DID / DIDDoc exists
+2. Authenticate the request using the DID's controller keys (same as DID creation/update)
+3. Validate that all required fields are provided
+4. Validate that *Resource ID* is unique
+5. Set `created` date/time for the resource
+6. Compute and set SHA-256 resource checksum
+7. Set `previousVersionId` and `nextVersionId` if this resource has older/newer versions
+8. Persist the Resource data and its metadata in state
+
+#### Example `MsgCreateResource` request
+
+Using Veramo SDK plugin for cheqd:
 
 ```json
 {
@@ -285,7 +306,7 @@ Example:
 }
 ```
 
-#### MsgCreateResourceResponse
+#### Example `MsgCreateResourceResponse` response
 
 * Resource: [Resource](adr-002-on-ledger-resources.md#resource)
 
@@ -448,7 +469,7 @@ We need to support resource resolution in the DID resolver.
 
 ### Linked DIDDoc
 
-`CollectionId` field is an identifier of existing DIDDoc. There are no restrictions on the fields of this DIDDoc other than those described in [cheqd DID Method ADR](broken-reference/) and [W3C DID specification](https://www.w3.org/TR/did-core/). DIDDoc must be located in the same ledger where the resource is created. A list of resources related to DIDDoc can be found in its metadata:
+`CollectionId` field is an identifier of existing DIDDoc. There are no restrictions on the fields of this DIDDoc other than those described in [cheqd DID Method ADR](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method/) and [W3C DID specification](https://www.w3.org/TR/did-core/). DIDDoc must be located in the same ledger where the resource is created. A list of resources related to DIDDoc can be found in its metadata:
 
 ```json
 QueryGetDidResponse {
