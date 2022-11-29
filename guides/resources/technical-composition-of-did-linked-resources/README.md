@@ -22,7 +22,7 @@ The DID Document acts as metadata, providing information about the **Collection*
 
 For example, the following DID:
 
-**did:cheqd:mainnet:1f8e08a2-eeb6-40c3-9e01-33e4a0d1479d**
+did:cheqd:mainnet:1f8e08a2-eeb6-40c3-9e01-33e4a0d1479d
 
 will derive the Collection ID: **1f8e08a2-eeb6-40c3-9e01-33e4a0d1479d**
 
@@ -48,7 +48,7 @@ This is show in the diagram below:
 
 Example of `createResource` transaction using Veramo SDK:
 
-```
+```json
 {
     "kms": "local",
     "payload": {
@@ -103,7 +103,7 @@ Any [valid IANA Media Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Ba
 
 A [Golang library is used to derive and set media type](https://ipfs.io/) based on the **file extension of provided resource file**. This makes it much simpler to maintain, since there is no list of file types that the cheqd ledger needs to gatekeep.
 
-## Resource Parameters <a href="#didlinkedresourcesspecification-resourceparameters" id="didlinkedresourcesspecification-resourceparameters"></a>
+## Resource Parameters
 
 The following list defines which specific parameters a resource MUST contain to conform with this specification, and which parameters are OPTIONAL.
 

@@ -22,7 +22,3 @@ Our objective in building DID-Linked Resources on cheqd is to **improve the way 
   * [CredDef object](../using-on-ledger-resources-to-support-anoncreds/creddef-object.md)
   * [Revocation Registry Definition object](../using-on-ledger-resources-to-support-anoncreds/revocation-registry-definition-object.md)
   * [Revocation Registry Entry object](../using-on-ledger-resources-to-support-anoncreds/revocation-registry-entry-object.md)
-
-###
-
-##

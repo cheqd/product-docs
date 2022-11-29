@@ -24,5 +24,4 @@ This documentation describes how you can use the Veramo SDK for cheqd to create,
 
 > ****:books: **cheqd DID method**
 >
-> Learn about [cheqd's DID method in our guide here](./#undefined)
-
+> Learn about [cheqd's DID method in our guide here](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method)

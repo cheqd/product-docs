@@ -27,7 +27,7 @@ This allows for multi-signature scenarios as well, in case the controllers of th
 
 Once the Resource is created, metadata related to it will be referenced within the **Collection DID Document metadata**, in the following format.
 
-```
+```json
 "didDocumentMetadata": {
   "created": "2022-07-19T08:29:07Z",
   "versionId": "57543FA1D9C56033BABBFA3A438E0A149E01BBB89E6D666ACE1243455AA6F2BC",
@@ -51,8 +51,6 @@ Once the Resource is created, metadata related to it will be referenced within t
 Importantly, this is again a **Resource Preview**, meaning that the actual data from the Resource will not be displayed.
 
 To fetch the Resource, a client application would need to resolve the DID URL `did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c/resources/0f964a80-5d18-4867-83e3-b47f5a756f02`
-
-
 
 ## (Optional) Using Resources as a Credential Issuer
 

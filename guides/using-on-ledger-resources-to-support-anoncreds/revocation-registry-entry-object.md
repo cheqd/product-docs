@@ -279,7 +279,7 @@ Where, `degreeCredRevocRegEntry2.json` contains an updated `accum` value, `revoc
 
 Once the transaction has been created, the `resourceMetadata` will look like the following:
 
-```
+```json
 {
   "resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/c154bc07-43f7-4b69-ac0c-5514001f2ca3",
   "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",

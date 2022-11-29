@@ -153,7 +153,7 @@ If the above `cmd` resulted something like this:
 
 `Account does not exist on chain. Send some tokens there before trying to query sequence.`
 
-This means you don't have enough tokens in your wallet. 
+This means you don't have enough tokens in your wallet.
 
 You can go to cheqd's [testnet faucet](http://testnet-faucet.cheqd.io/) to get your account some test tokens.
 

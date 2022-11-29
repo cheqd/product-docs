@@ -6,7 +6,7 @@ The [Status List 2021 Specification](https://w3c-ccg.github.io/vc-status-list-20
 
 The [Status List 2021 Specification](https://w3c-ccg.github.io/vc-status-list-2021/) utilises [bitstrings](https://w3c-ccg.github.io/vc-status-list-2021/#conceptual-framework) to represent whether a Verifiable Credential has been suspended/revoked or not. A bitstring can be thought of as a long list of 1s and 0s, where, if the binary value of the position in the list is 1 (one), the [verifiable credential](https://w3c-ccg.github.io/vc-status-list-2021/#dfn-verifiable-credentials) is revoked, if it is 0 (zero) it is not revoked.
 
-<figure><img src="../../../.gitbook/assets/StatusList21 Bitstring.png" alt=""><figcaption><p>Graphic showing the StatusList 2021 Bitstring</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/StatusList21 Bitstring.png" alt="Graphic showing the StatusList2021 bitstring"><figcaption><p>Graphic showing the StatusList 2021 Bitstring</p></figcaption></figure>
 
 Each issued Credential correlates with a position and index on the bitstring, so that a verifier will be able to correlate the value within the Credential against the public bitstring to ascertain whether the Credential has been revoked or not, using a [validate algorithm](https://w3c-ccg.github.io/vc-status-list-2021/#validate-algorithm) as well as a [bitstring expansion algorithm](https://w3c-ccg.github.io/vc-status-list-2021/#bitstring-expansion-algorithm).
 

@@ -48,6 +48,7 @@ Trust Registries MAY be referenced in Governance Files to tie a Trust Registry i
                 "email": "admin@gatf.naturalhistorymuseum.com" 
             }
         }
-    ]       
+    ]
+}       
         
 ```
