@@ -49,7 +49,7 @@ Trust registries enable recipients of a Verifiable Credential exchange to check 
 
 Although Verifiable Credentials can be exchanged digitally, in practice most identity wallets want to present “human-friendly” representations.  Examples of this include the [Overlays Capture Architecture (OCA) specification](https://oca.colossi.network/), [Apple Wallet PassKit](https://developer.apple.com/documentation/walletpasses) ("`.pkpass`"), [Google Wallet Pass](https://developers.google.com/wallet/generic), etc. A resource, using something like [Overlay Capture Architecture (OCA)](https://humancolossus.foundation/blog/cjzegoi58xgpfzwxyrqlroy48dihwz) may enable a credential representation to be shown according to the brand guidelines of the issuer, [internationalisation (“i18n”) translations](https://en.wikipedia.org/wiki/Internationalization\_and\_localization), etc.&#x20;
 
-<figure><img src="../../.gitbook/assets/Overlay Capture Architecture diagram.png" alt="Image of Overlay Capture Architecture"><figcaption><p>Source: <a href="https://oca.colossi.network/v1.0.0.html">Overlays Capture Architecture Specification Version 1.0.0</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Overlay Capture Architecture diagram.png" alt="Image of Overlay Capture Architecture"><figcaption>Source: <a href="https://oca.colossi.network/v1.0.0.html">Overlays Capture Architecture Specification Version 1.0.0</a></figcaption></figure>
 
 _Figure 1:_ [_Overlays Capture Architecture Specification Version 1.0.0_](https://oca.colossi.network/v1.0.0.html)__
 
@@ -138,13 +138,13 @@ Even for highly-trusted and sophisticated hosting providers who may not present 
 
 The high centralisation of cloud providers and history of noteworthy outages clearly demonstrates why we should not host resources on centralised cloud storage in production environments. In Q1 of 2022, the three largest players in the cloud (AWS, Google Cloud, Microsoft Azure) dominated with [65 per cent in nearly all regions (outside of China)](https://www.theregister.com/2022/05/02/cloud\_market\_share\_q1\_2022/).
 
-<figure><img src="../../.gitbook/assets/Worlds cloud infrastructure image.png" alt="Image of cloud infrastructure rankings"><figcaption><p>Source: <a href="https://cointelegraph.com/news/the-future-of-the-internet-inside-the-race-for-web3-s-infrastructure">CoinTelegraph “The future of the internet: Inside the race for Web3’s infrastructure’</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Worlds cloud infrastructure image.png" alt="Image of cloud infrastructure rankings"><figcaption>Source: <a href="https://cointelegraph.com/news/the-future-of-the-internet-inside-the-race-for-web3-s-infrastructure">CoinTelegraph “The future of the internet: Inside the race for Web3’s infrastructure’</a></figcaption></figure>
 
 _Figure 3: breakdown of global cloud providers market share_
 
 Beyond cloud providers, there are other events that exemplify the issuers relying on larger players. The [Facebook outage of 2021](https://www.kentik.com/blog/facebooks-historic-outage-explained/) (shown in the graph below) [took down apps that used “Login with Facebook”](https://web.archive.org/web/20211005032128/https://www.wired.com/story/why-facebook-instagram-whatsapp-went-down-outage/) functionality. This highlights the risks of “contagion impact” (e.g., [a different Facebook outage took down Spotify, TikTok, Pinterest](https://www.engadget.com/facebook-sdk-spotify-tinder-tiktok-ios-outage-125806814.html)) of centralised digital systems — even ones run by extremely-capable tech providers.
 
-<figure><img src="../../.gitbook/assets/On-ledger resources - Facebook global outage.png" alt="Graph showing drop in Facebook traffic from their global service outage in 2021"><figcaption><p>Source: <a href="https://web.archive.org/web/20211005032128/https://www.wired.com/story/why-facebook-instagram-whatsapp-went-down-outage/">Why Facebook, Instagram, and WhatsApp All Went Down Today</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/On-ledger resources - Facebook global outage.png" alt="Graph showing drop in Facebook traffic from their global service outage in 2021"><figcaption>Source: <a href="https://web.archive.org/web/20211005032128/https://www.wired.com/story/why-facebook-instagram-whatsapp-went-down-outage/">Why Facebook, Instagram, and WhatsApp All Went Down Today</a></figcaption></figure>
 
 _Figure 4: Graph showing drop in Facebook traffic from their global service outage in 2021 (source:_ [_Kentik_](https://www.kentik.com/blog/facebooks-historic-outage-explained/)_)_
 
@@ -154,13 +154,13 @@ Likewise, with decentralised identity, there has been excellent work to _decentr
 
 "Link rot" happens when over time, URLs become inaccessible, either because the endpoint where the content was stored is no longer active, or the URL format itself changes. The graph below from [an analysis by _The New York Times_ of linkrot](https://www.cjr.org/analysis/linkrot-content-drift-new-york-times.php) shows degradation over time of URLs.
 
-<figure><img src="../../.gitbook/assets/On-ledger resources - Link Rot.jpeg" alt="Image of Link Rot over time"><figcaption><p>Source: <a href="https://www.cjr.org/analysis/linkrot-content-drift-new-york-times.php">What the ephemerality of the Web means for your hyperlinks</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/On-ledger resources - Link Rot.jpeg" alt="Image of Link Rot over time"><figcaption>Source: <a href="https://www.cjr.org/analysis/linkrot-content-drift-new-york-times.php">What the ephemerality of the Web means for your hyperlinks</a></figcaption></figure>
 
 _Figure 5: Linkrot analysis over 1996-2019 by New York Times (source:_ [_Columbia Journalism Review / New York Times_](https://www.cjr.org/analysis/linkrot-content-drift-new-york-times.php)_)_
 
 For this reason, keeping an up-to-date version of the links themselves is crucial. Furthermore, a study of link rot found [at least 66.5% of links to sites in the last 9 years are dead](https://ahrefs.com/blog/link-rot-study/). This can have an adverse impact on the digital longevity of Verifiable Credentials if there’s “link rot” in the resources necessary to process the credential. For this reason, projects such as [The Internet Archive](https://archive.org/)’s [Wayback Machine](https://web.archive.org/) exist to snapshot digital ephemera before they are lost forever.
 
-<figure><img src="../../.gitbook/assets/Why are links lost diagram.png" alt="Image of why links are lost"><figcaption><p>Source: <a href="https://ahrefs.com/blog/link-rot-study/">Ahrefs Study on Link Rot</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Why are links lost diagram.png" alt="Image of why links are lost"><figcaption>Source: <a href="https://ahrefs.com/blog/link-rot-study/">Ahrefs Study on Link Rot</a></figcaption></figure>
 
 Figure 6: Diagram showing the various reasons why links are lost
 
