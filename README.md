@@ -8,18 +8,18 @@
 
 * :id: [cheqd DID method](guides/decentralized-identifiers.md)
 * :package: [Software Development Kits (SDKs)](guides/software-development-kits-sdks/)
-* :link: [Understanding DID-Linked Resources](guides/resources/)
+* :link: [Understanding DID-Linked Resources](guides/did-linked-resources/)
 * :unlock: [AnonCreds on cheqd](guides/using-on-ledger-resources-to-support-anoncreds/)
 * :arrows\_counterclockwise: [Understanding cheqd DID Resolver](guides/did-resolver.md)
-* :judge: [Smart Governance](guides/creating-a-codified-governance-model/)
+* :judge: [Smart Governance](guides/smart-governance/)
 
 ### :book: Tutorials
 
 * [🆔 Decentralised Identifiers (DIDs)](tutorials/did-operations/)
 * :page\_with\_curl: [Verifiable Credentials and Presentations](tutorials/verifiable-credentials-and-presentations/)
 * :link: [Create DID-Linked Resources](tutorials/on-ledger-resources/)
-* :arrows\_counterclockwise:[ DID Resolver setup](tutorials/DID-resolution.md)
-* :handbag:[ Demo Wallet for identity setup](tutorials/wallet.md)
+* :arrows\_counterclockwise:[DID Resolver setup](tutorials/DID-resolution.md)
+* :handbag:[Demo Wallet for identity setup](tutorials/wallet.md)
 
 ### :construction\_site: Architecture
 
