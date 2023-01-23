@@ -2,8 +2,7 @@
 
 This tutorial offers step-by-step guidance on how to create a [Verifiable Presentation](https://w3c-ccg.github.io/vp-request-spec/).
 
-> ⚠️ **Before you begin...**
- Make sure you've correctly [configured the cheqd plugin's agent settings](../../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md) for Veramo CLI
+> ⚠️ **Before you begin...** Make sure you've correctly [configured the cheqd plugin's agent settings](../../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md) for Veramo CLI
 
 ## Background
 
@@ -31,9 +30,9 @@ Specify the subject identity key to be used for signing Verifiable Presentation,
 
 Hit _Enter_ to accept the default at this step
 
-### 4. Specify the mubber of verifiers
+### 4. Specify the number of verifiers
 
-Select how many verifies will need to be able to verify the presentation.
+Select how many verifiers will need to be able to verify the presentation.
 
 ### 4. Specify presentation type
 
