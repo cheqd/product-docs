@@ -93,7 +93,7 @@ For example:
 
 ### cheqd Revocation Registry Entry Object ID
 
-cheqd [on-ledger resources](../resources/) identify individual resources using DID URLs.
+cheqd [on-ledger resources](broken-reference) identify individual resources using DID URLs.
 
 cheqd resources module uses the following format:
 

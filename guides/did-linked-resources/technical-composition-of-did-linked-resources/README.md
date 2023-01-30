@@ -8,11 +8,11 @@ Using UUIDs, we can have a **high level of confidence that no two identical reso
 
 <figure><img src="../../../.gitbook/assets/Formatting resource diagram.png" alt="Image showing a formatted DID URL for a cheqd resource"><figcaption>Image showing how a cheqd resource is formatted</figcaption></figure>
 
-This will be explained further in the section on DID URL dereferencing to fetch a resource.&#x20;
+This will be explained further in the section on DID URL dereferencing to fetch a resource.
 
 ## Understanding the DID and Collection relationship
 
-Resources are organised into groups called "**Collections**". Each DID may have an associated Collection, and the Collection ID is **derived from the unique identifier of the DID**.&#x20;
+Resources are organised into groups called "**Collections**". Each DID may have an associated Collection, and the Collection ID is **derived from the unique identifier of the DID**.
 
 Collections can store any type of Resource, but for the purpose of this documentation we will focus on the use case where the Collection is _used for storing a set of schemas_.
 
@@ -26,9 +26,10 @@ did:cheqd:mainnet:1f8e08a2-eeb6-40c3-9e01-33e4a0d1479d
 
 will derive the Collection ID: **1f8e08a2-eeb6-40c3-9e01-33e4a0d1479d**
 
-<figure><img src="broken-reference" alt="Image showing how a Collection is derived from a DID"><figcaption>Image showing how a Collection is derived from a DID</figcaption></figure>
+<figure><img src="../../../.gitbook/assets/DID and Collection relationship.png" alt="Relationship between the DID and the Collection"><figcaption><p>Image showing the relationship between DIDs and Collection</p></figcaption></figure>
 
-A Collection is created using a _createResource_ transaction, and specifying the Collection ID as the same identifier as that of the parent DID.&#x20;
+
+A Collection is created using a _createResource_ transaction, and specifying the Collection ID as the same identifier as that of the parent DID.
 
 {% hint style="info" %}
 Note that the Collection ID may take the syntactical form of a 'Hyperledger Indy' DID identifier **or** may be a [Universally Unique Identifier (UUID)](https://www.uuidgenerator.net/). This is described in the [cheqd DID method](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method).
@@ -40,7 +41,7 @@ To create a **"resource"**, you must already have created a 'parent' DID, from w
 
 1. Generate **a new, unique UUID** for the Resources
 2. Specify the **same Collection ID** as the unique identifier of the parent DID
-3. Sign the `createResource` transaction with the **Verification Method keys** of the parent DID.&#x20;
+3. Sign the `createResource` transaction with the **Verification Method keys** of the parent DID.
 
 This is show in the diagram below:
 
@@ -74,7 +75,7 @@ Once you have created a resource, the DID Document will automatically reference 
 
 This relationship is shown in the diagram below:
 
-<figure><img src="broken-reference" alt="Image showing how a DID Document references associated resources"><figcaption>Image showing how a DID Document references associated resources</figcaption></figure>
+<figure><img src="../../../.gitbook/assets/DIDDocumentMetadata.png" alt="Image showing how DID Doc Metadata references resources"><figcaption><p>Image showing how DIDDocMetadata references resources</p></figcaption></figure>
 
 For simplicity, we will focus on the use case where a Resource is a **schema**. The same logic used in fetching schemas from the ledger can be applied to any of the aforementioned types of Resources.
 
@@ -288,7 +289,7 @@ However, query-based syntax should also be enabled to **allow more granular and 
 To enable combined resolution/dereferencing behavior, cheqd are defining multiple query-based [DID URL](https://www.w3.org/TR/did-core/#dfn-did-urls) parameters to fetch `resource` or associated metadata. If a [DID method](https://www.w3.org/TR/did-core/#dfn-did-methods) specification supports these parameters, and if a [DID URL](https://www.w3.org/TR/did-core/#dfn-did-urls) using that method includes the parameter with a valid value, then when a resolver calls the associated [VDR](https://www.w3.org/TR/did-core/#dfn-verifiable-data-registry) using that [DID URL](https://www.w3.org/TR/did-core/#dfn-did-urls), the VDR returns the identified digital resource, **not** the [DID document](https://www.w3.org/TR/did-core/#dfn-did-documents).
 
 {% hint style="warning" %}
-**IMPORTANT**: DID URL queries should be fully qualified so that they **uniquely identify a single resource, or single resource version unless expressly specified**.&#x20;
+**IMPORTANT**: DID URL queries should be fully qualified so that they **uniquely identify a single resource, or single resource version unless expressly specified**.
 {% endhint %}
 
 {% hint style="info" %}
@@ -312,7 +313,7 @@ Selection of proposed query-based **input parameters**:
 
 ### Flattening query-based inputs to path-based outputs
 
-The [query](http://url.spec.whatwg.org/#concept-url-query) and [fragment](http://url.spec.whatwg.org/#concept-url-fragment) components, when present, complement the [path](http://url.spec.whatwg.org/#concept-url-path) component in identifying a specific resource. However, when [dereferencing](https://www.w3.org/TR/2013/WD-app-uri-20130516/#rules-for-dereferencing-an-app:-uri), the [`query`](https://www.w3.org/TR/2013/WD-app-uri-20130516/#query) and [`fragment`](https://www.w3.org/TR/2013/WD-app-uri-20130516/#fragment) components don't play any part in locating the actual resource.&#x20;
+The [query](http://url.spec.whatwg.org/#concept-url-query) and [fragment](http://url.spec.whatwg.org/#concept-url-fragment) components, when present, complement the [path](http://url.spec.whatwg.org/#concept-url-path) component in identifying a specific resource. However, when [dereferencing](https://www.w3.org/TR/2013/WD-app-uri-20130516/#rules-for-dereferencing-an-app:-uri), the [`query`](https://www.w3.org/TR/2013/WD-app-uri-20130516/#query) and [`fragment`](https://www.w3.org/TR/2013/WD-app-uri-20130516/#fragment) components don't play any part in locating the actual resource.
 
 If the query is able to isolate a resource with a given '/' path based syntax, then there must be a "merge" routine where a relative-path reference is merged with the path of the base URI.
 

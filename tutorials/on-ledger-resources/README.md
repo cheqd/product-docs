@@ -1,8 +1,8 @@
-# 🔗 DID-Linked Resources
+# 🔗 Create DID-Linked Resources
 
 ## Understanding DID-Linked Resources
 
-* [Understanding DID-Linked Resources](../../guides/resources/)
+* [Understanding DID-Linked Resources](broken-reference)
 * [ADR 002: On-Ledger Resources](../../architecture/adr-list/adr-002-on-ledger-resources.md)
 
 ## Creating DID-Linked Resources

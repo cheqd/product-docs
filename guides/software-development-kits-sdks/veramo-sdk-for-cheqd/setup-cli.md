@@ -1,6 +1,6 @@
 # 👉 Setting up Veramo CLI for cheqd
 
-If you're looking to use the Veramo CLI with cheqd or develop a proof-of-concept application, use the [official Veramo CLI setup guide](https://veramo.io/docs/veramo_agent/cli_tool/).
+If you're looking to use the Veramo CLI with cheqd or develop a proof-of-concept application, use the [official Veramo CLI setup guide](https://veramo.io/docs/veramo\_agent/cli\_tool/).
 
 ## Step 1: Install requisite packages
 
@@ -8,7 +8,7 @@ _Node version recommended `Nodev16`_. You can install Node [here](https://nodejs
 
 ### 1.1. Install Veramo CLI
 
-This step is exactly [as described in Veramo CLI docs](https://veramo.io/docs/veramo_agent/cli_tool/):
+This step is exactly [as described in Veramo CLI docs](https://veramo.io/docs/veramo\_agent/cli\_tool/):
 
 ```bash
 npm i @veramo/cli@latest -g
@@ -29,6 +29,12 @@ Install the `did-provider-cheqd` NPM package in a similar fashion:
 
 ```bash
 npm install @cheqd/did-provider-cheqd@latest -g
+```
+
+You can check all of your NPM package versions by running the command:
+
+```bash
+npm list -g
 ```
 
 ## Step 2: Modify the cheqd plugin Agent configuration file

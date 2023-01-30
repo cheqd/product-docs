@@ -82,7 +82,7 @@ Once published on a Hyperledger Indy ledger, an additional identifier for the pu
 
 ### cheqd Schema ID
 
-cheqd [on-ledger resources](../resources/) identify individual resources using DID URLs.
+cheqd [on-ledger resources](broken-reference) identify individual resources using DID URLs.
 
 cheqd resources module uses the following format:
 
