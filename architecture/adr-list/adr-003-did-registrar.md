@@ -15,28 +15,30 @@
 
 The [`did:cheqd` method ADR](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method) defines how DIDs are created and read from ledger. According to the [W3C DID Core specification](https://w3c.github.io/did-core/), DID methods are expected to provide [standards-compliant methods of DID and DID Document ("DIDDoc") production](https://w3c.github.io/did-core/#production-and-consumption).
 
-The [cheqd DID Registrar](https://github.com/cheqd/did-registrar) is designed to implement the [DIF _Registrar_ specification](https://identity.foundation/did-registration/) for [`did:cheqd`](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method) method.
+The [cheqd DID Registrar](https://github.com/cheqd/did-registrar) is designed to implement the [DIF _Registrar_ specification](https://identity.foundation/did-registration/) for [`did:cheqd`](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method) method to enable create/update/deactivate DID operations easily.
+
+The [cheqd DID Registrar](https://github.com/cheqd/did-registrar) also supports the creation of [DID-Linked Resources](https://docs.cheqd.io/identity/guides/did-resolver) for example, schemas, credential definitions, status lists, trust registries and logos. 
 
 ## Architecture
 
 The DID create/update/deactivate functions raise architectural questions around key management, since they typically involve the generation and use of private keys and other secrets.
 
-The DID registrar can operate in the following modes
+The DID registrar can operate in the following modes:
 
 1. Internal Secret Mode
 2. External Secret Mode
 3. Client Managed Secret Mode :heavy_check_mark:
 
 ### Internal Secret Mode
-In this mode, the DID Registrar is responsible for generating the DID controller keys used by DID operations. This means that the DID Registrar is considered a highly trusted component which should be fully under the control of a DID controller. If it is operated as a remotely hosted service, secure connection protocols such as TLS, DIDComm, etc. MUST be used.
+In this mode, the DID Registrar is responsible for generating the DID controller cryptogprahic keys used in DID operations. Therefore, a DID Registrar used in this mode is considered a highly trusted component which should be fully under the control of a DID controller. If it is operated as a remotely hosted service, secure connection protocols such as TLS, DIDComm, etc. MUST be used.
 
 ### External Secret Mode
-In this mode, the DID Registrar does not itself have access to the secrets used by DID operations, but it has a way of accessing an external wallet in order to perform cryptographic operations such as generating signatures.
+In this mode, the DID Registrar does not itself have access to the cryptographic keys used in DID operations, but it has a way of accessing an external wallet in order to perform cryptographic operations such as generating signatures.
 
 ### Client Managed Secret Mode
-In this mode, the DID Registrar does not itself have access to the secrets used by DID operations, but it will ask the client to perform cryptographic operations such as generating signatures.
+In this mode, the DID Registrar does not itself have access to the cryptographic keys used in DID operations, but it will ask the client to perform operations such as generating keys and signatures in a separate action from using the Registrar.
 
-The Cheqd DID Registrar supports only the [Client Managed Secret Mode](https://identity.foundation/did-registration/#client-managed-secret-mode) considering the security and scalability of the registrar. The workflow for all the operations follows the below protocol
+The cheqd DID Registrar **only supports** the [Client Managed Secret Mode](https://identity.foundation/did-registration/#client-managed-secret-mode), considering the security and scalability of the registrar. The workflow for all the operations follows the protocol below:
 
 1. Request Operation
 2. Return JobId and Serialized Payload
@@ -52,7 +54,7 @@ The Cheqd DID Registrar supports only the [Client Managed Secret Mode](https://i
 ### Create
 
 **Endpoint**: `/1.0/create` <br>
-Provide a did-document payload according to the [w3c did core specification](https://www.w3.org/TR/did-core/#dfn-did-documents) in the request body
+Provide a DID Document payload according to the [w3c did core specification](https://www.w3.org/TR/did-core/#dfn-did-documents) in the request body.
 
 <details>
 <summary>Request Operation</summary>
@@ -89,7 +91,7 @@ Provide a did-document payload according to the [w3c did core specification](htt
     "did": "did:cheqd:testnet:b84817b8-43ee-4483-98c5-f03760816411",
     "state": "action",
     "action": "signPayload",
-    "description": "Please sign the following payload with the keys in verificationMethod and Add the signingResponse in secret",
+    "description": "Please sign the following payload with the keys in verificationMethod and add the signingResponse in secret",
     "signingRequest": [
       {
         "kid": "did:cheqd:testnet:b84817b8-43ee-4483-98c5-f03760816411#key-1",
@@ -176,7 +178,7 @@ Provide a did-document payload according to the [w3c did core specification](htt
 ### Update
 
 **Endpoint**: `/1.0/update` <br>
-Only setDidDocument operation is supported in the cheqd-did-registrar. Fetch the payload from the DID Resolver, make the updates and pass it to the request operation
+Only setDidDocument operation is supported in the cheqd-did-registrar. To update a DID Document, fetch the body of the DID Document you want to change from the DID Resolver, make the relevant updates and pass it to the request operation.
 
 <details>
 <summary>Request Operation</summary>
@@ -219,12 +221,12 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. Fetch the
 
 ```json
 {
-  "jobId": "54d1b72a-ec50-4648-b031-aaa3c6c7ed40",
+  "jobId": "a28cd684-3ed6-43fe-9066-90b32345bd40",
   "didState": {
     "did": "did:cheqd:testnet:b84817b8-43ee-4483-98c5-f03760816411",
     "state": "action",
     "action": "signPayload",
-    "description": "Please sign the following payload with the keys in verificationMethod and Add the signingResponse in secret",
+    "description": "Please sign the following payload with the keys in verificationMethod and add the signingResponse in secret",
     "signingRequest": [
       {
         "kid": "did:cheqd:testnet:b84817b8-43ee-4483-98c5-f03760816411#key-1",
@@ -415,7 +417,7 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. Fetch the
 
 ### Create
 **Endpoint**: `/1.0/{:did}/create-resource` <br>
-Provide a did as the path parameter, and the request body with name, type and base64 encoded data
+Provide an existing DID as the path parameter, and the request body with resource name, type and base64 encoded data
 
 <details>
 <summary>Request Operation</summary>
@@ -440,7 +442,7 @@ Provide a did as the path parameter, and the request body with name, type and ba
     "did": "b84817b8-43ee-4483-98c5-f03760816411",
     "state": "action",
     "action": "signPayload",
-    "description": "Please sign the following payload with the keys in verificationMethod and Add the signingResponse in secret",
+    "description": "Please sign the following payload with the keys in verificationMethod of the DID used in the path and add the signingResponse in secret",
     "signingRequest": [
       {
         "kid": "did:cheqd:testnet:b84817b8-43ee-4483-98c5-f03760816411#key-1",
@@ -514,3 +516,4 @@ Provide a did as the path parameter, and the request body with name, type and ba
 - [W3C Decentralized Identifiers (DIDs)](https://www.w3.org/TR/did-core/) recommendation
 - [DIF DID Registrar](https://identity.foundation/did-registration) specification
 - [Universal Registrar driver development](https://github.com/decentralized-identity/universal-registrar/blob/main/docs/driver-development.md) guide
+- [DID-Linked Resources](https://docs.cheqd.io/identity/architecture/adr-list/adr-002-on-ledger-resources)
