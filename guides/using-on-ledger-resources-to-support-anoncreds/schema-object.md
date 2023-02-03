@@ -67,7 +67,7 @@ In the example below, the content should be saved as a file, for example: `degre
   "name": "degreeSchema",
   "version": "1.5.7",
   "attrNames": ["name", "age", "vmax"]
-  }
+ },
 "AnonCredsObjectMetadata": {
     "objectFamily": "anoncreds",
     "objectFamilyVersion": "v1",
@@ -93,7 +93,9 @@ This implementation uses AnonCredsObjectMetadata to provide equivalency between 
 Note: The cheqd ledger will not provide any checks on the Schema Object Content or Metadata. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct and aligned with resourceName and resourceVersion.
 {% endhint %}
 
-### Legacy AnonCreds Schema ID
+<details>
+
+<summary>Legacy AnonCreds Schema ID</summary>
 
 Prior to the AnonCreds specification being updated, the `schema_id` was defined as a **composite** of the following set of elements:
 
@@ -114,44 +116,20 @@ For example a Legacy AnonCreds `schema_id` could be:
 
 Through combining each of the components into one string, it provides client applications all of the information they need to know about the schema in a simple and easily consumable format.
 
-{% hint style="info" %}
 This is important to mention, since many client applications may still expect Schema IDs or Schema Content to contain the information or syntax within this Legacy `schema_id.`
-{% endhint %}
 
-{% hint style="info" %}
 This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds Objects Method](https://hyperledger-indy.readthedocs.io/projects/node/en/latest/requests.html#requests)
-{% endhint %}
 
-### cheqd create Schema transaction
-
-To create a Schema on cheqd, you need to carry out a resource transaction, specifying the following information.
-
-```
-cheqd-noded tx resource create-resource \
-    --collection-id 7BPMqYgYLQni258J8JPS8K \
-    --resource-id 6259d357-eeb1-4b98-8bee-12a8390d3497 \
-    --resource-name degreeSchema \
-    --resource-type schema \
-    --resource-version 1.5.7 \
-    --resource-file degreeSchema.json \
-    did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K#key1 \
-    l6KUjm...jz8Un7QCbrW1KPE6gSyg== \
-     --from <your-account> \
-     --node https://rpc.cheqd.network:443 \
-     --chain-id cheqd-mainnet-1 \
-     --gas auto \
-     --gas-adjustment 1.3 \
-     --gas-prices 25ncheq
-```
-
-Note that this transaction includes the file `degreeSchema.json` that was formatted prior to creating the transaction.
+</details>
 
 ### cheqd resource Metadata
 
 Once you have created your resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K`
 
 ```json
-"resourceURI": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
+"linkedResourceMetadata": [
+  {    
+    "resourceURI": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
     "resourceCollectionId": "7BPMqYgYLQni258J8JPS8K",
     "resourceId": "6259d357-eeb1-4b98-8bee-12a8390d3497",
     "resourceName": "degreeSchema",
@@ -162,6 +140,8 @@ Once you have created your resource on cheqd, the following metadata will be gen
     "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
     "previousVersionId": null,
     "nextVersionId": null
+    }
+]
 ```
 
 ### Fetching a cheqd Schema Object
