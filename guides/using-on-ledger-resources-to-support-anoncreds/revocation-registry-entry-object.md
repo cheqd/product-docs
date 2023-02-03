@@ -1,8 +1,10 @@
 ---
-description: cheqd support for Ledger-Agnostic AnonCreds Revocation Status List Entries
+description: >-
+  cheqd support for Ledger-Agnostic AnonCreds Revocation Status List Objects and
+  Entries
 ---
 
-# Revocation Status List Object
+# Revocation Status List Object and Entries
 
 ## Overview
 
@@ -11,9 +13,9 @@ In the ledger-agnostic [AnonCreds](https://hyperledger.github.io/anoncreds-spec/
 1. Holders of Verifiable Credentials to generate a proof of non-revocation (or not) about their specific credential; and
 2. Verifiers to be able to verify that proof.
 
-An initial Revocation Status List Entry is generated and published immediately on creation of the [Revocation Registry Definition Object](revocation-registry-definition-object.md) so that it can be used immediately by holders. Over time, additional Revocation Entry Objects are generated and published as the revocation status of one or more credentials within the Revocation Registry change.
+An initial Revocation Status List Entry is generated and published immediately on creation of the [Revocation Registry Definition Object](revocation-registry-definition-object.md) so that it can be used immediately by holders. Over time, additional Revocation Status List Entries are generated and published as the revocation status of one or more credentials within the Revocation Registry change.
 
-In each of these subsequent Revocation Status List Objects, there is an updated **cryptographic accumulator** value AND an **updated list of revoked indices**, pointing to a location within a Tails File, associated with an index value.
+In each of these subsequent Revocation Status List Entries, there is an updated **cryptographic accumulator** value AND an **updated list of revoked indices**, pointing to a location within a Tails File, associated with an index value.
 
 This documentation will guide an implementor of AnonCreds on cheqd on how the cheqd AnonCreds Object Method defines and structures Revocation Registry Entry IDs and associated content.
 

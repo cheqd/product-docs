@@ -93,9 +93,7 @@ This implementation uses AnonCredsObjectMetadata to provide equivalency between 
 Note: The cheqd ledger will not provide any checks on the Schema Object Content or Metadata. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct and aligned with resourceName and resourceVersion.
 {% endhint %}
 
-<details>
-
-<summary>Legacy AnonCreds Schema ID</summary>
+### Legacy AnonCreds Schema ID
 
 Prior to the AnonCreds specification being updated, the `schema_id` was defined as a **composite** of the following set of elements:
 
@@ -116,11 +114,13 @@ For example a Legacy AnonCreds `schema_id` could be:
 
 Through combining each of the components into one string, it provides client applications all of the information they need to know about the schema in a simple and easily consumable format.
 
+{% hint style="info" %}
 This is important to mention, since many client applications may still expect Schema IDs or Schema Content to contain the information or syntax within this Legacy `schema_id.`
+{% endhint %}
 
+{% hint style="info" %}
 This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds Objects Method](https://hyperledger-indy.readthedocs.io/projects/node/en/latest/requests.html#requests)
-
-</details>
+{% endhint %}
 
 ### cheqd create Schema transaction
 
