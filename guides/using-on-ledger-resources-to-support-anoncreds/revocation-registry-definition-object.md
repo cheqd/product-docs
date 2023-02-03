@@ -168,28 +168,7 @@ This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds O
 
 ### create Revocation Registry Definition transaction
 
-To create a Revocation Registry Definition on cheqd, you need to carry out a resource transaction, specifying the following information.
-
-```bash
-cheqd-noded tx resource create-resource \
-    --collection-id zF7rhDBfUt9d1gJPjx7s1J \
-    --resource-id af20b1f0-5c4d-4037-9669-eaedddb9c2df \
-    --resource-name degreeRevocRegDef \
-    --resource-type revocRegDef \
-    --resource-file degreeRevocRegDef.json \
-    did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J#key1 \
-    l6KUjm...jz8Un7QCbrW1KPE6gSyg== \
-     --from <your-account> \
-     --node https://rpc.cheqd.network:443 \
-     --chain-id cheqd-mainnet-1 \
-     --gas auto \
-     --gas-adjustment 1.3 \
-     --gas-prices 25ncheq
-```
-
-{% hint style="info" %}
-Note: This transaction is signed by the Verification Method key specified in the DID Document associated with the Credential issuer
-{% endhint %}
+To create a Revocation Registry Definition on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../tutorials/on-ledger-resources/), and pass the relevant JSON file for the object in the transaction.&#x20;
 
 {% hint style="info" %}
 Note: This transaction includes the file `degreeRevocRegDef.json` that was formatted prior to creating the transaction.

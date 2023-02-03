@@ -122,6 +122,10 @@ This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds O
 
 </details>
 
+### create schema transaction
+
+To create a schema on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../tutorials/on-ledger-resources/), and pass the relevant JSON file for the object in the transaction.&#x20;
+
 ### cheqd resource Metadata
 
 Once you have created your resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K`

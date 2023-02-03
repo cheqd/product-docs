@@ -293,26 +293,7 @@ This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds O
 
 ### create CredDef transaction
 
-To create a CredDef on cheqd, you need to carry out a resource transaction, specifying the following information.
-
-```
-cheqd-noded tx resource create-resource \
-    --collection-id zF7rhDBfUt9d1gJPjx7s1J \
-    --resource-id 77465164-5646-42d9-9a0a-f7b2dcb855c0 \
-    --resource-name credDefDegree \
-    --resource-type claimDef \
-    --resource-file credDefDegree.json \
-    did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J#key1 \
-    l6KUjm...jz8Un7QCbrW1KPE6gSyg== \
-     --from <your-account> \
-     --node https://rpc.cheqd.network:443 \
-     --chain-id cheqd-mainnet-1 \
-     --gas auto \
-     --gas-adjustment 1.3 \
-     --gas-prices 25ncheq
-```
-
-Note that this transaction includes the file `credDefDegree.json` that was formatted prior to creating the transaction.
+To create a CredDef on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../tutorials/on-ledger-resources/), and pass the relevant JSON file for the object in the transaction.&#x20;
 
 ### cheqd resource Metadata
 

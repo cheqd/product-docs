@@ -179,6 +179,10 @@ This is important to mention, since many client applications may still expect Re
 
 </details>
 
+### create Revocation Status List Objects and Entries&#x20;
+
+To create a Revocation Status List Objects and Entries on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../tutorials/on-ledger-resources/), and pass the relevant JSON file for the object in the transaction.&#x20;
+
 ### cheqd resource Metadata
 
 Once you have created your Revocation Registry Entry as a resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J`
@@ -217,27 +221,7 @@ You must:
 4. Specify the same `resourceType`
 5. Attach to the transaction the new `resourceFile` with the latest `accum` value and `index` values.
 
-For example, using the [cheqd Cosmos CLI](../../advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/tutorials.md) to demonstrate this, a transaction may look like:
-
-```
-cheqd-noded tx resource create-resource \
-    --collection-id zF7rhDBfUt9d1gJPjx7s1J \
-    --resource-id c154bc07-43f7-4b69-ac0c-5514001f2ca3 \
-    --resource-name degreeCredRevocRegEntry \
-    --resource-type CL_ACCUM \
-    --resource-version 0.0.1 \
-    --resource-file degreeCredRevocRegEntry2.json \
-    did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J#key1 \
-    l6KUjm...jz8Un7QCbrW1KPE6gSyg== \
-     --from <your-account> \
-     --node https://rpc.cheqd.network:443 \
-     --chain-id cheqd-mainnet-1 \
-     --gas auto \
-     --gas-adjustment 1.3 \
-     --gas-prices 25ncheq
-```
-
-Where, `degreeCredRevocRegEntry2.json` contains an updated `accum` value, `revocation` value (the list of revoked indices), and unique `objectUri`, such as:
+For example:
 
 ```json
 {
@@ -281,7 +265,7 @@ Once the transaction has been created, the `resourceMetadata` will look like the
 ```
 
 {% hint style="info" %}
-Note: The previousVersionId will now link to the previous Revocation Registry Entry ID
+Note: The previousVersionId will now link to the previous Revocation Status List Entry ID
 {% endhint %}
 
 ### Traversing Revocation Registry Entries using a DID Resolver
