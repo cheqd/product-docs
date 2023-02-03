@@ -1,8 +1,12 @@
+---
+description: cheqd support for Ledger-Agnostic AnonCreds CredDefs
+---
+
 # CredDef Object
 
 ## Overview
 
-In [AnonCreds](https://anoncreds-wg.github.io/anoncreds-spec/), Credential Definitions are used to specify the following information all in one place, to create an immutable record of:
+In the ledger-agnostic [AnonCreds](https://hyperledger.github.io/anoncreds-spec/)[ specification](https://hyperledger.github.io/anoncreds-spec/), Credential Definitions are used to specify the following information all in one place, to create an immutable record of:
 
 1. The DID of the credential issuer
 2. The schema the issued credentials will be based upon
@@ -251,7 +255,11 @@ This implementation uses AnonCredsObjectMetadata to provide equivalency between 
 Note: The cheqd ledger will not provide any checks on the Schema Object Content or Metadata. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct.
 {% endhint %}
 
-### Legacy AnonCreds CredDef Object ID
+
+
+<details>
+
+<summary>Legacy AnonCreds CredDef Object ID</summary>
 
 Like with [Schema Objects](schema-object.md), each CredDef Object ID (`cred_def_id`) was previously a **composite** string, consisting of the following elements:
 
@@ -261,9 +269,7 @@ Like with [Schema Objects](schema-object.md), each CredDef Object ID (`cred_def_
 * `schema_id`: Also referred to as the `ref,` this should be a [URL](https://www.rfc-editor.org/rfc/rfc1738) for the `schema_id.`
 * `tag`: A unique name or tag given to the CredDef.
 
-{% hint style="info" %}
 Note: the schema\_id as part of the\_ cred\_def\_id is a recent change from the AnonCreds Working Group. Previously, this was the Schema TXN ID. However, the Schema TXN ID could not accommodate for non-Hyperledger Indy networks.
-{% endhint %}
 
 The `cred_def_id` therefore was formatted in the following way:
 
@@ -279,13 +285,11 @@ zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefD
 
 Through combining each of the components into one string, it provides client applications all of the information they need to know about the CredDef in a simple and easily consumable format.
 
-{% hint style="info" %}
 This is important to mention, since many client applications may still expect CredDef IDs or CredDef Content to contain the information or specific syntax of this Legacy `cred_def_id.`
-{% endhint %}
 
-{% hint style="info" %}
 This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds Objects Method](https://hyperledger-indy.readthedocs.io/projects/node/en/latest/requests.html#requests)
-{% endhint %}
+
+</details>
 
 ### create CredDef transaction
 

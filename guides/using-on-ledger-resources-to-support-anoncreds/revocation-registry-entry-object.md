@@ -1,15 +1,19 @@
-# Revocation Registry Entry Object
+---
+description: cheqd support for Ledger-Agnostic AnonCreds Revocation Status List Entries
+---
+
+# Revocation Status List Object
 
 ## Overview
 
-In the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec), Revocation Registry Entry Objects contain the state of the Revocation Registry at a given point in time. This enables:
+In the ledger-agnostic [AnonCreds](https://hyperledger.github.io/anoncreds-spec/)[ specification](https://hyperledger.github.io/anoncreds-spec/), Revocation Status List Objects contain the state of the Revocation Registry at a given point in time. This enables:
 
 1. Holders of Verifiable Credentials to generate a proof of non-revocation (or not) about their specific credential; and
 2. Verifiers to be able to verify that proof.
 
-An initial Revocation Registry Entry is generated and published immediately on creation of the [Revocation Registry Definition Object](revocation-registry-definition-object.md) so that it can be used immediately by holders. Over time, additional Revocation Registry Entry Objects are generated and published as the revocation status of one or more credentials within the Revocation Registry change.
+An initial Revocation Status List Entry is generated and published immediately on creation of the [Revocation Registry Definition Object](revocation-registry-definition-object.md) so that it can be used immediately by holders. Over time, additional Revocation Entry Objects are generated and published as the revocation status of one or more credentials within the Revocation Registry change.
 
-In each of these subsequent Revocation Registry Entry Objects, there is an updated **cryptographic accumulator** value AND an **updated list of revoked indices**, pointing to a location within a Tails File, associated with an index value.
+In each of these subsequent Revocation Status List Objects, there is an updated **cryptographic accumulator** value AND an **updated list of revoked indices**, pointing to a location within a Tails File, associated with an index value.
 
 This documentation will guide an implementor of AnonCreds on cheqd on how the cheqd AnonCreds Object Method defines and structures Revocation Registry Entry IDs and associated content.
 
@@ -17,91 +21,66 @@ This documentation will guide an implementor of AnonCreds on cheqd on how the ch
 
 Each specific AnonCreds identifier must be defined within an AnonCreds Object Method in the [AnonCreds Object Method Registry](https://anoncreds-wg.github.io/anoncreds-spec/#anoncreds-objects-methods-registry)).
 
-This means that an AnonCreds Revocation Registry Entry Object ID does not need to be formatted in any particular syntax, in the latest version of the AnonCreds Specification.
+This means that an AnonCreds Revocation Status List Object ID does not need to be formatted in any particular syntax, in the latest version of the AnonCreds Specification.
 
-### Legacy AnonCreds Revocation Registry Entry ID
-
-The Legacy AnonCreds Revocation Registry Entry ID was very similar in composition to the [Revocation Registry Definition Object](https://anoncreds-wg.github.io/anoncreds-spec/#anoncreds-objects-methods-registry).
-
-The only difference is that the Revocation Registry Entry ID includes the Revocation Registry Entry ID `objectType`, which is "`5`".
-
-The structure of the Legacy AnonCreds Revocation Registry Entry ID is as follows:
-
-```bash
-<objectType><RevocRegDefId>
-```
-
-For example:
-
-```bash
-5:zF7rhDBfUt9d1gJPjx7s1J:4:zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree:CL_ACCUM:degreeCredRevRegDef
-```
-
-{% hint style="warning" %}
-Important: Each AnonCreds Revocation Registry Entry has the **same ID** for a given Revocation Registry Definition Object.
-{% endhint %}
-
-> This is important to mention, since many client applications may still expect RevRegEntry IDs or RevRegEntry Content to contain the information or specific syntax of this Legacy `revocRegEntryId.` This legacy format is now attributed to the Hyperledger Indy Legacy AnonCreds Objects Method
-
-### AnonCreds Revocation Registry Entry Content
+### Ledger-Agnostic AnonCreds Revocation Status List Object Content
 
 The required content and data model for the **first** AnonCreds Revocation Registry Entry Object are as follows:
 
-1. `revocDefType`
-2. `revocRegDefId`
-3. `accum`: the calculated cryptographic accumulator reflecting the initial state of the Revocation Registry Definition Object.
+* `revRegDefId`: the identifier of the associated [Revocation Registry Definition](https://hyperledger.github.io/anoncreds-spec/#term:revocation-registry-definition). The format of the identifier is dependent on the [AnonCreds Objects Method](https://hyperledger.github.io/anoncreds-spec/#term:anoncreds-objects-method) used by the issuer.
+* `revocationList`: Bit array defining the status of the credential in the \[ref: Revocation Registry]. A value of `1` means the credential is revoked, a value of `0` means the credential is not revoked.
+* `currentAccumulator`: the calculated cryptographic accumulator reflecting the initial state of the [Revocation Registry](https://hyperledger.github.io/anoncreds-spec/#term:revocation-registry)
+* `timestamp`: the timestamp at which the accumulator value is valid
 
 For example:
 
 ```json
 {
-  "data": {
-    "revocDefType": "CL_ACCUM",
-    "revocRegDefId": "Gs6cQcvrtWoZKsbBhD3dQJ:4:Gs6cQcvrtWoZKsbBhD3dQJ:3:CL:140389:mctc:CL_ACCUM:1-1024",
-    "value": {
-      "accum": "21 10B...33D"
-    }
-  }
+  "revRegDefId": "4xE68b6S5VRFrKMMG1U95M:4:4xE68b6S5VRFrKMMG1U95M:3:CL:59232:default:CL_ACCUM:4ae1cc6c-f6bd-486c-8057-88f2ce74e960",
+  "revocationList": [0, 1, 1, 0],
+  "currentAccumulator": "21 124C594B6B20E41B681E92B2C43FD165EA9E68BC3C9D63A82C8893124983CAE94 21 124C5341937827427B0A3A32113BD5E64FB7AB39BD3E5ABDD7970874501CA4897 6 5438CB6F442E2F807812FD9DC0C39AFF4A86B1E6766DBB5359E86A4D70401B0F 4 39D1CA5C4716FFC4FE0853C4FF7F081DFD8DF8D2C2CA79705211680AC77BF3A1 6 70504A5493F89C97C225B68310811A41AD9CD889301F238E93C95AD085E84191 4 39582252194D756D5D86D0EED02BF1B95CE12AED2FA5CD3C53260747D891993C",
+  "timestamp": 1669640864487
 }
 ```
 
-Therefore, for each new Revocation Registry Entry, the 'ID' remains the same, as does the `revocRegType` and `revocRegDefId` - the only value that changes is the `accum,` reflecting the delta between the previous and most recent Revocation Registry Entries.
+Therefore, for each new Revocation Status List entry, the the `revocRegDefId` remains the same - the only value that changes is the `currentAccumulator,` the `revocationList` and the `timestamp` reflecting the delta between the previous and most recent Revocation Registry Entries.
 
 The required content and data model for the **subsequent** AnonCreds Revocation Registry Entry Object are as follows:
 
 1. `revocDefType`
 2. `revocRegDefId`
 3. `accum`: the calculated cryptographic accumulator reflecting the most up-to-date state of the revocation registry, reflecting the changes after revocations have been made.
-4. `revoked`: the index or indices of the revoked credentials within the associated tails file.
+4. `prevAccum`
+5. `revoked`: the index or indices of the revoked credentials within the associated tails file.
 
-For example:
+For
 
 ```json
 {
-  "data": {
-    "revocDefType": "CL_ACCUM",
-    "revocRegDefId": "Gs6cQcvrtWoZKsbBhD3dQJ:4:Gs6cQcvrtWoZKsbBhD3dQJ:3:CL:140389:mctc:CL_ACCUM:1-1024",
-    "value": {
-      "accum": "15 05B...94D"
-      "revoked": ["55", "125", "166", "208"]
-    }
-  }
+  "revocRegDefId": "4xE68b6S5VRFrKMMG1U95M:4:4xE68b6S5VRFrKMMG1U95M:3:CL:59232:default:CL_ACCUM:4ae1cc6c-f6bd-486c-8057-88f2ce74e960",
+  "revocDefType": "CL_ACCUM",
+  "currentAccumulator": "21 116...567",
+  "previousAccumulator": "21 128...C3B",
+  "issued": [ 1, 67, 14 ],
+  "revoked": [ 172 ]
 }
 ```
 
+
+
 ## cheqd AnonCreds Object Method for Revocation Registry Definition Objects
 
-### cheqd Revocation Registry Entry Object ID
+### cheqd Revocation Status List Object ID
 
-cheqd [on-ledger resources](broken-reference) identify individual resources using DID URLs.
+cheqd [DID-Linked Resources](https://docs.cheqd.io/identity/guides/did-linked-resources) identify individual resources using DID URLs.
 
 cheqd resources module uses the following format:
 
 `did:cheqd:mainnet:<issuerDid>/resources/<revRegRevEntryId>`
 
-Rather than using a composite string for the Revocation Registry Entry Resource ID. The cheqd AnonCreds object method uses a UUID to identify the Revocation Registry Entry Object Content which includes additional Revocation Registry Entry Object Content Metadata, providing the required fields for equivalence with Hyperledger Indy implementations.
+Rather than using a composite string for the Revocation Status List Object ID. The cheqd AnonCreds object method uses a UUID to identify the Revocation Status List Object Content which includes additional Revocation Status List Object Content Metadata, providing the required fields for equivalence with Hyperledger Indy implementations.
 
-For example, the following DID URL is cheqd's representation of a `revocRegRevEntryId`:
+For example, the following DID URL is cheqd's representation of a `revocRegStatusList`:
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887`
 
@@ -116,18 +95,16 @@ cheqd's approach to AnonCreds Revocation Entry Objects implements the following 
 1. The required (ledger-agnostic) content of the Revocation Registry Entry Object Content should be included in the body of the content.
 2. Anything that is network-specific should be included within AnonCreds Object Metadata.
 
-In the example below, the **first entry** in a Revocation Registry should be saved as a file, for example: `degreeCredRevocRegEntry1.json` with the following content:
+In the example below, the **first entry** in a Revocation Registry should be saved as a file, for example: `degreeCredRevocStatusList.json` with the following content:
 
 ```json
 {
   "AnonCredsObject": {
-    "data": {
-      "revocDefType": "CL_ACCUM",
-      "revocRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
-      "value": {
-        "accum": "21 10B...33D"
-      },
-    }
+    "revRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
+    "revocationList": [0, 1, 1, 0],
+    "currentAccumulator": "21 124C594B6B20E41B681E92B2C43FD165EA9E68BC3C9D63A82C8893124983CAE94 21 124C5341937827427B0A3A32113BD5E64FB7AB39BD3E5ABDD7970874501CA4897 6 5438CB6F442E2F807812FD9DC0C39AFF4A86B1E6766DBB5359E86A4D70401B0F 4 39D1CA5C4716FFC4FE0853C4FF7F081DFD8DF8D2C2CA79705211680AC77BF3A1 6 70504A5493F89C97C225B68310811A41AD9CD889301F238E93C95AD085E84191 4 39582252194D756D5D86D0EED02BF1B95CE12AED2FA5CD3C53260747D891993C",
+    "timestamp": 1669640864487
+    },
     "AnonCredsObjectMetadata": {
       "objectFamily": "anoncreds",
       "objectFamilyVersion": "v1",
@@ -144,14 +121,13 @@ The **subsequent entries** in the Revocation Registry should contain reference t
 ```json
 {
   "AnonCredsObject": {
-    "data": {
-      "revocDefType": "CL_ACCUM",
-      "revocRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
-      "value": {
-        "accum": "15 05B...94D"
-        "revoked": ["55", "125", "166", "208"]
-      },
-    }
+    "revocRegDefId": "4xE68b6S5VRFrKMMG1U95M:4:4xE68b6S5VRFrKMMG1U95M:3:CL:59232:default:CL_ACCUM:4ae1cc6c-f6bd-486c-8057-88f2ce74e960",
+    "revocDefType": "CL_ACCUM",
+    "currentAccumulator": "21 116...567",
+    "previousAccumulator": "21 128...C3B",
+    "issued": [ 1, 67, 14 ],
+    "revoked": [ 172 ]
+    },
     "AnonCredsObjectMetadata": {
       "objectFamily": "anoncreds",
       "objectFamilyVersion": "v1",
@@ -178,26 +154,31 @@ This implementation also uses AnonCredsObjectMetadata to provide equivalency bet
 | publisherId           | Fully qualified DID to easily identify the publisher of the Revocation Registry | cheqd Objects Method                    |
 | objectUri             | Fully qualified DID URL to easily access the Revocation Registry Entry          | cheqd Objects Method                    |
 
-### cheqd Revocation Registry Entry transaction
+<details>
 
-To create a Revocation Registry Entry on cheqd, you need to carry out a resource transaction, specifying the following information (if using the [cheqd Cosmos CLI](../../advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/tutorials.md)).
+<summary>Legacy AnonCreds Revocation Registry Entry ID</summary>
+
+The Legacy AnonCreds Revocation Registry Entry ID was very similar in composition to the [Revocation Registry Definition Object](https://anoncreds-wg.github.io/anoncreds-spec/#anoncreds-objects-methods-registry).
+
+The only difference is that the Revocation Registry Entry ID includes the Revocation Registry Entry ID `objectType`, which is "`5`".
+
+The structure of the Legacy AnonCreds Revocation Registry Entry ID is as follows:
 
 ```bash
-cheqd-noded tx resource create-resource \
-    --collection-id zF7rhDBfUt9d1gJPjx7s1J \
-    --resource-id 9d26b902-555d-43bd-bac3-0bedeb462887 \
-    --resource-name degreeCredRevocRegEntry \
-    --resource-type CL_ACCUM \
-    --resource-file degreeCredRevocRegEntry1.json \
-    did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J#key1 \
-    l6KUjm...jz8Un7QCbrW1KPE6gSyg== \
-     --from <your-account> \
-     --node https://rpc.cheqd.network:443 \
-     --chain-id cheqd-mainnet-1 \
-     --gas auto \
-     --gas-adjustment 1.3 \
-     --gas-prices 25ncheq
+<objectType><RevocRegDefId>
 ```
+
+For example:
+
+```bash
+5:zF7rhDBfUt9d1gJPjx7s1J:4:zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree:CL_ACCUM:degreeCredRevRegDef
+```
+
+Important: Each AnonCreds Revocation Registry Entry has the **same ID** for a given Revocation Registry Definition Object.
+
+This is important to mention, since many client applications may still expect RevRegEntry IDs or RevRegEntry Content to contain the information or specific syntax of this Legacy `revocRegEntryId.` This legacy format is now attributed to the Hyperledger Indy Legacy AnonCreds Objects Method
+
+</details>
 
 ### cheqd resource Metadata
 
@@ -210,6 +191,7 @@ Once you have created your Revocation Registry Entry as a resource on cheqd, the
   "resourceId": "9d26b902-555d-43bd-bac3-0bedeb462887",
   "resourceName": "degreeCredRevocRegEntry",
   "resourceType": "CL_ACCUM",
+  "resourceType": "0.0.1",
   "mediaType": "application/json",
   "created": "2022-08-21T08:40:00Z",
   "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
@@ -236,12 +218,13 @@ You must:
 
 For example, using the [cheqd Cosmos CLI](../../advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/tutorials.md) to demonstrate this, a transaction may look like:
 
-```bash
+```
 cheqd-noded tx resource create-resource \
     --collection-id zF7rhDBfUt9d1gJPjx7s1J \
     --resource-id c154bc07-43f7-4b69-ac0c-5514001f2ca3 \
     --resource-name degreeCredRevocRegEntry \
     --resource-type CL_ACCUM \
+    --resource-version 0.0.1 \
     --resource-file degreeCredRevocRegEntry2.json \
     did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J#key1 \
     l6KUjm...jz8Un7QCbrW1KPE6gSyg== \
@@ -258,14 +241,13 @@ Where, `degreeCredRevocRegEntry2.json` contains an updated `accum` value, `revoc
 ```json
 {
   "AnonCredsRevRegEntry": {
-    "data": {
-      "revocDefType": "CL_ACCUM",
-      "revocRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
-      "value": {
-        "accum": "88 46D...61B"
-        "revoked": ["55", "71", "82", "125", "133", "166", "208"]
-      },
-    }
+    "revocRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
+    "revocDefType": "CL_ACCUM",
+    "currentAccumulator": "21 116...567",
+    "previousAccumulator": "21 128...C3B",
+    "issued": [ 1, 67, 14 ],
+    "revoked": [ 172, 195, 200 ]
+    },
     "AnonCredsObjectMetadata": {
       "objectFamily": "anoncreds",
       "objectFamilyVersion": "v2",
@@ -286,6 +268,7 @@ Once the transaction has been created, the `resourceMetadata` will look like the
   "resourceId": "c154bc07-43f7-4b69-ac0c-5514001f2ca3",
   "resourceName": "degreeCredRevocRegEntry",
   "resourceType": "CL_ACCUM",
+  "resourceVersion": "0.0.2",
   "mediaType": "application/json",
   "created": "2022-09-01T04:30:01Z",
   "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
@@ -305,19 +288,19 @@ Using existing DID Resolvers, it is possible to traverse the history of Revocati
 
 Common and standardized `resource` parameters:
 
-| Parameter                 | Type                                                          | Example                                                                                                                                                                                                                                                                                                                                                    |
-| ------------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"resourceId"`            | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                             |
-| `"resourceName"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw                                                                                                                                                                                                                                                                                      |
-| `"resourceType"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020                                                                                                                                                                                                                                                         |
-| `"resourceVersionId"`     | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceVersionId=1.3.1                                                                                                                                                                                                                                                             |
-| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2015-03-11T05:30:02Z                                                                                                                                                                                                                       |
-| `"versionId"`             | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?versionId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                              |
-| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2018-07-19T08:40:00Z                                                                                                                                                                                                                       |
-| `"linkedResource"`        | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?linkedResource=true // _note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document._                                                                                                                                                                 |
-| `"resourceMetadata"`      | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2018-07-19T08:40:00Z\&resourceMetadata=true or, did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceMetadata=true // note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document. |
-| "`latestResourceVersion`" | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&latestResourceVersion=true                                                                                                                                                                                                                             |
-| "`allResourceVersions`"   | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&allResourceVersions=true                                                                                                                                                                                                                               |
+| Parameter                 | Type                                                          | Example                                                                                                                                                                                                                                                                                                                                                             |
+| ------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"resourceId"`            | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                                      |
+| `"resourceName"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeCredRevocRegEntry                                                                                                                                                                                                                                                                                 |
+| `"resourceType"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeCredRevocRegEntry\&resourceType=CL\_ACCUM                                                                                                                                                                                                                                                         |
+| `"resourceVersionId"`     | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeCredRevocRegEntry\&resourceVersionId=0.0.2                                                                                                                                                                                                                                                        |
+| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeCredRevocRegEntry\&resourceType=CL\_ACCUM\&versionTime=2015-03-11T05:30:02Z                                                                                                                                                                                                                       |
+| `"versionId"`             | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?versionId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                                       |
+| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeCredRevocRegEntry\&resourceType=CL\_ACCUM\&versionTime=2018-07-19T08:40:00Z                                                                                                                                                                                                                       |
+| `"linkedResource"`        | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?linkedResource=true // _note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document._                                                                                                                                                                          |
+| `"resourceMetadata"`      | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeCredRevocRegEntry\&resourceType=CL\_ACCUM\&versionTime=2018-07-19T08:40:00Z\&resourceMetadata=true or, did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceMetadata=true // note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document. |
+| "`latestResourceVersion`" | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeCredRevocRegEntry\&resourceType=CL\_ACCUM\&latestResourceVersion=true                                                                                                                                                                                                                             |
+| "`allResourceVersions`"   | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeCredRevocRegEntry\&resourceType=CL\_ACCUM\&allResourceVersions=true                                                                                                                                                                                                                               |
 
 #### Obtain all Revocation Registry Entry Content
 
