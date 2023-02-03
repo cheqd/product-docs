@@ -29,8 +29,7 @@ This file can be saved whereever you choose, but the location must be specified 
 * `alias`: A human-friendly alias for the DID. Only used locally when referencing operations in Veramo CLI.
 * `document`: Full body of the DID Document _including_ updated sections.
 * `keys`: Keys used to sign the DIDDoc. These must match the ones specified in the DIDDoc, otherwise an error will be thrown.
-
-In addition to the changes made to the DIDDoc itself, you must also add the `versionId` in the DIDDoc `document` field. The [`versionId` is the same as the Tendermint transaction hash of the latest version of the DIDDoc](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method), e.g., `EF072CC45F2839652A60BF392BAB4D1913A9D2728CCAFD32AF7384DBD13F7FE5`.
+* `versionId`: (optional) Add an custom versionId if required
 
 ### 3. Update existing DID
 
@@ -38,7 +37,6 @@ Use the command below to construct and broadcast update transaction.
 
 So, let's try to update `service` section of our `DIDDoc`. Then, your `args.json` file will look like this.
 
-First resolve your `did` and copy the `versionId` and update it in `args.json` file.
 
 ```json
 {
@@ -70,8 +68,7 @@ First resolve your `did` and copy the `versionId` and update it in `args.json` f
         "type": "LinkedDomains",
         "serviceEndpoint": "https://cheqd.io/"
       }
-    ],
-    "versionId": "5C56B973A9D568E67E2AE1F77CFE990F6A4135134282F48AA3E92DA1A20D72C8"
+    ]
   },
   "keys": [
     {

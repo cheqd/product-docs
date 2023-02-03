@@ -29,8 +29,24 @@ This will automatically generate a template for your DIDDoc, including a new DID
 Follow [_Method 2_ in the key management guide](identity-key-handling.md):
 
 ```bash
-veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "Ed25519VerificationKey2020", "methodSpecificIdAlgo": "base58btc", "methodSpecificIdLength": 16, "network": "testnet"}'
+veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "Ed25519VerificationKey2018", "methodSpecificIdAlgo": "uuid", "network": "testnet"}'
 ```
+
+#### Arguments
+
+* `verificationMethod`
+  * Ed25519VerificationKey2020
+  * JsonWebKey2020
+  * Ed25519VerificationKey2018
+
+* `methodSpecificIdAlgo`
+  * base58btc
+  * uuid
+
+* `network`
+  * mainnet
+  * testnet
+
 
 After running the above command ,if you see an error below, follow our troubleshooting guide [here](../../veramo-sdk-for-cheqd/did-operations/did-operations-troubleshooting.md#1-when-generating-keys-along-with-a-diddoc-template) to fix it.
 
@@ -62,7 +78,8 @@ If you used _Method 2_ in the previous step, you can use the output of that as a
         "type": "Ed25519VerificationKey2020",
         "controller": "did:cheqd:testnet:<uniqueId>",
         "publicKeyMultibase": "<uniqueKeyMultibase>",
-        "publicKeyJwk": []      
+        "publicKeyJwk": [],
+        "publicKeyBase58": "<uniqueKeyBase58>"      
     }],
     "authentication": [
       "did:cheqd:testnet:<uniqueId>#key-1"

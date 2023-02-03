@@ -20,7 +20,7 @@
 * :link: [Create DID-Linked Resources](tutorials/on-ledger-resources/)
 * :arrows\_counterclockwise:[DID Resolver setup](tutorials/DID-resolution.md)
 * :handbag:[Demo Wallet for identity setup](tutorials/wallet.md)
-* :closed_book:[DID Registrar setup](tutorials/DID-registrar.md)
+* :closed_book: [DID Registrar setup](tutorials/DID-registrar.md)
 
 ### :construction\_site: Architecture
 

@@ -22,7 +22,8 @@ You can generate identity keys standalone in a plug-and-play format for future u
 veramo execute -m cheqdGenerateIdentityKeys
 ```
 
-#### Output
+<details> 
+<summary>Output</summary>
 
 ```bash
 Method:  cheqdGenerateIdentityKeys
@@ -40,6 +41,8 @@ Result : {
   "type": "Ed25519"
 }
 ```
+</details>
+<br>
 
 ### Method 2: Generating identity keys on-the-fly with DIDDocs
 
@@ -48,10 +51,11 @@ Instead of creating identity keys standalone, you can also generate them along w
 #### Command
 
 ```bash
-veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "Ed25519VerificationKey2020", "methodSpecificIdAlgo": "base58btc", "methodSpecificIdLength": 16, "network": "testnet"}'
+veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "Ed25519VerificationKey2020", "methodSpecificIdAlgo": "base58btc", "network": "testnet"}'
 ```
 
-#### Output
+<details>
+<summary>Output</summary>
 
 ```bash
 Method:  cheqdGenerateDidDoc
@@ -99,6 +103,25 @@ Result : {
   }
 }
 ```
+</details>
+
+<br>
+
+The command `cheqdGenerateDidDoc` requires three arguments which have the following possible values
+
+* verificationMethod
+  * Ed25519VerificationKey2020
+  * JsonWebKey2020
+  * Ed25519VerificationKey2018
+
+* methodSpecificIdAlgo
+  * base58btc
+  * uuid
+
+* network
+  * mainnet
+  * testnet
+
 
 ## Converting identity keys
 
