@@ -1,18 +1,97 @@
+---
+description: cheqd support for Ledger-Agnostic AnonCreds schemas
+---
+
 # Schema Object
 
 ## Overview
 
 Schemas are used to list a set of attributes. Issuers of Verifiable Credentials may reference schemas within Credentials they issue in order to provide a layer of semantic interoperability with other issuers utilising the same schema.
 
-In the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec), schemas are written directly to a [Verifiable Data Registry](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-decentralised-identifier-did/what-is-a-verifiable-data-registry), rather than using a centralized service such as [schema.org](https://schema.org/). Schemas are also associated with Credential Definitions, which are used to link the schema, issuer and holder together ([detailed further here](creddef-object.md)).
+In the [AnonCreds Specification](https://hyperledger.github.io/anoncreds-spec/), schemas are written directly to a [Verifiable Data Registry](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-decentralised-identifier-did/what-is-a-verifiable-data-registry), rather than using a centralized service such as [schema.org](https://schema.org/). Schemas are also associated with Credential Definitions, which are used to link the schema, issuer and holder together ([detailed further here](creddef-object.md)).
 
 This documentation will guide an implementor of AnonCreds on cheqd on how the cheqd AnonCreds Object Method defines and structures Schema IDs and associated content.
 
-### AnonCreds Schema ID
+### Hyperledger AnonCreds Schema ID
 
 Each specific AnonCreds identifier must be defined within an AnonCreds Object Method in the [AnonCreds Object Method Registry](https://hyperledger.github.io/anoncreds-spec/).
 
-This means that an AnonCreds Schema Object ID does not need to be formatted in any particular syntax, in the latest version of the AnonCreds Specification.
+This means that an AnonCreds Schema Object ID does not need to be formatted in any particular syntax, in the latest version of the [AnonCreds Specification](https://hyperledger.github.io/anoncreds-spec/).
+
+### Ledger-Agnostic AnonCreds Schema Object Content
+
+In the [Hyperledger AnonCreds specification](https://hyperledger.github.io/anoncreds-spec/), the Schema Object Content which is required to be written to the Verifiable Data Registry, contains the following information:
+
+* `issuerId` - the [Issuer Identifier](https://hyperledger.github.io/anoncreds-spec/#term:issuer-identifier) of the schema. MUST adhere to [Issuer Identifiers](https://hyperledger.github.io/anoncreds-spec/#issuer-identifiers) rules.
+* `name` (string) - the name of the schema
+* `version` (string) - the schema version
+* `attrNames` (str\[]) - an array of strings with each string being the name of an attribute of the schema
+
+For example:
+
+```json
+{
+  "issuerId": "https://example.org/issuers/74acabe2-0edc-415e-ad3d-c259bac04c15",
+  "name": "Example schema",
+  "version": "0.0.1",
+  "attrNames": ["name", "age", "vmax"]
+}
+```
+
+## cheqd AnonCreds Object method for Schemas
+
+### cheqd Schema ID
+
+cheqd [on-ledger resources](broken-reference) identify individual resources using DID URLs.
+
+cheqd resources module uses the following format:
+
+`did:cheqd:mainnet:<SchemaIssuerId>/resources/<SchemaId>`
+
+The cheqd AnonCreds object method uses a UUID to identify the Schema Object Content which includes additional Schema Object Content Metadata, providing the required fields for equivalence with Hyperledger Indy implementations of AnonCreds.
+
+For example, the following DID URL is cheqd's representation of a `schema_id`:
+
+`did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497`
+
+### cheqd Schema Object Content
+
+Before creating any on-ledger transaction, it is important to assemble to required Schema Object Content and save it as a file locally.
+
+In the example below, the content should be saved as a file, for example: `degreeSchema.json` with the following content:
+
+```json
+{
+"AnonCredsObject": {
+  "issuerId": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K",
+  "name": "degreeSchema",
+  "version": "1.5.7",
+  "attrNames": ["name", "age", "vmax"]
+  }
+"AnonCredsObjectMetadata": {
+    "objectFamily": "anoncreds",
+    "objectFamilyVersion": "v1",
+    "objectType": "2",
+    "typeName": "SCHEMA",
+    "objectUri": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497"
+    }
+  }
+}
+```
+
+This implementation uses AnonCredsObjectMetadata to provide equivalency between cheqd's AnonCreds Object Method and other AnonCreds Object Methods, including the fields, where:
+
+| Object Metadata field | Response                                                   | Method Specification                   |
+| --------------------- | ---------------------------------------------------------- | -------------------------------------- |
+| objectFamily          | anoncreds                                                  | did:Indy Objects Method                |
+| objectFamilyVersion   | v1                                                         | did:Indy Objects Method                |
+| objectType            | 2                                                          | Legacy Hyperledger Indy Objects Method |
+| typeName              | `SCHEMA`                                                   | Legacy Hyperledger Indy Objects Method |
+| objectUri             | Fully qualified DID URL to easily access the Schema Object | cheqd Objects Method                   |
+
+{% hint style="info" %}
+Note: The cheqd ledger will not provide any checks on the Schema Object Content or Metadata. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct.
+{% endhint %}
 
 ### Legacy AnonCreds Schema ID
 
@@ -43,109 +122,7 @@ This is important to mention, since many client applications may still expect Sc
 This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds Objects Method](https://hyperledger-indy.readthedocs.io/projects/node/en/latest/requests.html#requests)
 {% endhint %}
 
-### AnonCreds Schema Object Content
-
-The actual Schema Object Content which is written to the Verifiable Data Registry, contains the following information:
-
-* `attr_names`: is the array of attribute names (claim names) that will constitute the AnonCred credential of this type.
-* `name`: is a [string](https://infra.spec.whatwg.org/#string), the name of the schema, which will be a part of the published `schema_id`.
-* `version`: is a [string](https://infra.spec.whatwg.org/#string), the version of the schema in [semver](https://semver.org/) format. The three part, period (“.”) separated format MAY be enforced. The `version` will be part of the published `schema_id`.
-
-For example:
-
-```json
-{
-  "data": {
-    "attr_names": [
-      "birthlocation",
-      "facephoto",
-      "expiry_date",
-      "citizenship",
-      "name",
-      "birthdate",
-      "firstname",
-      "uuid"
-    ],
-    "name": "degreeSchema",
-    "version": "1.5.7"
-  }
-}
-```
-
-Returning to the Legacy AnonCreds `schema_id` as a reference point, within the Schema Object Content, the `name` and the `version` should be the same as the `name` and `version` in the **composite** `schema_id.`
-
-Therefore, the schema\_id `"7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7"` would identify and resolve to the Schema Object content above.
-
-Once published on a Hyperledger Indy ledger, an additional identifier for the published schema, the `TXN_ID`, is available to those reading from the ledger
-
-## cheqd AnonCreds Object method for Schemas
-
-### cheqd Schema ID
-
-cheqd [on-ledger resources](broken-reference) identify individual resources using DID URLs.
-
-cheqd resources module uses the following format:
-
-`did:cheqd:mainnet:<SchemaProposerId>/resources/<SchemaResourceId>`
-
-Rather than using a composite string for the Schema Resource ID. The cheqd AnonCreds object method uses a UUID to identify the Schema Object Content which includes additional Schema Object Content Metadata, providing the required fields for equivalence with Hyperledger Indy implementations.
-
-For example, the following DID URL is cheqd's representation of a `schema_id`:
-
-`did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497`
-
-### cheqd Schema Object Content
-
-Before creating any on-ledger transaction, it is important to assemble to required Schema Object Content and save it as a file locally.
-
-In the example below, the content should be saved as a file, for example: `degreeSchema.json` with the following content:
-
-```json
-{
-"AnonCredsObject": {
-  "data": {
-    "attr_names": [
-        "birthlocation",
-        "facephoto",
-        "expiry_date",
-        "citizenship",
-        "name",
-        "birthdate",
-        "firstname",
-        "uuid"
-    ],
-    "name": "degreeSchema",
-    "version": "1.5.7"
-    },
-  }
-"AnonCredsObjectMetadata": {
-    "objectFamily": "anoncreds",
-    "objectFamilyVersion": "v1",
-    "objectType": "2",
-    "typeName": "SCHEMA",
-    "publisherId": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K",
-    "objectUri": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497"
-    }
-  }
-}
-```
-
-This implementation uses AnonCredsObjectMetadata to provide equivalency between cheqd's AnonCreds Object Method and other AnonCreds Object Methods, including the fields, where:
-
-| Object Metadata field | Response                                                           | Method Specification                   |
-| --------------------- | ------------------------------------------------------------------ | -------------------------------------- |
-| objectFamily          | anoncreds                                                          | did:Indy Objects Method                |
-| objectFamilyVersion   | v1                                                                 | did:Indy Objects Method                |
-| objectType            | 2                                                                  | Legacy Hyperledger Indy Objects Method |
-| typeName              | `SCHEMA`                                                           | Legacy Hyperledger Indy Objects Method |
-| publisherId           | Fully qualified DID or URI to easily identify the Schema Publisher | cheqd Objects Method                   |
-| objectUri             | Fully qualified DID URL to easily access the Schema Object         | cheqd Objects Method                   |
-
-{% hint style="info" %}
-Note: The cheqd ledger will not provide any checks on the Schema Object Content or Metadata. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct.
-{% endhint %}
-
-### create Schema transaction
+### cheqd create Schema transaction
 
 To create a Schema on cheqd, you need to carry out a resource transaction, specifying the following information.
 
