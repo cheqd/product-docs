@@ -42,9 +42,9 @@ For example:
 
 ### cheqd Schema ID
 
-cheqd [on-ledger resources](broken-reference) identify individual resources using DID URLs.
+cheqd [DID-Linked Resources](../did-linked-resources/) identify individual resources, associated with a DID, using DID URLs.
 
-cheqd resources module uses the following format:
+cheqd resources implementation uses the following path-based syntax:
 
 `did:cheqd:mainnet:<SchemaIssuerId>/resources/<SchemaId>`
 
@@ -81,7 +81,7 @@ In the example below, the content should be saved as a file, for example: `degre
 
 This implementation uses AnonCredsObjectMetadata to provide equivalency between cheqd's AnonCreds Object Method and other AnonCreds Object Methods, including the fields, where:
 
-| Object Metadata field | Response                                                   | Method Specification                   |
+| Object Metadata field | Response                                                   | Method Equivalence                     |
 | --------------------- | ---------------------------------------------------------- | -------------------------------------- |
 | objectFamily          | anoncreds                                                  | did:Indy Objects Method                |
 | objectFamilyVersion   | v1                                                         | did:Indy Objects Method                |
@@ -90,7 +90,7 @@ This implementation uses AnonCredsObjectMetadata to provide equivalency between 
 | objectUri             | Fully qualified DID URL to easily access the Schema Object | cheqd Objects Method                   |
 
 {% hint style="info" %}
-Note: The cheqd ledger will not provide any checks on the Schema Object Content or Metadata. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct.
+Note: The cheqd ledger will not provide any checks on the Schema Object Content or Metadata. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct and aligned with resourceName and resourceVersion.
 {% endhint %}
 
 ### Legacy AnonCreds Schema ID
@@ -126,7 +126,7 @@ This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds O
 
 To create a Schema on cheqd, you need to carry out a resource transaction, specifying the following information.
 
-```bash
+```
 cheqd-noded tx resource create-resource \
     --collection-id 7BPMqYgYLQni258J8JPS8K \
     --resource-id 6259d357-eeb1-4b98-8bee-12a8390d3497 \
