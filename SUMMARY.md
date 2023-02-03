@@ -23,6 +23,7 @@
   * [Create a new Resource version within existing Collection](tutorials/on-ledger-resources/create-a-new-resource-version.md)
 * [🔄 DID Resolver setup](tutorials/DID-resolution.md)
 * [👜 Demo Wallet for identity setup](tutorials/wallet.md)
+* [📖DID Registrar setup](tutorials/DID-registrar.md)
 
 ## 📑 Guides
 
@@ -55,6 +56,7 @@
 * [List of ADRs](architecture/adr-list/README.md)
   * [ADR 001: DID Resolver](architecture/adr-list/adr-001-did-resolver.md)
   * [ADR 002: On-Ledger Resources](architecture/adr-list/adr-002-on-ledger-resources.md)
+  * [ADR 003: DID Registrar](architecture/adr-list/adr-003-did-registrar.md)
 
 ## 💫 Advanced features and alternatives
 
