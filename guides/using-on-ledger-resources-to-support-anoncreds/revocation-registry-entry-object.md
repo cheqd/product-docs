@@ -51,11 +51,10 @@ The required content and data model for the **subsequent** AnonCreds Revocation 
 
 1. `revocDefType`
 2. `revocRegDefId`
-3. `accum`: the calculated cryptographic accumulator reflecting the most up-to-date state of the revocation registry, reflecting the changes after revocations have been made.
-4. `prevAccum`
-5. `revoked`: the index or indices of the revoked credentials within the associated tails file.
-
-For
+3. `currentAccumulator`: the calculated cryptographic accumulator reflecting the most up-to-date state of the revocation registry, reflecting the changes after revocations have been made.
+4. `previousAccumulator`: the referenced accumulator of the previous entry
+5. `issued`: the index or indices of credentials that have become un-revoked or re-issued
+6. `revoked`: the index or indices of the revoked credentials within the associated tails file.
 
 ```json
 {
@@ -111,7 +110,7 @@ In the example below, the **first entry** in a Revocation Registry should be sav
     "objectFamily": "anoncreds",
     "objectFamilyVersion": "v1",
     "objectType": "5",
-    "publisherId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
+    "issuerId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
     "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887"
   }
 }
@@ -133,7 +132,7 @@ The **subsequent entries** in the Revocation Status List should contain referenc
     "objectFamily": "anoncreds",
     "objectFamilyVersion": "v1",
     "objectType": "5",
-    "publisherId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
+    "issuerId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
     "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/513d8a44-6188-41c2-8de8-eda562f82947"
   }
 }
@@ -151,7 +150,7 @@ This implementation also uses AnonCredsObjectMetadata to provide equivalency bet
 | objectFamilyVersion   | v1                                                                              | did:indy Objects Method                 |
 | objectType            | 5                                                                               | Legacy Hyperledger Indy Objects Method  |
 | typeName              | `CL_ACCUM`                                                                      | Legacy Hyperledeger Indy Objects Method |
-| publisherId           | Fully qualified DID to easily identify the publisher of the Revocation Registry | cheqd Objects Method                    |
+| issuerId              | Fully qualified DID to easily identify the publisher of the Revocation Registry | cheqd Objects Method                    |
 | objectUri             | Fully qualified DID URL to easily access the Revocation Registry Entry          | cheqd Objects Method                    |
 
 <details>
@@ -254,7 +253,7 @@ Where, `degreeCredRevocRegEntry2.json` contains an updated `accum` value, `revoc
     "objectFamily": "anoncreds",
     "objectFamilyVersion": "v2",
     "objectType": "5",
-    "publisherId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
+    "issuerId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
     "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/c154bc07-43f7-4b69-ac0c-5514001f2ca3"
   }
 }
