@@ -70,7 +70,7 @@ For
 
 
 
-## cheqd AnonCreds Object Method for Revocation Registry Definition Objects
+## cheqd AnonCreds Object Method for Revocation Status List Objects and Entries
 
 ### cheqd Revocation Status List Object ID
 
@@ -88,7 +88,7 @@ For example, the following DID URL is cheqd's representation of a `revocRegStatu
 
 > Unlike in Hyperledger Indy implementations, cheqd uses a **unique identifier for each specific Revocation Registry Entry ID**. This enables better indexing and searchability. For conformance with the cheqd AnonCreds Object Method, each Revocation Registry Entry **MUST** be created in the **same Collection** as the Revocation Registry Definition Object.
 
-### cheqd Revocation Registry Entry Object Content
+### cheqd Revocation Status List Entry Object Content
 
 Before creating any on-ledger resource transaction, it is important to assemble to required Revocation Registry Entry Object Content and save it as a file locally.
 
@@ -117,15 +117,15 @@ In the example below, the **first entry** in a Revocation Registry should be sav
 }
 ```
 
-The **subsequent entries** in the Revocation Registry should contain reference to the indices of the revoked credentials in the Tails File. For example:
+The **subsequent entries** in the Revocation Status List should contain reference to the indices of the revoked and un-revoked credentials in the Tails File, as well as the previous accumulator. For example:
 
 ```json
 {
   "AnonCredsObject": {
-    "revocRegDefId": "4xE68b6S5VRFrKMMG1U95M:4:4xE68b6S5VRFrKMMG1U95M:3:CL:59232:default:CL_ACCUM:4ae1cc6c-f6bd-486c-8057-88f2ce74e960",
+    "revocRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
     "revocDefType": "CL_ACCUM",
     "currentAccumulator": "21 116...567",
-    "previousAccumulator": "21 128...C3B",
+    "previousAccumulator": "21 124C594B6B20E41B681E92B2C43FD165EA9E68BC3C9D63A82C8893124983CAE94 21 124C5341937827427B0A3A32113BD5E64FB7AB39BD3E5ABDD7970874501CA4897 6 5438CB6F442E2F807812FD9DC0C39AFF4A86B1E6766DBB5359E86A4D70401B0F 4 39D1CA5C4716FFC4FE0853C4FF7F081DFD8DF8D2C2CA79705211680AC77BF3A1 6 70504A5493F89C97C225B68310811A41AD9CD889301F238E93C95AD085E84191 4 39582252194D756D5D86D0EED02BF1B95CE12AED2FA5CD3C53260747D891993C",
     "issued": [ 1, 67, 14 ],
     "revoked": [ 172 ]
   },
@@ -140,7 +140,7 @@ The **subsequent entries** in the Revocation Registry should contain reference t
 ```
 
 {% hint style="info" %}
-Note: For implementating AnonCreds Revocation Registry Entries on cheqd you can include **all revocation indices within each latest entry.** This is different to Hyperledger Indy, however, it makes the non-revocation proof far more simple, since only the latest entry is needed, rather than all the historic entries.
+Note: For implementating AnonCreds Revocation Status List Entries on cheqd you can include **all revocation indices within each latest entry.** This is different to Hyperledger Indy, however, it makes the non-revocation proof far more simple, since only the latest entry is needed, rather than all the historic entries.
 {% endhint %}
 
 This implementation also uses AnonCredsObjectMetadata to provide equivalency between cheqd's AnonCreds Object Method and other AnonCreds Object Methods, including the fields, where:
