@@ -18,7 +18,13 @@ Each specific AnonCreds identifier must be defined within an AnonCreds Object Me
 
 This means that an AnonCreds Schema Object ID does not need to be formatted in any particular syntax, in the latest version of the [AnonCreds Specification](https://hyperledger.github.io/anoncreds-spec/).
 
-### Ledger-Agnostic AnonCreds Schema Object Content
+{% hint style="info" %}
+See the collapsible tile below to learn about how the Ledger-Agnostic AnonCreds specification handles these objects.
+{% endhint %}
+
+<details>
+
+<summary>Ledger-Agnostic AnonCreds Schema Object Content</summary>
 
 In the [Hyperledger AnonCreds specification](https://hyperledger.github.io/anoncreds-spec/), the Schema Object Content which is required to be written to the Verifiable Data Registry, contains the following information:
 
@@ -37,6 +43,8 @@ For example:
   "attrNames": ["name", "age", "vmax"]
 }
 ```
+
+</details>
 
 ## cheqd AnonCreds Object method for Schemas
 
@@ -122,7 +130,7 @@ This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds O
 
 </details>
 
-### create schema transaction
+### Create schema transaction
 
 To create a schema on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../tutorials/on-ledger-resources/), and pass the relevant JSON file for the object in the transaction.&#x20;
 

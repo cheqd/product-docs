@@ -30,7 +30,13 @@ Each specific AnonCreds identifier must be defined within an AnonCreds Object Me
 
 This means that an AnonCreds Revocation Registry Object ID does not need to be formatted in any particular syntax, in the latest version of the AnonCreds Specification.
 
-### Ledger-agnostic AnonCreds Revocation Registry Definition Object Content
+{% hint style="info" %}
+See the collapsible tile below to learn about how the Ledger-Agnostic AnonCreds specification handles these objects.
+{% endhint %}
+
+<details>
+
+<summary>Ledger-agnostic AnonCreds Revocation Registry Definition Object Content</summary>
 
 The required content and data model for the AnonCreds Revocation Registry Definition Object are as follows:
 
@@ -67,7 +73,7 @@ For example, the on-ledger Revocation Registry Definition Object Content is as f
 }
 ```
 
-
+</details>
 
 ## cheqd AnonCreds Object Method for Revocation Registry Definition Objects
 

@@ -22,7 +22,13 @@ Each specific AnonCreds identifier must be defined within an AnonCreds Object Me
 
 This means that an AnonCreds CredDef Object ID does not need to be formatted in any particular syntax, in the latest version of the AnonCreds Specification.
 
-### Ledger-Agnostic AnonCreds CredDef Object Content
+{% hint style="info" %}
+See the collapsible tile below to learn about how the Ledger-Agnostic AnonCreds specification handles these objects.
+{% endhint %}
+
+<details>
+
+<summary>Ledger-Agnostic AnonCreds CredDef Object Content</summary>
 
 Credential Definition Object Content is distinct in the way it is structured. The inputs and outputs generated when creating a CredDef are as follows:
 
@@ -110,10 +116,6 @@ An example of a CredDef Object content without revocation is below:
 
 Using the Legacy AnonCreds Object method as a reference point, the composite string of the `cred_def_id` should include the **same values** as are in the CredDef Object Content.
 
-{% hint style="info" %}
-Note: In the AnonCreds Specification the 'ref' is currently the Schema TXN ID. However, since this would not work for ledgers other than Indy, we propose changing this to a 'string' and referencing the SCHEMA\_ID
-{% endhint %}
-
 An example of a CredDef Object content with revocation is below:
 
 ```json
@@ -140,6 +142,8 @@ An example of a CredDef Object content with revocation is below:
   }
 }
 ```
+
+</details>
 
 ## cheqd AnonCreds Object Method for CredDefs
 
