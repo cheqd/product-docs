@@ -51,14 +51,15 @@ Before creating a Resource, you will need to prepare the `args.json` file. This 
 {
     "kms": "local",
     "payload": {
-        "collectionId": "z4ZUuPbs1xyK7y8d",
+        "collectionId": "d3e515cf-81af-40cb-9ac1-154827986d29",
         "id": "4a71319b-00b1-4db9-bc05-56dc426f7062",
         "name": "TestResource",
         "resourceType": "TextDocument",
         "data": "SGVsbG8sIHdvcmxk"
     },
+    "network": "testnet",
     "signInputs": [{
-        "verificationMethodId": "did:cheqd:testnet:z4ZUuPbs1xyK7y8d#key-1",
+        "verificationMethodId": "did:cheqd:testnet:d3e515cf-81af-40cb-9ac1-154827986d29#key-1",
         "keyType": "Ed25519",
         "privateKeyHex": "0f5c124886178037952e87e0cdc55d185732577fca19ae877e64ac9ab24a0cc534e5326e70f1a42d785d93048aee806c359ec75a7b06f39253befd1746708438"
     }]
@@ -81,7 +82,7 @@ Before creating a Resource, you will need to prepare the `args.json` file. This 
 ### 5. Create new DID and publish DIDDoc
 
 ```bash
-veramo execute -m cheqdCreateResource --argsFile path/to/args.json
+veramo execute -m cheqdCreateLinkedResource --argsFile path/to/args.json
 ```
 
 If you do not specify the `--argsFile` in the previous step, you can also paste a JSON inline argument object by using the `--argsJSON` flag followed by the JSON payload.
