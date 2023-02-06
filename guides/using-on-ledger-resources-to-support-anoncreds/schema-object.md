@@ -71,7 +71,6 @@ In the example below, the content should be saved as a file, for example: `degre
 ```json
 {
 "AnonCredsObject": {
-  "issuerId": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K",
   "name": "degreeSchema",
   "version": "1.5.7",
   "attrNames": ["name", "age", "vmax"]

@@ -105,7 +105,6 @@ In the example below, the content should be saved as a file, for example: `degre
 ```json
 {
 "AnonCredsObject: {
-  "issuerId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
   "revocDefType": "CL_ACCUM",
   "credDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0",
   "tag": "degreeRevocRegDef",

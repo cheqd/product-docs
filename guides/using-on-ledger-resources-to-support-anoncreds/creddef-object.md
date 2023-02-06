@@ -175,7 +175,6 @@ In the example below, the content should be saved as a file, for example: `credD
 ```json
 {
 "AnonCredsObject: {
-  "issuerId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
   "schemaId": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
   "type": "CL",
   "tag": "credDefDegree",
@@ -214,7 +213,6 @@ Or with revocation:
 ```json
 {
 "AnonCredsObject: {
-  "issuerId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
   "schemaId": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
   "type": "CL",
   "tag": "credDefDegree",
