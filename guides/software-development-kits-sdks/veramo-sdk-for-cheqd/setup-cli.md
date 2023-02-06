@@ -1,6 +1,6 @@
 # 👉 Setting up Veramo CLI for cheqd
 
-If you're looking to use the Veramo CLI with cheqd or develop a proof-of-concept application, use the [official Veramo CLI setup guide](https://veramo.io/docs/veramo\_agent/cli\_tool/).
+If you're looking to use the Veramo CLI with cheqd or develop a proof-of-concept application, use the [official Veramo CLI setup guide](https://veramo.io/docs/veramo_agent/cli_tool/).
 
 ## Step 1: Install requisite packages
 
@@ -8,7 +8,7 @@ _Node version recommended `Nodev16`_. You can install Node [here](https://nodejs
 
 ### 1.1. Install Veramo CLI
 
-This step is exactly [as described in Veramo CLI docs](https://veramo.io/docs/veramo\_agent/cli\_tool/):
+This step is exactly [as described in Veramo CLI docs](https://veramo.io/docs/veramo_agent/cli_tool/):
 
 ```bash
 npm i @veramo/cli@latest -g
@@ -86,9 +86,9 @@ In order to be able to read/query `did:cheqd` entries from the ledger, you need 
 
 ```yaml
 did-cheqd-resolver:
-  $require: '@cheqd/did-provider-cheqd?t=function&p=/cheqd#getResolver'
-  $args:
-    - url: 'https://resolver.cheqd.net/1.0/identifiers/'
+    $require: '@cheqd/did-provider-cheqd?t=function&p=/cheqd#getResolver'
+    $args:
+        - url: 'https://resolver.cheqd.net/1.0/identifiers/'
 ```
 
 The default value is set to `resolver.cheqd.net`, which is an instance of the cheqd DID Resolver hosted by the cheqd team. This DID Resolver instance can handle requests for `did:cheqd:mainnet` as well as `did:cheqd:testnet` namespaces.
@@ -106,17 +106,17 @@ Firstly, comment out the custom `did-cheqd-resolver` entry and uncomment the `un
 ```yaml
 # DID resolvers
 didResolver:
-  $require: '@veramo/did-resolver#DIDResolverPlugin'
-  $args:
-    - resolver:
-        $require: did-resolver#Resolver
-        $args:
-          - key:
-              $ref: /did-key-resolver
-            # cheqd:
-            #  $ref: /did-cheqd-resolver
-            cheqd:
-              $ref: /universal-resolver
+    $require: '@veramo/did-resolver#DIDResolverPlugin'
+    $args:
+        - resolver:
+              $require: did-resolver#Resolver
+              $args:
+                  - key:
+                        $ref: /did-key-resolver
+                    # cheqd:
+                    #  $ref: /did-cheqd-resolver
+                    cheqd:
+                        $ref: /universal-resolver
 ```
 
 Also comment out this section for the `did-cheqd-resolver`:
@@ -132,12 +132,68 @@ Finally, uncomment and configure the `universal-resolver` interface:
 
 ```yaml
 universal-resolver:
-  $require: '@veramo/did-resolver#UniversalResolver'
-  $args:
-    - url: https://dev.uniresolver.io/1.0/identifiers/
+    $require: '@veramo/did-resolver#UniversalResolver'
+    $args:
+        - url: https://dev.uniresolver.io/1.0/identifiers/
 ```
 
-### 2.5. Configure your cheqd/Cosmos account keys and RPC endpoints
+### 2.5. Add cheqd-testnet to your Kepler extension
+
+In order to add cheqd-testnet to your Kepler extension, please follow the following guideline.
+
+Go to [Axelar to add a custom network](https://docs.axelar.dev/resources/keplr#add-your-custom-network), then replace everything with cheqd-testnet json configuration below.
+
+```json
+{
+    "chainId": "cheqd-testnet-6",
+    "chainName": "cheqd Testnet",
+    "rpc": "https://rpc.cheqd.network",
+    "rest": "https://api.cheqd.network",
+    "stakeCurrency": {
+        "coinDenom": "CHEQ",
+        "coinMinimalDenom": "ncheq",
+        "coinDecimals": 9,
+        "coinGeckoId": "cheqd-network"
+    },
+    "walletUrlForStaking": "https://wallet.cheqd.io",
+    "bip44": {
+        "coinType": 118
+    },
+    "bech32Config": {
+        "bech32PrefixAccAddr": "cheqd",
+        "bech32PrefixAccPub": "cheqdpub",
+        "bech32PrefixValAddr": "cheqdvaloper",
+        "bech32PrefixValPub": "cheqdvaloperpub",
+        "bech32PrefixConsAddr": "cheqdvalcons",
+        "bech32PrefixConsPub": "cheqdvalconspub"
+    },
+    "currencies": [
+        {
+            "coinDenom": "CHEQ",
+            "coinMinimalDenom": "ncheq",
+            "coinDecimals": 9,
+            "coinGeckoId": "cheqd-network"
+        }
+    ],
+    "feeCurrencies": [
+        {
+            "coinDenom": "CHEQ",
+            "coinMinimalDenom": "ncheq",
+            "coinDecimals": 9,
+            "coinGeckoId": "cheqd-network",
+            "gasPriceStep": {
+                "low": 25,
+                "average": 50,
+                "high": 100
+            }
+        }
+    ],
+    "coinType": 118,
+    "beta": true
+}
+```
+
+### 2.6. Configure your cheqd/Cosmos account keys and RPC endpoints
 
 While reading/querying from the cheqd ledger incurs no cost, if you want to [create/update a DID](../../../tutorials/did-operations/) to cheqd ledger, you need to pay transaction fees for the ledger writes.
 
@@ -147,20 +203,20 @@ didManager:
 ---
 defaultProvider: did:cheqd:testnet
 providers:
-  did:cheqd:mainnet:
-    $require: '@cheqd/did-provider-cheqd#CheqdDIDProvider'
-    $args:
-      - defaultKms: local
-        cosmosPayerMnemonic: <your_cosmos_mnemonic_paying_for_did_txs>
-        networkType: mainnet
-        rpcUrl: 'https://rpc.cheqd.net'
-  did:cheqd:testnet:
-    $require: '@cheqd/did-provider-cheqd#CheqdDIDProvider'
-    $args:
-      - defaultKms: local
-        cosmosPayerMnemonic: <your_cosmos_mnemonic_paying_for_did_txs>
-        networkType: testnet
-        rpcUrl: 'https://rpc.cheqd.network'
+    did:cheqd:mainnet:
+        $require: '@cheqd/did-provider-cheqd#CheqdDIDProvider'
+        $args:
+            - defaultKms: local
+              cosmosPayerMnemonic: <your_cosmos_mnemonic_paying_for_did_txs>
+              networkType: mainnet
+              rpcUrl: 'https://rpc.cheqd.net'
+    did:cheqd:testnet:
+        $require: '@cheqd/did-provider-cheqd#CheqdDIDProvider'
+        $args:
+            - defaultKms: local
+              cosmosPayerMnemonic: <your_cosmos_mnemonic_paying_for_did_txs>
+              networkType: testnet
+              rpcUrl: 'https://rpc.cheqd.network'
 ```
 
 You need to configure this in under `didManager` section as shown above, where you'll need to edit:
@@ -169,7 +225,7 @@ You need to configure this in under `didManager` section as shown above, where y
 2. `rpcUrl`: For both `did:cheqd:mainnet:` as well as `did:cheqd:testnet:` sections, you can specify a Cosmos SDK RPC endpoint. This endpoint is where transactions are sent to. By default, this is populated with `rpc.cheqd.net` (for _mainnet_) and `rpc.cheqd.network` (for _testnet_), but you can can modify this to [a different hosted RPC endpoint for cheqd](https://cosmos.directory/cheqd/nodes) or even your own local/private RPC endpoint.
 3. `defaultProvider`: The default cheqd network is set to `did:cheqd:testnet` to allow developers to test out network functionality. However, if you prefer, you can switch this out to `did:cheqd:mainnet` instead.
 
-### 2.6. Save the `agent.yml` file and exit
+### 2.7. Save the `agent.yml` file and exit
 
 Make sure all your edits above are persisted and saved to a file that you can access.
 
