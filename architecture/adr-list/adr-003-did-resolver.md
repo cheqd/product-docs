@@ -1,4 +1,4 @@
-# ADR 001: cheqd DID Resolver
+# ADR 003: cheqd DID Resolver
 
 ## Status
 

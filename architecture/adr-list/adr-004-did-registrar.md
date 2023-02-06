@@ -1,4 +1,4 @@
-# ADR 003: cheqd DID Registrar
+# ADR 004: cheqd DID Registrar
 
 ## Status
 
