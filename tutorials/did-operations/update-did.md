@@ -8,15 +8,7 @@ Follow these instructions to update an existing `did:cheqd` entry on cheqd ledge
 
 ## Instructions
 
-### 1. Fetch the latest version of the DIDDoc from the ledger
-
-Use `veramo did resolve <did>` (as explained in the [_Querying a DID_ article](query-did.md)) to resolve a DID and its latest state from the ledger.
-
-This is recommended as a best-practice, since the DIDDoc could have been changed during a previous update operation by other controllers, or from a different machine.
-
-If you're _absolutely_ sure that the DIDDoc version stored locally is up-to-date, you can view it using `veramo did list <alias>`
-
-### 2. Prepare DIDDoc contents
+### 1. Prepare DIDDoc contents
 
 Before updating the DID, you will need to prepare the updated DIDDoc and parameters for the transaction in an `args.json` file.
 
@@ -29,9 +21,10 @@ This file can be saved whereever you choose, but the location must be specified 
 * `alias`: A human-friendly alias for the DID. Only used locally when referencing operations in Veramo CLI.
 * `document`: Full body of the DID Document _including_ updated sections.
 * `keys`: Keys used to sign the DIDDoc. These must match the ones specified in the DIDDoc, otherwise an error will be thrown.
-* `versionId`: (optional) Add an custom versionId if required
+* `versionId`: (optional) Custom versionId for the Updated DID Document
+* `fee` (optional): [Custom fee](../custom-fee.md)
 
-### 3. Update existing DID
+### 2. Update existing DID
 
 Use the command below to construct and broadcast update transaction.
 
@@ -58,8 +51,7 @@ So, let's try to update `service` section of our `DIDDoc`. Then, your `args.json
         "id": "did:cheqd:testnet:zVJe7ZNvCtbK83pv#key-1",
         "type": "Ed25519VerificationKey2020",
         "controller": "did:cheqd:testnet:zVJe7ZNvCtbK83pv",
-        "publicKeyMultibase": "zVJe7ZNvCtbK83pvJYD9eRNc5CSrNBKkyjep6gYdaWub",
-        "publicKeyJwk": []
+        "publicKeyMultibase": "zVJe7ZNvCtbK83pvJYD9eRNc5CSrNBKkyjep6gYdaWub"
       }
     ],
     "service": [
@@ -89,7 +81,7 @@ Then try running the command below to update the `did`:
 veramo execute -m cheqdUpdateIdentifier --argsFile path/to/args.json
 ```
 
-If you would like to fetch the updated DIDDoc body following the successful DID update result, execute the `resolve` command as outlined in Step 1. You can check if `service` section of `DIDDoc` has been updated.
+If you would like to fetch the updated DIDDoc body following the successful DID update result, execute the `resolve` command as outlined [here](./query-did.md). You can check if `service` section of `DIDDoc` has been updated.
 
 ## Next steps
 

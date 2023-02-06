@@ -1,4 +1,4 @@
-# 🔄 DID Registrar setup
+# 📖 DID Registrar setup
 
 ## Setting up cheqd DID Registrar
 

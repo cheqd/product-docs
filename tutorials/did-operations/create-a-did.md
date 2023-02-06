@@ -107,6 +107,8 @@ If you used _Method 2_ in the previous step, you can use the output of that as a
 * `alias`: A human-friendly alias for the DID. Only used locally when referencing operations in Veramo CLI.
 * `document`: Full body of the DID Document
 * `keys`: Keys used to sign the DIDDoc. These must match the ones specified in the DIDDoc, otherwise an error will be thrown.
+* `versionId` (optional): Custom versionId for the DID Document
+* `fee` (optional): [Custom fee](../custom-fee.md)
 
 ### 3. Create new DID and publish DIDDoc
 

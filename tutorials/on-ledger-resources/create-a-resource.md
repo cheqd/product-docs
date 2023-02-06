@@ -12,7 +12,27 @@ Follow these instructions to create a new DID and publish the associated DIDDoc 
 
 Follow [this](../did-operations/) tutorial to generate keys and create a DID.
 
-### 2. Prepare Resource content
+### 2. Create a UUID for the Resource
+
+[UUIDs are used to identify Resources](broken-reference). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
+
+```bash
+$ uuidgen
+e7b662f8-d3f8-4a83-bd00-2cdcd6cc50ab
+```
+
+{% hint style="info" %}
+Due to a known bug, please make sure that UUIDs generated and submitted to the ledger are in **lower case**.
+{% endhint %}
+
+### 3. Prepare/edit command arguments
+
+Before creating a Resource, you will need to prepare the `args.json` file. This file can be saved where ever you choose, but the location must be specified in the create Resource command used in Step 5. (By default, it will be saved under the project root directory.)
+
+The resource content can be passed either as a file or a base64 encoded string according to the examples below
+
+<details>
+<summary>Passing resource as Base64</summary>
 
 Prepare a file with resource and encode it into `base64`. On Unix systems, you can use the following command:
 
@@ -27,25 +47,6 @@ Example:
 $ base64 -w 0 resource.txt
 SGVsbG8sIHdvcmxk
 ```
-
-### 3. Create a UUID for the Resource
-
-[UUIDs are used to identify Resources](broken-reference). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
-
-```bash
-$ uuidgen
-e7b662f8-d3f8-4a83-bd00-2cdcd6cc50ab
-```
-
-{% hint style="info" %}
-Due to a known bug, please make sure that UUIDs generated and submitted to the ledger are in **lower case**.
-{% endhint %}
-
-### 4. Prepare/edit command arguments
-
-Before creating a Resource, you will need to prepare the `args.json` file. This file can be saved where ever you choose, but the location must be specified in the create Resource command used in Step 5. (By default, it will be saved under the project root directory.)
-
-#### Example file
 
 ```json
 {
@@ -65,6 +66,34 @@ Before creating a Resource, you will need to prepare the `args.json` file. This 
     }]
 }
 ```
+</details>
+
+<details>
+<summary>Passing resource as file</summary>
+
+Prepare a file with resource data
+
+```json
+{
+    "kms": "local",
+    "payload": {
+        "collectionId": "d3e515cf-81af-40cb-9ac1-154827986d29",
+        "id": "4a71319b-00b1-4db9-bc05-56dc426f7062",
+        "name": "TestResource",
+        "resourceType": "TextDocument"
+    },
+    "network": "testnet",
+    "signInputs": [{
+        "verificationMethodId": "did:cheqd:testnet:d3e515cf-81af-40cb-9ac1-154827986d29#key-1",
+        "keyType": "Ed25519",
+        "privateKeyHex": "0f5c124886178037952e87e0cdc55d185732577fca19ae877e64ac9ab24a0cc534e5326e70f1a42d785d93048aee806c359ec75a7b06f39253befd1746708438"
+    }],
+    "file": "/path/to/resource.txt"
+}
+```
+</details>
+
+<br>
 
 #### Parameters
 
@@ -74,10 +103,12 @@ Before creating a Resource, you will need to prepare the `args.json` file. This 
   * `id`: Use output from the previous step here;
   * `name`: Arbitrary human-readable string used to identify the resource
   * `resourceType`: Resource type, such as `CL-Schema`, `JSONSchema2020`, etc
-  * `data`: Use output from the step 2 here;
+  * `data`: Optional base64 encoded data
 * `signInputs`: Keys used to sign the corresponding DIDDoc. These must match the ones specified in the DIDDoc, otherwise an error will be thrown;
   * `verificationMethodId`: DIDUrl of the verification method where key is published;
   * `keyType` and `privateKeyHex` should match values that you used to create the DIDDoc.
+* `file`: Optional path to resource file
+* `fee` (optional): [Custom fee](../custom-fee.md)
 
 ### 5. Create new DID and publish DIDDoc
 

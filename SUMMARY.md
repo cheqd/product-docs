@@ -13,17 +13,18 @@
   * [Off-ledger subject DIDs](tutorials/did-operations/create-subject-did.md)
   * [Managing identity keys](tutorials/did-operations/identity-key-handling.md)
 * [📃 Verifiable Credentials and Presentations](tutorials/verifiable-credentials-and-presentations/README.md)
-  * [JSON (JWT)](tutorials/verifiable-credentials-and-presentations/json-jwt/README.md)
-    * [Issue a JSON (JWT) Verifiable Credential](tutorials/verifiable-credentials-and-presentations/json-jwt/verifiable-credentials.md)
-    * [Verify a JSON (JWT) Verifiable Credential](tutorials/verifiable-credentials-and-presentations/json-jwt/verify-jwt-vc.md)
-    * [Create a JSON (JWT) Verifiable Presentation](tutorials/verifiable-credentials-and-presentations/json-jwt/verifiable-presentations.md)
-    * [Verify a JSON (JWT) Verifiable Presentation](tutorials/verifiable-credentials-and-presentations/json-jwt/verify-presentation.md)
+  * [Issue a Verifiable Credential](tutorials/verifiable-credentials-and-presentations/verifiable-credentials.md)
+  * Verify a Verifiable Credential
+    * [JSON (JWT)](tutorials/verifiable-credentials-and-presentations/verify-jwt-vc.md)
+  * [Create a Verifiable Presentation](tutorials/verifiable-credentials-and-presentations/verifiable-presentations.md)
+  * [Verify a Verifiable Presentation](tutorials/verifiable-credentials-and-presentations/verify-presentation.md)
+
 * [🔗 Create DID-Linked Resources](tutorials/on-ledger-resources/README.md)
   * [Create a DID-Linked Resource](tutorials/on-ledger-resources/create-a-resource.md)
   * [Create a new Resource version within existing Collection](tutorials/on-ledger-resources/create-a-new-resource-version.md)
 * [🔄 DID Resolver setup](tutorials/DID-resolution.md)
 * [👜 Demo Wallet for identity setup](tutorials/wallet.md)
-* [📖DID Registrar setup](tutorials/DID-registrar.md)
+* [📖 DID Registrar setup](tutorials/DID-registrar.md)
 
 ## 📑 Guides
 

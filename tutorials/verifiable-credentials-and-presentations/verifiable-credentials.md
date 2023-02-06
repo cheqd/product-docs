@@ -1,6 +1,6 @@
-# Issue a JSON (JWT) Verifiable Credential
+# Issue a Verifiable Credential
 
-This tutorial offers step-by-step guidance on how to issue a [JSON credential](https://www.w3.org/TR/vc-data-model/#json), encoded as a [JSON Web Token (JWT)](https://www.w3.org/TR/vc-data-model/#json-web-token), a [W3C compliant proof format.](https://www.w3.org/TR/vc-data-model/#proof-formats)
+This tutorial offers step-by-step guidance on how to issue a verifiable credential
 
 > ⚠️ **Before you begin...**
 >
@@ -32,7 +32,13 @@ veramo credential create --json
 
 ### 3. Select a credential proof format
 
-You'll be presented with an option to choose between `jwt` (JSON-based JWT) or `lds` (JSON-LD).
+You'll be presented with an multiple options select
+ * `jwt` for [JSON credential](https://www.w3.org/TR/vc-data-model/#json), encoded as a [JSON Web Token (JWT)](https://www.w3.org/TR/vc-data-model/#json-web-token), a [W3C compliant proof format.](https://www.w3.org/TR/vc-data-model/#proof-formats)
+ * `lds` for [JSONLD credential](https://www.w3.org/TR/vc-data-model/#json-ld), encoded as a [Data Integrity Proofs](https://www.w3.org/TR/vc-data-model/#data-integrity-proofs), a [W3C compliant proof format.](https://www.w3.org/TR/vc-data-model/#proof-formats)
+
+ > :books: **Learn about JSON (JWT)**
+>
+> If you want to learn more about what **JSON (JWTs) are,** [please go over to our learning site here.](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-verifiable-credential-vc/what-are-the-different-types-of-verifiable-credentials/json-jwt)
 
 ### 4. Specify the Issuer DID for the credential
 
@@ -72,9 +78,10 @@ JSON/JWT credentials anchored on cheqd are currently _not_ revocable, so please 
 
 At this last step, Veramo CLI generates the credential based on the inputs above.
 
-_Note_: The human-readable JSON body below is purely for easier parsing by developers/applications. The proof is encoded as JWT at the bottom of the credential, which can be decoded to reconstruct the entire credential.
+_Note_: The human-readable JSON body below is purely for easier parsing by developers/applications. The proof is encoded as JWT or JWS at the bottom of the credential, which can be decoded to reconstruct the entire credential.
 
-#### Example Verifiable Credential
+<details>
+<summary>Example JSON Verifiable Credential</summary>
 
 ```json
 {
@@ -97,6 +104,40 @@ _Note_: The human-readable JSON body below is purely for easier parsing by devel
   }
 }
 ```
+</details>
+
+<details>
+<summary>Example JSONLD Verifiable Credential</summary>
+
+```json
+{
+  "issuer": {
+    "id": "did:cheqd:testnet:d3e515cf-81af-40cb-9ac1-154827986d29"
+  },
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://veramo.io/contexts/profile/v1"
+  ],
+  "type": [
+    "VerifiableCredential",
+    "Profile"
+  ],
+  "issuanceDate": "2023-02-07T06:28:33.760Z",
+  "credentialSubject": {
+    "id": "did:key:z6MkfFb5bMTvm3kXMB5zZSrLGLdtW13wU9w6ByJ76LV7U75a",
+    "name": "Alice"
+  },
+  "proof": {
+    "type": "Ed25519Signature2018",
+    "created": "2023-02-07T06:28:34Z",
+    "verificationMethod": "did:cheqd:testnet:d3e515cf-81af-40cb-9ac1-154827986d29#key-1",
+    "proofPurpose": "assertionMethod",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..LkXa1AxEtoY78-6NwAiIe0viO271RzCMbfJsFgm7muBCHGKGMgTRO0QnGDvA0fygKAVCjvR1xZpgJQEuxlbNAg"
+  }
+}
+```
+
+</details>
 
 ## Next steps
 
