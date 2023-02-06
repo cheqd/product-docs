@@ -1,6 +1,6 @@
-# Issue a JSON (JWT) Verifiable Credential
+# Issue a JSONLD Verifiable Credential
 
-This tutorial offers step-by-step guidance on how to issue a [JSON credential](https://www.w3.org/TR/vc-data-model/#json), encoded as a [JSON Web Token (JWT)](https://www.w3.org/TR/vc-data-model/#json-web-token), a [W3C compliant proof format.](https://www.w3.org/TR/vc-data-model/#proof-formats)
+This tutorial offers step-by-step guidance on how to issue a [JSONLD credential](https://www.w3.org/TR/vc-data-model/#json-ld), encoded as a [Data Integrity Proofs](https://www.w3.org/TR/vc-data-model/#data-integrity-proofs), a [W3C compliant proof format.](https://www.w3.org/TR/vc-data-model/#proof-formats)
 
 > ⚠️ **Before you begin...**
 >
@@ -32,17 +32,17 @@ veramo credential create --json
 
 ### 3. Select a credential proof format
 
-You'll be presented with an option to choose between `jwt` (JSON-based JWT) or `lds` (JSON-LD).
+Choose the option`lds` (JSON-LD).
 
 ### 4. Specify the Issuer DID for the credential
 
-Select which Issuer DID stored in your local storage you'd like to issue the credential from, e.g., `did:cheqd:mainnet:zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX`
+Select which Issuer DID stored in your local storage you'd like to issue the credential from, e.g., `did:cheqd:testnet:d3e515cf-81af-40cb-9ac1-154827986d29`
 
-The assumption here is that you've either [created the issuer DID](../../did-operations/) or [stored the DIDDoc by querying it](../../did-operations/query-did.md).
+The assumption here is that you've either [created the issuer DID](../../did-operations/) or [stored the DIDDoc by querying it](../../did-operations/query-did.md). The Issuer DID must contain an assertionMethod inorder to issue a JSONLD credential. You can [update your DID](../../did-operations/update-did.md) by adding an assertionMethod. e.g. `"assertionMethod": [ "did:cheqd:testnet:d3e515cf-81af-40cb-9ac1-154827986d29#key-1" ]`
 
 ### 5. Specify the subject DID (credential holder's DID)
 
-Select which subject DID from your local agent storage the credential should be issued to, e.g., `did:key:z6Mkktr27VZ7TTFoTsD9p79JwtGnQDgJWKGrxJ79quE7M5Yx`.
+Select which subject DID from your local agent storage the credential should be issued to, e.g., `did:key:z6MkfFb5bMTvm3kXMB5zZSrLGLdtW13wU9w6ByJ76LV7U75a`.
 
 This could the subject DID created in Step 1.
 
@@ -78,26 +78,27 @@ _Note_: The human-readable JSON body below is purely for easier parsing by devel
 
 ```json
 {
-  "credentialSubject": {
-    "name": "Alice",
-    "id": "did:key:z6Mkktr27VZ7TTFoTsD9p79JwtGnQDgJWKGrxJ79quE7M5Yx"
-  },
-  "issuer": {
-    "id": "did:cheqd:mainnet:zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX"
-  },
-  "type": ["VerifiableCredential", "Profile"],
+  "issuer": { "id": "did:cheqd:testnet:d3e515cf-81af-40cb-9ac1-154827986d29" },
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
     "https://veramo.io/contexts/profile/v1"
   ],
-  "issuanceDate": "2022-07-28T15:25:10.000Z",
+  "type": [ "VerifiableCredential", "Profile" ],
+  "issuanceDate": "2023-02-06T06:46:32.487Z",
+  "credentialSubject": {
+    "id": "did:key:z6MkfFb5bMTvm3kXMB5zZSrLGLdtW13wU9w6ByJ76LV7U75a",
+    "name": "Alice"
+  },
   "proof": {
-    "type": "JwtProof2020",
-    "jwt": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vdmVyYW1vLmlvL2NvbnRleHRzL3Byb2ZpbGUvdjByb2ZpbGUvdjEiXSwidHlwZSI6WyJWZXJpZmlhYmxlQ3JlZGVudGlhbCIsIlByb2ZpbGUiXSwiY3JlZGVudGlhbFN1YmplY3QiOnsibmFtZSI6IkFsaWNlIn19LCJzdWIiOiJkaWQ6a2V5Ono2TWtrdHIyN1ZaN1RURm9Uc25RRGdKV0tHc0Q5cDc5Snd0R25RRGdKV0tHcnhKNzlxdUU3TTVZeCIsIm5iZiI6MTY1OTAyMTkxMCwiaXNzIjoiZGlkOmNoZXFkOm1haW5uZXQ6ekFYd3dxWnpoQ1pBMUw3N1pCYThmaFZOakw5TVFDSFgifQ.MRqlKuFQzpjLvsW3C2ZSBEf5jfvJCPQBwl-gP1P8bRfNSvjxj9H3eDgDmEf5jfvJCPQBwUDltBr-ZQ3Q7SKVSvCaJHV8TnUzBA"
+    "type": "Ed25519Signature2018",
+    "created": "2023-02-06T06:46:33Z",
+    "verificationMethod": "did:cheqd:testnet:d3e515cf-81af-40cb-9ac1-154827986d29#key-1",
+    "proofPurpose": "assertionMethod",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..Kfq2VC0MgvcGeJ0dxFZd4RQLBD1MvKhkqSnDLeUKCNRW-PoU679FJ4cpYrIfDQK9DsegGC0AF5_ycPNfTdzUCQ"
   }
 }
 ```
 
 ## Next steps
 
-You can save the generated Verifiable Credential, as you can later use it to [verify the credential cryptographically](verify-jwt-vc.md) or [generate _presentations_ to show the credential](verifiable-presentations.md) to others.
+You can save the generated Verifiable Credential and [generate _presentations_ to show the credential](../json-jwt/verifiable-presentations.md) to others.
