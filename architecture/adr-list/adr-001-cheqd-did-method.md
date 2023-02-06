@@ -97,9 +97,11 @@ The cheqd DID method ABNF to conform with [DID syntax guidelines](https://www.w3
 cheqd-did       = "did:cheqd:" [namespace]
 namespace       = 1*namespace-char ":" unique-id
 namespace-char  = ALPHA / DIGIT
-unique-id       = 22*id-char / UUID
+unique-id       = *id-char / UUID
 id-char         = ALPHA / DIGIT
 ```
+
+>**Note:** The `*id-char unique-id` must be 16 bytes of Indy-style base58 encoded identifier.
 
 #### ABNF syntax for UUID-style identifiers
 
