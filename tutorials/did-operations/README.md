@@ -17,6 +17,7 @@ This documentation describes how you can use the Veramo SDK for cheqd to create,
 * [Create a DID](create-a-did.md)
 * [Querying a DID](query-did.md)
 * [Update an existing DID](update-did.md)
+* [Deactivate a DID](deactivate-a-did.md)
 * [Off-ledger subject DIDs](create-subject-did.md)
 * [Managing identity keys](identity-key-handling.md)
 

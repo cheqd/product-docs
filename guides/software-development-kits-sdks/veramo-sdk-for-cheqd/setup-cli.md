@@ -1,6 +1,6 @@
 # 👉 Setting up Veramo CLI for cheqd
 
-If you're looking to use the Veramo CLI with cheqd or develop a proof-of-concept application, use the [official Veramo CLI setup guide](https://veramo.io/docs/veramo\_agent/cli\_tool/).
+If you're looking to use the Veramo CLI with cheqd or develop a proof-of-concept application, use the [official Veramo CLI setup guide](https://veramo.io/docs/veramo_agent/cli_tool/).
 
 ## Step 1: Install requisite packages
 
@@ -8,7 +8,7 @@ _Node version recommended `Nodev16`_. You can install Node [here](https://nodejs
 
 ### 1.1. Install Veramo CLI
 
-This step is exactly [as described in Veramo CLI docs](https://veramo.io/docs/veramo\_agent/cli\_tool/):
+This step is exactly [as described in Veramo CLI docs](https://veramo.io/docs/veramo_agent/cli_tool/):
 
 ```bash
 npm i @veramo/cli@latest -g
