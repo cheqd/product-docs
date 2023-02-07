@@ -94,6 +94,7 @@ In the example below, the **first entry** in a Revocation Registry should be sav
     "objectFamily": "anoncreds",
     "objectFamilyVersion": "v1",
     "objectType": "5",
+    "typeName": "CL_ACCUM",
     "issuerId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
     "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887"
   }
@@ -114,6 +115,7 @@ The **subsequent entries** in the Revocation Status List should be formatted in 
     "objectFamily": "anoncreds",
     "objectFamilyVersion": "v1",
     "objectType": "5",
+    "typeName": "CL_ACCUM",
     "issuerId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
     "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/c154bc07-43f7-4b69-ac0c-5514001f2ca3"
   }
