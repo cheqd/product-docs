@@ -88,7 +88,7 @@ MD032: true
 
 # Inline HTML <https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md033>
 MD033:
-  allowed_elements: ['a', 'img', 'figure', 'figcaption']
+  allowed_elements: ['a', 'img', 'figure', 'figcaption', p, br, code, details, summary]
 
 # Bare URL used <https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md034>
 MD034: true
