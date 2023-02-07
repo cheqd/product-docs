@@ -17,7 +17,7 @@ This documentation describes how you can use the Veramo SDK for cheqd to create 
 * [Issue a Verifiable Credential](./verifiable-credentials.md)
 * Verify a Verifiable Credential
     * [JSON (JWT)](./verify-jwt-vc.md)
-    * *JSONLD verification is not supported yet*
+    * *JSON-LD verification is not supported yet*
 * [Create a Verifiable Presentation](./verifiable-presentations.md)
 * [Verify a Verifiable Presentation](./verify-presentation.md)
 

@@ -35,7 +35,7 @@ veramo credential create --json
 You'll be presented with an multiple options select:
 
 * `jwt` for [JSON credential](https://www.w3.org/TR/vc-data-model/#json), encoded as a [JSON Web Token (JWT)](https://www.w3.org/TR/vc-data-model/#json-web-token), a [W3C compliant proof format.](https://www.w3.org/TR/vc-data-model/#proof-formats)
-* `lds` for [JSONLD credential](https://www.w3.org/TR/vc-data-model/#json-ld), encoded as a [Data Integrity Proofs](https://www.w3.org/TR/vc-data-model/#data-integrity-proofs), a [W3C compliant proof format.](https://www.w3.org/TR/vc-data-model/#proof-formats)
+* `lds` for [JSON-LD credential](https://www.w3.org/TR/vc-data-model/#json-ld), encoded as a [Data Integrity Proofs](https://www.w3.org/TR/vc-data-model/#data-integrity-proofs), a [W3C compliant proof format.](https://www.w3.org/TR/vc-data-model/#proof-formats)
 
  > :books: **Learn about JSON (JWT)**
 >
@@ -71,7 +71,7 @@ In this tutorial, we will create a credential with only a single name-value pair
 
 ### 9. Define if the credential is revocable or not
 
-JSON/JWT credentials anchored on cheqd are currently _not_ revocable, so please choose `No` at this step.
+JSON/JWT credentials with DIDs anchored on cheqd are currently _not_ revocable, so please choose `No` at this step.
 
 [Privacy-preserving credential revocation](https://sharing.clickup.com/6600954/tl/h/69e7u-8222/6f126b298e224c8) is a major element of cheqd's roadmap.
 
@@ -109,7 +109,7 @@ _Note_: The human-readable JSON body below is purely for easier parsing by devel
 </details>
 
 <details>
-<summary>Example JSONLD Verifiable Credential</summary>
+<summary>Example JSON-LD Verifiable Credential</summary>
 
 ```json
 {
