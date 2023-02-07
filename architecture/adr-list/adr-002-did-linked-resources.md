@@ -144,7 +144,7 @@ The syntax of the linked Resource metadata is as follows:
         "mediaType": "application/json",
         "created": "2022-07-19T08:40:00Z",
         "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298", // Old version checksum
-        "previousVersionId": null, // null, since no previous version
+        "previousVersionId": "", // empty string, since no previous version
         "nextVersionId": "bb2118f3-5e55-4510-b420-33ef9e1726d2", // Points to next version below
         },
       { // Second version of a Resource called PassportSchema
@@ -178,8 +178,8 @@ Resource previews will aopear within DIDDocMetadata. These do not include the ac
 * MediaType: (e.g. `application/json`/`image`/`application/octet-stream`/`text/plain`) (computed ledger-side)
 * Created: XMLDatetime (computed ledger-side)
 * Checksum: SHA-256 (computed ledger-side)
-* previousVersionId: `null` if first, otherwise ID as long as Name, ResourceType, and MimeType match previous version (computed ledger-side)
-* nextVersionId: `null` if first/latest, otherwise ID as long as Name, ResourceType, and MimeType match previous version (computed ledger-side)
+* previousVersionId: "" empty string if first, otherwise ID as long as Name, ResourceType, and MimeType match previous version (computed ledger-side)
+* nextVersionId: "" empty string if first/latest, otherwise ID as long as Name, ResourceType, and MimeType match previous version (computed ledger-side)
 * Also known as: a list of alternative URIs that can be used to get the resource.
 
 Example:
