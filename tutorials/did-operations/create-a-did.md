@@ -48,7 +48,7 @@ veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "Ed2551
   * testnet
 
 
-After running the above command ,if you see an error below, follow our troubleshooting guide [here](../../veramo-sdk-for-cheqd/did-operations/did-operations-troubleshooting.md#1-when-generating-keys-along-with-a-diddoc-template) to fix it.
+After running the above command ,if you see an error below, follow our troubleshooting guide [here](did-operations-troubleshooting.md#1-when-generating-keys-along-with-a-diddoc-template) to fix it.
 
 ```bash
 Unexpected token v in JSON at position 1
@@ -127,4 +127,4 @@ If your transaction is successful, you'll receive a success message along with t
 1. Bear in mind that the that transaction fees are paid by the cheqd/Cosmos account set in the `agent.yml` configuration file. If that account has insufficient balance your transaction might fail.&#x20;
 2. If you are using testnet, you can top-up your testnet balance using our [faucet](http://testnet-faucet.cheqd.io/).
 3. If you are using mainnet, you can [purchase CHEQ tokens here](https://cheqd.io/buy).
-4. Check out our [troubleshooting guide for Creating DID](../../veramo-sdk-for-cheqd/did-operations/did-operations-troubleshooting.md) to see common errors and fixes.
+4. Check out our [troubleshooting guide for Creating DID](did-operations-troubleshooting.md) to see common errors and fixes.
