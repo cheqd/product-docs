@@ -57,7 +57,7 @@
   * [ADR 001: cheqd DID Method](architecture/adr-list/adr-001-cheqd-did-method.md)
   * [ADR 002: DID-Linked Resources](architecture/adr-list/adr-002-did-linked-resources.md)
   * [ADR 003: DID Resolver](architecture/adr-list/adr-003-did-resolver.md)
-  * [ADR 004: DID Registrar](architecture/adr-list/adr-003-did-registrar.md)
+  * [ADR 004: DID Registrar](architecture/adr-list/adr-004-did-registrar.md)
 
 ## 💫 Advanced features and alternatives
 
