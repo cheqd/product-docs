@@ -44,9 +44,9 @@
   * [Schema Object](guides/using-on-ledger-resources-to-support-anoncreds/schema-object.md)
   * [CredDef Object](guides/using-on-ledger-resources-to-support-anoncreds/creddef-object.md)
   * [Revocation Registry Definition Object](guides/using-on-ledger-resources-to-support-anoncreds/revocation-registry-definition-object.md)
-  * [Revocation Status List Object and Entries](guides/using-on-ledger-resources-to-support-anoncreds/revocation-registry-entry-object.md)
+  * [Revocation Status List Object](guides/using-on-ledger-resources-to-support-anoncreds/revocation-registry-entry-object.md)
 * [🔍 Understanding cheqd DID Resolver](guides/did-resolver.md)
-* [🧑⚖ Smart Governance](guides/smart-governance/README.md)
+* [🧑⚖ 🧑⚖ Smart Governance](guides/smart-governance/README.md)
   * [Governance File](guides/smart-governance/governance-file.md)
   * [Trust Registry](guides/smart-governance/trust-registry.md)
   * [Using DID-Linked Resources to support Governance](guides/smart-governance/governance-framework.md)
@@ -55,9 +55,10 @@
 
 * [Architecture Decision Record (ADR) Process](architecture/README.md)
 * [List of ADRs](architecture/adr-list/README.md)
-  * [ADR 001: DID Resolver](architecture/adr-list/adr-001-did-resolver.md)
-  * [ADR 002: On-Ledger Resources](architecture/adr-list/adr-002-on-ledger-resources.md)
-  * [ADR 003: DID Registrar](architecture/adr-list/adr-003-did-registrar.md)
+  * [ADR 001: cheqd DID Method](architecture/adr-list/adr-001-cheqd-did-method.md)
+  * [ADR 002: DID-Linked Resources](architecture/adr-list/adr-002-did-linked-resources.md)
+  * [ADR 003: DID Resolver](architecture/adr-list/adr-003-did-resolver.md)
+  * [ADR 004: DID Registrar](architecture/adr-list/adr-004-did-registrar.md)
 
 ## 💫 Advanced features and alternatives
 

@@ -20,7 +20,7 @@ The cheqd DID Resolver uses these existing gRPC/REST API endpoints to carry out 
 
 > **📝 Architecture Decision Record for cheqd DID Resolver**
 >
-> Full discussion and details on the [design of cheqd DID Resolver are available in its ADR](../architecture/adr-list/adr-001-did-resolver.md)
+> Full discussion and details on the [design of cheqd DID Resolver are available in its ADR](../architecture/adr-list/adr-003-did-resolver.md)
 
 ## Deployment patterns for cheqd DID Resolver
 
@@ -49,4 +49,4 @@ _This deployment pattern for the cheqd DID Resolver has not been built and relea
 1. Universal Resolver drivers are designed to be run as Docker containers. A limitation of this approach is that the computation footprint of a compute resource can be quite high, e.g., a Docker container may be 100 MB+ in size and [suffer from slow startup times in a "cold-start" scenario](https://mikhail.io/serverless/coldstarts/aws/).
 2. Thus, our "Light" DID Resolver idea was to explore using [Cloudflare Workers](https://workers.cloudflare.com/), a lightweight serverless compute platform. As a comparison, [Cloudflare Workers are limited to 1 MB in size](https://developers.cloudflare.com/workers/platform/limits/) and [have extremely low cold-start times](https://blog.cloudflare.com/eliminating-cold-starts-with-cloudflare-workers/). (We use Cloudflare Workers in [our Cosmos SDK Custom Data API](https://github.com/cheqd/data-api), for example.)
 3. Cloudflare Workers can also be deployed outside the Cloudflare service in a Docker container using [Miniflare](https://miniflare.dev/). This could be used to provide a Docker container deployment option for the Universal Resolver `did:cheqd` driver.
-4. However, [a limitation of Cloudflare Workers is they do not allow a gRPC _request_ to be made](https://community.cloudflare.com/t/can-i-make-a-grpc-request-from-a-worker/157450/4) to an external endpoint. This would force the "Light" cheqd Resolver to use the gRPC-Web / REST endpoint `resolve` implementation to fetch data from the ledger. This could be considered a higher risk profile in terms of data integrity by resolver operators / client applications.
+4. However, a limitation of Cloudflare Workers is they do not allow a gRPC _request_ to be made to an external endpoint. This would force the "Light" cheqd Resolver to use the gRPC-Web / REST endpoint `resolve` implementation to fetch data from the ledger. This could be considered a higher risk profile in terms of data integrity by resolver operators / client applications.

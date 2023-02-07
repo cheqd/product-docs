@@ -18,7 +18,13 @@ Each specific AnonCreds identifier must be defined within an AnonCreds Object Me
 
 This means that an AnonCreds Schema Object ID does not need to be formatted in any particular syntax, in the latest version of the [AnonCreds Specification](https://hyperledger.github.io/anoncreds-spec/).
 
-### Ledger-Agnostic AnonCreds Schema Object Content
+{% hint style="info" %}
+See the collapsible tile below to learn about how the Ledger-Agnostic AnonCreds specification handles these objects.
+{% endhint %}
+
+<details>
+
+<summary>Ledger-Agnostic AnonCreds Schema Object Content</summary>
 
 In the [Hyperledger AnonCreds specification](https://hyperledger.github.io/anoncreds-spec/), the Schema Object Content which is required to be written to the Verifiable Data Registry, contains the following information:
 
@@ -38,6 +44,8 @@ For example:
 }
 ```
 
+</details>
+
 ## cheqd AnonCreds Object method for Schemas
 
 ### cheqd Schema ID
@@ -54,7 +62,7 @@ For example, the following DID URL is cheqd's representation of a `schema_id`:
 
 `did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497`
 
-### cheqd Schema Object Content
+### cheqd Schema Object Input
 
 Before creating any on-ledger transaction, it is important to assemble to required Schema Object Content and save it as a file locally.
 
@@ -63,10 +71,9 @@ In the example below, the content should be saved as a file, for example: `degre
 ```json
 {
 "AnonCredsObject": {
-  "issuerId": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K",
   "name": "degreeSchema",
   "version": "1.5.7",
-  "attrNames": ["name", "age", "vmax"]
+  "attrNames": ["name", "age", "degree", "grade"]
  },
 "AnonCredsObjectMetadata": {
     "objectFamily": "anoncreds",
@@ -92,6 +99,43 @@ This implementation uses AnonCredsObjectMetadata to provide equivalency between 
 {% hint style="info" %}
 Note: The cheqd ledger will not provide any checks on the Schema Object Content or Metadata. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct and aligned with resourceName and resourceVersion.
 {% endhint %}
+
+### cheqd resource Metadata
+
+Once you have created your resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K`
+
+```json
+"linkedResourceMetadata": [
+  {    
+    "resourceURI": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
+    "resourceCollectionId": "7BPMqYgYLQni258J8JPS8K",
+    "resourceId": "6259d357-eeb1-4b98-8bee-12a8390d3497",
+    "resourceName": "degreeSchema",
+    "resourceType": "schema",
+    "resourceVersion": "1.5.7",
+    "mediaType": "application/json",
+    "created": "2022-07-19T08:40:00Z",
+    "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
+    "previousVersionId": null,
+    "nextVersionId": null
+    }
+]
+```
+
+Importantly, this is where the `issuerId` required for the [Ledger-Agnostic AnonCreds](schema-object.md#hyperledger-anoncreds-schema-id) data format is populated from.&#x20;
+
+### cheqd Schema Object output
+
+Using the [cheqd Schema Object input](schema-object.md#cheqd-schema-object-input) and associated [resource metadata](schema-object.md#cheqd-resource-metadata), the following data format should be compiled for SDKs supporting cheqd AnonCreds Object Method:
+
+```json
+{
+  "issuerId": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K",
+  "name": "degreeSchema",
+  "version": "1.5.7",
+  "attrNames": ["name", "age", "degree", "grade"]
+}
+```
 
 <details>
 
@@ -122,31 +166,9 @@ This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds O
 
 </details>
 
-### create schema transaction
+### Create schema transaction
 
 To create a schema on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../tutorials/on-ledger-resources/), and pass the relevant JSON file for the object in the transaction.&#x20;
-
-### cheqd resource Metadata
-
-Once you have created your resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K`
-
-```json
-"linkedResourceMetadata": [
-  {    
-    "resourceURI": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
-    "resourceCollectionId": "7BPMqYgYLQni258J8JPS8K",
-    "resourceId": "6259d357-eeb1-4b98-8bee-12a8390d3497",
-    "resourceName": "degreeSchema",
-    "resourceType": "schema",
-    "resourceVersion": "1.5.7",
-    "mediaType": "application/json",
-    "created": "2022-07-19T08:40:00Z",
-    "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
-    "previousVersionId": null,
-    "nextVersionId": null
-    }
-]
-```
 
 ### Fetching a cheqd Schema Object
 

@@ -1,21 +1,19 @@
 ---
-description: >-
-  cheqd support for Ledger-Agnostic AnonCreds Revocation Status List Objects and
-  Entries
+description: cheqd support for Ledger-Agnostic AnonCreds Revocation Status List Objects
 ---
 
-# Revocation Status List Object and Entries
+# Revocation Status List Object
 
 ## Overview
 
-In the ledger-agnostic [AnonCreds](https://hyperledger.github.io/anoncreds-spec/)[ specification](https://hyperledger.github.io/anoncreds-spec/), Revocation Status List Objects contain the state of the Revocation Registry at a given point in time. This enables:
+In the ledger-agnostic [AnonCreds](https://hyperledger.github.io/anoncreds-spec/)[specification](https://hyperledger.github.io/anoncreds-spec/), Revocation Status List Objects contain the state of the cryptographic accumulator and revocation indices at a given point in time. This enables:
 
 1. Holders of Verifiable Credentials to generate a proof of non-revocation (or not) about their specific credential; and
 2. Verifiers to be able to verify that proof.
 
-An initial Revocation Status List Entry is generated and published immediately on creation of the [Revocation Registry Definition Object](revocation-registry-definition-object.md) so that it can be used immediately by holders. Over time, additional Revocation Status List Entries are generated and published as the revocation status of one or more credentials within the Revocation Registry change.
+An initial Revocation Status List Entry is generated and published immediately on creation of the [Revocation Registry Definition Object](revocation-registry-definition-object.md) so that it can be used immediately by holders. Over time, additional Revocation Status List Entries may be generated and published as the revocation status of one or more credentials within the Revocation Registry change.
 
-In each of these subsequent Revocation Status List Entries, there is an updated **cryptographic accumulator** value AND an **updated list of revoked indices**, pointing to a location within a Tails File, associated with an index value.
+In each of these subsequent Revocation Status List Objects, there is an updated **cryptographic accumulator** value AND an **updated list of revoked indices**, pointing to the Revocation Registry Definition Object and a location within a Tails File, associated with an index value.
 
 This documentation will guide an implementor of AnonCreds on cheqd on how the cheqd AnonCreds Object Method defines and structures Revocation Registry Entry IDs and associated content.
 
@@ -25,9 +23,15 @@ Each specific AnonCreds identifier must be defined within an AnonCreds Object Me
 
 This means that an AnonCreds Revocation Status List Object ID does not need to be formatted in any particular syntax, in the latest version of the AnonCreds Specification.
 
-### Ledger-Agnostic AnonCreds Revocation Status List Object Content
+{% hint style="info" %}
+See the collapsible tile below to learn about how the Ledger-Agnostic AnonCreds specification handles these objects.
+{% endhint %}
 
-The required content and data model for the **first** AnonCreds Revocation Registry Entry Object are as follows:
+<details>
+
+<summary>Ledger-Agnostic AnonCreds Revocation Status List Object Content</summary>
+
+The required content and data model for any AnonCreds Revocation Status List Entry Object are as follows:
 
 * `revRegDefId`: the identifier of the associated [Revocation Registry Definition](https://hyperledger.github.io/anoncreds-spec/#term:revocation-registry-definition). The format of the identifier is dependent on the [AnonCreds Objects Method](https://hyperledger.github.io/anoncreds-spec/#term:anoncreds-objects-method) used by the issuer.
 * `revocationList`: Bit array defining the status of the credential in the \[ref: Revocation Registry]. A value of `1` means the credential is revoked, a value of `0` means the credential is not revoked.
@@ -47,27 +51,7 @@ For example:
 
 Therefore, for each new Revocation Status List entry, the the `revocRegDefId` remains the same - the only value that changes is the `currentAccumulator,` the `revocationList` and the `timestamp` reflecting the delta between the previous and most recent Revocation Registry Entries.
 
-The required content and data model for the **subsequent** AnonCreds Revocation Registry Entry Object are as follows:
-
-1. `revocDefType`
-2. `revocRegDefId`
-3. `currentAccumulator`: the calculated cryptographic accumulator reflecting the most up-to-date state of the revocation registry, reflecting the changes after revocations have been made.
-4. `previousAccumulator`: the referenced accumulator of the previous entry
-5. `issued`: the index or indices of credentials that have become un-revoked or re-issued
-6. `revoked`: the index or indices of the revoked credentials within the associated tails file.
-
-```json
-{
-  "revocRegDefId": "4xE68b6S5VRFrKMMG1U95M:4:4xE68b6S5VRFrKMMG1U95M:3:CL:59232:default:CL_ACCUM:4ae1cc6c-f6bd-486c-8057-88f2ce74e960",
-  "revocDefType": "CL_ACCUM",
-  "currentAccumulator": "21 116...567",
-  "previousAccumulator": "21 128...C3B",
-  "issued": [ 1, 67, 14 ],
-  "revoked": [ 172 ]
-}
-```
-
-
+</details>
 
 ## cheqd AnonCreds Object Method for Revocation Status List Objects and Entries
 
@@ -77,7 +61,7 @@ cheqd [DID-Linked Resources](https://docs.cheqd.io/identity/guides/did-linked-re
 
 cheqd resources module uses the following format:
 
-`did:cheqd:mainnet:<issuerDid>/resources/<revRegRevEntryId>`
+`did:cheqd:mainnet:<issuerDid>/resources/<revRegStatusId>`
 
 Rather than using a composite string for the Revocation Status List Object ID. The cheqd AnonCreds object method uses a UUID to identify the Revocation Status List Object Content which includes additional Revocation Status List Object Content Metadata, providing the required fields for equivalence with Hyperledger Indy implementations.
 
@@ -85,15 +69,15 @@ For example, the following DID URL is cheqd's representation of a `revocRegStatu
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887`
 
-> Unlike in Hyperledger Indy implementations, cheqd uses a **unique identifier for each specific Revocation Registry Entry ID**. This enables better indexing and searchability. For conformance with the cheqd AnonCreds Object Method, each Revocation Registry Entry **MUST** be created in the **same Collection** as the Revocation Registry Definition Object.
+> Unlike in Hyperledger Indy implementations, cheqd uses a **unique identifier for each specific Revocation Registry Entry ID**. This enables better indexing and searchability. For conformance with the cheqd AnonCreds Object Method, each Revocation Registry Status List Object **MUST** be created in the **same Collection** as the Revocation Registry Definition Object.
 
 ### cheqd Revocation Status List Entry Object Content
 
-Before creating any on-ledger resource transaction, it is important to assemble to required Revocation Registry Entry Object Content and save it as a file locally.
+Before creating any on-ledger resource transaction, it is important to assemble to required Revocation Status List Object Content and save it as a file locally.
 
 cheqd's approach to AnonCreds Revocation Entry Objects implements the following logic:
 
-1. The required (ledger-agnostic) content of the Revocation Registry Entry Object Content should be included in the body of the content.
+1. The required (ledger-agnostic) content of the Revocation Status List Object Content should be included in the body of the content.
 2. Anything that is network-specific should be included within AnonCreds Object Metadata.
 
 In the example below, the **first entry** in a Revocation Registry should be saved as a file, for example: `degreeCredRevocStatusList.json` with the following content:
@@ -110,30 +94,30 @@ In the example below, the **first entry** in a Revocation Registry should be sav
     "objectFamily": "anoncreds",
     "objectFamilyVersion": "v1",
     "objectType": "5",
+    "typeName": "CL_ACCUM",
     "issuerId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
     "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887"
   }
 }
 ```
 
-The **subsequent entries** in the Revocation Status List should contain reference to the indices of the revoked and un-revoked credentials in the Tails File, as well as the previous accumulator. For example:
+The **subsequent entries** in the Revocation Status List should be formatted in the same way, containing updated indices of the revoked and un-revoked credentials in the Tails File, as well as the latest accumulator. For example:
 
 ```json
 {
   "AnonCredsObject": {
-    "revocRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
-    "revocDefType": "CL_ACCUM",
+    "revRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
+    "revocationList": [0, 1, 1, 0, 1, 1, 1],
     "currentAccumulator": "21 116...567",
-    "previousAccumulator": "21 124C594B6B20E41B681E92B2C43FD165EA9E68BC3C9D63A82C8893124983CAE94 21 124C5341937827427B0A3A32113BD5E64FB7AB39BD3E5ABDD7970874501CA4897 6 5438CB6F442E2F807812FD9DC0C39AFF4A86B1E6766DBB5359E86A4D70401B0F 4 39D1CA5C4716FFC4FE0853C4FF7F081DFD8DF8D2C2CA79705211680AC77BF3A1 6 70504A5493F89C97C225B68310811A41AD9CD889301F238E93C95AD085E84191 4 39582252194D756D5D86D0EED02BF1B95CE12AED2FA5CD3C53260747D891993C",
-    "issued": [ 1, 67, 14 ],
-    "revoked": [ 172 ]
+    "timestamp": 1769640863481
   },
   "AnonCredsObjectMetadata": {
     "objectFamily": "anoncreds",
     "objectFamilyVersion": "v1",
     "objectType": "5",
+    "typeName": "CL_ACCUM",
     "issuerId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
-    "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/513d8a44-6188-41c2-8de8-eda562f82947"
+    "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/c154bc07-43f7-4b69-ac0c-5514001f2ca3"
   }
 }
 ```
@@ -179,10 +163,6 @@ This is important to mention, since many client applications may still expect Re
 
 </details>
 
-### create Revocation Status List Objects and Entries&#x20;
-
-To create a Revocation Status List Objects and Entries on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../tutorials/on-ledger-resources/), and pass the relevant JSON file for the object in the transaction.&#x20;
-
 ### cheqd resource Metadata
 
 Once you have created your Revocation Registry Entry as a resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J`
@@ -195,7 +175,6 @@ Once you have created your Revocation Registry Entry as a resource on cheqd, the
   "resourceId": "9d26b902-555d-43bd-bac3-0bedeb462887",
   "resourceName": "degreeCredRevocRegEntry",
   "resourceType": "CL_ACCUM",
-  "resourceVersion": "0.0.1",
   "mediaType": "application/json",
   "created": "2022-08-21T08:40:00Z",
   "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
@@ -225,20 +204,38 @@ For example:
 
 ```json
 {
-  "AnonCredsRevRegEntry": {
-    "revocRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
-    "revocDefType": "CL_ACCUM",
-    "currentAccumulator": "21 116...567",
-    "previousAccumulator": "21 128...C3B",
-    "issued": [ 1, 67, 14 ],
-    "revoked": [ 172, 195, 200 ]
+    "kms": "local",
+    "payload": {
+        "collectionId": "zF7rhDBfUt9d1gJPjx7s1J",
+        "id": "513d8a44-6188-41c2-8de8-eda562f82947",
+        "name": "degreeCredRevocRegEntry",
+        "resourceType": "CL_ACCUM",
+        "data": "SGVsbG8sIHdvcmxk"
+    },
+    "signInputs": [{
+        "verificationMethodId": "did:cheqd:testnet:zF7rhDBfUt9d1gJPjx7s1J#key-1",
+        "keyType": "Ed25519",
+        "privateKeyHex": "0f ... 38"
+    }]
+}
+```
+
+where the Base 64 encoded data decodes to:
+
+```json
+{
+  "AnonCredsObject": {
+    "revRegDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
+    "revocationList": [0, 1, 1, 0, 1, 1, 1, 0],
+    "currentAccumulator": "21 916...727",
+    "timestamp": 1989540864487
   },
   "AnonCredsObjectMetadata": {
     "objectFamily": "anoncreds",
-    "objectFamilyVersion": "v2",
+    "objectFamilyVersion": "v1",
     "objectType": "5",
     "issuerId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
-    "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/c154bc07-43f7-4b69-ac0c-5514001f2ca3"
+    "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/513d8a44-6188-41c2-8de8-eda562f82947"
   }
 }
 ```
@@ -250,14 +247,13 @@ Once the transaction has been created, the `resourceMetadata` will look like the
   {
   "resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/c154bc07-43f7-4b69-ac0c-5514001f2ca3",
   "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
-  "resourceId": "c154bc07-43f7-4b69-ac0c-5514001f2ca3",
+  "resourceId": "513d8a44-6188-41c2-8de8-eda562f82947",
   "resourceName": "degreeCredRevocRegEntry",
   "resourceType": "CL_ACCUM",
-  "resourceVersion": "0.0.2",
   "mediaType": "application/json",
   "created": "2022-09-01T04:30:01Z",
   "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
-  "previousVersionId": "513d8a44-6188-41c2-8de8-eda562f82947",
+  "previousVersionId": "c154bc07-43f7-4b69-ac0c-5514001f2ca3",
   // points to previous Revocation Registry Entry
   "nextVersionId": null
   }
@@ -267,6 +263,10 @@ Once the transaction has been created, the `resourceMetadata` will look like the
 {% hint style="info" %}
 Note: The previousVersionId will now link to the previous Revocation Status List Entry ID
 {% endhint %}
+
+### create Revocation Status List Objects
+
+To create a Revocation Status List Objects on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../tutorials/on-ledger-resources/), and pass the relevant JSON file for the object in the transaction.&#x20;
 
 ### Traversing Revocation Registry Entries using a DID Resolver
 
