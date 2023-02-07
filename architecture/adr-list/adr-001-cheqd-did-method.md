@@ -1,4 +1,4 @@
-# ADR 002: cheqd DID method
+# ADR 001: cheqd DID method
 
 ## Status
 
