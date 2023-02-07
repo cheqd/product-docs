@@ -2,19 +2,19 @@
 
 ## Status
 
-| Category                  | Status                                        |
-| :------------------------ | :-------------------------------------------- |
-| **Authors**               | Alex Tweeddale, Renata Toktar, Ankur Banerjee |
-| **ADR Stage**             | DRAFT                                         |
-| **Implementation Status** | In Progress                                   |
-| **Start Date**            | 2022-02-22                                    |
-| **Last Updated**          | 2022-08-04                                    |
+| Category | Status |
+| :--- | :--- |
+| **Authors** | Alex Tweeddale, Renata Toktar, Ankur Banerjee   |
+| **ADR Stage** | PROPOSED |
+| **Implementation Status** | In Progress |
+| **Start Date** | 2022-02-22 |
+| **Last Updated** | 2022-08-04 |
 
 ## Summary
 
-The [`did:cheqd` method ADR](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method) defines how DIDs are created and read from ledger. According to the [W3C DID Core specification](https://w3c.github.io/did-core/), DID methods are expected to provide [standards-compliant methods of DID and DID Document ("DIDDoc") production](https://w3c.github.io/did-core/#production-and-consumption).
+The [`did:cheqd` method ADR](adr-001-cheqd-did-method.md) defines how DIDs are created and read from ledger. According to the [W3C DID Core specification](https://w3c.github.io/did-core/), DID methods are expected to provide [standards-compliant methods of DID and DID Document ("DIDDoc") production](https://w3c.github.io/did-core/#production-and-consumption).
 
-The [cheqd DID Resolver](https://github.com/cheqd/did-resolver) is designed to implement the [W3C DID _Resolution_ specification](https://w3c-ccg.github.io/did-resolution/) for [`did:cheqd`](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method) method.
+The [cheqd DID Resolver](https://github.com/cheqd/did-resolver) is designed to implement the [W3C DID _Resolution_ specification](https://w3c-ccg.github.io/did-resolution/) for [`did:cheqd`](adr-001-cheqd-did-method.md) method.
 
 ## Context
 
@@ -152,7 +152,7 @@ We explored two architectural patterns for how a DID Resolver could be implement
    1. Universal Resolver drivers are designed to be run as Docker containers. A limitation of this approach is that the computation footprint of a compute resource can be quite high, e.g., a Docker container may be 100 MB+ in size and [suffer from slow startup times in a "cold-start" scenario](https://mikhail.io/serverless/coldstarts/aws/).
    2. Thus, our "Light" DID Resolver idea was to explore using [Cloudflare Workers](https://workers.cloudflare.com/), a lightweight serverless compute platform. As a comparison, [Cloudflare Workers are limited to 1 MB in size](https://developers.cloudflare.com/workers/platform/limits/) and [have extremely low cold-start times](https://blog.cloudflare.com/eliminating-cold-starts-with-cloudflare-workers/). (We use Cloudflare Workers in [our Cosmos SDK Custom Data API](https://github.com/cheqd/data-api), for example.)
    3. Cloudflare Workers can also be deployed outside the Cloudflare service in a Docker container using [Miniflare](https://miniflare.dev/). This could be used to provide a Docker container deployment option for the Universal Resolver `did:cheqd` driver.
-   4. However, [a limitation of Cloudflare Workers is they do not allow a gRPC _request_ to be made](https://community.cloudflare.com/t/can-i-make-a-grpc-request-from-a-worker/157450/4) to an external endpoint. This would force the "Light" cheqd Resolver to use the gRPC-Web / REST endpoint `resolve` implementation to fetch data from the ledger. This could be considered a higher risk profile in terms of data integrity by resolver operators / client applications.
+   4. However, a limitation of Cloudflare Workers is they do not allow a gRPC _request_ to be made to an external endpoint. This would force the "Light" cheqd Resolver to use the gRPC-Web / REST endpoint `resolve` implementation to fetch data from the ledger. This could be considered a higher risk profile in terms of data integrity by resolver operators / client applications.
 
 Both of the architectural patterns above are designed so that a **[Universal Resolver driver for `did:cheqd`](https://github.com/decentralized-identity/universal-resolver)** could be created. The Universal Resolver project aims to provide a common REST API definition for DID Resolution where each DID method can provide a Docker container that with an easy-to-deploy mechanism for the specific DID method.
 
@@ -170,7 +170,7 @@ The _Full cheqd DID Resolver_ is designed to handle requests concurrently, while
 
 #### Fetching Protobuf from ledger and converting it to JSON
 
-Since Cosmos SDK SDK encodes data in Protobuf, the DID Resolver "[marshalls](<https://en.wikipedia.org/wiki/Marshalling_(computer_science)>)" them to JSON. The software class diagram below describes how these components/methods are tied together:
+Since Cosmos SDK SDK encodes data in Protobuf, the DID Resolver "[marshalls](https://en.wikipedia.org/wiki/Marshalling_(computer_science))" them to JSON. The software class diagram below describes how these components/methods are tied together:
 
 ![*Full cheqd DID Resolver* class diagram](../../.gitbook/assets/cheqd-full-did-resolver-class-diagram.png)
 

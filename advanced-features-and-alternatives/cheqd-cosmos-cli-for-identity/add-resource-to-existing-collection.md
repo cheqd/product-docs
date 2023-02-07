@@ -1,6 +1,6 @@
 # 📚 Publishing a new Resource version
 
-The purpose of this document is to describe how someone can create [a _new_ Resource on under an existing _Collection_](broken-reference).
+The purpose of this document is to describe how someone can create [a _new_ Resource on under an existing _Collection_](../../guides/did-linked-resources/technical-composition-of-did-linked-resources/creating-a-resource.md).
 
 This tutorial uses the [cheqd Cosmos CLI](https://docs.cheqd.io/node/docs/cheqd-cli), similar to the [creating a new Resource tutorial](tutorials.md).
 
@@ -15,7 +15,7 @@ This tutorial uses the [cheqd Cosmos CLI](https://docs.cheqd.io/node/docs/cheqd-
 
 ### 1. Generate a new UUID for the new Resource version
 
-[UUIDs are used to identify Resources](broken-reference). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
+[UUIDs are used to identify Resources](https://en.wikipedia.org/wiki/Universally_unique_identifier). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
 
 ```bash
 $ uuidgen

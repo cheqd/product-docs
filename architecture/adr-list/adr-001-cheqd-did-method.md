@@ -310,7 +310,7 @@ Services can be defined in a DIDDoc to express means of communicating with the D
 
 ## Representation on cheqd-node in protobuf format
 
-Since cheqd-node is built using the Cosmos SDK, the data stored directly on ledger is formatted in Protobuf and is transformed back into compliant JSON client-side on request. 
+Since cheqd-node is built using the Cosmos SDK, the data stored directly on ledger is formatted in Protobuf and is transformed back into compliant JSON client-side on request.
 
 ### DIDDoc representation on-ledger
 

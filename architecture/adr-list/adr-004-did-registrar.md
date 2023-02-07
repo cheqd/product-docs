@@ -17,7 +17,7 @@ The [`did:cheqd` method ADR](https://docs.cheqd.io/node/architecture/adr-list/ad
 
 The [cheqd DID Registrar](https://github.com/cheqd/did-registrar) is designed to implement the [DIF _Registrar_ specification](https://identity.foundation/did-registration/) for [`did:cheqd`](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method) method to enable create/update/deactivate DID operations easily.
 
-The [cheqd DID Registrar](https://github.com/cheqd/did-registrar) also supports the creation of [DID-Linked Resources](https://docs.cheqd.io/identity/guides/did-resolver) for example, schemas, credential definitions, status lists, trust registries and logos. 
+The [cheqd DID Registrar](https://github.com/cheqd/did-registrar) also supports the creation of [DID-Linked Resources](https://docs.cheqd.io/identity/guides/did-resolver) for example, schemas, credential definitions, status lists, trust registries and logos.
 
 ## Architecture
 
@@ -30,12 +30,15 @@ The DID registrar can operate in the following modes:
 3. Client Managed Secret Mode :heavy_check_mark:
 
 ### Internal Secret Mode
+
 In this mode, the DID Registrar is responsible for generating the DID controller cryptogprahic keys used in DID operations. Therefore, a DID Registrar used in this mode is considered a highly trusted component which should be fully under the control of a DID controller. If it is operated as a remotely hosted service, secure connection protocols such as TLS, DIDComm, etc. MUST be used.
 
 ### External Secret Mode
+
 In this mode, the DID Registrar does not itself have access to the cryptographic keys used in DID operations, but it has a way of accessing an external wallet in order to perform cryptographic operations such as generating signatures.
 
 ### Client Managed Secret Mode
+
 In this mode, the DID Registrar does not itself have access to the cryptographic keys used in DID operations, but it will ask the client to perform operations such as generating keys and signatures in a separate action from using the Registrar.
 
 The cheqd DID Registrar **only supports** the [Client Managed Secret Mode](https://identity.foundation/did-registration/#client-managed-secret-mode), considering the security and scalability of the registrar. The workflow for all the operations follows the protocol below:
@@ -352,6 +355,7 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
 }
 
 ```
+
 </details>
 
 <details>
@@ -382,6 +386,7 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
 }
 
 ```
+
 </details>
 
 
@@ -400,6 +405,7 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
 }
 
 ```
+
 </details>
 
 <details>
@@ -426,16 +432,15 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
 }
 
 ```
-</details>
 
-<br>
+</details>
 
 ## Resource Operations
 
-<br>
-
 ### Create
-**Endpoint**: `/1.0/{:did}/create-resource` <br>
+
+**Endpoint**: `/1.0/{:did}/create-resource`
+
 Provide an existing DID as the path parameter, and the request body with resource name, type and base64 encoded data
 
 <details>
@@ -449,6 +454,7 @@ Provide an existing DID as the path parameter, and the request body with resourc
 }
 
 ```
+
 </details>
 
 <details>
@@ -479,6 +485,7 @@ Provide an existing DID as the path parameter, and the request body with resourc
 }
 
 ```
+
 </details>
 
 
@@ -497,6 +504,7 @@ Provide an existing DID as the path parameter, and the request body with resourc
 }
 
 ```
+
 </details>
 
 <details>
@@ -526,13 +534,14 @@ Provide an existing DID as the path parameter, and the request body with resourc
 }
 
 ```
+
 </details>
 
 <br>
 
 ## References
 
-- [W3C Decentralized Identifiers (DIDs)](https://www.w3.org/TR/did-core/) recommendation
-- [DIF DID Registrar](https://identity.foundation/did-registration) specification
-- [Universal Registrar driver development](https://github.com/decentralized-identity/universal-registrar/blob/main/docs/driver-development.md) guide
-- [DID-Linked Resources](https://docs.cheqd.io/identity/architecture/adr-list/adr-002-on-ledger-resources)
+* [W3C Decentralized Identifiers (DIDs)](https://www.w3.org/TR/did-core/) recommendation
+* [DIF DID Registrar](https://identity.foundation/did-registration) specification
+* [Universal Registrar driver development](https://github.com/decentralized-identity/universal-registrar/blob/main/docs/driver-development.md) guide
+* [DID-Linked Resources](adr-002-did-linked-resources.md)
