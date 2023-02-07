@@ -9,6 +9,7 @@ The [cheqd DID Resolver](https://github.com/cheqd/did-resolver) is designed to i
 > **💻 Github:** [**cheqd/did-resolver**](https://github.com/cheqd/did-resolver/)
 >
 > Code and deployment packages for the cheqd DID Resolver
+
 ## Design of cheqd DID Resolver
 
 Since [cheqd uses the Cosmos SDK blockchain framework](https://blog.cheqd.io/why-cheqd-has-joined-the-cosmos-4db8845722c5), the underlying data storage and retrieval mechanisms used rely on those offered by the [Cosmos SDK framework](https://docs.cosmos.network/main/intro/overview.html).

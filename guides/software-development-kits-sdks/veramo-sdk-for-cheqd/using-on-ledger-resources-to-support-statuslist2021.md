@@ -158,7 +158,7 @@ SGVsbG8sIHdvcmxk
 
 [UUIDs are used to identify Resources](https://en.wikipedia.org/wiki/Universally_unique_identifier). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
 
-```bash
+```text
 $ uuidgen
 4a71319b-00b1-4db9-bc05-56dc426f7062
 ```

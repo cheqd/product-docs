@@ -6,11 +6,11 @@ This page describes how to use and set up the [cheqd DID Registrar](https://gith
 
 If you do not want to install anything and just want to test it using our testnet, you can load the REST API endpoint for [registrar](https://did-registrar-staging.cheqd.net) in your browser.
 
-You should run your own registrar to perform DID Operations on the Mainnet
+You should run your own registrar to perform DID Operations on the Mainnet.
 
-### Setup 
+## Setup
 
-#### Environment variable configuration
+### Environment variable configuration
 
 Environment variables needed for the Registrar are
 
@@ -29,7 +29,7 @@ cd did-registrar
 
 ***
 
-### Running a DID Registrar Using Docker
+## Running a DID Registrar Using Docker
 
 Build Docker container image using Dockerfile:
 
@@ -45,7 +45,7 @@ docker run -it did-registrar:local
 
 ***
 
-### Running a DID Registrar Locally
+## Running a DID Registrar Locally
 
 ```bash
 npm install
