@@ -66,6 +66,7 @@ SGVsbG8sIHdvcmxk
     }]
 }
 ```
+
 </details>
 
 <details>
@@ -91,6 +92,7 @@ Prepare a file with resource data
     "file": "/path/to/resource.txt"
 }
 ```
+
 </details>
 
 <br>

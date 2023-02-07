@@ -22,7 +22,7 @@ You can generate identity keys standalone in a plug-and-play format for future u
 veramo execute -m cheqdGenerateIdentityKeys
 ```
 
-<details> 
+<details>
 <summary>Output</summary>
 
 ```bash
@@ -41,6 +41,7 @@ Result : {
   "type": "Ed25519"
 }
 ```
+
 </details>
 <br>
 
@@ -103,6 +104,7 @@ Result : {
   }
 }
 ```
+
 </details>
 
 <br>

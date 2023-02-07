@@ -15,6 +15,21 @@ The team behind the core cheqd product/tech stack have extensive experience work
 * [Universal Resolver support](did-resolver.md) provides an easy way to integrate cheqd into SSI and non-SSI applications.
 * We aim to provide backwards compatibility with client applications designed for Hyperledger Indy (`did:indy:` and `did:sov:` methods) through a blend of [on-ledger functionality such as Resources](https://docs.cheqd.io/identity/architecture/adr-list/adr-002-did-linked-resources) and SDKs while _also_ providing a future-compatible mode with more complex DIDDocs than those possible on Hyperledger Indy.
 
+## What arguments does cheqd DID method support?
+
+* `verificationMethod`
+  * Ed25519VerificationKey2020
+  * JsonWebKey2020
+  * Ed25519VerificationKey2018
+
+* `methodSpecificIdAlgo`
+  * base58btc
+  * uuid
+
+* `network`
+  * mainnet
+  * testnet
+
 ## W3C DID Specification compliance
 
 ### DID Spec Registries

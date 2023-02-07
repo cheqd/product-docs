@@ -311,7 +311,7 @@ Resulting in the following metadata syntax:
 
 ### Issuing a Verifiable Credential referencing cheqd StatusList
 
-Follow the [instructions for issuing a Verifiable Credential here](../../../tutorials/verifiable-credentials-and-presentations/json-jwt/verifiable-credentials.md), including the credentialStatus information, as shown in the example below:
+Follow the [instructions for issuing a Verifiable Credential here](../../../tutorials/verifiable-credentials-and-presentations/README.md), including the credentialStatus information, as shown in the example below:
 
 ```json
 {

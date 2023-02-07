@@ -12,6 +12,7 @@
   * [Update an existing DID](tutorials/did-operations/update-did.md)
   * [Off-ledger subject DIDs](tutorials/did-operations/create-subject-did.md)
   * [Managing identity keys](tutorials/did-operations/identity-key-handling.md)
+  * [DID Operations Troubleshooting](tutorials/did-operations/did-operations-troubleshooting.md)
 * [📃 Verifiable Credentials and Presentations](tutorials/verifiable-credentials-and-presentations/README.md)
   * [Issue a Verifiable Credential](tutorials/verifiable-credentials-and-presentations/verifiable-credentials.md)
   * Verify a Verifiable Credential

@@ -44,4 +44,4 @@ Then try running the command below to deactivate the `did`:
 veramo execute -m cheqdDeactivateIdentifier --argsFile path/to/args.json
 ```
 
-If you would like to fetch the deactivated DIDDoc, execute the `resolve` command as outlined [here](./query-did.md). You can check if `didDocumentMetadata` has the `deactivated` flag set to true
+If you would like to fetch the deactivated DIDDoc, execute the `resolve` command as outlined [here](./query-did.md). You can check if `didDocumentMetadata` has the `deactivated` flag set to true.

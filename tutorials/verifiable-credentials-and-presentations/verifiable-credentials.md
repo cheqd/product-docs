@@ -4,15 +4,15 @@ This tutorial offers step-by-step guidance on how to issue a verifiable credenti
 
 > ⚠️ **Before you begin...**
 >
-> Make sure you've correctly [configured the cheqd plugin's agent settings](../../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md) for Veramo CLI
+> Make sure you've correctly [configured the cheqd plugin's agent settings](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md) for Veramo CLI
 
 ## Background
 
 The subject (holder) of this credential will be an off-ledger [`did:key`](https://github.com/w3c-ccg/did-method-key) DID. The rationale for using off-ledger DIDs when issuing a credential is because the fact that they _aren't_ persisted on ledger means they cannot be correlated or tracked to specific users/individuals.
 
-This allows a user to have _multiple_ `did:key` identities, and the identifier/handle they reveal when sharing a [Verifiable Credential](verifiable-credentials.md#issue-a-json-jwt-verifiable-credential) is context-dependent and better for privacy.
+This allows a user to have _multiple_ `did:key` identities, and the identifier/handle they reveal when sharing a [Verifiable Credential](verifiable-credentials.md) is context-dependent and better for privacy.
 
-The _issuer_ of the credential, on the other hand, uses [an on-ledger `did:cheqd` DID](../../did-operations/) since this needs to be publicly-accessible and cryptographically verifiable.
+The _issuer_ of the credential, on the other hand, uses [an on-ledger `did:cheqd` DID](../../architecture/adr-list/adr-001-cheqd-did-method.md) since this needs to be publicly-accessible and cryptographically verifiable.
 
 ## Instructions
 
@@ -20,7 +20,7 @@ The _issuer_ of the credential, on the other hand, uses [an on-ledger `did:cheqd
 
 Normally, the credential holder will _provide_ a `did:key` DID they have generated themselves (usually done in the background by apps they are using). So, this step _typically_ isn't done by a credential issuer.
 
-For the purpose of this tutorial though, we recommend you [create a `did:key` subject DID](../../did-operations/create-subject-did.md) for the later steps.
+For the purpose of this tutorial though, we recommend you [create a `did:key` subject DID](../did-operations/create-subject-did.md) for the later steps.
 
 ### 2. Begin credential creation
 
@@ -32,9 +32,10 @@ veramo credential create --json
 
 ### 3. Select a credential proof format
 
-You'll be presented with an multiple options select
- * `jwt` for [JSON credential](https://www.w3.org/TR/vc-data-model/#json), encoded as a [JSON Web Token (JWT)](https://www.w3.org/TR/vc-data-model/#json-web-token), a [W3C compliant proof format.](https://www.w3.org/TR/vc-data-model/#proof-formats)
- * `lds` for [JSONLD credential](https://www.w3.org/TR/vc-data-model/#json-ld), encoded as a [Data Integrity Proofs](https://www.w3.org/TR/vc-data-model/#data-integrity-proofs), a [W3C compliant proof format.](https://www.w3.org/TR/vc-data-model/#proof-formats)
+You'll be presented with an multiple options select:
+
+* `jwt` for [JSON credential](https://www.w3.org/TR/vc-data-model/#json), encoded as a [JSON Web Token (JWT)](https://www.w3.org/TR/vc-data-model/#json-web-token), a [W3C compliant proof format.](https://www.w3.org/TR/vc-data-model/#proof-formats)
+* `lds` for [JSONLD credential](https://www.w3.org/TR/vc-data-model/#json-ld), encoded as a [Data Integrity Proofs](https://www.w3.org/TR/vc-data-model/#data-integrity-proofs), a [W3C compliant proof format.](https://www.w3.org/TR/vc-data-model/#proof-formats)
 
  > :books: **Learn about JSON (JWT)**
 >
@@ -44,7 +45,7 @@ You'll be presented with an multiple options select
 
 Select which Issuer DID stored in your local storage you'd like to issue the credential from, e.g., `did:cheqd:mainnet:zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX`
 
-The assumption here is that you've either [created the issuer DID](../../did-operations/) or [stored the DIDDoc by querying it](../../did-operations/query-did.md).
+The assumption here is that you've either [created the issuer DID](../did-operations/create-a-did.md) or [stored the DIDDoc by querying it](../did-operations/query-did.md).
 
 ### 5. Specify the subject DID (credential holder's DID)
 
@@ -104,6 +105,7 @@ _Note_: The human-readable JSON body below is purely for easier parsing by devel
   }
 }
 ```
+
 </details>
 
 <details>
