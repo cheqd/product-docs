@@ -352,6 +352,7 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
 }
 
 ```
+
 </details>
 
 <details>
@@ -382,6 +383,7 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
 }
 
 ```
+
 </details>
 
 
@@ -400,6 +402,7 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
 }
 
 ```
+
 </details>
 
 <details>
@@ -426,13 +429,10 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
 }
 
 ```
+
 </details>
 
-<br>
-
 ## Resource Operations
-
-<br>
 
 ### Create
 **Endpoint**: `/1.0/{:did}/create-resource` <br>
@@ -449,6 +449,7 @@ Provide an existing DID as the path parameter, and the request body with resourc
 }
 
 ```
+
 </details>
 
 <details>
@@ -479,6 +480,7 @@ Provide an existing DID as the path parameter, and the request body with resourc
 }
 
 ```
+
 </details>
 
 
@@ -497,6 +499,7 @@ Provide an existing DID as the path parameter, and the request body with resourc
 }
 
 ```
+
 </details>
 
 <details>
@@ -526,13 +529,14 @@ Provide an existing DID as the path parameter, and the request body with resourc
 }
 
 ```
+
 </details>
 
 <br>
 
 ## References
 
-- [W3C Decentralized Identifiers (DIDs)](https://www.w3.org/TR/did-core/) recommendation
-- [DIF DID Registrar](https://identity.foundation/did-registration) specification
-- [Universal Registrar driver development](https://github.com/decentralized-identity/universal-registrar/blob/main/docs/driver-development.md) guide
-- [DID-Linked Resources](adr-002-did-linked-resources.md)
+* [W3C Decentralized Identifiers (DIDs)](https://www.w3.org/TR/did-core/) recommendation
+* [DIF DID Registrar](https://identity.foundation/did-registration) specification
+* [Universal Registrar driver development](https://github.com/decentralized-identity/universal-registrar/blob/main/docs/driver-development.md) guide
+* [DID-Linked Resources](adr-002-did-linked-resources.md)

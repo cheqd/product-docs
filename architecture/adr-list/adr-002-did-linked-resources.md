@@ -48,23 +48,23 @@ Decentralized Identifiers (DIDs) are often stored on ledgers (e.g., [cheqd](http
 
 DIDs _can_ be stored on traditional centralised-storage endpoints (e.g., [`did:web`](https://w3c-ccg.github.io/did-method-web/), [`did:git`](https://github.com/decentralized-identity/github-did/) but this comes with certain drawbacks:
 
-1. **DIDs could be tampered by compromising the hosting provider**: DIDs and DID Documents ("DIDDocs") stored at a centralised web endpoint can be compromised and replaced by malicious actors.
-2. **Hosting providers could unilaterally cease to host particular clients**: Hosting providers could terminate accounts due to factors such as non-payment of fees, violation of Terms of Service, etc.
+1.  **DIDs could be tampered by compromising the hosting provider**: DIDs and DID Documents ("DIDDocs") stored at a centralised web endpoint can be compromised and replaced by malicious actors.
+2.  **Hosting providers could unilaterally cease to host particular clients**: Hosting providers could terminate accounts due to factors such as non-payment of fees, violation of Terms of Service, etc.
 3.  **Single point-of-failure in resiliency**: Even for highly-trusted and sophisticated hosting providers who may not present a risk of infrastructure being compromised, a service outage at the hosting provider can make a DID anchored on their systems inaccessible.
 
-    - See [notable examples of service outages](https://totaluptime.com/notable-network-and-cloud-outages-of-2021/) from major cloud providers: [Amazon Web Services (AWS)](https://awsmaniac.com/aws-outages/), [Microsoft Azure](https://www.theregister.com/2018/09/17/azure_outage_report/), [Google Cloud](https://www.thousandeyes.com/blog/google-cloud-platform-outage-analysis), [Facebook / Meta](https://en.wikipedia.org/wiki/2021_Facebook_outage), [GitHub](https://github.blog/2022-03-23-an-update-on-recent-service-disruptions/), [Cloudflare](https://blog.cloudflare.com/cloudflare-outage-on-june-21-2022/)...\
+    * See [notable examples of service outages](https://totaluptime.com/notable-network-and-cloud-outages-of-2021/) from major cloud providers: [Amazon Web Services (AWS)](https://awsmaniac.com/aws-outages/), [Microsoft Azure](https://www.theregister.com/2018/09/17/azure_outage_report/), [Google Cloud](https://www.thousandeyes.com/blog/google-cloud-platform-outage-analysis), [Facebook / Meta](https://en.wikipedia.org/wiki/2021_Facebook_outage), [GitHub](https://github.blog/2022-03-23-an-update-on-recent-service-disruptions/), [Cloudflare](https://blog.cloudflare.com/cloudflare-outage-on-june-21-2022/)...\
 
 
-     - ![Graph showing drop in Facebook traffic from their global service outage in 2021](../../.gitbook/assets/On-ledger%20resources%20-%20Facebook%20global%20outage.png)
+     * ![Graph showing drop in Facebook traffic from their global service outage in 2021](../../.gitbook/assets/On-ledger%20resources%20-%20Facebook%20global%20outage.png)
 Source: [Why Facebook, Instagram, and WhatsApp All Went Down Today](https://web.archive.org/web/20211005032128/https://www.wired.com/story/why-facebook-instagram-whatsapp-went-down-outage/). 
 Figure 2: Graph showing drop in Facebook traffic from their global service outage in 2021 (source:_ [_Kentik_](https://www.kentik.com/blog/facebooks-historic-outage-explained/)_)_
 
-    - In particular, [the 2021 global Facebook outage](https://www.kentik.com/blog/facebooks-historic-outage-explained/) also [took down apps that used "Login with Facebook"](https://www.wired.com/story/why-facebook-instagram-whatsapp-went-down-outage/) functionality. This highlights the risks of "contagion impact" (e.g., [a _different_ Facebook outage took down Spotify, TikTok, Pinterest](https://www.engadget.com/facebook-sdk-spotify-tinder-tiktok-ios-outage-125806814.html)) of centralised digital systems - even ones run by extremely-capable tech providers.
+    * In particular, [the 2021 global Facebook outage](https://www.kentik.com/blog/facebooks-historic-outage-explained/) also [took down apps that used "Login with Facebook"](https://www.wired.com/story/why-facebook-instagram-whatsapp-went-down-outage/) functionality. This highlights the risks of "contagion impact" (e.g., [a _different_ Facebook outage took down Spotify, TikTok, Pinterest](https://www.engadget.com/facebook-sdk-spotify-tinder-tiktok-ios-outage-125806814.html)) of centralised digital systems - even ones run by extremely-capable tech providers.
 4. **Link rot**: "Link rot" happens when over time, URLs become inaccessible, either because the endpoint where the content was stored is no longer active, or the URL format itself changes. The graph below from [an analysis by _The New York Times_ of linkrot](https://www.cjr.org/analysis/linkrot-content-drift-new-york-times.php) shows degradation over time of URLs.
 
-- ![Image of Link Rot over time](../../.gitbook/assets/On-ledger%20resources%20-%20Link%20Rot.jpeg)
+* ![Image of Link Rot over time](../../.gitbook/assets/On-ledger%20resources%20-%20Link%20Rot.jpeg)
 
-- _Figure 3: Linkrot analysis over 1996-2019 by New York Times (source:_ [_Columbia Journalism Review / New York Times_](https://www.cjr.org/analysis/linkrot-content-drift-new-york-times.php))_
+* _Figure 3: Linkrot analysis over 1996-2019 by New York Times (source:_ [_Columbia Journalism Review / New York Times_](https://www.cjr.org/analysis/linkrot-content-drift-new-york-times.php))_
 
 ## Risks applicable in the context of Verifiable Credentials
 
@@ -168,7 +168,7 @@ Importantly, we decided not to populate the actual resource data into the didDoc
 
 ### Resource Preview
 
-Resource previews will aopear within DIDDocMetadata. These do not include the actual core data of the resource and only reference the metadata: 
+Resource previews will aopear within DIDDocMetadata. These do not include the actual core data of the resource and only reference the metadata:
 
 * Resource Collection ID: (did:cheqd:...:) (supplied client-side)\*\*
 * Resource ID: UUID ➝ specific to resource, also effectively a version number (supplied client-side)
@@ -385,6 +385,7 @@ This section will delineate between expected inputs in JSON and how the cheqd le
 ```jsonc
 { "collectionId": "91e5f0cf-5f1e-5c19-97d3-d313e84033b4" }
 ```
+
 </details>
 
 ### QueryCollectionResourcesResponse
