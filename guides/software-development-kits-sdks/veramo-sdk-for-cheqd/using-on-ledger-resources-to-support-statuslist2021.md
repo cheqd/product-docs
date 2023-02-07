@@ -143,13 +143,13 @@ Note: The uncompressed bitstring _MUST_ be at least 16KB in size to maintain her
 
 On Unix systems, you can use the following command:
 
-```bash
+```text
 $ base64 -w 0 <path-to-the-resource-file>
 ```
 
 Example:
 
-```bash
+```text
 $ base64 -w 0 credentialsubjectencondedlist.txt
 SGVsbG8sIHdvcmxk
 ```

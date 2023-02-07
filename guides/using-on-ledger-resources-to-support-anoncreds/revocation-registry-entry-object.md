@@ -6,7 +6,7 @@ description: cheqd support for Ledger-Agnostic AnonCreds Revocation Status List 
 
 ## Overview
 
-In the ledger-agnostic [AnonCreds](https://hyperledger.github.io/anoncreds-spec/)[ specification](https://hyperledger.github.io/anoncreds-spec/), Revocation Status List Objects contain the state of the cryptographic accumulator and revocation indices at a given point in time. This enables:
+In the ledger-agnostic [AnonCreds](https://hyperledger.github.io/anoncreds-spec/)[specification](https://hyperledger.github.io/anoncreds-spec/), Revocation Status List Objects contain the state of the cryptographic accumulator and revocation indices at a given point in time. This enables:
 
 1. Holders of Verifiable Credentials to generate a proof of non-revocation (or not) about their specific credential; and
 2. Verifiers to be able to verify that proof.

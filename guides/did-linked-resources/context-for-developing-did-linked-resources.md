@@ -140,7 +140,7 @@ The high centralisation of cloud providers and history of noteworthy outages cle
 
 <figure><img src="../../.gitbook/assets/Worlds cloud infrastructure image.png" alt="Image of cloud infrastructure rankings"><figcaption><p>Source: <a href="https://cointelegraph.com/news/the-future-of-the-internet-inside-the-race-for-web3-s-infrastructure">CoinTelegraph “The future of the internet: Inside the race for Web3’s infrastructure’</a></p></figcaption></figure>
 
-_Figure 3: breakdown of global cloud providers market share_
+ Figure 3: breakdown of global cloud providers market share.
 
 Beyond cloud providers, there are other events that exemplify the issuers relying on larger players. The [Facebook outage of 2021](https://www.kentik.com/blog/facebooks-historic-outage-explained/) (shown in the graph below) [took down apps that used “Login with Facebook”](https://web.archive.org/web/20211005032128/https://www.wired.com/story/why-facebook-instagram-whatsapp-went-down-outage/) functionality. This highlights the risks of “contagion impact” (e.g., [a different Facebook outage took down Spotify, TikTok, Pinterest](https://www.engadget.com/facebook-sdk-spotify-tinder-tiktok-ios-outage-125806814.html)) of centralised digital systems — even ones run by extremely-capable tech providers.
 

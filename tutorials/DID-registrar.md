@@ -8,7 +8,6 @@ If you do not want to install anything and just want to test it using our testne
 
 You should run your own registrar to perform DID Operations on the Mainnet
 
-
 ### Setup 
 
 #### Environment variable configuration
@@ -22,6 +21,7 @@ Environment variables needed for the Registrar are
 
 
 Clone the repository
+
 ```bash
 git clone git@github.com:cheqd/did-registrar.git
 cd did-registrar
