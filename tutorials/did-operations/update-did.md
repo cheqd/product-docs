@@ -58,7 +58,7 @@ So, let's try to update `service` section of our `DIDDoc`. Then, your `args.json
       {
         "id": "did:cheqd:testnet:zVJe7ZNvCtbK83pv#linked-domain",
         "type": "LinkedDomains",
-        "serviceEndpoint": "https://cheqd.io/"
+        "serviceEndpoint": ["https://cheqd.io/"]
       }
     ]
   },
