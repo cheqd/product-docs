@@ -37,9 +37,9 @@ You'll be presented with an multiple options select:
 * `jwt` for [JSON credential](https://www.w3.org/TR/vc-data-model/#json), encoded as a [JSON Web Token (JWT)](https://www.w3.org/TR/vc-data-model/#json-web-token), a [W3C compliant proof format.](https://www.w3.org/TR/vc-data-model/#proof-formats)
 * `lds` for [JSONLD credential](https://www.w3.org/TR/vc-data-model/#json-ld), encoded as a [Data Integrity Proofs](https://www.w3.org/TR/vc-data-model/#data-integrity-proofs), a [W3C compliant proof format.](https://www.w3.org/TR/vc-data-model/#proof-formats)
 
- > :books: **Learn about JSON (JWT)**
+ > :books: **Learn about different types of Verifiable Credentials**
 >
-> If you want to learn more about what **JSON (JWTs) are,** [please go over to our learning site here.](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-verifiable-credential-vc/what-are-the-different-types-of-verifiable-credentials/json-jwt)
+> If you want to learn more about different types of verifiable credentials [please go over to our learning site here.](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-verifiable-credential-vc/what-are-the-different-types-of-verifiable-credentials)
 
 ### 4. Specify the Issuer DID for the credential
 
