@@ -79,7 +79,7 @@ For example, the on-ledger Revocation Registry Definition Object Content is as f
 
 ### cheqd Revocation Registry Definition Object ID
 
-cheqd [on-ledger resources](broken-reference) identify individual resources using DID URLs.
+cheqd [DID-Linked Resources](../did-linked-resources/README.md) identify individual resources using DID URLs.
 
 cheqd resources module uses the following format:
 

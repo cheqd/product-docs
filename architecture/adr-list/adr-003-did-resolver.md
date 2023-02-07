@@ -2,19 +2,19 @@
 
 ## Status
 
-| Category                  | Status                                        |
-| :------------------------ | :-------------------------------------------- |
-| **Authors**               | Alex Tweeddale, Renata Toktar, Ankur Banerjee |
-| **ADR Stage**             | DRAFT                                         |
-| **Implementation Status** | In Progress                                   |
-| **Start Date**            | 2022-02-22                                    |
-| **Last Updated**          | 2022-08-04                                    |
+| Category | Status |
+| :--- | :--- |
+| **Authors** | Alex Tweeddale, Renata Toktar, Ankur Banerjee   |
+| **ADR Stage** | PROPOSED |
+| **Implementation Status** | In Progress |
+| **Start Date** | 2022-02-22 |
+| **Last Updated** | 2022-08-04 |
 
 ## Summary
 
-The [`did:cheqd` method ADR](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method) defines how DIDs are created and read from ledger. According to the [W3C DID Core specification](https://w3c.github.io/did-core/), DID methods are expected to provide [standards-compliant methods of DID and DID Document ("DIDDoc") production](https://w3c.github.io/did-core/#production-and-consumption).
+The [`did:cheqd` method ADR](adr-001-cheqd-did-method.md) defines how DIDs are created and read from ledger. According to the [W3C DID Core specification](https://w3c.github.io/did-core/), DID methods are expected to provide [standards-compliant methods of DID and DID Document ("DIDDoc") production](https://w3c.github.io/did-core/#production-and-consumption).
 
-The [cheqd DID Resolver](https://github.com/cheqd/did-resolver) is designed to implement the [W3C DID _Resolution_ specification](https://w3c-ccg.github.io/did-resolution/) for [`did:cheqd`](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method) method.
+The [cheqd DID Resolver](https://github.com/cheqd/did-resolver) is designed to implement the [W3C DID _Resolution_ specification](https://w3c-ccg.github.io/did-resolution/) for [`did:cheqd`](adr-001-cheqd-did-method.md) method.
 
 ## Context
 
@@ -170,7 +170,7 @@ The _Full cheqd DID Resolver_ is designed to handle requests concurrently, while
 
 #### Fetching Protobuf from ledger and converting it to JSON
 
-Since Cosmos SDK SDK encodes data in Protobuf, the DID Resolver "[marshalls](<https://en.wikipedia.org/wiki/Marshalling_(computer_science)>)" them to JSON. The software class diagram below describes how these components/methods are tied together:
+Since Cosmos SDK SDK encodes data in Protobuf, the DID Resolver "[marshalls](https://en.wikipedia.org/wiki/Marshalling_(computer_science))" them to JSON. The software class diagram below describes how these components/methods are tied together:
 
 ![*Full cheqd DID Resolver* class diagram](../../.gitbook/assets/cheqd-full-did-resolver-class-diagram.png)
 

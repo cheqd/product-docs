@@ -30,7 +30,7 @@ SGVsbG8sIHdvcmxk
 
 ### 3. Create a UUID for the Resource
 
-[UUIDs are used to identify Resources](broken-reference). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
+[UUIDs are used to identify Resources](https://en.wikipedia.org/wiki/Universally_unique_identifier). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
 
 ```bash
 $ uuidgen

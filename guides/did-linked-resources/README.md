@@ -13,7 +13,7 @@ Our objective in building DID-Linked Resources on cheqd is to **improve the way 
 
 > **📝 Architecture Decision Record for On-ledger Resources**
 >
-> Full discussion and details on the [design of cheqd's on-ledger resources are available in its ADR](../../architecture/adr-list/adr-002-on-ledger-resources.md)
+> Full discussion and details on the [design of cheqd's on-ledger resources are available in its ADR](../../architecture/adr-list/adr-002-did-linked-resources.md)
 
 ### Support for AnonCreds using DID-Linked Resources
 
