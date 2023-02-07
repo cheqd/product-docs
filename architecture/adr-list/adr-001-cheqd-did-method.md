@@ -129,13 +129,13 @@ hexDigit =
 
 #### Indy-style
 
-A DID written to the cheqd "mainnet" ledger `namespace` with a 22-character Indy-style identifier:
+A DID written to the cheqd "mainnet" ledger `namespace` with an Indy-style identifier:
 
 ```text
 did:cheqd:mainnet:TAwT8WVt3dz2DBAifwuSkn
 ```
 
-A DID written to the cheqd "testnet" ledger `namespace` with a 22-character Indy-style identifier:
+A DID written to the cheqd "testnet" ledger `namespace` with an Indy-style identifier:
 
 ```text
 did:cheqd:testnet:TAwT8WVt3dz2DBAifwuSkn
@@ -228,8 +228,8 @@ formatting rules as the created property. The `updated` field is `null` if an Up
 3. **`deactivated`** (string): If DID has been deactivated, DID document metadata MUST include this property with the boolean value `true`. By default this is set to `false`.
 4. **`versionId`** (string): A UUID string that represents the version identifier of the DID Document.
 5. **`resources`** (list of resources metadata referred to as [Resource previews](adr-002-did-linked-resources.md))| *optional*). Cannot be changed by CreateDID or UpdateDID transactions. cheqd ledger stores only the resource identifiers in the DID Doc metadata. The remainder of the resources' metadata is added when a DID is resolved.
-6. **`previousVersionId`** (string): A UUID string that represents the version identifier of the previous version of the DID Document. The `previousVersionId` field is `null` if an Update operation has never been performed on the DID document
-7. **`nextVersionId`** (string): A UUID string that represents the version identifier of the next version of the DID Document. The `nextVersionId` field is `null` if an Update operation has never been performed on the DID document
+6. **`previousVersionId`** (string): A UUID string that represents the version identifier of the previous version of the DID Document. The `previousVersionId` field is an empty string if an Update operation has never been performed on the DID document
+7. **`nextVersionId`** (string): A UUID string that represents the version identifier of the next version of the DID Document. The `nextVersionId` field is an empty string if an Update operation has never been performed on the DID document
 
 #### Example of DIDDoc metadata
 
@@ -251,8 +251,8 @@ formatting rules as the created property. The `updated` field is `null` if an Up
         "mediaType":            "application/json",
         "created":              "2022-04-20T20:19:19Z",
         "checksum":             "a7c369ee9da8b25a2d6e93973fa8ca939b75abb6c39799d879a929ebea1adc0a",
-        "previousVersionId":     null,
-        "nextVersionId":         null
+        "previousVersionId":     "",
+        "nextVersionId":         ""
       }
   ]
 }
