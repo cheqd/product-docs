@@ -14,7 +14,7 @@ Learn more about [SDKs, libraries and platforms on our learn site here](https://
 
 cheqd are constantly expanding the amount of SDKs supported in order to support multiple credential types and protocols.&#x20;
 
-You can take a look at which [specific protocols are covered by which SDKs on our Product site here](https://product.cheqd.io/products/verifiable-credentials).&#x20;
+You can take a look at which [specific protocols are covered by which SDKs on our Product site here](https://product.cheqd.io/products/toolbox).
 
 * [Veramo SDK for cheqd](veramo-sdk-for-cheqd/)
 * [Hyperledger Aries Framework JavaScript](hyperledger-aries-framework-javascript.md)

@@ -535,4 +535,4 @@ Provide an existing DID as the path parameter, and the request body with resourc
 - [W3C Decentralized Identifiers (DIDs)](https://www.w3.org/TR/did-core/) recommendation
 - [DIF DID Registrar](https://identity.foundation/did-registration) specification
 - [Universal Registrar driver development](https://github.com/decentralized-identity/universal-registrar/blob/main/docs/driver-development.md) guide
-- [DID-Linked Resources](https://docs.cheqd.io/identity/architecture/adr-list/adr-002-on-ledger-resources)
+- [DID-Linked Resources](adr-002-did-linked-resources.md)
