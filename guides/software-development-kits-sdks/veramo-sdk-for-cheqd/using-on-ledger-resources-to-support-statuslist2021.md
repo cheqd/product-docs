@@ -141,27 +141,9 @@ Prepare a file with the StatusList2021 bitstring `encodedList` and encode it int
 Note: The uncompressed bitstring _MUST_ be at least 16KB in size to maintain herd privacy for the holder.
 {% endhint %}
 
-On Unix systems, you can use the following command:
-
-```text
-$ base64 -w 0 <path-to-the-resource-file>
-```
-
-Example:
-
-```text
-$ base64 -w 0 credentialsubjectencondedlist.txt
-SGVsbG8sIHdvcmxk
-```
-
 #### Create a unique ID for the StatusList Resource
 
-[UUIDs are used to identify Resources](https://en.wikipedia.org/wiki/Universally_unique_identifier). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
-
-```text
-$ uuidgen
-4a71319b-00b1-4db9-bc05-56dc426f7062
-```
+[UUIDs are used to identify Resources](https://en.wikipedia.org/wiki/Universally_unique_identifier). On Unix systems, the `uuidgen` tool can be used to generate a new UUID.
 
 #### Create a new Resource for the StatusList
 
