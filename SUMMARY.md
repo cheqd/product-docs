@@ -54,9 +54,10 @@
 
 * [Architecture Decision Record (ADR) Process](architecture/README.md)
 * [List of ADRs](architecture/adr-list/README.md)
-  * [ADR 001: DID Resolver](architecture/adr-list/adr-001-did-resolver.md)
-  * [ADR 002: On-Ledger Resources](architecture/adr-list/adr-002-on-ledger-resources.md)
-  * [ADR 003: DID Registrar](architecture/adr-list/adr-003-did-registrar.md)
+  * [ADR 001: cheqd DID Method](architecture/adr-list/adr-001-cheqd-did-method.md)
+  * [ADR 002: DID-Linked Resources](architecture/adr-list/adr-002-did-linked-resources.md)
+  * [ADR 003: DID Resolver](architecture/adr-list/adr-003-did-resolver.md)
+  * [ADR 004: DID Registrar](architecture/adr-list/adr-003-did-registrar.md)
 
 ## 💫 Advanced features and alternatives
 
