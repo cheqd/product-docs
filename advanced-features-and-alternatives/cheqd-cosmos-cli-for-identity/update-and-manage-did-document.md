@@ -24,57 +24,88 @@ The purpose of this document is to describe how an existing DID (and associated 
 
 ### 1. Update the DIDDoc contents / body
 
-Use a text editor like `nano` to edit the body of the DIDDoc (the example below assumes it's saved in a file called `diddoc.json`).
+Use a text editor like `nano` to edit the body of the DIDDoc (the example below assumes it's saved in a file called `payload.json`).
 
 ```bash
-nano diddoc.json
+nano payload.json
 ```
 
 For example, we can [take the DIDDoc created previously](cheqd-cosmos-cli.md) and change the Service Endpoint from `bar.example.com` to `foo.example.com`:
 
 ```json
 {
-  "id": "did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe",
+  "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
   "verification_method": [
     {
-      "id": "did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe#key1",
+      "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
       "type": "Ed25519VerificationKey2020",
-      "controller": "did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe",
+      "controller": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
       "public_key_multibase": "z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
     }
   ],
   "authentication": [
-    "did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe#key1"
+    "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1"
   ],
   "service": [{
-    "id":"did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe#linked-domain",
+    "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
     "type": "LinkedDomains",
     "service_endpoint": "https://foo.example.com"
   }]
 }
 ```
 
-### 2. Send an update DID transaction to the ledger
+### 2. Compile the payload.
+As in flow with [creating DID-Document](cheqd-cosmos-cli.md) we need to compile `payload.json` file with private key inside and pass it to the CLI.
+The result JSON in our example will look liks:
+```json
+{
+  "Payload": {
+    "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
+    "verification_method": [
+      {
+        "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
+        "type": "Ed25519VerificationKey2020",
+        "controller": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
+        "public_key_multibase": "z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
+      }
+    ],
+    "authentication": [
+      "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1"
+    ],
+    "service": [{
+      "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
+      "type": "LinkedDomains",
+      "service_endpoint": "https://foo.example.com"
+    }]
+  },
+  "SignInputs": [
+    {
+      "VerificationMethodID": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
+      "PrivKey": "FxaJOy4HFoC2Enu1SizKtU0L+hmBRBAEpC+B4TopfQoyetOF5T68Ks3db5Yy9ykFdgEboPUes3m6wvXNLpbv+Q=="
+    }
+  ]
+}
+```
+### 3. Send an update DID transaction to the ledger
 
 Send the updated DIDDoc to the ledger. This _must_ be signed with the correct identity keys:
 
 ```bash
-cheqd-noded tx cheqd update-did <DIDDoc_in_JSON> <did_verification_method_id> <identity_private_key_BASE_64> \
+cheqd-noded tx cheqd update-did <Payload_in_JSON>  \
   --from <cosmos_account> --node <url> --chain-id <chain> --fees <fee>
 ```
 
 ### Flags
 
-* `did_verification_method_id`: Fully-qualified verification method key name, in `did:cheqd:<namespace>:<unique-id>#<key-alias>` format.
-* `identity_private_key_BASE_64>`: Base64 encoded private key to sign the current identity message with. Must be a valid identity key.
+* `Payload_in_JSON` - previously compiled JSON.
 * `--from`: Cosmos account key which will pay fees for the transaction to be written to ledger.
 * `--node`: IP address or URL of node to send request to
-* `--chain-id`: E.g., `cheqd-testnet-4`
+* `--chain-id`: E.g., `cheqd-testnet-6`
 * `--fees`: Set to 5000000ncheq
 
 ### Example
 
 ```bash
-cheqd-noded tx cheqd update-did "$(cat diddoc.json)" "FxaJOy4HFoC2Enu1SizKtU0L+hmBRBAEpC+B4TopfQoyetOF5T68Ks3db5Yy9ykFdgEboPUes3m6wvXNLpbv+Q==" \
-  --from my_account --node http://nodes.testnet.cheqd.network:26657 --chain-id cheqd-testnet-4 --fees 5000000ncheq
+cheqd-noded tx cheqd update-did "payload.json" \
+  --from my_account --node http://rpc.cheqd.network:443 --chain-id cheqd-testnet-6 --fees 5000000ncheq
 ```

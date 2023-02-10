@@ -57,15 +57,16 @@ z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE
 
 ### 3. Create a unique identifier for the DID
 
-To create a `unique-id` for our DID, we can use first 32 symbols of `multibase58` representation of our public key.
+A `unique-id` for now should be only 16-byted encoded base58 string or uuid.
 
-For example, we can truncate previous output as:
+For example, we can generate uuid using `uuidgen` tool:
 
 ```bash
-printf '%.32s\n' `cheqd-noded debug encoding base64-multibase58 <pub_key_base_64>`
+uuidgen
+b0ca0b75-ca6a-4674-a261-45f6dd0c9c77
 ```
 
-The result for our example will be `z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe`, so let's use it as our `unique-id` in our DIDDoc.
+The result for our example will be `b0ca0b75-ca6a-4674-a261-45f6dd0c9c77`, so let's use it as our `unique-id` in our DIDDoc.
 
 ### 4. Populate DIDDoc contents
 
@@ -108,20 +109,20 @@ For example, the populated DIDDoc file might look like:
 
 ```json
 {
-  "id": "did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe",
+  "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
   "verification_method": [
     {
-      "id": "did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe#key1",
+      "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
       "type": "Ed25519VerificationKey2020",
-      "controller": "did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe",
+      "controller": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
       "public_key_multibase": "z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
     }
   ],
   "authentication": [
-    "did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe#key1"
+    "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1"
   ],
   "service": [{
-    "id":"did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe#linked-domain",
+    "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
     "type": "LinkedDomains",
     "service_endpoint": "https://bar.example.com"
   }]
@@ -130,18 +131,72 @@ For example, the populated DIDDoc file might look like:
 
 We recommend you save this DIDDoc file (e.g., in a file called `diddoc.json`) for the following steps.
 
-### 5. Submitting DID creation request to the ledger
+### 5. Create payload file
+
+After compiling the DID-Document JSON file we are ready to compile the final payload file with private key inside.
+
+```json
+{
+  "Payload": {
+    ...
+  },
+  "SignInputs": [
+    {
+      "VerificationMethodID": "<verification-method-id>",
+      "PrivKey": "<private key representation>"
+    }
+  ]
+}
+```
+
+The example of `payload.json` file:
+
+```json
+{
+  "Payload": {
+    "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
+    "verification_method": [
+      {
+        "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
+        "type": "Ed25519VerificationKey2020",
+        "controller": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
+        "public_key_multibase": "z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
+      }
+    ],
+    "authentication": [
+      "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1"
+    ],
+    "service": [{
+      "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
+      "type": "LinkedDomains",
+      "service_endpoint": "https://bar.example.com"
+    }]
+  },
+  "SignInputs": [
+    {
+      "VerificationMethodID": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
+      "PrivKey": "FxaJOy4HFoC2Enu1SizKtU0L+hmBRBAEpC+B4TopfQoyetOF5T68Ks3db5Yy9ykFdgEboPUes3m6wvXNLpbv+Q=="
+    }
+  ]
+}
+```
+
+### 6. Submitting DID creation request to the ledger
 
 Now that we have our DIDDoc prepared, we can send a **create DID** request to the ledger:
 
 ```bash
-cheqd-noded tx cheqd create-did "$(cat diddoc.json)" "did:cheqd:testnet:zJ5EDiiiKWDyo79n#key1" "FxaJOy4HFoC2Enu1SizKtU0L+hmBRBAEp+B4TopfQoyetOF5T68Ks3db5Yy9ykFdgEboPUes3m6wvXNLpbv+Q==" --from <alias-to-cosmos-key>  --node https://rpc.testnet.cheqd.network:443 --chain-id cheqd-testnet-4 --fees 5000000ncheq
+cheqd-noded tx cheqd create-did \
+  --fees 50000000000ncheq \
+  --gas auto \
+  --gas-adjustment 1.8 \
+  --from <alias-to-cosmos-key>  \
+  --node https://rpc.cheqd.network:443 \
+  --chain-id cheqd-testnet-6 \
+  "payload.json"
 ```
 
 Where:
-
-* `"did:cheqd:testnet:zJ5EDiiiKWDyo79n#key1"` is the `id` of `verification_method` section
-* `FxaJOy4HFoC2Enu1SizKtU0L+hmBRBAEp+B4TopfQoyetOF5T68Ks3db5Yy9ykFdgEboPUes3m6wvXNLpbv+Q==` is the private key (`priv_key_base_64` in Step #1) for signing the DIDDoc
 * `--from`: Should be an alias of a cheqd/Cosmos key, which will be used to pay for the ledger transaction.
 
 After you execute the command, you will receive `"code": 0"` if the DID was successfully written to the ledger.
@@ -152,12 +207,12 @@ Otherwise, the `raw_logs` field in the response can help figure out why somethin
 "code":1201,"data":"","raw_log":"failed to execute message; message index: 0: id:cheqd:testnet:fcbarcelona: DID Doc not found"
 ```
 
-### 6. Query the DID from ledger after successful creation
+### 7. Query the DID from ledger after successful creation
 
 Finally, to check that the DID was successfully written we can use the following query:
 
 ```bash
-cheqd-noded query cheqd did "<identifier-of-your-DIDDoc>" --node https://rpc.testnet.cheqd.network:443
+cheqd-noded query cheqd did-document "<identifier-of-your-DIDDoc>" --node https://rpc.testnet.cheqd.network:443
 ```
 
 where:
@@ -167,7 +222,93 @@ where:
 For example:
 
 ```bash
-cheqd-noded query cheqd did "did:cheqd:testnet:z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe" --node https://rpc.testnet.cheqd.network:443
+cheqd-noded query cheqd did "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77" --node https://rpc.testnet.cheqd.network:443
 ```
 
 **Congratulations!** You've created, hopefully, the first of many DIDs on cheqd!
+
+### 8. Query specific version
+Since `1.x.y` version we introduced versioning feature for Did-document. So, that means, that it's possible to get the previous version of DID-Document using the particular version of the document.
+For querying particular version of the DID-Document the next command can be used:
+```bash
+cheqd-noded query cheqd did-version [id] [version-id]
+```
+Where:
+* `id` - identifier of your DID-Document. Fully-qualified DID with `<unique-id>`
+* `version-id` - particular id of version you want to get
+
+###  Example
+Command:
+```bash
+cheqd-noded query cheqd did-version did:cheqd:mainnet:c82f2b02-bdab-4dd7-b833-3e143745d612 76e546ee-78cd-5372-b34e-8b47461626e1 --node https://rpc.cheqd.net:443 --output json
+```
+Output:
+```json
+{
+  "value": {
+    "did_doc": {
+      "context": [],
+      "id": "did:cheqd:mainnet:c82f2b02-bdab-4dd7-b833-3e143745d612",
+      "controller": [
+        "did:cheqd:mainnet:c82f2b02-bdab-4dd7-b833-3e143745d612"
+      ],
+      "verification_method": [
+        {
+          "id": "did:cheqd:mainnet:c82f2b02-bdab-4dd7-b833-3e143745d612#key-1",
+          "verification_method_type": "Ed25519VerificationKey2020",
+          "controller": "did:cheqd:mainnet:c82f2b02-bdab-4dd7-b833-3e143745d612",
+          "verification_material": "z6MkuGoZyDyji4sApi9L79CG484hoQPmtuqJSTbUpdrVQAqB"
+        }
+      ],
+      "authentication": [
+        "did:cheqd:mainnet:c82f2b02-bdab-4dd7-b833-3e143745d612#key-1"
+      ],
+      "assertion_method": [],
+      "capability_invocation": [],
+      "capability_delegation": [],
+      "key_agreement": [],
+      "service": [],
+      "also_known_as": []
+    },
+    "metadata": {
+      "created": "2022-11-17T10:29:53Z",
+      "updated": "0001-01-01T00:00:00Z",
+      "deactivated": false,
+      "version_id": "76e546ee-78cd-5372-b34e-8b47461626e1",
+      "next_version_id": "",
+      "previous_version_id": ""
+    }
+  }
+}
+
+```
+
+### 9. Query the all the versions metadata for DID
+For querying all the versions there is a command:
+```bash
+cheqd-noded query cheqd did-metadata [id] [flags]
+```
+Where:
+* `id` - identifier of your DID-Document. Fully-qualified DID with `<unique-id>`
+#### Example
+
+```bash
+cheqd-noded query cheqd did-metadata did:cheqd:mainnet:c82f2b02-bdab-4dd7-b833-3e143745d612 --node https://rpc.cheqd.net:443 --output json
+```
+
+Result is:
+```json
+{
+  "versions": [
+    {
+      "created": "2022-11-17T10:29:53Z",
+      "updated": "0001-01-01T00:00:00Z",
+      "deactivated": false,
+      "version_id": "76e546ee-78cd-5372-b34e-8b47461626e1",
+      "next_version_id": "",
+      "previous_version_id": ""
+    }
+  ],
+  "pagination": null
+}
+```

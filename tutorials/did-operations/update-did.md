@@ -35,12 +35,12 @@ So, let's try to update `service` section of our `DIDDoc`. Then, your `args.json
 {
   "kms": "local",
   "alias": "update-my-did",
-  "did": "did:cheqd:testnet:zVJe7ZNvCtbK83pv",
+  "did": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
   "document": {
     "context": [],
-    "id": "headdid:cheqd:testnet:zVJe7ZNvCtbK83pv",
-    "controller": ["did:cheqd:testnet:zVJe7ZNvCtbK83pv"],
-    "authentication": ["did:cheqd:testnet:zVJe7ZNvCtbK83pv#key-1"],
+    "id": "headdid:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
+    "controller": ["did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590"],
+    "authentication": ["did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590#key-1"],
     "assertionMethod": [],
     "capabilityInvocation": [],
     "capabilityDelegation": [],
@@ -48,15 +48,15 @@ So, let's try to update `service` section of our `DIDDoc`. Then, your `args.json
     "alsoKnownAs": [],
     "verificationMethod": [
       {
-        "id": "did:cheqd:testnet:zVJe7ZNvCtbK83pv#key-1",
+        "id": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590#key-1",
         "type": "Ed25519VerificationKey2020",
-        "controller": "did:cheqd:testnet:zVJe7ZNvCtbK83pv",
-        "publicKeyMultibase": "zVJe7ZNvCtbK83pvJYD9eRNc5CSrNBKkyjep6gYdaWub"
+        "controller": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
+        "publicKeyMultibase": "3e6bd814-6851-4c8a-b114-c64f035ef590JYD9eRNc5CSrNBKkyjep6gYdaWub"
       }
     ],
     "service": [
       {
-        "id": "did:cheqd:testnet:zVJe7ZNvCtbK83pv#linked-domain",
+        "id": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590#linked-domain",
         "type": "LinkedDomains",
         "serviceEndpoint": ["https://cheqd.io/"]
       }
