@@ -137,9 +137,9 @@ universal-resolver:
         - url: https://dev.uniresolver.io/1.0/identifiers/
 ```
 
-### 2.5. Add cheqd-testnet to your Kepler extension
+### 2.5. Add cheqd-testnet to your Keplr wallet
 
-In order to add cheqd-testnet to your Kepler extension, please follow the following guideline.
+In order to add cheqd-testnet to your Keplr extension, please follow the following instructions:
 
 Go to [Axelar to add a custom network](https://docs.axelar.dev/resources/keplr#add-your-custom-network), then replace everything with cheqd-testnet json configuration below.
 
