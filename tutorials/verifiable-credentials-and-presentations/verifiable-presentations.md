@@ -2,13 +2,13 @@
 
 This tutorial offers step-by-step guidance on how to create a [Verifiable Presentation](https://w3c-ccg.github.io/vp-request-spec/).
 
-> ⚠️ **Before you begin...** Make sure you've correctly [configured the cheqd plugin's agent settings](../../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md) for Veramo CLI
+> ⚠️ **Before you begin...** Make sure you've correctly [configured the cheqd plugin's agent settings](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md) for Veramo CLI
 
 ## Background
 
 A Verifiable Presentation is a way a credential holder can generate cryptographicall-verifiable proof that they are in posession of the identity keys (e.g., `did:key`) the credential was issued to.
 
-This is important because [just the Verifiable Credential and its JWT proof](verify-jwt-vc.md), on its own, is susceptible to [_replay attacks_](https://en.wikipedia.org/wiki/Replay\_attack) where intercepted Verifiable Credentials could be played back.
+This is important because [just the Verifiable Credential and its JWT proof](verify-jwt-vc.md), on its own, is susceptible to [_replay attacks_](https://en.wikipedia.org/wiki/Replay_attack) where intercepted Verifiable Credentials could be played back.
 
 The process of creating a _Verifiable Presentation_ is one way of addressing these security concerns.
 

@@ -6,7 +6,7 @@ description: cheqd support for Ledger-Agnostic AnonCreds Revocation Status List 
 
 ## Overview
 
-In the ledger-agnostic [AnonCreds](https://hyperledger.github.io/anoncreds-spec/)[ specification](https://hyperledger.github.io/anoncreds-spec/), Revocation Status List Objects contain the state of the cryptographic accumulator and revocation indices at a given point in time. This enables:
+In the ledger-agnostic [AnonCreds](https://hyperledger.github.io/anoncreds-spec/)[specification](https://hyperledger.github.io/anoncreds-spec/), Revocation Status List Objects contain the state of the cryptographic accumulator and revocation indices at a given point in time. This enables:
 
 1. Holders of Verifiable Credentials to generate a proof of non-revocation (or not) about their specific credential; and
 2. Verifiers to be able to verify that proof.
@@ -94,6 +94,7 @@ In the example below, the **first entry** in a Revocation Registry should be sav
     "objectFamily": "anoncreds",
     "objectFamilyVersion": "v1",
     "objectType": "5",
+    "typeName": "CL_ACCUM",
     "issuerId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
     "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887"
   }
@@ -114,6 +115,7 @@ The **subsequent entries** in the Revocation Status List should be formatted in 
     "objectFamily": "anoncreds",
     "objectFamilyVersion": "v1",
     "objectType": "5",
+    "typeName": "CL_ACCUM",
     "issuerId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
     "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/c154bc07-43f7-4b69-ac0c-5514001f2ca3"
   }
