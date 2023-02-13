@@ -65,17 +65,17 @@
 
 * [🤓 Direct interaction with ledger code](advanced-features-and-alternatives/developer-guide.md)
 * [🛰 cheqd Cosmos CLI for identity](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/README.md)
-  * [📚 Creating a DID with cheqd Cosmos CLI](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/cheqd-cosmos-cli.md)
-  * [📚 Querying DIDs with cheqd Cosmos CLI](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/query-did-and-did-document.md)
+  * [📚 Creating a DID with cheqd Cosmos CLI](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/create-did.md)
   * [📚 Updating existing DIDs with cheqd Cosmos CLI](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/update-and-manage-did-document.md)
-  * [📚 Creating a Resource using cheqd Cosmos CLI](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/tutorials.md)
-  * [📚 Publishing a new Resource version](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/add-resource-to-existing-collection.md)
+  * [📚 Querying DIDs with cheqd Cosmos CLI](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/query-did-and-did-document.md)
+  * [📚 Creating a Resource using cheqd Cosmos CLI](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/create-resource.md)
+  * [📚 Adding a new Resource version](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/add-resource-to-existing-collection.md)
 * [⚒ VDR Tools CLI with cheqd](advanced-features-and-alternatives/vdr-tools-with-cheqd.md)
 
 ## ⚖️ Legal
 
 * [License](LICENSE.md)
-* [Code of Conduct](CODE\_OF\_CONDUCT.md)
+* [Code of Conduct](CODE_OF_CONDUCT.md)
 * [Security Policy](SECURITY.md)
 
 ## 🆘 Support

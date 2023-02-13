@@ -2,14 +2,14 @@
 
 The purpose of this document is to describe how someone can create [a _new_ Resource on under an existing _Collection_](../../guides/did-linked-resources/technical-composition-of-did-linked-resources/creating-a-resource.md).
 
-This tutorial uses the [cheqd Cosmos CLI](https://docs.cheqd.io/node/docs/cheqd-cli), similar to the [creating a new Resource tutorial](tutorials.md).
+This tutorial uses the [cheqd Cosmos CLI](https://docs.cheqd.io/node/docs/cheqd-cli), similar to the [creating a new Resource tutorial](create-resource.md).
 
 ## Pre-requisites
 
 1. Install the latest stable cheqd-node CLI, either as a [standalone binary](https://github.com/cheqd/cheqd-node/releases/latest) or [Docker container image](https://github.com/cheqd/cheqd-node/pkgs/container/cheqd-node).
 2. Acquire test CHEQ tokens through [our testnet faucet](https://testnet-faucet.cheqd.io) (if creating it on our testnet), or [CHEQ tokens](https://app.osmosis.zone/?from=OSMO\&to=CHEQ) (if you plan on creating it on mainnet).
-3. An [existing DID + DIDDoc created on cheqd ledger](cheqd-cosmos-cli.md)
-4. Having [a Resource already created](tutorials.md) under this DIDDoc Collection
+3. An [existing DID + DIDDoc created on cheqd ledger](create-did.md)
+4. Having [a Resource already created](create-resource.md) under this DIDDoc Collection
 
 ## Adding a new Resource to an existing DIDDoc Collection
 
@@ -37,42 +37,49 @@ New versions have dedicated unique IDs and can be referenced and retrieved as an
 #### Command
 
 ```bash
-cheqd-noded tx resource create-resource \
-    --collection-id <collection-id>
-    --resource-id <resource-id>
-    --resource-name <resource-name>
-    --resource-type <resource-type>
-    --resource-file <resource-file>
-    <ver-method-id-1> <priv-key-1>
-    <ver-method-id-N> <priv-key-N>
+cheqd-noded tx resource create [payload-file] [resource-data-file] [flags]
 ```
 
 #### Parameters
 
-* `<collection-id>`: This should be the **same unique identifier** as that after the namespace of the corresponding DID created in step 1
-* `<resource-id>`: Unique resource ID within the collection in UUID format
-* `<resource-name>`: Arbitrary human-readable string used to identify the resource
-* `<resource-type>`: Resource type, such as `CL-Schema`, `JSONSchema2020`, etc
-* `<resource-file>`: Path to file with resource content
-* `<ver-method-id-1>`, `<priv-key-1>`, `<ver-method-id-N>`, `<priv-key-N>`: To create a resource, you need the same set of signatures as for carrying out a DIDDoc update. Provide signatures the same way as during resource creation or modification, in Step 1.
+* `payload-file` - file with JSON formatted payload. The format and structure can be found in example
+* `resource-data-file` - file which will be sent to the ledger as a `data`. Can be a picture or an image or whatever you want.
+* `flags` - additional parameters like, `--gas` or `--from`.
 
 #### Example
 
 ```bash
-cheqd-noded tx resource create-resource \
-    --collection-id 6h7fjuw37gbf9ioty633bnd7thf65hs1 \
-    --resource-id c8ef6d88-ee0c-4ca4-9fd6-f9e17f6f8f3f \
-    --resource-name 'universityDegree' \
-    --resource-type CL-Schema\
-    --resource-file schema-v2.json \
-    did:cheqd:mainnet:6h7fjuw37gbf9ioty633bnd7thf65hs1#key1 \
-    l6KUjm...jz8Un7QCbrW1KPE6gSyg== \
-     --from <your-account> \
-     --node https://rpc.cheqd.network:443 \
-     --chain-id cheqd-mainnet-1 \
-     --gas auto \
-     --gas-adjustment 1.3 \
-     --gas-prices 25ncheq
+cheqd-noded tx resource create \
+--chain-id cheqd \
+--keyring-backend test \
+--output json \
+--fees 10000000000ncheq \
+--gas auto \
+--gas-adjustment 1.8 \
+--from base_account \
+"payloadfile.json" data.jpeg
+```
+
+where `payloadfile.json` is:
+
+```json
+{
+  "Payload": {
+    "data": null,
+    "collection_id": "b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
+    "id": "c8ef6d88-ee0c-4ca4-9fd6-f9e17f6f8f3f",
+    "name": "TestResource",
+    "version": "1.0",
+    "resource_type": "TestType",
+    "also_known_as": []
+  },
+  "SignInputs": [
+    {
+      "VerificationMethodID": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
+      "PrivKey": "y4B5qis9BXUq/mODsrWtS3q5ejOk/okSIXlX1/a9HvuG3PgYmekfQmq3QhJ4JSzN/rkiGCQDNKoTXMmxuXDHbg=="
+    }
+  ]
+}
 ```
 
 After you execute the command, you will receive `"code": 0"` if the resource was successfully written to the ledger.
@@ -92,7 +99,7 @@ Otherwise, the `raw_logs` field in the response can help figure out why somethin
 Finally, to check that the resource was successfully written, we can use the following query:
 
 ```bash
-cheqd-noded query resource resource \
+cheqd-noded query resource specific-resource \
     <collection-id> \
     <resource-id> \
     --node https://rpc.cheqd.network:443
@@ -106,29 +113,41 @@ cheqd-noded query resource resource \
 #### Example
 
 ```bash
-cheqd-noded query resource resource \
-    6h7fjuw37gbf9ioty633bnd7thf65hs1 \
+cheqd-noded query resource specific-resource \
+    c82f2b02-bdab-4dd7-b833-3e143745d612 \
     c8ef6d88-ee0c-4ca4-9fd6-f9e17f6f8f3f \
-    --node https://rpc.cheqd.network:443
+    --node https://rpc.cheqd.net:443 --output json
 ```
 
 #### Result
 
 ```json
-"resource": {
-    "header": {
-        "collection_id": "6h7fjuw37gbf9ioty633bnd7thf65hs1",
-        "id": "c8ef6d88-ee0c-4ca4-9fd6-f9e17f6f8f3f",
-        "name": "universityDegree",
-        "resource_type": "CL-Schema",
-        "media_type": "application/json",
-        "created": "2022-08-04T17:18:20Z",
-        "checksum": "eyAiY29udGVudCI6ICJ0ZXN0IGRhdGEiIH0K47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=",
-        "previous_version_id": "49610df5-5998-4b72-b28f-02b7f776156f",
-        "next_version_id": ""
+{
+  "resource": {
+    "resource": {
+      "data": "..."
     },
-    "data": "..."
+    "metadata": {
+      "collection_id": "c82f2b02-bdab-4dd7-b833-3e143745d612",
+      "id": "c8ef6d88-ee0c-4ca4-9fd6-f9e17f6f8f3f",
+      "name": "EventBrite Logo",
+      "version": "",
+      "resource_type": "image/png",
+      "also_known_as": [
+        {
+          "uri": "did:cheqd:mainnet:c82f2b02-bdab-4dd7-b833-3e143745d612/resources/c8ef6d88-ee0c-4ca4-9fd6-f9e17f6f8f3f",
+          "description": "did-url"
+        }
+      ],
+      "media_type": "image/svg+xml",
+      "created": "2022-11-17T10:35:23Z",
+      "checksum": "a95380f460e63ad939541a57aecbfd795fcd37c6d78ee86c885340e33a91b559",
+      "previous_version_id": "3e6bd814-6851-4c8a-b114-c64f035ef590",
+      "next_version_id": ""
+    }
+  }
 }
 ```
 
-Notice that `header.previous_version_id` was set to the ID of the previous version. Correspondingly, `next_version` was updated to `c8ef6d88-ee0c-4ca4-9fd6-f9e17f6f8f3f` for the previous version of the resource.
+Notice that `previous_version_id` is not empty and pointing to the previously created resource with `id` : `3e6bd814-6851-4c8a-b114-c64f035ef590`.
+

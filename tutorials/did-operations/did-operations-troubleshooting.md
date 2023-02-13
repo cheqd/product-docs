@@ -50,12 +50,12 @@ Arguments:  {
 Result : {
   "didDoc": {
     "context": [],
-    "id": "did:cheqd:testnet:zVJe7ZNvCtbK83pv",
+    "id": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
     "controller": [
-      "did:cheqd:testnet:zVJe7ZNvCtbK83pv"
+      "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590"
     ],
     "authentication": [
-      "did:cheqd:testnet:zVJe7ZNvCtbK83pv#key-1"
+      "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590#key-1"
     ],
     "assertionMethod": [],
     "capabilityInvocation": [],
@@ -64,10 +64,10 @@ Result : {
     "alsoKnownAs": [],
     "verificationMethod": [
       {
-        "id": "did:cheqd:testnet:zVJe7ZNvCtbK83pv#key-1",
+        "id": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590#key-1",
         "type": "Ed25519VerificationKey2020",
-        "controller": "did:cheqd:testnet:zVJe7ZNvCtbK83pv",
-        "publicKeyMultibase": "zVJe7ZNvCtbK83pvJYD9eRNc5CSrNBKkyjep6gYdaWub",
+        "controller": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
+        "publicKeyMultibase": "3e6bd814-6851-4c8a-b114-c64f035ef590JYD9eRNc5CSrNBKkyjep6gYdaWub",
         "publicKeyJwk": []
       }
     ],
@@ -113,9 +113,9 @@ After populating `keys` and `document` section. Your `args.json` file should loo
   "alias": "your-alias",
   "document": {
     "context": [],
-    "id": "did:cheqd:testnet:zVJe7ZNvCtbK83pv",
-    "controller": ["did:cheqd:testnet:zVJe7ZNvCtbK83pv"],
-    "authentication": ["did:cheqd:testnet:zVJe7ZNvCtbK83pv#key-1"],
+    "id": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
+    "controller": ["did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590"],
+    "authentication": ["did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590#key-1"],
     "assertionMethod": [],
     "capabilityInvocation": [],
     "capabilityDelegation": [],
@@ -123,10 +123,10 @@ After populating `keys` and `document` section. Your `args.json` file should loo
     "alsoKnownAs": [],
     "verificationMethod": [
       {
-        "id": "did:cheqd:testnet:zVJe7ZNvCtbK83pv#key-1",
+        "id": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590#key-1",
         "type": "Ed25519VerificationKey2020",
-        "controller": "did:cheqd:testnet:zVJe7ZNvCtbK83pv",
-        "publicKeyMultibase": "zVJe7ZNvCtbK83pvJYD9eRNc5CSrNBKkyjep6gYdaWub",
+        "controller": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
+        "publicKeyMultibase": "3e6bd814-6851-4c8a-b114-c64f035ef590JYD9eRNc5CSrNBKkyjep6gYdaWub",
         "publicKeyJwk": []
       }
     ],
@@ -161,7 +161,7 @@ After successfully creating your DID, you should see something like this:
 
 ```bash
 Result : {
-  "did": "did:cheqd:testnet:zVJe7ZNvCtbK83pv",
+  "did": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
   "controllerKeyId": "074035480cdcf09c33b1e8066deb55c75822c8c3b27f1c100717eb413bc08e06",
   "keys": [
     {
