@@ -164,7 +164,7 @@ cheqd-noded query resource metadata [collection-id] [resource-id] [flags]
 
 Parameters `collection-id` and `resource-id` have the same meaning as before.
 
-#### Example:
+#### Example input
 
 ```bash
 cheqd-noded query resource metadata \
@@ -206,9 +206,9 @@ For querying all the resources but only metadata there is a special command:
 cheqd-noded query resource collection-metadata [collection-id] [flags]
 ```
 
-As the main parameter it requires only `collection-id`
+As the main parameter it requires only `collection-id`.
 
-#### Example:
+#### Example input
 
 ```bash
 cheqd-noded query resource collection-metadata c82f2b02-bdab-4dd7-b833-3e143745d612  --node https://rpc.cheqd.net:443 --output json
