@@ -44,7 +44,7 @@ cheqd-noded tx resource create [payload-file] [resource-data-file] [flags]
 * `resource-data-file` - file which will be sent to the ledger as a `data`. Can be a picture or an image or whatever you want.
 * `flags` - additional parameters like, `--gas` or `--from`.
 
-#### Example
+Example input:
 
 ```bash
 cheqd-noded tx resource create \
@@ -108,7 +108,7 @@ cheqd-noded query resource specific-resource \
 * `<collection-id>`: The **same unique identifier** as that after the namespace of the corresponding DID created in step 1
 * `<resource-id>`: Unique ID of the resource within the collection of resources associated with the DIDDoc
 
-#### Example
+Example input:
 
 ```bash
 cheqd-noded query resource specific-resource \
@@ -117,7 +117,7 @@ cheqd-noded query resource specific-resource \
     --node https://rpc.cheqd.net:443 --output json
 ```
 
-#### Ouput
+Ouput:
 
 ```json
 {
@@ -164,7 +164,7 @@ cheqd-noded query resource metadata [collection-id] [resource-id] [flags]
 
 Parameters `collection-id` and `resource-id` have the same meaning as before.
 
-#### Example
+Example input:
 
 ```bash
 cheqd-noded query resource metadata \
@@ -208,7 +208,7 @@ cheqd-noded query resource collection-metadata [collection-id] [flags]
 
 As the main parameter it requires only `collection-id`.
 
-#### Example
+Example input:
 
 ```bash
 cheqd-noded query resource collection-metadata c82f2b02-bdab-4dd7-b833-3e143745d612  --node https://rpc.cheqd.net:443 --output json
