@@ -29,10 +29,26 @@ This will automatically generate a template for your DIDDoc, including a new DID
 Follow [_Method 2_ in the key management guide](identity-key-handling.md):
 
 ```bash
-veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "Ed25519VerificationKey2020", "methodSpecificIdAlgo": "base58btc", "methodSpecificIdLength": 16, "network": "testnet"}'
+veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "Ed25519VerificationKey2018", "methodSpecificIdAlgo": "uuid", "network": "testnet"}'
 ```
 
-After running the above command ,if you see an error below, follow our troubleshooting guide [here](../../veramo-sdk-for-cheqd/did-operations/did-operations-troubleshooting.md#1-when-generating-keys-along-with-a-diddoc-template) to fix it.
+#### Arguments
+
+* `verificationMethod`
+  * Ed25519VerificationKey2020
+  * JsonWebKey2020
+  * Ed25519VerificationKey2018
+
+* `methodSpecificIdAlgo`
+  * base58btc
+  * uuid
+
+* `network`
+  * mainnet
+  * testnet
+
+
+After running the above command ,if you see an error below, follow our troubleshooting guide [here](did-operations-troubleshooting.md#1-when-generating-keys-along-with-a-diddoc-template) to fix it.
 
 ```bash
 Unexpected token v in JSON at position 1
@@ -62,7 +78,8 @@ If you used _Method 2_ in the previous step, you can use the output of that as a
         "type": "Ed25519VerificationKey2020",
         "controller": "did:cheqd:testnet:<uniqueId>",
         "publicKeyMultibase": "<uniqueKeyMultibase>",
-        "publicKeyJwk": []      
+        "publicKeyJwk": [],
+        "publicKeyBase58": "<uniqueKeyBase58>"      
     }],
     "authentication": [
       "did:cheqd:testnet:<uniqueId>#key-1"
@@ -90,6 +107,8 @@ If you used _Method 2_ in the previous step, you can use the output of that as a
 * `alias`: A human-friendly alias for the DID. Only used locally when referencing operations in Veramo CLI.
 * `document`: Full body of the DID Document
 * `keys`: Keys used to sign the DIDDoc. These must match the ones specified in the DIDDoc, otherwise an error will be thrown.
+* `versionId` (optional): Custom versionId for the DID Document
+* `fee` (optional): [Custom fee](../custom-fee.md)
 
 ### 3. Create new DID and publish DIDDoc
 
@@ -108,4 +127,4 @@ If your transaction is successful, you'll receive a success message along with t
 1. Bear in mind that the that transaction fees are paid by the cheqd/Cosmos account set in the `agent.yml` configuration file. If that account has insufficient balance your transaction might fail.&#x20;
 2. If you are using testnet, you can top-up your testnet balance using our [faucet](http://testnet-faucet.cheqd.io/).
 3. If you are using mainnet, you can [purchase CHEQ tokens here](https://cheqd.io/buy).
-4. Check out our [troubleshooting guide for Creating DID](../../veramo-sdk-for-cheqd/did-operations/did-operations-troubleshooting.md) to see common errors and fixes.
+4. Check out our [troubleshooting guide for Creating DID](did-operations-troubleshooting.md) to see common errors and fixes.

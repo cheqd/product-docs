@@ -12,18 +12,20 @@
   * [Update an existing DID](tutorials/did-operations/update-did.md)
   * [Off-ledger subject DIDs](tutorials/did-operations/create-subject-did.md)
   * [Managing identity keys](tutorials/did-operations/identity-key-handling.md)
+  * [DID Operations Troubleshooting](tutorials/did-operations/did-operations-troubleshooting.md)
 * [📃 Verifiable Credentials and Presentations](tutorials/verifiable-credentials-and-presentations/README.md)
-  * [JSON (JWT)](tutorials/verifiable-credentials-and-presentations/json-jwt/README.md)
-    * [Issue a JSON (JWT) Verifiable Credential](tutorials/verifiable-credentials-and-presentations/json-jwt/verifiable-credentials.md)
-    * [Verify a JSON (JWT) Verifiable Credential](tutorials/verifiable-credentials-and-presentations/json-jwt/verify-jwt-vc.md)
-    * [Create a JSON (JWT) Verifiable Presentation](tutorials/verifiable-credentials-and-presentations/json-jwt/verifiable-presentations.md)
-    * [Verify a JSON (JWT) Verifiable Presentation](tutorials/verifiable-credentials-and-presentations/json-jwt/verify-presentation.md)
+  * [Issue a Verifiable Credential](tutorials/verifiable-credentials-and-presentations/verifiable-credentials.md)
+  * Verify a Verifiable Credential
+    * [JSON (JWT)](tutorials/verifiable-credentials-and-presentations/verify-jwt-vc.md)
+  * [Create a Verifiable Presentation](tutorials/verifiable-credentials-and-presentations/verifiable-presentations.md)
+  * [Verify a Verifiable Presentation](tutorials/verifiable-credentials-and-presentations/verify-presentation.md)
+
 * [🔗 Create DID-Linked Resources](tutorials/on-ledger-resources/README.md)
   * [Create a DID-Linked Resource](tutorials/on-ledger-resources/create-a-resource.md)
   * [Create a new Resource version within existing Collection](tutorials/on-ledger-resources/create-a-new-resource-version.md)
 * [🔄 DID Resolver setup](tutorials/DID-resolution.md)
 * [👜 Demo Wallet for identity setup](tutorials/wallet.md)
-* [📖DID Registrar setup](tutorials/DID-registrar.md)
+* [📖 DID Registrar setup](tutorials/DID-registrar.md)
 
 ## 📑 Guides
 
@@ -54,25 +56,26 @@
 
 * [Architecture Decision Record (ADR) Process](architecture/README.md)
 * [List of ADRs](architecture/adr-list/README.md)
-  * [ADR 001: DID Resolver](architecture/adr-list/adr-001-did-resolver.md)
-  * [ADR 002: On-Ledger Resources](architecture/adr-list/adr-002-on-ledger-resources.md)
-  * [ADR 003: DID Registrar](architecture/adr-list/adr-003-did-registrar.md)
+  * [ADR 001: cheqd DID Method](architecture/adr-list/adr-001-cheqd-did-method.md)
+  * [ADR 002: DID-Linked Resources](architecture/adr-list/adr-002-did-linked-resources.md)
+  * [ADR 003: DID Resolver](architecture/adr-list/adr-003-did-resolver.md)
+  * [ADR 004: DID Registrar](architecture/adr-list/adr-004-did-registrar.md)
 
 ## 💫 Advanced features and alternatives
 
 * [🤓 Direct interaction with ledger code](advanced-features-and-alternatives/developer-guide.md)
 * [🛰 cheqd Cosmos CLI for identity](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/README.md)
-  * [📚 Creating a DID with cheqd Cosmos CLI](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/cheqd-cosmos-cli.md)
-  * [📚 Querying DIDs with cheqd Cosmos CLI](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/query-did-and-did-document.md)
+  * [📚 Creating a DID with cheqd Cosmos CLI](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/create-did.md)
   * [📚 Updating existing DIDs with cheqd Cosmos CLI](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/update-and-manage-did-document.md)
-  * [📚 Creating a Resource using cheqd Cosmos CLI](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/tutorials.md)
-  * [📚 Publishing a new Resource version](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/add-resource-to-existing-collection.md)
+  * [📚 Querying DIDs with cheqd Cosmos CLI](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/query-did-and-did-document.md)
+  * [📚 Creating a Resource using cheqd Cosmos CLI](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/create-resource.md)
+  * [📚 Adding a new Resource version](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/add-resource-to-existing-collection.md)
 * [⚒ VDR Tools CLI with cheqd](advanced-features-and-alternatives/vdr-tools-with-cheqd.md)
 
 ## ⚖️ Legal
 
 * [License](LICENSE.md)
-* [Code of Conduct](CODE\_OF\_CONDUCT.md)
+* [Code of Conduct](CODE_OF_CONDUCT.md)
 * [Security Policy](SECURITY.md)
 
 ## 🆘 Support

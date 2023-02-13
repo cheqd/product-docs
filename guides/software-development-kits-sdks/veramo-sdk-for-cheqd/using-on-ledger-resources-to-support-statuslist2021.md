@@ -96,7 +96,7 @@ The [Status List 2021 Specification](https://w3c-ccg.github.io/vc-status-list-20
 
 Using cheqd's Resource Module, the same benefits may be achieved. In fact, storing a StatusList as an on-ledger Resource is a much better application of technology than using a Verifiable Credential for the same purpose.
 
-By storing a StatusList on the cheqd Network as a Resource, it creates a much more resilient and decentralised mechanism for storing and maintaining the revocation/suspension status of Verifiable Credentials. The [benefits of using the cheqd Resource module over traditional centralised architecture are detailed here](broken-reference).
+By storing a StatusList on the cheqd Network as a Resource, it creates a much more resilient and decentralised mechanism for storing and maintaining the revocation/suspension status of Verifiable Credentials. The [benefits of using the cheqd Resource module over traditional centralised architecture are detailed here](../../did-linked-resources/README.md).
 
 Moreover, cheqd's Resource Module enables individual Resources to be referenced and retrieved using a DID URL in conformance with DID Core. This is being standardized at [the Trust over IP Foundation](https://trustoverip.org/) within a specification called [DID URLs for Digital Resources](https://wiki.trustoverip.org/display/HOME/DID-Linked+Resources+Specification).
 
@@ -141,27 +141,9 @@ Prepare a file with the StatusList2021 bitstring `encodedList` and encode it int
 Note: The uncompressed bitstring _MUST_ be at least 16KB in size to maintain herd privacy for the holder.
 {% endhint %}
 
-On Unix systems, you can use the following command:
-
-```bash
-$ base64 -w 0 <path-to-the-resource-file>
-```
-
-Example:
-
-```bash
-$ base64 -w 0 credentialsubjectencondedlist.txt
-SGVsbG8sIHdvcmxk
-```
-
 #### Create a unique ID for the StatusList Resource
 
-[UUIDs are used to identify Resources](broken-reference). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
-
-```bash
-$ uuidgen
-4a71319b-00b1-4db9-bc05-56dc426f7062
-```
+[UUIDs are used to identify Resources](https://en.wikipedia.org/wiki/Universally_unique_identifier). On Unix systems, the `uuidgen` tool can be used to generate a new UUID.
 
 #### Create a new Resource for the StatusList
 
@@ -329,7 +311,7 @@ Resulting in the following metadata syntax:
 
 ### Issuing a Verifiable Credential referencing cheqd StatusList
 
-Follow the [instructions for issuing a Verifiable Credential here](../../../tutorials/verifiable-credentials-and-presentations/json-jwt/verifiable-credentials.md), including the credentialStatus information, as shown in the example below:
+Follow the [instructions for issuing a Verifiable Credential here](../../../tutorials/verifiable-credentials-and-presentations/README.md), including the credentialStatus information, as shown in the example below:
 
 ```json
 {

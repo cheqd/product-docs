@@ -2,7 +2,7 @@
 
 ## Pre-requisite
 
-An existing `did:cheqd` entry created using any SDK/CLI. For development purposes, this can be done using [the `cheqd-node` Cosmos CLI](cheqd-cosmos-cli.md).
+An existing `did:cheqd` entry created using any SDK/CLI. For development purposes, this can be done using [the `cheqd-node` Cosmos CLI](create-did.md).
 
 > NOTE: Use the [**cheqd DID Resolver**](../../guides/did-resolver.md) for production-grade usage
 >
@@ -13,11 +13,11 @@ An existing `did:cheqd` entry created using any SDK/CLI. For development purpose
 ### Command
 
 ```bash
-cheqd-noded query cheqd did <id> --chain-id <chain-id> --node <node-rpc-endpoint>
+cheqd-noded query cheqd did-document <id> --chain-id <chain-id> --node <node-rpc-endpoint>
 ```
 
 ### Example
 
 ```bash
-cheqd-noded query cheqd did did:cheqd:testnet:zJ5EDiiiKWDyo79n --chain-id cheqd-testnet-4 --node http://rpc.testnet.cheqd.network:26657
+cheqd-noded query cheqd did-document did:cheqd:mainnet:7urFZAL6hvyfHWjfEmEpnN --node https://rpc.cheqd.net:443
 ```

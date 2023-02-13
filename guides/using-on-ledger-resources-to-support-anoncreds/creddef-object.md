@@ -6,7 +6,7 @@ description: cheqd support for Ledger-Agnostic AnonCreds CredDefs
 
 ## Overview
 
-In the ledger-agnostic [AnonCreds](https://hyperledger.github.io/anoncreds-spec/)[ specification](https://hyperledger.github.io/anoncreds-spec/), Credential Definitions are used to specify the following information all in one place, to create an immutable record of:
+In the ledger-agnostic [AnonCreds](https://hyperledger.github.io/anoncreds-spec/)[specification](https://hyperledger.github.io/anoncreds-spec/), Credential Definitions are used to specify the following information all in one place, to create an immutable record of:
 
 1. The DID of the credential issuer
 2. The schema the issued credentials will be based upon
@@ -149,7 +149,7 @@ An example of a CredDef Object content with revocation is below:
 
 ### cheqd CredDef ID
 
-cheqd [on-ledger resources](broken-reference) identify individual resources using DID URLs.
+cheqd [DID-Linked Resources](../did-linked-resources/README.md) identify individual resources using DID URLs.
 
 cheqd resources module uses the following format:
 
@@ -256,8 +256,6 @@ This implementation uses AnonCredsObjectMetadata to provide equivalency between 
 {% hint style="info" %}
 Note: The cheqd ledger will not provide any checks on the Schema Object Content or Metadata. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct.
 {% endhint %}
-
-
 
 <details>
 
