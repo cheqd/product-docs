@@ -6,7 +6,7 @@ description: cheqd support for Ledger-Agnostic AnonCreds Revocation Registry Def
 
 ## Overview
 
-In the ledger-agnostic [AnonCreds](https://hyperledger.github.io/anoncreds-spec/)[ specification](https://hyperledger.github.io/anoncreds-spec/), a Revocation Registry Definition Object acts as an on-ledger hub for revocation, providing a central point information about the:
+In the ledger-agnostic [AnonCreds](https://hyperledger.github.io/anoncreds-spec/)[specification](https://hyperledger.github.io/anoncreds-spec/), a Revocation Registry Definition Object acts as an on-ledger hub for revocation, providing a central point information about the:
 
 1. `type` of Revocation Registry (In Indy this is always "`CL_ACCUM`").
 2. `cred_def_id`: Each Revocation Registry must be linked to one specific Credential Definition.
@@ -30,7 +30,13 @@ Each specific AnonCreds identifier must be defined within an AnonCreds Object Me
 
 This means that an AnonCreds Revocation Registry Object ID does not need to be formatted in any particular syntax, in the latest version of the AnonCreds Specification.
 
-### Ledger-agnostic AnonCreds Revocation Registry Definition Object Content
+{% hint style="info" %}
+See the collapsible tile below to learn about how the Ledger-Agnostic AnonCreds specification handles these objects.
+{% endhint %}
+
+<details>
+
+<summary>Ledger-agnostic AnonCreds Revocation Registry Definition Object Content</summary>
 
 The required content and data model for the AnonCreds Revocation Registry Definition Object are as follows:
 
@@ -67,13 +73,13 @@ For example, the on-ledger Revocation Registry Definition Object Content is as f
 }
 ```
 
-
+</details>
 
 ## cheqd AnonCreds Object Method for Revocation Registry Definition Objects
 
 ### cheqd Revocation Registry Definition Object ID
 
-cheqd [on-ledger resources](broken-reference) identify individual resources using DID URLs.
+cheqd [DID-Linked Resources](../did-linked-resources/README.md) identify individual resources using DID URLs.
 
 cheqd resources module uses the following format:
 
@@ -99,7 +105,6 @@ In the example below, the content should be saved as a file, for example: `degre
 ```json
 {
 "AnonCredsObject: {
-  "issuerId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
   "revocDefType": "CL_ACCUM",
   "credDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0",
   "tag": "degreeRevocRegDef",
@@ -138,7 +143,7 @@ Note: The Credential Definition ID specified must have enabled revocation suppor
 
 <summary>Legacy AnonCreds Revocation Registry Definition Object ID</summary>
 
-Like both the Legacy [Schema Object ID](schema-object.md#anoncreds-schema-id) and the Legacy [CredDef Object ID](creddef-object.md#creddef-object-id), the Legacy Revocation Registry Definition Object ID was defined as a composite string of the following information:
+Like both the Legacy Schema Object ID and the Legacy CredDef Object ID, the Legacy Revocation Registry Definition Object ID was defined as a composite string of the following information:
 
 1. `Publisher DID`: The DID of the creator of the revocation registry. Generally this will be the same publisher as the creator of the [CredDef Object](creddef-object.md).
 2. `Object Type`: An integer denoting the type of object. `4` is used for Revocation Registry Objects.

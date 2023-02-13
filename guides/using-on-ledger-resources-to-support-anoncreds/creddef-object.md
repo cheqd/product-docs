@@ -6,7 +6,7 @@ description: cheqd support for Ledger-Agnostic AnonCreds CredDefs
 
 ## Overview
 
-In the ledger-agnostic [AnonCreds](https://hyperledger.github.io/anoncreds-spec/)[ specification](https://hyperledger.github.io/anoncreds-spec/), Credential Definitions are used to specify the following information all in one place, to create an immutable record of:
+In the ledger-agnostic [AnonCreds](https://hyperledger.github.io/anoncreds-spec/)[specification](https://hyperledger.github.io/anoncreds-spec/), Credential Definitions are used to specify the following information all in one place, to create an immutable record of:
 
 1. The DID of the credential issuer
 2. The schema the issued credentials will be based upon
@@ -22,7 +22,13 @@ Each specific AnonCreds identifier must be defined within an AnonCreds Object Me
 
 This means that an AnonCreds CredDef Object ID does not need to be formatted in any particular syntax, in the latest version of the AnonCreds Specification.
 
-### Ledger-Agnostic AnonCreds CredDef Object Content
+{% hint style="info" %}
+See the collapsible tile below to learn about how the Ledger-Agnostic AnonCreds specification handles these objects.
+{% endhint %}
+
+<details>
+
+<summary>Ledger-Agnostic AnonCreds CredDef Object Content</summary>
 
 Credential Definition Object Content is distinct in the way it is structured. The inputs and outputs generated when creating a CredDef are as follows:
 
@@ -110,10 +116,6 @@ An example of a CredDef Object content without revocation is below:
 
 Using the Legacy AnonCreds Object method as a reference point, the composite string of the `cred_def_id` should include the **same values** as are in the CredDef Object Content.
 
-{% hint style="info" %}
-Note: In the AnonCreds Specification the 'ref' is currently the Schema TXN ID. However, since this would not work for ledgers other than Indy, we propose changing this to a 'string' and referencing the SCHEMA\_ID
-{% endhint %}
-
 An example of a CredDef Object content with revocation is below:
 
 ```json
@@ -141,11 +143,13 @@ An example of a CredDef Object content with revocation is below:
 }
 ```
 
+</details>
+
 ## cheqd AnonCreds Object Method for CredDefs
 
 ### cheqd CredDef ID
 
-cheqd [on-ledger resources](broken-reference) identify individual resources using DID URLs.
+cheqd [DID-Linked Resources](../did-linked-resources/README.md) identify individual resources using DID URLs.
 
 cheqd resources module uses the following format:
 
@@ -171,7 +175,6 @@ In the example below, the content should be saved as a file, for example: `credD
 ```json
 {
 "AnonCredsObject: {
-  "issuerId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
   "schemaId": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
   "type": "CL",
   "tag": "credDefDegree",
@@ -210,7 +213,6 @@ Or with revocation:
 ```json
 {
 "AnonCredsObject: {
-  "issuerId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J",
   "schemaId": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
   "type": "CL",
   "tag": "credDefDegree",
@@ -254,8 +256,6 @@ This implementation uses AnonCredsObjectMetadata to provide equivalency between 
 {% hint style="info" %}
 Note: The cheqd ledger will not provide any checks on the Schema Object Content or Metadata. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct.
 {% endhint %}
-
-
 
 <details>
 
