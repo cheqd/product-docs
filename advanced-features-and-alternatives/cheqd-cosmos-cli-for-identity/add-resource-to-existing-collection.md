@@ -2,14 +2,14 @@
 
 The purpose of this document is to describe how someone can create [a _new_ Resource on under an existing _Collection_](../../guides/did-linked-resources/technical-composition-of-did-linked-resources/creating-a-resource.md).
 
-This tutorial uses the [cheqd Cosmos CLI](https://docs.cheqd.io/node/docs/cheqd-cli), similar to the [creating a new Resource tutorial](tutorials.md).
+This tutorial uses the [cheqd Cosmos CLI](https://docs.cheqd.io/node/docs/cheqd-cli), similar to the [creating a new Resource tutorial](create-resource.md).
 
 ## Pre-requisites
 
 1. Install the latest stable cheqd-node CLI, either as a [standalone binary](https://github.com/cheqd/cheqd-node/releases/latest) or [Docker container image](https://github.com/cheqd/cheqd-node/pkgs/container/cheqd-node).
 2. Acquire test CHEQ tokens through [our testnet faucet](https://testnet-faucet.cheqd.io) (if creating it on our testnet), or [CHEQ tokens](https://app.osmosis.zone/?from=OSMO\&to=CHEQ) (if you plan on creating it on mainnet).
-3. An [existing DID + DIDDoc created on cheqd ledger](cheqd-cosmos-cli.md)
-4. Having [a Resource already created](tutorials.md) under this DIDDoc Collection
+3. An [existing DID + DIDDoc created on cheqd ledger](create-did.md)
+4. Having [a Resource already created](create-resource.md) under this DIDDoc Collection
 
 ## Adding a new Resource to an existing DIDDoc Collection
 

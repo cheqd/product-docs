@@ -12,7 +12,7 @@ The purpose of this document is to describe how an existing DID (and associated 
 
 ### Pre-Requisites
 
-* Learn how to [create a DID with cheqd Cosmos CLI](cheqd-cosmos-cli.md)
+* Learn how to [create a DID with cheqd Cosmos CLI](create-did.md)
 * [Query an existing DID/DIDDoc](query-did-and-did-document.md) with cheqd Cosmos CLI
 
 ### Assumptions
@@ -30,7 +30,7 @@ Use a text editor like `nano` to edit the body of the DIDDoc (the example below 
 nano payload.json
 ```
 
-For example, we can [take the DIDDoc created previously](cheqd-cosmos-cli.md) and change the Service Endpoint from `bar.example.com` to `foo.example.com`:
+For example, we can [take the DIDDoc created previously](create-did.md) and change the Service Endpoint from `bar.example.com` to `foo.example.com`:
 
 ```json
 {
@@ -54,9 +54,11 @@ For example, we can [take the DIDDoc created previously](cheqd-cosmos-cli.md) an
 }
 ```
 
-### 2. Compile the payload.
-As in flow with [creating DID-Document](cheqd-cosmos-cli.md) we need to compile `payload.json` file with private key inside and pass it to the CLI.
+### 2. Compile the payload
+
+As in flow with [creating DID-Document](create-did.md) we need to compile `payload.json` file with private key inside and pass it to the CLI.
 The result JSON in our example will look liks:
+
 ```json
 {
   "Payload": {
@@ -86,6 +88,7 @@ The result JSON in our example will look liks:
   ]
 }
 ```
+
 ### 3. Send an update DID transaction to the ledger
 
 Send the updated DIDDoc to the ledger. This _must_ be signed with the correct identity keys:

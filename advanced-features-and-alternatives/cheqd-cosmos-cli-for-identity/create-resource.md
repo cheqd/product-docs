@@ -1,6 +1,6 @@
 # 📚 Creating a Resource using cheqd Cosmos CLI
 
-The purpose of this document is to outline how someone can create a Resource on the cheqd network using [cheqd Cosmos CLI](cheqd-cosmos-cli.md). The process that's followed is similar to what's described in the [high-level Resource creation flow](../../guides/did-linked-resources/technical-composition-of-did-linked-resources/creating-a-resource.md).
+The purpose of this document is to outline how someone can create a Resource on the cheqd network using [cheqd Cosmos CLI](create-did.md). The process that's followed is similar to what's described in the [high-level Resource creation flow](../../guides/did-linked-resources/technical-composition-of-did-linked-resources/creating-a-resource.md).
 
 ## Pre-requisites
 
@@ -13,7 +13,7 @@ The purpose of this document is to outline how someone can create a Resource on 
 
 _Note: If you already have a DIDDoc and corresponding keys, you can skip this step._
 
-To create a DIDDoc, you can follow the instructions to [create a DID with cheqd Cosmos CLI](cheqd-cosmos-cli.md).
+To create a DIDDoc, you can follow the instructions to [create a DID with cheqd Cosmos CLI](create-did.md).
 
 Let's assume the DID for the DIDDoc is as follows:
 
@@ -117,7 +117,7 @@ cheqd-noded query resource specific-resource \
     --node https://rpc.cheqd.net:443 --output json
 ```
 
-#### Result
+#### Ouput
 
 ```json
 {
@@ -150,9 +150,11 @@ cheqd-noded query resource specific-resource \
 Notice that both `previous_version_id` and `next_version_id` are empty now cause there is only one resource in such collection `c82f2b02-bdab-4dd7-b833-3e143745d612`.
 
 ### 5. Additional queries to the ledger
+
 There are also 2 annother commands for getting resource from ledger depending what the actual info is needed.
 
 #### Get metadata
+
 Here is the command which allows to get only metadata information without getting the whole resource.
 The format of call is:
 
@@ -160,9 +162,9 @@ The format of call is:
 cheqd-noded query resource metadata [collection-id] [resource-id] [flags]
 ```
 
-Parameters `collection-id` and `resource-id` have the same meaning as before
+Parameters `collection-id` and `resource-id` have the same meaning as before.
 
-##### Example:
+#### Example:
 
 ```bash
 cheqd-noded query resource metadata \
@@ -171,7 +173,7 @@ cheqd-noded query resource metadata \
     --node https://rpc.cheqd.net:443 --output json
 ```
 
-Result is:
+Output:
 
 ```json
 {
@@ -203,15 +205,17 @@ For querying all the resources but only metadata there is a special command:
 ```bash
 cheqd-noded query resource collection-metadata [collection-id] [flags]
 ```
+
 As the main parameter it requires only `collection-id`
 
-##### Example:
+#### Example:
 
 ```bash
 cheqd-noded query resource collection-metadata c82f2b02-bdab-4dd7-b833-3e143745d612  --node https://rpc.cheqd.net:443 --output json
 ```
 
-Result is:
+Ouput:
+
 ```json
 {
   "resources": [

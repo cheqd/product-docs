@@ -243,7 +243,7 @@ Where:
 * `id` - identifier of your DID-Document. Fully-qualified DID with `<unique-id>`
 * `version-id` - particular id of version you want to get
 
-###  Example
+### Example
 
 Command:
 
@@ -296,9 +296,11 @@ Output:
 ### 9. Query the all the versions metadata for DID
 
 For querying all the versions there is a command:
+
 ```bash
 cheqd-noded query cheqd did-metadata [id] [flags]
 ```
+
 Where:
 
 * `id` - identifier of your DID-Document. Fully-qualified DID with `<unique-id>`

@@ -2,7 +2,7 @@
 
 ## Pre-requisite
 
-An existing `did:cheqd` entry created using any SDK/CLI. For development purposes, this can be done using [the `cheqd-node` Cosmos CLI](cheqd-cosmos-cli.md).
+An existing `did:cheqd` entry created using any SDK/CLI. For development purposes, this can be done using [the `cheqd-node` Cosmos CLI](create-did.md).
 
 > NOTE: Use the [**cheqd DID Resolver**](../../guides/did-resolver.md) for production-grade usage
 >
