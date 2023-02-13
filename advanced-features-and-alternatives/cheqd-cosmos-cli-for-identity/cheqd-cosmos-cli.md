@@ -2,9 +2,9 @@
 
 The purpose of this document is to describe how a DID (and associated DIDDoc) can be created using [the `cheqd-node` Cosmos CLI](https://docs.cheqd.io/node/docs/cheqd-cli).
 
-> **NOTE: The procedures below are only recommended for development purposes!**
+> **NOTE: The guidance below is only recommended to be used for testing purposes!**
 >
-> Using `cheqd-node` Cosmos CLI for real-world production usage is not recommended, since the identity keys are passed in raw form to the CLI. This is fine in development/testing usage, but is not recommend for mainnet.
+> Using `cheqd-node` Cosmos CLI for real-world production environments is not recommended, since the identity keys are passed in raw form to the CLI. This is fine in development/testing usage, but is not recommend for mainnet.
 >
 > Developers are encouraged to use [production-grade CLI tools such as Veramo SDK for cheqd](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/) or look at [our developer guide on how to integrate custom applications](../developer-guide.md).
 
@@ -18,7 +18,7 @@ The purpose of this document is to describe how a DID (and associated DIDDoc) ca
    1. For testing purposes, CHEQ test tokens can be acquired from [our testnet faucet](https://testnet-faucet.cheqd.io/).
    2. Mainnet CHEQ tokens can be [acquired from any marketplace where the $CHEQ token is traded](https://learn.cheqd.io/getting-set-up-on-cheqd/where-to-find-usdcheq).
 
-For the remainder of this tutorial, it's assumed that the DID + DIDDoc is being created on testnet. These commands can easily be modified for mainnet.
+For the remainder of this tutorial, it's assumed that the DID and associated DID Document is being created on testnet. These commands can easily be modified for mainnet.
 
 ## Creating a new DID + DIDDoc on testnet
 
@@ -57,7 +57,7 @@ z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE
 
 ### 3. Create a unique identifier for the DID
 
-A `unique-id` for now should be only 16-byted encoded base58 string or uuid.
+A `unique-id` should only be a 16-byte encoded base58 string (Indy-style) or a uuid.
 
 For example, we can generate uuid using `uuidgen` tool:
 
@@ -95,7 +95,7 @@ $ nano diddoc.json
 }
 ```
 
-In this template, you'll need to replace some values (as described in the [cheqd DID method](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method)):
+In this template, you'll need to replace some values (as described in the [cheqd DID method](../../architecture/adr-list/adr-001-cheqd-did-method.md):
 
 * `<namespace>`: Can be `testnet` or `mainnet`. For this example, we can use `testnet`.
 * `<unique-id>`: Unique identifier, created in step #3
@@ -133,7 +133,7 @@ We recommend you save this DIDDoc file (e.g., in a file called `diddoc.json`) fo
 
 ### 5. Create payload file
 
-After compiling the DID-Document JSON file we are ready to compile the final payload file with private key inside.
+After assembling the DID-Document JSON file we are ready to compile the final payload file with private key inside.
 
 ```json
 {
@@ -197,6 +197,7 @@ cheqd-noded tx cheqd create-did \
 ```
 
 Where:
+
 * `--from`: Should be an alias of a cheqd/Cosmos key, which will be used to pay for the ledger transaction.
 
 After you execute the command, you will receive `"code": 0"` if the DID was successfully written to the ledger.
@@ -209,7 +210,7 @@ Otherwise, the `raw_logs` field in the response can help figure out why somethin
 
 ### 7. Query the DID from ledger after successful creation
 
-Finally, to check that the DID was successfully written we can use the following query:
+Finally, to check that the DID was successfully written to the ledger, we can use the following query:
 
 ```bash
 cheqd-noded query cheqd did-document "<identifier-of-your-DIDDoc>" --node https://rpc.testnet.cheqd.network:443
@@ -228,21 +229,30 @@ cheqd-noded query cheqd did "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9
 **Congratulations!** You've created, hopefully, the first of many DIDs on cheqd!
 
 ### 8. Query specific version
-Since `1.x.y` version we introduced versioning feature for Did-document. So, that means, that it's possible to get the previous version of DID-Document using the particular version of the document.
+
+Since upgrading to `1.x.y` version, we introduced versioning feature for DID Documents. This means that it is possible to get the previous version of a DID Document using the particular versionId of the document.
+
 For querying particular version of the DID-Document the next command can be used:
+
 ```bash
 cheqd-noded query cheqd did-version [id] [version-id]
 ```
+
 Where:
+
 * `id` - identifier of your DID-Document. Fully-qualified DID with `<unique-id>`
 * `version-id` - particular id of version you want to get
 
 ###  Example
+
 Command:
+
 ```bash
 cheqd-noded query cheqd did-version did:cheqd:mainnet:c82f2b02-bdab-4dd7-b833-3e143745d612 76e546ee-78cd-5372-b34e-8b47461626e1 --node https://rpc.cheqd.net:443 --output json
 ```
+
 Output:
+
 ```json
 {
   "value": {
@@ -284,19 +294,23 @@ Output:
 ```
 
 ### 9. Query the all the versions metadata for DID
+
 For querying all the versions there is a command:
 ```bash
 cheqd-noded query cheqd did-metadata [id] [flags]
 ```
 Where:
+
 * `id` - identifier of your DID-Document. Fully-qualified DID with `<unique-id>`
+
 #### Example
 
 ```bash
 cheqd-noded query cheqd did-metadata did:cheqd:mainnet:c82f2b02-bdab-4dd7-b833-3e143745d612 --node https://rpc.cheqd.net:443 --output json
 ```
 
-Result is:
+Output:
+
 ```json
 {
   "versions": [

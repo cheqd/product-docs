@@ -155,9 +155,11 @@ There are also 2 annother commands for getting resource from ledger depending wh
 #### Get metadata
 Here is the command which allows to get only metadata information without getting the whole resource.
 The format of call is:
+
 ```bash
 cheqd-noded query resource metadata [collection-id] [resource-id] [flags]
 ```
+
 Parameters `collection-id` and `resource-id` have the same meaning as before
 
 ##### Example:
@@ -197,12 +199,14 @@ Result is:
 #### Get collection of resources
 
 For querying all the resources but only metadata there is a special command:
+
 ```bash
 cheqd-noded query resource collection-metadata [collection-id] [flags]
 ```
 As the main parameter it requires only `collection-id`
 
 ##### Example:
+
 ```bash
 cheqd-noded query resource collection-metadata c82f2b02-bdab-4dd7-b833-3e143745d612  --node https://rpc.cheqd.net:443 --output json
 ```
