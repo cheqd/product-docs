@@ -15,17 +15,16 @@
   * [DID Operations Troubleshooting](tutorials/did-operations/did-operations-troubleshooting.md)
 * [📃 Verifiable Credentials and Presentations](tutorials/verifiable-credentials-and-presentations/README.md)
   * [Issue a Verifiable Credential](tutorials/verifiable-credentials-and-presentations/verifiable-credentials.md)
-  * Verify a Verifiable Credential
+  * [Verify a Verifiable Credential](tutorials/verifiable-credentials-and-presentations/verify-a-verifiable-credential/README.md)
     * [JSON (JWT)](tutorials/verifiable-credentials-and-presentations/verify-jwt-vc.md)
   * [Create a Verifiable Presentation](tutorials/verifiable-credentials-and-presentations/verifiable-presentations.md)
   * [Verify a Verifiable Presentation](tutorials/verifiable-credentials-and-presentations/verify-presentation.md)
-
 * [🔗 Create DID-Linked Resources](tutorials/on-ledger-resources/README.md)
   * [Create a DID-Linked Resource](tutorials/on-ledger-resources/create-a-resource.md)
   * [Create a new Resource version within existing Collection](tutorials/on-ledger-resources/create-a-new-resource-version.md)
 * [🔄 DID Resolver setup](tutorials/DID-resolution.md)
 * [👜 Demo Wallet for identity setup](tutorials/wallet.md)
-* [📖 DID Registrar setup](tutorials/DID-registrar.md)
+* [DID Registrar setup](tutorials/DID-registrar.md)
 
 ## 📑 Guides
 
@@ -47,7 +46,7 @@
   * [Revocation Registry Definition Object](guides/using-on-ledger-resources-to-support-anoncreds/revocation-registry-definition-object.md)
   * [Revocation Status List Object](guides/using-on-ledger-resources-to-support-anoncreds/revocation-registry-entry-object.md)
 * [🔍 Understanding cheqd DID Resolver](guides/did-resolver.md)
-* [🧑⚖ 🧑⚖ Smart Governance](guides/smart-governance/README.md)
+* [🧑⚖ 🧑⚖ 🧑⚖ Smart Governance](guides/smart-governance/README.md)
   * [Governance File](guides/smart-governance/governance-file.md)
   * [Trust Registry](guides/smart-governance/trust-registry.md)
   * [Using DID-Linked Resources to support Governance](guides/smart-governance/governance-framework.md)
@@ -75,7 +74,7 @@
 ## ⚖️ Legal
 
 * [License](LICENSE.md)
-* [Code of Conduct](CODE_OF_CONDUCT.md)
+* [Code of Conduct](CODE\_OF\_CONDUCT.md)
 * [Security Policy](SECURITY.md)
 
 ## 🆘 Support
