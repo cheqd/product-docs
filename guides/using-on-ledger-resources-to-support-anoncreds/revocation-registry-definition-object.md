@@ -104,7 +104,7 @@ The cheqd revocation registry definition request format comprises of:
 Both of these inputs are required to provide the ledger enough information to:
 
 1. Populate a [cheqd DID-Linked Resource](../did-linked-resources/); and
-2. Compile a standardised AnonCreds revocation registry definition object in the [Response format](revocation-registry-definition-object.md#cheqd-schema-response-format).&#x20;
+2. Compile a standardised AnonCreds revocation registry definition object in the [Response format](revocation-registry-definition-object.md#cheqd-revocation-registry-definition-response-format).&#x20;
 
 #### Revocation Registry Definition Object file
 
@@ -309,7 +309,7 @@ Like both the Legacy Schema Object ID and the Legacy CredDef Object ID, the Lega
 
 1. `Publisher DID`: The DID of the creator of the revocation registry. Generally this will be the same publisher as the creator of the [CredDef Object](creddef-object.md).
 2. `Object Type`: An integer denoting the type of object. `4` is used for Revocation Registry Objects.
-3. `CredDef Object ID`: This is the [AnonCreds CredDef Object ID](creddef-object.md#anoncreds-creddef-object-id).
+3. `CredDef Object ID`: This is the [AnonCreds CredDef Object ID](creddef-object.md).
 4. `Revocation Registry Type`: The type of Revocation Registry used, this is by default always "`CL_ACCUM`".
 5. `tag`: A unique name or tag given to the Revocation Registry Object.
 

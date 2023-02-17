@@ -167,9 +167,9 @@ Once you have created your resource on cheqd, the following metadata will be gen
 
 ### cheqd Schema Response format
 
-Using the [cheqd Schema Object input](schema-object.md#cheqd-schema-object-input) and associated [resource metadata](schema-object.md#cheqd-resource-metadata), the ledger has enough information to compile the following data structure as a response format.
+Using the [cheqd Schema Request Format](schema-object.md#cheqd-schema-request-format) and associated [resource metadata](schema-object.md#cheqd-resource-metadata), the ledger has enough information to compile the following data structure as a response format.
 
-This can either be compiled by the associated SDK handling cheqd AnonCreds, or it can be assembled by the cheqd DID resolver.&#x20;
+This can either be compiled by the associated SDK handling cheqd AnonCreds, or it can be assembled by the cheqd DID resolver.
 
 ```json
 {

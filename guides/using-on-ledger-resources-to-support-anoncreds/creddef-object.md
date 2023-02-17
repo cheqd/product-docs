@@ -174,7 +174,7 @@ The cheqd CredDef request format comprises of:
 Both of these inputs are required to provide the ledger enough information to:
 
 1. Populate a [cheqd DID-Linked Resource](../did-linked-resources/); and
-2. Compile a standardised AnonCreds CredDef object in the [Response format](creddef-object.md#cheqd-schema-response-format).&#x20;
+2. Compile a standardised AnonCreds CredDef object in the [Response format](creddef-object.md#cheqd-creddef-response-format).
 
 #### cheqd CredDef Object file
 
@@ -360,7 +360,7 @@ To create a CredDef on cheqd, you should follow the [tutorials for creating a DI
 
 ## Tying CredDef, RevRegDef and StatusListEntry Objects together
 
-Across the [cheqd CredDef Object Method](creddef-object.md#cheqd-anoncreds-object-method-for-creddefs), the [Revocation Registry Definition Object Method](creddef-object.md#cheqd-anoncreds-object-method-for-revocation-registry-definition-objects) and the [StatusListEntry Object Method](revocation-registry-entry-object.md) - each resource is associated with the same issuer DID and Collection ID.
+Across the [cheqd CredDef Object Method](creddef-object.md#cheqd-anoncreds-object-method-for-creddefs), the [Revocation Registry Definition Object Method](revocation-registry-definition-object.md) and the [StatusListEntry Object Method](revocation-registry-entry-object.md) - each resource is associated with the same issuer DID and Collection ID.
 
 Importantly, this allows each new resource to be indexed and versioned by their:
 
