@@ -156,35 +156,9 @@ cheqd-noded tx anonCredsStatusListEntry create \
   "payload.json" degreeStatusListEntry.json
 ```
 
-<details>
-
-<summary>Legacy AnonCreds Revocation Registry Entry ID</summary>
-
-The Legacy AnonCreds Revocation Registry Entry ID was very similar in composition to the [Revocation Registry Definition Object](https://anoncreds-wg.github.io/anoncreds-spec/#anoncreds-objects-methods-registry).
-
-The only difference is that the Revocation Registry Entry ID includes the Revocation Registry Entry ID `objectType`, which is "`5`".
-
-The structure of the Legacy AnonCreds Revocation Registry Entry ID is as follows:
-
-```bash
-<objectType><RevocRegDefId>
-```
-
-For example:
-
-```bash
-5:zF7rhDBfUt9d1gJPjx7s1J:4:zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree:CL_ACCUM:degreeCredRevRegDef
-```
-
-Important: Each AnonCreds Revocation Registry Entry has the **same ID** for a given Revocation Registry Definition Object.
-
-This is important to mention, since many client applications may still expect RevRegEntry IDs or RevRegEntry Content to contain the information or specific syntax of this Legacy `revocRegEntryId.` This legacy format is now attributed to the Hyperledger Indy Legacy AnonCreds Objects Method
-
-</details>
-
 ### cheqd resource Metadata
 
-Once you have created your Revocation Registry Entry as a resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J`
+Once you have created your Status List Entry Object as a resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J`
 
 ```json
 "linkedResourceMetadata": [
@@ -209,9 +183,9 @@ Next and Previous Status List Entries will appear in the resource Metadata when 
 
 ### cheqd Status List Entry Response format
 
-Using the cheqd Status List Entry Request format and associated resource metadata, the ledger has enough information to compile the following data structure as a response format.
+Using the cheqd [Status List Entry Request format](revocation-registry-entry-object.md#cheqd-status-list-entry-request-format) and [associated resource metadata](revocation-registry-entry-object.md#cheqd-resource-metadata), the ledger has enough information to compile the following data structure as a response format.
 
-This can either be compiled by the associated SDK handling cheqd AnonCreds, or it can be assembled by the cheqd DID resolver.&#x20;
+This can either be compiled by the relevant SDK handling cheqd AnonCreds, or it can be assembled by the cheqd DID resolver.&#x20;
 
 ```json
 {
@@ -347,5 +321,33 @@ It will be very common for a proof of non-revocation to require the latest Revoc
 The following DID URL will be able to call the latest Revocation Registry Entry
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?universityDegree&resourceType=statusListEntry`
+
+### Legacy AnonCreds Revocation Registry Entry Structure
+
+<details>
+
+<summary>Legacy AnonCreds Revocation Registry Entry Object</summary>
+
+The Legacy AnonCreds Revocation Registry Entry ID was very similar in composition to the [Revocation Registry Definition Object](https://anoncreds-wg.github.io/anoncreds-spec/#anoncreds-objects-methods-registry).
+
+The only difference is that the Revocation Registry Entry ID includes the Revocation Registry Entry ID `objectType`, which is "`5`".
+
+The structure of the Legacy AnonCreds Revocation Registry Entry ID is as follows:
+
+```bash
+<objectType><RevocRegDefId>
+```
+
+For example:
+
+```bash
+5:zF7rhDBfUt9d1gJPjx7s1J:4:zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree:CL_ACCUM:degreeCredRevRegDef
+```
+
+Important: Each AnonCreds Revocation Registry Entry has the **same ID** for a given Revocation Registry Definition Object.
+
+This is important to mention, since many client applications may still expect RevRegEntry IDs or RevRegEntry Content to contain the information or specific syntax of this Legacy `revocRegEntryId.` This legacy format is now attributed to the Hyperledger Indy Legacy AnonCreds Objects Method
+
+</details>
 
 ``

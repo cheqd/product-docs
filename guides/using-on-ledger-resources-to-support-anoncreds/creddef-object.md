@@ -290,13 +290,35 @@ cheqd-noded tx anonCredsCredDef create \
   "payload.json" degreeCredDef.json
 ```
 
+### cheqd resource Metadata
+
+Once you have created your resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J`
+
+```json
+"linkedResourceMetadata": [
+  {
+  "resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0",
+  "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
+  "resourceId": "77465164-5646-42d9-9a0a-f7b2dcb855c0",
+  "resourceName": "universityDegree",
+  "resourceType": "anonCredsCredDef",
+  "resourceVersion": "1.0",
+  "mediaType": "application/json",
+  "created": "2022-07-19T08:40:00Z",
+  "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
+  "previousVersionId": null,
+  "nextVersionId": null
+  }
+]
+```
+
 ### cheqd CredDef Response format
 
-Using the cheqd CredDef Request format and associated resource metadata, the ledger has enough information to compile the following data structure as a response format.
+Using the [cheqd CredDef Request format](creddef-object.md#cheqd-creddef-request-format) and [associated resource metadata](creddef-object.md#cheqd-resource-metadata), the ledger has enough information to compile the following data structure as a response format.
 
-This can either be compiled by the associated SDK handling cheqd AnonCreds, or it can be assembled by the cheqd DID resolver.&#x20;
+This can either be compiled by the relevant SDK handling cheqd AnonCreds, or it can be assembled by the cheqd DID resolver.&#x20;
 
-```
+```json
 {
   "issuerId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J"
   "schemaId": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
@@ -331,62 +353,6 @@ The cheqd DID resolver will use the following logic to compile the standardised 
 {% hint style="info" %}
 _If "**resourceType=anonCredsCredDef**" then **append "issuerId"** to the beginning of the Response Format for the resource presented_
 {% endhint %}
-
-### cheqd resource Metadata
-
-Once you have created your resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J`
-
-```json
-"linkedResourceMetadata": [
-  {
-  "resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0",
-  "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
-  "resourceId": "77465164-5646-42d9-9a0a-f7b2dcb855c0",
-  "resourceName": "universityDegree",
-  "resourceType": "anonCredsCredDef",
-  "resourceVersion": "1.0",
-  "mediaType": "application/json",
-  "created": "2022-07-19T08:40:00Z",
-  "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
-  "previousVersionId": null,
-  "nextVersionId": null
-  }
-]
-```
-
-<details>
-
-<summary>Legacy AnonCreds CredDef Object ID</summary>
-
-Like with [Schema Objects](schema-object.md), each CredDef Object ID (`cred_def_id`) was previously a **composite** string, consisting of the following elements:
-
-* `issuer DID`: The DID of the Issuer, the issuer of the credentials that will utilise the CredDef.
-* `object type`: The type of object. `3` is used for CredDefs.
-* `signature_type`: The `signature_type` item for the CredDef (this is 'CL' in the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec/))
-* `schema_id`: Also referred to as the `ref,` this should be a [URL](https://www.rfc-editor.org/rfc/rfc1738) for the `schema_id.`
-* `tag`: A unique name or tag given to the CredDef.
-
-Note: the schema\_id as part of the\_ cred\_def\_id is a recent change from the AnonCreds Working Group. Previously, this was the Schema TXN ID. However, the Schema TXN ID could not accommodate for non-Hyperledger Indy networks.
-
-The `cred_def_id` therefore was formatted in the following way:
-
-```bash
-<issuerDid>:<objectType>:<signatureType>:<schemaId>:<tag>
-```
-
-For example a Legacy AnonCreds `cred_def_id` could be:
-
-```bash
-zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree
-```
-
-Through combining each of the components into one string, it provides client applications all of the information they need to know about the CredDef in a simple and easily consumable format.
-
-This is important to mention, since many client applications may still expect CredDef IDs or CredDef Content to contain the information or specific syntax of this Legacy `cred_def_id.`
-
-This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds Objects Method](https://hyperledger-indy.readthedocs.io/projects/node/en/latest/requests.html#requests)
-
-</details>
 
 ### create CredDef transaction
 
@@ -446,3 +412,38 @@ This is similar to how Hyperledger Indy uses composite strings to derive assoica
 }
 ```
 
+### Legacy AnonCreds CredDef Object
+
+<details>
+
+<summary>Legacy AnonCreds CredDef Object</summary>
+
+Like with [Schema Objects](schema-object.md), each CredDef Object ID (`cred_def_id`) was previously a **composite** string, consisting of the following elements:
+
+* `issuer DID`: The DID of the Issuer, the issuer of the credentials that will utilise the CredDef.
+* `object type`: The type of object. `3` is used for CredDefs.
+* `signature_type`: The `signature_type` item for the CredDef (this is 'CL' in the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec/))
+* `schema_id`: Also referred to as the `ref,` this should be a [URL](https://www.rfc-editor.org/rfc/rfc1738) for the `schema_id.`
+* `tag`: A unique name or tag given to the CredDef.
+
+Note: the schema\_id as part of the\_ cred\_def\_id is a recent change from the AnonCreds Working Group. Previously, this was the Schema TXN ID. However, the Schema TXN ID could not accommodate for non-Hyperledger Indy networks.
+
+The `cred_def_id` therefore was formatted in the following way:
+
+```bash
+<issuerDid>:<objectType>:<signatureType>:<schemaId>:<tag>
+```
+
+For example a Legacy AnonCreds `cred_def_id` could be:
+
+```bash
+zF7rhDBfUt9d1gJPjx7s1J:3:CL:7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7:credDefDegree
+```
+
+Through combining each of the components into one string, it provides client applications all of the information they need to know about the CredDef in a simple and easily consumable format.
+
+This is important to mention, since many client applications may still expect CredDef IDs or CredDef Content to contain the information or specific syntax of this Legacy `cred_def_id.`
+
+This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds Objects Method](https://hyperledger-indy.readthedocs.io/projects/node/en/latest/requests.html#requests)
+
+</details>

@@ -187,9 +187,31 @@ cheqd-noded tx anonCredsRevocRegDef create \
   "payload.json" degreeRevocRegDef.json
 ```
 
+### cheqd resource Metadata
+
+Once you have created your Revocation Registry as a resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J`
+
+```json
+"linkedResourceMetadata": [
+  {
+  "resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
+  "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
+  "resourceId": "af20b1f0-5c4d-4037-9669-eaedddb9c2df",
+  "resourceName": "universityDegree",
+  "resourceType": "anonCredsRevocRegDef",
+  "resourceVersion": "2.0",
+  "mediaType": "application/json",
+  "created": "2022-08-21T08:40:00Z",
+  "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
+  "previousVersionId": null,
+  "nextVersionId": null
+  }
+]
+```
+
 ### cheqd Revocation Registry Definition Response format
 
-Using the cheqd Revocation Registry Definition Request format and associated resource metadata, the ledger has enough information to compile the following data structure as a response format.
+Using the cheqd [Revocation Registry Definition Request format](revocation-registry-definition-object.md#cheqd-revocation-registry-definition-request-format) and [associated resource metadata](revocation-registry-definition-object.md#cheqd-resource-metadata), the ledger has enough information to compile the following data structure as a response format.
 
 This can either be compiled by the associated SDK handling cheqd AnonCreds, or it can be assembled by the cheqd DID resolver.&#x20;
 
@@ -222,32 +244,6 @@ _If "**resourceType=anonCredsRevocRegDef**" then **append "issuerId"** to the be
 ### create Revocation Registry Definition transaction
 
 To create a Revocation Registry Definition on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../tutorials/on-ledger-resources/), and pass the relevant JSON file for the object in the transaction.
-
-{% hint style="info" %}
-Note: This transaction includes the file `degreeRevocRegDef.json` that was formatted prior to creating the transaction.
-{% endhint %}
-
-### cheqd resource Metadata
-
-Once you have created your Revocation Registry as a resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J`
-
-```json
-"linkedResourceMetadata": [
-  {
-  "resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
-  "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
-  "resourceId": "af20b1f0-5c4d-4037-9669-eaedddb9c2df",
-  "resourceName": "universityDegree",
-  "resourceType": "anonCredsRevocRegDef",
-  "resourceVersion": "2.0",
-  "mediaType": "application/json",
-  "created": "2022-08-21T08:40:00Z",
-  "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
-  "previousVersionId": null,
-  "nextVersionId": null
-  }
-]
-```
 
 ## Tying CredDef, RevRegDef and StatusListEntry Objects together
 
@@ -307,7 +303,7 @@ This is similar to how Hyperledger Indy uses composite strings to derive assoica
 
 <details>
 
-<summary>Legacy AnonCreds Revocation Registry Definition Object ID</summary>
+<summary>Legacy AnonCreds Revocation Registry Definition Object</summary>
 
 Like both the Legacy Schema Object ID and the Legacy CredDef Object ID, the Legacy Revocation Registry Definition Object ID was defined as a composite string of the following information:
 

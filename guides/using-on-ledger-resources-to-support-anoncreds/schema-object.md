@@ -194,7 +194,7 @@ To create a schema on cheqd, you should follow the [tutorials for creating a DID
 
 ### Fetching a cheqd Resource
 
-Existing DID Resolvers will be able to query for the Schema Object Content using the following parameters:
+Existing DID Resolvers will be able to query for any AnonCreds Object Content using the following parameters:
 
 | Parameter                 | Type                                                          | Example                                                                                                                                                                                                                                                                                                                                                            |
 | ------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -210,11 +210,11 @@ Existing DID Resolvers will be able to query for the Schema Object Content using
 | "`latestResourceVersion`" | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&latestResourceVersion=true                                                                                                                                                                                                                             |
 | "`allResourceVersions`"   | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&allResourceVersions=true                                                                                                                                                                                                                               |
 
-### Legacy AnonCreds Schema Structure
+### Legacy AnonCreds Schema Object
 
 <details>
 
-<summary>Legacy AnonCreds Schema ID</summary>
+<summary>Legacy AnonCreds Schema Object</summary>
 
 Prior to the AnonCreds specification being updated, the `schema_id` was defined as a **composite** of the following set of elements:
 
