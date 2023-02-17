@@ -51,7 +51,6 @@ Therefore, for each new Revocation Status List entry, the the `revocRegDefId` re
 
 </details>
 
-## cheqd AnonCreds Object Method for Revocation Status List Entry Objects
 
 ### cheqd Revocation Status List Object ID
 
@@ -298,7 +297,7 @@ This is similar to how Hyperledger Indy uses composite strings to derive assoica
 }
 ```
 
-## Traversing Status List Entries using a DID Resolver
+### Traversing Status List Entries using a DID Resolver
 
 Using existing DID Resolvers, it is possible to traverse the history of Status List Entries in order to produce proofs of non-revocation required in the [AnonCreds Specification](https://anoncreds-wg.github.io/anoncreds-spec).
 
