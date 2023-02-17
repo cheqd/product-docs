@@ -44,7 +44,7 @@
   * [Schema Object](guides/using-on-ledger-resources-to-support-anoncreds/schema-object.md)
   * [CredDef Object](guides/using-on-ledger-resources-to-support-anoncreds/creddef-object.md)
   * [Revocation Registry Definition Object](guides/using-on-ledger-resources-to-support-anoncreds/revocation-registry-definition-object.md)
-  * [Revocation Status List Object](guides/using-on-ledger-resources-to-support-anoncreds/revocation-registry-entry-object.md)
+  * [Status List Entry Object](guides/using-on-ledger-resources-to-support-anoncreds/revocation-registry-entry-object.md)
 * [🔍 Understanding cheqd DID Resolver](guides/did-resolver.md)
 * [🧑⚖ 🧑⚖ 🧑⚖ Smart Governance](guides/smart-governance/README.md)
   * [Governance File](guides/smart-governance/governance-file.md)

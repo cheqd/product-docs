@@ -178,7 +178,7 @@ Both of these inputs are required to provide the ledger enough information to:
 
 #### cheqd CredDef Object file
 
-Before creating any on-ledger resource transaction, it is important to assemble to required CredDef Object Content and save it as a file locally.
+Before creating any on-ledger resource transaction, it is important to assemble the required CredDef Object Content and save it as a file locally.
 
 In the example below, the content should be saved as a file, for example: `degreeCredDef.json` with the following content (without revocation):
 
@@ -186,7 +186,7 @@ In the example below, the content should be saved as a file, for example: `degre
 {
   "schemaId": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
   "type": "CL",
-  "tag": "latest",
+  "tag": "1.0",
   "value": {
     "primary": {
       "n": "779...397",
@@ -216,7 +216,7 @@ Or with revocation:
 "AnonCredsObject: {
   "schemaId": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
   "type": "CL",
-  "tag": "latest",
+  "tag": "1.0",
   "value": {
     "primary": {...},
     "revocation": {
@@ -255,7 +255,7 @@ The Payload file extracts the information from the CredDef Object file to popula
     "collectionId": "zF7rhDBfUt9d1gJPjx7s1J",
     "id": "77465164-5646-42d9-9a0a-f7b2dcb855c0",
     "resourceType": "anonCredsCredDef",
-    "version": "latest",
+    "version": "1.0",
     "alsoKnownAs": []
   },
   "SignInputs": [
@@ -301,7 +301,7 @@ This can either be compiled by the associated SDK handling cheqd AnonCreds, or i
   "issuerId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J"
   "schemaId": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
   "type": "CL",
-  "tag": "latest",
+  "tag": "1.0",
   "value": {
     "primary": {
       "n": "779...397",
@@ -344,7 +344,7 @@ Once you have created your resource on cheqd, the following metadata will be gen
   "resourceId": "77465164-5646-42d9-9a0a-f7b2dcb855c0",
   "resourceName": "universityDegree",
   "resourceType": "anonCredsCredDef",
-  "resourceVersion": "0.0.1",
+  "resourceVersion": "1.0",
   "mediaType": "application/json",
   "created": "2022-07-19T08:40:00Z",
   "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
@@ -392,22 +392,57 @@ This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds O
 
 To create a CredDef on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../tutorials/on-ledger-resources/), and pass the relevant JSON file for the object in the transaction.
 
-### Fetching a cheqd CredDef Object
+## Tying CredDef, RevRegDef and StatusListEntry Objects together
 
-Existing DID Resolvers will be able to query for the CredDef Object Content using the following parameters:
+Across the [cheqd CredDef Object Method](creddef-object.md#cheqd-anoncreds-object-method-for-creddefs), the [Revocation Registry Definition Object Method](creddef-object.md#cheqd-anoncreds-object-method-for-revocation-registry-definition-objects) and the [StatusListEntry Object Method](revocation-registry-entry-object.md) - each resource is associated with the same issuer DID and Collection ID.
 
-Common and standardized `resource` parameters:
+Importantly, this allows each new resource to be indexed and versioned by their:
 
-| Parameter                 | Type                                                          | Example                                                                                                                                                                                                                                                                                                                                                                  |
-| ------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `"resourceId"`            | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                                   |
-| `"resourceName"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=credDefDegree                                                                                                                                                                                                                                                                                        |
-| `"resourceType"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=credDefDegree\&resourceType=claimDef                                                                                                                                                                                                                                                                 |
-| `"resourceVersionId"`     | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=credDefDegree\&resourceVersionId=0.0.1                                                                                                                                                                                                                                                               |
-| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=credDefDegree\&resourceType=claimDef\&versionTime=2015-03-11T05:30:02Z                                                                                                                                                                                                                               |
-| `"versionId"`             | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?versionId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                                    |
-| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=credDefDegree\&resourceType=claimDef\&versionTime=2018-07-19T08:40:00Z                                                                                                                                                                                                                               |
-| `"linkedResource"`        | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?linkedResource=true // _note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document._                                                                                                                                                                       |
-| `"resourceMetadata"`      | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=credDefDegree\&resourceType=claimDef\&versionTime=2018-07-19T08:40:00Z\&resourceMetadata=true or, did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceMetadata=true // note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document. |
-| "`latestResourceVersion`" | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=credDefDegree\&resourceType=claimDef\&latestResourceVersion=true                                                                                                                                                                                                                                     |
-| "`allResourceVersions`"   | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=credDefDegree\&resourceType=claimDef\&allResourceVersions=true                                                                                                                                                                                                                                       |
+1. `resourceName`
+2. `resourceType`
+
+New resources can be created to update the existing CredDef or RevRegDef, whilst maintaining the historical state of the previous versions. See the documentation on [Publishing a New Version of a Resource](../../advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/add-resource-to-existing-collection.md) to understand this further.
+
+## Fetching a cheqd CredDef Object
+
+Existing DID Resolvers will be able to query for the CredDef Object Content using the [same patterns and parameters as the Schema Object found here](schema-object.md#fetching-a-cheqd-resource).&#x20;
+
+The cheqd AnonCreds method also enables applications to derive the [CredDef](creddef-object.md), [Revocation Registry Definition Object](revocation-registry-definition-object.md) and [Status List Entries](revocation-registry-entry-object.md) from the same root:
+
+### Same Resource Name, different Resource type
+
+We propose that the `resourceName` for CredDefs, Revocation Registry Definitions and Status List Entries **should remain the same** when each of these resources is part of the same AnonCred. This will make it easier for resources to query by `resourceName` and `resourceType` to delineate between the three resources using a common root. &#x20;
+
+Using this logic, the following queries can be used to dereference to [CredDefs](creddef-object.md), [Revocation Registry Definitions](revocation-registry-definition-object.md) and [Status List Entries](revocation-registry-entry-object.md), in a way which can derive all three resources from the same root:
+
+#### Dereference to CredDef
+
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=universityDegree&resourceType=anonCredsCredDef`
+
+#### Dereference to Revocation Registry Definition
+
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=universityDegree&resourceType=anonCredsRevocRegDef`
+
+#### Dereference to Revocation Status List Entry
+
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=universityDegree&resourceType=anonCredsStatusListEntry`
+
+{% hint style="info" %}
+**Note**: across all three of these queries, the resolver would fetch the latest version of the resource by default
+{% endhint %}
+
+## Constructing an AnonCred with this logic
+
+The AnonCreds construction below uses this logic to demonstrate how an application could derive the latest [Status List Entry](revocation-registry-entry-object.md) using the "`rev_reg_id`" since it shares the same root and would only require replacing "anonCredsRevocRegDef" with "anonCredsStatusListEntry".
+
+This is similar to how Hyperledger Indy uses composite strings to derive assoicated AnonCreds Objects from others. For example:
+
+```json
+{
+    "schema_id": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
+    "cred_def_id": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=universityDegree&resourceType=anonCredsCredDef",
+    "rev_reg_id": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=universityDegree&resourceType=anonCredsRevocRegDef",
+    "values": {...}
+}
+```
+

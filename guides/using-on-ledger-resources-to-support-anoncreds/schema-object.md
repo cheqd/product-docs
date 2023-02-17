@@ -79,7 +79,7 @@ Both of these inputs are required to provide the ledger enough information to:
 
 #### Schema Object file
 
-Before creating any on-ledger transaction, it is important to assemble to required Schema Object Content and save it as a file locally.
+Before creating any on-ledger transaction, it is important to assemble the required Schema Object Content and save it as a file locally.
 
 In the example below, the content should be saved as a JSON file, for example: `degreeSchema.json` with the following content:
 
@@ -192,7 +192,7 @@ _If "**resourceType=anonCredsSchema**" then **append "issuerId"** to the beginni
 
 To create a schema on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../tutorials/on-ledger-resources/), and pass the relevant JSON file for the object in the transaction.&#x20;
 
-### Fetching a cheqd Schema Object
+### Fetching a cheqd Resource
 
 Existing DID Resolvers will be able to query for the Schema Object Content using the following parameters:
 
@@ -210,7 +210,7 @@ Existing DID Resolvers will be able to query for the Schema Object Content using
 | "`latestResourceVersion`" | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&latestResourceVersion=true                                                                                                                                                                                                                             |
 | "`allResourceVersions`"   | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&allResourceVersions=true                                                                                                                                                                                                                               |
 
-### Deprecated Legacy AnonCreds Structure
+### Legacy AnonCreds Schema Structure
 
 <details>
 
