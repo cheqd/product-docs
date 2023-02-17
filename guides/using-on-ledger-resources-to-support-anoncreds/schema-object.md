@@ -68,7 +68,7 @@ The request format _**may**_ be specific to each AnonCreds Object Method. Howeve
 
 The cheqd schema request format comprises of:
 
-1. A scheme object file (e.g. `degreeSchema.json`);
+1. A schema object file (e.g. `degreeSchema.json`);
 2. A Payload file (including the signing keys)
 3. Additional input parameters.
 
