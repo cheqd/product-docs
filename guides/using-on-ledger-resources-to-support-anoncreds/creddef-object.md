@@ -16,7 +16,7 @@ In the ledger-agnostic [AnonCreds](https://hyperledger.github.io/anoncreds-spec/
 
 This documentation will guide an implementor of AnonCreds on cheqd on how the cheqd AnonCreds Object Method defines and structures **cheqd CredDef IDs**, **CredDef Request formats** and **CredDef Response formats**, with and without revocation enabled.
 
-### Hyperledger AnonCreds CredDef Object ID
+### Hyperledger AnonCreds CredDef Object
 
 If you are not familiar with the latest Ledger-Agnostic AnonCreds CredDef structure, click the collapsible tile below to learn about the new format.
 
@@ -165,7 +165,7 @@ The request format _**may**_ be specific to each AnonCreds Object Method. Howeve
 
 ### cheqd CredDef Request Format
 
-The cheqd schema request format comprises of:
+The cheqd CredDef request format comprises of:
 
 1. A CredDef object file (e.g. `degreeCredDef.json`);
 2. A Payload file (including the signing keys)
