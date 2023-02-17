@@ -180,7 +180,7 @@ Both of these inputs are required to provide the ledger enough information to:
 
 Before creating any on-ledger resource transaction, it is important to assemble to required CredDef Object Content and save it as a file locally.
 
-In the example below, the content should be saved as a file, for example: `credDefDegree.json` with the following content (without revocation):
+In the example below, the content should be saved as a file, for example: `degreeCredDef.json` with the following content (without revocation):
 
 ```json
 {
