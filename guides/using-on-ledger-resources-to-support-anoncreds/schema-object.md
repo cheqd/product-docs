@@ -54,7 +54,7 @@ cheqd resources implementation uses the following path-based syntax:
 
 The cheqd AnonCreds object method uses a UUID to identify the Schema Object Content.
 
-For example, the following DID URL is cheqd's representation of a `schema_id`:
+For example, the following DID URL is cheqd's representation of a `schemaId`:
 
 `did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497`
 

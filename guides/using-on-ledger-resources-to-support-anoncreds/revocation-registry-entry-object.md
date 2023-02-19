@@ -62,14 +62,19 @@ cheqd resources module uses the following format:
 
 Rather than using a composite string for the Status List Entry ID. The cheqd AnonCreds object method uses a UUID to identify the Revocation Status List Object.
 
-For example, the following DID URL is cheqd's representation of a `StatusListEntry`:
+For example, the following DID URL is cheqd's representation of a `StatusListEntryId`:
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887`
 
-{% hint style="info" %}
-Unlike in Hyperledger Indy implementations, cheqd uses a **unique identifier for each specific Revocation Registry Entry ID**. This enables better indexing and searchability. For conformance with the cheqd AnonCreds Object Method, each Revocation Registry Status List Object **MUST** be created in the **same Collection** as the Revocation Registry Definition Object.
-{% endhint %}
+Another supported format for a `StatusListEntryId` may be used in applications where it is important to derive the `credDefId`, `revocRegDefId` and `statusListEntryId` from the same root.
 
+This format uses query-based syntax, for example:
+
+`did:cheqd:mainnet:<IssuerDid>?resourceName=<resourceName>&resourceType=<resourceType>`
+
+For example:
+
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=universityDegree&resourceType=anonCredsStatusListEntry`
 ### Understanding Request vs Response formats
 
 It is important to differentiate between the **Request format** for creating an AnonCreds object on cheqd, and the **Response format**, for how an AnonCreds objectshould be compiled by SDKs and the [cheqd DID Resolver](../../architecture/adr-list/adr-003-did-resolver.md).&#x20;

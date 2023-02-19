@@ -153,9 +153,19 @@ cheqd resources module uses the following path-based syntax:
 
 Rather than using a composite string for the CredDef Resource ID. The cheqd AnonCreds object method uses a UUID to identify the CredDef Object Content which includes additional CredDef Object Content Metadata, providing the required fields for equivalence with Hyperledger Indy implementations.
 
-For example, the following DID URL is cheqd's representation of a `cred_def_id`:
+For example, the following DID URL is cheqd's representation of a `credDefId`:
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0`
+
+Another supported format for a `credDefId` may be used in applications where it is important to derive the `credDefId`, `revocRegDefId` and `statusListEntryId` from the same root.
+
+This format uses query-based syntax, for example:
+
+`did:cheqd:mainnet:<IssuerDid>?resourceName=<resourceName>&resourceType=<resourceType>`
+
+For example:
+
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=universityDegree&resourceType=anonCredsCredDef`
 
 ### Understanding Request vs Response formats
 
