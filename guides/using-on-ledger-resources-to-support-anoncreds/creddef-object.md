@@ -30,7 +30,7 @@ This means that an AnonCreds CredDef Object ID does not need to be formatted in 
 
 Credential Definition Object Content is distinct in the way it is structured. The inputs and outputs generated when creating a CredDef are as follows:
 
-**Create CredDef input**
+#### Create CredDef input
 
 The following inputs are required to create a CredDef:
 
@@ -43,7 +43,7 @@ The operation produces two objects, as follows.
 * The [Private Credential Definition](https://hyperledger.github.io/anoncreds-spec/#term:private-credential-definition), an internally managed object that includes the private keys generated for the [Credential Definition](https://hyperledger.github.io/anoncreds-spec/#term:credential-definition) and stored securely by the issuer.
 * The [Credential Definition](https://hyperledger.github.io/anoncreds-spec/#term:credential-definition), that includes the public keys generated for the [Credential Definition](https://hyperledger.github.io/anoncreds-spec/#term:credential-definition), returned to the calling function and then published on a VDR.
 
-**Create CredDef output (private)**
+#### Create CredDef output (private)
 
 ```json
 {
@@ -66,7 +66,7 @@ Where:
 
 `x` and `sk` are used as part of the revocation public key generation as defined below.
 
-**Create CredDef output (public)**
+#### Create CredDef output (public)
 
 The output of a create CredDef transaction is a JSON structure that is generated using cryptographic primitives.
 
