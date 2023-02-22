@@ -90,7 +90,7 @@ In the example below, the content should be saved as a JSON file, for example: `
  }
 ```
 
-This Resource file maps the fields of the Schema object to populate a [DID-Linked resource](../did-linked-resources/) stored on cheqd, with the following mapping:
+This Schema Resource file inputs should be replicated where possible within the Payload file, to populate a [DID-Linked resource](../did-linked-resources/) stored on cheqd, with the following mapping:
 
 | Resource file field | Payload file field |
 | ------------------- | ------------------ |

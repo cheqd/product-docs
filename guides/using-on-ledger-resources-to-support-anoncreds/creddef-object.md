@@ -244,7 +244,7 @@ Or with revocation:
 }
 ```
 
-This CredDef Resource file maps the fields of the CredDef Object to populate a [DID-Linked resource](../did-linked-resources/) stored on cheqd, with the following mapping:
+This CredDef Resource file inputs should be replicated where possible within the Payload file, to populate a [DID-Linked resource](../did-linked-resources/) stored on cheqd, with the following mapping:
 
 | CredDef Object field | CredDef Object expected input | Mapped Payload file field | Mapped Payload file input  |
 | -------------------- | ----------------------------- | ------------------------- | -------------------------- |

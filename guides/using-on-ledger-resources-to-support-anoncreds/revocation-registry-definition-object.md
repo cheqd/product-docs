@@ -142,7 +142,7 @@ In the example below, the content should be saved as a file, for example: `degre
 Note: The associated Credential Definition specified must have enabled revocation support for the Revocation Registry Definition to be able to be used properly in an SDK.
 {% endhint %}
 
-This Revocation Registry Definition Resource file fields should be replicated within the Payload file, with the following mapping, to populate a [DID-Linked resource](../did-linked-resources/) stored on cheqd, with the following mapping:
+This Revocation Registry Definition Resource file fields should be replicated where possible within the Payload file, to populate a [DID-Linked resource](../did-linked-resources/) stored on cheqd, with the following mapping:
 
 | Resource file field | Resource file input | Payload file field | Payload file input     |
 | ------------------- | ------------------- | ------------------ | ---------------------- |

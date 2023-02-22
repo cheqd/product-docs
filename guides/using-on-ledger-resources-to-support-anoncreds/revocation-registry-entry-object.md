@@ -107,7 +107,7 @@ In the example below, the content should be saved as a file, for example: `degre
 }
 ```
 
-This Status List Entry Resource file fields should be replicated within the Payload file,  to populate a [DID-Linked resource](../did-linked-resources/) stored on cheqd, with the following mapping:
+This Status List Entry Resource file inputs should be replicated where possible within the Payload file, to populate a [DID-Linked resource](../did-linked-resources/) stored on cheqd, with the following mapping:
 
 | Resource file field | Resource file input  | Payload file field | Payload file input         |
 | ------------------- | -------------------- | ------------------ | -------------------------- |
