@@ -99,7 +99,7 @@ For example:
 
 ### Understanding Request vs Response formats
 
-It is important to differentiate between the **Request format** for creating an AnonCreds object on cheqd, and the **Response format**, for how an AnonCreds objectshould be compiled by SDKs and the [cheqd DID Resolver](../../architecture/adr-list/adr-003-did-resolver.md).&#x20;
+It is important to differentiate between the **Request format** for creating an AnonCreds object on cheqd, and the **Response format**, for how an AnonCreds objectshould be compiled by SDKs and the [cheqd DID Resolver](../../architecture/adr-list/adr-003-did-resolver.md).
 
 The request format _**may**_ be specific to each AnonCreds Object Method. However, the response format _**should**_ be standardised to enable any AnonCreds supported application to understand the object, without needing custom or method-specific logic.
 
@@ -107,16 +107,15 @@ The request format _**may**_ be specific to each AnonCreds Object Method. Howeve
 
 The cheqd revocation registry definition request format comprises of:
 
-1. A revocation registry definition object file (e.g. `degreeRevocRegDef.json`);
-2. A Payload file (including the signing keys)
-3. Additional input parameters.
+1. A Resource file for the Revocation Registry Definition object content (e.g. `degreeRevocRegDef.json`); and
+2. A Payload file (including the signing keys and additional inputs to create a DID-Linked Resource).
 
 Both of these inputs are required to provide the ledger enough information to:
 
 1. Populate a [cheqd DID-Linked Resource](../did-linked-resources/); and
-2. Compile a standardised AnonCreds revocation registry definition object in the [Response format](revocation-registry-definition-object.md#cheqd-revocation-registry-definition-response-format).&#x20;
+2. Compile a standardised AnonCreds revocation registry definition object in the [Response format](revocation-registry-definition-object.md#cheqd-revocation-registry-definition-response-format).
 
-#### Revocation Registry Definition Object file
+#### Revocation Registry Definition Resource file
 
 Before creating any on-ledger resource transaction, it is important to assemble the required Revocation Registry Definition Object Content and save it as a file locally.
 
@@ -140,29 +139,32 @@ In the example below, the content should be saved as a file, for example: `degre
 ```
 
 {% hint style="info" %}
-Note: The Credential Definition ID specified must have enabled revocation support for the Revocation Registry Definition to be able to be used properly in an SDK.
+Note: The associated Credential Definition specified must have enabled revocation support for the Revocation Registry Definition to be able to be used properly in an SDK.
 {% endhint %}
 
-This Revocation Registry Definition Object file maps the fields of the Revocation Registry Definition Object to populate a [DID-Linked resource](../did-linked-resources/) stored on cheqd, with the following mapping:
+This Revocation Registry Definition Resource file fields should be replicated within the Payload file, with the following mapping, to populate a [DID-Linked resource](../did-linked-resources/) stored on cheqd, with the following mapping:
 
-| Object Metadata field | Object Metadata input | Mapped cheqd field | Mapped field output    |
-| --------------------- | --------------------- | ------------------ | ---------------------- |
-| "type"                | "CL\_ACCUM"           | "resourceType"     | "anonCredsRevocRegDef" |
-| "tag"                 | ""                    | "resourceVersion"  | ""                     |
+| Resource file field | Resource file input | Payload file field | Payload file input     |
+| ------------------- | ------------------- | ------------------ | ---------------------- |
+| "type"              | "CL\_ACCUM"         | "resourceType"     | "anonCredsRevocRegDef" |
+| "tag"               | ""                  | "resourceVersion"  | ""                     |
 
-What this means is that if the resource data file has an object of "type" = "CL\_ACCUM" then it will automatically populate the "resourceType" as "anonCredsRevocRegDef" when creating the "payload file".
+What this means is that if the **Resource file** has an object of **"type" = "CL\_ACCUM"** then this should be written as **"resourceType" = "anonCredsRevocRegDef"** when creating the **Payload file**.
 
 #### Revocation Registry Definition Payload File
 
-The Payload file extracts the information from the Revocation Registry Definition Object file to populate the following:
+The **Payload file** utilises the inputs from the **Resource file** where possible, mapping common fields across. The **Payload file** may also require additional inputs to be provided by the creator to create a DID-Linked Resource for inputs not provided in the **Resource file**.&#x20;
+
+Below is an example of a Payload file:
 
 ```json
 {
   "Payload": {
     "collectionId": "zF7rhDBfUt9d1gJPjx7s1J",
     "id": "af20b1f0-5c4d-4037-9669-eaedddb9c2df",
+    "name": "universityDegree", // this is an additional input
+    "version": "2.0", // this is an optional additional input
     "resourceType": "anonCredsRevocRegDef",
-    "version": "2.0",
     "alsoKnownAs": []
   },
   "SignInputs": [
@@ -174,18 +176,19 @@ The Payload file extracts the information from the Revocation Registry Definitio
 }
 ```
 
-#### **Request format additional inputs**
+When passing the Payload file to the ledger, additional inputs may be required within the Payload file to populate the [DID-Linked Resource](../did-linked-resources/). In this instance, the only additional information required is:
 
-When passing the payload file to the ledger, additional information MUST also be provided as `flags` to fully populate the [DID-Linked resource](../did-linked-resources/).&#x20;
+| Additional parameter | Expected input                   | Rationale                                                                                                                                                                                                                              |
+| -------------------- | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| "name"               | "\<insert same name as CredDef>" | The Payload file drawing inputs from the Resource file on its own does not provide the ledger the requisite amount of information to create a full DID-Linked Resource. resourceName must be provided as an additional input parameter |
 
-| Additional parameter | Expected input     | Rationale                                                                                                                                                                                        |
-| -------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| "name"               | "universityDegree" | The payload file on its own does not provide the ledger the requisite amount of information to create a full DID-Linked Resource. resourceName must be provided as an additional input parameter |
+#### Publishing resource using CLI
 
-For example:
+For example, the full request format using a CLI should be structured as follows:
 
 ```bash
-cheqd-noded tx anonCredsRevocRegDef create \
+cheqd-noded tx resource create [payload.json] [degreeRevocRegDef.json] \
+  
   --chain-id cheqd \
   --keyring-backend test \
   --output json \
@@ -193,8 +196,6 @@ cheqd-noded tx anonCredsRevocRegDef create \
   --gas auto \
   --gas-adjustment 1.8 \
   --from base_account \
-  --name universityDegree \
-  "payload.json" degreeRevocRegDef.json
 ```
 
 ### cheqd resource Metadata
@@ -223,7 +224,7 @@ Once you have created your Revocation Registry as a resource on cheqd, the follo
 
 Using the cheqd [Revocation Registry Definition Request format](revocation-registry-definition-object.md#cheqd-revocation-registry-definition-request-format) and [associated resource metadata](revocation-registry-definition-object.md#cheqd-resource-metadata), the ledger has enough information to compile the following data structure as a response format.
 
-This can either be compiled by the associated SDK handling cheqd AnonCreds, or it can be assembled by the cheqd DID resolver.&#x20;
+This can either be compiled by the associated SDK handling cheqd AnonCreds, or it can be assembled by the cheqd DID resolver.
 
 ```json
 {
@@ -266,15 +267,15 @@ Importantly, this allows each new resource to be indexed and versioned by their:
 
 New resources can be created to update the existing CredDef or RevRegDef, whilst maintaining the historical state of the previous versions. See the documentation on [Publishing a New Version of a Resource](../../advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/add-resource-to-existing-collection.md) to understand this further.
 
-## Fetching a cheqd Revocation Registry Definition Object
+### Fetching a cheqd Revocation Registry Definition Object
 
-Existing DID Resolvers will be able to query for the Revocation Registry Definition Object Content using the [same patterns and parameters as the Schema Object found here](schema-object.md#fetching-a-cheqd-resource).&#x20;
+Existing DID Resolvers will be able to query for the Revocation Registry Definition Object Content using the [same patterns and parameters as the Schema Object found here](schema-object.md#fetching-a-cheqd-resource).
 
 The cheqd AnonCreds method also enables applications to derive the [CredDef](creddef-object.md), [Revocation Registry Definition Object](revocation-registry-definition-object.md) and [Status List Entries](revocation-registry-entry-object.md) from the same root:
 
 ### Same Resource Name, different Resource type
 
-We propose that the `resourceName` for CredDefs, Revocation Registry Definitions and Status List Entries **should remain the same** when each of these resources is part of the same AnonCred. This will make it easier for resources to query by `resourceName` and `resourceType` to delineate between the three resources using a common root. &#x20;
+We propose that the `resourceName` for CredDefs, Revocation Registry Definitions and Status List Entries **should remain the same** when each of these resources is part of the same AnonCred. This will make it easier for resources to query by `resourceName` and `resourceType` to delineate between the three resources using a common root.
 
 Using this logic, the following queries can be used to dereference to [CredDefs](creddef-object.md), [Revocation Registry Definitions](revocation-registry-definition-object.md) and [Status List Entries](revocation-registry-entry-object.md), in a way which can derive all three resources from the same root:
 
@@ -294,7 +295,7 @@ Using this logic, the following queries can be used to dereference to [CredDefs]
 **Note**: across all three of these queries, the resolver would fetch the latest version of the resource by default
 {% endhint %}
 
-## Constructing an AnonCred with this logic
+### Constructing an AnonCred with this logic
 
 The AnonCreds construction below uses this logic to demonstrate how an application could derive the latest [Status List Entry](revocation-registry-entry-object.md) using the "`rev_reg_id`" since it shares the same root and would only require replacing "anonCredsRevocRegDef" with "anonCredsStatusListEntry".
 

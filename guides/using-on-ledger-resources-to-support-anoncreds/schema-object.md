@@ -60,7 +60,7 @@ For example, the following DID URL is cheqd's representation of a `schemaId`:
 
 ### Understanding Request vs Response formats
 
-It is important to differentiate between the **Request format** for creating an AnonCreds object on cheqd, and the **Response format**, for how an AnonCreds objectshould be compiled by SDKs and the [cheqd DID Resolver](../../architecture/adr-list/adr-003-did-resolver.md).&#x20;
+It is important to differentiate between the **Request format** for creating an AnonCreds object on cheqd, and the **Response format**, for how an AnonCreds objectshould be compiled by SDKs and the [cheqd DID Resolver](../../architecture/adr-list/adr-003-did-resolver.md).
 
 The request format _**may**_ be specific to each AnonCreds Object Method. However, the response format _**should**_ be standardised to enable any AnonCreds supported application to understand the object, without needing custom or method-specific logic.
 
@@ -68,16 +68,15 @@ The request format _**may**_ be specific to each AnonCreds Object Method. Howeve
 
 The cheqd schema request format comprises of:
 
-1. A schema object file (e.g. `degreeSchema.json`);
-2. A Payload file (including the signing keys)
-3. Additional input parameters.
+1. A Resource file for the Schema object content (e.g. `degreeSchema.json`); and
+2. A Payload file (including the signing keys and additional inputs to create a DID-Linked Resource).
 
 Both of these inputs are required to provide the ledger enough information to:
 
 1. Populate a [cheqd DID-Linked Resource](../did-linked-resources/); and
-2. Compile a standardised AnonCreds schema object in the [Response format](schema-object.md#cheqd-schema-response-format).&#x20;
+2. Compile a standardised AnonCreds schema object in the [Response format](schema-object.md#cheqd-schema-response-format).
 
-#### Schema Object file
+#### cheqd Schema Resource file
 
 Before creating any on-ledger transaction, it is important to assemble the required Schema Object Content and save it as a file locally.
 
@@ -91,16 +90,18 @@ In the example below, the content should be saved as a JSON file, for example: `
  }
 ```
 
-This Schema Object file maps the fields of the Schema object to populate a [DID-Linked resource](../did-linked-resources/) stored on cheqd, with the following mapping:
+This Resource file maps the fields of the Schema object to populate a [DID-Linked resource](../did-linked-resources/) stored on cheqd, with the following mapping:
 
-| Object Metadata field | Mapped cheqd field |
-| --------------------- | ------------------ |
-| "name"                | "resourceName"     |
-| "version"             | "resourceVersion"  |
+| Resource file field | Payload file field |
+| ------------------- | ------------------ |
+| "name"              | "name"             |
+| "version"           | "version"          |
 
 #### Schema Payload File
 
-The Payload file extracts the information from the Schema Object file to populate the following:
+The **Payload file** utilises the inputs from the **Resource file** where possible, mapping common fields across. The **Payload file** may also require additional inputs to be provided by the creator to create a DID-Linked Resource for inputs not provided in the **Resource file**.&#x20;
+
+Below is an example of a Payload file:
 
 ```json
 {
@@ -109,6 +110,7 @@ The Payload file extracts the information from the Schema Object file to populat
     "id": "6259d357-eeb1-4b98-8bee-12a8390d3497",
     "name": "degreeSchema",
     "version": "1.5.7",
+    "resourceType": "anonCredsSchema", // this is added as an additional input
     "alsoKnownAs": []
   },
   "SignInputs": [
@@ -120,18 +122,19 @@ The Payload file extracts the information from the Schema Object file to populat
 }
 ```
 
-#### **Schema Request format additional inputs**
+When passing the Payload file to the ledger, additional inputs may be required within the Payload file to populate the [DID-Linked Resource](../did-linked-resources/). In this instance, the only additional information required is:
 
-When passing the payload file to the ledger, additional information MUST also be provided as `flags` to fully populate the [DID-Linked resource](../did-linked-resources/).&#x20;
+| Additional parameter | Expected input    | Rationale                                                                                                                                                                                                                   |
+| -------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| "resourceType"       | "anonCredsSchema" | The Payload file drawing inputs from the Resource file does not provide the ledger the requisite amount of information to create a full DID-Linked Resource. resourceType must be provided as an additional input parameter |
 
-| Additional parameter | Expected input    | Rationale                                                                                                                                                                                        |
-| -------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| "resourceType"       | "anonCredsSchema" | The payload file on its own does not provide the ledger the requisite amount of information to create a full DID-Linked Resource. resourceType must be provided as an additional input parameter |
+#### Publishing resource using CLI
 
-For example, the full request format should be as follows:
+For example, the full request format using a CLI should be structured as follows:
 
 ```bash
-cheqd-noded tx anonCredsSchema create \
+cheqd-noded tx resource create [payload.json] [degreeSchema.json] \
+
   --chain-id cheqd \
   --keyring-backend test \
   --output json \
@@ -139,8 +142,6 @@ cheqd-noded tx anonCredsSchema create \
   --gas auto \
   --gas-adjustment 1.8 \
   --from base_account \
-  --resourceType anonCredsSchema \
-  "payload.json" degreeSchema.json
 ```
 
 ### cheqd resource Metadata
@@ -190,7 +191,7 @@ _If "**resourceType=anonCredsSchema**" then **append "issuerId"** to the beginni
 
 ### Create schema transaction
 
-To create a schema on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../tutorials/on-ledger-resources/), and pass the relevant JSON file for the object in the transaction.&#x20;
+To create a schema on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../tutorials/on-ledger-resources/), and pass the relevant JSON file for the object in the transaction.
 
 ### Fetching a cheqd Resource
 

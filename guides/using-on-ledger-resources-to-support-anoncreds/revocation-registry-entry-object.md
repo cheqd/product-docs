@@ -51,7 +51,6 @@ Therefore, for each new Revocation Status List entry, the the `revocRegDefId` re
 
 </details>
 
-
 ### cheqd Revocation Status List Object ID
 
 cheqd uses [DID-Linked Resources](../did-linked-resources/) to identify individual resources, associated with a DID, using fully resolvable DID URLs.
@@ -78,7 +77,7 @@ For example:
 
 ### Understanding Request vs Response formats
 
-It is important to differentiate between the **Request format** for creating an AnonCreds object on cheqd, and the **Response format**, for how an AnonCreds objectshould be compiled by SDKs and the [cheqd DID Resolver](../../architecture/adr-list/adr-003-did-resolver.md).&#x20;
+It is important to differentiate between the **Request format** for creating an AnonCreds object on cheqd, and the **Response format**, for how an AnonCreds objectshould be compiled by SDKs and the [cheqd DID Resolver](../../architecture/adr-list/adr-003-did-resolver.md).
 
 The request format _**may**_ be specific to each AnonCreds Object Method. However, the response format _**should**_ be standardised to enable any AnonCreds supported application to understand the object, without needing custom or method-specific logic.
 
@@ -86,16 +85,15 @@ The request format _**may**_ be specific to each AnonCreds Object Method. Howeve
 
 The cheqd AnonCreds Status List Entry request format comprises of:
 
-1. A revocation registry definition object file (e.g. `degreeStatusListEntry.json`);
-2. A Payload file (including the signing keys)
-3. Additional input parameters.
+1. A Resource file for the Status List Entry object content (e.g. `degreeStatusListEntry.json`); and
+2. A Payload file (including the signing keys and additional inputs to create a DID-Linked Resource).
 
 Both of these inputs are required to provide the ledger enough information to:
 
 1. Populate a [cheqd DID-Linked Resource](../did-linked-resources/); and
-2. Compile a standardised AnonCreds revocation registry definition object in the [Response format](revocation-registry-entry-object.md#cheqd-status-list-entry-response-format).&#x20;
+2. Compile a standardised AnonCreds revocation registry definition object in the [Response format](revocation-registry-entry-object.md#cheqd-status-list-entry-response-format).
 
-#### Status List Entry Object file
+#### Status List Entry Resource file
 
 Before creating any on-ledger resource transaction, it is important to assemble the required Status List Entry Content and save it as a file locally.
 
@@ -109,23 +107,27 @@ In the example below, the content should be saved as a file, for example: `degre
 }
 ```
 
-This Status List Entry Object file maps the fields of the Status List to populate a [DID-Linked resource](../did-linked-resources/) stored on cheqd, with the following mapping:
+This Status List Entry Resource file fields should be replicated within the Payload file,  to populate a [DID-Linked resource](../did-linked-resources/) stored on cheqd, with the following mapping:
 
-| Object Metadata field | Object Metadata input | Mapped cheqd field | Mapped field output        |
-| --------------------- | --------------------- | ------------------ | -------------------------- |
-| "type"                | "currentAccumulator"  | "resourceType"     | "anonCredsStatusListEntry" |
+| Resource file field | Resource file input  | Payload file field | Payload file input         |
+| ------------------- | -------------------- | ------------------ | -------------------------- |
+| "type"              | "currentAccumulator" | "resourceType"     | "anonCredsStatusListEntry" |
 
-What this means is that if the resource data file has an object of "currentAccumulator" then it will automatically populate the "resourceType" as "anonCredsStatusListEntry" when creating the "payload file".
+What this means is that if the **Resource file** has an object of **"type" = "currentAccumulator"** then this should be written as **"resourceType" = "anonCredsStatusListEntry"** when creating the **Payload file**.
 
 #### Status List Entry Payload File
 
-The Payload file extracts the information from the Status List Entry Object file to populate the following:
+The **Payload file** utilises the inputs from the **Resource file** where possible, mapping common fields across. The **Payload file** may also require additional inputs to be provided by the creator to create a DID-Linked Resource for inputs not provided in the **Resource file**.&#x20;
+
+Below is an example of a Payload file:
 
 ```json
 {
   "Payload": {
     "collectionId": "zF7rhDBfUt9d1gJPjx7s1J",
     "id": "af20b1f0-5c4d-4037-9669-eaedddb9c2df",
+    "name": "universityDegree",
+    "version": "",
     "resourceType": "anonCredsStatusListEntry",
     "alsoKnownAs": []
   },
@@ -138,18 +140,19 @@ The Payload file extracts the information from the Status List Entry Object file
 }
 ```
 
-#### **Request format additional inputs**
+When passing the Payload file to the ledger, additional inputs may be required within the Payload file to populate the [DID-Linked Resource](../did-linked-resources/). In this instance, the only additional information required is:
 
-When passing the payload file to the ledger, additional information MUST also be provided as `flags` to fully populate the [DID-Linked resource](../did-linked-resources/).&#x20;
+| Additional parameter | Expected input                                   | Rationale                                                                                                                                                                                                                              |
+| -------------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| "name"               | "\<insert same name as CredDef and RevocRegDef>" | The Payload file drawing inputs from the Resource file on its own does not provide the ledger the requisite amount of information to create a full DID-Linked Resource. resourceName must be provided as an additional input parameter |
 
-| Additional parameter | Expected input     | Rationale                                                                                                                                                                                        |
-| -------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| "name"               | "universityDegree" | The payload file on its own does not provide the ledger the requisite amount of information to create a full DID-Linked Resource. resourceName must be provided as an additional input parameter |
+#### Publishing resource using CLI
 
-For example:
+For example, the full request format using a CLI should be structured as follows:
 
 ```bash
-cheqd-noded tx anonCredsStatusListEntry create \
+cheqd-noded tx resource create [payload.json] [degreeStatusListEntry.json] \
+  
   --chain-id cheqd \
   --keyring-backend test \
   --output json \
@@ -157,8 +160,6 @@ cheqd-noded tx anonCredsStatusListEntry create \
   --gas auto \
   --gas-adjustment 1.8 \
   --from base_account \
-  --name universityDegree \
-  "payload.json" degreeStatusListEntry.json
 ```
 
 ### cheqd resource Metadata
@@ -190,7 +191,7 @@ Next and Previous Status List Entries will appear in the resource Metadata when 
 
 Using the cheqd [Status List Entry Request format](revocation-registry-entry-object.md#cheqd-status-list-entry-request-format) and [associated resource metadata](revocation-registry-entry-object.md#cheqd-resource-metadata), the ledger has enough information to compile the following data structure as a response format.
 
-This can either be compiled by the relevant SDK handling cheqd AnonCreds, or it can be assembled by the cheqd DID resolver.&#x20;
+This can either be compiled by the relevant SDK handling cheqd AnonCreds, or it can be assembled by the cheqd DID resolver.
 
 ```json
 {
@@ -206,7 +207,7 @@ This can either be compiled by the relevant SDK handling cheqd AnonCreds, or it 
 The cheqd DID resolver will use the following logic to compile the standardised response format:
 
 {% hint style="info" %}
-_If "**resourceType=anonCredsStatusListEntry**" then **append "created" into a field called  "timestamp"** to the end of the Response Format for the resource presented_
+_If "**resourceType=anonCredsStatusListEntry**" then **append "created" into a field called "timestamp"** to the end of the Response Format for the resource presented_
 {% endhint %}
 
 ### Linking Revocation Registry Entries
@@ -245,10 +246,6 @@ Once the transaction has been created, the `resourceMetadata` will look like the
 Note: The previousVersionId will now link to the previous Revocation Status List Entry ID
 {% endhint %}
 
-### create Revocation Status List Objects
-
-To create a Revocation Status List Objects on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../tutorials/on-ledger-resources/), and pass the relevant JSON file for the object in the transaction.
-
 ## Tying CredDef, RevRegDef and StatusListEntry Objects together
 
 Across the [cheqd CredDef Object Method](creddef-object.md#cheqd-anoncreds-object-method-for-creddefs), the [Revocation Registry Definition Object Method](revocation-registry-definition-object.md) and the [StatusListEntry Object Method](revocation-registry-entry-object.md) - each resource is associated with the same issuer DID and Collection ID.
@@ -260,15 +257,15 @@ Importantly, this allows each new resource to be indexed and versioned by their:
 
 New resources can be created to update the existing CredDef or RevRegDef, whilst maintaining the historical state of the previous versions. See the documentation on [Publishing a New Version of a Resource](../../advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/add-resource-to-existing-collection.md) to understand this further.
 
-## Fetching a cheqd Status List Object
+### Fetching a cheqd Status List Object
 
-Existing DID Resolvers will be able to query for the Status List Object Content using the [same patterns and parameters as the Schema Object found here](schema-object.md#fetching-a-cheqd-resource).&#x20;
+Existing DID Resolvers will be able to query for the Status List Object Content using the [same patterns and parameters as the Schema Object found here](schema-object.md#fetching-a-cheqd-resource).
 
 The cheqd AnonCreds method also enables applications to derive the [CredDef](creddef-object.md), [Revocation Registry Definition Object](revocation-registry-definition-object.md) and [Status List Entries](revocation-registry-entry-object.md) from the same root:
 
-### Same Resource Name, different Resource type
+#### Same Resource Name, different Resource type
 
-We propose that the `resourceName` for CredDefs, Revocation Registry Definitions and Status List Entries **should remain the same** when each of these resources is part of the same AnonCred. This will make it easier for resources to query by `resourceName` and `resourceType` to delineate between the three resources using a common root. &#x20;
+We propose that the `resourceName` for CredDefs, Revocation Registry Definitions and Status List Entries **should remain the same** when each of these resources is part of the same AnonCred. This will make it easier for resources to query by `resourceName` and `resourceType` to delineate between the three resources using a common root.
 
 Using this logic, the following queries can be used to dereference to [CredDefs](creddef-object.md), [Revocation Registry Definitions](revocation-registry-definition-object.md) and [Status List Entries](revocation-registry-entry-object.md), in a way which can derive all three resources from the same root:
 
@@ -287,21 +284,6 @@ Using this logic, the following queries can be used to dereference to [CredDefs]
 {% hint style="info" %}
 **Note**: across all three of these queries, the resolver would fetch the latest version of the resource by default
 {% endhint %}
-
-## Constructing an AnonCred with this logic
-
-The AnonCreds construction below uses this logic to demonstrate how an application could derive the latest [Status List Entry](revocation-registry-entry-object.md) using the "`rev_reg_id`" since it shares the same root and would only require replacing "anonCredsRevocRegDef" with "anonCredsStatusListEntry".
-
-This is similar to how Hyperledger Indy uses composite strings to derive assoicated AnonCreds Objects from others. For example:
-
-```json
-{
-    "schema_id": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
-    "cred_def_id": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=universityDegree&resourceType=anonCredsCredDef",
-    "rev_reg_id": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=universityDegree&resourceType=anonCredsRevocRegDef",
-    "values": {...}
-}
-```
 
 ### Traversing Status List Entries using a DID Resolver
 
@@ -326,6 +308,21 @@ It will be very common for a proof of non-revocation to require the latest Revoc
 The following DID URL will be able to call the latest Revocation Registry Entry
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?universityDegree&resourceType=statusListEntry`
+
+### Constructing an AnonCred with this logic
+
+The AnonCreds construction below uses this logic to demonstrate how an application could derive the latest [Status List Entry](revocation-registry-entry-object.md) using the "`rev_reg_id`" since it shares the same root and would only require replacing "anonCredsRevocRegDef" with "anonCredsStatusListEntry".
+
+This is similar to how Hyperledger Indy uses composite strings to derive assoicated AnonCreds Objects from others. For example:
+
+```json
+{
+    "schema_id": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
+    "cred_def_id": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=universityDegree&resourceType=anonCredsCredDef",
+    "rev_reg_id": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=universityDegree&resourceType=anonCredsRevocRegDef",
+    "values": {...}
+}
+```
 
 ### Legacy AnonCreds Revocation Registry Entry Structure
 
@@ -355,4 +352,4 @@ This is important to mention, since many client applications may still expect Re
 
 </details>
 
-``
+\`\`
