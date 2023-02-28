@@ -129,7 +129,7 @@ You should copy and paste the output of [Step 1](create-a-did.md#1.-create-your-
 
 ### Example of `payload.json` files
 
-The below examples show the variation in syntax for different verification method key types in the DIDDoc payload file itself. Note that each key type has a slightly different output.&#x20;
+The below examples show the variation in syntax for different verification method key types in the DIDDoc payload file itself. Note that each key type has a slightly different output.
 
 <details>
 
@@ -268,7 +268,7 @@ The below examples show the variation in syntax for different verification metho
 * `document`: Full body of the DID Document
 * `keys`: Keys used to sign the DIDDoc. These must match the ones specified in the DIDDoc, otherwise an error will be thrown.
 * `versionId` (optional): Custom versionId for the DID Document. If this is not set manually, then a UUID will be automatically generated for the DID Document version.
-* `fee` (optional): [Custom fee](../custom-fee.md).&#x20;
+* `fee` (optional): [Custom fee](../custom-fee.md).
 
 > Note that transaction fees are paid by the cheqd account set in the `agent.yml` configuration file, [setup here](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md). Each of cheqd's on-ledger identity transactions has a **fixed fee,** [the pricing for cheqd DIDs and DID-Linked Resources can be found here](https://docs.cheqd.io/node/architecture/adr-list/adr-005-genesis-parameters#cheqd-module-did-module). If your account has insufficient balance the transaction will fail.
 
@@ -282,11 +282,11 @@ If you do not specify the `--argsFile`, you can also paste a JSON inline argumen
 
 ## Next steps
 
-If your transaction is successful, you'll receive a success message along with the transaction details.
+If your transaction is successful, you'll receive a success message along with the transaction details. You can [query your DID using the instructions here to see the representation of your DID Document](query-did.md) on-ledger.&#x20;
 
 ### Troubleshooting
 
 1. If you are using testnet, you can top-up your testnet balance using our [testnet faucet](https://testnet-faucet.cheqd.io/).
-2. You can also configure your Keplr wallet to [support cheqd testnet using the instructions here](https://docs.cheqd.io/identity/guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli#2.5.-add-cheqd-testnet-to-your-keplr-wallet).&#x20;
+2. You can also configure your Keplr wallet to [support cheqd testnet using the instructions here](https://docs.cheqd.io/identity/guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli#2.5.-add-cheqd-testnet-to-your-keplr-wallet).
 3. If you are using mainnet, you can [purchase CHEQ tokens here](https://cheqd.io/buy).
 4. Check out our [troubleshooting guide for DID Operations](did-operations-troubleshooting.md)to see common errors and fixes.

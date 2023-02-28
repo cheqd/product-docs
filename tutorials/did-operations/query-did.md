@@ -41,23 +41,23 @@ The output should look like the following:
     "id": "did:cheqd:mainnet:PdMMR9Jb4vgKkGboB7NFLC",
     "verificationMethod": [
       {
-        "controller": "did:cheqd:mainnet:PdMMR9Jb4vgKkGboB7NFLC",
         "id": "did:cheqd:mainnet:PdMMR9Jb4vgKkGboB7NFLC#key1",
+        "type": "JsonWebKey2020"
+        "controller": "did:cheqd:mainnet:PdMMR9Jb4vgKkGboB7NFLC",
         "publicKeyJwk": {
           "crv": "Ed25519",
           "kty": "OKP",
           "x": "jaa70K9yy4Tw-YEsA2T4F10jsQuFdpVJN9LLhjmOUGw"
         },
-        "type": "JsonWebKey2020"
     "authentication": [
       "did:cheqd:mainnet:PdMMR9Jb4vgKkGboB7NFLC#key1"
         ],
       }
     ]
   },
-    "didDocumentMetadata": {
+  "didDocumentMetadata": {
     "created": "2022-05-13T14:01:20Z",
-    "versionId": "B55E82F3022593C2A55D08484D658003B1685177197796FA00B56440671DB842"
+    "versionId": "83fe6fa4-c844-438f-861a-cbd91202864f"
   }
 }
 ```

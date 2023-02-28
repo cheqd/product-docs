@@ -21,8 +21,10 @@ This file can be saved whereever you choose, but the location must be specified 
 * `alias`: A human-friendly alias for the DID. Only used locally when referencing operations in Veramo CLI.
 * `document`: Full body of the DID Document _including_ updated sections.
 * `keys`: Keys used to sign the DIDDoc. These must match the ones specified in the DIDDoc, otherwise an error will be thrown.
-* `versionId`: (optional) Custom versionId for the Updated DID Document
+* `versionId`: (optional) Custom versionId for the DID Document. If this is not set manually, then a UUID will be automatically generated for the DID Document version.
 * `fee` (optional): [Custom fee](../custom-fee.md)
+
+> Note that transaction fees are paid by the cheqd account set in the `agent.yml` configuration file, [setup here](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md). Each of cheqd's on-ledger identity transactions has a **fixed fee,** [the pricing for cheqd DIDs and DID-Linked Resources can be found here](https://docs.cheqd.io/node/architecture/adr-list/adr-005-genesis-parameters#cheqd-module-did-module). If your account has insufficient balance the transaction will fail.
 
 ### 2. Update existing DID
 
@@ -39,12 +41,6 @@ So, let's try to update `service` section of our `DIDDoc`. Then, your `payload.j
     "context": [],
     "id": "headdid:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
     "controller": ["did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590"],
-    "authentication": ["did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590#key-1"],
-    "assertionMethod": [],
-    "capabilityInvocation": [],
-    "capabilityDelegation": [],
-    "keyAgreement": [],
-    "alsoKnownAs": [],
     "verificationMethod": [
       {
         "id": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590#key-1",
@@ -53,6 +49,9 @@ So, let's try to update `service` section of our `DIDDoc`. Then, your `payload.j
         "publicKeyMultibase": "3e6bd814-6851-4c8a-b114-c64f035ef590JYD9eRNc5CSrNBKkyjep6gYdaWub"
       }
     ],
+    "authentication": [
+      "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590#key-1"
+    ],
     "service": [
       {
         "id": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590#linked-domain",
@@ -60,6 +59,11 @@ So, let's try to update `service` section of our `DIDDoc`. Then, your `payload.j
         "serviceEndpoint": ["https://cheqd.io/"]
       }
     ]
+    "assertionMethod": [],
+    "capabilityInvocation": [],
+    "capabilityDelegation": [],
+    "keyAgreement": [],
+    "alsoKnownAs": [],
   },
   "keys": [
     {
@@ -72,9 +76,9 @@ So, let's try to update `service` section of our `DIDDoc`. Then, your `payload.j
 }
 ```
 
-Notice, that we are updating a `service` section of in our `DIDDoc`.
+Note, that we are updating a `service` section of in our `DIDDoc`.
 
-Then try running the command below to update the `did`:
+After you have updated the `payload.json` file, run the command below to update the `did`:
 
 ```bash
 veramo execute -m cheqdUpdateIdentifier --argsFile path/to/payload.json
