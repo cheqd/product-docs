@@ -27,7 +27,7 @@ Due to a known bug, please make sure that UUIDs generated and submitted to the l
 
 ### 3. Prepare/edit command arguments
 
-Before creating a Resource, you will need to prepare the `args.json` file. This file can be saved where ever you choose, but the location must be specified in the create Resource command used in Step 5. (By default, it will be saved under the project root directory.)
+Before creating a Resource, you will need to prepare the `payload.json` file. This file can be saved where ever you choose, but the location must be specified in the create Resource command used in Step 5. (By default, it will be saved under the project root directory.)
 
 The resource content can be passed either as a file or a base64 encoded string according to the examples below
 
@@ -115,7 +115,7 @@ Prepare a file with resource data
 ### 5. Create new DID and publish DIDDoc
 
 ```bash
-veramo execute -m cheqdCreateLinkedResource --argsFile path/to/args.json
+veramo execute -m cheqdCreateLinkedResource --argsFile path/to/payload.json
 ```
 
 If you do not specify the `--argsFile` in the previous step, you can also paste a JSON inline argument object by using the `--argsJSON` flag followed by the JSON payload.

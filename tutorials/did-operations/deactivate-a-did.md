@@ -10,7 +10,7 @@ Follow these instructions to update an existing `did:cheqd` entry on cheqd ledge
 
 ### Deactivate a DID
 
-Construct your `args.json` file like this
+Construct your `payload.json` file like this
 
 ```json
 {
@@ -41,7 +41,7 @@ Construct your `args.json` file like this
 Then try running the command below to deactivate the `did`:
 
 ```bash
-veramo execute -m cheqdDeactivateIdentifier --argsFile path/to/args.json
+veramo execute -m cheqdDeactivateIdentifier --argsFile path/to/payload.json
 ```
 
 If you would like to fetch the deactivated DIDDoc, execute the `resolve` command as outlined [here](./query-did.md). You can check if `didDocumentMetadata` has the `deactivated` flag set to true.

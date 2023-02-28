@@ -14,7 +14,7 @@ For all of the following steps, you'll need identity keys to digitally sign the 
 
 #### Using standalone keys
 
-This will generate you a public/private key pair which you can use to sign your DIDDoc `args.json` file with.
+This will generate you a public/private key pair which you can use to sign your DIDDoc `payload.json` file with.
 
 Follow [_Method 1_ in the key management guide](identity-key-handling.md)
 
@@ -24,7 +24,7 @@ veramo execute -m cheqdGenerateIdentityKeys
 
 #### Create keys along with a DIDDoc template
 
-This will automatically generate a template for your DIDDoc, including a new DID and associated public/private key pair. You can then use this template to populate your `args.json` file.&#x20;
+This will automatically generate a template for your DIDDoc, including a new DID and associated public/private key pair. You can then use this template to populate your `payload.json` file.
 
 Follow [_Method 2_ in the key management guide](identity-key-handling.md):
 
@@ -48,7 +48,7 @@ veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "Ed2551
   * testnet
 
 
-After running the above command ,if you see an error below, follow our troubleshooting guide [here](did-operations-troubleshooting.md#1-when-generating-keys-along-with-a-diddoc-template) to fix it.
+After running the above command, if you see an error below, follow our troubleshooting guide [here](did-operations-troubleshooting.md#1-when-generating-keys-along-with-a-diddoc-template) to fix it.
 
 ```bash
 Unexpected token v in JSON at position 1
@@ -56,11 +56,11 @@ Unexpected token v in JSON at position 1
 
 ### 2. Prepare/edit DIDDoc contents
 
-Before creating a DID, you will need to prepare the `args.json` file. This file can be saved where ever you choose, but the location must be specified in the create DID command used in Step 3. (By default, it will be saved under the project root directory.)
+Before creating a DID, you will need to prepare the `payload.json` file. This file can be saved where ever you choose, but the location must be specified in the create DID command used in Step 3. (By default, it will be saved under the project root directory.)
 
-If you used _Method 2_ in the previous step, you can use the output of that as an initial starting template for your `args.json` file.
+If you used _Method 2_ in the previous step, you can use the output of that as an initial starting template for your `payload.json` file.
 
-#### Example of an `args.json` file
+#### Example of an `payload.json` file
 
 ````json
 ```json
@@ -113,7 +113,7 @@ If you used _Method 2_ in the previous step, you can use the output of that as a
 ### 3. Create new DID and publish DIDDoc
 
 ```bash
-veramo execute -m cheqdCreateIdentifier --argsFile path/to/args.json
+veramo execute -m cheqdCreateIdentifier --argsFile path/to/payload.json
 ```
 
 If you do not specify the `--argsFile` in the previous step, you can also paste a JSON inline argument object by using the `--argsJSON` flag followed by the JSON payload.

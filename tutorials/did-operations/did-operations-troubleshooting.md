@@ -82,7 +82,7 @@ Result : {
 }
 ```
 
-Then you can go back to your `args.json` file (if you didn't have one you can simply create one manually, and paste content below as template) which should be something like this at first.
+Then you can go back to your `payload.json` file (if you didn't have one you can simply create one manually, and paste content below as template) which should be something like this at first.
 
 ```json
 {
@@ -103,9 +103,9 @@ Then you can go back to your `args.json` file (if you didn't have one you can si
 }
 ```
 
-Then you're going to update `keys` and `document` section of it(`args.json`) with `keys` and `didDoc` you generated in above step.
+Then you're going to update `keys` and `document` section of it(`payload.json`) with `keys` and `didDoc` you generated in above step.
 
-After populating `keys` and `document` section. Your `args.json` file should look something like this:
+After populating `keys` and `document` section. Your `payload.json` file should look something like this:
 
 ```json
 {
@@ -146,7 +146,7 @@ After populating `keys` and `document` section. Your `args.json` file should loo
 Assuming you have enough `ncheq` tokens inside your wallet, you can now run the command below to create your DID.
 
 ```bash
-veramo execute -m cheqdCreateIdentifier --argsFile path/to/args.json
+veramo execute -m cheqdCreateIdentifier --argsFile path/to/payload.json
 ```
 
 If the above `cmd` resulted something like this:
