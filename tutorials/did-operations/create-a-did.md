@@ -1,6 +1,6 @@
 # Create a DID
 
-Follow these instructions to create a new DID and publish the associated DIDDoc on cheqd ledger.
+Follow these instructions to create a new DID and publish the associated DID Document on cheqd ledger.
 
 > ⚠️ **Before you begin...**
 >
@@ -8,61 +8,135 @@ Follow these instructions to create a new DID and publish the associated DIDDoc 
 
 ## Instructions
 
-### 1. Prepare identity keys
+## 1. Create your identity keys within a DID Document template
 
-For all of the following steps, you'll need identity keys to digitally sign the transaction. There are two ways to do this:
+The first step is generating a template for your DID Document, including a new DID and associated public/private key pair. This process also aligns with method 1 [in the key management guide](identity-key-handling.md).
 
-#### Using standalone keys
+{% hint style="info" %}
+It is important to note that this step does not create your DID on ledger, but it generates your identity keys as a draft DID Document for you to use in the on-ledger transaction in [Step 3](create-a-did.md#3.-create-new-did-and-publish-diddoc).
+{% endhint %}
 
-This will generate you a public/private key pair which you can use to sign your DIDDoc `payload.json` file with.
+### Command
 
-Follow [_Method 1_ in the key management guide](identity-key-handling.md)
-
-```bash
-veramo execute -m cheqdGenerateIdentityKeys
-```
-
-#### Create keys along with a DIDDoc template
-
-This will automatically generate a template for your DIDDoc, including a new DID and associated public/private key pair. You can then use this template to populate your `payload.json` file.
-
-Follow [_Method 2_ in the key management guide](identity-key-handling.md):
+You can use the following command in your CLI to create your DIDDoc and associated identity keys:
 
 ```bash
-veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "Ed25519VerificationKey2018", "methodSpecificIdAlgo": "uuid", "network": "testnet"}'
+veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "<exampleVerificationMethod>", "methodSpecificIdAlgo": "<exampleAlgo>", "network": "exampleNetwork"}'
 ```
 
-#### Arguments
+### Inputs and arguments
 
-* `verificationMethod`
-  * Ed25519VerificationKey2020
-  * JsonWebKey2020
-  * Ed25519VerificationKey2018
+Within this command, you are able to choose from the following inputs below to produce different types of DIDDocs:
 
-* `methodSpecificIdAlgo`
-  * base58btc
-  * uuid
+<details>
 
-* `network`
-  * mainnet
-  * testnet
+<summary>verificationMethod</summary>
 
+* Ed25519VerificationKey2020
+* JsonWebKey2020
+* Ed25519VerificationKey2018
 
-After running the above command, if you see an error below, follow our troubleshooting guide [here](did-operations-troubleshooting.md#1-when-generating-keys-along-with-a-diddoc-template) to fix it.
+</details>
+
+<details>
+
+<summary>methodSpecificIdAlgo</summary>
+
+* base58btc
+* uuid
+
+</details>
+
+<details>
+
+<summary>network</summary>
+
+* mainnet
+* testnet
+
+</details>
+
+### Expected output
+
+Once you have submitted the command above, you should receive a DID Document draft template, including a set of identity keys, including your chosen inputs and arguments. You can find an example of this output below:
+
+<details>
+
+<summary>Example output</summary>
+
+```json
+Method:  cheqdGenerateDidDoc
+
+Arguments:  {
+  "argsObj": {
+    "verificationMethod": "Ed25519VerificationKey2020",
+    "methodSpecificIdAlgo": "base58btc",
+    "methodSpecificIdLength": 16,
+    "network": "testnet"
+  }
+}
+
+Result : {
+  "didDoc": {
+    "context": [],
+    "id": "did:cheqd:testnet:e43f36e4-9fa6-40a4-a8f9-7f7b49eb44db",
+    "controller": [
+      "did:cheqd:testnet:e43f36e4-9fa6-40a4-a8f9-7f7b49eb44db"
+    ],
+    "authentication": [
+      "did:cheqd:testnet:e43f36e4-9fa6-40a4-a8f9-7f7b49eb44db#key-1"
+    ],
+    "assertionMethod": [],
+    "capabilityInvocation": [],
+    "capabilityDelegation": [],
+    "keyAgreement": [],
+    "alsoKnownAs": [],
+    "verificationMethod": [
+      {
+        "id": "did:cheqd:testnet:e43f36e4-9fa6-40a4-a8f9-7f7b49eb44db#key-1",
+        "type": "Ed25519VerificationKey2020",
+        "controller": "did:cheqd:testnet:e43f36e4-9fa6-40a4-a8f9-7f7b49eb44db",
+        "publicKeyMultibase": "z2yJuNbhoUpRn7ypAugSLzkCc8QEw146RJ8DD3jzCZQ6A",
+        "publicKeyJwk": []
+      }
+    ],
+    "service": []
+  },
+  "keys": {
+    "publicKeyHex": "XXXX",
+    "privateKeyHex": "XXXXXXXX",
+    "kid": "XXXX",
+    "type": "Ed25519"
+  }
+}
+```
+
+</details>
+
+You can then use this template to populate your `payload.json` file in [Step 2](create-a-did.md#2.-prepare-edit-diddoc-contents).
+
+### Unexpected output
+
+After running the above command, if you see an unexpected error, follow our [DID Operations Troubleshooting Guide](did-operations-troubleshooting.md) to fix it. A common error is:
 
 ```bash
 Unexpected token v in JSON at position 1
 ```
 
-### 2. Prepare/edit DIDDoc contents
+## 2. Prepare/edit DIDDoc contents
 
-Before creating a DID, you will need to prepare the `payload.json` file. This file can be saved where ever you choose, but the location must be specified in the create DID command used in Step 3. (By default, it will be saved under the project root directory.)
+Before creating a DID on-ledger, you will need to prepare the `payload.json` file. This file can be saved where ever you choose, but the location must be specified in the create DID command used in [Step 3](create-a-did.md#3.-create-new-did-and-publish-diddoc). (By default, it will be saved under the project root directory.)
 
-If you used _Method 2_ in the previous step, you can use the output of that as an initial starting template for your `payload.json` file.
+You should copy and paste the output of [Step 1](create-a-did.md#1.-create-your-identity-keys-within-a-did-document-template) as an initial starting template for your `payload.json` file.
 
-#### Example of an `payload.json` file
+### Example of `payload.json` files
 
-````json
+The below examples show the variation in syntax for different verification method key types in the DIDDoc payload file itself. Note that each key type has a slightly different output.&#x20;
+
+<details>
+
+<summary>Ed25519 Verification Key 2018</summary>
+
 ```json
 {
   "kms": "local",
@@ -75,11 +149,9 @@ If you used _Method 2_ in the previous step, you can use the output of that as a
     ],
     "verificationMethod": [{
         "id": "did:cheqd:testnet:<uniqueId>#key-1",
-        "type": "Ed25519VerificationKey2020",
+        "type": "Ed25519VerificationKey2018",
         "controller": "did:cheqd:testnet:<uniqueId>",
-        "publicKeyMultibase": "<uniqueKeyMultibase>",
-        "publicKeyJwk": [],
-        "publicKeyBase58": "<uniqueKeyBase58>"      
+        "publicKeyBase58": "<H3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV>" // this differs from Ed25519VerificationKey2020 which appends a 'z' to the beginning of the multibase.      
     }],
     "authentication": [
       "did:cheqd:testnet:<uniqueId>#key-1"
@@ -99,16 +171,110 @@ If you used _Method 2_ in the previous step, you can use the output of that as a
     // add additional key(s) if required
   }]
 }
-````
+```
 
-#### Parameters
+</details>
+
+<details>
+
+<summary>Ed25519 Verification Key 2020</summary>
+
+```json
+{
+  "kms": "local",
+  "alias": "Veramo specific name of your DIDDoc",
+  "document": {
+    "context": [],
+    "id": "did:cheqd:testnet:<uniqueId>",
+    "controller": [
+      "did:cheqd:testnet:<uniqueId>"
+    ],
+    "verificationMethod": [{
+        "id": "did:cheqd:testnet:<uniqueId>#key-1",
+        "type": "Ed25519VerificationKey2018",
+        "controller": "did:cheqd:testnet:<uniqueId>",
+        "publicKeyBase58": "<zH3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV>" // this differs from Ed25519VerificationKey2018 by appending a 'z' to the beginning of the multibase.      
+    }],
+    "authentication": [
+      "did:cheqd:testnet:<uniqueId>#key-1"
+    ],
+    "assertionMethod": [],
+    "capabilityInvocation": [],
+    "capabilityDelegation": [],
+    "keyAgreement": [],
+    "alsoKnownAs": [],
+    "service": []
+  },
+  "keys": [{
+    "publicKeyHex": "<public_key_in_hex_encoding>",
+    "privateKeyHex": "<private_key_in_hex_encoding>",
+    "kid": "<equal_to_public_key_hex>",
+    "type": "Ed25519"
+    // add additional key(s) if required
+  }]
+}n
+```
+
+</details>
+
+<details>
+
+<summary>JSON Web Key 2020</summary>
+
+```json
+{
+  "kms": "local",
+  "alias": "Veramo specific name of your DIDDoc",
+  "document": {
+    "context": [],
+    "id": "did:cheqd:testnet:<uniqueId>",
+    "controller": [
+      "did:cheqd:testnet:<uniqueId>"
+    ],
+    "verificationMethod": [{
+        "id": "did:cheqd:testnet:<uniqueId>#key-1",
+        "type": "JsonWebKey2020",
+        "controller": "did:cheqd:testnet:<uniqueId>",
+        "publicKeyJwk": {
+          "kty": "OKP", // external (property name)
+          "crv": "Ed25519", // external (property name)
+          "x": "VCpo2LMLhn6iWku8MKvSLg2ZAoC-nlOyPVQaO3FxVeQ" // external (property name)
+        }
+    }],
+    "authentication": [
+      "did:cheqd:testnet:<uniqueId>#key-1"
+    ],
+    "assertionMethod": [],
+    "capabilityInvocation": [],
+    "capabilityDelegation": [],
+    "keyAgreement": [],
+    "alsoKnownAs": [],
+    "service": []
+  },
+  "keys": [{
+    "publicKeyHex": "<public_key_in_hex_encoding>",
+    "privateKeyHex": "<private_key_in_hex_encoding>",
+    "kid": "<equal_to_public_key_hex>",
+    "type": "Ed25519"
+    // add additional key(s) if required
+  }]
+}
+```
+
+</details>
+
+### Parameters
 
 * `kms` (default `local`): Key Management System (KMS) to be used for storage.
 * `alias`: A human-friendly alias for the DID. Only used locally when referencing operations in Veramo CLI.
 * `document`: Full body of the DID Document
 * `keys`: Keys used to sign the DIDDoc. These must match the ones specified in the DIDDoc, otherwise an error will be thrown.
-* `versionId` (optional): Custom versionId for the DID Document
-* `fee` (optional): [Custom fee](../custom-fee.md)
+* `versionId` (optional): Custom versionId for the DID Document. If this is not set manually, then a UUID will be automatically generated for the DID Document version.
+* `fee` (optional): [Custom fee](../custom-fee.md).&#x20;
+
+{% hint style="info" %}
+Note that transaction fees are paid by the cheqd account set in the `agent.yml` configuration file, [setup here](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md). Each of cheqd's on-ledger identity transactions has a **fixed fee,** [the pricing for cheqd DIDs and DID-Linked Resources can be found here](https://docs.cheqd.io/node/architecture/adr-list/adr-005-genesis-parameters#cheqd-module-did-module). If your account has insufficient balance the transaction will fail.&#x20;
+{% endhint %}
 
 ### 3. Create new DID and publish DIDDoc
 
@@ -116,7 +282,7 @@ If you used _Method 2_ in the previous step, you can use the output of that as a
 veramo execute -m cheqdCreateIdentifier --argsFile path/to/payload.json
 ```
 
-If you do not specify the `--argsFile` in the previous step, you can also paste a JSON inline argument object by using the `--argsJSON` flag followed by the JSON payload.
+If you do not specify the `--argsFile`, you can also paste a JSON inline argument object by using the `--argsJSON` flag followed by the JSON payload.
 
 ## Next steps
 
@@ -124,7 +290,7 @@ If your transaction is successful, you'll receive a success message along with t
 
 ### Troubleshooting
 
-1. Bear in mind that the that transaction fees are paid by the cheqd/Cosmos account set in the `agent.yml` configuration file. If that account has insufficient balance your transaction might fail.&#x20;
-2. If you are using testnet, you can top-up your testnet balance using our [faucet](http://testnet-faucet.cheqd.io/).
+1. If you are using testnet, you can top-up your testnet balance using our [testnet faucet](https://testnet-faucet.cheqd.io/).
+2. You can also configure your Keplr wallet to [support cheqd testnet using the instructions here](https://docs.cheqd.io/identity/guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli#2.5.-add-cheqd-testnet-to-your-keplr-wallet).&#x20;
 3. If you are using mainnet, you can [purchase CHEQ tokens here](https://cheqd.io/buy).
-4. Check out our [troubleshooting guide for Creating DID](did-operations-troubleshooting.md) to see common errors and fixes.
+4. Check out our [troubleshooting guide for DID Operations ](did-operations-troubleshooting.md)to see common errors and fixes.

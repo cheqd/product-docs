@@ -12,7 +12,7 @@ Follow these instructions to update an existing `did:cheqd` entry on cheqd ledge
 
 Before updating the DID, you will need to prepare the updated DIDDoc and parameters for the transaction in an `payload.json` file.
 
-This file can be saved whereever you choose, but the location must be specified in the create DID command used in Step 2. (By default, it will be saved under the project root directory.)
+This file can be saved whereever you choose, but the location must be specified in the [create DID command used in Step 2](create-a-did.md). (By default, it will be saved under the project root directory.)
 
 #### Parameters
 
@@ -29,7 +29,6 @@ This file can be saved whereever you choose, but the location must be specified 
 Use the command below to construct and broadcast update transaction.
 
 So, let's try to update `service` section of our `DIDDoc`. Then, your `payload.json` file will look like this.
-
 
 ```json
 {
@@ -81,7 +80,7 @@ Then try running the command below to update the `did`:
 veramo execute -m cheqdUpdateIdentifier --argsFile path/to/payload.json
 ```
 
-If you would like to fetch the updated DIDDoc body following the successful DID update result, execute the `resolve` command as outlined [here](./query-did.md). You can check if `service` section of `DIDDoc` has been updated.
+If you would like to fetch the updated DIDDoc body following the successful DID update result, execute the `resolve` command as outlined [here](query-did.md). You can check if `service` section of `DIDDoc` has been updated.
 
 ## Next steps
 
