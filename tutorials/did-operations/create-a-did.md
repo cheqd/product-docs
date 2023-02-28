@@ -12,9 +12,7 @@ Follow these instructions to create a new DID and publish the associated DID Doc
 
 The first step is generating a template for your DID Document, including a new DID and associated public/private key pair. This process also aligns with method 1 [in the key management guide](identity-key-handling.md).
 
-{% hint style="info" %}
-It is important to note that this step does not create your DID on ledger, but it generates your identity keys as a draft DID Document for you to use in the on-ledger transaction in [Step 3](create-a-did.md#3.-create-new-did-and-publish-diddoc).
-{% endhint %}
+> It is important to note that this step does not create your DID on ledger, but it generates your identity keys as a draft DID Document for you to use in the on-ledger transaction in [Step 3](create-a-did.md#3.-create-new-did-and-publish-diddoc).
 
 ### Command
 
@@ -272,9 +270,7 @@ The below examples show the variation in syntax for different verification metho
 * `versionId` (optional): Custom versionId for the DID Document. If this is not set manually, then a UUID will be automatically generated for the DID Document version.
 * `fee` (optional): [Custom fee](../custom-fee.md).&#x20;
 
-{% hint style="info" %}
-Note that transaction fees are paid by the cheqd account set in the `agent.yml` configuration file, [setup here](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md). Each of cheqd's on-ledger identity transactions has a **fixed fee,** [the pricing for cheqd DIDs and DID-Linked Resources can be found here](https://docs.cheqd.io/node/architecture/adr-list/adr-005-genesis-parameters#cheqd-module-did-module). If your account has insufficient balance the transaction will fail.&#x20;
-{% endhint %}
+> Note that transaction fees are paid by the cheqd account set in the `agent.yml` configuration file, [setup here](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md). Each of cheqd's on-ledger identity transactions has a **fixed fee,** [the pricing for cheqd DIDs and DID-Linked Resources can be found here](https://docs.cheqd.io/node/architecture/adr-list/adr-005-genesis-parameters#cheqd-module-did-module). If your account has insufficient balance the transaction will fail.
 
 ### 3. Create new DID and publish DIDDoc
 
@@ -293,4 +289,4 @@ If your transaction is successful, you'll receive a success message along with t
 1. If you are using testnet, you can top-up your testnet balance using our [testnet faucet](https://testnet-faucet.cheqd.io/).
 2. You can also configure your Keplr wallet to [support cheqd testnet using the instructions here](https://docs.cheqd.io/identity/guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli#2.5.-add-cheqd-testnet-to-your-keplr-wallet).&#x20;
 3. If you are using mainnet, you can [purchase CHEQ tokens here](https://cheqd.io/buy).
-4. Check out our [troubleshooting guide for DID Operations ](did-operations-troubleshooting.md)to see common errors and fixes.
+4. Check out our [troubleshooting guide for DID Operations](did-operations-troubleshooting.md)to see common errors and fixes.

@@ -123,7 +123,7 @@ Unexpected token v in JSON at position 1
 
 You can generate identity keys standalone in a plug-and-play format for future use in [create DID](./) or [update DID](update-did.md) transactions.
 
-#### Command
+### Command
 
 ```bash
 veramo execute -m cheqdGenerateIdentityKeys
