@@ -43,7 +43,6 @@ Method:  cheqdGenerateDidDoc
 Arguments:  {
   "verificationMethod": "Ed25519VerificationKey2020",
   "methodSpecificIdAlgo": "base58btc",
-  "methodSpecificIdLength": 16,
   "network": "testnet"
 }
 
@@ -67,8 +66,7 @@ Result : {
         "id": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590#key-1",
         "type": "Ed25519VerificationKey2020",
         "controller": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
-        "publicKeyMultibase": "3e6bd814-6851-4c8a-b114-c64f035ef590JYD9eRNc5CSrNBKkyjep6gYdaWub",
-        "publicKeyJwk": []
+        "publicKeyMultibase": "z6MkuBcREn1LjuDCe9FfSa7WLa3yY51KFoSEg2fUifzQqVy1"
       }
     ],
     "service": []
@@ -126,8 +124,7 @@ After populating `keys` and `document` section. Your `payload.json` file should 
         "id": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590#key-1",
         "type": "Ed25519VerificationKey2020",
         "controller": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
-        "publicKeyMultibase": "3e6bd814-6851-4c8a-b114-c64f035ef590JYD9eRNc5CSrNBKkyjep6gYdaWub",
-        "publicKeyJwk": []
+        "publicKeyMultibase": "z6MkuBcREn1LjuDCe9FfSa7WLa3yY51KFoSEg2fUifzQqVy1"
       }
     ],
     "service": []
