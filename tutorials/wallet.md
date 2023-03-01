@@ -1,4 +1,4 @@
-# 👜 Demo Wallet for identity
+# 🛅 Demo Wallet for identity setup
 
 cheqd has designed a wallet to demonstrate and test its DeFi functionality as well as its identity tooling.
 
