@@ -14,7 +14,7 @@ Follow [this](../did-operations/) tutorial to generate keys and create a DID.
 
 ### 2. Create a UUID for the Resource
 
-[UUIDs are used to identify Resources](https://en.wikipedia.org/wiki/Universally\_unique\_identifier). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
+[UUIDs are used to identify Resources](https://en.wikipedia.org/wiki/Universally_unique_identifier). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
 
 ```bash
 $ uuidgen
@@ -32,7 +32,6 @@ Before creating a Resource, you will need to prepare the `payload.json` file. Th
 The resource content can be passed either as a file or a base64 encoded string according to the examples below
 
 <details>
-
 <summary>Passing resource as Base64</summary>
 
 Prepare a file with resource and encode it into `base64`. On Unix systems, you can use the following command:
@@ -71,7 +70,6 @@ SGVsbG8sIHdvcmxk
 </details>
 
 <details>
-
 <summary>Passing resource as file</summary>
 
 Prepare a file with resource data
@@ -97,8 +95,7 @@ Prepare a file with resource data
 
 </details>
 
-\
-
+<br>
 
 #### Parameters
 

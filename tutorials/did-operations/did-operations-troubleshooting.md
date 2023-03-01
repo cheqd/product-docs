@@ -1,6 +1,6 @@
-# DID Operations Troubleshooting
+# 🤨 Troubleshooting Create DID operation
 
-This guide provides common errors and potential fixes for them if you encountered errors when [creating a DID](create-a-did.md).
+This guide provides common errors and potential fixes for them if you encountered errors when [creating a DID](../../tutorials/did-operations/create-a-did.md).
 
 ## 1. When generating keys along with a DIDDoc template
 

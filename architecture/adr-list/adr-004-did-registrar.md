@@ -1,14 +1,15 @@
-# ADR 004: DID Registrar
+# ADR 004: cheqd DID Registrar
 
 ## Status
 
-| Category                  | Status       |
-| ------------------------- | ------------ |
-| **Authors**               | Daev Mithran |
-| **ADR Stage**             | PROPOSED     |
-| **Implementation Status** | In Progress  |
-| **Start Date**            | 2023-01-30   |
-| **Last Updated**          | 2023-01-30   |
+| Category | Status |
+| :--- | :--- |
+| **Authors** | Daev Mithran |
+| **ADR Stage** | PROPOSED |
+| **Implementation Status** | In Progress |
+| **Start Date** | 2023-01-30 |
+| **Last Updated** | 2023-01-30 |
+
 
 ## Summary
 
@@ -26,7 +27,7 @@ The DID registrar can operate in the following modes:
 
 1. Internal Secret Mode
 2. External Secret Mode
-3. Client Managed Secret Mode :heavy\_check\_mark:
+3. Client Managed Secret Mode :heavy_check_mark:
 
 ### Internal Secret Mode
 
@@ -42,32 +43,32 @@ In this mode, the DID Registrar does not itself have access to the cryptographic
 
 The cheqd DID Registrar **only supports** the [Client Managed Secret Mode](https://identity.foundation/did-registration/#client-managed-secret-mode), considering the security and scalability of the registrar. The workflow for all the operations follows the protocol below:
 
-![Full cheqd DID Resolver sequence diagram](../../.gitbook/assets/cheqd-did-registrar-sequence-diagram.png)
+![*Full cheqd DID Resolver* sequence diagram](../../.gitbook/assets/cheqd-did-registrar-sequence-diagram.png)
 
 In the above diagram you can see the following steps
 
 1. Request Operation
-   * The client requests a DID operation providing the required fields
+    * The client requests a DID operation providing the required fields
 2. Return JobId and Serialized Payload
-   * The registrar responds with a JobId and a base64 encoded serialized payload
-   * The serialized payload should be signed by all the verificationMethods belonging to the controllers of the DID Document
+    * The registrar responds with a JobId and a base64 encoded serialized payload
+    * The serialized payload should be signed by all the verificationMethods belonging to the controllers of the DID Document
 3. Submit JobId and SigningResponse
-   * Submit the JobId and the SigningResponse's to the same api
+    * Submit the JobId and the SigningResponse's to the same api
 4. Validate signature and Complete Operation
-   * The registrar validates the signature for the provided DID Document
-   * Submits the DID operation request to the network
+    * The registrar validates the signature for the provided DID Document
+    * Submits the DID operation request to the network
 
 ***
-
-\
+<br>
 
 
 ## DID Operations
 
 ### Create
 
-**Endpoint**: `/1.0/create`\
+**Endpoint**: `/1.0/create` <br>
 Provide a DID Document payload according to the [w3c did core specification](https://www.w3.org/TR/did-core/#dfn-did-documents) in the request body.
+
 
 The payload can also be created using our helper endpoint `/1.0/did-document`, which requires the following options to construct the DID Document payload
 
@@ -76,8 +77,8 @@ The payload can also be created using our helper endpoint `/1.0/did-document`, w
 3. Network
 4. PublicKey Hex encoded string
 
-<details>
 
+<details>
 <summary>Request Operation</summary>
 
 ```json
@@ -103,7 +104,6 @@ The payload can also be created using our helper endpoint `/1.0/did-document`, w
 </details>
 
 <details>
-
 <summary>Response</summary>
 
 ```json
@@ -134,8 +134,8 @@ The payload can also be created using our helper endpoint `/1.0/did-document`, w
 
 </details>
 
-<details>
 
+<details>
 <summary>Submit Signature</summary>
 
 ```json
@@ -153,8 +153,8 @@ The payload can also be created using our helper endpoint `/1.0/did-document`, w
 
 </details>
 
-<details>
 
+<details>
 <summary>Response</summary>
 
 ```json
@@ -195,16 +195,14 @@ The payload can also be created using our helper endpoint `/1.0/did-document`, w
 
 </details>
 
-\
-
+<br>
 
 ### Update
 
-**Endpoint**: `/1.0/update`\
+**Endpoint**: `/1.0/update` <br>
 Only setDidDocument operation is supported in the cheqd-did-registrar. To update a DID Document, fetch the body of the DID Document you want to change from the DID Resolver, make the relevant updates and pass it to the request operation.
 
 <details>
-
 <summary>Request Operation</summary>
 
 ```json
@@ -241,7 +239,6 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
 </details>
 
 <details>
-
 <summary>Response</summary>
 
 ```json
@@ -272,8 +269,8 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
 
 </details>
 
-<details>
 
+<details>
 <summary>Submit Signature</summary>
 
 ```json
@@ -292,7 +289,6 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
 </details>
 
 <details>
-
 <summary>Response</summary>
 
 ```json
@@ -343,7 +339,7 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
 
 </details>
 
-\
+<br>
 
 
 ### Deactivate
@@ -351,7 +347,6 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
 **Endpoint**: `/1.0/deactivate`
 
 <details>
-
 <summary>Request Operation</summary>
 
 ```json
@@ -364,7 +359,6 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
 </details>
 
 <details>
-
 <summary>Response</summary>
 
 ```json
@@ -395,8 +389,8 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
 
 </details>
 
-<details>
 
+<details>
 <summary>Submit Signature</summary>
 
 ```json
@@ -415,7 +409,6 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
 </details>
 
 <details>
-
 <summary>Response</summary>
 
 ```json
@@ -451,7 +444,6 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
 Provide an existing DID as the path parameter, and the request body with resource name, type and base64 encoded data
 
 <details>
-
 <summary>Request Operation</summary>
 
 ```json
@@ -466,7 +458,6 @@ Provide an existing DID as the path parameter, and the request body with resourc
 </details>
 
 <details>
-
 <summary>Response</summary>
 
 ```json
@@ -497,8 +488,8 @@ Provide an existing DID as the path parameter, and the request body with resourc
 
 </details>
 
-<details>
 
+<details>
 <summary>Submit Signature</summary>
 
 ```json
@@ -517,7 +508,6 @@ Provide an existing DID as the path parameter, and the request body with resourc
 </details>
 
 <details>
-
 <summary>Response</summary>
 
 ```json
@@ -547,8 +537,7 @@ Provide an existing DID as the path parameter, and the request body with resourc
 
 </details>
 
-\
-
+<br>
 
 ## References
 
