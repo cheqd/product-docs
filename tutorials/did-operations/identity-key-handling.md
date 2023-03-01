@@ -12,7 +12,7 @@ Follow these instructions to:
 
 ## Method 1: Generating identity keys on-the-fly with DIDDocs
 
-Instead of creating identity keys standalone, you can generate them along with a DIDDoc template. This makes it far easier to handle different inputs and arguments, such as generating DID Docs with different key types.&#x20;
+Instead of creating identity keys standalone, you can generate them along with a DIDDoc template. This makes it far easier to handle different inputs and arguments, such as generating DID Docs with different key types.
 
 ### Command
 
@@ -68,8 +68,7 @@ Method:  cheqdGenerateDidDoc
 Arguments:  {
   "argsObj": {
     "verificationMethod": "Ed25519VerificationKey2020",
-    "methodSpecificIdAlgo": "base58btc",
-    "methodSpecificIdLength": 16,
+    "methodSpecificIdAlgo": "uuid",
     "network": "testnet"
   }
 }
