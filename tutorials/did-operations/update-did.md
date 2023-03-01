@@ -85,7 +85,7 @@ So, let's try to update `service` section of our `DIDDoc`. Then, your `payload.j
   "fee": {
     "amount": [{
       "denom": "ncheq",
-      "amount": "2500000000"
+      "amount": "25000000000"
       }],
     "gas": "400000",
     "payer": "cheqd1rnr5jrt4exl0samwj0yegv99jeskl0hsxmcz96"

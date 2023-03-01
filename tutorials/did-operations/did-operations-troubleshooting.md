@@ -146,7 +146,7 @@ After populating `keys` and `document` section. Your `payload.json` file should 
   "fee": {
     "amount": [{
       "denom": "ncheq",
-      "amount": "5000000000"
+      "amount": "50000000000"
       }],
     "gas": "400000",
     "payer": "cheqd1rnr5jrt4exl0samwj0yegv99jeskl0hsxmcz96"

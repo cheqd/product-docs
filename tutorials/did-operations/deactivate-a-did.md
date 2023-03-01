@@ -41,7 +41,7 @@ Construct your `payload.json` file like this:
   "fee": {
     "amount": [{
       "denom": "ncheq",
-      "amount": "1000000000"
+      "amount": "10000000000"
       }],
     "gas": "400000",
     "payer": "cheqd1rnr5jrt4exl0samwj0yegv99jeskl0hsxmcz96"

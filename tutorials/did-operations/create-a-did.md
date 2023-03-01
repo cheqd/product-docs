@@ -174,7 +174,7 @@ The below examples show the variation in syntax for different verification metho
   "fee": {
     "amount": [{
       "denom": "ncheq",
-      "amount": "5000000000"
+      "amount": "50000000000"
       }],
     "gas": "400000",
     "payer": "cheqd1rnr5jrt4exl0samwj0yegv99jeskl0hsxmcz96"
@@ -227,7 +227,7 @@ The below examples show the variation in syntax for different verification metho
   "fee": {
     "amount": [{
       "denom": "ncheq",
-      "amount": "5000000000"
+      "amount": "50000000000"
       }],
     "gas": "400000",
     "payer": "cheqd1rnr5jrt4exl0samwj0yegv99jeskl0hsxmcz96"
@@ -284,7 +284,7 @@ The below examples show the variation in syntax for different verification metho
   "fee": {
     "amount": [{
       "denom": "ncheq",
-      "amount": "5000000000"
+      "amount": "50000000000"
       }],
     "gas": "400000",
     "payer": "cheqd1rnr5jrt4exl0samwj0yegv99jeskl0hsxmcz96"
