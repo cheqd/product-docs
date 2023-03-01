@@ -22,7 +22,13 @@ This file can be saved whereever you choose, but the location must be specified 
 * `document`: Full body of the DID Document _including_ updated sections.
 * `keys`: Keys used to sign the DIDDoc. These must match the ones specified in the DIDDoc, otherwise an error will be thrown.
 * `versionId`: (optional) Custom versionId for the DID Document. If this is not set manually, then a UUID will be automatically generated for the DID Document version.
-* `fee` (optional): [Custom fee](../custom-fee.md)
+* `fee`&#x20;
+  * `amount`: An array of coins, coins are represented as an object with 2 fields
+    * `denom`: ncheq (smallest denomination classification)
+    * `amount`: **25000000000** (This is **25 CHEQ by default** and will not work with a different value)
+  * `gas`: Each transaction must specify the maximum amount of gas it may consume.
+  * `payer` (optional): The cheqd fee payer address
+  * `granter` (optional): The cheqd fee granter address, Provided the grantee has an allowance by the granter
 
 > Note that transaction fees are paid by the cheqd account set in the `agent.yml` configuration file, [setup here](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md). Each of cheqd's on-ledger identity transactions has a **fixed fee,** [the pricing for cheqd DIDs and DID-Linked Resources can be found here](https://docs.cheqd.io/node/architecture/adr-list/adr-005-genesis-parameters#cheqd-module-did-module). If your account has insufficient balance the transaction will fail.
 
@@ -39,7 +45,7 @@ So, let's try to update `service` section of our `DIDDoc`. Then, your `payload.j
   "did": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
   "document": {
     "context": [],
-    "id": "headdid:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
+    "id": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
     "controller": ["did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590"],
     "verificationMethod": [
       {
@@ -73,6 +79,17 @@ So, let's try to update `service` section of our `DIDDoc`. Then, your `payload.j
       "type": "Ed25519"
     }
   ]
+  "versionId": [
+    "<uuid>" // optional
+    ]
+  "fee": {
+    "amount": [{
+      "denom": "ncheq",
+      "amount": "2500000000"
+      }],
+    "gas": "400000",
+    "payer": "cheqd1rnr5jrt4exl0samwj0yegv99jeskl0hsxmcz96"
+  }
 }
 ```
 

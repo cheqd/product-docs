@@ -133,7 +133,7 @@ The below examples show the variation in syntax for different verification metho
 
 <details>
 
-<summary>Ed25519 Verification Key 2018</summary>
+<summary>Ed25519VerificationKey2018</summary>
 
 ```json
 {
@@ -149,7 +149,7 @@ The below examples show the variation in syntax for different verification metho
         "id": "did:cheqd:testnet:<uniqueId>#key-1",
         "type": "Ed25519VerificationKey2018",
         "controller": "did:cheqd:testnet:<uniqueId>",
-        "publicKeyBase58": "<H3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV>" // this differs from Ed25519VerificationKey2020 which appends a 'z' to the beginning of the multibase.      
+        "publicKeyBase58": "H3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV"     
     }],
     "authentication": [
       "did:cheqd:testnet:<uniqueId>#key-1"
@@ -168,6 +168,17 @@ The below examples show the variation in syntax for different verification metho
     "type": "Ed25519"
     // add additional key(s) if required
   }]
+  "versionId": [
+    "<uuid>" // optional
+    ]
+  "fee": {
+    "amount": [{
+      "denom": "ncheq",
+      "amount": "5000000000"
+      }],
+    "gas": "400000",
+    "payer": "cheqd1rnr5jrt4exl0samwj0yegv99jeskl0hsxmcz96"
+  }
 }
 ```
 
@@ -175,7 +186,7 @@ The below examples show the variation in syntax for different verification metho
 
 <details>
 
-<summary>Ed25519 Verification Key 2020</summary>
+<summary>Ed25519VerificationKey2020</summary>
 
 ```json
 {
@@ -191,7 +202,7 @@ The below examples show the variation in syntax for different verification metho
         "id": "did:cheqd:testnet:<uniqueId>#key-1",
         "type": "Ed25519VerificationKey2018",
         "controller": "did:cheqd:testnet:<uniqueId>",
-        "publicKeyBase58": "<zH3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV>" // this differs from Ed25519VerificationKey2018 by appending a 'z' to the beginning of the multibase.      
+        "publicKeyBase": "z2yJuNbhoUpRn7ypAugSLzkCc8QEw146RJ8DD3jzCZQ6A"     
     }],
     "authentication": [
       "did:cheqd:testnet:<uniqueId>#key-1"
@@ -210,7 +221,18 @@ The below examples show the variation in syntax for different verification metho
     "type": "Ed25519"
     // add additional key(s) if required
   }]
-}n
+  "versionId": [
+    "<uuid>" // optional
+    ]
+  "fee": {
+    "amount": [{
+      "denom": "ncheq",
+      "amount": "5000000000"
+      }],
+    "gas": "400000",
+    "payer": "cheqd1rnr5jrt4exl0samwj0yegv99jeskl0hsxmcz96"
+  }
+}
 ```
 
 </details>
@@ -256,6 +278,17 @@ The below examples show the variation in syntax for different verification metho
     "type": "Ed25519"
     // add additional key(s) if required
   }]
+  "versionId": [
+    "<uuid>" // optional
+    ]
+  "fee": {
+    "amount": [{
+      "denom": "ncheq",
+      "amount": "5000000000"
+      }],
+    "gas": "400000",
+    "payer": "cheqd1rnr5jrt4exl0samwj0yegv99jeskl0hsxmcz96"
+  }
 }
 ```
 
@@ -267,8 +300,14 @@ The below examples show the variation in syntax for different verification metho
 * `alias`: A human-friendly alias for the DID. Only used locally when referencing operations in Veramo CLI.
 * `document`: Full body of the DID Document
 * `keys`: Keys used to sign the DIDDoc. These must match the ones specified in the DIDDoc, otherwise an error will be thrown.
-* `versionId` (optional): Custom versionId for the DID Document. If this is not set manually, then a UUID will be automatically generated for the DID Document version.
-* `fee` (optional): [Custom fee](../custom-fee.md).
+* `versionId`: (optional): Custom versionId for the DID Document. If this is not set manually, then a UUID will be automatically generated for the DID Document version.
+* `fee`&#x20;
+  * `amount`: An array of coins, coins are represented as an object with 2 fields
+    * `denom`: ncheq (smallest denomination classification)
+    * `amount`: **50000000000** (This is **50 CHEQ by default** and will not work with a different value)
+  * `gas`: Each transaction must specify the maximum amount of gas it may consume.
+  * `payer` (optional): The cheqd fee payer address
+  * `granter` (optional): The cheqd fee granter address, Provided the grantee has an allowance by the granter
 
 > Note that transaction fees are paid by the cheqd account set in the `agent.yml` configuration file, [setup here](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md). Each of cheqd's on-ledger identity transactions has a **fixed fee,** [the pricing for cheqd DIDs and DID-Linked Resources can be found here](https://docs.cheqd.io/node/architecture/adr-list/adr-005-genesis-parameters#cheqd-module-did-module). If your account has insufficient balance the transaction will fail.
 

@@ -1,6 +1,6 @@
-# 🤨 Troubleshooting Create DID operation
+# DID Operations Troubleshooting
 
-This guide provides common errors and potential fixes for them if you encountered errors when [creating a DID](../../tutorials/did-operations/create-a-did.md).
+This guide provides common errors and potential fixes for them if you encountered errors when [creating a DID](create-a-did.md).
 
 ## 1. When generating keys along with a DIDDoc template
 
@@ -103,7 +103,7 @@ Then you can go back to your `payload.json` file (if you didn't have one you can
 }
 ```
 
-Then you're going to update `keys` and `document` section of it(`payload.json`) with `keys` and `didDoc` you generated in above step.
+Then you're going to update `keys` and `document` section of it (`payload.json`) with `keys` and `didDoc` you generated in above step.
 
 After populating `keys` and `document` section. Your `payload.json` file should look something like this:
 
@@ -140,6 +140,17 @@ After populating `keys` and `document` section. Your `payload.json` file should 
       "type": "Ed25519"
     }
   ]
+  "versionId": [
+    "<uuid>" // optional
+    ]
+  "fee": {
+    "amount": [{
+      "denom": "ncheq",
+      "amount": "5000000000"
+      }],
+    "gas": "400000",
+    "payer": "cheqd1rnr5jrt4exl0samwj0yegv99jeskl0hsxmcz96"
+  }
 }
 ```
 
