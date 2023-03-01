@@ -7,22 +7,51 @@ This guide provides common errors and potential fixes for them if you encountere
 When you try to generate `keys` along with `DIDDoc` template using command below
 
 ```bash
-veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "Ed25519VerificationKey2020", "methodSpecificIdAlgo": "base58btc", "methodSpecificIdLength": 16, "network": "testnet"}'
+veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "Ed25519VerificationKey2020", "methodSpecificIdAlgo": "uuid", "network": "testnet"}'
 ```
 
 If you encounter an error below
 
 `Unexpected token v in JSON at position 1`
 
-Create a `.json` file (e.g. name it `identity-keys-on-the-fly-with-did-docs.json` in same working directory level).
+Create a `.json` file (e.g. name it something like `identity-keys-on-the-fly-with-did-docs.json` in same working directory level).&#x20;
 
-Copy and paste the content from below into your newly created `.json` file.
+Copy and paste the content from below into your newly created `.json` file. You can choose from any of the inputs and arguments below:
+
+<details>
+
+<summary>verificationMethod</summary>
+
+* Ed25519VerificationKey2020
+* JsonWebKey2020
+* Ed25519VerificationKey2018
+
+</details>
+
+<details>
+
+<summary>methodSpecificIdAlgo</summary>
+
+* base58btc
+* uuid
+
+</details>
+
+<details>
+
+<summary>network</summary>
+
+* mainnet
+* testnet
+
+</details>
+
+For example:
 
 ```json
 {
   "verificationMethod": "Ed25519VerificationKey2020",
-  "methodSpecificIdAlgo": "base58btc",
-  "methodSpecificIdLength": 16,
+  "methodSpecificIdAlgo": "uuid",
   "network": "testnet"
 }
 ```
@@ -42,7 +71,7 @@ Method:  cheqdGenerateDidDoc
 
 Arguments:  {
   "verificationMethod": "Ed25519VerificationKey2020",
-  "methodSpecificIdAlgo": "base58btc",
+  "methodSpecificIdAlgo": "uuid",
   "network": "testnet"
 }
 
