@@ -239,7 +239,7 @@ The below examples show the variation in syntax for different verification metho
 
 <details>
 
-<summary>JSON Web Key 2020</summary>
+<summary>JSONWebKey2020</summary>
 
 ```json
 {
