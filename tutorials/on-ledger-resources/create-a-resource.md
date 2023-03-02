@@ -112,7 +112,7 @@ The Payload file can include a Resource passed either as a file or a base64 enco
         "verificationMethodId": "did:cheqd:testnet:d3e515cf-81af-40cb-9ac1-154827986d29#key-1",
         "keyType": "Ed25519",
         "privateKeyHex": "0f5c124886178037952e87e0cdc55d185732577fca19ae877e64ac9ab24a0cc534e5326e70f1a42d785d93048aee806c359ec75a7b06f39253befd1746708438"
-    }]
+    }],
     "fee": {
       "amount": [{
         "denom": "ncheq",
@@ -147,7 +147,7 @@ The Payload file can include a Resource passed either as a file or a base64 enco
         "keyType": "Ed25519",
         "privateKeyHex": "0f5c124886178037952e87e0cdc55d185732577fca19ae877e64ac9ab24a0cc534e5326e70f1a42d785d93048aee806c359ec75a7b06f39253befd1746708438"
     }],
-    "file": "/path/to/resource.json" // note that the resource passed as file is inputted here
+    "file": "/path/to/resource.json", // note that the resource passed as file is inputted here
     "fee": {
       "amount": [{
         "denom": "ncheq",

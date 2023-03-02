@@ -135,23 +135,24 @@ The below examples show the variation in syntax for different verification metho
 
 <summary>Ed25519VerificationKey2018</summary>
 
-<pre class="language-json"><code class="lang-json">{
+```json
+{
   "kms": "local",
   "alias": "Veramo specific name of your DIDDoc",
   "document": {
     "context": [],
-    "id": "did:cheqd:testnet:&#x3C;uniqueId>",
+    "id": "did:cheqd:testnet:<uniqueId>",
     "controller": [
-      "did:cheqd:testnet:&#x3C;uniqueId>"
+      "did:cheqd:testnet:<uniqueId>"
     ],
     "verificationMethod": [{
-        "id": "did:cheqd:testnet:&#x3C;uniqueId>#key-1",
+        "id": "did:cheqd:testnet:<uniqueId>#key-1",
         "type": "Ed25519VerificationKey2018",
-        "controller": "did:cheqd:testnet:&#x3C;uniqueId>",
+        "controller": "did:cheqd:testnet:<uniqueId>",
         "publicKeyBase58": "H3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV"     
     }],
     "authentication": [
-      "did:cheqd:testnet:&#x3C;uniqueId>#key-1"
+      "did:cheqd:testnet:<uniqueId>#key-1"
     ],
     "assertionMethod": [],
     "capabilityInvocation": [],
@@ -166,20 +167,20 @@ The below examples show the variation in syntax for different verification metho
     "kid": "&#x3C;equal_to_public_key_hex>",
     "type": "Ed25519"
     // add additional key(s) if required
-  }]
+  }],
   "versionId": [
     "&#x3C;uuid>" // optional
-    ]
+    ],
   "fee": {
-<strong>    "amount": [{
-</strong>      "denom": "ncheq",
+    "amount": [{
+      "denom": "ncheq",
       "amount": "50000000000"
       }],
     "gas": "400000",
     "payer": "cheqd1rnr5jrt4exl0samwj0yegv99jeskl0hsxmcz96"
   }
 }
-</code></pre>
+```
 
 </details>
 
@@ -219,10 +220,10 @@ The below examples show the variation in syntax for different verification metho
     "kid": "<equal_to_public_key_hex>",
     "type": "Ed25519"
     // add additional key(s) if required
-  }]
+  }],
   "versionId": [
     "<uuid>" // optional
-    ]
+    ],
   "fee": {
     "amount": [{
       "denom": "ncheq",
@@ -276,10 +277,10 @@ The below examples show the variation in syntax for different verification metho
     "kid": "<equal_to_public_key_hex>",
     "type": "Ed25519"
     // add additional key(s) if required
-  }]
+  }],
   "versionId": [
     "<uuid>" // optional
-    ]
+    ],
   "fee": {
     "amount": [{
       "denom": "ncheq",

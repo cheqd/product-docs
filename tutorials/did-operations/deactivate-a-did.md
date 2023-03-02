@@ -34,10 +34,10 @@ Construct your `payload.json` file like this:
       "kid": "074035480cdcf09c33b1e8066deb55c75822c8c3b27f1c100717eb413bc08e06",
       "type": "Ed25519"
     }
-  ]
+  ],
   "versionId": [
     "<uuid>" // optional
-    ]
+    ],
   "fee": {
     "amount": [{
       "denom": "ncheq",
