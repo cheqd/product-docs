@@ -135,24 +135,23 @@ The below examples show the variation in syntax for different verification metho
 
 <summary>Ed25519VerificationKey2018</summary>
 
-```json
-{
+<pre class="language-json"><code class="lang-json">{
   "kms": "local",
   "alias": "Veramo specific name of your DIDDoc",
   "document": {
     "context": [],
-    "id": "did:cheqd:testnet:<uniqueId>",
+    "id": "did:cheqd:testnet:&#x3C;uniqueId>",
     "controller": [
-      "did:cheqd:testnet:<uniqueId>"
+      "did:cheqd:testnet:&#x3C;uniqueId>"
     ],
     "verificationMethod": [{
-        "id": "did:cheqd:testnet:<uniqueId>#key-1",
+        "id": "did:cheqd:testnet:&#x3C;uniqueId>#key-1",
         "type": "Ed25519VerificationKey2018",
-        "controller": "did:cheqd:testnet:<uniqueId>",
+        "controller": "did:cheqd:testnet:&#x3C;uniqueId>",
         "publicKeyBase58": "H3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV"     
     }],
     "authentication": [
-      "did:cheqd:testnet:<uniqueId>#key-1"
+      "did:cheqd:testnet:&#x3C;uniqueId>#key-1"
     ],
     "assertionMethod": [],
     "capabilityInvocation": [],
@@ -162,25 +161,25 @@ The below examples show the variation in syntax for different verification metho
     "service": []
   },
   "keys": [{
-    "publicKeyHex": "<public_key_in_hex_encoding>",
-    "privateKeyHex": "<private_key_in_hex_encoding>",
-    "kid": "<equal_to_public_key_hex>",
+    "publicKeyHex": "&#x3C;public_key_in_hex_encoding>",
+    "privateKeyHex": "&#x3C;private_key_in_hex_encoding>",
+    "kid": "&#x3C;equal_to_public_key_hex>",
     "type": "Ed25519"
     // add additional key(s) if required
   }]
   "versionId": [
-    "<uuid>" // optional
+    "&#x3C;uuid>" // optional
     ]
   "fee": {
-    "amount": [{
-      "denom": "ncheq",
+<strong>    "amount": [{
+</strong>      "denom": "ncheq",
       "amount": "50000000000"
       }],
     "gas": "400000",
     "payer": "cheqd1rnr5jrt4exl0samwj0yegv99jeskl0hsxmcz96"
   }
 }
-```
+</code></pre>
 
 </details>
 
