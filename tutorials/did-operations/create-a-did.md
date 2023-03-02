@@ -162,14 +162,14 @@ The below examples show the variation in syntax for different verification metho
     "service": []
   },
   "keys": [{
-    "publicKeyHex": "&#x3C;public_key_in_hex_encoding>",
-    "privateKeyHex": "&#x3C;private_key_in_hex_encoding>",
-    "kid": "&#x3C;equal_to_public_key_hex>",
+    "publicKeyHex": "<public_key_in_hex_encoding>",
+    "privateKeyHex": "<private_key_in_hex_encoding>",
+    "kid": "<equal_to_public_key_hex>",
     "type": "Ed25519"
     // add additional key(s) if required
   }],
   "versionId": [
-    "&#x3C;uuid>" // optional
+    "<uuid>" // optional
     ],
   "fee": {
     "amount": [{
