@@ -37,10 +37,6 @@ $ uuidgen
 e7b662f8-d3f8-4a83-bd00-2cdcd6cc50ab
 ```
 
-{% hint style="info" %}
-Due to a known bug, please make sure that UUIDs generated and submitted to the ledger are in **lower case**.
-{% endhint %}
-
 ### 4. Choose an option for passing the resource that best suits you
 
 #### Option 1: Passing resource as Base64
