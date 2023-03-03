@@ -12,9 +12,10 @@ Follow these instructions to create a new DID and publish the associated DIDDoc 
 > ⚠️ **Before you begin...**
 > Make sure you've completed the [veramo cli setup](./setup-tutorial.md) for this tutorial for Veramo CLI
 
-### Generate Key Pair in veramo wallet
+## Generate Key Pair in veramo wallet
 
 Enter the below command in the cli
+
 ```bash
 veramo execute -m keyManagerCreate --argsJSON '{ "type": "Ed25519", "kms": "local" }'
 ```
@@ -43,10 +44,12 @@ Note down the `kid` and `publicKeyHex` values of the generated key
 
 <br>
 
-### Generate DID Payload 
+## Generate DID Payload
+
 The DID payload can be generated using our helper api `/did-document`
 
 Select the following options
+
 * Select VerificationMethodType
 * Select MethodSpecificAlgo
 * Select network
@@ -86,15 +89,16 @@ Select the following options
     "publicKeyHex": "d2ce308f19ee116ee810956605632ccd024bad8dedd02baf49f248d03acdaa48"
   }
 }
-
 ```
+
 </details>
 
 Copy the `didDoc` field from the output
 
 <br>
 
-### Request Create Operation
+## Request Create Operation
+
 Use the `/create` to publish the DID
 
 1. Paste the contents of `didDoc` from the previous step in the `didDocument` field of the `/create` api body
@@ -122,9 +126,11 @@ Use the `/create` to publish the DID
       }
     }
     ```
+
     </details>
 
 2. Click on execute to perform the request
+
     <details>
     <summary>Response</summary>
 
@@ -152,6 +158,7 @@ Use the `/create` to publish the DID
       }
     }
     ```
+
     </details>
 
     If you notice the state in didState should be in `action` and the description should request to `sign the payload`
@@ -162,9 +169,10 @@ Use the `/create` to publish the DID
 
 <br>
 
-### Sign Payload
+## Sign Payload
 
 Enter the below command in the cli
+
 ```bash
 veramo execute -m keyManagerSign
 ```
@@ -189,21 +197,22 @@ Fill in the prompts
 
     Result : "1ubhK2CRWfB4AsqzsxVeoVwZ2yb7OpNMOe7assJXhnitoPkClm5ZFjT9zV7s6OETMKSVsUtFwIp4XCoj2xl4Bw"
 ```
+
 </details>
 
 
-**NOTE: If there are n verification methods for the controller then n signatures are required to publish a DID**
+**NOTE:** If there are n verification methods for the controller then n signatures are required to publish a DID
 
 
 Copy the Result value from the response
 
 <br>
 
-### Submit Signature
+## Submit Signature
 
 Use the `/create` api again
 
-1. Create the payload using the noted 
+1. Create the payload using the noted
     * jobId
     * verificationMethodId
     * signatue
@@ -227,6 +236,7 @@ Use the `/create` api again
         }
     }
     ```
+
     </details>
 
 2. Click on Execute
@@ -268,9 +278,8 @@ Use the `/create` api again
       }
     }
     ```
+
     </details>
 
 3. The state in didState should be `finished` in the response, the DID is created successfully
-
-
 

@@ -5,7 +5,8 @@ Follow these instructions to create a new Resource for DID using DID registrar. 
 > ⚠️ **Before you begin...**
 > Make sure you've completed [creating a DID](./create-a-did.md) for this tutorial for Veramo CLI
 
-### Request Create Operation
+## Request Create Operation
+
 Use the `/{did}/create-resource` api to publish a resource
 
 1. Paste the DID in the did path parameter
@@ -20,9 +21,10 @@ Use the `/{did}/create-resource` api to publish a resource
         "type": "TextDocument"
       }
     ```
+
     </details>
 
-2. Click on execute to perform the request
+3. Click on execute to perform the request
     <details>
     <summary>Response</summary>
 
@@ -50,6 +52,7 @@ Use the `/{did}/create-resource` api to publish a resource
       }
     }
     ```
+
     </details>
 
     If you notice the state in didState should be in `action` and the description should request to `sign the payload`
@@ -58,9 +61,10 @@ Use the `/{did}/create-resource` api to publish a resource
 
 <br>
 
-### Sign Payload
+## Sign Payload
 
 Enter the below command in the cli
+
 ```bash
 veramo execute -m keyManagerSign
 ```
@@ -85,26 +89,27 @@ Fill in the prompts
 
     Result : "RiJelgAtm26arp8-cYfLVyyYnvoAgnnaL1Lndf_6G_iuoQtrTRgt5TD1GCwJXb30y8Fc7L_jzN3hH4WZRzeqDw"
 ```
+
 </details>
 
 
-**NOTE: If there are n verification methods for the controller then n signatures are required to publish a DID**
+**NOTE:** If there are n verification methods for the controller then n signatures are required to publish a DID
 
 
 Copy the Result value from the response
 
 <br>
 
-### Submit Signature
+## Submit Signature
 
 Use the `/create-resource` api again
 
 1. Create the payload using as below
     * jobId
-    * secret 
-       * signingResponse 
+    * secret
+       * signingResponse
             * verificationMethodId
-            * signatue
+            * signature
 
     <details>
     <summary>Request</summary>
@@ -120,6 +125,7 @@ Use the `/create-resource` api again
         }
     }
     ```
+
     </details>
 
 2. Click on Execute
@@ -163,6 +169,7 @@ Use the `/create-resource` api again
     }
     }
     ```
+
     </details>
 
 3. The state in didState should be `finished` in the response, the DID is created successfully
