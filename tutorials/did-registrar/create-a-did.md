@@ -21,12 +21,11 @@ These instructions will help developers create DIDs on cheqd using the DID Regis
 
 </details>
 
+## 1. Setup Veramo CLI
 
-## Setup Veramo CLI
+This tutorial will be using the Veramo CLI for Key management. Setup the cli following this [tutorial](./veramo-cli-setup.md)
 
-This tutorial will be using veramo cli for Key management, setup the cli following this [tutorial](./veramo-cli-setup.md)
-
-## Generate Key Pair in veramo wallet
+## 2. Generate Key Pair in veramo wallet
 
 Enter the below command in the cli
 
@@ -58,7 +57,7 @@ Note down the `kid` and `publicKeyHex` values of the generated key
 
 <br>
 
-## Generate DID Payload
+## 3. Generate DID Payload
 
 Go to ["cheqd helpers" in our Registrar Driver here](https://did-registrar.cheqd.net/api-docs/#/Cheqd%20Helpers/get_did_document) and click "try it out" in the top right corner.
 
@@ -107,13 +106,13 @@ Select the following options
 
 </details>
 
-Copy the `didDoc` field from the output
+Copy the `didDoc` field from the output.
 
 <br>
 
-## Request Create Operation
+## 4. Request Create Operation
 
-Use the `/create` to publish the DID
+Use `/create` to publish the DID
 
 1. Paste the contents of `didDoc` from the previous step in the `didDocument` field of the `/create` api body
     <details>
@@ -179,7 +178,7 @@ Use the `/create` to publish the DID
 
 <br>
 
-## Sign Payload
+## 5. Sign Payload
 
 Sign the serialized payload in your CLI with the below command
 
@@ -218,7 +217,7 @@ Copy the Result value from the response
 
 <br>
 
-## Submit Signature
+## 6. Submit Signature
 
 Use the `/create` api again
 
@@ -295,6 +294,6 @@ Use the `/create` api again
 
 3. The state in didState should be `finished` in the response, the DID is created successfully
 
-## Check your DID is live
+## 7. Check your DID is live
 
 You can check your DID on the universal resolver or by going to `https://resolver.cheqd.net/1.0/identifiers/{yourDID}`

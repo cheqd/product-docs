@@ -5,7 +5,7 @@ Follow these instructions to create a new Resource for DID using DID registrar. 
 > ⚠️ **Before you begin...**
 > Make sure you've completed [creating a DID](./create-a-did.md) for this tutorial for Veramo CLI
 
-## Request Create Operation
+## 1. Request Create Operation
 
 Use the `/{did}/create-resource` api to publish a resource
 
@@ -59,7 +59,7 @@ Use the `/{did}/create-resource` api to publish a resource
 
 <br>
 
-## Sign Payload
+## 2. Sign Payload
 
 Sign the serialized payload in your CLI with the below command
 
@@ -98,7 +98,7 @@ Copy the Result value from the response
 
 <br>
 
-## Submit Signature
+## 3. Submit Signature
 
 Use the `/create-resource` api again
 
@@ -172,6 +172,6 @@ Use the `/create-resource` api again
 
 3. The state in didState should be `finished` in the response, the DID is created successfully
 
-## Check your Resource is live
+## 4. Check your Resource is live
 
 You can check your DID on the universal resolver or by going to `https://resolver.cheqd.net/1.0/identifiers/{yourDID}/resources/{yourResourceId}`
