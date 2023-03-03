@@ -1,6 +1,18 @@
-# Create a DID
+# Create a DID using DID Registrar
 
-Follow these instructions to create a new DID and publish the associated DIDDoc using DID registrar. This tutorial will use the cheqd did regisrtar swagger api's and the veramo cli.
+## Summary
+
+These instructions will help developers create DIDs on cheqd using the DID Registrar.
+
+## Watch this video for a simple walkthrough
+
+{% embed url="https://www.youtube.com/watch?v=cLrgO5IY8P8" %}
+
+## What you need
+
+1. Any framework for creating keys and signing payloads, such as [Veramo CLI](./veramo-cli-setup.md);
+2. cheqd [DID Registrar](https://did-registrar.cheqd.net/api-docs/)
+3. 5 minutes!
 
 <details>
 <summary>Swagger UI</summary>
@@ -9,8 +21,10 @@ Follow these instructions to create a new DID and publish the associated DIDDoc 
 
 </details>
 
-> ⚠️ **Before you begin...**
-> Make sure you've completed the [veramo cli setup](./setup-tutorial.md) for this tutorial for Veramo CLI
+
+## Setup Veramo CLI
+
+This tutorial will be using veramo cli for Key management, setup the cli following this [tutorial](./veramo-cli-setup.md)
 
 ## Generate Key Pair in veramo wallet
 
@@ -46,7 +60,7 @@ Note down the `kid` and `publicKeyHex` values of the generated key
 
 ## Generate DID Payload
 
-The DID payload can be generated using our helper api `/did-document`
+Go to ["cheqd helpers" in our Registrar Driver here](https://did-registrar.cheqd.net/api-docs/#/Cheqd%20Helpers/get_did_document) and click "try it out" in the top right corner.
 
 Select the following options
 
@@ -161,17 +175,13 @@ Use the `/create` to publish the DID
 
     </details>
 
-    If you notice the state in didState should be in `action` and the description should request to `sign the payload`
-
-    Note down the serialized payload, jobId from the response
-
-<br>
+    This response requests an `action` for you to sign the serialized payload again in a CLI. This is a security feature which means you are not passing your private key to the Registrar. Note down the serialized payload, jobId from the response
 
 <br>
 
 ## Sign Payload
 
-Enter the below command in the cli
+Sign the serialized payload in your CLI with the below command
 
 ```bash
 veramo execute -m keyManagerSign
@@ -212,10 +222,12 @@ Copy the Result value from the response
 
 Use the `/create` api again
 
-1. Create the payload using the noted
+1. Create the payload using the following values
     * jobId
-    * verificationMethodId
-    * signatue
+    * secret
+       * signingResponse
+            * verificationMethodId
+            * signature
 
     <details>
     <summary>Request</summary>
@@ -283,3 +295,6 @@ Use the `/create` api again
 
 3. The state in didState should be `finished` in the response, the DID is created successfully
 
+## Check your DID is live
+
+You can check your DID on the universal resolver or by going to `https://resolver.cheqd.net/1.0/identifiers/{yourDID}`

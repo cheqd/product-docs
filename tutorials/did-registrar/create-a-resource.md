@@ -55,15 +55,13 @@ Use the `/{did}/create-resource` api to publish a resource
 
     </details>
 
-    If you notice the state in didState should be in `action` and the description should request to `sign the payload`
-
-    Note down the serialized payload, jobId from the response
+    This response requests an `action` for you to sign the serialized payload again in a CLI. This is a security feature which means you are not passing your private key to the Registrar. Note down the serialized payload, jobId from the response
 
 <br>
 
 ## Sign Payload
 
-Enter the below command in the cli
+Sign the serialized payload in your CLI with the below command
 
 ```bash
 veramo execute -m keyManagerSign
@@ -104,7 +102,7 @@ Copy the Result value from the response
 
 Use the `/create-resource` api again
 
-1. Create the payload using as below
+1. Create the payload using the following values
     * jobId
     * secret
        * signingResponse
@@ -173,3 +171,7 @@ Use the `/create-resource` api again
     </details>
 
 3. The state in didState should be `finished` in the response, the DID is created successfully
+
+## Check your Resource is live
+
+You can check your DID on the universal resolver or by going to `https://resolver.cheqd.net/1.0/identifiers/{yourDID}/resources/{yourResourceId}`
