@@ -28,6 +28,7 @@
 * [🛅 Demo Wallet for identity setup](tutorials/wallet.md)
 * [➡ DID Registrar setup](tutorials/did-registrar/did-registrar-setup.md)
   * [Create a DID](tutorials/did-registrar/create-a-did.md)
+  * [Create a Resource](tutorials/did-registrar/create-a-resource.md)
 
 ## 📑 Guides
 
