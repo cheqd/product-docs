@@ -39,7 +39,7 @@ This will create an `action` for you to sign the serialized payload again in a C
 
 ### 6. Sign serialized payload
 
-Sign the serialized payload in your CLI (with Veramo you can use the command `veramo execute -m keyManagerSign)`
+Sign the serialized payload in your CLI (with Veramo you can use the command `veramo execute -m keyManagerSign`)
 
 ### 7. Copy output back into Registrar
 
@@ -53,6 +53,6 @@ Copy the verificationMethod ID into the "secret" section too, replacing the exam
 
 This will create your DID if you have done everything correctly!
 
-### 10. Check your DID is live!
+### 10. Check your DID is live
 
-You can check your DID on the universal resolver or by going to https://resolver.cheqd.net/1.0/identifiers/<yourDID>
+You can check your DID on the universal resolver or by going to our DID Resolver at [https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:97e351e6-2d9d-4314-82ec-e0d12bc5de43](https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:97e351e6-2d9d-4314-82ec-e0d12bc5de43) and inputting your DID.
