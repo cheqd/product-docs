@@ -26,7 +26,9 @@
   * [Create a new Resource version within existing Collection](tutorials/on-ledger-resources/create-a-new-resource-version.md)
 * [🔄 DID Resolver setup](tutorials/DID-resolution.md)
 * [🛅 Demo Wallet for identity setup](tutorials/wallet.md)
-* [➡ DID Registrar setup](tutorials/DID-registrar.md)
+* [➡ DID Registrar](tutorials/did-registrar/README.md)
+  * [Setup DID Registrar](tutorials/did-registrar/did-registrar-setup.md)
+  * [Create a DID](tutorials/did-registrar/create-a-did-using-registrar.md)
 
 ## 📑 Guides
 
@@ -76,7 +78,7 @@
 ## ⚖️ Legal
 
 * [License](LICENSE.md)
-* [Code of Conduct](CODE\_OF\_CONDUCT.md)
+* [Code of Conduct](CODE_OF_CONDUCT.md)
 * [Security Policy](SECURITY.md)
 
 ## 🆘 Support
