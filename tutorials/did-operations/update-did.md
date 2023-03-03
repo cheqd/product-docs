@@ -10,9 +10,9 @@ Follow these instructions to update an existing `did:cheqd` entry on cheqd ledge
 
 ### 1. Prepare DIDDoc contents
 
-Before updating the DID, you will need to prepare the updated DIDDoc and parameters for the transaction in an `args.json` file.
+Before updating the DID, you will need to prepare the updated DIDDoc and parameters for the transaction in an `payload.json` file.
 
-This file can be saved whereever you choose, but the location must be specified in the create DID command used in Step 2. (By default, it will be saved under the project root directory.)
+This file can be saved whereever you choose, but the location must be specified in the [create DID command used in Step 2](create-a-did.md). (By default, it will be saved under the project root directory.)
 
 #### Parameters
 
@@ -21,46 +21,55 @@ This file can be saved whereever you choose, but the location must be specified 
 * `alias`: A human-friendly alias for the DID. Only used locally when referencing operations in Veramo CLI.
 * `document`: Full body of the DID Document _including_ updated sections.
 * `keys`: Keys used to sign the DIDDoc. These must match the ones specified in the DIDDoc, otherwise an error will be thrown.
-* `versionId`: (optional) Custom versionId for the Updated DID Document
-* `fee` (optional): [Custom fee](../custom-fee.md)
+* `versionId`: (optional) Custom versionId for the DID Document. If this is not set manually, then a UUID will be automatically generated for the DID Document version.
+* `fee`&#x20;
+  * `amount`: An array of coins, coins are represented as an object with 2 fields
+    * `denom`: ncheq (smallest denomination classification)
+    * `amount`: **25000000000** (This is **25 CHEQ by default** and will not work with a different value)
+  * `gas`: Each transaction must specify the maximum amount of gas it may consume.
+  * `payer` (optional): The cheqd fee payer address
+  * `granter` (optional): The cheqd fee granter address, Provided the grantee has an allowance by the granter
+
+> Note that transaction fees are paid by the cheqd account set in the `agent.yml` configuration file, [setup here](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md). Each of cheqd's on-ledger identity transactions has a **fixed fee,** [the pricing for cheqd DIDs and DID-Linked Resources can be found here](https://docs.cheqd.io/node/architecture/adr-list/adr-005-genesis-parameters#cheqd-module-did-module). If your account has insufficient balance the transaction will fail.
 
 ### 2. Update existing DID
 
 Use the command below to construct and broadcast update transaction.
 
-So, let's try to update `service` section of our `DIDDoc`. Then, your `args.json` file will look like this.
-
+So, let's try to update `service` section of our `DIDDoc`. Then, your `payload.json` file will look like this.
 
 ```json
 {
   "kms": "local",
   "alias": "update-my-did",
-  "did": "did:cheqd:testnet:zVJe7ZNvCtbK83pv",
+  "did": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
   "document": {
     "context": [],
-    "id": "headdid:cheqd:testnet:zVJe7ZNvCtbK83pv",
-    "controller": ["did:cheqd:testnet:zVJe7ZNvCtbK83pv"],
-    "authentication": ["did:cheqd:testnet:zVJe7ZNvCtbK83pv#key-1"],
+    "id": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
+    "controller": ["did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590"],
+    "verificationMethod": [
+      {
+        "id": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590#key-1",
+        "type": "Ed25519VerificationKey2020",
+        "controller": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
+        "publicKeyMultibase": "3e6bd814-6851-4c8a-b114-c64f035ef590JYD9eRNc5CSrNBKkyjep6gYdaWub"
+      }
+    ],
+    "authentication": [
+      "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590#key-1"
+    ],
+    "service": [
+      {
+        "id": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590#linked-domain",
+        "type": "LinkedDomains",
+        "serviceEndpoint": ["https://cheqd.io/"]
+      }
+    ]
     "assertionMethod": [],
     "capabilityInvocation": [],
     "capabilityDelegation": [],
     "keyAgreement": [],
     "alsoKnownAs": [],
-    "verificationMethod": [
-      {
-        "id": "did:cheqd:testnet:zVJe7ZNvCtbK83pv#key-1",
-        "type": "Ed25519VerificationKey2020",
-        "controller": "did:cheqd:testnet:zVJe7ZNvCtbK83pv",
-        "publicKeyMultibase": "zVJe7ZNvCtbK83pvJYD9eRNc5CSrNBKkyjep6gYdaWub"
-      }
-    ],
-    "service": [
-      {
-        "id": "did:cheqd:testnet:zVJe7ZNvCtbK83pv#linked-domain",
-        "type": "LinkedDomains",
-        "serviceEndpoint": ["https://cheqd.io/"]
-      }
-    ]
   },
   "keys": [
     {
@@ -69,19 +78,30 @@ So, let's try to update `service` section of our `DIDDoc`. Then, your `args.json
       "kid": "074035480cdcf09c33b1e8066deb55c75822c8c3b27f1c100717eb413bc08e06",
       "type": "Ed25519"
     }
-  ]
+  ],
+  "versionId": [
+    "<uuid>" // optional
+    ],
+  "fee": {
+    "amount": [{
+      "denom": "ncheq",
+      "amount": "25000000000"
+      }],
+    "gas": "400000",
+    "payer": "cheqd1rnr5jrt4exl0samwj0yegv99jeskl0hsxmcz96"
+  }
 }
 ```
 
-Notice, that we are updating a `service` section of in our `DIDDoc`.
+Note, that we are updating a `service` section of in our `DIDDoc`.
 
-Then try running the command below to update the `did`:
+After you have updated the `payload.json` file, run the command below to update the `did`:
 
 ```bash
-veramo execute -m cheqdUpdateIdentifier --argsFile path/to/args.json
+veramo execute -m cheqdUpdateIdentifier --argsFile path/to/payload.json
 ```
 
-If you would like to fetch the updated DIDDoc body following the successful DID update result, execute the `resolve` command as outlined [here](./query-did.md). You can check if `service` section of `DIDDoc` has been updated.
+If you would like to fetch the updated DIDDoc body following the successful DID update result, execute the `resolve` command as outlined [here](query-did.md). You can check if `service` section of `DIDDoc` has been updated.
 
 ## Next steps
 

@@ -1,4 +1,4 @@
-# Create a new version within existing collection
+# Create a new Resource version within existing Collection
 
 Follow these instructions to create a new DID and publish the associated DIDDoc on cheqd ledger.
 
@@ -12,20 +12,22 @@ Follow these instructions to create a new DID and publish the associated DIDDoc 
 
 Follow [this](../did-operations/) tutorial to generate keys and create a DID.
 
-### 2. Create a Resource
+### 2. Create a DID-Linked Resource
 
 Follow [this](create-a-resource.md) tutorial to create the first version of the resource.
 
 ### 3. Publish the new Resource version
 
-#### About versioning
+Follow exactly the same steps as the first resource. Note that to create a new resource version which belongs to the same set as a previous resource, in the you **must specify the same**:
 
-Resources with the same Collection ID and name are grouped into version sets. Each resource in such a set has a link to the previous version (except the first version) and the next version (if it's not the most recent version).
+* **collectionId**
+* **name**
+* **resourceType**
 
-To create a resource and mark it as a new version within a particular group, we need to use the same `collection-id, name` and `type` as in the previous version. Links between versions will be created automatically.
+Each resource in such a set has a link to the previous version (except the first version) and the next version (if it's not the most recent version).&#x20;
 
 New versions have dedicated unique IDs and can be referenced and retrieved as any other resources.
 
 #### Steps
 
-Follow [the same](create-a-resource.md) tutorial as for resource creation, but use the same `collection-id` and `name` as for the previous Resource version.
+Follow [the same](create-a-resource.md) tutorial as for resource creation, but use the same `collectionId,` `name` and `resourceType` as for the previous Resource version.

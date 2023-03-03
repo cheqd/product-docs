@@ -37,7 +37,7 @@ You'll be presented with an multiple options select:
 * `jwt` for [JSON credential](https://www.w3.org/TR/vc-data-model/#json), encoded as a [JSON Web Token (JWT)](https://www.w3.org/TR/vc-data-model/#json-web-token), a [W3C compliant proof format.](https://www.w3.org/TR/vc-data-model/#proof-formats)
 * `lds` for [JSON-LD credential](https://www.w3.org/TR/vc-data-model/#json-ld), encoded as a [Data Integrity Proofs](https://www.w3.org/TR/vc-data-model/#data-integrity-proofs), a [W3C compliant proof format.](https://www.w3.org/TR/vc-data-model/#proof-formats)
 
- > :books: **Learn about different types of Verifiable Credentials**
+> :books: **Learn about different types of Verifiable Credentials**
 >
 > If you want to learn more about different types of verifiable credentials [please go over to our learning site here.](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-verifiable-credential-vc/what-are-the-different-types-of-verifiable-credentials)
 
@@ -82,23 +82,24 @@ At this last step, Veramo CLI generates the credential based on the inputs above
 _Note_: The human-readable JSON body below is purely for easier parsing by developers/applications. The proof is encoded as JWT or JWS at the bottom of the credential, which can be decoded to reconstruct the entire credential.
 
 <details>
+
 <summary>Example JSON Verifiable Credential</summary>
 
 ```json
 {
-  "credentialSubject": {
-    "name": "Alice",
-    "id": "did:key:z6Mkktr27VZ7TTFoTsD9p79JwtGnQDgJWKGrxJ79quE7M5Yx"
-  },
-  "issuer": {
-    "id": "did:cheqd:mainnet:zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX"
-  },
-  "type": ["VerifiableCredential", "Profile"],
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
     "https://veramo.io/contexts/profile/v1"
   ],
+  "type": ["VerifiableCredential", "Profile"],
+  "issuer": {
+    "id": "did:cheqd:mainnet:zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX"
+  },
   "issuanceDate": "2022-07-28T15:25:10.000Z",
+  "credentialSubject": {
+    "name": "Alice",
+    "id": "did:key:z6Mkktr27VZ7TTFoTsD9p79JwtGnQDgJWKGrxJ79quE7M5Yx"
+  }, 
   "proof": {
     "type": "JwtProof2020",
     "jwt": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vdmVyYW1vLmlvL2NvbnRleHRzL3Byb2ZpbGUvdjByb2ZpbGUvdjEiXSwidHlwZSI6WyJWZXJpZmlhYmxlQ3JlZGVudGlhbCIsIlByb2ZpbGUiXSwiY3JlZGVudGlhbFN1YmplY3QiOnsibmFtZSI6IkFsaWNlIn19LCJzdWIiOiJkaWQ6a2V5Ono2TWtrdHIyN1ZaN1RURm9Uc25RRGdKV0tHc0Q5cDc5Snd0R25RRGdKV0tHcnhKNzlxdUU3TTVZeCIsIm5iZiI6MTY1OTAyMTkxMCwiaXNzIjoiZGlkOmNoZXFkOm1haW5uZXQ6ekFYd3dxWnpoQ1pBMUw3N1pCYThmaFZOakw5TVFDSFgifQ.MRqlKuFQzpjLvsW3C2ZSBEf5jfvJCPQBwl-gP1P8bRfNSvjxj9H3eDgDmEf5jfvJCPQBwUDltBr-ZQ3Q7SKVSvCaJHV8TnUzBA"
@@ -109,13 +110,11 @@ _Note_: The human-readable JSON body below is purely for easier parsing by devel
 </details>
 
 <details>
+
 <summary>Example JSON-LD Verifiable Credential</summary>
 
 ```json
 {
-  "issuer": {
-    "id": "did:cheqd:testnet:d3e515cf-81af-40cb-9ac1-154827986d29"
-  },
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
     "https://veramo.io/contexts/profile/v1"
@@ -124,6 +123,9 @@ _Note_: The human-readable JSON body below is purely for easier parsing by devel
     "VerifiableCredential",
     "Profile"
   ],
+  "issuer": {
+    "id": "did:cheqd:testnet:d3e515cf-81af-40cb-9ac1-154827986d29"
+  },
   "issuanceDate": "2023-02-07T06:28:33.760Z",
   "credentialSubject": {
     "id": "did:key:z6MkfFb5bMTvm3kXMB5zZSrLGLdtW13wU9w6ByJ76LV7U75a",
@@ -140,6 +142,8 @@ _Note_: The human-readable JSON body below is purely for easier parsing by devel
 ```
 
 </details>
+
+> Note that the JSON is unordered so the output of the fields could be in a different order
 
 ## Next steps
 

@@ -13,7 +13,7 @@ Follow these instructions to query a DID from cheqd ledger.
 Use `veramo did resolve <did>` to resolve a DID. For example:
 
 ```bash
-veramo did resolve did:cheqd:mainnet:zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX
+veramo did resolve did:cheqd:mainnet:PdMMR9Jb4vgKkGboB7NFLC
 ```
 
 _TIp_: If you have followed along the process of creating a _did_. You can put your _did_ instead.
@@ -32,32 +32,32 @@ The output should look like the following:
     "contentType": "application/did+json",
     "retrieved": "2022-07-28T15:05:06Z",
     "did": {
-      "didString": "did:cheqd:mainnet:zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX",
-      "methodSpecificId": "zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX",
+      "didString": "did:cheqd:mainnet:PdMMR9Jb4vgKkGboB7NFLC",
+      "methodSpecificId": "PdMMR9Jb4vgKkGboB7NFLC",
       "method": "cheqd"
     }
   },
   "didDocument": {
-    "id": "did:cheqd:mainnet:zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX",
+    "id": "did:cheqd:mainnet:PdMMR9Jb4vgKkGboB7NFLC",
     "verificationMethod": [
       {
-        "controller": "did:cheqd:mainnet:zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX",
-        "id": "did:cheqd:mainnet:zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX#key1",
+        "id": "did:cheqd:mainnet:PdMMR9Jb4vgKkGboB7NFLC#key1",
+        "type": "JsonWebKey2020"
+        "controller": "did:cheqd:mainnet:PdMMR9Jb4vgKkGboB7NFLC",
         "publicKeyJwk": {
           "crv": "Ed25519",
           "kty": "OKP",
           "x": "jaa70K9yy4Tw-YEsA2T4F10jsQuFdpVJN9LLhjmOUGw"
         },
-        "type": "JsonWebKey2020"
     "authentication": [
-      "did:cheqd:mainnet:zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX#key1"
+      "did:cheqd:mainnet:PdMMR9Jb4vgKkGboB7NFLC#key1"
         ],
       }
     ]
   },
-    "didDocumentMetadata": {
+  "didDocumentMetadata": {
     "created": "2022-05-13T14:01:20Z",
-    "versionId": "B55E82F3022593C2A55D08484D658003B1685177197796FA00B56440671DB842"
+    "versionId": "83fe6fa4-c844-438f-861a-cbd91202864f"
   }
 }
 ```

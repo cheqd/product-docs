@@ -1,28 +1,57 @@
-# 🤨 Troubleshooting Create DID operation
+# DID Operations Troubleshooting
 
-This guide provides common errors and potential fixes for them if you encountered errors when [creating a DID](../../tutorials/did-operations/create-a-did.md).
+This guide provides common errors and potential fixes for them if you encountered errors when [creating a DID](create-a-did.md).
 
 ## 1. When generating keys along with a DIDDoc template
 
 When you try to generate `keys` along with `DIDDoc` template using command below
 
 ```bash
-veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "Ed25519VerificationKey2020", "methodSpecificIdAlgo": "base58btc", "methodSpecificIdLength": 16, "network": "testnet"}'
+veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "Ed25519VerificationKey2020", "methodSpecificIdAlgo": "uuid", "network": "testnet"}'
 ```
 
 If you encounter an error below
 
 `Unexpected token v in JSON at position 1`
 
-Create a `.json` file (e.g. name it `identity-keys-on-the-fly-with-did-docs.json` in same working directory level).
+Create a `.json` file (e.g. name it something like `identity-keys-on-the-fly-with-did-docs.json` in same working directory level).&#x20;
 
-Copy and paste the content from below into your newly created `.json` file.
+Copy and paste the content from below into your newly created `.json` file. You can choose from any of the inputs and arguments below:
+
+<details>
+
+<summary>verificationMethod</summary>
+
+* Ed25519VerificationKey2020
+* JsonWebKey2020
+* Ed25519VerificationKey2018
+
+</details>
+
+<details>
+
+<summary>methodSpecificIdAlgo</summary>
+
+* base58btc
+* uuid
+
+</details>
+
+<details>
+
+<summary>network</summary>
+
+* mainnet
+* testnet
+
+</details>
+
+For example:
 
 ```json
 {
   "verificationMethod": "Ed25519VerificationKey2020",
-  "methodSpecificIdAlgo": "base58btc",
-  "methodSpecificIdLength": 16,
+  "methodSpecificIdAlgo": "uuid",
   "network": "testnet"
 }
 ```
@@ -42,20 +71,19 @@ Method:  cheqdGenerateDidDoc
 
 Arguments:  {
   "verificationMethod": "Ed25519VerificationKey2020",
-  "methodSpecificIdAlgo": "base58btc",
-  "methodSpecificIdLength": 16,
+  "methodSpecificIdAlgo": "uuid",
   "network": "testnet"
 }
 
 Result : {
   "didDoc": {
     "context": [],
-    "id": "did:cheqd:testnet:zVJe7ZNvCtbK83pv",
+    "id": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
     "controller": [
-      "did:cheqd:testnet:zVJe7ZNvCtbK83pv"
+      "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590"
     ],
     "authentication": [
-      "did:cheqd:testnet:zVJe7ZNvCtbK83pv#key-1"
+      "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590#key-1"
     ],
     "assertionMethod": [],
     "capabilityInvocation": [],
@@ -64,11 +92,10 @@ Result : {
     "alsoKnownAs": [],
     "verificationMethod": [
       {
-        "id": "did:cheqd:testnet:zVJe7ZNvCtbK83pv#key-1",
+        "id": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590#key-1",
         "type": "Ed25519VerificationKey2020",
-        "controller": "did:cheqd:testnet:zVJe7ZNvCtbK83pv",
-        "publicKeyMultibase": "zVJe7ZNvCtbK83pvJYD9eRNc5CSrNBKkyjep6gYdaWub",
-        "publicKeyJwk": []
+        "controller": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
+        "publicKeyMultibase": "z6MkuBcREn1LjuDCe9FfSa7WLa3yY51KFoSEg2fUifzQqVy1"
       }
     ],
     "service": []
@@ -82,7 +109,7 @@ Result : {
 }
 ```
 
-Then you can go back to your `args.json` file (if you didn't have one you can simply create one manually, and paste content below as template) which should be something like this at first.
+Then you can go back to your `payload.json` file (if you didn't have one you can simply create one manually, and paste content below as template) which should be something like this at first.
 
 ```json
 {
@@ -103,9 +130,9 @@ Then you can go back to your `args.json` file (if you didn't have one you can si
 }
 ```
 
-Then you're going to update `keys` and `document` section of it(`args.json`) with `keys` and `didDoc` you generated in above step.
+Then you're going to update `keys` and `document` section of it (`payload.json`) with `keys` and `didDoc` you generated in above step.
 
-After populating `keys` and `document` section. Your `args.json` file should look something like this:
+After populating `keys` and `document` section. Your `payload.json` file should look something like this:
 
 ```json
 {
@@ -113,9 +140,9 @@ After populating `keys` and `document` section. Your `args.json` file should loo
   "alias": "your-alias",
   "document": {
     "context": [],
-    "id": "did:cheqd:testnet:zVJe7ZNvCtbK83pv",
-    "controller": ["did:cheqd:testnet:zVJe7ZNvCtbK83pv"],
-    "authentication": ["did:cheqd:testnet:zVJe7ZNvCtbK83pv#key-1"],
+    "id": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
+    "controller": ["did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590"],
+    "authentication": ["did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590#key-1"],
     "assertionMethod": [],
     "capabilityInvocation": [],
     "capabilityDelegation": [],
@@ -123,11 +150,10 @@ After populating `keys` and `document` section. Your `args.json` file should loo
     "alsoKnownAs": [],
     "verificationMethod": [
       {
-        "id": "did:cheqd:testnet:zVJe7ZNvCtbK83pv#key-1",
+        "id": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590#key-1",
         "type": "Ed25519VerificationKey2020",
-        "controller": "did:cheqd:testnet:zVJe7ZNvCtbK83pv",
-        "publicKeyMultibase": "zVJe7ZNvCtbK83pvJYD9eRNc5CSrNBKkyjep6gYdaWub",
-        "publicKeyJwk": []
+        "controller": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
+        "publicKeyMultibase": "z6MkuBcREn1LjuDCe9FfSa7WLa3yY51KFoSEg2fUifzQqVy1"
       }
     ],
     "service": []
@@ -139,14 +165,25 @@ After populating `keys` and `document` section. Your `args.json` file should loo
       "kid": "074035480cdcf09c33b1e8066deb55c75822c8c3b27f1c100717eb413bc08e06",
       "type": "Ed25519"
     }
-  ]
+  ],
+  "versionId": [
+    "<uuid>" // optional
+    ],
+  "fee": {
+    "amount": [{
+      "denom": "ncheq",
+      "amount": "50000000000"
+      }],
+    "gas": "400000",
+    "payer": "cheqd1rnr5jrt4exl0samwj0yegv99jeskl0hsxmcz96"
+  }
 }
 ```
 
 Assuming you have enough `ncheq` tokens inside your wallet, you can now run the command below to create your DID.
 
 ```bash
-veramo execute -m cheqdCreateIdentifier --argsFile path/to/args.json
+veramo execute -m cheqdCreateIdentifier --argsFile path/to/payload.json
 ```
 
 If the above `cmd` resulted something like this:
@@ -161,7 +198,7 @@ After successfully creating your DID, you should see something like this:
 
 ```bash
 Result : {
-  "did": "did:cheqd:testnet:zVJe7ZNvCtbK83pv",
+  "did": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
   "controllerKeyId": "074035480cdcf09c33b1e8066deb55c75822c8c3b27f1c100717eb413bc08e06",
   "keys": [
     {

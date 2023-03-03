@@ -4,27 +4,25 @@ description: cheqd support for Ledger-Agnostic AnonCreds schemas
 
 # Schema Object
 
-## Overview
+## cheqd AnonCreds Object method for Schemas
 
 Schemas are used to list a set of attributes. Issuers of Verifiable Credentials may reference schemas within Credentials they issue in order to provide a layer of semantic interoperability with other issuers utilising the same schema.
 
-In the [AnonCreds Specification](https://hyperledger.github.io/anoncreds-spec/), schemas are written directly to a [Verifiable Data Registry](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-decentralised-identifier-did/what-is-a-verifiable-data-registry), rather than using a centralized service such as [schema.org](https://schema.org/). Schemas are also associated with Credential Definitions, which are used to link the schema, issuer and holder together ([detailed further here](creddef-object.md)).
+In the [AnonCreds Specification](https://hyperledger.github.io/anoncreds-spec/), schemas are written directly to a [Verifiable Data Registry](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-decentralised-identifier-did/what-is-a-verifiable-data-registry), rather than using a centralized service such as [schema.org](https://schema.org/). Schemas are also referenced within Credential Definitions, which are used to link the schema, issuer and holder together ([detailed further here](creddef-object.md)).
 
-This documentation will guide an implementor of AnonCreds on cheqd on how the cheqd AnonCreds Object Method defines and structures Schema IDs and associated content.
+This documentation will guide an implementor of AnonCreds on cheqd on how the cheqd AnonCreds Object Method defines the structure of [**cheqd schema IDs**](schema-object.md#cheqd-schema-id), the [**schema request format**](schema-object.md#cheqd-schema-request-format) and the [**schema response format**](schema-object.md#cheqd-schema-response-format).
 
-### Hyperledger AnonCreds Schema ID
+### Hyperledger AnonCreds Schema Object
 
-Each specific AnonCreds identifier must be defined within an AnonCreds Object Method in the [AnonCreds Object Method Registry](https://hyperledger.github.io/anoncreds-spec/).
-
-This means that an AnonCreds Schema Object ID does not need to be formatted in any particular syntax, in the latest version of the [AnonCreds Specification](https://hyperledger.github.io/anoncreds-spec/).
-
-{% hint style="info" %}
-See the collapsible tile below to learn about how the Ledger-Agnostic AnonCreds specification handles these objects.
-{% endhint %}
+If you are not familiar with the latest Ledger-Agnostic AnonCreds Schema structure, click the collapsible tile below to learn about the new format.
 
 <details>
 
 <summary>Ledger-Agnostic AnonCreds Schema Object Content</summary>
+
+Each specific AnonCreds identifier must be defined within an AnonCreds Object Method in the [AnonCreds Object Method Registry](https://hyperledger.github.io/anoncreds-spec/).
+
+This means that an AnonCreds Schema Object ID does not need to be formatted in any particular syntax in the latest version of the [AnonCreds Specification](https://hyperledger.github.io/anoncreds-spec/).
 
 In the [Hyperledger AnonCreds specification](https://hyperledger.github.io/anoncreds-spec/), the Schema Object Content which is required to be written to the Verifiable Data Registry, contains the following information:
 
@@ -46,59 +44,105 @@ For example:
 
 </details>
 
-## cheqd AnonCreds Object method for Schemas
-
 ### cheqd Schema ID
 
-cheqd [DID-Linked Resources](../did-linked-resources/) identify individual resources, associated with a DID, using DID URLs.
+cheqd uses [DID-Linked Resources](../did-linked-resources/) to identify individual resources, associated with a DID, using fully resolvable DID URLs.
 
 cheqd resources implementation uses the following path-based syntax:
 
 `did:cheqd:mainnet:<SchemaIssuerId>/resources/<SchemaId>`
 
-The cheqd AnonCreds object method uses a UUID to identify the Schema Object Content which includes additional Schema Object Content Metadata, providing the required fields for equivalence with Hyperledger Indy implementations of AnonCreds.
+The cheqd AnonCreds object method uses a UUID to identify the Schema Object Content.
 
-For example, the following DID URL is cheqd's representation of a `schema_id`:
+For example, the following DID URL is cheqd's representation of a `schemaId`:
 
 `did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497`
 
-### cheqd Schema Object Input
+### Understanding Request vs Response formats
 
-Before creating any on-ledger transaction, it is important to assemble to required Schema Object Content and save it as a file locally.
+It is important to differentiate between the **Request format** for creating an AnonCreds object on cheqd, and the **Response format**, for how an AnonCreds objectshould be compiled by SDKs and the [cheqd DID Resolver](../../architecture/adr-list/adr-003-did-resolver.md).
 
-In the example below, the content should be saved as a file, for example: `degreeSchema.json` with the following content:
+The request format _**may**_ be specific to each AnonCreds Object Method. However, the response format _**should**_ be standardised to enable any AnonCreds supported application to understand the object, without needing custom or method-specific logic.
+
+### cheqd Schema Request format
+
+The cheqd schema request format comprises of:
+
+1. A Resource file for the Schema object content (e.g. `degreeSchema.json`); and
+2. A Payload file (including the signing keys and additional inputs to create a DID-Linked Resource).
+
+Both of these inputs are required to provide the ledger enough information to:
+
+1. Populate a [cheqd DID-Linked Resource](../did-linked-resources/); and
+2. Compile a standardised AnonCreds schema object in the [Response format](schema-object.md#cheqd-schema-response-format).
+
+#### cheqd Schema Resource file
+
+Before creating any on-ledger transaction, it is important to assemble the required Schema Object Content and save it as a file locally.
+
+In the example below, the content should be saved as a JSON file, for example: `degreeSchema.json` with the following content:
 
 ```json
 {
-"AnonCredsObject": {
   "name": "degreeSchema",
   "version": "1.5.7",
   "attrNames": ["name", "age", "degree", "grade"]
- },
-"AnonCredsObjectMetadata": {
-    "objectFamily": "anoncreds",
-    "objectFamilyVersion": "v1",
-    "objectType": "2",
-    "typeName": "SCHEMA",
-    "objectUri": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497"
+ }
+```
+
+This Schema Resource file inputs should be replicated where possible within the Payload file, to populate a [DID-Linked resource](../did-linked-resources/) stored on cheqd, with the following mapping:
+
+| Resource file field | Payload file field |
+| ------------------- | ------------------ |
+| "name"              | "name"             |
+| "version"           | "version"          |
+
+#### Schema Payload File
+
+The **Payload file** utilises the inputs from the **Resource file** where possible, mapping common fields across. The **Payload file** may also require additional inputs to be provided by the creator to create a DID-Linked Resource for inputs not provided in the **Resource file**.&#x20;
+
+Below is an example of a Payload file:
+
+```json
+{
+  "Payload": {
+    "collectionId": "7BPMqYgYLQni258J8JPS8K",
+    "id": "6259d357-eeb1-4b98-8bee-12a8390d3497",
+    "name": "degreeSchema",
+    "version": "1.5.7",
+    "resourceType": "anonCredsSchema", // this is added as an additional input
+    "alsoKnownAs": []
+  },
+  "SignInputs": [
+    {
+      "verificationMethodID": "did:cheqd:testnet:7BPMqYgYLQni258J8JPS8K#key1",
+      "privKey": "y4B5qis9BXUq/mODsrWtS3q5ejOk/okSIXlX1/a9HvuG3PgYmekfQmq3QhJ4JSzN/rkiGCQDNKoTXMmxuXDHbg=="
     }
-  }
+  ]
 }
 ```
 
-This implementation uses AnonCredsObjectMetadata to provide equivalency between cheqd's AnonCreds Object Method and other AnonCreds Object Methods, including the fields, where:
+When passing the Payload file to the ledger, additional inputs may be required within the Payload file to populate the [DID-Linked Resource](../did-linked-resources/). In this instance, the only additional information required is:
 
-| Object Metadata field | Response                                                   | Method Equivalence                     |
-| --------------------- | ---------------------------------------------------------- | -------------------------------------- |
-| objectFamily          | anoncreds                                                  | did:Indy Objects Method                |
-| objectFamilyVersion   | v1                                                         | did:Indy Objects Method                |
-| objectType            | 2                                                          | Legacy Hyperledger Indy Objects Method |
-| typeName              | `SCHEMA`                                                   | Legacy Hyperledger Indy Objects Method |
-| objectUri             | Fully qualified DID URL to easily access the Schema Object | cheqd Objects Method                   |
+| Additional parameter | Expected input    | Rationale                                                                                                                                                                                                                   |
+| -------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| "resourceType"       | "anonCredsSchema" | The Payload file drawing inputs from the Resource file does not provide the ledger the requisite amount of information to create a full DID-Linked Resource. resourceType must be provided as an additional input parameter |
 
-{% hint style="info" %}
-Note: The cheqd ledger will not provide any checks on the Schema Object Content or Metadata. Therefore, it is the responsibility of the Schema creator to make sure that the `name,` `version` and AnonCredsObjectMetadata are correct and aligned with resourceName and resourceVersion.
-{% endhint %}
+#### Publishing resource using CLI
+
+For example, the full request format using a CLI should be structured as follows:
+
+```bash
+cheqd-noded tx resource create [payload.json] [degreeSchema.json] \
+
+  --chain-id cheqd \
+  --keyring-backend test \
+  --output json \
+  --fees 10000000000ncheq \
+  --gas auto \
+  --gas-adjustment 1.8 \
+  --from base_account \
+```
 
 ### cheqd resource Metadata
 
@@ -111,7 +155,7 @@ Once you have created your resource on cheqd, the following metadata will be gen
     "resourceCollectionId": "7BPMqYgYLQni258J8JPS8K",
     "resourceId": "6259d357-eeb1-4b98-8bee-12a8390d3497",
     "resourceName": "degreeSchema",
-    "resourceType": "schema",
+    "resourceType": "anonCredsSchema",
     "resourceVersion": "1.5.7",
     "mediaType": "application/json",
     "created": "2022-07-19T08:40:00Z",
@@ -122,11 +166,11 @@ Once you have created your resource on cheqd, the following metadata will be gen
 ]
 ```
 
-Importantly, this is where the `issuerId` required for the [Ledger-Agnostic AnonCreds](schema-object.md#hyperledger-anoncreds-schema-id) data format is populated from.&#x20;
+### cheqd Schema Response format
 
-### cheqd Schema Object output
+Using the [cheqd Schema Request Format](schema-object.md#cheqd-schema-request-format) and associated [resource metadata](schema-object.md#cheqd-resource-metadata), the ledger has enough information to compile the following data structure as a response format.
 
-Using the [cheqd Schema Object input](schema-object.md#cheqd-schema-object-input) and associated [resource metadata](schema-object.md#cheqd-resource-metadata), the following data format should be compiled for SDKs supporting cheqd AnonCreds Object Method:
+This can either be compiled by the associated SDK handling cheqd AnonCreds, or it can be assembled by the cheqd DID resolver.
 
 ```json
 {
@@ -137,9 +181,41 @@ Using the [cheqd Schema Object input](schema-object.md#cheqd-schema-object-input
 }
 ```
 
+#### Compiling Response format in cheqd DID Resolver
+
+The cheqd DID resolver will use the following logic to compile the standardised response format:
+
+{% hint style="info" %}
+_If "**resourceType=anonCredsSchema**" then **append "issuerId"** to the beginning of the Response Format for the resource presented_
+{% endhint %}
+
+### Create schema transaction
+
+To create a schema on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../tutorials/on-ledger-resources/), and pass the relevant JSON file for the object in the transaction.
+
+### Fetching a cheqd Resource
+
+Existing DID Resolvers will be able to query for any AnonCreds Object Content using the following parameters:
+
+| Parameter                 | Type                                                          | Example                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `"resourceId"`            | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                             |
+| `"resourceName"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw                                                                                                                                                                                                                                                                                      |
+| `"resourceType"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020                                                                                                                                                                                                                                                         |
+| `"resourceVersionId"`     | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceVersionId=1.3.1                                                                                                                                                                                                                                                             |
+| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2015-03-11T05:30:02Z                                                                                                                                                                                                                       |
+| `"versionId"`             | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?versionId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                              |
+| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2018-07-19T08:40:00Z                                                                                                                                                                                                                       |
+| `"linkedResource"`        | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?linkedResource=true // _note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document._                                                                                                                                                                 |
+| `"resourceMetadata"`      | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2018-07-19T08:40:00Z\&resourceMetadata=true or, did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceMetadata=true // note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document. |
+| "`latestResourceVersion`" | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&latestResourceVersion=true                                                                                                                                                                                                                             |
+| "`allResourceVersions`"   | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&allResourceVersions=true                                                                                                                                                                                                                               |
+
+### Legacy AnonCreds Schema Object
+
 <details>
 
-<summary>Legacy AnonCreds Schema ID</summary>
+<summary>Legacy AnonCreds Schema Object</summary>
 
 Prior to the AnonCreds specification being updated, the `schema_id` was defined as a **composite** of the following set of elements:
 
@@ -165,55 +241,3 @@ This is important to mention, since many client applications may still expect Sc
 This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds Objects Method](https://hyperledger-indy.readthedocs.io/projects/node/en/latest/requests.html#requests)
 
 </details>
-
-### Create schema transaction
-
-To create a schema on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../tutorials/on-ledger-resources/), and pass the relevant JSON file for the object in the transaction.&#x20;
-
-### Fetching a cheqd Schema Object
-
-Rather than requiring a specific GET\_SCHEMA function and interface to fetch the Schema Object Content (such as that required on Indy for the `schema_id` (`7BPMqYgYLQni258J8JPS8K:2:degreeSchema:1.5.7`), existing DID Resolvers will be able to query for the Schema Object Content using the following parameters:
-
-Common and standardized `resource` parameters:
-
-| Parameter                 | Type                                                          | Example                                                                                                                                                                                                                                                                                                                                                    |
-| ------------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"resourceId"`            | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                             |
-| `"resourceName"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw                                                                                                                                                                                                                                                                                      |
-| `"resourceType"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020                                                                                                                                                                                                                                                         |
-| `"resourceVersionId"`     | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceVersionId=1.3.1                                                                                                                                                                                                                                                             |
-| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2015-03-11T05:30:02Z                                                                                                                                                                                                                       |
-| `"versionId"`             | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?versionId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                              |
-| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2018-07-19T08:40:00Z                                                                                                                                                                                                                       |
-| `"linkedResource"`        | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?linkedResource=true // _note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document._                                                                                                                                                                 |
-| `"resourceMetadata"`      | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2018-07-19T08:40:00Z\&resourceMetadata=true or, did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceMetadata=true // note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document. |
-| "`latestResourceVersion`" | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&latestResourceVersion=true                                                                                                                                                                                                                             |
-| "`allResourceVersions`"   | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&allResourceVersions=true                                                                                                                                                                                                                               |
-
-#### Query by name and version
-
-Like via the Legacy AnonCreds `schema_id,` it is possible to obtain the Schema Object Content by querying the Schema Publisher DID, Schema name and Schema Version. The following query will dereference to the Schema Object Content itself:
-
-`did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K?resouceName=degreeSchema&resourceType=schema&resouceVersion=1.5.7`
-
-using a DID Resolver:
-
-`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K?resouceName=degreeSchema&resourceType=schema&resouceVersion=1.5.7`
-
-#### Query by resource ID
-
-For applications which are cheqd-aware, it would be possible to find the Schema Object Content via the `resourceId` using a fully qualified DID URL path or query, for example:
-
-`did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497`
-
-using a DID Resolver:
-
-`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497`
-
-or,
-
-`did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K?resourceId=6259d357-eeb1-4b98-8bee-12a8390d3497`
-
-using a DID Resolver:
-
-`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K?resourceId=6259d357-eeb1-4b98-8bee-12a8390d3497`

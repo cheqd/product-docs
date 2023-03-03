@@ -4,9 +4,9 @@ description: cheqd support for Ledger-Agnostic AnonCreds Revocation Registry Def
 
 # Revocation Registry Definition Object
 
-## Overview
+## cheqd AnonCreds Object Method for Revocation Registry Definition Objects
 
-In the ledger-agnostic [AnonCreds](https://hyperledger.github.io/anoncreds-spec/)[specification](https://hyperledger.github.io/anoncreds-spec/), a Revocation Registry Definition Object acts as an on-ledger hub for revocation, providing a central point information about the:
+In the ledger-agnostic [AnonCreds](https://hyperledger.github.io/anoncreds-spec/) [specification](https://hyperledger.github.io/anoncreds-spec/), a Revocation Registry Definition Object acts as an on-ledger hub for revocation, providing a central point information about the:
 
 1. `type` of Revocation Registry (In Indy this is always "`CL_ACCUM`").
 2. `cred_def_id`: Each Revocation Registry must be linked to one specific Credential Definition.
@@ -26,17 +26,15 @@ This documentation will guide an implementor of AnonCreds on cheqd on how the ch
 
 ### AnonCreds Revocation Registry Definition Object ID
 
-Each specific AnonCreds identifier must be defined within an AnonCreds Object Method in the [AnonCreds Object Method Registry](https://hyperledger.github.io/anoncreds-spec/).
-
-This means that an AnonCreds Revocation Registry Object ID does not need to be formatted in any particular syntax, in the latest version of the AnonCreds Specification.
-
-{% hint style="info" %}
-See the collapsible tile below to learn about how the Ledger-Agnostic AnonCreds specification handles these objects.
-{% endhint %}
+If you are not familiar with the latest Ledger-Agnostic AnonCreds Revocation Registry Definition structure, click the collapsible tile below to learn about the new format.
 
 <details>
 
 <summary>Ledger-agnostic AnonCreds Revocation Registry Definition Object Content</summary>
+
+Each specific AnonCreds identifier must be defined within an AnonCreds Object Method in the [AnonCreds Object Method Registry](https://hyperledger.github.io/anoncreds-spec/).
+
+This means that an AnonCreds Revocation Registry Object ID does not need to be formatted in any particular syntax, in the latest version of the AnonCreds Specification.
 
 The required content and data model for the AnonCreds Revocation Registry Definition Object are as follows:
 
@@ -75,39 +73,59 @@ For example, the on-ledger Revocation Registry Definition Object Content is as f
 
 </details>
 
-## cheqd AnonCreds Object Method for Revocation Registry Definition Objects
-
 ### cheqd Revocation Registry Definition Object ID
 
-cheqd [DID-Linked Resources](../did-linked-resources/README.md) identify individual resources using DID URLs.
+cheqd uses [DID-Linked Resources](../did-linked-resources/) to identify individual resources, associated with a DID, using fully resolvable DID URLs.
 
 cheqd resources module uses the following format:
 
 `did:cheqd:mainnet:<issuerDid>/resources/<revRegDefResourceId>`
 
-Rather than using a composite string for the Revocation Registry Definition Resource ID. The cheqd AnonCreds object method uses a UUID to identify the Revocation Registry Definition Object Content which includes additional Revocation Registry Definition Object Content Metadata, providing the required fields for equivalence with Hyperledger Indy implementations.
+Rather than using a composite string for the Revocation Registry Definition Resource ID. The cheqd AnonCreds object method uses a UUID to identify the Revocation Registry Definition Object Content.
 
 For example, the following DID URL is cheqd's representation of a `revocRegDefId`:
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df`
 
-### cheqd Revocation Registry Definition Object Content
+Another supported format for a `revocRegDefId` may be used in applications where it is important to derive the `credDefId`, `revocRegDefId` and `statusListEntryId` from the same root.
 
-Before creating any on-ledger resource transaction, it is important to assemble to required Revocation Registry Definition Object Content and save it as a file locally.
+This format uses query-based syntax, for example:
 
-cheqd's approach to AnonCreds Revocation Registry Definition Objects implements the following logic:
+`did:cheqd:mainnet:<IssuerDid>?resourceName=<resourceName>&resourceType=<resourceType>`
 
-1. The required (ledger-agnostic) content of the Revocation Registry Definition Object Content should be included in the body of the content.
-2. Anything that is network-specific should be included within AnonCreds Object Metadata.
+For example:
 
-In the example below, the content should be saved as a file, for example: `degreeCredRevocRegDef.json` with the following content:
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=universityDegree&resourceType=anonCredsRevocRegDef`
+
+### Understanding Request vs Response formats
+
+It is important to differentiate between the **Request format** for creating an AnonCreds object on cheqd, and the **Response format**, for how an AnonCreds objectshould be compiled by SDKs and the [cheqd DID Resolver](../../architecture/adr-list/adr-003-did-resolver.md).
+
+The request format _**may**_ be specific to each AnonCreds Object Method. However, the response format _**should**_ be standardised to enable any AnonCreds supported application to understand the object, without needing custom or method-specific logic.
+
+### cheqd Revocation Registry Definition Request format
+
+The cheqd revocation registry definition request format comprises of:
+
+1. A Resource file for the Revocation Registry Definition object content (e.g. `degreeRevocRegDef.json`); and
+2. A Payload file (including the signing keys and additional inputs to create a DID-Linked Resource).
+
+Both of these inputs are required to provide the ledger enough information to:
+
+1. Populate a [cheqd DID-Linked Resource](../did-linked-resources/); and
+2. Compile a standardised AnonCreds revocation registry definition object in the [Response format](revocation-registry-definition-object.md#cheqd-revocation-registry-definition-response-format).
+
+#### Revocation Registry Definition Resource file
+
+Before creating any on-ledger resource transaction, it is important to assemble the required Revocation Registry Definition Object Content and save it as a file locally.
+
+In the example below, the content should be saved as a file, for example: `degreeRevocRegDef.json` with the following content:
 
 ```json
 {
-"AnonCredsObject: {
   "revocDefType": "CL_ACCUM",
   "credDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0",
-  "tag": "degreeRevocRegDef",
+  "tag": "2.0",
   "value": {
     "publicKeys": {
       "accumKey": {
@@ -117,37 +135,192 @@ In the example below, the content should be saved as a file, for example: `degre
     "maxCredNum": 666,
     "tailsLocation": "https://my.revocations.tails/tailsfile.txt",
     "tailsHash": "91zvq2cFmBZmHCcLqFyzv7bfehHH5rMhdAG5wTjqy2PE"
-  },
-"AnonCredsObjectMetadata" {
-  "objectFamily": "anoncreds",
-  "objectFamilyVersion": "v1",
-  "objectType": "4",
-  "typeName": "REVOC_REG_DEF"
-  "objectUri": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df"
 }
 ```
 
 {% hint style="info" %}
-Note: The Credential Definition ID specified must have enabled revocation support for the Revocation Registry Definition to be able to created. This implementation uses \`AnonCredsObjectMetadata to provide equivalency between cheqd's AnonCreds Object Method and other AnonCreds Object Methods, including the fields, where:
+Note: The associated Credential Definition specified must have enabled revocation support for the Revocation Registry Definition to be able to be used properly in an SDK.
 {% endhint %}
 
-| Object Metadata field | Response                                                                    | Method Specification / Equivalency     |
-| --------------------- | --------------------------------------------------------------------------- | -------------------------------------- |
-| objectFamily          | anoncreds                                                                   | did:indy Objects Method                |
-| objectFamilyVersion   | v1                                                                          | did:indy Objects Method                |
-| objectType            | 4                                                                           | Legacy Hyperledger Indy Objects Method |
-| typeName              | `REVOC_REG_DEF`                                                             | Legacy Hyperledger Indy Objects Method |
-| objectUri             | Fully qualified DID URL to easily access the Revocation Registry Definition | cheqd Objects Method                   |
+This Revocation Registry Definition Resource file fields should be replicated where possible within the Payload file, to populate a [DID-Linked resource](../did-linked-resources/) stored on cheqd, with the following mapping:
+
+| Resource file field | Resource file input | Payload file field | Payload file input     |
+| ------------------- | ------------------- | ------------------ | ---------------------- |
+| "type"              | "CL\_ACCUM"         | "resourceType"     | "anonCredsRevocRegDef" |
+| "tag"               | ""                  | "resourceVersion"  | ""                     |
+
+What this means is that if the **Resource file** has an object of **"type" = "CL\_ACCUM"** then this should be written as **"resourceType" = "anonCredsRevocRegDef"** when creating the **Payload file**.
+
+#### Revocation Registry Definition Payload File
+
+The **Payload file** utilises the inputs from the **Resource file** where possible, mapping common fields across. The **Payload file** may also require additional inputs to be provided by the creator to create a DID-Linked Resource for inputs not provided in the **Resource file**.&#x20;
+
+Below is an example of a Payload file:
+
+```json
+{
+  "Payload": {
+    "collectionId": "zF7rhDBfUt9d1gJPjx7s1J",
+    "id": "af20b1f0-5c4d-4037-9669-eaedddb9c2df",
+    "name": "universityDegree", // this is an additional input
+    "version": "2.0", // this is an optional additional input
+    "resourceType": "anonCredsRevocRegDef",
+    "alsoKnownAs": []
+  },
+  "SignInputs": [
+    {
+      "verificationMethodID": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J#key1",
+      "privKey": "y4B5qis9BXUq/mODsrWtS3q5ejOk/okSIXlX1/a9HvuG3PgYmekfQmq3QhJ4JSzN/rkiGCQDNKoTXMmxuXDHbg=="
+    }
+  ]
+}
+```
+
+When passing the Payload file to the ledger, additional inputs may be required within the Payload file to populate the [DID-Linked Resource](../did-linked-resources/). In this instance, the only additional information required is:
+
+| Additional parameter | Expected input                   | Rationale                                                                                                                                                                                                                              |
+| -------------------- | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| "name"               | "\<insert same name as CredDef>" | The Payload file drawing inputs from the Resource file on its own does not provide the ledger the requisite amount of information to create a full DID-Linked Resource. resourceName must be provided as an additional input parameter |
+
+#### Publishing resource using CLI
+
+For example, the full request format using a CLI should be structured as follows:
+
+```bash
+cheqd-noded tx resource create [payload.json] [degreeRevocRegDef.json] \
+  
+  --chain-id cheqd \
+  --keyring-backend test \
+  --output json \
+  --fees 10000000000ncheq \
+  --gas auto \
+  --gas-adjustment 1.8 \
+  --from base_account \
+```
+
+### cheqd resource Metadata
+
+Once you have created your Revocation Registry as a resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J`
+
+```json
+"linkedResourceMetadata": [
+  {
+  "resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
+  "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
+  "resourceId": "af20b1f0-5c4d-4037-9669-eaedddb9c2df",
+  "resourceName": "universityDegree",
+  "resourceType": "anonCredsRevocRegDef",
+  "resourceVersion": "2.0",
+  "mediaType": "application/json",
+  "created": "2022-08-21T08:40:00Z",
+  "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
+  "previousVersionId": null,
+  "nextVersionId": null
+  }
+]
+```
+
+### cheqd Revocation Registry Definition Response format
+
+Using the cheqd [Revocation Registry Definition Request format](revocation-registry-definition-object.md#cheqd-revocation-registry-definition-request-format) and [associated resource metadata](revocation-registry-definition-object.md#cheqd-resource-metadata), the ledger has enough information to compile the following data structure as a response format.
+
+This can either be compiled by the associated SDK handling cheqd AnonCreds, or it can be assembled by the cheqd DID resolver.
+
+```json
+{
+  "issuerId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J"
+  "revocDefType": "CL_ACCUM",
+  "credDefId": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/77465164-5646-42d9-9a0a-f7b2dcb855c0",
+  "tag": "2.0",
+  "value": {
+    "publicKeys": {
+      "accumKey": {
+        "z": "1 0BB...386"
+      }
+    },
+    "maxCredNum": 666,
+    "tailsLocation": "https://my.revocations.tails/tailsfile.txt",
+    "tailsHash": "91zvq2cFmBZmHCcLqFyzv7bfehHH5rMhdAG5wTjqy2PE"
+}
+```
+
+#### Compiling Response format in cheqd DID Resolver
+
+The cheqd DID resolver will use the following logic to compile the standardised response format:
+
+{% hint style="info" %}
+_If "**resourceType=anonCredsRevocRegDef**" then **append "issuerId"** to the beginning of the Response Format for the resource presented_
+{% endhint %}
+
+### create Revocation Registry Definition transaction
+
+To create a Revocation Registry Definition on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../tutorials/on-ledger-resources/), and pass the relevant JSON file for the object in the transaction.
+
+## Tying CredDef, RevRegDef and StatusListEntry Objects together
+
+Across the [cheqd CredDef Object Method](creddef-object.md#cheqd-anoncreds-object-method-for-creddefs), the [Revocation Registry Definition Object Method](revocation-registry-definition-object.md#cheqd-anoncreds-object-method-for-revocation-registry-definition-objects) and the [StatusListEntry Object Method](revocation-registry-entry-object.md) - each resource is associated with the same issuer DID and Collection ID.
+
+Importantly, this allows each new resource to be indexed and versioned by their:
+
+1. `resourceName`
+2. `resourceType`
+
+New resources can be created to update the existing CredDef or RevRegDef, whilst maintaining the historical state of the previous versions. See the documentation on [Publishing a New Version of a Resource](../../advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/add-resource-to-existing-collection.md) to understand this further.
+
+### Fetching a cheqd Revocation Registry Definition Object
+
+Existing DID Resolvers will be able to query for the Revocation Registry Definition Object Content using the [same patterns and parameters as the Schema Object found here](schema-object.md#fetching-a-cheqd-resource).
+
+The cheqd AnonCreds method also enables applications to derive the [CredDef](creddef-object.md), [Revocation Registry Definition Object](revocation-registry-definition-object.md) and [Status List Entries](revocation-registry-entry-object.md) from the same root:
+
+### Same Resource Name, different Resource type
+
+We propose that the `resourceName` for CredDefs, Revocation Registry Definitions and Status List Entries **should remain the same** when each of these resources is part of the same AnonCred. This will make it easier for resources to query by `resourceName` and `resourceType` to delineate between the three resources using a common root.
+
+Using this logic, the following queries can be used to dereference to [CredDefs](creddef-object.md), [Revocation Registry Definitions](revocation-registry-definition-object.md) and [Status List Entries](revocation-registry-entry-object.md), in a way which can derive all three resources from the same root:
+
+#### Dereference to CredDef
+
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=universityDegree&resourceType=anonCredsCredDef`
+
+#### Dereference to Revocation Registry Definition
+
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=universityDegree&resourceType=anonCredsRevocRegDef`
+
+#### Dereference to Revocation Status List Entry
+
+`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=universityDegree&resourceType=anonCredsStatusListEntry`
+
+{% hint style="info" %}
+**Note**: across all three of these queries, the resolver would fetch the latest version of the resource by default
+{% endhint %}
+
+### Constructing an AnonCred with this logic
+
+The AnonCreds construction below uses this logic to demonstrate how an application could derive the latest [Status List Entry](revocation-registry-entry-object.md) using the "`rev_reg_id`" since it shares the same root and would only require replacing "anonCredsRevocRegDef" with "anonCredsStatusListEntry".
+
+This is similar to how Hyperledger Indy uses composite strings to derive assoicated AnonCreds Objects from others. For example:
+
+```json
+{
+    "schema_id": "did:cheqd:mainnet:7BPMqYgYLQni258J8JPS8K/resources/6259d357-eeb1-4b98-8bee-12a8390d3497",
+    "cred_def_id": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=universityDegree&resourceType=anonCredsCredDef",
+    "rev_reg_id": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=universityDegree&resourceType=anonCredsRevocRegDef",
+    "values": {...}
+}
+```
+
+### Legacy AnonCreds Revocation Registry Definition Structure
 
 <details>
 
-<summary>Legacy AnonCreds Revocation Registry Definition Object ID</summary>
+<summary>Legacy AnonCreds Revocation Registry Definition Object</summary>
 
 Like both the Legacy Schema Object ID and the Legacy CredDef Object ID, the Legacy Revocation Registry Definition Object ID was defined as a composite string of the following information:
 
 1. `Publisher DID`: The DID of the creator of the revocation registry. Generally this will be the same publisher as the creator of the [CredDef Object](creddef-object.md).
 2. `Object Type`: An integer denoting the type of object. `4` is used for Revocation Registry Objects.
-3. `CredDef Object ID`: This is the [AnonCreds CredDef Object ID](creddef-object.md#anoncreds-creddef-object-id).
+3. `CredDef Object ID`: This is the [AnonCreds CredDef Object ID](creddef-object.md).
 4. `Revocation Registry Type`: The type of Revocation Registry used, this is by default always "`CL_ACCUM`".
 5. `tag`: A unique name or tag given to the Revocation Registry Object.
 
@@ -170,96 +343,3 @@ This is important to mention, since many client applications may still expect Re
 This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds Objects Method](https://hyperledger-indy.readthedocs.io/projects/node/en/latest/requests.html#requests)
 
 </details>
-
-### create Revocation Registry Definition transaction
-
-To create a Revocation Registry Definition on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../tutorials/on-ledger-resources/), and pass the relevant JSON file for the object in the transaction.&#x20;
-
-{% hint style="info" %}
-Note: This transaction includes the file `degreeRevocRegDef.json` that was formatted prior to creating the transaction.
-{% endhint %}
-
-### cheqd resource Metadata
-
-Once you have created your Revocation Registry as a resource on cheqd, the following metadata will be generated in the DID Document Metadata associated with `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J`
-
-```json
-"linkedResourceMetadata": [
-  {
-  "resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
-  "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
-  "resourceId": "af20b1f0-5c4d-4037-9669-eaedddb9c2df",
-  "resourceName": "degreeRevocRegDef",
-  "resourceType": "revocRegDef",
-  "resourceVersion": "0.0.1",
-  "mediaType": "application/json",
-  "created": "2022-08-21T08:40:00Z",
-  "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
-  "previousVersionId": null,
-  "nextVersionId": null
-  }
-]
-```
-
-### CredDef and RevRegDef Objects in the same Collection
-
-Across the [cheqd CredDef Object Method](creddef-object.md#cheqd-anoncreds-object-method-for-creddefs) and the [Revocation Registry Definition Object Method](revocation-registry-definition-object.md#cheqd-anoncreds-object-method-for-revocation-registry-definition-objects), each resource is associated with the same issuer DID and Collection ID.
-
-Importantly, this allows each new resource to be indexed and versioned by their:
-
-1. `resourceName`
-2. `resourceType`
-
-New resources can be created to update the existing CredDef or RevRegDef, whilst maintaining the historical state of the previous versions. See the documentation on [Publishing a New Version of a Resource](../../advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/add-resource-to-existing-collection.md) to understand this further.
-
-### Fetching a cheqd Revocation Registry Definition Object
-
-Rather than requiring a specific _GET\_REV\_REG_ function and interface to fetch the Revocation Registry Definition Object Content (such as that required on Indy), existing DID Resolvers will be able to query for the Revocation Registry Definition Object Content using the following parameters:
-
-Common and standardized `resource` parameters:
-
-| Parameter                 | Type                                                          | Example                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ------------------------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"resourceId"`            | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                                                                           |
-| `"resourceName"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeRevocRegDef                                                                                                                                                                                                                                                                                                                            |
-| `"resourceType"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeRevocRegDef\&resourceType=revocRegDef                                                                                                                                                                                                                                                                                                  |
-| `"resourceVersionId"`     | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeRevocRegDef\&resourceVersionId=1.3.1                                                                                                                                                                                                                                                                                                   |
-| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeRevocRegDef\&resourceType=revocRegDef\&versionTime=2015-03-11T05:30:02Z                                                                                                                                                                                                                                                                |
-| `"versionId"`             | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?versionId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                                                                            |
-| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeRevocRegDef\&resourceType=revocRegDef\&versionTime=2018-07-19T08:40:00Z                                                                                                                                                                                                                                                                |
-| `"linkedResource"`        | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?linkedResource=true // _note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document._                                                                                                                                                                                                               |
-| `"resourceMetadata"`      | [Boolean](https://infra.spec.whatwg.org/#booleans)            | <p>did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeRevocRegDef&#x26;resourceType=revocRegDef&#x26;versionTime=2018-07-19T08:40:00Z&#x26;resourceMetadata=true<br><br>or,<br><br>did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceMetadata=true <br><br>// note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document.</p> |
-| "`latestResourceVersion`" | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeRevocRegDef\&resourceType=revocRegDef\&latestResourceVersion=true                                                                                                                                                                                                                                                                      |
-| "`allResourceVersions`"   | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeRevocRegDef\&resourceType=revocRegDef\&allResourceVersions=true                                                                                                                                                                                                                                                                        |
-
-#### Query by name and version
-
-Like via the Legacy AnonCreds `revocRegId,` it is possible to obtain the CredDef Object Content by querying the CredDef Publisher DID and CredDef tag. The following query will dereference to the Schema Object Content itself:
-
-`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=degreeRevocRegDef&resourceType=revocRegDef`
-
-using a DID Resolver:
-
-`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=degreeRevocRegDef&resourceType=revocRegDef`
-
-This would return the AnonCredsCredDef data and the AnonCredsObjectMetadata.
-
-#### Query by resource ID
-
-For applications which are cheqd-aware, it would be possible to find the Schema Object Content via the `resourceId` using a fully qualified DID URL path or query, for example:
-
-`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df`
-
-using a DID Resolver:
-
-`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df`
-
-or,
-
-`did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceId=af20b1f0-5c4d-4037-9669-eaedddb9c2df`
-
-using a DID Resolver:
-
-`https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceId=af20b1f0-5c4d-4037-9669-eaedddb9c2df`
-
-This would return the AnonCredsCredDef data and the AnonCredsObjectMetadata.

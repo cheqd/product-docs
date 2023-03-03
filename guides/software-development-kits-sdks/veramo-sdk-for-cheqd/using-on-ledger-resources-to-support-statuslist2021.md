@@ -96,7 +96,7 @@ The [Status List 2021 Specification](https://w3c-ccg.github.io/vc-status-list-20
 
 Using cheqd's Resource Module, the same benefits may be achieved. In fact, storing a StatusList as an on-ledger Resource is a much better application of technology than using a Verifiable Credential for the same purpose.
 
-By storing a StatusList on the cheqd Network as a Resource, it creates a much more resilient and decentralised mechanism for storing and maintaining the revocation/suspension status of Verifiable Credentials. The [benefits of using the cheqd Resource module over traditional centralised architecture are detailed here](../../did-linked-resources/README.md).
+By storing a StatusList on the cheqd Network as a Resource, it creates a much more resilient and decentralised mechanism for storing and maintaining the revocation/suspension status of Verifiable Credentials. The [benefits of using the cheqd Resource module over traditional centralised architecture are detailed here](../../did-linked-resources/).
 
 Moreover, cheqd's Resource Module enables individual Resources to be referenced and retrieved using a DID URL in conformance with DID Core. This is being standardized at [the Trust over IP Foundation](https://trustoverip.org/) within a specification called [DID URLs for Digital Resources](https://wiki.trustoverip.org/display/HOME/DID-Linked+Resources+Specification).
 
@@ -143,7 +143,7 @@ Note: The uncompressed bitstring _MUST_ be at least 16KB in size to maintain her
 
 #### Create a unique ID for the StatusList Resource
 
-[UUIDs are used to identify Resources](https://en.wikipedia.org/wiki/Universally_unique_identifier). On Unix systems, the `uuidgen` tool can be used to generate a new UUID.
+[UUIDs are used to identify Resources](https://en.wikipedia.org/wiki/Universally\_unique\_identifier). On Unix systems, the `uuidgen` tool can be used to generate a new UUID.
 
 #### Create a new Resource for the StatusList
 
@@ -205,7 +205,7 @@ Once created, the StatusList2021 Resource will be associated with the parent DID
   },
   "didDocumentMetadata": {
     "created": "2022-09-16T11:15:20Z",
-    "versionId": "4E106C7485BA847BBB4032A7FD019432EE048F0531887BF6B3DE97739CC39D62",
+    "versionId": "204e296f-d55b-4552-9fec-0b242a689f96",
     "linkedResourceMetadata": [
       {
         "resourceURI": "did:cheqd:testnet:zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY/resources/4a71319b-00b1-4db9-bc05-56dc426f7062",
@@ -216,8 +216,8 @@ Once created, the StatusList2021 Resource will be associated with the parent DID
         "mediaType": "application/json",
         "created": "2022-09-16T11:15:52Z",
         "checksum": "0f503dfbff29de9ac74fd07f1720ba560eb388e28062367884890c311736ec9d",
-        "previousVersionId": null,
-        "nextVersionId": null
+        "previousVersionId": "",
+        "nextVersionId": ""
       }
     ]
   }
@@ -278,7 +278,7 @@ Resulting in the following metadata syntax:
   },
   "didDocumentMetadata": {
     "created": "2022-09-16T11:15:20Z",
-    "versionId": "4E106C7485BA847BBB4032A7FD019432EE048F0531887BF6B3DE97739CC39D62",
+    "versionId": "204e296f-d55b-4552-9fec-0b242a689f96",
     "linkedResourceMetadata": [
       {
         "resourceURI": "did:cheqd:testnet:zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY/resources/4a71319b-00b1-4db9-bc05-56dc426f7062",
@@ -289,7 +289,7 @@ Resulting in the following metadata syntax:
         "mediaType": "application/json",
         "created": "2022-09-16T11:15:52Z",
         "checksum": "0f503dfbff29de9ac74fd07f1720ba560eb388e28062367884890c311736ec9d",
-        "previousVersionId": null,
+        "previousVersionId": "",
         "nextVersionId": "6922ae19-777e-4e05-8b10-8a2f0a2d418d"
       },
       {
@@ -302,7 +302,7 @@ Resulting in the following metadata syntax:
         "created": "2022-10-16T09:04:17Z",
         "checksum": "0f503dfbff29de9ac74fd07f1720ba560eb388e28062367884890c311736ec9d",
         "previousVersionId": "4a71319b-00b1-4db9-bc05-56dc426f7062",
-        "nextVersionId": null
+        "nextVersionId": ""
       }
     ]
   }
@@ -311,14 +311,14 @@ Resulting in the following metadata syntax:
 
 ### Issuing a Verifiable Credential referencing cheqd StatusList
 
-Follow the [instructions for issuing a Verifiable Credential here](../../../tutorials/verifiable-credentials-and-presentations/README.md), including the credentialStatus information, as shown in the example below:
+Follow the [instructions for issuing a Verifiable Credential here](../../../tutorials/verifiable-credentials-and-presentations/), including the credentialStatus information, as shown in the example below:
 
 ```json
 {
-  "credentialSubject": {
-    "name": "Alice",
-    "id": "did:key:z6Mkktr27VZ7TTFoTsD9p79JwtGnQDgJWKGrxJ79quE7M5Yx"
-  },
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://veramo.io/contexts/profile/v1"
+  ],
   "issuer": {
     "id": "did:cheqd:testnet:zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY"
   },
@@ -326,6 +326,11 @@ Follow the [instructions for issuing a Verifiable Credential here](../../../tuto
     "VerifiableCredential",
     "Profile"
   ],
+  "issuanceDate": "2022-07-28T15:25:10.000Z",
+  "credentialSubject": {
+    "name": "Alice",
+    "id": "did:key:z6Mkktr27VZ7TTFoTsD9p79JwtGnQDgJWKGrxJ79quE7M5Yx"
+  },
   "credentialStatus": {
     "id": "did:cheqd:testnet:zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY/resources/4a71319b-00b1-4db9-bc05-56dc426f7062#94567"
     "type": "StatusList2021Entry",
@@ -333,11 +338,6 @@ Follow the [instructions for issuing a Verifiable Credential here](../../../tuto
     "statusListIndex": "94567",
     "statusListResource": "did:cheqd:testnet:zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY/resources/4a71319b-00b1-4db9-bc05-56dc426f7062"
   },
-  "@context": [
-    "https://www.w3.org/2018/credentials/v1",
-    "https://veramo.io/contexts/profile/v1"
-  ],
-  "issuanceDate": "2022-07-28T15:25:10.000Z",
   "proof": {
     "type": "JwtProof2020",
     "jwt": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vdmVyYW1vLmlvL2NvbnRleHRzL3Byb2ZpbGUvdjByb2ZpbGUvdjEiXSwidHlwZSI6WyJWZXJpZmlhYmxlQ3JlZGVudGlhbCIsIlByb2ZpbGUiXSwiY3JlZGVudGlhbFN1YmplY3QiOnsibmFtZSI6IkFsaWNlIn19LCJzdWIiOiJkaWQ6a2V5Ono2TWtrdHIyN1ZaN1RURm9Uc25RRGdKV0tHc0Q5cDc5Snd0R25RRGdKV0tHcnhKNzlxdUU3TTVZeCIsIm5iZiI6MTY1OTAyMTkxMCwiaXNzIjoiZGlkOmNoZXFkOm1haW5uZXQ6ekFYd3dxWnpoQ1pBMUw3N1pCYThmaFZOakw5TVFDSFgifQ.MRqlKuFQzpjLvsW3C2ZSBEf5jfvJCPQBwl-gP1P8bRfNSvjxj9H3eDgDmEf5jfvJCPQBwUDltBr-ZQ3Q7SKVSvCaJHV8TnUzBA"

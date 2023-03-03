@@ -10,20 +10,20 @@ Follow these instructions to update an existing `did:cheqd` entry on cheqd ledge
 
 ### Deactivate a DID
 
-Construct your `args.json` file like this
+Construct your `payload.json` file like this:
 
 ```json
 {
   "kms": "local",
   "alias": "deactivate-my-did",
   "document": {
-    "id": "headdid:cheqd:testnet:zVJe7ZNvCtbK83pv",
+    "id": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
     "verificationMethod": [
       {
-        "id": "did:cheqd:testnet:zVJe7ZNvCtbK83pv#key-1",
+        "id": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590#key-1",
         "type": "Ed25519VerificationKey2020",
-        "controller": "did:cheqd:testnet:zVJe7ZNvCtbK83pv",
-        "publicKeyMultibase": "zVJe7ZNvCtbK83pvJYD9eRNc5CSrNBKkyjep6gYdaWub"
+        "controller": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
+        "publicKeyMultibase": "3e6bd814-6851-4c8a-b114-c64f035ef590JYD9eRNc5CSrNBKkyjep6gYdaWub"
       }
     ]
   },
@@ -34,14 +34,30 @@ Construct your `args.json` file like this
       "kid": "074035480cdcf09c33b1e8066deb55c75822c8c3b27f1c100717eb413bc08e06",
       "type": "Ed25519"
     }
-  ]
+  ],
+  "versionId": [
+    "<uuid>" // optional
+    ],
+  "fee": {
+    "amount": [{
+      "denom": "ncheq",
+      "amount": "10000000000"
+      }],
+    "gas": "400000",
+    "payer": "cheqd1rnr5jrt4exl0samwj0yegv99jeskl0hsxmcz96"
+  }
 }
 ```
+
+Where importantly:
+
+* `denom`: ncheq (smallest denomination classification)
+* `amount`: **10000000000** (This is **10 CHEQ by default** and will not work with a different value)
 
 Then try running the command below to deactivate the `did`:
 
 ```bash
-veramo execute -m cheqdDeactivateIdentifier --argsFile path/to/args.json
+veramo execute -m cheqdDeactivateIdentifier --argsFile path/to/payload.json
 ```
 
-If you would like to fetch the deactivated DIDDoc, execute the `resolve` command as outlined [here](./query-did.md). You can check if `didDocumentMetadata` has the `deactivated` flag set to true.
+If you would like to fetch the deactivated DIDDoc, execute the `resolve` command as outlined [here](query-did.md). You can check if `didDocumentMetadata` has the `deactivated` flag set to true.

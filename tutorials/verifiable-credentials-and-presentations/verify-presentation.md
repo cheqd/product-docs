@@ -1,4 +1,4 @@
-# Verify a JSON (JWT) Verifiable Presentation
+# Verify a Verifiable Presentation
 
 This tutorial offers step-by-step guidance on how to verify a [Verifiable Presentation](https://w3c-ccg.github.io/vp-request-spec/).
 
@@ -37,10 +37,10 @@ Presentation could not be verified
 #### You can fix it the following way
 
 * First, make sure you are using a `node` with version `16` or above.
-* Second, Change veramo cli version to `@veramo/cli@3.1.6-next.170 -g` as previous versions cause few issues in verification. This will override the previous version you have installed.
+* Second, Change veramo cli version to `@veramo/cli@latest -g` as previous versions cause few issues in verification. This will override the previous version you have installed.
 
 ```bash
-    npm install -g @veramo/cli@3.1.6-next.170 -g
+ npm i @veramo/cli@latest -g
 ```
 
 * Run command below to verify your JWT presentation.
