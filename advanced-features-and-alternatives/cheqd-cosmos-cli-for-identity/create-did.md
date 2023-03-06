@@ -76,12 +76,12 @@ Copy-paste the template below into your terminal into a blank file (e.g., using 
 $ nano diddoc.json
 {
   "id": "did:cheqd:<namespace>:<unique-id>",
-  "verification_method": [
+  "verificationMethod": [
     {
       "id": "did:cheqd:<namespace>:<unique-id>#<key-alias>",
       "type": "Ed25519VerificationKey2020",
       "controller": "did:cheqd:<namespace>:<unique-id>",
-      "public_key_multibase": "<verification-public-key-multibase>"
+      "publicKeyMultibase": "<verification-public-key-multibase>"
     }
   ],
   "authentication": [
@@ -90,7 +90,7 @@ $ nano diddoc.json
   "service": [{
     "id":"did:cheqd:<namespace>:<unique-id>#<service-key>",
     "type": "LinkedDomains",
-    "service_endpoint": "<URI-to-object>"
+    "serviceEndpoint": "<URI-to-object>"
   }]
 }
 ```
@@ -110,12 +110,12 @@ For example, the populated DIDDoc file might look like:
 ```json
 {
   "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
-  "verification_method": [
+  "verificationMethod": [
     {
       "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
       "type": "Ed25519VerificationKey2020",
       "controller": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
-      "public_key_multibase": "z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
+      "publicKeyMultibase": "z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
     }
   ],
   "authentication": [
@@ -124,7 +124,7 @@ For example, the populated DIDDoc file might look like:
   "service": [{
     "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
     "type": "LinkedDomains",
-    "service_endpoint": "https://bar.example.com"
+    "serviceEndpoint": "https://bar.example.com"
   }]
 }
 ```
@@ -155,12 +155,12 @@ The example of `payload.json` file:
 {
   "Payload": {
     "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
-    "verification_method": [
+    "verificationMethod": [
       {
         "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
         "type": "Ed25519VerificationKey2020",
         "controller": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
-        "public_key_multibase": "z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
+        "publicKeyNultibase": "z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
       }
     ],
     "authentication": [
@@ -169,7 +169,7 @@ The example of `payload.json` file:
     "service": [{
       "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
       "type": "LinkedDomains",
-      "service_endpoint": "https://bar.example.com"
+      "serviceEndpoint": "https://bar.example.com"
     }]
   },
   "SignInputs": [

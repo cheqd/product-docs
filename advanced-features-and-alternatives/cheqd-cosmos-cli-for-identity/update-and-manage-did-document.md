@@ -35,12 +35,12 @@ For example, we can [take the DIDDoc created previously](create-did.md) and chan
 ```json
 {
   "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
-  "verification_method": [
+  "verificationMethod": [
     {
       "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
       "type": "Ed25519VerificationKey2020",
       "controller": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
-      "public_key_multibase": "z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
+      "publicKeyMultibase": "z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
     }
   ],
   "authentication": [
@@ -49,7 +49,7 @@ For example, we can [take the DIDDoc created previously](create-did.md) and chan
   "service": [{
     "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
     "type": "LinkedDomains",
-    "service_endpoint": "https://foo.example.com"
+    "serviceEndpoint": "https://foo.example.com"
   }]
 }
 ```
@@ -63,12 +63,12 @@ The result JSON in our example will look liks:
 {
   "Payload": {
     "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
-    "verification_method": [
+    "verificationMethod": [
       {
         "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
         "type": "Ed25519VerificationKey2020",
         "controller": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
-        "public_key_multibase": "z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
+        "publicKeyMultibase": "z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
       }
     ],
     "authentication": [
@@ -77,7 +77,7 @@ The result JSON in our example will look liks:
     "service": [{
       "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
       "type": "LinkedDomains",
-      "service_endpoint": "https://foo.example.com"
+      "serviceEndpoint": "https://foo.example.com"
     }]
   },
   "SignInputs": [
