@@ -174,4 +174,4 @@ Use the `/create-resource` api again
 
 ## 4. Check your Resource is live
 
-You can check your DID on the universal resolver or by going to `https://resolver.cheqd.net/1.0/identifiers/{yourDID}/resources/{yourResourceId}`
+You can check your DID on the [Universal Resolver](https://dev.uniresolver.io/) or by going to: `https://resolver.cheqd.net/1.0/identifiers/{yourDID}/resources/{yourResourceId}`
