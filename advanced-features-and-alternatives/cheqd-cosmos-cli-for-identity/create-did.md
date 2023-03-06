@@ -95,7 +95,7 @@ $ nano diddoc.json
 }
 ```
 
-In this template, you'll need to replace some values (as described in the [cheqd DID method](../../architecture/adr-list/adr-001-cheqd-did-method.md):
+In this template, you'll need to replace some values (as described in the [cheqd DID method](../../architecture/adr-list/adr-001-cheqd-did-method.md)):
 
 * `<namespace>`: Can be `testnet` or `mainnet`. For this example, we can use `testnet`.
 * `<unique-id>`: Unique identifier, created in step #3
@@ -162,7 +162,7 @@ The example of `payload.json` file:
         "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
         "type": "Ed25519VerificationKey2020",
         "controller": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
-        "publicKeyNultibase": "z6MkjafyeUPvVJb9LDKtx7qwdZqFaVB8mnhqKVYf5yA9DxSa"
+        "publicKeyMultibase": "z6MkjafyeUPvVJb9LDKtx7qwdZqFaVB8mnhqKVYf5yA9DxSa"
       }
     ],
     "authentication": [
