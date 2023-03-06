@@ -20,7 +20,7 @@
 * :link: [Create DID-Linked Resources](tutorials/on-ledger-resources/)
 * :arrows\_counterclockwise: [DID Resolver setup](tutorials/DID-resolution.md)
 * [🛅](https://emojipedia.org/left-luggage/) [Demo Wallet for identity setup](tutorials/wallet.md)
-* [➡️](https://emojipedia.org/right-arrow/) [DID Registrar setup](tutorials/DID-registrar.md)
+* [➡️](https://emojipedia.org/right-arrow/) [DID Registrar](tutorials/did-registrar/README.md)
 
 ### :construction\_site: Architecture
 
