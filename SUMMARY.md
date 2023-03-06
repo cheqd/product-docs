@@ -26,7 +26,7 @@
   * [Create a new Resource version within existing Collection](tutorials/on-ledger-resources/create-a-new-resource-version.md)
 * [🔄 DID Resolver setup](tutorials/DID-resolution.md)
 * [🛅 Demo Wallet for identity setup](tutorials/wallet.md)
-* [➡ DID Registrar](tutorials/did-registrar/did-registrar/README.md)
+* [➡ DID Registrar](tutorials/did-registrar/README.md)
   * [Setup DID Registrar](tutorials/did-registrar/did-registrar-setup.md)
   * [Create a DID](tutorials/did-registrar/create-a-did.md)
   * [Create a Resource](tutorials/did-registrar/create-a-resource.md)
