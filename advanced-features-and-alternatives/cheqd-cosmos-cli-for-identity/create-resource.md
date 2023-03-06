@@ -64,12 +64,12 @@ where `payloadfile.json` is:
 {
   "Payload": {
     "data": null,
-    "collection_id": "b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
+    "collectionId": "b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
     "id": "5e16a3f9-7c6e-4b6b-8e28-20f56780ee25",
     "name": "TestResource",
     "version": "1.0",
-    "resource_type": "TestType",
-    "also_known_as": []
+    "resourceType": "TestType",
+    "alsoKnownAs": []
   },
   "SignInputs": [
     {

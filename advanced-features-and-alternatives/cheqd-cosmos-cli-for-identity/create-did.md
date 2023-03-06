@@ -42,7 +42,7 @@ _**Note**: Keep this key safe! It is used to create the DIDDoc, and to update it
 
 ### 2. Encode the identity key to Multibase58
 
-Encode the identity key's _public_ key to `public_key_multibase`, as this will be later required in the `verification_method` section:
+Encode the identity key's _public_ key to `public_key_base58`, as this will be later required in the `verification_method` section:
 
 ```bash
 cheqd-noded debug encoding base64-multibase58 <pub_key_base_64>
@@ -52,7 +52,7 @@ For example:
 
 ```bash
 $ cheqd-noded debug encoding base64-multibase58 MnrTheU+vCrN3W+WMvcpBXYBG6D1HrN5usL1zS6W7/k=
-z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE
+4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE
 ```
 
 ### 3. Create a unique identifier for the DID
@@ -79,9 +79,9 @@ $ nano diddoc.json
   "verification_method": [
     {
       "id": "did:cheqd:<namespace>:<unique-id>#<key-alias>",
-      "type": "Ed25519VerificationKey2020",
+      "verificationMethodType": "Ed25519VerificationKey2018",
       "controller": "did:cheqd:<namespace>:<unique-id>",
-      "public_key_multibase": "<verification-public-key-multibase>"
+      "publicKeyBase58": "<verification-public-key-multibase>"
     }
   ],
   "authentication": [
@@ -89,8 +89,8 @@ $ nano diddoc.json
   ],
   "service": [{
     "id":"did:cheqd:<namespace>:<unique-id>#<service-key>",
-    "type": "LinkedDomains",
-    "service_endpoint": "<URI-to-object>"
+    "serviceType": "LinkedDomains",
+    "serviceEndpoint": ["<URI-to-object>"]
   }]
 }
 ```
@@ -100,7 +100,7 @@ In this template, you'll need to replace some values (as described in the [cheqd
 * `<namespace>`: Can be `testnet` or `mainnet`. For this example, we can use `testnet`.
 * `<unique-id>`: Unique identifier, created in step #3
 * `<key-alias>`: A key alias for the verification method identifier, e.g., `#key1`
-* `<verification-public-key-multibase>`: Result of step #2 above
+* `<verification-public-key-base58>`: Result of step #2 above
 * `<auth-key-alias>`: Alias of authentication key. Can be a reference to an existing verification method.
 * `<service-key>`: Alias for service property. This is an _optional_ section but useful to understand the power of DIDDocs.
 * `<URI-to-object>`: A valid URI that can act as a service endpoint.
@@ -113,9 +113,9 @@ For example, the populated DIDDoc file might look like:
   "verification_method": [
     {
       "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
-      "type": "Ed25519VerificationKey2020",
+      "type": "Ed25519VerificationKey2018",
       "controller": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
-      "public_key_multibase": "z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
+      "publicKeyBase58": "4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
     }
   ],
   "authentication": [
@@ -123,8 +123,8 @@ For example, the populated DIDDoc file might look like:
   ],
   "service": [{
     "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
-    "type": "LinkedDomains",
-    "service_endpoint": "https://bar.example.com"
+    "serviceType": "LinkedDomains",
+    "serviceEndpoint": ["https://bar.example.com"]
   }]
 }
 ```
@@ -155,12 +155,12 @@ The example of `payload.json` file:
 {
   "Payload": {
     "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
-    "verification_method": [
+    "verificationMethod": [
       {
         "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
         "type": "Ed25519VerificationKey2020",
         "controller": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
-        "public_key_multibase": "z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
+        "publicKeyBase58": "4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
       }
     ],
     "authentication": [
@@ -169,7 +169,7 @@ The example of `payload.json` file:
     "service": [{
       "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
       "type": "LinkedDomains",
-      "service_endpoint": "https://bar.example.com"
+      "serviceEndpoint": ["https://bar.example.com"]
     }]
   },
   "SignInputs": [
@@ -213,7 +213,7 @@ Otherwise, the `raw_logs` field in the response can help figure out why somethin
 Finally, to check that the DID was successfully written to the ledger, we can use the following query:
 
 ```bash
-cheqd-noded query cheqd did-document "<identifier-of-your-DIDDoc>" --node https://rpc.testnet.cheqd.network:443
+cheqd-noded query cheqd did-document "<identifier-of-your-DIDDoc>" --node https://rpc.cheqd.network:443
 ```
 
 where:
@@ -223,7 +223,7 @@ where:
 For example:
 
 ```bash
-cheqd-noded query cheqd did "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77" --node https://rpc.testnet.cheqd.network:443
+cheqd-noded query cheqd did "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77" --node https://rpc.cheqd.network:443
 ```
 
 **Congratulations!** You've created, hopefully, the first of many DIDs on cheqd!

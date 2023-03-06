@@ -35,12 +35,12 @@ For example, we can [take the DIDDoc created previously](create-did.md) and chan
 ```json
 {
   "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
-  "verification_method": [
+  "verificationMethod": [
     {
       "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
-      "type": "Ed25519VerificationKey2020",
+      "type": "Ed25519VerificationKey2018",
       "controller": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
-      "public_key_multibase": "z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
+      "publicKeyBase58": "4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
     }
   ],
   "authentication": [
@@ -49,7 +49,7 @@ For example, we can [take the DIDDoc created previously](create-did.md) and chan
   "service": [{
     "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
     "type": "LinkedDomains",
-    "service_endpoint": "https://foo.example.com"
+    "serviceEndpoint": "https://foo.example.com"
   }]
 }
 ```
@@ -66,9 +66,9 @@ The result JSON in our example will look liks:
     "verification_method": [
       {
         "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
-        "type": "Ed25519VerificationKey2020",
+        "type": "Ed25519VerificationKey2018",
         "controller": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
-        "public_key_multibase": "z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
+        "publicKeyBase58": "4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
       }
     ],
     "authentication": [
@@ -77,7 +77,7 @@ The result JSON in our example will look liks:
     "service": [{
       "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
       "type": "LinkedDomains",
-      "service_endpoint": "https://foo.example.com"
+      "serviceEndpoint": ["https://foo.example.com"]
     }]
   },
   "SignInputs": [
@@ -104,11 +104,11 @@ cheqd-noded tx cheqd update-did <Payload_in_JSON>  \
 * `--from`: Cosmos account key which will pay fees for the transaction to be written to ledger.
 * `--node`: IP address or URL of node to send request to
 * `--chain-id`: E.g., `cheqd-testnet-6`
-* `--fees`: Set to 5000000ncheq
+* `--fees`: Set to 25000000000ncheq
 
 ### Example
 
 ```bash
 cheqd-noded tx cheqd update-did "payload.json" \
-  --from my_account --node http://rpc.cheqd.network:443 --chain-id cheqd-testnet-6 --fees 5000000ncheq
+  --from my_account --node http://rpc.cheqd.network:443 --chain-id cheqd-testnet-6 --fees 25000000000ncheq
 ```
