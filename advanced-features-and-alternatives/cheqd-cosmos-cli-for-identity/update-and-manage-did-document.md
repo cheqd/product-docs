@@ -40,7 +40,7 @@ For example, we can [take the DIDDoc created previously](create-did.md) and chan
       "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
       "type": "Ed25519VerificationKey2020",
       "controller": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
-      "publicKeyMultibase": "z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
+      "publicKeyMultibase": "z6MkjafyeUPvVJb9LDKtx7qwdZqFaVB8mnhqKVYf5yA9DxSa"
     }
   ],
   "authentication": [
@@ -49,7 +49,9 @@ For example, we can [take the DIDDoc created previously](create-did.md) and chan
   "service": [{
     "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
     "type": "LinkedDomains",
-    "serviceEndpoint": "https://foo.example.com"
+    "serviceEndpoint": [
+      "https://foo.example.com"
+    ]
   }]
 }
 ```
@@ -61,14 +63,14 @@ The result JSON in our example will look liks:
 
 ```json
 {
-  "Payload": {
+  "payload": {
     "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
     "verificationMethod": [
       {
         "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
         "type": "Ed25519VerificationKey2020",
         "controller": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
-        "publicKeyMultibase": "z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
+        "publicKeyMultibase": "z6MkjafyeUPvVJb9LDKtx7qwdZqFaVB8mnhqKVYf5yA9DxSa"
       }
     ],
     "authentication": [
@@ -77,13 +79,15 @@ The result JSON in our example will look liks:
     "service": [{
       "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
       "type": "LinkedDomains",
-      "serviceEndpoint": "https://foo.example.com"
+      "serviceEndpoint": [
+        "https://foo.example.com"
+      ]
     }]
   },
-  "SignInputs": [
+  "signInputs": [
     {
-      "VerificationMethodID": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
-      "PrivKey": "FxaJOy4HFoC2Enu1SizKtU0L+hmBRBAEpC+B4TopfQoyetOF5T68Ks3db5Yy9ykFdgEboPUes3m6wvXNLpbv+Q=="
+      "verificationMethodID": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
+      "privKey": "wNXCJ9Ny0uzCYhnTE3gfQuwgQM4QZCw08+j01QDfoGxMMI9u9GIv/90eH3E3KjHjlSi9hKRQy94PvKVAH1+Rhw=="
     }
   ]
 }

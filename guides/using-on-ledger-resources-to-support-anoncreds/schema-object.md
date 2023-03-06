@@ -105,7 +105,7 @@ Below is an example of a Payload file:
 
 ```json
 {
-  "Payload": {
+  "payload": {
     "collectionId": "7BPMqYgYLQni258J8JPS8K",
     "id": "6259d357-eeb1-4b98-8bee-12a8390d3497",
     "name": "degreeSchema",
@@ -113,7 +113,7 @@ Below is an example of a Payload file:
     "resourceType": "anonCredsSchema", // this is added as an additional input
     "alsoKnownAs": []
   },
-  "SignInputs": [
+  "signInputs": [
     {
       "verificationMethodID": "did:cheqd:testnet:7BPMqYgYLQni258J8JPS8K#key1",
       "privKey": "y4B5qis9BXUq/mODsrWtS3q5ejOk/okSIXlX1/a9HvuG3PgYmekfQmq3QhJ4JSzN/rkiGCQDNKoTXMmxuXDHbg=="
