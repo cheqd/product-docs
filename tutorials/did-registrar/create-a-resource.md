@@ -1,13 +1,13 @@
-# Create a DID
+# Create a DID-Linked Resource
 
-Follow these instructions to create a new Resource for DID using DID registrar. This tutorial will use the cheqd did regisrtar swagger api's and the veramo cli.
+Follow these instructions to create a new Resource linked to a DID using DID registrar. This tutorial will use the cheqd did regisrtar swagger API's and the Veramo CLI.
 
 > ⚠️ **Before you begin...**
 > Make sure you've completed [creating a DID](./create-a-did.md) for this tutorial for Veramo CLI
 
 ## 1. Request Create Operation
 
-Use the `/{did}/create-resource` api to publish a resource
+Use the `/{did}/create-resource` api to publish a new DID-Linked Resource
 
 1. Paste the DID in the did path parameter
 2. Generate request body by providing name, type and base64 encoded data
@@ -55,7 +55,7 @@ Use the `/{did}/create-resource` api to publish a resource
 
     </details>
 
-    This response requests an `action` for you to sign the serialized payload again in a CLI. This is a security feature which means you are not passing your private key to the Registrar. Note down the serialized payload, jobId from the response
+    This response requests an `action` for you to sign the serialized payload again in a CLI. This is a security feature which means you are not passing your private key to the Registrar. Note down the serialized payload, jobId from the response.
 
 <br>
 
@@ -91,7 +91,7 @@ Fill in the prompts
 </details>
 
 
-**NOTE:** If there are n verification methods for the controller then n signatures are required to publish a DID
+**NOTE:** If there are 'n' verification methods for the controller then 'n' signatures are required to publish a DID
 
 
 Copy the Result value from the response
