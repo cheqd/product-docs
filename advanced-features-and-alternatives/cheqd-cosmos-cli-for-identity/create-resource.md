@@ -37,6 +37,7 @@ Resource content should be placed in a file and stored locally.
 ```bash
 cheqd-noded tx resource create [payload-file] [resource-data-file] [flags]
 ```
+
 #### Understanding Resource Fees
 
 The fee for a resource transaction changes depending on the file type being passed to the ledger. Currently there are three different variations on the fee:
@@ -98,7 +99,7 @@ cheqd-noded tx resource create \
   --gas auto \
   --gas-adjustment 1.8 \
   --from base_account \
-  "payloadfile.json" data.jpeg
+  "payloadfile.json" resource.json
 ```
 
 where `payloadfile.json` is:
