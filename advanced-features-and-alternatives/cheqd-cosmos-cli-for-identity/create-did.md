@@ -35,7 +35,7 @@ The result should look like the following:
 ```bash
 $ cat keys.txt
 {"pub_key_base_64":"MnrTheU+vCrN3W+WMvcpBXYBG6D1HrN5usL1zS6W7/k=","pub_key_multibase_58":"",\
-"priv_key_base_64":"FxaJOy4HFoC2Enu1SizKtU0L+hmBRBAEpC+B4TopfQoyetOF5T68Ks3db5Yy9ykFdgEboPUes3m6wvXNLpbv+Q=="}
+"priv_key_base_64":"wNXCJ9Ny0uzCYhnTE3gfQuwgQM4QZCw08+j01QDfoGxMMI9u9GIv/90eH3E3KjHjlSi9hKRQy94PvKVAH1+Rhw=="}
 ```
 
 _**Note**: Keep this key safe! It is used to create the DIDDoc, and to update it in the future. Normally, you should be careful when `cat`-ing such keys as it reveals the private key as well._
@@ -52,7 +52,7 @@ For example:
 
 ```bash
 $ cheqd-noded debug encoding base64-multibase58 MnrTheU+vCrN3W+WMvcpBXYBG6D1HrN5usL1zS6W7/k=
-4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE
+z6MkjafyeUPvVJb9LDKtx7qwdZqFaVB8mnhqKVYf5yA9DxSa
 ```
 
 ### 3. Create a unique identifier for the DID
@@ -76,7 +76,7 @@ Copy-paste the template below into your terminal into a blank file (e.g., using 
 $ nano diddoc.json
 {
   "id": "did:cheqd:<namespace>:<unique-id>",
-  "verification_method": [
+  "verificationMethod": [
     {
       "id": "did:cheqd:<namespace>:<unique-id>#<key-alias>",
       "verificationMethodType": "Ed25519VerificationKey2018",
@@ -89,13 +89,13 @@ $ nano diddoc.json
   ],
   "service": [{
     "id":"did:cheqd:<namespace>:<unique-id>#<service-key>",
-    "serviceType": "LinkedDomains",
+    "type": "LinkedDomains",
     "serviceEndpoint": ["<URI-to-object>"]
   }]
 }
 ```
 
-In this template, you'll need to replace some values (as described in the [cheqd DID method](../../architecture/adr-list/adr-001-cheqd-did-method.md):
+In this template, you'll need to replace some values (as described in the [cheqd DID method](../../architecture/adr-list/adr-001-cheqd-did-method.md)):
 
 * `<namespace>`: Can be `testnet` or `mainnet`. For this example, we can use `testnet`.
 * `<unique-id>`: Unique identifier, created in step #3
@@ -110,7 +110,7 @@ For example, the populated DIDDoc file might look like:
 ```json
 {
   "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
-  "verification_method": [
+  "verificationMethod": [
     {
       "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
       "type": "Ed25519VerificationKey2018",
@@ -123,8 +123,10 @@ For example, the populated DIDDoc file might look like:
   ],
   "service": [{
     "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
-    "serviceType": "LinkedDomains",
-    "serviceEndpoint": ["https://bar.example.com"]
+    "type": "LinkedDomains",
+    "serviceEndpoint": [
+        "https://foo.example.com"
+    ]
   }]
 }
 ```
@@ -137,13 +139,13 @@ After assembling the DID-Document JSON file we are ready to compile the final pa
 
 ```json
 {
-  "Payload": {
+  "payload": {
     ...
   },
-  "SignInputs": [
+  "signInputs": [
     {
-      "VerificationMethodID": "<verification-method-id>",
-      "PrivKey": "<private key representation>"
+      "verificationMethodId": "<verification-method-id>",
+      "privKey": "<private key representation>"
     }
   ]
 }
@@ -153,7 +155,7 @@ The example of `payload.json` file:
 
 ```json
 {
-  "Payload": {
+  "payload": {
     "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
     "verificationMethod": [
       {
@@ -172,10 +174,10 @@ The example of `payload.json` file:
       "serviceEndpoint": ["https://bar.example.com"]
     }]
   },
-  "SignInputs": [
+  "signInputs": [
     {
-      "VerificationMethodID": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
-      "PrivKey": "FxaJOy4HFoC2Enu1SizKtU0L+hmBRBAEpC+B4TopfQoyetOF5T68Ks3db5Yy9ykFdgEboPUes3m6wvXNLpbv+Q=="
+      "verificationMethodId": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
+      "privKey": "wNXCJ9Ny0uzCYhnTE3gfQuwgQM4QZCw08+j01QDfoGxMMI9u9GIv/90eH3E3KjHjlSi9hKRQy94PvKVAH1+Rhw=="
     }
   ]
 }

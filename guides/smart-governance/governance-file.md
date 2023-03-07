@@ -44,16 +44,20 @@ For example, the following DID is shown with a Governance File attached
         "id": "did:cheqd:testnet:28b25f5d-36d6-45e0-9366-ec67db4aac75#authKey1",
         "type": "Ed25519VerificationKey2020",
         "controller": "did:cheqd:testnet:28b25f5d-36d6-45e0-9366-ec67db4aac75",
-        "publicKeyMultibase": "zAKJP3f7BD6W4iWEQ9jwndVTCBq8ua2Utt8EEjJ6Vxsf"
+        "publicKeyMultibase": "z6MkuGoZyDyji4sApi9L79CG484hoQPmtuqJSTbUpdrVQAqB"
       },
     ],
     "authentication": "did:cheqd:testenet28b25f5d-36d6-45e0-9366-ec67db4aac75#authKey1",
     "service": [
-      "id": "did:cheqd:testnet:28b25f5d-36d6-45e0-9366-ec67db4aac75#GovernanceFile,
-      "type": "linkedResource",
-      "serviceEndpoint" "did:cheqd:testnet:28b25f5d-36d6-45e0-9366-ec67db4aac75/resources/569b740e-6bf2-41a7-b9ba-acba2ae5e8ad",
-    ] 
-  }
+      {
+        "id": "did:cheqd:testnet:28b25f5d-36d6-45e0-9366-ec67db4aac75#GovernanceFile",
+        "type": "linkedResource",
+        "serviceEndpoint" [
+            "did:cheqd:testnet:28b25f5d-36d6-45e0-9366-ec67db4aac75/resources/569b740e-6bf2-41a7-b9ba-acba2ae5e8ad",
+        ]
+      }
+    ]
+  },
   "didDocumentMetadata": {
     "created": "2022-09-16T11:15:20Z",
     "versionId": "4E106C7485BA847BBB4032A7FD019432EE048F0531887BF6B3DE97739CC39D62",
@@ -109,7 +113,7 @@ Below is an example of a Governance File that is being used to govern an ecosyst
             "name": "Museum trusted issuer list",
         }
     ],
-    "revocationList": null
+    "revocationList": null,
     "roles": [
         "holder",
         "museum_pass_issuer",
@@ -119,6 +123,7 @@ Below is an example of a Governance File that is being used to govern an ecosyst
         {
             "grant": 
         },
+    ],
     "actions": [
         {
             "name": "issue_standard_museum_pass",
@@ -156,7 +161,7 @@ Below is an example of a Governance File that is being used to govern an ecosyst
                 "presentationDefinition" "did:cheqd:testnet:28b25f5d-36d6-45e0-9366-ec67db4aac75/resources/2718aa7b-8134-4d26-99ca-21e909ee51fa",
             }
         }
-    ]
+    ],
     "privelages": [
         {
             "grant": [
@@ -182,7 +187,7 @@ Below is an example of a Governance File that is being used to govern an ecosyst
                 ]
             }
         },
-    ]
+    ],
     "flows": null
 }
     

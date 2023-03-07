@@ -62,7 +62,7 @@ where `payloadfile.json` is:
 
 ```json
 {
-  "Payload": {
+  "payload": {
     "data": null,
     "collectionId": "b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
     "id": "5e16a3f9-7c6e-4b6b-8e28-20f56780ee25",
@@ -71,10 +71,10 @@ where `payloadfile.json` is:
     "resourceType": "TestType",
     "alsoKnownAs": []
   },
-  "SignInputs": [
+  "signInputs": [
     {
-      "VerificationMethodID": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
-      "PrivKey": "y4B5qis9BXUq/mODsrWtS3q5ejOk/okSIXlX1/a9HvuG3PgYmekfQmq3QhJ4JSzN/rkiGCQDNKoTXMmxuXDHbg=="
+      "verificationMethodId": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
+      "privKey": "y4B5qis9BXUq/mODsrWtS3q5ejOk/okSIXlX1/a9HvuG3PgYmekfQmq3QhJ4JSzN/rkiGCQDNKoTXMmxuXDHbg=="
     }
   ]
 }
@@ -126,22 +126,22 @@ Ouput:
       "data": "..."
     },
     "metadata": {
-      "collection_id": "c82f2b02-bdab-4dd7-b833-3e143745d612",
+      "collectionId": "c82f2b02-bdab-4dd7-b833-3e143745d612",
       "id": "3e6bd814-6851-4c8a-b114-c64f035ef590",
       "name": "EventBrite Logo",
       "version": "",
-      "resource_type": "image/png",
-      "also_known_as": [
+      "resourceType": "image/png",
+      "alsoKnownAs": [
         {
           "uri": "did:cheqd:mainnet:c82f2b02-bdab-4dd7-b833-3e143745d612/resources/3e6bd814-6851-4c8a-b114-c64f035ef590",
           "description": "did-url"
         }
       ],
-      "media_type": "image/svg+xml",
+      "mediaType": "image/svg+xml",
       "created": "2022-11-17T10:35:23Z",
       "checksum": "a95380f460e63ad939541a57aecbfd795fcd37c6d78ee86c885340e33a91b559",
-      "previous_version_id": "",
-      "next_version_id": ""
+      "previousVersionId": "",
+      "nextVersionId": ""
     }
   }
 }
