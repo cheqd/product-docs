@@ -1,4 +1,4 @@
-# 📚 Querying DIDs with cheqd Cosmos CLI
+# Querying DIDs with cheqd Cosmos CLI
 
 ## Pre-requisite
 
