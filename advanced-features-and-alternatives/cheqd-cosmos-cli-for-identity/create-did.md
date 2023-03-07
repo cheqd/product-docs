@@ -1,4 +1,4 @@
-# 📚 Creating a DID with cheqd Cosmos CLI
+# Creating a DID with cheqd Cosmos CLI
 
 The purpose of this document is to describe how a DID (and associated DIDDoc) can be created using [the `cheqd-node` Cosmos CLI](https://docs.cheqd.io/node/docs/cheqd-cli).
 
@@ -245,6 +245,8 @@ cheqd-noded tx cheqd create-did \
   --chain-id cheqd-testnet-6 \
   "payload.json"
 ```
+
+> Note that each of cheqd's on-ledger identity transactions has a **fixed fee,** [the pricing for cheqd DIDs and DID-Linked Resources can be found here](https://docs.cheqd.io/node/architecture/adr-list/adr-005-genesis-parameters#cheqd-module-did-module). If your account has insufficient balance the transaction will fail.
 
 Where:
 

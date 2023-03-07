@@ -1,4 +1,4 @@
-# 📚 Deactivate existing DIDs with cheqd Cosmos CLI
+# Deactivate existing DIDs with cheqd Cosmos CLI
 
 The purpose of this document is to describe how an existing DID (and associated DIDDoc) can be _deactivated_ using [the `cheqd-node` Cosmos CLI](https://docs.cheqd.io/node/docs/cheqd-cli).
 
@@ -52,6 +52,8 @@ cheqd-noded tx cheqd deactivate-did <Payload_in_JSON>  \
 * `--node`: IP address or URL of node to send request to
 * `--chain-id`: E.g., `cheqd-testnet-6`
 * `--fees`: Set to 10000000000ncheq
+
+> Note that each of cheqd's on-ledger identity transactions has a **fixed fee,** [the pricing for cheqd DIDs and DID-Linked Resources can be found here](https://docs.cheqd.io/node/architecture/adr-list/adr-005-genesis-parameters#cheqd-module-did-module). If your account has insufficient balance the transaction will fail.
 
 ### Example
 

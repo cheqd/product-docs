@@ -1,4 +1,4 @@
-# 📚 Publishing a new Resource version
+# Publishing a new Resource version
 
 The purpose of this document is to describe how someone can create [a _new_ Resource on under an existing _Collection_](../../guides/did-linked-resources/technical-composition-of-did-linked-resources/creating-a-resource.md).
 
