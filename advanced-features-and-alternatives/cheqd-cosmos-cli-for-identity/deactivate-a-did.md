@@ -51,7 +51,7 @@ cheqd-noded tx cheqd deactivate-did <Payload_in_JSON>  \
 * `--from`: Cosmos account key which will pay fees for the transaction to be written to ledger.
 * `--node`: IP address or URL of node to send request to
 * `--chain-id`: E.g., `cheqd-testnet-6`
-* `--fees`: Set to 10000000000ncheq
+* `--fees`: Set to 10000000000ncheq, which is the fixed fee for deactivating a DID
 
 > Note that each of cheqd's on-ledger identity transactions has a **fixed fee,** [the pricing for cheqd DIDs and DID-Linked Resources can be found here](https://docs.cheqd.io/node/architecture/adr-list/adr-005-genesis-parameters#cheqd-module-did-module). If your account has insufficient balance the transaction will fail.
 

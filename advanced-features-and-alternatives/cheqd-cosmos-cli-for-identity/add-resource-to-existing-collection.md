@@ -44,7 +44,7 @@ cheqd-noded tx resource create [payload-file] [resource-data-file] [flags]
 
 * `payload-file` - file with JSON formatted payload. The format and structure can be found in example
 * `resource-data-file` - file which will be sent to the ledger as a `data`. Can be a picture or an image or whatever you want.
-* `flags` - additional parameters like, `--gas` or `--from`.
+* `flags` - additional parameters like, `--gas` or `--from`. `--fees` should match the price of the [speicfic resource file type defined here](create-resource.md#understanding-resource-fees).
 
 #### Example
 
@@ -57,10 +57,10 @@ cheqd-noded tx resource create \
 --gas auto \
 --gas-adjustment 1.8 \
 --from base_account \
-"payloadfile.json" data.jpeg
+[payload.json] [resource.jpeg]
 ```
 
-where `payloadfile.json` is:
+where `payload.json` is:
 
 ```json
 {
