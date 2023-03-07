@@ -35,14 +35,37 @@ The result should look like the following:
 ```bash
 $ cat keys.txt
 {"pub_key_base_64":"MnrTheU+vCrN3W+WMvcpBXYBG6D1HrN5usL1zS6W7/k=","pub_key_multibase_58":"",\
-"priv_key_base_64":"FxaJOy4HFoC2Enu1SizKtU0L+hmBRBAEpC+B4TopfQoyetOF5T68Ks3db5Yy9ykFdgEboPUes3m6wvXNLpbv+Q=="}
+"priv_key_base_64":"wNXCJ9Ny0uzCYhnTE3gfQuwgQM4QZCw08+j01QDfoGxMMI9u9GIv/90eH3E3KjHjlSi9hKRQy94PvKVAH1+Rhw=="}
 ```
 
 _**Note**: Keep this key safe! It is used to create the DIDDoc, and to update it in the future. Normally, you should be careful when `cat`-ing such keys as it reveals the private key as well._
 
-### 2. Encode the identity key to Multibase58
+### 2. Encode the identity key according to different verification methods
 
-Encode the identity key's _public_ key to `public_key_multibase`, as this will be later required in the `verification_method` section:
+Encode the identity key's _public_ key to one of the formats below according to the verificaiton method type you selected, as this will be later required in the `verificationMethod` section:
+
+<details>
+<summary>Ed25519VerificationKey2018</summary>
+
+Encoding to `publicKeyBase58`
+
+```bash
+cheqd-noded debug encoding base64-base58 <pub_key_base_64>
+```
+
+For example:
+
+```bash
+$ cheqd-noded debug encoding base64-base58 MnrTheU+vCrN3W+WMvcpBXYBG6D1HrN5usL1zS6W7/k=
+4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE
+```
+
+</details>
+
+<details>
+<summary>Ed25519VerificationKey2020</summary>
+
+Encoding to `publicKeyMultibase`
 
 ```bash
 cheqd-noded debug encoding base64-multibase58 <pub_key_base_64>
@@ -51,9 +74,31 @@ cheqd-noded debug encoding base64-multibase58 <pub_key_base_64>
 For example:
 
 ```bash
-$ cheqd-noded debug encoding base64-multibase58 MnrTheU+vCrN3W+WMvcpBXYBG6D1HrN5usL1zS6W7/k=
-z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE
+$ cheqd-noded debug ed25519 base64-multibase58 MnrTheU+vCrN3W+WMvcpBXYBG6D1HrN5usL1zS6W7/k=
+z6MkhrK4MAmJxYne1t5tME64jofNvEcSoStQ4niYsMsvVNEc
 ```
+
+</details>
+
+<details>
+<summary>JsonWebKey2020</summary>
+
+Encoding to `publicKeyJwk`
+
+```bash
+cheqd-noded debug encoding pubkey-base64-to-jwk <pub_key_base_64>
+```
+
+For example:
+
+```bash
+$ cheqd-noded debug ed25519 pubkey-base64-to-jwk MnrTheU+vCrN3W+WMvcpBXYBG6D1HrN5usL1zS6W7/k=
+
+{"crv":"Ed25519","kty":"OKP","x":"MnrTheU-vCrN3W-WMvcpBXYBG6D1HrN5usL1zS6W7_k"}
+```
+
+</details>
+
 
 ### 3. Create a unique identifier for the DID
 
@@ -76,12 +121,14 @@ Copy-paste the template below into your terminal into a blank file (e.g., using 
 $ nano diddoc.json
 {
   "id": "did:cheqd:<namespace>:<unique-id>",
-  "verification_method": [
+  "verificationMethod": [
     {
       "id": "did:cheqd:<namespace>:<unique-id>#<key-alias>",
-      "type": "Ed25519VerificationKey2020",
+      "verificationMethodType": "<verification-method-type>",
       "controller": "did:cheqd:<namespace>:<unique-id>",
-      "public_key_multibase": "<verification-public-key-multibase>"
+      "publicKeyBase58": "<public-key-base58>",
+      "publicKeyMultibase": "<public-key-multibase>",
+      "publicKeyJwk": "<public-key-jwk>"
     }
   ],
   "authentication": [
@@ -90,17 +137,18 @@ $ nano diddoc.json
   "service": [{
     "id":"did:cheqd:<namespace>:<unique-id>#<service-key>",
     "type": "LinkedDomains",
-    "service_endpoint": "<URI-to-object>"
+    "serviceEndpoint": ["<URI-to-object>"]
   }]
 }
 ```
 
-In this template, you'll need to replace some values (as described in the [cheqd DID method](../../architecture/adr-list/adr-001-cheqd-did-method.md):
+In this template, you'll need to replace some values (as described in the [cheqd DID method](../../architecture/adr-list/adr-001-cheqd-did-method.md)):
 
 * `<namespace>`: Can be `testnet` or `mainnet`. For this example, we can use `testnet`.
 * `<unique-id>`: Unique identifier, created in step #3
 * `<key-alias>`: A key alias for the verification method identifier, e.g., `#key1`
-* `<verification-public-key-multibase>`: Result of step #2 above
+* `<verification-method-type>`: Verification method type slected from step #2 above
+* `<public-key-base58>, <public-key-multibase>, <public-key-jwk>` : Any one of the values from the result of step #2 above
 * `<auth-key-alias>`: Alias of authentication key. Can be a reference to an existing verification method.
 * `<service-key>`: Alias for service property. This is an _optional_ section but useful to understand the power of DIDDocs.
 * `<URI-to-object>`: A valid URI that can act as a service endpoint.
@@ -110,12 +158,12 @@ For example, the populated DIDDoc file might look like:
 ```json
 {
   "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
-  "verification_method": [
+  "verificationMethod": [
     {
       "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
-      "type": "Ed25519VerificationKey2020",
+      "type": "Ed25519VerificationKey2018",
       "controller": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
-      "public_key_multibase": "z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
+      "publicKeyBase58": "4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
     }
   ],
   "authentication": [
@@ -124,7 +172,9 @@ For example, the populated DIDDoc file might look like:
   "service": [{
     "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
     "type": "LinkedDomains",
-    "service_endpoint": "https://bar.example.com"
+    "serviceEndpoint": [
+        "https://foo.example.com"
+    ]
   }]
 }
 ```
@@ -137,13 +187,13 @@ After assembling the DID-Document JSON file we are ready to compile the final pa
 
 ```json
 {
-  "Payload": {
+  "payload": {
     ...
   },
-  "SignInputs": [
+  "signInputs": [
     {
-      "VerificationMethodID": "<verification-method-id>",
-      "PrivKey": "<private key representation>"
+      "verificationMethodId": "<verification-method-id>",
+      "privKey": "<private key representation>"
     }
   ]
 }
@@ -153,14 +203,14 @@ The example of `payload.json` file:
 
 ```json
 {
-  "Payload": {
+  "payload": {
     "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
-    "verification_method": [
+    "verificationMethod": [
       {
         "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
         "type": "Ed25519VerificationKey2020",
         "controller": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
-        "public_key_multibase": "z4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
+        "publicKeyBase58": "4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE"
       }
     ],
     "authentication": [
@@ -169,13 +219,13 @@ The example of `payload.json` file:
     "service": [{
       "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
       "type": "LinkedDomains",
-      "service_endpoint": "https://bar.example.com"
+      "serviceEndpoint": ["https://bar.example.com"]
     }]
   },
-  "SignInputs": [
+  "signInputs": [
     {
-      "VerificationMethodID": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
-      "PrivKey": "FxaJOy4HFoC2Enu1SizKtU0L+hmBRBAEpC+B4TopfQoyetOF5T68Ks3db5Yy9ykFdgEboPUes3m6wvXNLpbv+Q=="
+      "verificationMethodId": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
+      "privKey": "wNXCJ9Ny0uzCYhnTE3gfQuwgQM4QZCw08+j01QDfoGxMMI9u9GIv/90eH3E3KjHjlSi9hKRQy94PvKVAH1+Rhw=="
     }
   ]
 }
@@ -213,7 +263,7 @@ Otherwise, the `raw_logs` field in the response can help figure out why somethin
 Finally, to check that the DID was successfully written to the ledger, we can use the following query:
 
 ```bash
-cheqd-noded query cheqd did-document "<identifier-of-your-DIDDoc>" --node https://rpc.testnet.cheqd.network:443
+cheqd-noded query cheqd did-document "<identifier-of-your-DIDDoc>" --node https://rpc.cheqd.network:443
 ```
 
 where:
@@ -223,7 +273,7 @@ where:
 For example:
 
 ```bash
-cheqd-noded query cheqd did "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77" --node https://rpc.testnet.cheqd.network:443
+cheqd-noded query cheqd did "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77" --node https://rpc.cheqd.network:443
 ```
 
 **Congratulations!** You've created, hopefully, the first of many DIDs on cheqd!

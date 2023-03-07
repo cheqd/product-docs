@@ -228,7 +228,9 @@ Example of referencing a resource using the _service_ section:
     "service": [{
       "id":"did:cheqd:testnet:13d5ad44-9e99-428f-81e9-274458cefddc#PassportSchema",
       "type": "LinkedResource",
-      "serviceEndpoint": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:13d5ad44-9e99-428f-81e9-274458cefddc/resources/bb2118f3-5e55-4510-b420-33ef9e1726d2"
+      "serviceEndpoint": [
+        "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:13d5ad44-9e99-428f-81e9-274458cefddc/resources/bb2118f3-5e55-4510-b420-33ef9e1726d2"
+      ]
     }]
   }
 ```
@@ -311,7 +313,7 @@ This section will delineate between expected inputs in JSON and how the cheqd le
 
 ```jsonc
 {
-    "Payload": {
+    "payload": {
         "data": "eyJhdHRyIjpbIm5hbWUiLCJhZ2UiXX0=",
         "collectionId": "91e5f0cf-5f1e-5c19-97d3-d313e84033b4",
         "id": "54cb8b4d-af33-4606-bc54-0f035ee30e0f",
@@ -331,7 +333,7 @@ This section will delineate between expected inputs in JSON and how the cheqd le
     },
     "SignInfo": [
         {
-            "VerificationMethodID": "did:cheqd:testnet:91e5f0cf-5f1e-5c19-97d3-d313e84033b4#key-1",
+            "verificationMethodID": "did:cheqd:testnet:91e5f0cf-5f1e-5c19-97d3-d313e84033b4#key-1",
             "Signature": "m0ZE4x5Qxs+6HEBoXDrjtGTLr9GuXjIttSznoVumRWIA3GMeDipXnCVgdZfa0PUVVdr2DQy9a0NyPXPeQcXdCw=="
         }
     ]
@@ -603,7 +605,7 @@ cheqd-noded tx resource create [payload-file] [resource-data-file]
 
 ```jsonc
 {
-    "Payload": {
+    "payload": {
         "collectionId": "91e5f0cf-5f1e-5c19-97d3-d313e84033b4",
         "id": "54cb8b4d-af33-4606-bc54-0f035ee30e0f",
         "name": "PassportSchema",
@@ -620,10 +622,10 @@ cheqd-noded tx resource create [payload-file] [resource-data-file]
             }
         ]
     },
-    "SignInputs": [
+    "signInputs": [
         {
-            "VerificationMethodID": "did:cheqd:testnet:91e5f0cf-5f1e-5c19-97d3-d313e84033b4#key-1",
-            "PrivKey": "tBjxEJCqSkj7u+iTWRqAVZwtcl2XBZrlaMfhxYIRc4wj7epbmDkJ35sCin3MWnAxvHJNDY0yyPafVspsrgb1Ng=="
+            "verificationMethodID": "did:cheqd:testnet:91e5f0cf-5f1e-5c19-97d3-d313e84033b4#key-1",
+            "privKey": "tBjxEJCqSkj7u+iTWRqAVZwtcl2XBZrlaMfhxYIRc4wj7epbmDkJ35sCin3MWnAxvHJNDY0yyPafVspsrgb1Ng=="
         }
     ]
 }

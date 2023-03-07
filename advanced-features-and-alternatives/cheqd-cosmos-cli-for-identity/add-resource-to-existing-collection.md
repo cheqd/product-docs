@@ -64,19 +64,19 @@ where `payloadfile.json` is:
 
 ```json
 {
-  "Payload": {
+  "payload": {
     "data": null,
-    "collection_id": "b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
+    "collectionId": "b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
     "id": "c8ef6d88-ee0c-4ca4-9fd6-f9e17f6f8f3f",
     "name": "TestResource",
     "version": "1.0",
-    "resource_type": "TestType",
-    "also_known_as": []
+    "resourceType": "TestType",
+    "alsoKnownAs": []
   },
-  "SignInputs": [
+  "signInputs": [
     {
-      "VerificationMethodID": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
-      "PrivKey": "y4B5qis9BXUq/mODsrWtS3q5ejOk/okSIXlX1/a9HvuG3PgYmekfQmq3QhJ4JSzN/rkiGCQDNKoTXMmxuXDHbg=="
+      "verificationMethodId": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
+      "privKey": "y4B5qis9BXUq/mODsrWtS3q5ejOk/okSIXlX1/a9HvuG3PgYmekfQmq3QhJ4JSzN/rkiGCQDNKoTXMmxuXDHbg=="
     }
   ]
 }

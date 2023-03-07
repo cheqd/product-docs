@@ -295,7 +295,7 @@ Services can be defined in a DIDDoc to express means of communicating with the D
 
 1. **`id`** (string): The value of the `id` property for a Service MUST be a URI conforming to [RFC3986](https://www.rfc-editor.org/rfc/rfc3986). A conforming producer MUST NOT produce multiple service entries with the same ID. A conforming consumer MUST produce an error if it detects multiple service entries with the same ID. It has a follow formats: `<DIDDoc-id>#<service-alias>` or `#<service-alias>`.
 2. **`type`** (string): The service type and its associated properties SHOULD be registered in the [DID Specification Registries](https://www.w3.org/TR/did-spec-registries/)
-3. **`serviceEndpoint`** (strings): A string that conforms to the rules of [RFC3986](https://www.rfc-editor.org/rfc/rfc3986) for URIs, a map, or a set composed of a one or more strings that conform to the rules of
+3. **`serviceEndpoint`** (list of strings): A string that conforms to the rules of [RFC3986](https://www.rfc-editor.org/rfc/rfc3986) for URIs, a map, or a set composed of a one or more strings that conform to the rules of
 [RFC3986](https://www.rfc-editor.org/rfc/rfc3986) for URIs and/or maps.
 
 #### Example of Service in a DIDDoc
@@ -304,7 +304,9 @@ Services can be defined in a DIDDoc to express means of communicating with the D
 {
   "id":"did:cheqd:mainnet:N22N22KY2Dyvmuu2#linked-domain",
   "type": "LinkedDomains",
-  "serviceEndpoint": "https://bar.example.com"
+  "serviceEndpoint": [
+    "https://foo.example.com"
+  ]
 }
 ```
 
@@ -362,7 +364,9 @@ Example of how cheqd-node stores verification_method
 {
   "id":"did:cheqd:mainnet:5rjaLzcffhGUH4nt4fyfAg#linked-domain",
   "serviceType": "LinkedDomains",
-  "serviceEndpoint": "https://bar.example.com"
+  "serviceEndpoint": [
+    "https://foo.example.com"
+  ]
 }
 
 ## DID transactions
