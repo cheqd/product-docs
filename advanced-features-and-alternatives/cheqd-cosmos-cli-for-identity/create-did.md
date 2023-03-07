@@ -40,9 +40,32 @@ $ cat keys.txt
 
 _**Note**: Keep this key safe! It is used to create the DIDDoc, and to update it in the future. Normally, you should be careful when `cat`-ing such keys as it reveals the private key as well._
 
-### 2. Encode the identity key to Multibase58
+### 2. Encode the identity key according to different verification methods
 
-Encode the identity key's _public_ key to `public_key_base58`, as this will be later required in the `verification_method` section:
+Encode the identity key's _public_ key to one of the formats below according to the verificaiton method type you selected, as this will be later required in the `verificationMethod` section:
+
+<details>
+<summary>Ed25519VerificationKey2018</summary>
+
+Encoding to `publicKeyBase58`
+
+```bash
+cheqd-noded debug encoding base64-base58 <pub_key_base_64>
+```
+
+For example:
+
+```bash
+$ cheqd-noded debug encoding base64-base58 MnrTheU+vCrN3W+WMvcpBXYBG6D1HrN5usL1zS6W7/k=
+4Q41kvWsd1JAuPFBff8Dti7P6fLbPZe3Nmod35uua9TE
+```
+
+</details>
+
+<details>
+<summary>Ed25519VerificationKey2020</summary>
+
+Encoding to `publicKeyMultibase`
 
 ```bash
 cheqd-noded debug encoding base64-multibase58 <pub_key_base_64>
@@ -51,9 +74,31 @@ cheqd-noded debug encoding base64-multibase58 <pub_key_base_64>
 For example:
 
 ```bash
-$ cheqd-noded debug encoding base64-multibase58 MnrTheU+vCrN3W+WMvcpBXYBG6D1HrN5usL1zS6W7/k=
-z6MkjafyeUPvVJb9LDKtx7qwdZqFaVB8mnhqKVYf5yA9DxSa
+$ cheqd-noded debug ed25519 base64-multibase58 MnrTheU+vCrN3W+WMvcpBXYBG6D1HrN5usL1zS6W7/k=
+z6MkhrK4MAmJxYne1t5tME64jofNvEcSoStQ4niYsMsvVNEc
 ```
+
+</details>
+
+<details>
+<summary>JsonWebKey2020</summary>
+
+Encoding to `publicKeyJwk`
+
+```bash
+cheqd-noded debug encoding pubkey-base64-to-jwk <pub_key_base_64>
+```
+
+For example:
+
+```bash
+$ cheqd-noded debug ed25519 pubkey-base64-to-jwk MnrTheU+vCrN3W+WMvcpBXYBG6D1HrN5usL1zS6W7/k=
+
+{"crv":"Ed25519","kty":"OKP","x":"MnrTheU-vCrN3W-WMvcpBXYBG6D1HrN5usL1zS6W7_k"}
+```
+
+</details>
+
 
 ### 3. Create a unique identifier for the DID
 
@@ -79,9 +124,11 @@ $ nano diddoc.json
   "verificationMethod": [
     {
       "id": "did:cheqd:<namespace>:<unique-id>#<key-alias>",
-      "verificationMethodType": "Ed25519VerificationKey2018",
+      "verificationMethodType": "<verification-method-type>",
       "controller": "did:cheqd:<namespace>:<unique-id>",
-      "publicKeyBase58": "<verification-public-key-multibase>"
+      "publicKeyBase58": "<public-key-base58>",
+      "publicKeyMultibase": "<public-key-multibase>",
+      "publicKeyJwk": "<public-key-jwk>"
     }
   ],
   "authentication": [
@@ -100,7 +147,8 @@ In this template, you'll need to replace some values (as described in the [cheqd
 * `<namespace>`: Can be `testnet` or `mainnet`. For this example, we can use `testnet`.
 * `<unique-id>`: Unique identifier, created in step #3
 * `<key-alias>`: A key alias for the verification method identifier, e.g., `#key1`
-* `<verification-public-key-base58>`: Result of step #2 above
+* `<verification-method-type>`: Verification method type slected from step #2 above
+* `<public-key-base58>, <public-key-multibase>, <public-key-jwk>` : Any one of the values from the result of step #2 above
 * `<auth-key-alias>`: Alias of authentication key. Can be a reference to an existing verification method.
 * `<service-key>`: Alias for service property. This is an _optional_ section but useful to understand the power of DIDDocs.
 * `<URI-to-object>`: A valid URI that can act as a service endpoint.
