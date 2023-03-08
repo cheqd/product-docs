@@ -5,7 +5,7 @@
 | Category | Status |
 | :--- | :--- |
 | **Authors** | Daev Mithran |
-| **ADR Stage** | PROPOSED |
+| **ADR Stage** | ACCEPTED |
 | **Implementation Status** | In Progress |
 | **Start Date** | 2023-01-30 |
 | **Last Updated** | 2023-01-30 |

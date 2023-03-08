@@ -12,7 +12,7 @@ The [ledger code package `cheqd-node`](https://github.com/cheqd/cheqd-node) is b
 
 There are two custom modules on cheqd ledger related to identity functionality:
 
-1. `cheqd` module, for everything related to [Decentralized Identifiers (DIDs)](../guides/decentralized-identifiers.md)
+1. `cheqd` module, for everything related to Decentralized Identifiers (DIDs)
 2. `resource` module, for [DID-Linked Resources](../guides/did-linked-resources/README.md)
 
 ## Developing Golang apps for cheqd
