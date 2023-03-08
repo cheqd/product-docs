@@ -178,8 +178,8 @@ Resource previews will aopear within DIDDocMetadata. These do not include the ac
 * MediaType: (e.g. `application/json`/`image`/`application/octet-stream`/`text/plain`) (computed ledger-side)
 * Created: XMLDatetime (computed ledger-side)
 * Checksum: SHA-256 (computed ledger-side)
-* previousVersionId: "" empty string if first, otherwise ID as long as Name, ResourceType, and MimeType match previous version (computed ledger-side)
-* nextVersionId: "" empty string if first/latest, otherwise ID as long as Name, ResourceType, and MimeType match previous version (computed ledger-side)
+* previousVersionId: empty string if first, otherwise ID as long as Name, ResourceType, and MimeType match previous version (computed ledger-side)
+* nextVersionId: empty string if first/latest, otherwise ID as long as Name, ResourceType, and MimeType match previous version (computed ledger-side)
 * Also known as: a list of alternative URIs that can be used to get the resource.
 
 Example:
