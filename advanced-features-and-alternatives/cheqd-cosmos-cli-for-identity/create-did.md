@@ -152,7 +152,7 @@ The examples below show the variation in syntax for different verification metho
     "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
     "type": "LinkedDomains",
     "serviceEndpoint": [
-        "https://foo.example.com"
+        "https://bar.example.com"
     ]
   }]
 }
@@ -182,7 +182,7 @@ The examples below show the variation in syntax for different verification metho
     "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
     "type": "LinkedDomains",
     "serviceEndpoint": [
-        "https://foo.example.com"
+        "https://bar.example.com"
     ]
   }]
 }
@@ -216,7 +216,7 @@ The examples below show the variation in syntax for different verification metho
     "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
     "type": "LinkedDomains",
     "serviceEndpoint": [
-        "https://foo.example.com"
+        "https://bar.example.com"
     ]
   }]
 }
@@ -269,7 +269,7 @@ The example of `payload.json` files with different verification methods:
       "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
       "type": "LinkedDomains",
       "serviceEndpoint": [
-        "https://foo.example.com"
+        "https://bar.example.com"
       ]
     }]
   },
@@ -307,7 +307,7 @@ The example of `payload.json` files with different verification methods:
       "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
       "type": "LinkedDomains",
       "serviceEndpoint": [
-        "https://foo.example.com"
+        "https://bar.example.com"
       ]
     }]
   },
@@ -349,7 +349,7 @@ The example of `payload.json` files with different verification methods:
       "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
       "type": "LinkedDomains",
       "serviceEndpoint": [
-        "https://foo.example.com"
+        "https://bar.example.com"
       ]
     }]
   },
