@@ -255,7 +255,7 @@ Each request to create a Resource _must_ provide the following parameters, suppl
 * **Resource Name**: String (e.g., `CL-Schema1` (supplied client-side))
 * **Resource Type**: (e.g JSONSchema 2020, supplied client-side. It is recommended that new Resource Types are included in the [**DID Spec Registries**](https://www.w3.org/TR/did-spec-registries/))
 * **Resource Version:** String (OPTIONAL). It is a human-readable semantic version for the Resource (e.g., `1.0.0` (supplied client-side))
-* * **alsoKnownAs:** (OPTIONAL) a list of alternative URIs that can be used to get the resource.
+* **alsoKnownAs:** (OPTIONAL) a list of alternative URIs that can be used to get the resource.
 
 In addition to the above client-provided parameters, the ledger-side code will populate the following additional header fields (for properly-authenticated requests):
 
