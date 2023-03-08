@@ -49,10 +49,9 @@
   * [Revocation Registry Definition Object](guides/using-on-ledger-resources-to-support-anoncreds/revocation-registry-definition-object.md)
   * [Status List Entry Object](guides/using-on-ledger-resources-to-support-anoncreds/revocation-registry-entry-object.md)
 * [🔍 Understanding cheqd DID Resolver](guides/did-resolver.md)
-* [🧑⚖ Smart Governance](guides/smart-governance/README.md)
+* [Smart Governance](guides/smart-governance/README.md)
   * [Governance File](guides/smart-governance/governance-file.md)
   * [Trust Registry](guides/smart-governance/trust-registry.md)
-  * [Using DID-Linked Resources to support Governance](guides/smart-governance/governance-framework.md)
 
 ## 🏗 Architecture
 
