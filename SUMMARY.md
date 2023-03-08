@@ -33,7 +33,6 @@
 
 ## 📑 Guides
 
-* [🆔 cheqd DID method](guides/decentralized-identifiers.md)
 * [📦 Software Development Kits (SDKs)](guides/software-development-kits-sdks/README.md)
   * [🛠 Veramo SDK for cheqd](guides/software-development-kits-sdks/veramo-sdk-for-cheqd/README.md)
     * [👉 Setting up Veramo CLI for cheqd](guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md)
