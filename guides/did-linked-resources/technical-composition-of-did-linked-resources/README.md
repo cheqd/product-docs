@@ -30,13 +30,11 @@ will derive the Collection ID: **1f8e08a2-eeb6-40c3-9e01-33e4a0d1479d**
 
 A Collection is created using a _createResource_ transaction, and specifying the Collection ID as the same identifier as that of the parent DID.
 
-{% hint style="info" %}
-Note that the Collection ID may take the syntactical form of a 'Hyperledger Indy' DID identifier **or** may be a [Universally Unique Identifier (UUID)](https://www.uuidgenerator.net/). This is described in the [cheqd DID method](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method).
-{% endhint %}
+> Note that the Collection ID may take the syntactical form of a 'Hyperledger Indy' DID identifier **or** may be a [Universally Unique Identifier (UUID)](https://www.uuidgenerator.net/). This is described in the [cheqd DID method](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method).
 
 ## Creating a Resource inside a Collection, associated with a DID
 
-To create a **"resource"**, you must already have created a 'parent' DID, from which the Collection ID can be derived. When you carry out the `createResource` transaction, you must:
+To create a **"DID-Linked Resource"**, you must already have created a 'parent' DID, from which the Collection ID can be derived. When you carry out the `createResource` transaction, you must:
 
 1. Generate **a new, unique UUID** for the Resources
 2. Specify the **same Collection ID** as the unique identifier of the parent DID
@@ -55,7 +53,9 @@ Example of `createResource` transaction using Veramo SDK:
         "collectionId": "1f8e08a2-eeb6-40c3-9e01-33e4a0d1479d",
         "id": "f3d39687-69f5-4046-a960-3aae86a0d3ca",
         "name": "PassportSchema",
+        "version": "", // optional
         "resourceType": "CL-Schema",
+        "alsoKnownAs": [], // optional alternative URIs
         "data": "SGVsbG8sIHdvcmxk" // base 64 encoded file 
     },
     "signInputs": [{
@@ -68,7 +68,7 @@ Example of `createResource` transaction using Veramo SDK:
 
 ## Linking DIDs to Resources and Collections
 
-Multiple, linked resources can be stored in a **Collection**, for example, this could be different versions of the same Resource over a period of time or semantically-linked resources. This enables unique resources to be stored directly on-ledger and be **retrievable through DID resolution** and **dereferencing**.
+Multiple, DID-Linked Resources can be stored in a **Collection**, for example, this could be different versions of the same Resource over a period of time or semantically-linked resources. This enables unique resources to be stored directly on-ledger and be **retrievable through DID resolution** and **dereferencing**.
 
 Once you have created a resource, the DID Document will automatically reference the resource and the collection within the `didDocumentMetadata` in a newly defined section called `linkedResourceMetadata`.
 
@@ -91,8 +91,8 @@ The syntax of a Resource metadata for a single schema is as follows:
     "mediaType": "application/json",
     "created": "2022-07-19T08:40:00Z",
     "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
-    "previousVersionId": null, // null if no previous version, otherwise, resourceId of previous version
-    "nextVersionId": null, // null if no new version, otherwise, resourceId of new version
+    "previousVersionId": "", // empty string if no previous version, otherwise, resourceId of previous version
+    "nextVersionId": "", // null if no new version, otherwise, resourceId of new version
   }
 ]
 ```
@@ -103,22 +103,42 @@ Any [valid IANA Media Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Ba
 
 A [Golang library is used to derive and set media type](https://ipfs.io/) based on the **file extension of provided resource file**. This makes it much simpler to maintain, since there is no list of file types that the cheqd ledger needs to gatekeep.
 
-## Resource Parameters
+## Resource Request Parameters
 
-The following list defines which specific parameters a resource MUST contain to conform with this specification, and which parameters are OPTIONAL.
+The following list defines which specific parameters a resource request format may contain:
 
-| `"resourceUri"`          | <p>A <a href="https://infra.spec.whatwg.org/#string">string</a> or a <a href="https://infra.spec.whatwg.org/#maps">map</a> that conforms to the rules of [RFC3986 URIs](https://www.w3.org/TR/did-core/#dfn-uri) which SHOULD directly lead to a location where the resource can be accessed from.</p><p><br>For example: <code>did:cheqd:mainnet:1f8e08a2-eeb6-40c3-9e01-33e4a0d1479d/resources/f3d39687-69f5-4046-a960-3aae86a0d3ca</code></p><p><br></p> |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"resourceCollectionId"` | <p>A <a href="https://infra.spec.whatwg.org/#string">string</a> that conforms to a method specific unique identifier format.</p><p><br>For example: <code>46e2af9a-2ea0-4815-999d-730a6778227c</code></p>                                                                                                                                                                                                                                                                                                                                       |
-| `"resourceId"`           | <p>A <a href="https://infra.spec.whatwg.org/#string">string</a> that conforms to a method specific unique identifier format.</p><p><br>For example: <code>0f964a80-5d18-4867-83e3-b47f5a756f02</code></p>                                                                                                                                                                                                                                                                                                                                       |
-| `"resourceName"`         | <p>A <a href="https://infra.spec.whatwg.org/#string">string</a> that uniquely names and identifies a resource. This property, along with the resourceType below, can be used to track version changes within a resource.</p><p><br>For example: <code>degreeLaw</code></p>                                                                                                                                                                                                                                                                      |
-| `"resourceType"`         | <p>A <a href="https://infra.spec.whatwg.org/#string">string</a> that identifies the type of resource. This property, along with the resourceName above, can be used to track version changes within a resource. Not to be confused with media type. (TBC to add to DID Spec Registries)</p><p><br>For example: <code>JSONSchema2020</code></p>                                                                                                                                                                                                  |
-| `"mediaType"`            | <p>A <a href="https://infra.spec.whatwg.org/#string">string</a> that identifies the IANA-registered Media Type for a resource.</p><p><br>For example: <code>application/json</code></p>                                                                                                                                                                                                                                                                                                                                                         |
-| `"created"`              | <p>A <a href="https://www.rfc-editor.org/rfc/rfc8259#section-7">JSON String</a> serialized as an <a href="https://www.w3.org/TR/xmlschema11-2/#dateTime">XML Datetime</a> normalized to UTC 00:00:00 and without sub-second decimal precision.</p><p><br>For example: <code>2020-12-20T19:17:47Z</code></p>                                                                                                                                                                                                                                     |
-| `"checksum"`             | <p>A string that provides a <a href="https://en.wikipedia.org/wiki/Checksum">checksum</a> (e.g. SHA256, MD5) for the resource to facilitate data integrity.</p><p><br>For example: <code>7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298</code></p>                                                                                                                                                                                                                                                                            |
-| `"previousVersionId"`    | The value of the property MUST be an [string](https://infra.spec.whatwg.org/#ascii-string). This is the previous version of a resource with the same resourceName and resourceType. The value must be an empty string if there is no previous version.</p><p><br> For example: <code> 67618cfa-7a1d-4be3-b9b2-3a9ea52af305 </code>                                                                                                                                                           |
-| `"nextVersionId"`        | <p>The value of the property <em>MUST</em> be an <a href="https://infra.spec.whatwg.org/#ascii-string">string</a>. The value must be an empty string if there is no next version.</p><p><br>                                                                                                                                                                                                                                                                                          |
+| Parameter | Description |
+| :--- | :--- |
+| **`resourceUri`** | A string or a map that conforms to the rules of [RFC3986 URIs](https://www.w3.org/TR/did-core/#dfn-uri) which SHOULD directly lead to a location where the resource can be accessed from. For example: `dic:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c/resources/0f964a80-5d18-4867-83e3-b47f5a756f02`   |
+| **`resourceCollectionId`** | A string that conforms to a cheqd-supported unique identifier format. For example a UUID: `46e2af9a-2ea0-4815-999d-730a6778227c`  |
+| **`resourceId`** | A string that uniquely identifies the resource, cheqd uses UUIDs. For example a UUID: `0f964a80-5d18-4867-83e3-b47f5a756f02` |
+| **`resourceName`** | A string that uniquelt names and identifies a resource. This property, along with the resourceType below, can be used to track version changes within a resource. |
+| **`resourceType`** | A string that identifies the type of resource. This property, along with the resourceName above, can be used to track version changes within a resource. Not to be confused with media type. |
+| **`resourceVersion`** | (Optional) A string that identifies the version of resource. This property is provided by the client and can be any value |
+| **`alsoKnownAs`** | (Optional) An array that describes alternative URIs for the  resource. |
 
+## Resource Response Parameters
+
+The following list defines which specific parameters a resource response format may contain:
+
+| Parameter | Description |
+| :--- | :--- |
+| **`resourceUri`** | A string or a map that conforms to the rules of [RFC3986 URIs](https://www.w3.org/TR/did-core/#dfn-uri) which SHOULD directly lead to a location where the resource can be accessed from. For example: `dic:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c/resources/0f964a80-5d18-4867-83e3-b47f5a756f02`   |
+| **`resourceCollectionId`** | A string that conforms to a cheqd-supported unique identifier format. For example a UUID: `46e2af9a-2ea0-4815-999d-730a6778227c`  |
+| **`resourceId`** | A string that uniquely identifies the resource, cheqd uses UUIDs. For example a UUID: `0f964a80-5d18-4867-83e3-b47f5a756f02` |
+| **`resourceName`** | A string that uniquelt names and identifies a resource. This property, along with the resourceType below, can be used to track version changes within a resource. |
+| **`resourceType`** | A string that identifies the type of resource. This property, along with the resourceName above, can be used to track version changes within a resource. Not to be confused with media type. |
+| **`resourceVersion`** | (Optional) A string that identifies the version of resource. This property is provided by the client and can be any value |
+| **`alsoKnownAs`** | (Optional) An array that describes alternative URIs for the  resource. |
+| **`mediaType`** | A string that identifies the IANA-media type of the resource. |
+| **`created`** | A string that identifies the time the resource was created in XML date-time. |
+| **`updated`** | (Optional) A string that identifies the time the resource was updated in XML date-time. |
+| **`checksum`** | A string that may be used to prove that the resource has not been tampered. |
+| **`previousVersionId`** | (Optional) A string that identifies the previous version of the resource. |
+| **`nextVersionId`** | (Optional) A string that identifies the next version of the resource. |
+
+
+                                          
 ## Example of a resolved DID with an associated Resource
 
 Let’s take a look at a fully resolved **output response** for a **DID with a Collection and single associated Resource:**
@@ -157,7 +177,7 @@ Let’s take a look at a fully resolved **output response** for a **DID with a C
   },
   "didDocumentMetadata": {
     "created": "2015-04-10T11:51:40Z",
-    "versionId": "9D760202FF2BD4A12344283627FF251BE6C48812C7626C3564C1C2843CAB9085",
+    "versionId": "ea2b76cf-a118-403a-8f49-244e56c9dcb8",
     "linkedResourceMetadata": [
       { // First version of a Resource called PassportSchema
         "resourceURI": "did:cheqd:mainnet:1f8e08a2-eeb6-40c3-9e01-33e4a0d1479d/resources/f3d39687-69f5-4046-a960-3aae86a0d3ca",
@@ -265,7 +285,7 @@ This logic prevents `GetResourceCollection` requests returning large quantities 
 
 In order to fetch the actual data, it is necessary to query **the specific Resource**, rather than **the entire Collection**.
 
-For more information about the particulars of requests and responses, please refer to our [**ADR on Resources on ledger**](https://docs.cheqd.io/node/architecture/adr-list/adr-008-ledger-resources).
+For more information about the particulars of requests and responses, please refer to our [**ADR on Resources on ledger**](../../../architecture/adr-list/adr-002-did-linked-resources.md).
 
 ## Versioning and Archiving Resources
 
@@ -287,33 +307,4 @@ However, query-based syntax should also be enabled to **allow more granular and 
 
 To enable combined resolution/dereferencing behavior, cheqd are defining multiple query-based [DID URL](https://www.w3.org/TR/did-core/#dfn-did-urls) parameters to fetch `resource` or associated metadata. If a [DID method](https://www.w3.org/TR/did-core/#dfn-did-methods) specification supports these parameters, and if a [DID URL](https://www.w3.org/TR/did-core/#dfn-did-urls) using that method includes the parameter with a valid value, then when a resolver calls the associated [VDR](https://www.w3.org/TR/did-core/#dfn-verifiable-data-registry) using that [DID URL](https://www.w3.org/TR/did-core/#dfn-did-urls), the VDR returns the identified digital resource, **not** the [DID document](https://www.w3.org/TR/did-core/#dfn-did-documents).
 
-{% hint style="warning" %}
-**IMPORTANT**: DID URL queries should be fully qualified so that they **uniquely identify a single resource, or single resource version unless expressly specified**.
-{% endhint %}
-
-{% hint style="info" %}
-Note: This work on query based dereferencing is still a work in progress
-{% endhint %}
-
-Selection of proposed query-based **input parameters**:
-
-| `"resourceId"`            | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                                                                                            |
-| ------------------------- | ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"resourceName"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw                                                                                                                                                                                                                                                                                                                                                     |
-| `"resourceType"`          | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020                                                                                                                                                                                                                                                                                                                        |
-| `"resourceVersionId"`     | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceVersionId=1.3.1                                                                                                                                                                                                                                                                                                                            |
-| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2015-03-11T05:30:02Z                                                                                                                                                                                                                                                                                      |
-| `"versionId"`             | [String](https://infra.spec.whatwg.org/#string)               | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?versionId=0f964a80-5d18-4867-83e3-b47f5a756f02                                                                                                                                                                                                                                                                                                                             |
-| `"versionTime"`           | [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&versionTime=2018-07-19T08:40:00Z                                                                                                                                                                                                                                                                                      |
-| `"linkedResource"`        | [Boolean](https://infra.spec.whatwg.org/#booleans)            | <p>did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?linkedResource=true<br><br>// <em>note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document.</em></p>                                                                                                                                                                                                           |
-| `"resourceMetadata"`      | [Boolean](https://infra.spec.whatwg.org/#booleans)            | <p>did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw&#x26;resourceType=JSONSchema2020&#x26;versionTime=2018-07-19T08:40:00Z&#x26;resourceMetadata=true</p><p><br>or,<br></p><p>did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceMetadata=true<br><br>// <em>note that this would only be a valid query if there is ONLY ONE resource associated with the DID and DID Document.</em></p> |
-| "`latestResourceVersion`" | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&latestResourceVersion=true                                                                                                                                                                                                                                                                                            |
-| "`allResourceVersions`"   | [Boolean](https://infra.spec.whatwg.org/#booleans)            | did:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c?resourceName=degreeLaw\&resourceType=JSONSchema2020\&allResourceVersions=true                                                                                                                                                                                                                                                                                              |
-
-### Flattening query-based inputs to path-based outputs
-
-The [query](http://url.spec.whatwg.org/#concept-url-query) and [fragment](http://url.spec.whatwg.org/#concept-url-fragment) components, when present, complement the [path](http://url.spec.whatwg.org/#concept-url-path) component in identifying a specific resource. However, when [dereferencing](https://www.w3.org/TR/2013/WD-app-uri-20130516/#rules-for-dereferencing-an-app:-uri), the [`query`](https://www.w3.org/TR/2013/WD-app-uri-20130516/#query) and [`fragment`](https://www.w3.org/TR/2013/WD-app-uri-20130516/#fragment) components don't play any part in locating the actual resource.
-
-If the query is able to isolate a resource with a given '/' path based syntax, then there must be a "merge" routine where a relative-path reference is merged with the path of the base URI.
-
-Therefore, a query may only be an input parameter, while a resource identified with a path-based syntax will always be the output (if the dereferencing is successful).
+> **IMPORTANT**: DID URL queries should be fully qualified so that they **uniquely identify a single resource, or single resource version unless expressly specified**.
