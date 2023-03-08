@@ -2,7 +2,7 @@
 
 ## Overview
 
-For Self-Sovereign Identity ecosystems to work in practice, governance is a key component for defining rules, policies and processes under which the ecosystem participants need to comply.&#x20;
+For Self-Sovereign Identity ecosystems to work in practice, governance is a key component for defining rules, policies and processes under which the ecosystem participants need to comply.
 
 On cheqd, Governance files can be tied to DIDs and identified with their own DID URLs, in order to act as a trusted hub in a particular ecosystem for:
 
@@ -53,14 +53,14 @@ For example, the following DID is shown with a Governance File attached
         "id": "did:cheqd:testnet:28b25f5d-36d6-45e0-9366-ec67db4aac75#GovernanceFile",
         "type": "linkedResource",
         "serviceEndpoint" [
-            "did:cheqd:testnet:28b25f5d-36d6-45e0-9366-ec67db4aac75/resources/569b740e-6bf2-41a7-b9ba-acba2ae5e8ad",
+            "did:cheqd:testnet:28b25f5d-36d6-45e0-9366-ec67db4aac75/resources/569b740e-6bf2-41a7-b9ba-acba2ae5e8ad"
         ]
       }
     ]
   },
   "didDocumentMetadata": {
     "created": "2022-09-16T11:15:20Z",
-    "versionId": "4E106C7485BA847BBB4032A7FD019432EE048F0531887BF6B3DE97739CC39D62",
+    "versionId": "ea2b76cf-a118-403a-8f49-244e56c9dcb8",
     "linkedResourceMetadata": [
       {
         "resourceURI": "did:cheqd:testnet:28b25f5d-36d6-45e0-9366-ec67db4aac75/resources/569b740e-6bf2-41a7-b9ba-acba2ae5e8ad",
@@ -71,8 +71,8 @@ For example, the following DID is shown with a Governance File attached
         "mediaType": "application/json",
         "created": "2022-09-16T11:15:52Z",
         "checksum": "0f503dfbff29de9ac74fd07f1720ba560eb388e28062367884890c311736ec9d",
-        "previousVersionId": null,
-        "nextVersionId": null
+        "previousVersionId": "",
+        "nextVersionId": ""
       }
     ]
   }
