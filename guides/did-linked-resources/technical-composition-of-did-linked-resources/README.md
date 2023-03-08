@@ -136,9 +136,7 @@ The following list defines which specific parameters a resource response format 
 | **`checksum`** | A string that may be used to prove that the resource has not been tampered. |
 | **`previousVersionId`** | (Optional) A string that identifies the previous version of the resource. |
 | **`nextVersionId`** | (Optional) A string that identifies the next version of the resource. |
-
-
-                                          
+                    
 ## Example of a resolved DID with an associated Resource
 
 Let’s take a look at a fully resolved **output response** for a **DID with a Collection and single associated Resource:**
