@@ -37,24 +37,27 @@ Cosmos SDK framework typically provides [gRPC/gRPC-Web, JSON-RPC, and REST API e
 
 For example, `did:cheqd:testnet:DAzMQo4MDMxCjgwM` can be fetched using the native Cosmos SDK REST API endpoint (or equivalent endpoints). This provides responses that would meet the abstract definition of a `resolve` function as defined in the DID Core specification.
 
-In case of the cheqd network _testnet_, an instance of this `resolve` endpoint through the Cosmos SDK REST API would be [api.cheqd.network/cheqd/v1/did/did:cheqd:testnet:DAzMQo4MDMxCjgwM](https://api.cheqd.network/cheqd/v1/did/did:cheqd:testnet:DAzMQo4MDMxCjgwM) which returns the following response:
+In case of the cheqd network _testnet_, an instance of this `resolve` endpoint through the Cosmos SDK REST API would be [api.cheqd.network/cheqd/v1/did/did:cheqd:testnet:97e351e6-2d9d-4314-82ec-e0d12bc5de43](https://api.cheqd.network/cheqd/v1/did/did:cheqd:testnet:97e351e6-2d9d-4314-82ec-e0d12bc5de43) which returns the following response:
 
 ```json
 {
   "did": {
     "context": [],
-    "id": "did:cheqd:testnet:DAzMQo4MDMxCjgwM",
+    "id": "did:cheqd:testnet:97e351e6-2d9d-4314-82ec-e0d12bc5de43",
     "controller": [],
     "verification_method": [
       {
-        "id": "did:cheqd:testnet:DAzMQo4MDMxCjgwM#key1",
+        "id": "did:cheqd:testnet:97e351e6-2d9d-4314-82ec-e0d12bc5de43#key1",
         "type": "Ed25519VerificationKey2020",
-        "controller": "did:cheqd:testnet:DAzMQo4MDMxCjgwM",
-        "public_key_jwk": [],
-        "public_key_multibase": "z6jVkB274neVf7iJETpMECwznBF8wDe8tpvF4BZLRZgMU"
+        "controller": "did:cheqd:testnet:97e351e6-2d9d-4314-82ec-e0d12bc5de43",
+        "public_key_jwk": {
+          "crv": "Ed25519",
+          "kty": "OKP",
+          "x": "q8-CHj4_nIYo8tK5RdjYbXlsTUnwW_i4gIEclps2i2o"
+        }
       }
     ],
-    "authentication": ["did:cheqd:testnet:DAzMQo4MDMxCjgwM#key1"],
+    "authentication": ["did:cheqd:testnet:97e351e6-2d9d-4314-82ec-e0d12bc5de43#key1"],
     "assertion_method": [],
     "capability_invocation": [],
     "capability_delegation": [],
@@ -66,8 +69,7 @@ In case of the cheqd network _testnet_, an instance of this `resolve` endpoint t
     "created": "2022-07-19T08:29:07Z",
     "updated": "",
     "deactivated": false,
-    "version_id": "57543FA1D9C56033BABBFA3A438E0A149E01BBB89E6D666ACE1243455AA6F2BC",
-    "resources": ["44547089-170b-4f5a-bcbc-06e46e0089e4"]
+    "version_id": "cfe2f51f-8ec5-4fd8-8ab9-61859de879f4",
   }
 }
 ```
@@ -94,38 +96,38 @@ For example, a `resolveRepresentation` function _could_ derive a valid standards
     "contentType": "application/did+ld+json",
     "retrieved": "2022-08-03T09:52:49Z",
     "did": {
-      "didString": "did:cheqd:testnet:DAzMQo4MDMxCjgwM",
-      "methodSpecificId": "DAzMQo4MDMxCjgwM",
+      "didString": "did:cheqd:testnet:ea2b76cf-a118-403a-8f49-244e56c9dcb8",
+      "methodSpecificId": "ea2b76cf-a118-403a-8f49-244e56c9dcb8",
       "method": "cheqd"
     }
   },
   "didDocument": {
-    "id": "did:cheqd:testnet:DAzMQo4MDMxCjgwM",
+    "id": "did:cheqd:testnet:ea2b76cf-a118-403a-8f49-244e56c9dcb8",
     "verificationMethod": [
       {
-        "id": "did:cheqd:testnet:DAzMQo4MDMxCjgwM#key1",
+        "id": "did:cheqd:testnet:ea2b76cf-a118-403a-8f49-244e56c9dcb8#key1",
         "type": "Ed25519VerificationKey2020",
-        "controller": "did:cheqd:testnet:DAzMQo4MDMxCjgwM",
+        "controller": "did:cheqd:testnet:ea2b76cf-a118-403a-8f49-244e56c9dcb8",
         "publicKeyMultibase": "z6jVkB274neVf7iJETpMECwznBF8wDe8tpvF4BZLRZgMU"
       }
     ],
-    "authentication": ["did:cheqd:testnet:DAzMQo4MDMxCjgwM#key1"]
+    "authentication": ["did:cheqd:testnet:ea2b76cf-a118-403a-8f49-244e56c9dcb8#key1"]
   },
   "didDocumentMetadata": {
     "created": "2022-07-19T08:29:07Z",
-    "versionId": "57543FA1D9C56033BABBFA3A438E0A149E01BBB89E6D666ACE1243455AA6F2BC",
+    "versionId": "a0a4f3a3-829d-4188-bc78-8bea6a522037",
     "linkedResourceMetadata": [
       {
-        "resourceURI": "did:cheqd:testnet:DAzMQo4MDMxCjgwM/resources/44547089-170b-4f5a-bcbc-06e46e0089e4",
-        "resourceCollectionId": "DAzMQo4MDMxCjgwM",
+        "resourceURI": "did:cheqd:testnet:ea2b76cf-a118-403a-8f49-244e56c9dcb8/resources/44547089-170b-4f5a-bcbc-06e46e0089e4",
+        "resourceCollectionId": "ea2b76cf-a118-403a-8f49-244e56c9dcb8",
         "resourceId": "44547089-170b-4f5a-bcbc-06e46e0089e4",
         "resourceName": "DemoResource",
         "resourceType": "CL-Schema",
         "mediaType": "application/json",
         "created": "2022-07-19T08:40:00Z",
         "checksum": "7b2022636f6e74656e74223a202274657374206461746122207d0ae3b0c44298",
-        "previousVersionId": null, // null if no previous version, otherwise, resourceId of previous version
-        "nextVersionId": null // null if no new version, otherwise, resourceId of new version
+        "previousVersionId": "", // empty string if no previous version, otherwise, resourceId of previous version
+        "nextVersionId": "" // empty string if no new version, otherwise, resourceId of new version
       }
     ]
   }

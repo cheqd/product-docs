@@ -5,15 +5,35 @@
 * [Understanding DID-Linked Resources](../../guides/did-linked-resources/README.md)
 * [ADR 002: DID-Linked Resources](../../architecture/adr-list/adr-002-did-linked-resources.md)
 
-## Creating DID-Linked Resources
+## Multiple options for creating DID-Linked Resources
 
-DID-Linked Resources can be created using the Veramo SDK for cheqd:
+There are multiple supported ways to create DID-Linked Resources on cheqd mainnet and testnet:
 
-{% hint style="success" %}
-**Before you begin...**
+1. Enterprise SDKs
+   1. [Veramo SDK for cheqd](#did-linked-resources-with-veramo-sdk-for-cheqd)
+2. [DID Registrar](#did-linked-resources-with-did-registrar)
+3. [cheqd CLI](#did-linked-resources-with-cheqd-cli) (testing purposes only)
 
-Make sure you've correctly [configured the cheqd plugin's agent settings](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md) for Veramo CLI
-{% endhint %}
+## DID-Linked Resources with Veramo SDK for cheqd
+
+This documentation describes how you can use the Veramo SDK for cheqd to create DID-Linked Resources.
+
+> ⚠️ **Before you begin...**
+>
+> Make sure you've correctly [configured the cheqd plugin's agent settings](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md) for Veramo CLI
 
 * [Create a DID-Linked Resource](create-a-resource.md)
-* [Create a new Resource version within existing Collection](create-a-new-resource-version.md)
+* [Create a new Resource version](create-a-new-resource-version.md)
+* [Create a Status List as a Resource](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/using-on-ledger-resources-to-support-statuslist2021.md)
+
+## DID-Linked Resources with DID Registrar
+
+* [Setup DID Registrar](../did-registrar/did-registrar-setup.md)
+* [Create a DID-Linked Resource](../did-registrar/create-a-resource.md)
+
+## DID-Linked Resources with cheqd CLI
+
+> Note that the cheqd Cosmos CLI is not suitable for use in production environments and should only be used for testing
+
+* [Setup cheqd CLI](../../advanced-features-and-alternatives/developer-guide.md)
+* [Create a DID-Linked Resource](../../advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/create-resource.md)

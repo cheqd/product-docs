@@ -152,7 +152,7 @@ The examples below show the variation in syntax for different verification metho
     "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
     "type": "LinkedDomains",
     "serviceEndpoint": [
-        "https://foo.example.com"
+        "https://bar.example.com"
     ]
   }]
 }
@@ -182,7 +182,7 @@ The examples below show the variation in syntax for different verification metho
     "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
     "type": "LinkedDomains",
     "serviceEndpoint": [
-        "https://foo.example.com"
+        "https://bar.example.com"
     ]
   }]
 }
@@ -216,7 +216,7 @@ The examples below show the variation in syntax for different verification metho
     "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
     "type": "LinkedDomains",
     "serviceEndpoint": [
-        "https://foo.example.com"
+        "https://bar.example.com"
     ]
   }]
 }
@@ -244,7 +244,11 @@ After assembling the DID-Document JSON file we are ready to compile the final pa
 }
 ```
 
-The example of `payload.json` file:
+The example of `payload.json` files with different verification methods:
+
+<details>
+
+<summary>Ed25519VerificationKey2018</summary>
 
 ```json
 {
@@ -264,7 +268,9 @@ The example of `payload.json` file:
     "service": [{
       "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
       "type": "LinkedDomains",
-      "serviceEndpoint": ["https://bar.example.com"]
+      "serviceEndpoint": [
+        "https://bar.example.com"
+      ]
     }]
   },
   "signInputs": [
@@ -275,6 +281,88 @@ The example of `payload.json` file:
   ]
 }
 ```
+
+</details>
+
+<details>
+
+<summary>Ed25519VerificationKey2020</summary>
+
+```json
+{
+  "payload": {
+    "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
+    "verificationMethod": [
+      {
+        "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
+        "type": "Ed25519VerificationKey2018",
+        "controller": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
+        "publicKeyMultibase": "z2yJuNbhoUpRn7ypAugSLzkCc8QEw146RJ8DD3jzCZQ6A"
+      }
+    ],
+    "authentication": [
+      "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1"
+    ],
+    "service": [{
+      "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
+      "type": "LinkedDomains",
+      "serviceEndpoint": [
+        "https://bar.example.com"
+      ]
+    }]
+  },
+  "signInputs": [
+    {
+      "verificationMethodId": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
+      "privKey": "wNXCJ9Ny0uzCYhnTE3gfQuwgQM4QZCw08+j01QDfoGxMMI9u9GIv/90eH3E3KjHjlSi9hKRQy94PvKVAH1+Rhw=="
+    }
+  ]
+}
+```
+
+</details>
+
+<details>
+
+<summary>JsonWebKey2020</summary>
+
+```json
+{
+  "payload": {
+    "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
+    "verificationMethod": [
+      {
+        "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
+        "type": "Ed25519VerificationKey2018",
+        "controller": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
+        "publicKeyJwk": {
+          "kty": "OKP", // external (property name)
+          "crv": "Ed25519", // external (property name)
+          "x": "VCpo2LMLhn6iWku8MKvSLg2ZAoC-nlOyPVQaO3FxVeQ" // external (property name)
+        }
+      }
+    ],
+    "authentication": [
+      "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1"
+    ],
+    "service": [{
+      "id":"did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#linked-domain",
+      "type": "LinkedDomains",
+      "serviceEndpoint": [
+        "https://bar.example.com"
+      ]
+    }]
+  },
+  "signInputs": [
+    {
+      "verificationMethodId": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
+      "privKey": "wNXCJ9Ny0uzCYhnTE3gfQuwgQM4QZCw08+j01QDfoGxMMI9u9GIv/90eH3E3KjHjlSi9hKRQy94PvKVAH1+Rhw=="
+    }
+  ]
+}
+```
+
+</details>
 
 ### 6. Submitting DID creation request to the ledger
 
