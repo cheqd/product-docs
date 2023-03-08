@@ -4,9 +4,8 @@
 
 ## 🍽 Contents
 
-### :bookmark\_tabs: Guides
+### :bookmark_tabs: Guides
 
-* :id: [cheqd DID method](guides/decentralized-identifiers.md)
 * :package: [Software Development Kits (SDKs)](guides/software-development-kits-sdks/)
 * :link: [Understanding DID-Linked Resources](guides/did-linked-resources/)
 * :unlock: [AnonCreds on cheqd](guides/using-on-ledger-resources-to-support-anoncreds/)
@@ -16,13 +15,13 @@
 ### :book: Tutorials
 
 * [🆔 Decentralised Identifiers (DIDs)](tutorials/did-operations/)
-* :page\_with\_curl: [Verifiable Credentials and Presentations](tutorials/verifiable-credentials-and-presentations/)
-* :link: [Create DID-Linked Resources](tutorials/on-ledger-resources/)
-* :arrows\_counterclockwise: [DID Resolver setup](tutorials/DID-resolution.md)
+* :page_with_curl: [Verifiable Credentials and Presentations](tutorials/verifiable-credentials-and-presentations/)
+* :link: [DID-Linked Resources](tutorials/on-ledger-resources/)
+* :arrows_counterclockwise: [DID Resolver setup](tutorials/DID-resolution.md)
 * [🛅](https://emojipedia.org/left-luggage/) [Demo Wallet for identity setup](tutorials/wallet.md)
 * [➡️](https://emojipedia.org/right-arrow/) [DID Registrar](tutorials/did-registrar/README.md)
 
-### :construction\_site: Architecture
+### :construction_site: Architecture
 
 * [Architecture Decision Record (ADR) Process](architecture/)
 * [List of ADRs](architecture/adr-list/)
@@ -30,8 +29,8 @@
 ### :dizzy: Advanced features and alternatives
 
 * :nerd: [Direct interaction with ledger code](advanced-features-and-alternatives/developer-guide.md)
-* :satellite\_orbital: [cheqd Cosmos CLI for identity](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/)
-* :hammer\_pick: [VDR Tools CLI with cheqd](advanced-features-and-alternatives/vdr-tools-with-cheqd.md)
+* :satellite_orbital: [cheqd Cosmos CLI for identity](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/)
+* :hammer_pick: [VDR Tools CLI with cheqd](advanced-features-and-alternatives/vdr-tools-with-cheqd.md)
 
 ## 📖 Other useful documentation sites for cheqd
 
