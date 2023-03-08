@@ -99,10 +99,10 @@ cheqd-noded tx resource create \
   --gas auto \
   --gas-adjustment 1.8 \
   --from base_account \
-  "payloadfile.json" resource.json
+  [payload.json] [resource.json]
 ```
 
-where `payloadfile.json` is:
+where `payload.json` is:
 
 ```json
 {

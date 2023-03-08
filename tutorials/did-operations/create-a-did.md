@@ -200,9 +200,9 @@ The below examples show the variation in syntax for different verification metho
     ],
     "verificationMethod": [{
         "id": "did:cheqd:testnet:<uniqueId>#key-1",
-        "type": "Ed25519VerificationKey2018",
+        "type": "Ed25519VerificationKey2020",
         "controller": "did:cheqd:testnet:<uniqueId>",
-        "publicKeyBase": "z2yJuNbhoUpRn7ypAugSLzkCc8QEw146RJ8DD3jzCZQ6A"     
+        "publicKeyMultibase": "z2yJuNbhoUpRn7ypAugSLzkCc8QEw146RJ8DD3jzCZQ6A"     
     }],
     "authentication": [
       "did:cheqd:testnet:<uniqueId>#key-1"
