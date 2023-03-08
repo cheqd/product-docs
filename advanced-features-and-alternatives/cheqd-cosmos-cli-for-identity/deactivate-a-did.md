@@ -20,7 +20,7 @@ The purpose of this document is to describe how an existing DID (and associated 
 ### 1. Compile the payload
 
 As in flow with [creating DID-Document](create-did.md) we need to compile `payload.json` file with private key inside and pass it to the CLI.
-The result JSON in our example will look liks:
+The resulting JSON in our example will look liks:
 
 ```json
 {
@@ -29,7 +29,7 @@ The result JSON in our example will look liks:
   },
   "signInputs": [
     {
-      "verificationMethodID": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
+      "verificationMethodId": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
       "privKey": "FxaJOy4HFoC2Enu1SizKtU0L+hmBRBAEpC+B4TopfQoyetOF5T68Ks3db5Yy9ykFdgEboPUes3m6wvXNLpbv+Q=="
     }
   ]
