@@ -4,9 +4,8 @@
 
 ## 🍽 Contents
 
-### :bookmark\_tabs: Guides
+### :bookmark_tabs: Guides
 
-* :id: [cheqd DID method](guides/decentralized-identifiers.md)
 * :package: [Software Development Kits (SDKs)](guides/software-development-kits-sdks/)
 * :link: [Understanding DID-Linked Resources](guides/did-linked-resources/)
 * :unlock: [AnonCreds on cheqd](guides/using-on-ledger-resources-to-support-anoncreds/)
@@ -16,13 +15,13 @@
 ### :book: Tutorials
 
 * [🆔 Decentralised Identifiers (DIDs)](tutorials/did-operations/)
-* :page\_with\_curl: [Verifiable Credentials and Presentations](tutorials/verifiable-credentials-and-presentations/)
-* :link: [Create DID-Linked Resources](tutorials/on-ledger-resources/)
-* :arrows\_counterclockwise: [DID Resolver setup](tutorials/DID-resolution.md)
+* :page_with_curl: [Verifiable Credentials and Presentations](tutorials/verifiable-credentials-and-presentations/)
+* :link: [DID-Linked Resources](tutorials/on-ledger-resources/)
+* :arrows_counterclockwise: [DID Resolver setup](tutorials/DID-resolution.md)
 * [🛅](https://emojipedia.org/left-luggage/) [Demo Wallet for identity setup](tutorials/wallet.md)
 * [➡️](https://emojipedia.org/right-arrow/) [DID Registrar](tutorials/did-registrar/README.md)
 
-### :construction\_site: Architecture
+### :construction_site: Architecture
 
 * [Architecture Decision Record (ADR) Process](architecture/)
 * [List of ADRs](architecture/adr-list/)
@@ -30,8 +29,8 @@
 ### :dizzy: Advanced features and alternatives
 
 * :nerd: [Direct interaction with ledger code](advanced-features-and-alternatives/developer-guide.md)
-* :satellite\_orbital: [cheqd Cosmos CLI for identity](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/)
-* :hammer\_pick: [VDR Tools CLI with cheqd](advanced-features-and-alternatives/vdr-tools-with-cheqd.md)
+* :satellite_orbital: [cheqd Cosmos CLI for identity](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/)
+* :hammer_pick: [VDR Tools CLI with cheqd](advanced-features-and-alternatives/vdr-tools-with-cheqd.md)
 
 ## 📖 Other useful documentation sites for cheqd
 
@@ -48,4 +47,4 @@ Please reach out to us there for discussions, help, and feedback on the project.
 
 ## 🙋 Find us elsewhere
 
-[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge\&logo=telegram\&logoColor=white)](https://t.me/cheqd) [![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge\&logo=discord\&logoColor=white)](http://cheqd.link/discord-github) [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge\&logo=twitter\&logoColor=white)](https://twitter.com/intent/follow?screen\_name=cheqd\_io) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge\&logo=linkedin\&logoColor=white)](http://cheqd.link/linkedin) [![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge\&logo=slack\&logoColor=white)](http://cheqd.link/join-cheqd-slack) [![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge\&logo=medium\&logoColor=white)](https://blog.cheqd.io) [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge\&logo=youtube\&logoColor=white)](https://www.youtube.com/channel/UCBUGvvH6t3BAYo5u41hJPzw/)
+[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge\&logo=telegram\&logoColor=white)](https://t.me/cheqd) [![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge\&logo=discord\&logoColor=white)](http://cheqd.link/discord-github) [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge\&logo=twitter\&logoColor=white)](https://twitter.com/intent/follow?screen_name=cheqd_io) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge\&logo=linkedin\&logoColor=white)](http://cheqd.link/linkedin) [![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge\&logo=slack\&logoColor=white)](http://cheqd.link/join-cheqd-slack) [![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge\&logo=medium\&logoColor=white)](https://blog.cheqd.io) [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge\&logo=youtube\&logoColor=white)](https://www.youtube.com/channel/UCBUGvvH6t3BAYo5u41hJPzw/)

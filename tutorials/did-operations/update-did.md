@@ -52,7 +52,7 @@ So, let's try to update `service` section of our `DIDDoc`. Then, your `payload.j
         "id": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590#key-1",
         "type": "Ed25519VerificationKey2020",
         "controller": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
-        "publicKeyMultibase": "3e6bd814-6851-4c8a-b114-c64f035ef590JYD9eRNc5CSrNBKkyjep6gYdaWub"
+        "publicKeyMultibase": "z6Mkf5rGMoatrSj1f4CyvuHBeXJELe9RPdzo2PKGNCKVtZxP"
       }
     ],
     "authentication": [
@@ -64,7 +64,7 @@ So, let's try to update `service` section of our `DIDDoc`. Then, your `payload.j
         "type": "LinkedDomains",
         "serviceEndpoint": ["https://cheqd.io/"]
       }
-    ]
+    ],
     "assertionMethod": [],
     "capabilityInvocation": [],
     "capabilityDelegation": [],

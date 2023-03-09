@@ -12,7 +12,7 @@ Follow these instructions to create a new DID and publish the associated DID Doc
 
 The first step is generating a template for your DID Document, including a new DID and associated public/private key pair. This process also aligns with method 1 [in the key management guide](identity-key-handling.md).
 
-> It is important to note that this step does not create your DID on ledger, but it generates your identity keys as a draft DID Document for you to use in the on-ledger transaction in [Step 3](create-a-did.md#3.-create-new-did-and-publish-diddoc).
+> It is important to note that this step does not create your DID on ledger, but it generates your identity keys as a draft DID Document for you to use in the on-ledger transaction in [Step 3](#3-create-new-did-and-publish-diddoc).
 
 ### Command
 
@@ -111,7 +111,7 @@ Result : {
 
 </details>
 
-You can then use this template to populate your `payload.json` file in [Step 2](create-a-did.md#2.-prepare-edit-diddoc-contents).
+You can then use this template to populate your `payload.json` file in [Step 2](#2-prepareedit-diddoc-contents).
 
 ### Unexpected output
 
@@ -123,9 +123,9 @@ Unexpected token v in JSON at position 1
 
 ## 2. Prepare/edit DIDDoc contents
 
-Before creating a DID on-ledger, you will need to prepare the `payload.json` file. This file can be saved where ever you choose, but the location must be specified in the create DID command used in [Step 3](create-a-did.md#3.-create-new-did-and-publish-diddoc). (By default, it will be saved under the project root directory.)
+Before creating a DID on-ledger, you will need to prepare the `payload.json` file. This file can be saved where ever you choose, but the location must be specified in the create DID command used in [Step 3](#3-create-new-did-and-publish-diddoc). (By default, it will be saved under the project root directory.)
 
-You should copy and paste the output of [Step 1](create-a-did.md#1.-create-your-identity-keys-within-a-did-document-template) as an initial starting template for your `payload.json` file.
+You should copy and paste the output of [Step 1](#1-create-your-identity-keys-within-a-did-document-template) as an initial starting template for your `payload.json` file.
 
 ### Example of `payload.json` files
 
@@ -200,9 +200,9 @@ The below examples show the variation in syntax for different verification metho
     ],
     "verificationMethod": [{
         "id": "did:cheqd:testnet:<uniqueId>#key-1",
-        "type": "Ed25519VerificationKey2018",
+        "type": "Ed25519VerificationKey2020",
         "controller": "did:cheqd:testnet:<uniqueId>",
-        "publicKeyBase": "z2yJuNbhoUpRn7ypAugSLzkCc8QEw146RJ8DD3jzCZQ6A"     
+        "publicKeyMultibase": "z2yJuNbhoUpRn7ypAugSLzkCc8QEw146RJ8DD3jzCZQ6A"     
     }],
     "authentication": [
       "did:cheqd:testnet:<uniqueId>#key-1"

@@ -1,4 +1,4 @@
-# 📚 Publishing a new Resource version
+# Publishing a new Resource version
 
 The purpose of this document is to describe how someone can create [a _new_ Resource on under an existing _Collection_](../../guides/did-linked-resources/technical-composition-of-did-linked-resources/creating-a-resource.md).
 
@@ -44,7 +44,7 @@ cheqd-noded tx resource create [payload-file] [resource-data-file] [flags]
 
 * `payload-file` - file with JSON formatted payload. The format and structure can be found in example
 * `resource-data-file` - file which will be sent to the ledger as a `data`. Can be a picture or an image or whatever you want.
-* `flags` - additional parameters like, `--gas` or `--from`.
+* `flags` - additional parameters like, `--gas` or `--from`. `--fees` should match the price of the [speicfic resource file type defined here](create-resource.md#understanding-resource-fees).
 
 #### Example
 
@@ -57,26 +57,26 @@ cheqd-noded tx resource create \
 --gas auto \
 --gas-adjustment 1.8 \
 --from base_account \
-"payloadfile.json" data.jpeg
+[payload.json] [resource.jpeg]
 ```
 
-where `payloadfile.json` is:
+where `payload.json` is:
 
 ```json
 {
-  "Payload": {
+  "payload": {
     "data": null,
-    "collection_id": "b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
+    "collectionId": "b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
     "id": "c8ef6d88-ee0c-4ca4-9fd6-f9e17f6f8f3f",
     "name": "TestResource",
     "version": "1.0",
-    "resource_type": "TestType",
-    "also_known_as": []
+    "resourceType": "TestType",
+    "alsoKnownAs": []
   },
-  "SignInputs": [
+  "signInputs": [
     {
-      "VerificationMethodID": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
-      "PrivKey": "y4B5qis9BXUq/mODsrWtS3q5ejOk/okSIXlX1/a9HvuG3PgYmekfQmq3QhJ4JSzN/rkiGCQDNKoTXMmxuXDHbg=="
+      "verificationMethodId": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
+      "privKey": "y4B5qis9BXUq/mODsrWtS3q5ejOk/okSIXlX1/a9HvuG3PgYmekfQmq3QhJ4JSzN/rkiGCQDNKoTXMmxuXDHbg=="
     }
   ]
 }

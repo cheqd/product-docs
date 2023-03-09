@@ -1,6 +1,6 @@
 # Referencing DID-Linked Resources in VCs
 
-Once created, issuers of Verifiable Credentials may want to reference resources within the body of issued Verifiable Credentials.&#x20;
+Once created, issuers of Verifiable Credentials may want to reference resources within the body of issued Verifiable Credentials.
 
 As mentioned in the section on [Context for Resources](../context-for-developing-did-linked-resources.md), this may be useful for referencing:
 
@@ -8,7 +8,7 @@ As mentioned in the section on [Context for Resources](../context-for-developing
 * **Status lists;**
 * **Trust registries;**
 * **Visual Representations of Verifiable Credentials;**
-* **Documents; or**
+* **Documents**; or
 * **Logos**
 
 within the contents of Verifiable Credentials themselves.
@@ -56,8 +56,6 @@ Below is an example of a Verifiable Credential for an IIW event ticket which inc
 
 The schema in the above Credential dereferences to the following data:
 
-{% embed url="https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:z6jKUJA5YcZsNxZgsrQPKPipL2FRTf4s/resources/a20aa56a-a76f-4828-8a98-4c85d9494545" %}
-
 ```json
 {
     "@context": {
@@ -87,9 +85,3 @@ The schema in the above Credential dereferences to the following data:
     }
 }
 ```
-
-### Dereferencing the logo
-
-The logo in the above Credential dereferences to the following data:
-
-{% embed url="https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:z6jKUJA5YcZsNxZgsrQPKPipL2FRTf4s/resources/8140ec3a-d8bb-4f59-9784-a1cbf91a4a35" %}

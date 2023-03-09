@@ -73,7 +73,7 @@ Before carrying out a Resource transaction, you will need to prepare the `payloa
   * `id`: Use output from the previous step here
   * `name`: Arbitrary human-readable string used to identify the resource
   * `resourceType`: Resource type, such as `CL-Schema`, `JSONSchema2020`, etc
-  * `resourceVersion`: (Optional) client-given resource version
+  * `version`: (Optional) client-given resource version
   * `alsoKnownAs`: (Optional) alternative URI(s) provided for the resource&#x20;
   * `data`: (Optional) base64 encoded data of resource file
 * `signInputs`: Keys used to sign the corresponding DIDDoc. These must match the ones specified in the DIDDoc, otherwise an error will be thrown
@@ -103,7 +103,7 @@ The Payload file can include a Resource passed either as a file or a base64 enco
         "id": "e7b662f8-d3f8-4a83-bd00-2cdcd6cc50ab",
         "name": "TestResource",
         "resourceType": "JsonDocument",
-        "resourceVersion": "",
+        "version": "",
         "alsoKnownAs": "",
         "data": "SGVsbG8sIHdvcmxk" // note that the base64 encoded content is passed here
     },
@@ -138,7 +138,7 @@ The Payload file can include a Resource passed either as a file or a base64 enco
         "id": "e7b662f8-d3f8-4a83-bd00-2cdcd6cc50ab",
         "name": "TestResource",
         "resourceType": "JsonDocument"
-        "resourceVersion": "",
+        "version": "",
         "alsoKnownAs": ""
     },
     "network": "testnet",

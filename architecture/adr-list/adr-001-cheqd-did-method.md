@@ -227,7 +227,7 @@ Each DID Document MUST have a metadata section when a representation is produced
 formatting rules as the created property. The `updated` field is `null` if an Update operation has never been performed on the DID document. If an updated property exists, it can be the same value as the created property when the difference between the two timestamps is less than one second.
 3. **`deactivated`** (string): If DID has been deactivated, DID document metadata MUST include this property with the boolean value `true`. By default this is set to `false`.
 4. **`versionId`** (string): A UUID string that represents the version identifier of the DID Document.
-5. **`resources`** (list of resources metadata referred to as [Resource previews](adr-002-did-linked-resources.md))| *optional*). Cannot be changed by CreateDID or UpdateDID transactions. cheqd ledger stores only the resource identifiers in the DID Doc metadata. The remainder of the resources' metadata is added when a DID is resolved.
+5. **`resources`** (list of resources metadata referred to as [Resource previews](adr-002-did-linked-resources.md))| *optional*. Cannot be changed by CreateDID or UpdateDID transactions. cheqd ledger stores only the resource identifiers in the DID Doc metadata. The remainder of the resources' metadata is added when a DID is resolved.
 6. **`previousVersionId`** (string): A UUID string that represents the version identifier of the previous version of the DID Document. The `previousVersionId` field is an empty string if an Update operation has never been performed on the DID document
 7. **`nextVersionId`** (string): A UUID string that represents the version identifier of the next version of the DID Document. The `nextVersionId` field is an empty string if an Update operation has never been performed on the DID document
 
@@ -266,10 +266,11 @@ Verification methods are used to define how to authenticate / authorise interact
 2. **`controller`**: A string with fully qualified DID. DID must exist.
 3. **`type`** (string)
 4. **`publicKeyJwk`** (`map[string,string]`, optional): A map representing a JSON Web Key that conforms to [RFC7517](https://tools.ietf.org/html/rfc7517). See definition of `publicKeyJwk` for additional constraints.
-5. **`publicKeyMultibase`** (optional): A base58-encoded string that conforms to a [MULTIBASE](https://datatracker.ietf.org/doc/html/draft-multiformats-multibase-03)
+5. **`publicKeyBase58`** (optional): A base58-encoded string.
+6. **`publicKeyMultibase`** (optional): A base58-encoded string that conforms to a [MULTIBASE](https://datatracker.ietf.org/doc/html/draft-multiformats-multibase-03)
 encoded public key.
 
-**Note**: A single verification method entry cannot contain both `publicKeyJwk` and `publicKeyMultibase`, but must contain at least one of them.
+**Note**: A single verification method entry cannot contain more than one of `publicKeyJwk`, `publicKeyBase58` and `publicKeyMultibase`, but must contain at least one of them.
 
 #### Example of Verification method in a DIDDoc
 
@@ -295,7 +296,7 @@ Services can be defined in a DIDDoc to express means of communicating with the D
 
 1. **`id`** (string): The value of the `id` property for a Service MUST be a URI conforming to [RFC3986](https://www.rfc-editor.org/rfc/rfc3986). A conforming producer MUST NOT produce multiple service entries with the same ID. A conforming consumer MUST produce an error if it detects multiple service entries with the same ID. It has a follow formats: `<DIDDoc-id>#<service-alias>` or `#<service-alias>`.
 2. **`type`** (string): The service type and its associated properties SHOULD be registered in the [DID Specification Registries](https://www.w3.org/TR/did-spec-registries/)
-3. **`serviceEndpoint`** (strings): A string that conforms to the rules of [RFC3986](https://www.rfc-editor.org/rfc/rfc3986) for URIs, a map, or a set composed of a one or more strings that conform to the rules of
+3. **`serviceEndpoint`** (list of strings): A string that conforms to the rules of [RFC3986](https://www.rfc-editor.org/rfc/rfc3986) for URIs, a map, or a set composed of a one or more strings that conform to the rules of
 [RFC3986](https://www.rfc-editor.org/rfc/rfc3986) for URIs and/or maps.
 
 #### Example of Service in a DIDDoc
@@ -304,7 +305,9 @@ Services can be defined in a DIDDoc to express means of communicating with the D
 {
   "id":"did:cheqd:mainnet:N22N22KY2Dyvmuu2#linked-domain",
   "type": "LinkedDomains",
-  "serviceEndpoint": "https://bar.example.com"
+  "serviceEndpoint": [
+    "https://foo.example.com"
+  ]
 }
 ```
 
@@ -361,8 +364,10 @@ Example of how cheqd-node stores verification_method
 ```jsonc
 {
   "id":"did:cheqd:mainnet:5rjaLzcffhGUH4nt4fyfAg#linked-domain",
-  "serviceType": "LinkedDomains",
-  "serviceEndpoint": "https://bar.example.com"
+  "service_type": "LinkedDomains",
+  "service_endpoint": [
+    "https://foo.example.com"
+  ]
 }
 
 ## DID transactions
@@ -564,7 +569,7 @@ Hyperledger Indy is a public-permissioned distributed ledger and therefore use t
 
 #### Included resource metadata within DIDDoc metadata
 
-To support the [cheqd Resource Module](adr-002-did-linked-resources.md)), cheqd ledger includes a reference to resource previews within the DIDDoc metadata.
+To support the [cheqd Resource Module](adr-002-did-linked-resources.md), cheqd ledger includes a reference to resource previews within the DIDDoc metadata.
 
 ## Decision
 
@@ -584,7 +589,7 @@ With better compliance against the DID Core specification, the goal of the **che
 
 ### Positive
 
-- Design decisions defined in this ADR aim to make the cheqd DID method close to compliance with the W3C DID Core specification.
+- Design decisions defined in this ADR aim to make the cheqd DID method compliant with the W3C DID Core specification.
 - Usage of UUID-style identifiers significantly simplifies the generation and implementation of unique identifiers, since any client application can generate these UUIDs using their own preferred implementation in any programming language, as opposed to the method-specific logic required for Indy-style DID identifiers.
 - As the client/peer-to-peer exchange layer (at least in the implementation provided by [VDR Tools SDK](https://gitlab.com/evernym/verity/vdr-tools)) is built on a library that supports Hyperledger Aries, extending Aries implementations to other W3C compliant DID methods should become simpler for the SSI ecosystem.
 

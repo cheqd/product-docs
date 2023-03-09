@@ -23,7 +23,7 @@ Construct your `payload.json` file like this:
         "id": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590#key-1",
         "type": "Ed25519VerificationKey2020",
         "controller": "did:cheqd:testnet:3e6bd814-6851-4c8a-b114-c64f035ef590",
-        "publicKeyMultibase": "3e6bd814-6851-4c8a-b114-c64f035ef590JYD9eRNc5CSrNBKkyjep6gYdaWub"
+        "publicKeyMultibase": "z2yJuNbhoUpRn7ypAugSLzkCc8QEw146RJ8DD3jzCZQ6A"
       }
     ]
   },

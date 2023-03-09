@@ -159,7 +159,7 @@ Below is an example of a Payload file:
 
 ```json
 {
-  "Payload": {
+  "payload": {
     "collectionId": "zF7rhDBfUt9d1gJPjx7s1J",
     "id": "af20b1f0-5c4d-4037-9669-eaedddb9c2df",
     "name": "universityDegree", // this is an additional input
@@ -167,7 +167,7 @@ Below is an example of a Payload file:
     "resourceType": "anonCredsRevocRegDef",
     "alsoKnownAs": []
   },
-  "SignInputs": [
+  "signInputs": [
     {
       "verificationMethodID": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J#key1",
       "privKey": "y4B5qis9BXUq/mODsrWtS3q5ejOk/okSIXlX1/a9HvuG3PgYmekfQmq3QhJ4JSzN/rkiGCQDNKoTXMmxuXDHbg=="

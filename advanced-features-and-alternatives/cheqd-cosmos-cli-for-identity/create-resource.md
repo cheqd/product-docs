@@ -1,4 +1,4 @@
-# 📚 Creating a Resource using cheqd Cosmos CLI
+# Creating a Resource using cheqd Cosmos CLI
 
 The purpose of this document is to outline how someone can create a Resource on the cheqd network using [cheqd Cosmos CLI](create-did.md). The process that's followed is similar to what's described in the [high-level Resource creation flow](../../guides/did-linked-resources/technical-composition-of-did-linked-resources/creating-a-resource.md).
 
@@ -38,11 +38,55 @@ Resource content should be placed in a file and stored locally.
 cheqd-noded tx resource create [payload-file] [resource-data-file] [flags]
 ```
 
+#### Understanding Resource Fees
+
+The fee for a resource transaction changes depending on the file type being passed to the ledger. Currently there are three different variations on the fee:
+
+<details>
+
+<summary>JSON file</summary>
+
+Within the payload file the amount should be specified as:
+
+* `denom:` ncheq
+* `amount:` 2500000000
+
+This equates to **2.5 CHEQ.**
+
+</details>
+
+<details>
+
+<summary>Image file</summary>
+
+Within the payload file the amount should be specified as:
+
+* `denom:` ncheq
+* `amount:` 10000000000
+
+This equates to **10 CHEQ.**
+
+</details>
+
+<details>
+
+<summary>Default (any other) file</summary>
+
+Within the payload file the amount should be specified as:
+
+* `denom:` ncheq
+* `amount:` 5000000000
+
+This equates to **5 CHEQ.**
+
+</details>
+
 #### Parameters
 
 * `payload-file` - file with JSON formatted payload. The format and structure can be found in example
 * `resource-data-file` - file which will be sent to the ledger as a `data`. Can be a picture or an image or whatever you want.
 * `flags` - additional parameters like, `--gas` or `--from`.
+* `fees` - the specific fee for the transaction, depending on the [type of resource file defined here](#understanding-resource-fees)
 
 Example input:
 
@@ -51,30 +95,30 @@ cheqd-noded tx resource create \
   --chain-id cheqd \
   --keyring-backend test \
   --output json \
-  --fees 10000000000ncheq \
+  --fees 2500000000ncheq \
   --gas auto \
   --gas-adjustment 1.8 \
   --from base_account \
-  "payloadfile.json" data.jpeg
+  [payload.json] [resource.json]
 ```
 
-where `payloadfile.json` is:
+where `payload.json` is:
 
 ```json
 {
-  "Payload": {
+  "payload": {
     "data": null,
-    "collection_id": "b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
+    "collectionId": "b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
     "id": "5e16a3f9-7c6e-4b6b-8e28-20f56780ee25",
     "name": "TestResource",
     "version": "1.0",
-    "resource_type": "TestType",
-    "also_known_as": []
+    "resourceType": "TestType",
+    "alsoKnownAs": []
   },
-  "SignInputs": [
+  "signInputs": [
     {
-      "VerificationMethodID": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
-      "PrivKey": "y4B5qis9BXUq/mODsrWtS3q5ejOk/okSIXlX1/a9HvuG3PgYmekfQmq3QhJ4JSzN/rkiGCQDNKoTXMmxuXDHbg=="
+      "verificationMethodId": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
+      "privKey": "y4B5qis9BXUq/mODsrWtS3q5ejOk/okSIXlX1/a9HvuG3PgYmekfQmq3QhJ4JSzN/rkiGCQDNKoTXMmxuXDHbg=="
     }
   ]
 }
@@ -126,22 +170,22 @@ Ouput:
       "data": "..."
     },
     "metadata": {
-      "collection_id": "c82f2b02-bdab-4dd7-b833-3e143745d612",
+      "collectionId": "c82f2b02-bdab-4dd7-b833-3e143745d612",
       "id": "3e6bd814-6851-4c8a-b114-c64f035ef590",
       "name": "EventBrite Logo",
       "version": "",
-      "resource_type": "image/png",
-      "also_known_as": [
+      "resourceType": "image/png",
+      "alsoKnownAs": [
         {
           "uri": "did:cheqd:mainnet:c82f2b02-bdab-4dd7-b833-3e143745d612/resources/3e6bd814-6851-4c8a-b114-c64f035ef590",
           "description": "did-url"
         }
       ],
-      "media_type": "image/svg+xml",
+      "mediaType": "image/svg+xml",
       "created": "2022-11-17T10:35:23Z",
       "checksum": "a95380f460e63ad939541a57aecbfd795fcd37c6d78ee86c885340e33a91b559",
-      "previous_version_id": "",
-      "next_version_id": ""
+      "previousVersionId": "",
+      "nextVersionId": ""
     }
   }
 }
