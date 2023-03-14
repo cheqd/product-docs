@@ -77,7 +77,7 @@
 ## ⚖️ Legal
 
 * [License](LICENSE.md)
-* [Code of Conduct](CODE\_OF\_CONDUCT.md)
+* [Code of Conduct](CODE_OF_CONDUCT.md)
 * [Security Policy](SECURITY.md)
 
 ## 🆘 Support

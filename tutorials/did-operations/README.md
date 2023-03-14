@@ -7,9 +7,9 @@
 There are multiple supported ways to create DIDs on cheqd mainnet and testnet:
 
 1. Enterprise SDKs
-   1. [Veramo SDK for cheqd](./#dids-with-veramo-sdk-for-cheqd)
-2. [DID Registrar](./#dids-with-did-registrar)
-3. [cheqd CLI](./#dids-with-cheqd-cli) (testing purposes only)
+   1. [Veramo SDK for cheqd](create-a-did.md)
+2. [DID Registrar](../did-registrar/create-a-did.md)
+3. [cheqd CLI](../../advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/create-did.md) (testing purposes only)
 
 > Learn about [cheqd's DID method in our guide here](../../architecture/adr-list/adr-001-cheqd-did-method.md)
 
