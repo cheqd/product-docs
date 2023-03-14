@@ -1,18 +1,17 @@
 # 🆔 Decentralised Identifiers (DIDs)
 
-> **Learn about DIDs**
-> If you want to learn about what [DIDs are, please go over to our learning site here.](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-decentralised-identifier-did)
+> **Learn about DIDs** If you want to learn about what [DIDs are, please go over to our learning site here.](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-decentralised-identifier-did)
 
 ## Multiple options for creating DIDs
 
 There are multiple supported ways to create DIDs on cheqd mainnet and testnet:
 
 1. Enterprise SDKs
-   1. [Veramo SDK for cheqd](#dids-with-veramo-sdk-for-cheqd)
-2. [DID Registrar](#dids-with-did-registrar)
-3. [cheqd CLI](#dids-with-cheqd-cli) (testing purposes only)
+   1. [Veramo SDK for cheqd](./#dids-with-veramo-sdk-for-cheqd)
+2. [DID Registrar](./#dids-with-did-registrar)
+3. [cheqd CLI](./#dids-with-cheqd-cli) (testing purposes only)
 
-> Learn about [cheqd's DID method in our guide here](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method)
+> Learn about [cheqd's DID method in our guide here](../../architecture/adr-list/adr-001-cheqd-did-method.md)
 
 ## DIDs with Veramo SDK for cheqd
 
