@@ -8,6 +8,7 @@ There are multiple supported ways to create DIDs on cheqd mainnet and testnet:
 
 1. Enterprise SDKs
    1. [Veramo SDK for cheqd](create-a-did.md)
+   2. [walt.id SSI Kit](https://docs.walt.id/v/ssikit/ecosystems/cheqd/create-did)
 2. [DID Registrar](../did-registrar/create-a-did.md)
 3. [cheqd CLI](../../advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/create-did.md) (testing purposes only)
 
