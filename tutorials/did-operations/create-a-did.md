@@ -12,7 +12,7 @@ Follow these instructions to create a new DID and publish the associated DID Doc
 
 The first step is generating a template for your DID Document, including a new DID and associated public/private key pair. This process also aligns with method 1 [in the key management guide](identity-key-handling.md).
 
-> It is important to note that this step does not create your DID on ledger, but it generates your identity keys as a draft DID Document for you to use in the on-ledger transaction in [Step 3](#3-create-new-did-and-publish-diddoc).
+> It is important to note that this step does not create your DID on ledger, but it generates your identity keys as a draft DID Document for you to use in the on-ledger transaction in [Step 3](create-a-did.md#3-create-new-did-and-publish-diddoc).
 
 ### Command
 
@@ -100,6 +100,7 @@ Result : {
     ],
     "service": []
   },
+  "versionId": ""07109dba-7582-491e-9c17-8fadbdabb304",
   "keys": {
     "publicKeyHex": "XXXX",
     "privateKeyHex": "XXXXXXXX",
@@ -111,7 +112,7 @@ Result : {
 
 </details>
 
-You can then use this template to populate your `payload.json` file in [Step 2](#2-prepareedit-diddoc-contents).
+You can then use this template to populate your `payload.json` file in [Step 2](create-a-did.md#2-prepareedit-diddoc-contents).
 
 ### Unexpected output
 
@@ -123,9 +124,9 @@ Unexpected token v in JSON at position 1
 
 ## 2. Prepare/edit DIDDoc contents
 
-Before creating a DID on-ledger, you will need to prepare the `payload.json` file. This file can be saved where ever you choose, but the location must be specified in the create DID command used in [Step 3](#3-create-new-did-and-publish-diddoc). (By default, it will be saved under the project root directory.)
+Before creating a DID on-ledger, you will need to prepare the `payload.json` file. This file can be saved where ever you choose, but the location must be specified in the create DID command used in [Step 3](create-a-did.md#3-create-new-did-and-publish-diddoc). (By default, it will be saved under the project root directory.)
 
-You should copy and paste the output of [Step 1](#1-create-your-identity-keys-within-a-did-document-template) as an initial starting template for your `payload.json` file.
+You should copy and paste the output of [Step 1](create-a-did.md#1-create-your-identity-keys-within-a-did-document-template) as an initial starting template for your `payload.json` file.
 
 ### Example of `payload.json` files
 
@@ -161,6 +162,7 @@ The below examples show the variation in syntax for different verification metho
     "alsoKnownAs": [],
     "service": []
   },
+  "versionId": "<uuid>", // optional
   "keys": [{
     "publicKeyHex": "<public_key_in_hex_encoding>",
     "privateKeyHex": "<private_key_in_hex_encoding>",
@@ -168,9 +170,6 @@ The below examples show the variation in syntax for different verification metho
     "type": "Ed25519"
     // add additional key(s) if required
   }],
-  "versionId": [
-    "<uuid>" // optional
-    ],
   "fee": {
     "amount": [{
       "denom": "ncheq",
@@ -214,6 +213,7 @@ The below examples show the variation in syntax for different verification metho
     "alsoKnownAs": [],
     "service": []
   },
+  "versionId": "<uuid>", // optional
   "keys": [{
     "publicKeyHex": "<public_key_in_hex_encoding>",
     "privateKeyHex": "<private_key_in_hex_encoding>",
@@ -221,9 +221,6 @@ The below examples show the variation in syntax for different verification metho
     "type": "Ed25519"
     // add additional key(s) if required
   }],
-  "versionId": [
-    "<uuid>" // optional
-    ],
   "fee": {
     "amount": [{
       "denom": "ncheq",
@@ -271,6 +268,7 @@ The below examples show the variation in syntax for different verification metho
     "alsoKnownAs": [],
     "service": []
   },
+  "versionId": "<uuid>", // optional
   "keys": [{
     "publicKeyHex": "<public_key_in_hex_encoding>",
     "privateKeyHex": "<private_key_in_hex_encoding>",
@@ -278,9 +276,6 @@ The below examples show the variation in syntax for different verification metho
     "type": "Ed25519"
     // add additional key(s) if required
   }],
-  "versionId": [
-    "<uuid>" // optional
-    ],
   "fee": {
     "amount": [{
       "denom": "ncheq",
@@ -299,9 +294,9 @@ The below examples show the variation in syntax for different verification metho
 * `kms` (default `local`): Key Management System (KMS) to be used for storage.
 * `alias`: A human-friendly alias for the DID. Only used locally when referencing operations in Veramo CLI.
 * `document`: Full body of the DID Document
-* `keys`: Keys used to sign the DIDDoc. These must match the ones specified in the DIDDoc, otherwise an error will be thrown.
 * `versionId`: (optional): Custom versionId for the DID Document. If this is not set manually, then a UUID will be automatically generated for the DID Document version.
-* `fee`&#x20;
+* `keys`: Keys used to sign the DIDDoc. These must match the ones specified in the DIDDoc, otherwise an error will be thrown.
+* `fee`
   * `amount`: An array of coins, coins are represented as an object with 2 fields
     * `denom`: ncheq (smallest denomination classification)
     * `amount`: **50000000000** (This is **50 CHEQ by default** and will not work with a different value)
@@ -321,7 +316,7 @@ If you do not specify the `--argsFile`, you can also paste a JSON inline argumen
 
 ## Next steps
 
-If your transaction is successful, you'll receive a success message along with the transaction details. You can [query your DID using the instructions here to see the representation of your DID Document](query-did.md) on-ledger.&#x20;
+If your transaction is successful, you'll receive a success message along with the transaction details. You can [query your DID using the instructions here to see the representation of your DID Document](query-did.md) on-ledger.
 
 ### Troubleshooting
 

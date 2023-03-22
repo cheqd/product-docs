@@ -20,9 +20,9 @@ This file can be saved whereever you choose, but the location must be specified 
 * `did`: The `did` that resolves to your `DIDDoc`.
 * `alias`: A human-friendly alias for the DID. Only used locally when referencing operations in Veramo CLI.
 * `document`: Full body of the DID Document _including_ updated sections.
-* `keys`: Keys used to sign the DIDDoc. These must match the ones specified in the DIDDoc, otherwise an error will be thrown.
 * `versionId`: (optional) Custom versionId for the DID Document. If this is not set manually, then a UUID will be automatically generated for the DID Document version.
-* `fee`&#x20;
+* `keys`: Keys used to sign the DIDDoc. These must match the ones specified in the DIDDoc, otherwise an error will be thrown.
+* `fee`
   * `amount`: An array of coins, coins are represented as an object with 2 fields
     * `denom`: ncheq (smallest denomination classification)
     * `amount`: **25000000000** (This is **25 CHEQ by default** and will not work with a different value)
@@ -71,6 +71,7 @@ So, let's try to update `service` section of our `DIDDoc`. Then, your `payload.j
     "keyAgreement": [],
     "alsoKnownAs": [],
   },
+  "versionId": "<uuid>", // optional
   "keys": [
     {
       "publicKeyHex": "074035480cdcf09c33b1e8066deb55c75822c8c3b27f1c100717eb413bc08e06",
@@ -79,9 +80,6 @@ So, let's try to update `service` section of our `DIDDoc`. Then, your `payload.j
       "type": "Ed25519"
     }
   ],
-  "versionId": [
-    "<uuid>" // optional
-    ],
   "fee": {
     "amount": [{
       "denom": "ncheq",
