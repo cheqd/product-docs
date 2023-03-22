@@ -295,7 +295,7 @@ The example of `payload.json` files with different verification methods:
     "verificationMethod": [
       {
         "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
-        "type": "Ed25519VerificationKey2018",
+        "type": "Ed25519VerificationKey2020",
         "controller": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
         "publicKeyMultibase": "z2yJuNbhoUpRn7ypAugSLzkCc8QEw146RJ8DD3jzCZQ6A"
       }
@@ -333,7 +333,7 @@ The example of `payload.json` files with different verification methods:
     "verificationMethod": [
       {
         "id": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77#key1",
-        "type": "Ed25519VerificationKey2018",
+        "type": "JsonWebKey2020",
         "controller": "did:cheqd:testnet:b0ca0b75-ca6a-4674-a261-45f6dd0c9c77",
         "publicKeyJwk": {
           "kty": "OKP", // external (property name)
