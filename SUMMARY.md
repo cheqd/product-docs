@@ -24,7 +24,7 @@
   * [Create a DID-Linked Resource](tutorials/did-linked-resources/create-a-resource.md)
   * [Create a new Resource version within existing Collection](tutorials/did-linked-resources/create-a-new-resource-version.md)
   * [Create Status List as a Resource](guides/sdk/veramo-sdk-for-cheqd/statuslist2021-resources.md)
-* [🔄 DID Resolver setup](tutorials/DID-resolution.md)
+* [🔄 DID Resolver setup](tutorials/did-resolver.md)
 * [🛅 Demo Wallet for identity setup](tutorials/demo-wallet.md)
 * [➡ DID Registrar](tutorials/did-registrar/README.md)
   * [Setup DID Registrar](tutorials/did-registrar/did-registrar-setup.md)
