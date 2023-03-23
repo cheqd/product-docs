@@ -1,4 +1,4 @@
-# Verify a Verifiable Presentation
+# Verify a JSON Web Token (JWT) Verifiable Presentation
 
 This tutorial offers step-by-step guidance on how to verify a [Verifiable Presentation](https://w3c-ccg.github.io/vp-request-spec/).
 
@@ -8,7 +8,7 @@ This tutorial offers step-by-step guidance on how to verify a [Verifiable Presen
 
 ## Instructions
 
-The cryptographic verification in this tutorial will be based on JWT proof of a [previously-created Verifiable Presentation](verifiable-presentations.md).
+The cryptographic verification in this tutorial will be based on JWT proof of a [previously-created Verifiable Presentation](create-jwt-presentation.md).
 
 ### 1. Call Veramo's `presentation verify` function
 

@@ -147,4 +147,4 @@ _Note_: The human-readable JSON body below is purely for easier parsing by devel
 
 ## Next steps
 
-You can save the generated Verifiable Credential, as you can later use it to [verify the credential cryptographically](verify-jwt-vc.md) or [generate _presentations_ to show the credential](verifiable-presentations.md) to others.
+You can save the generated Verifiable Credential, as you can later use it to [verify the credential cryptographically](verify-jwt-credential.md) or [generate _presentations_ to show the credential](create-jwt-presentation.md) to others.

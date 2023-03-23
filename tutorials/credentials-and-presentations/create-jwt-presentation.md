@@ -8,7 +8,7 @@ This tutorial offers step-by-step guidance on how to create a [Verifiable Presen
 
 A Verifiable Presentation is a way a credential holder can generate cryptographicall-verifiable proof that they are in posession of the identity keys (e.g., `did:key`) the credential was issued to.
 
-This is important because [just the Verifiable Credential and its JWT proof](verify-jwt-vc.md), on its own, is susceptible to [_replay attacks_](https://en.wikipedia.org/wiki/Replay_attack) where intercepted Verifiable Credentials could be played back.
+This is important because [just the Verifiable Credential and its JWT proof](verify-jwt-credential.md), on its own, is susceptible to [_replay attacks_](https://en.wikipedia.org/wiki/Replay_attack) where intercepted Verifiable Credentials could be played back.
 
 The process of creating a _Verifiable Presentation_ is one way of addressing these security concerns.
 
@@ -58,4 +58,4 @@ You will need to call on this to verify the presentation in the next step.
 
 In a real-world usage scenario, the Verifiable Presentation output generated above would be electronically (e.g., as API messages) or non-electronically (e.g., encoded to a QR code) shared with the verifier/recipient.
 
-Verifiers/recipients would then be able to [verify the Verifiable Presentation](verify-presentation.md) to check cryptographically the contents are untampered.
+Verifiers/recipients would then be able to [verify the Verifiable Presentation](verify-jwt-presentation.md) to check cryptographically the contents are untampered.

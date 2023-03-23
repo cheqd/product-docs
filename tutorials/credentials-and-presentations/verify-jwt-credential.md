@@ -65,4 +65,4 @@ veramo credential verify -r <enter-the-JWT-here>
 
 ## Next steps
 
-Look into [how this credential can be shown to others](verifiable-presentations.md) through Verifiable Presentations.
+Look into [how this credential can be shown to others](create-jwt-presentation.md) through Verifiable Presentations.
