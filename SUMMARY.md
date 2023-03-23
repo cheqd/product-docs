@@ -67,13 +67,13 @@
 ## 💫 Advanced features and alternatives
 
 * [🤓 Direct interaction with ledger code](advanced/developer-guide.md)
-* [🛰 cheqd Cosmos CLI for identity](advanced/cheqd-cosmos-cli-for-identity/README.md)
-  * [Creating a DID with cheqd Cosmos CLI](advanced/cheqd-cosmos-cli-for-identity/create-did.md)
-  * [Updating existing DIDs with cheqd Cosmos CLI](advanced/cheqd-cosmos-cli-for-identity/update-and-manage-did-document.md)
-  * [Deactivating existing DIDs with cheqd Cosmos CLI](advanced/cheqd-cosmos-cli-for-identity/deactivate-a-did.md)
-  * [Querying DIDs with cheqd Cosmos CLI](advanced/cheqd-cosmos-cli-for-identity/query-did-and-did-document.md)
-  * [Creating a DID-Linked Resource using cheqd Cosmos CLI](advanced/cheqd-cosmos-cli-for-identity/create-resource.md)
-  * [Adding a new Resource version](advanced/cheqd-cosmos-cli-for-identity/add-resource-to-existing-collection.md)
+* [🛰 cheqd Cosmos CLI for identity](advanced/cheqd-node-cli/README.md)
+  * [Creating a DID with cheqd Cosmos CLI](advanced/cheqd-node-cli/create-did.md)
+  * [Updating existing DIDs with cheqd Cosmos CLI](advanced/cheqd-node-cli/update-and-manage-did-document.md)
+  * [Deactivating existing DIDs with cheqd Cosmos CLI](advanced/cheqd-node-cli/deactivate-a-did.md)
+  * [Querying DIDs with cheqd Cosmos CLI](advanced/cheqd-node-cli/query-did-and-did-document.md)
+  * [Creating a DID-Linked Resource using cheqd Cosmos CLI](advanced/cheqd-node-cli/create-resource.md)
+  * [Adding a new Resource version](advanced/cheqd-node-cli/add-resource-to-existing-collection.md)
 * [⚒ VDR Tools CLI with cheqd](advanced/vdr-tools-with-cheqd.md)
 
 ## ⚖️ Legal

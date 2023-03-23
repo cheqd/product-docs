@@ -10,7 +10,7 @@ There are multiple supported ways to create DIDs on cheqd mainnet and testnet:
    1. [Veramo SDK for cheqd](create-a-did.md)
    2. [walt.id SSI Kit](https://docs.walt.id/v/ssikit/ecosystems/cheqd/create-did)
 2. [DID Registrar](../did-registrar/create-a-did.md)
-3. [cheqd CLI](../../advanced/cheqd-cosmos-cli-for-identity/create-did.md) (testing purposes only)
+3. [cheqd CLI](../../advanced/cheqd-node-cli/create-did.md) (testing purposes only)
 
 > Learn about [cheqd's DID method in our guide here](../../architecture/adr-list/adr-001-cheqd-did-method.md)
 
@@ -40,7 +40,7 @@ This documentation describes how you can use the Veramo SDK for cheqd to create,
 > Note that the cheqd Cosmos CLI is not suitable for use in production environments and should only be used for testing
 
 * [Setup cheqd CLI](../../advanced/developer-guide.md)
-* [Create a DID](../../advanced/cheqd-cosmos-cli-for-identity/create-did.md)
-* [Query a DID](../../advanced/cheqd-cosmos-cli-for-identity/query-did-and-did-document.md)
-* [Update a DID](../../advanced/cheqd-cosmos-cli-for-identity/update-and-manage-did-document.md)
-* [Deactivate a DID](../../advanced/cheqd-cosmos-cli-for-identity/deactivate-a-did.md)
+* [Create a DID](../../advanced/cheqd-node-cli/create-did.md)
+* [Query a DID](../../advanced/cheqd-node-cli/query-did-and-did-document.md)
+* [Update a DID](../../advanced/cheqd-node-cli/update-and-manage-did-document.md)
+* [Deactivate a DID](../../advanced/cheqd-node-cli/deactivate-a-did.md)

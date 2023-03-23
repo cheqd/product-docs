@@ -29,7 +29,7 @@
 ### :dizzy: Advanced features and alternatives
 
 * :nerd: [Direct interaction with ledger code](advanced/developer-guide.md)
-* :satellite_orbital: [cheqd Cosmos CLI for identity](advanced/cheqd-cosmos-cli-for-identity/)
+* :satellite_orbital: [cheqd Cosmos CLI for identity](advanced/cheqd-node-cli/)
 * :hammer_pick: [VDR Tools CLI with cheqd](advanced/vdr-tools-with-cheqd.md)
 
 ## 📖 Other useful documentation sites for cheqd
