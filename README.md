@@ -8,7 +8,7 @@
 
 * :package: [Software Development Kits (SDKs)](guides/sdk/)
 * :link: [Understanding DID-Linked Resources](guides/did-linked-resources/)
-* :unlock: [AnonCreds on cheqd](guides/using-on-ledger-resources-to-support-anoncreds/)
+* :unlock: [AnonCreds on cheqd](guides/anoncreds/)
 * :arrows\_counterclockwise: [Understanding cheqd DID Resolver](guides/did-resolver.md)
 * :judge: [Smart Governance](guides/smart-governance/)
 
