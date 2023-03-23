@@ -14,7 +14,7 @@ This documentation describes how you can use the Veramo SDK for cheqd to create 
 >
 > Make sure you've correctly [configured the cheqd plugin's agent settings](../../guides/sdk/veramo-sdk-for-cheqd/setup.md) for Veramo CLI
 
-* [Issue a Verifiable Credential](./verifiable-credentials.md)
+* [Issue a Verifiable Credential](./issue-credential.md)
 * Verify a Verifiable Credential
     * [JSON (JWT)](./verify-jwt-vc.md)
     * *JSON-LD verification is not supported yet*

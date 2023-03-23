@@ -10,7 +10,7 @@ This tutorial offers step-by-step guidance on how to issue a verifiable credenti
 
 The subject (holder) of this credential will be an off-ledger [`did:key`](https://github.com/w3c-ccg/did-method-key) DID. The rationale for using off-ledger DIDs when issuing a credential is because the fact that they _aren't_ persisted on ledger means they cannot be correlated or tracked to specific users/individuals.
 
-This allows a user to have _multiple_ `did:key` identities, and the identifier/handle they reveal when sharing a [Verifiable Credential](verifiable-credentials.md) is context-dependent and better for privacy.
+This allows a user to have _multiple_ `did:key` identities, and the identifier/handle they reveal when sharing a [Verifiable Credential](issue-credential.md) is context-dependent and better for privacy.
 
 The _issuer_ of the credential, on the other hand, uses [an on-ledger `did:cheqd` DID](../../architecture/adr-list/adr-001-cheqd-did-method.md) since this needs to be publicly-accessible and cryptographically verifiable.
 

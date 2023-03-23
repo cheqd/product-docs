@@ -15,7 +15,7 @@
 ### :book: Tutorials
 
 * [🆔 Decentralised Identifiers (DIDs)](tutorials/did-operations/)
-* :page_with_curl: [Verifiable Credentials and Presentations](tutorials/verifiable-credentials-and-presentations/)
+* :page_with_curl: [Verifiable Credentials and Presentations](tutorials/credentials-and-presentations/)
 * :link: [DID-Linked Resources](tutorials/did-linked-resources/)
 * :arrows_counterclockwise: [DID Resolver setup](tutorials/did-resolver.md)
 * [🛅](https://emojipedia.org/left-luggage/) [Demo Wallet for identity setup](tutorials/demo-wallet.md)

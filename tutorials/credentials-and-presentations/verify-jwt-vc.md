@@ -8,11 +8,11 @@ This tutorial offers step-by-step guidance on how to verify a [JSON credential](
 
 ## Instructions
 
-This tutorial assumes you have [already issued a JSON/JWT Verifiable Credential](verifiable-credentials.md) so that it can be cryptographically verified as untampered.
+This tutorial assumes you have [already issued a JSON/JWT Verifiable Credential](issue-credential.md) so that it can be cryptographically verified as untampered.
 
 ### Call Veramo's `credential verify` function
 
-If you have the [issued Verifiable Credential](verifiable-credentials.md) stored in a file, say, `cred.json`, pass it to the `credential verify` function:
+If you have the [issued Verifiable Credential](issue-credential.md) stored in a file, say, `cred.json`, pass it to the `credential verify` function:
 
 ```bash
 cat cred.json | veramo credential verify
