@@ -366,7 +366,7 @@ _If "**resourceType=anonCredsCredDef**" then **append "issuerId"** to the beginn
 
 ### create CredDef transaction
 
-To create a CredDef on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../tutorials/on-ledger-resources/), and pass the relevant JSON file for the object in the transaction.
+To create a CredDef on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../tutorials/did-linked-resources/), and pass the relevant JSON file for the object in the transaction.
 
 ## Tying CredDef, RevRegDef and StatusListEntry Objects together
 

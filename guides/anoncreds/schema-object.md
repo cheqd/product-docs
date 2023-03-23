@@ -191,7 +191,7 @@ _If "**resourceType=anonCredsSchema**" then **append "issuerId"** to the beginni
 
 ### Create schema transaction
 
-To create a schema on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../tutorials/on-ledger-resources/), and pass the relevant JSON file for the object in the transaction.
+To create a schema on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../tutorials/did-linked-resources/), and pass the relevant JSON file for the object in the transaction.
 
 ### Fetching a cheqd Resource
 
