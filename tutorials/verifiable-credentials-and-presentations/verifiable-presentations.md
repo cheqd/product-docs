@@ -2,7 +2,7 @@
 
 This tutorial offers step-by-step guidance on how to create a [Verifiable Presentation](https://w3c-ccg.github.io/vp-request-spec/).
 
-> ⚠️ **Before you begin...** Make sure you've correctly [configured the cheqd plugin's agent settings](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md) for Veramo CLI
+> ⚠️ **Before you begin...** Make sure you've correctly [configured the cheqd plugin's agent settings](../../guides/sdk/veramo-sdk-for-cheqd/setup-cli.md) for Veramo CLI
 
 ## Background
 

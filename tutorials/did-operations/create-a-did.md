@@ -4,7 +4,7 @@ Follow these instructions to create a new DID and publish the associated DID Doc
 
 > ⚠️ **Before you begin...**
 >
-> Make sure you've correctly [configured the cheqd plugin's agent settings](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md) for Veramo CLI
+> Make sure you've correctly [configured the cheqd plugin's agent settings](../../guides/sdk/veramo-sdk-for-cheqd/setup-cli.md) for Veramo CLI
 
 ## Instructions
 
@@ -304,7 +304,7 @@ The below examples show the variation in syntax for different verification metho
   * `payer` (optional): The cheqd fee payer address
   * `granter` (optional): The cheqd fee granter address, Provided the grantee has an allowance by the granter
 
-> Note that transaction fees are paid by the cheqd account set in the `agent.yml` configuration file, [setup here](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md). Each of cheqd's on-ledger identity transactions has a **fixed fee,** [the pricing for cheqd DIDs and DID-Linked Resources can be found here](https://docs.cheqd.io/node/architecture/adr-list/adr-005-genesis-parameters#cheqd-module-did-module). If your account has insufficient balance the transaction will fail.
+> Note that transaction fees are paid by the cheqd account set in the `agent.yml` configuration file, [setup here](../../guides/sdk/veramo-sdk-for-cheqd/setup-cli.md). Each of cheqd's on-ledger identity transactions has a **fixed fee,** [the pricing for cheqd DIDs and DID-Linked Resources can be found here](https://docs.cheqd.io/node/architecture/adr-list/adr-005-genesis-parameters#cheqd-module-did-module). If your account has insufficient balance the transaction will fail.
 
 ### 3. Create new DID and publish DIDDoc
 
@@ -321,6 +321,6 @@ If your transaction is successful, you'll receive a success message along with t
 ### Troubleshooting
 
 1. If you are using testnet, you can top-up your testnet balance using our [testnet faucet](https://testnet-faucet.cheqd.io/).
-2. You can also configure your Keplr wallet to [support cheqd testnet using the instructions here](https://docs.cheqd.io/identity/guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli#2.5.-add-cheqd-testnet-to-your-keplr-wallet).
+2. You can also configure your Keplr wallet to [support cheqd testnet using the instructions here](https://docs.cheqd.io/identity/guides/sdk/veramo-sdk-for-cheqd/setup-cli#2.5.-add-cheqd-testnet-to-your-keplr-wallet).
 3. If you are using mainnet, you can [purchase CHEQ tokens here](https://cheqd.io/buy).
 4. Check out our [troubleshooting guide for DID Operations](did-operations-troubleshooting.md) to see common errors and fixes.

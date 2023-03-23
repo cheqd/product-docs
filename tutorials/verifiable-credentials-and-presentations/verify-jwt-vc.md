@@ -4,7 +4,7 @@ This tutorial offers step-by-step guidance on how to verify a [JSON credential](
 
 > ⚠️ **Before you begin...**
 >
-> Make sure you've correctly [configured the cheqd plugin's agent settings](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md) for Veramo CLI
+> Make sure you've correctly [configured the cheqd plugin's agent settings](../../guides/sdk/veramo-sdk-for-cheqd/setup-cli.md) for Veramo CLI
 
 ## Instructions
 

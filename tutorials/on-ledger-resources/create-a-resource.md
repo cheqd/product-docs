@@ -4,7 +4,7 @@ Follow these instructions to create a new DID-Linked Resource on cheqd mainnet o
 
 > ⚠️ **Before you begin...**
 >
-> Make sure you've correctly [configured the cheqd plugin's agent settings](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md) for Veramo CLI
+> Make sure you've correctly [configured the cheqd plugin's agent settings](../../guides/sdk/veramo-sdk-for-cheqd/setup-cli.md) for Veramo CLI
 
 ## Instructions
 
@@ -204,7 +204,7 @@ This equates to **5 CHEQ.**
 
 </details>
 
-> Note that transaction fees are paid by the cheqd account set in the `agent.yml` configuration file, [setup here](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md). If you do not specify a fee in the transaction, the ledger will automatically deduct the appropriate fee from the account set in your`agent.yml` configuration. Each of cheqd's on-ledger identity transactions has a **fixed fee,** [the pricing for cheqd DIDs and DID-Linked Resources can be found here](https://docs.cheqd.io/node/architecture/adr-list/adr-005-genesis-parameters#cheqd-module-did-module). If your account has insufficient balance the transaction will fail.
+> Note that transaction fees are paid by the cheqd account set in the `agent.yml` configuration file, [setup here](../../guides/sdk/veramo-sdk-for-cheqd/setup-cli.md). If you do not specify a fee in the transaction, the ledger will automatically deduct the appropriate fee from the account set in your`agent.yml` configuration. Each of cheqd's on-ledger identity transactions has a **fixed fee,** [the pricing for cheqd DIDs and DID-Linked Resources can be found here](https://docs.cheqd.io/node/architecture/adr-list/adr-005-genesis-parameters#cheqd-module-did-module). If your account has insufficient balance the transaction will fail.
 
 ### 7. Create new DID-Linked Resource
 

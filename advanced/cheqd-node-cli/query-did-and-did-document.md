@@ -6,7 +6,7 @@ An existing `did:cheqd` entry created using any SDK/CLI. For development purpose
 
 > NOTE: Use the [**cheqd DID Resolver**](../../guides/did-resolver.md) for production-grade usage
 >
-> Querying using the Cosmos CLI is useful for development purposes, but the [DID Resolver](../../guides/did-resolver.md) is designed for programmatic usage. Production-grade SDKs such as [Veramo SDK for cheqd](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/) also rely on the DID Resolver package.
+> Querying using the Cosmos CLI is useful for development purposes, but the [DID Resolver](../../guides/did-resolver.md) is designed for programmatic usage. Production-grade SDKs such as [Veramo SDK for cheqd](../../guides/sdk/veramo-sdk-for-cheqd/) also rely on the DID Resolver package.
 
 ## Querying DIDDocs for existing DIDs
 

@@ -4,7 +4,7 @@ This document describes the possible ways to use [cheqd product identity feature
 
 > This is an **advanced** guide for those who want to develop applications that directly interact with the ledger code.
 >
-> Most developers should start with our pre-built SDKs such as [Veramo SDK for cheqd](../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/) or the cheqd-node Cosmos CLI.
+> Most developers should start with our pre-built SDKs such as [Veramo SDK for cheqd](../guides/sdk/veramo-sdk-for-cheqd/) or the cheqd-node Cosmos CLI.
 
 ## Overview
 
@@ -46,7 +46,7 @@ After compiling a message (in your custom application), you can make a gRPC call
 
 In general, the process building applications that work with cheqd in other languages follows very similar logic as described above for Golang apps.
 
-> Example 1: [**Veramo SDK for cheqd**](../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/)
+> Example 1: [**Veramo SDK for cheqd**](../guides/sdk/veramo-sdk-for-cheqd/)
 >
 > **Veramo SDK for cheqd** combines the base NPM packages mentioned above to integrate cheqd ledger functionality into the 3rd party [Veramo SDK](https://veramo.io).
 

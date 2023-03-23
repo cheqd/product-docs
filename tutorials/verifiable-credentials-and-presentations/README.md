@@ -12,7 +12,7 @@ This documentation describes how you can use the Veramo SDK for cheqd to create 
 
 > ⚠️ **Before you begin...**
 >
-> Make sure you've correctly [configured the cheqd plugin's agent settings](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md) for Veramo CLI
+> Make sure you've correctly [configured the cheqd plugin's agent settings](../../guides/sdk/veramo-sdk-for-cheqd/setup-cli.md) for Veramo CLI
 
 * [Issue a Verifiable Credential](./verifiable-credentials.md)
 * Verify a Verifiable Credential

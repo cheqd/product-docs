@@ -23,7 +23,7 @@
 * [🔗 DID-Linked Resources](tutorials/on-ledger-resources/README.md)
   * [Create a DID-Linked Resource](tutorials/on-ledger-resources/create-a-resource.md)
   * [Create a new Resource version within existing Collection](tutorials/on-ledger-resources/create-a-new-resource-version.md)
-  * [Create Status List as a Resource](guides/software-development-kits-sdks/veramo-sdk-for-cheqd/using-on-ledger-resources-to-support-statuslist2021.md)
+  * [Create Status List as a Resource](guides/sdk/veramo-sdk-for-cheqd/using-on-ledger-resources-to-support-statuslist2021.md)
 * [🔄 DID Resolver setup](tutorials/DID-resolution.md)
 * [🛅 Demo Wallet for identity setup](tutorials/wallet.md)
 * [➡ DID Registrar](tutorials/did-registrar/README.md)
@@ -33,13 +33,13 @@
 
 ## 📑 Guides
 
-* [📦 Software Development Kits (SDKs)](guides/software-development-kits-sdks/README.md)
-  * [🛠 Veramo SDK for cheqd](guides/software-development-kits-sdks/veramo-sdk-for-cheqd/README.md)
-    * [👉 Setting up Veramo CLI for cheqd](guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md)
-    * [🤨 Troubleshooting Veramo CLI setup](guides/software-development-kits-sdks/veramo-sdk-for-cheqd/troubleshooting-setup.md)
+* [📦 Software Development Kits (SDKs)](guides/sdk/README.md)
+  * [🛠 Veramo SDK for cheqd](guides/sdk/veramo-sdk-for-cheqd/README.md)
+    * [👉 Setting up Veramo CLI for cheqd](guides/sdk/veramo-sdk-for-cheqd/setup-cli.md)
+    * [🤨 Troubleshooting Veramo CLI setup](guides/sdk/veramo-sdk-for-cheqd/troubleshooting-setup.md)
     * [📚 Tutorials](https://docs.cheqd.io/identity/tutorials/did-operations)
   * [🛠 Walt.id SSI Kit](https://docs.walt.id/v/ssikit/ecosystems/cheqd)
-  * [🛠 Hyperledger Aries Framework JavaScript](guides/software-development-kits-sdks/hyperledger-aries-framework-javascript.md)
+  * [🛠 Hyperledger Aries Framework JavaScript](guides/sdk/hyperledger-aries-framework-javascript.md)
 * [🔗 Understanding DID-Linked Resources](guides/did-linked-resources/README.md)
   * [Context for developing DID-Linked Resources](guides/did-linked-resources/context-for-developing-did-linked-resources.md)
   * [Technical composition of DID-Linked Resources](guides/did-linked-resources/technical-composition-of-did-linked-resources/README.md)
