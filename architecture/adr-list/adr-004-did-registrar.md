@@ -10,7 +10,6 @@
 | **Start Date** | 2023-01-30 |
 | **Last Updated** | 2023-01-30 |
 
-
 ## Summary
 
 The [`did:cheqd` method ADR](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method) defines how DIDs are created and read from ledger. According to the [W3C DID Core specification](https://w3c.github.io/did-core/), DID methods are expected to provide [standards-compliant methods of DID and DID Document ("DIDDoc") production](https://w3c.github.io/did-core/#production-and-consumption).
@@ -58,15 +57,11 @@ In the above diagram you can see the following steps
     * The registrar validates the signature for the provided DID Document
     * Submits the DID operation request to the network
 
-***
-<br>
-
-
 ## DID Operations
 
 ### Create
 
-**Endpoint**: `/1.0/create` <br>
+**Endpoint**: `/1.0/create`
 Provide a DID Document payload according to the [w3c did core specification](https://www.w3.org/TR/did-core/#dfn-did-documents) in the request body.
 
 
@@ -76,7 +71,6 @@ The payload can also be created using our helper endpoint `/1.0/did-document`, w
 2. Method Specific Algorithm
 3. Network
 4. PublicKey Hex encoded string
-
 
 <details>
 <summary>Request Operation</summary>
@@ -134,7 +128,6 @@ The payload can also be created using our helper endpoint `/1.0/did-document`, w
 
 </details>
 
-
 <details>
 <summary>Submit Signature</summary>
 
@@ -148,11 +141,9 @@ The payload can also be created using our helper endpoint `/1.0/did-document`, w
 		}]
 	}
 }
-
 ```
 
 </details>
-
 
 <details>
 <summary>Response</summary>
@@ -190,12 +181,9 @@ The payload can also be created using our helper endpoint `/1.0/did-document`, w
     }
   }
 }
-
 ```
 
 </details>
-
-<br>
 
 ### Update
 
@@ -269,7 +257,6 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
 
 </details>
 
-
 <details>
 <summary>Submit Signature</summary>
 
@@ -283,7 +270,6 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
 		}]
 	}
 }
-
 ```
 
 </details>
@@ -333,14 +319,9 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
     }
   }
 }
-
-
 ```
 
 </details>
-
-<br>
-
 
 ### Deactivate
 
@@ -353,7 +334,6 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
 {
   "did": "did:cheqd:testnet:b84817b8-43ee-4483-98c5-f03760816411"
 }
-
 ```
 
 </details>
@@ -384,11 +364,9 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
     }
   }
 }
-
 ```
 
 </details>
-
 
 <details>
 <summary>Submit Signature</summary>
@@ -483,11 +461,9 @@ Provide an existing DID as the path parameter, and the request body with resourc
     }
   }
 }
-
 ```
 
 </details>
-
 
 <details>
 <summary>Submit Signature</summary>
@@ -502,7 +478,6 @@ Provide an existing DID as the path parameter, and the request body with resourc
 		}]
 	}
 }
-
 ```
 
 </details>
@@ -536,8 +511,6 @@ Provide an existing DID as the path parameter, and the request body with resourc
 ```
 
 </details>
-
-<br>
 
 ## References
 
