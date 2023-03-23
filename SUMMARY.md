@@ -23,7 +23,7 @@
 * [🔗 DID-Linked Resources](tutorials/on-ledger-resources/README.md)
   * [Create a DID-Linked Resource](tutorials/on-ledger-resources/create-a-resource.md)
   * [Create a new Resource version within existing Collection](tutorials/on-ledger-resources/create-a-new-resource-version.md)
-  * [Create Status List as a Resource](guides/sdk/veramo-sdk-for-cheqd/using-on-ledger-resources-to-support-statuslist2021.md)
+  * [Create Status List as a Resource](guides/sdk/veramo-sdk-for-cheqd/statuslist2021-resources.md)
 * [🔄 DID Resolver setup](tutorials/DID-resolution.md)
 * [🛅 Demo Wallet for identity setup](tutorials/wallet.md)
 * [➡ DID Registrar](tutorials/did-registrar/README.md)
