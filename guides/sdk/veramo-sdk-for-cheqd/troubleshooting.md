@@ -1,6 +1,6 @@
 # 🤨 Troubleshooting Veramo CLI setup
 
-This guide provides common errors and potential fixes for them if you encountered errors when [setting up Veramo CLI](setup-cli.md).
+This guide provides common errors and potential fixes for them if you encountered errors when [setting up Veramo CLI](setup.md).
 
 ## Common errors when setting up Veramo CLI
 

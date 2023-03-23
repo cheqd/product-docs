@@ -14,9 +14,9 @@ The package's core functionality is borrowed from [Veramo Core NPM package](http
 
 New DID creation can also be done by passing a full-body DIDoc payload in JSON, rather than having to assemble the document field-by-field.
 
-> **Learn how to** [**configure and setup Veramo CLI for working with cheqd**](setup-cli.md) **network**
+> **Learn how to** [**configure and setup Veramo CLI for working with cheqd**](setup.md) **network**
 >
-> Our [Veramo CLI setup guide](setup-cli.md) provides step-by-step instructions on how to configure your installation for cheqd network
+> Our [Veramo CLI setup guide](setup.md) provides step-by-step instructions on how to configure your installation for cheqd network
 
 ## 📝 Architecture
 
@@ -40,7 +40,7 @@ Find out about [other Veramo plug-ins in their official documentation](https://v
 
 ## Working with Veramo SDK for cheqd outside of Veramo CLI
 
-We provide a quick-start [setup guide for working with cheqd network using Veramo CLI](setup-cli.md).
+We provide a quick-start [setup guide for working with cheqd network using Veramo CLI](setup.md).
 
 You can use our Veramo plugin in non-CLI contexts as well, for example, for integrating into custom applications
 

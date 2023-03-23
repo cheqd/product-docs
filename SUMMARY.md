@@ -35,8 +35,8 @@
 
 * [📦 Software Development Kits (SDKs)](guides/sdk/README.md)
   * [🛠 Veramo SDK for cheqd](guides/sdk/veramo-sdk-for-cheqd/README.md)
-    * [👉 Setting up Veramo CLI for cheqd](guides/sdk/veramo-sdk-for-cheqd/setup-cli.md)
-    * [🤨 Troubleshooting Veramo CLI setup](guides/sdk/veramo-sdk-for-cheqd/troubleshooting-setup.md)
+    * [👉 Setting up Veramo CLI for cheqd](guides/sdk/veramo-sdk-for-cheqd/setup.md)
+    * [🤨 Troubleshooting Veramo CLI setup](guides/sdk/veramo-sdk-for-cheqd/troubleshooting.md)
     * [📚 Tutorials](https://docs.cheqd.io/identity/tutorials/did-operations)
   * [🛠 Walt.id SSI Kit](https://docs.walt.id/v/ssikit/ecosystems/cheqd)
   * [🛠 Hyperledger Aries Framework JavaScript](guides/sdk/hyperledger-aries-framework-javascript.md)

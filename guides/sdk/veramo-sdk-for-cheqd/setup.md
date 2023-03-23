@@ -239,7 +239,7 @@ $ veramo config check -f <path/to/>agent.yml
 Your Veramo configuration seems fine. An agent can be created and the 'agent.execute()' method can be called on it.
 ```
 
-> If the `config check` throws an error, check out our [troubleshooting guide for Veramo CLI setup](troubleshooting-setup.md) to see common errors and fixes.
+> If the `config check` throws an error, check out our [troubleshooting guide for Veramo CLI setup](troubleshooting.md) to see common errors and fixes.
 
 ## Next steps
 
