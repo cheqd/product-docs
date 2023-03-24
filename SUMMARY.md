@@ -66,7 +66,7 @@
 
 ## 💫 Advanced features and alternatives
 
-* [🤓 Direct interaction with ledger code](advanced/developer-guide.md)
+* [🤓 Direct interaction with ledger code](advanced/README.md)
 * [🛰 cheqd Cosmos CLI for identity](advanced/cheqd-node-cli/README.md)
   * [Creating a DID with cheqd Cosmos CLI](advanced/cheqd-node-cli/create-did.md)
   * [Updating existing DIDs with cheqd Cosmos CLI](advanced/cheqd-node-cli/update-and-manage-did-document.md)

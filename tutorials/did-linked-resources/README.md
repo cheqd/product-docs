@@ -35,5 +35,5 @@ This documentation describes how you can use the Veramo SDK for cheqd to create 
 
 > Note that the cheqd Cosmos CLI is not suitable for use in production environments and should only be used for testing
 
-* [Setup cheqd CLI](../../advanced/developer-guide.md)
+* [Setup cheqd CLI](../../advanced/README.md)
 * [Create a DID-Linked Resource](../../advanced/cheqd-node-cli/create-resource.md)
