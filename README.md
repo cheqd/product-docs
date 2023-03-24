@@ -6,30 +6,30 @@
 
 ### :bookmark_tabs: Guides
 
-* :package: [Software Development Kits (SDKs)](guides/sdk/)
-* :link: [Understanding DID-Linked Resources](guides/did-linked-resources/)
-* :unlock: [AnonCreds on cheqd](guides/anoncreds/)
+* :package: [Software Development Kits (SDKs)](guides/sdk/README.md)
+* :link: [Understanding DID-Linked Resources](guides/did-linked-resources/README.md)
+* :unlock: [AnonCreds on cheqd](guides/anoncreds/README.md)
 * :arrows\_counterclockwise: [Understanding cheqd DID Resolver](guides/did-resolver.md)
-* :judge: [Smart Governance](guides/smart-governance/)
+* :judge: [Smart Governance](guides/smart-governance/README.md)
 
 ### :book: Tutorials
 
-* [🆔 Decentralised Identifiers (DIDs)](tutorials/did-operations/)
-* :page_with_curl: [Verifiable Credentials and Presentations](tutorials/credentials-and-presentations/)
-* :link: [DID-Linked Resources](tutorials/did-linked-resources/)
+* [🆔 Decentralised Identifiers (DIDs)](tutorials/did-operations/README.md)
+* :page_with_curl: [Verifiable Credentials and Presentations](tutorials/credentials-and-presentations/README.md)
+* :link: [DID-Linked Resources](tutorials/did-linked-resources/README.md)
 * :arrows_counterclockwise: [DID Resolver setup](tutorials/did-resolver.md)
-* [🛅](https://emojipedia.org/left-luggage/) [Demo Wallet for identity setup](tutorials/demo-wallet.md)
-* [➡️](https://emojipedia.org/right-arrow/) [DID Registrar](tutorials/did-registrar/README.md)
+* 🛅 [Demo Wallet for identity setup](tutorials/demo-wallet.md)
+* ➡️ [DID Registrar](tutorials/did-registrar/README.md)
 
 ### :construction_site: Architecture
 
-* [Architecture Decision Record (ADR) Process](architecture/)
-* [List of ADRs](architecture/adr-list/)
+* [Architecture Decision Record (ADR) Process](architecture/README.md)
+* [List of ADRs](architecture/adr-list/README.md)
 
 ### :dizzy: Advanced features and alternatives
 
 * :nerd: [Direct interaction with ledger code](advanced/README.md)
-* :satellite_orbital: [cheqd Cosmos CLI for identity](advanced/cheqd-node-cli/)
+* :satellite_orbital: [cheqd Cosmos CLI for identity](advanced/cheqd-node-cli/README.md)
 * :hammer_pick: [VDR Tools CLI with cheqd](advanced/vdr-tools/README.md)
 
 ## 📖 Other useful documentation sites for cheqd
@@ -37,7 +37,7 @@
 * [Technical Docs for cheqd node/ledger](https://docs.cheqd.io/node)
 * [Product Updates & Roadmap](https://product.cheqd.io)
 * Learn the [basics of cheqd](https://learn.cheqd.io) (for a general audience)
-* cheqd's [decentralised Governance Framework](https://gov.cheqd.io)
+* cheqd's [decentralised Governance Framework](https://docs.cheqd.io/governance)
 
 ## 💬 Community
 
