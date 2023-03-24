@@ -6,7 +6,7 @@ The purpose of this document is to describe how a DID (and associated DIDDoc) ca
 >
 > Using `cheqd-node` Cosmos CLI for real-world production environments is not recommended, since the identity keys are passed in raw form to the CLI. This is fine in development/testing usage, but is not recommend for mainnet.
 >
-> Developers are encouraged to use [production-grade CLI tools such as Veramo SDK for cheqd](../../guides/sdk/veramo-sdk-for-cheqd/) or look at [our developer guide on how to integrate custom applications](../developer-guide.md).
+> Developers are encouraged to use [production-grade CLI tools such as Veramo SDK for cheqd](../../guides/sdk/veramo-sdk-for-cheqd/) or look at [our developer guide on how to integrate custom applications](../README.md).
 
 ## Setup
 
@@ -98,7 +98,6 @@ $ cheqd-noded debug ed25519 pubkey-base64-to-jwk MnrTheU+vCrN3W+WMvcpBXYBG6D1HrN
 ```
 
 </details>
-
 
 ### 3. Create a unique identifier for the DID
 
