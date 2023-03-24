@@ -12,9 +12,9 @@
 
 ## Summary
 
-The [`did:cheqd` method ADR](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method) defines how DIDs are created and read from ledger. According to the [W3C DID Core specification](https://w3c.github.io/did-core/), DID methods are expected to provide [standards-compliant methods of DID and DID Document ("DIDDoc") production](https://w3c.github.io/did-core/#production-and-consumption).
+The [`did:cheqd` method ADR](adr-001-cheqd-did-method.md) defines how DIDs are created and read from ledger. According to the [W3C DID Core specification](https://w3c.github.io/did-core/), DID methods are expected to provide [standards-compliant methods of DID and DID Document ("DIDDoc") production](https://w3c.github.io/did-core/#production-and-consumption).
 
-The [cheqd DID Registrar](https://github.com/cheqd/did-registrar) is designed to implement the [DIF _Registrar_ specification](https://identity.foundation/did-registration/) for [`did:cheqd`](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method) method to enable create/update/deactivate DID operations easily.
+The [cheqd DID Registrar](https://github.com/cheqd/did-registrar) is designed to implement the [DIF _Registrar_ specification](https://identity.foundation/did-registration/) for [`did:cheqd`](adr-001-cheqd-did-method.md) method to enable create/update/deactivate DID operations easily.
 
 The [cheqd DID Registrar](https://github.com/cheqd/did-registrar) also supports the creation of [DID-Linked Resources](https://docs.cheqd.io/identity/guides/did-resolver) for example, schemas, credential definitions, status lists, trust registries and logos.
 

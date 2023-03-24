@@ -8,7 +8,7 @@ This tutorial offers step-by-step guidance on how to create a subject DID to be 
 
 ## Background
 
-We chose to use [`did:key`](https://github.com/w3c-ccg/did-method-key) for the holder because the [`did:key`](https://w3c-ccg.github.io/did-method-key/) specification has a lot synergy with cheqd did method, [`did:cheqd`](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method).
+We chose to use [`did:key`](https://github.com/w3c-ccg/did-method-key) for the holder because the [`did:key`](https://w3c-ccg.github.io/did-method-key/) specification has a lot synergy with cheqd did method, [`did:cheqd`](../../architecture/adr-list/adr-001-cheqd-did-method.md).
 
 Using [`did:key`](https://github.com/w3c-ccg/did-method-key) also keeps holder DIDs off-ledger. This is very important for the privacy and data protection of the holder. If holder DIDs and DIDDocs were stored on-ledger, this could constitute a risk where data written within the DIDDoc could not be removed in line with a holder's right to be forgotten.
 

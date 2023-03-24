@@ -34,7 +34,7 @@ will derive the Collection ID: **1f8e08a2-eeb6-40c3-9e01-33e4a0d1479d**
 
 A Collection is created using a `createResource` transaction, and specifying the Collection ID as the same identifier as that of the parent DID.
 
-> Note that the Collection ID may take the syntactical form of a 'Hyperledger Indy' DID identifier **or** may be a [Universally Unique Identifier (UUID)](https://www.uuidgenerator.net/). This is described in the [cheqd DID method](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method).
+> Note that the Collection ID may take the syntactical form of a 'Hyperledger Indy' DID identifier **or** may be a [Universally Unique Identifier (UUID)](https://www.uuidgenerator.net/). This is described in the [cheqd DID method](../../../architecture/adr-list/adr-001-cheqd-did-method.md).
 
 ## Creating a Resource inside a Collection, associated with a DID
 
