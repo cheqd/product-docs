@@ -6,7 +6,7 @@ This page describes how [Evernym VDR Tools](https://gitlab.com/evernym/verity/vd
 
 ## Identity wallet key methods for cheqd accounts
 
-These methods below are used to manage [cheqd accounts/wallets](../cheqd-cli/cheqd-cli-accounts.md) within identity wallets built using VDR Tools SDK. (For example, to pay for or receive payment for transactions that need to be written to ledger.)
+These methods below are used to manage [cheqd accounts/wallets](https://docs.cheqd.io/node/getting-started/cheqd-cli/cheqd-cli-accounts) within identity wallets built using VDR Tools SDK. (For example, to pay for or receive payment for transactions that need to be written to ledger.)
 
 For compatibility purposes, VDR Tools SDK method names use the `indy_` prefix. This may be updated in the future as work is done on the upstream project to refactor method names to be ledger-agnostic.
 
@@ -31,7 +31,7 @@ Create a new identity wallet key with specified `alias`, without specifying any 
 
 ### indy_cheqd_keys_add_from_mnemonic
 
-Similar to the technique used in [cheqd CLI to recover a key](../cheqd-cli/cheqd-cli-key-management.md), it allows identity wallets that use VDR Tools SDK to recover a key from mnemonic.
+Similar to the technique used in [cheqd CLI to recover a key](https://docs.cheqd.io/node/getting-started/cheqd-cli/cheqd-cli-key-management), it allows identity wallets that use VDR Tools SDK to recover a key from mnemonic.
 
 #### Input parameters
 
