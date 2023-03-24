@@ -67,7 +67,7 @@
   * [Creating a DID with cheqd Cosmos CLI](advanced/cheqd-node-cli/create-did.md)
   * [Updating existing DIDs with cheqd Cosmos CLI](advanced/cheqd-node-cli/update-and-manage-did-document.md)
   * [Deactivating existing DIDs with cheqd Cosmos CLI](advanced/cheqd-node-cli/deactivate-did.md)
-  * [Querying DIDs with cheqd Cosmos CLI](advanced/cheqd-node-cli/query-did-and-did-document.md)
+  * [Querying DIDs with cheqd Cosmos CLI](advanced/cheqd-node-cli/query-did.md)
   * [Creating a DID-Linked Resource using cheqd Cosmos CLI](advanced/cheqd-node-cli/create-resource.md)
   * [Adding a new Resource version](advanced/cheqd-node-cli/add-more-resources.md)
 * [⚒ VDR Tools CLI with cheqd](advanced/vdr-tools/README.md)

@@ -13,7 +13,7 @@ The purpose of this document is to describe how an existing DID (and associated 
 ### Pre-Requisites
 
 * Learn how to [create a DID with cheqd Cosmos CLI](create-did.md)
-* [Query an existing DID/DIDDoc](query-did-and-did-document.md) with cheqd Cosmos CLI
+* [Query an existing DID/DIDDoc](query-did.md) with cheqd Cosmos CLI
 
 ## Deactivate an existing DID
 
