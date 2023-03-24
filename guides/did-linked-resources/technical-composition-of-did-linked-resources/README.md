@@ -4,9 +4,11 @@
 
 **"Resources"** are identified with a [`did:cheqd` Decentralized Identifier](https://docs.cheqd.io/node/architecture/adr-list/adr-008-ledger-resources) with a [Universally Unique Identifier (UUID)](https://www.uuidgenerator.net/) that acts as a permanently-accessible link to fetch the resources from the cheqd ledger. We refer to this as the "**resource ID**".
 
-Using UUIDs, we can have a **high level of confidence that no two identical resource IDs will ever be created**. This is important for ensuring the integrity and identifiabilty of each individual resource.
+Using UUIDs, we can have a **high level of confidence that no two identical resource IDs will ever be created**. This is important for ensuring the integrity and uniqueness of each individual resource.
 
-<figure><img src="../../../.gitbook/assets/Formatting resource diagram.png" alt="Image showing a formatted DID URL for a cheqd resource"><figcaption><p>Image showing how a cheqd resource is formatted</p></figcaption></figure>
+![Image showing a formatted DID URL for a cheqd resource](../../../.gitbook/assets/Formatting%20resource%20diagram.png)
+
+***Figure 1**: DID-linked Resource DID URL path*
 
 This will be explained further in the section on DID URL dereferencing to fetch a resource.
 
@@ -14,7 +16,7 @@ This will be explained further in the section on DID URL dereferencing to fetch 
 
 Resources are organised into groups called "**Collections**". Each DID may have an associated Collection, and the Collection ID is **derived from the unique identifier of the DID**.
 
-Collections can store any type of Resource, but for the purpose of this documentation we will focus on the use case where the Collection is _used for storing a set of schemas_.
+Collections can store any type of Resource, but for the purpose of this documentation we will focus on the use case where the Collection is *used for storing a set of schemas*.
 
 The most important concept used in this design is that each on-ledger **Collection** is **identified using a DID** and is **described using a DID Document**.
 
@@ -26,9 +28,11 @@ did:cheqd:mainnet:1f8e08a2-eeb6-40c3-9e01-33e4a0d1479d
 
 will derive the Collection ID: **1f8e08a2-eeb6-40c3-9e01-33e4a0d1479d**
 
-<figure><img src="../../../.gitbook/assets/DID and Collection relationship.png" alt="Relationship between the DID and the Collection"><figcaption><p>Image showing the relationship between DIDs and Collection</p></figcaption></figure>
+![Relation between a DID and Resource Collection](../../../.gitbook/assets/DID%20and%20Collection%20relationship.png)
 
-A Collection is created using a _createResource_ transaction, and specifying the Collection ID as the same identifier as that of the parent DID.
+***Figure 2**: Relationship between a DID and Resource Collection*
+
+A Collection is created using a `createResource` transaction, and specifying the Collection ID as the same identifier as that of the parent DID.
 
 > Note that the Collection ID may take the syntactical form of a 'Hyperledger Indy' DID identifier **or** may be a [Universally Unique Identifier (UUID)](https://www.uuidgenerator.net/). This is described in the [cheqd DID method](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method).
 
@@ -40,13 +44,15 @@ To create a **"DID-Linked Resource"**, you must already have created a 'parent' 
 2. Specify the **same Collection ID** as the unique identifier of the parent DID
 3. Sign the `createResource` transaction with the **Verification Method keys** of the parent DID.
 
-This is show in the diagram below:
+This is shown in the diagram below:
 
-<figure><img src="../../../.gitbook/assets/DID and Resource relationship.png" alt="Image showing how a resource is associated with a DID"><figcaption><p>Image showing how a resource is associated with a DID</p></figcaption></figure>
+![Relationship between a DID and DID-linked Resource](../../../.gitbook/assets/DID%20and%20Resource%20relationship.png)
+
+***Figure 3**: Relationship between a DID and DID-linked Resource*
 
 Example of `createResource` transaction using Veramo SDK:
 
-```json
+```jsonc
 {
     "kms": "local",
     "payload": {
@@ -74,7 +80,9 @@ Once you have created a resource, the DID Document will automatically reference 
 
 This relationship is shown in the diagram below:
 
-<figure><img src="../../../.gitbook/assets/DIDDocumentMetadata.png" alt="Image showing how DID Doc Metadata references resources"><figcaption><p>Image showing how DIDDocMetadata references resources</p></figcaption></figure>
+![DID Document metadata with linked Resource metadata](../../../.gitbook/assets/DIDDocumentMetadata.png)
+
+***Figure 4**: DID Document metadata with DID-linked Resource metadata*
 
 For simplicity, we will focus on the use case where a Resource is a **schema**. The same logic used in fetching schemas from the ledger can be applied to any of the aforementioned types of Resources.
 
@@ -275,9 +283,9 @@ Let’s take a look at a fully resolved **output response** for a **DID with a C
 }
 ```
 
-Collections are identified by a **Collection ID** which is a **unique identifier** of the **linked, parent DID**. Within the _DID Document Metadata_ of the _Collection DIDDoc_, the Linked Resource metadata describes Resources within this Collection:
+Collections are identified by a **Collection ID** which is a **unique identifier** of the **linked, parent DID**. Within the *DID Document Metadata* of the *Collection DIDDoc*, the Linked Resource metadata describes Resources within this Collection:
 
-Note that the Linked Resource output above does not show the actual data / schema attributes when displaying all Resources in this Collection. It only shows Resource _metadata_.
+Note that the Linked Resource output above does not show the actual data / schema attributes when displaying all Resources in this Collection. It only shows Resource *metadata*.
 
 This logic prevents `GetResourceCollection` requests returning large quantities of data, which may be stored across multiple Resources within a Collection.
 
