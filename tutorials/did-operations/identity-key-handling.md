@@ -2,9 +2,9 @@
 
 Follow these instructions to:
 
-1. Generate [identity keys on-the-fly](identity-key-handling.md#method-1-generating-identity-keys-on-the-fly-with-diddocs) WITH a draft DIDDoc
-2. Generate [standalone identity public/private keypairs](identity-key-handling.md#method-2-standalone-key-creation)
-3. [Convert identity key pairs](identity-key-handling.md#converting-identity-keys) generated using Veramo agent to other key encoding formats
+1. Generate [identity keys on-the-fly](identity-keys.md#method-1-generating-identity-keys-on-the-fly-with-diddocs) WITH a draft DIDDoc
+2. Generate [standalone identity public/private keypairs](identity-keys.md#method-2-standalone-key-creation)
+3. [Convert identity key pairs](identity-keys.md#converting-identity-keys) generated using Veramo agent to other key encoding formats
 
 > ⚠️ **Before you begin...**
 >

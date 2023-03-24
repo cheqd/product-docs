@@ -10,7 +10,7 @@ Follow these instructions to create a new DID and publish the associated DID Doc
 
 ## 1. Create your identity keys within a DID Document template
 
-The first step is generating a template for your DID Document, including a new DID and associated public/private key pair. This process also aligns with method 1 [in the key management guide](identity-key-handling.md).
+The first step is generating a template for your DID Document, including a new DID and associated public/private key pair. This process also aligns with method 1 [in the key management guide](identity-keys.md).
 
 > It is important to note that this step does not create your DID on ledger, but it generates your identity keys as a draft DID Document for you to use in the on-ledger transaction in [Step 3](create-did.md#3-create-new-did-and-publish-diddoc).
 

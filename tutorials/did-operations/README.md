@@ -27,7 +27,7 @@ This documentation describes how you can use the Veramo SDK for cheqd to create,
 * [Update an existing DID](update-did.md)
 * [Deactivate a DID](deactivate-did.md)
 * [Create an off-ledger holder DID](create-subject-did.md)
-* [Manage identity keys](identity-key-handling.md)
+* [Manage identity keys](identity-keys.md)
 * [DID Operations Troubleshooting](troubleshooting.md)
 
 ## DIDs with DID Registrar
