@@ -27,7 +27,7 @@ This allows for multi-signature scenarios as well, in case the controllers of th
 
 Once the Resource is created, metadata related to it will be referenced within the **Collection DID Document metadata**, in the following format.
 
-```json
+```jsonc
 "didDocumentMetadata": {
   "created": "2022-07-19T08:29:07Z",
   "versionId": "57543FA1D9C56033BABBFA3A438E0A149E01BBB89E6D666ACE1243455AA6F2BC",

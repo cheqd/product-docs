@@ -187,7 +187,8 @@ The payload can also be created using our helper endpoint `/1.0/did-document`, w
 
 ### Update
 
-**Endpoint**: `/1.0/update` <br>
+**Endpoint**: `/1.0/update`
+
 Only setDidDocument operation is supported in the cheqd-did-registrar. To update a DID Document, fetch the body of the DID Document you want to change from the DID Resolver, make the relevant updates and pass it to the request operation.
 
 <details>

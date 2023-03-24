@@ -55,8 +55,6 @@ Note down the `kid` and `publicKeyHex` values of the generated key
 
 </details>
 
-<br>
-
 ## 3. Generate DID Payload
 
 Go to ["cheqd helpers" in our Registrar Driver here](https://did-registrar.cheqd.net/api-docs/#/Cheqd%20Helpers/get_did_document) and click "try it out" in the top right corner.
@@ -107,8 +105,6 @@ Select the following options
 </details>
 
 Copy the `didDoc` field from the output.
-
-<br>
 
 ## 4. Request Create Operation
 
@@ -176,7 +172,6 @@ Use `/create` to publish the DID
 
     This response requests an `action` for you to sign the serialized payload again in a CLI. This is a security feature which means you are not passing your private key to the Registrar. Note down the serialized payload, jobId from the response
 
-<br>
 
 ## 5. Sign Payload
 
@@ -196,7 +191,7 @@ Fill in the prompts
 <details>
 <summary>Example Response</summary>
 
-```bash
+```jsonc
     Arguments:  {
     "keyRef": "d2ce308f19ee116ee810956605632ccd024bad8dedd02baf49f248d03acdaa48",
     "algorithm": "Ed25519",
@@ -209,13 +204,9 @@ Fill in the prompts
 
 </details>
 
+**NOTE:** If there are *n* verification methods for the controller then *n* signatures are required to publish a DID.
 
-**NOTE:** If there are n verification methods for the controller then n signatures are required to publish a DID
-
-
-Copy the Result value from the response
-
-<br>
+Copy the Result value from the response.
 
 ## 6. Submit Signature
 

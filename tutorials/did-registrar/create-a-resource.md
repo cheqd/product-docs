@@ -57,7 +57,7 @@ Use the `/{did}/create-resource` api to publish a new DID-Linked Resource
 
     This response requests an `action` for you to sign the serialized payload again in a CLI. This is a security feature which means you are not passing your private key to the Registrar. Note down the serialized payload, jobId from the response.
 
-<br>
+
 
 ## 2. Sign Payload
 
@@ -77,7 +77,7 @@ Fill in the prompts
 <details>
 <summary>Example Response</summary>
 
-```bash
+```json
     Arguments:  {
     "keyRef": "d2ce308f19ee116ee810956605632ccd024bad8dedd02baf49f248d03acdaa48",
     "algorithm": "Ed25519",
@@ -90,13 +90,9 @@ Fill in the prompts
 
 </details>
 
+**NOTE:** If there are *n* verification methods for the controller then *n* signatures are required to publish a resource.
 
-**NOTE:** If there are 'n' verification methods for the controller then 'n' signatures are required to publish a DID
-
-
-Copy the Result value from the response
-
-<br>
+Copy the Result value from the response.
 
 ## 3. Submit Signature
 
