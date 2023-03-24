@@ -14,12 +14,9 @@ These instructions will help developers create DIDs on cheqd using the DID Regis
 2. cheqd [DID Registrar](https://did-registrar.cheqd.net/api-docs/)
 3. 5 minutes!
 
-<details>
-<summary>Swagger UI</summary>
+![Swagger UI for cheqd DID Registrar](../../.gitbook/assets/cheqd-did-registrar-swagger.png)
 
-<figure><img src="../../.gitbook/assets/cheqd-did-registrar-swagger.png"></figure>
-
-</details>
+***Figure 1**: [Swagger UI for DID Registrar](https://did-registrar.cheqd.net/api-docs/)*
 
 ## 1. Setup Veramo CLI
 
@@ -59,19 +56,16 @@ Note down the `kid` and `publicKeyHex` values of the generated key
 
 Go to ["cheqd helpers" in our Registrar Driver here](https://did-registrar.cheqd.net/api-docs/#/Cheqd%20Helpers/get_did_document) and click "try it out" in the top right corner.
 
-Select the following options
+Select the following options:
 
 * Select VerificationMethodType
 * Select MethodSpecificAlgo
 * Select network
 * Enter the publicKeyHex value generated in the previous step
 
-<details>
-<summary>Request</summary>
+![DID Registrar - create DID payload](../../.gitbook/assets/cheqd-did-registrar-did-payload.png)
 
-<figure><img src="../../.gitbook/assets/cheqd-did-registrar-did-payload.png"></figure>
-
-</details>
+***Figure 2**: Creating a DID payload from template*
 
 <details>
 <summary>Response</summary>
