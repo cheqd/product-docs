@@ -1,6 +1,6 @@
 # Creating a DID with cheqd Cosmos CLI
 
-The purpose of this document is to describe how a DID (and associated DIDDoc) can be created using [the `cheqd-node` Cosmos CLI](https://docs.cheqd.io/node/docs/cheqd-cli).
+The purpose of this document is to describe how a DID (and associated DIDDoc) can be created using [the `cheqd-node` Cosmos CLI](https://docs.cheqd.io/node/getting-started/cheqd-cli).
 
 > **NOTE: The guidance below is only recommended to be used for testing purposes!**
 >
@@ -13,7 +13,7 @@ The purpose of this document is to describe how a DID (and associated DIDDoc) ca
 ### Pre-requisites
 
 1. Access to a [`cheqd-node` Cosmos CLI binary](https://github.com/cheqd/cheqd-node/releases). You can either get this from [our Github releases](https://github.com/cheqd/cheqd-node/releases), or [download the `cheqd-cli` Docker container image](https://github.com/cheqd/cheqd-node/pkgs/container/cheqd-node).
-2. Understand how to use cheqd [accounts](https://docs.cheqd.io/node/docs/cheqd-cli/cheqd-cli-accounts) and [Cosmos SDK keys](https://docs.cheqd.io/node/docs/cheqd-cli/cheqd-cli-key-management).
+2. Understand how to use cheqd [accounts](https://docs.cheqd.io/node/getting-started/cheqd-cli/cheqd-cli-accounts) and [Cosmos SDK keys](https://docs.cheqd.io/node/getting-started/cheqd-cli/cheqd-cli-key-management).
 3. Tokens to pay for identity transactions, since all ledger transactions are metered.
    1. For testing purposes, CHEQ test tokens can be acquired from [our testnet faucet](https://testnet-faucet.cheqd.io/).
    2. Mainnet CHEQ tokens can be [acquired from any marketplace where the $CHEQ token is traded](https://learn.cheqd.io/getting-set-up-on-cheqd/where-to-find-usdcheq).

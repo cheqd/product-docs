@@ -221,7 +221,7 @@ providers:
 
 You need to configure this in under `didManager` section as shown above, where you'll need to edit:
 
-1. `cosmosPayerMnemonic`: [Mnemonic associated with your cheqd/Cosmos SDK account](https://docs.cheqd.io/node/docs/cheqd-cli/cheqd-cli-key-management). This is only stored locally, and the mnemonic is used to reconstitute the account address and keys used to pay for the transaction.
+1. `cosmosPayerMnemonic`: [Mnemonic associated with your cheqd/Cosmos SDK account](https://docs.cheqd.io/node/getting-started/cheqd-cli/cheqd-cli-key-management). This is only stored locally, and the mnemonic is used to reconstitute the account address and keys used to pay for the transaction.
 2. `rpcUrl`: For both `did:cheqd:mainnet:` as well as `did:cheqd:testnet:` sections, you can specify a Cosmos SDK RPC endpoint. This endpoint is where transactions are sent to. By default, this is populated with `rpc.cheqd.net` (for _mainnet_) and `rpc.cheqd.network` (for _testnet_), but you can can modify this to [a different hosted RPC endpoint for cheqd](https://cosmos.directory/cheqd/nodes) or even your own local/private RPC endpoint.
 3. `defaultProvider`: The default cheqd network is set to `did:cheqd:testnet` to allow developers to test out network functionality. However, if you prefer, you can switch this out to `did:cheqd:mainnet` instead.
 

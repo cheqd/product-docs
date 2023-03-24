@@ -1,6 +1,6 @@
 # Deactivate existing DIDs with cheqd Cosmos CLI
 
-The purpose of this document is to describe how an existing DID (and associated DIDDoc) can be _deactivated_ using [the `cheqd-node` Cosmos CLI](https://docs.cheqd.io/node/docs/cheqd-cli).
+The purpose of this document is to describe how an existing DID (and associated DIDDoc) can be _deactivated_ using [the `cheqd-node` Cosmos CLI](https://docs.cheqd.io/node/getting-started/cheqd-cli).
 
 > **NOTE: The procedures below are only recommended for development purposes!**
 >

@@ -321,6 +321,6 @@ If your transaction is successful, you'll receive a success message along with t
 ### Troubleshooting
 
 1. If you are using testnet, you can top-up your testnet balance using our [testnet faucet](https://testnet-faucet.cheqd.io/).
-2. You can also configure your Keplr wallet to [support cheqd testnet using the instructions here](https://docs.cheqd.io/identity/guides/sdk/veramo-sdk-for-cheqd/setup-cli#2.5.-add-cheqd-testnet-to-your-keplr-wallet).
+2. You can also configure your Keplr wallet to [support cheqd testnet using the instructions here](../../guides/sdk/veramo-sdk-for-cheqd/setup.md).
 3. If you are using mainnet, you can [purchase CHEQ tokens here](https://cheqd.io/buy).
 4. Check out our [troubleshooting guide for DID Operations](did-operations-troubleshooting.md) to see common errors and fixes.

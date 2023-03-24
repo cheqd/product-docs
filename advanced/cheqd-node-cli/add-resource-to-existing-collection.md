@@ -2,7 +2,7 @@
 
 The purpose of this document is to describe how someone can create [a _new_ Resource on under an existing _Collection_](../../guides/did-linked-resources/technical-composition-of-did-linked-resources/creating-a-resource.md).
 
-This tutorial uses the [cheqd Cosmos CLI](https://docs.cheqd.io/node/docs/cheqd-cli), similar to the [creating a new Resource tutorial](create-resource.md).
+This tutorial uses the [cheqd Cosmos CLI](https://docs.cheqd.io/node/getting-started/cheqd-cli), similar to the [creating a new Resource tutorial](create-resource.md).
 
 ## Pre-requisites
 
