@@ -42,7 +42,7 @@
   * [Context for developing DID-Linked Resources](guides/did-linked-resources/context.md)
   * [Technical composition of DID-Linked Resources](guides/did-linked-resources/technical-composition/README.md)
     * [Workflow for creating DID-Linked Resources](guides/did-linked-resources/technical-composition/creating-a-resource.md)
-    * [Referencing DID-Linked Resources in VCs](guides/did-linked-resources/technical-composition/referencing-did-linked-resources-in-vcs.md)
+    * [Referencing DID-Linked Resources in VCs](guides/did-linked-resources/technical-composition/resources-in-credentials.md)
 * [🔒 AnonCreds on cheqd](guides/anoncreds/README.md)
   * [Schema Object](guides/anoncreds/schema-object.md)
   * [CredDef Object](guides/anoncreds/creddef-object.md)
