@@ -6,19 +6,19 @@
 
 ### :bookmark_tabs: Guides
 
-* :package: [Software Development Kits (SDKs)](guides/software-development-kits-sdks/)
+* :package: [Software Development Kits (SDKs)](guides/sdk/)
 * :link: [Understanding DID-Linked Resources](guides/did-linked-resources/)
-* :unlock: [AnonCreds on cheqd](guides/using-on-ledger-resources-to-support-anoncreds/)
+* :unlock: [AnonCreds on cheqd](guides/anoncreds/)
 * :arrows\_counterclockwise: [Understanding cheqd DID Resolver](guides/did-resolver.md)
 * :judge: [Smart Governance](guides/smart-governance/)
 
 ### :book: Tutorials
 
 * [🆔 Decentralised Identifiers (DIDs)](tutorials/did-operations/)
-* :page_with_curl: [Verifiable Credentials and Presentations](tutorials/verifiable-credentials-and-presentations/)
-* :link: [DID-Linked Resources](tutorials/on-ledger-resources/)
-* :arrows_counterclockwise: [DID Resolver setup](tutorials/DID-resolution.md)
-* [🛅](https://emojipedia.org/left-luggage/) [Demo Wallet for identity setup](tutorials/wallet.md)
+* :page_with_curl: [Verifiable Credentials and Presentations](tutorials/credentials-and-presentations/)
+* :link: [DID-Linked Resources](tutorials/did-linked-resources/)
+* :arrows_counterclockwise: [DID Resolver setup](tutorials/did-resolver.md)
+* [🛅](https://emojipedia.org/left-luggage/) [Demo Wallet for identity setup](tutorials/demo-wallet.md)
 * [➡️](https://emojipedia.org/right-arrow/) [DID Registrar](tutorials/did-registrar/README.md)
 
 ### :construction_site: Architecture
@@ -28,9 +28,9 @@
 
 ### :dizzy: Advanced features and alternatives
 
-* :nerd: [Direct interaction with ledger code](advanced-features-and-alternatives/developer-guide.md)
-* :satellite_orbital: [cheqd Cosmos CLI for identity](advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/)
-* :hammer_pick: [VDR Tools CLI with cheqd](advanced-features-and-alternatives/vdr-tools-with-cheqd.md)
+* :nerd: [Direct interaction with ledger code](advanced/README.md)
+* :satellite_orbital: [cheqd Cosmos CLI for identity](advanced/cheqd-node-cli/)
+* :hammer_pick: [VDR Tools CLI with cheqd](advanced/vdr-tools/README.md)
 
 ## 📖 Other useful documentation sites for cheqd
 

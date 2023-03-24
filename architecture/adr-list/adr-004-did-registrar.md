@@ -10,12 +10,11 @@
 | **Start Date** | 2023-01-30 |
 | **Last Updated** | 2023-01-30 |
 
-
 ## Summary
 
-The [`did:cheqd` method ADR](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method) defines how DIDs are created and read from ledger. According to the [W3C DID Core specification](https://w3c.github.io/did-core/), DID methods are expected to provide [standards-compliant methods of DID and DID Document ("DIDDoc") production](https://w3c.github.io/did-core/#production-and-consumption).
+The [`did:cheqd` method ADR](adr-001-cheqd-did-method.md) defines how DIDs are created and read from ledger. According to the [W3C DID Core specification](https://w3c.github.io/did-core/), DID methods are expected to provide [standards-compliant methods of DID and DID Document ("DIDDoc") production](https://w3c.github.io/did-core/#production-and-consumption).
 
-The [cheqd DID Registrar](https://github.com/cheqd/did-registrar) is designed to implement the [DIF _Registrar_ specification](https://identity.foundation/did-registration/) for [`did:cheqd`](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method) method to enable create/update/deactivate DID operations easily.
+The [cheqd DID Registrar](https://github.com/cheqd/did-registrar) is designed to implement the [DIF _Registrar_ specification](https://identity.foundation/did-registration/) for [`did:cheqd`](adr-001-cheqd-did-method.md) method to enable create/update/deactivate DID operations easily.
 
 The [cheqd DID Registrar](https://github.com/cheqd/did-registrar) also supports the creation of [DID-Linked Resources](https://docs.cheqd.io/identity/guides/did-resolver) for example, schemas, credential definitions, status lists, trust registries and logos.
 
@@ -58,15 +57,11 @@ In the above diagram you can see the following steps
     * The registrar validates the signature for the provided DID Document
     * Submits the DID operation request to the network
 
-***
-<br>
-
-
 ## DID Operations
 
 ### Create
 
-**Endpoint**: `/1.0/create` <br>
+**Endpoint**: `/1.0/create`
 Provide a DID Document payload according to the [w3c did core specification](https://www.w3.org/TR/did-core/#dfn-did-documents) in the request body.
 
 
@@ -76,7 +71,6 @@ The payload can also be created using our helper endpoint `/1.0/did-document`, w
 2. Method Specific Algorithm
 3. Network
 4. PublicKey Hex encoded string
-
 
 <details>
 <summary>Request Operation</summary>
@@ -134,7 +128,6 @@ The payload can also be created using our helper endpoint `/1.0/did-document`, w
 
 </details>
 
-
 <details>
 <summary>Submit Signature</summary>
 
@@ -148,11 +141,9 @@ The payload can also be created using our helper endpoint `/1.0/did-document`, w
 		}]
 	}
 }
-
 ```
 
 </details>
-
 
 <details>
 <summary>Response</summary>
@@ -190,16 +181,14 @@ The payload can also be created using our helper endpoint `/1.0/did-document`, w
     }
   }
 }
-
 ```
 
 </details>
 
-<br>
-
 ### Update
 
-**Endpoint**: `/1.0/update` <br>
+**Endpoint**: `/1.0/update`
+
 Only setDidDocument operation is supported in the cheqd-did-registrar. To update a DID Document, fetch the body of the DID Document you want to change from the DID Resolver, make the relevant updates and pass it to the request operation.
 
 <details>
@@ -269,7 +258,6 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
 
 </details>
 
-
 <details>
 <summary>Submit Signature</summary>
 
@@ -283,7 +271,6 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
 		}]
 	}
 }
-
 ```
 
 </details>
@@ -333,14 +320,9 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
     }
   }
 }
-
-
 ```
 
 </details>
-
-<br>
-
 
 ### Deactivate
 
@@ -353,7 +335,6 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
 {
   "did": "did:cheqd:testnet:b84817b8-43ee-4483-98c5-f03760816411"
 }
-
 ```
 
 </details>
@@ -384,11 +365,9 @@ Only setDidDocument operation is supported in the cheqd-did-registrar. To update
     }
   }
 }
-
 ```
 
 </details>
-
 
 <details>
 <summary>Submit Signature</summary>
@@ -483,11 +462,9 @@ Provide an existing DID as the path parameter, and the request body with resourc
     }
   }
 }
-
 ```
 
 </details>
-
 
 <details>
 <summary>Submit Signature</summary>
@@ -502,7 +479,6 @@ Provide an existing DID as the path parameter, and the request body with resourc
 		}]
 	}
 }
-
 ```
 
 </details>
@@ -536,8 +512,6 @@ Provide an existing DID as the path parameter, and the request body with resourc
 ```
 
 </details>
-
-<br>
 
 ## References
 

@@ -4,7 +4,7 @@ Follow these instructions to update an existing `did:cheqd` entry on cheqd ledge
 
 > ⚠️ **Before you begin...**
 >
-> Make sure you've correctly [configured the cheqd plugin's agent settings](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md) for Veramo CLI
+> Make sure you've correctly [configured the cheqd plugin's agent settings](../../guides/sdk/veramo-sdk-for-cheqd/setup.md) for Veramo CLI
 
 ## Instructions
 
@@ -12,7 +12,7 @@ Follow these instructions to update an existing `did:cheqd` entry on cheqd ledge
 
 Before updating the DID, you will need to prepare the updated DIDDoc and parameters for the transaction in an `payload.json` file.
 
-This file can be saved whereever you choose, but the location must be specified in the [create DID command used in Step 2](create-a-did.md). (By default, it will be saved under the project root directory.)
+This file can be saved whereever you choose, but the location must be specified in the [create DID command used in Step 2](create-did.md). (By default, it will be saved under the project root directory.)
 
 #### Parameters
 
@@ -30,7 +30,7 @@ This file can be saved whereever you choose, but the location must be specified 
   * `payer` (optional): The cheqd fee payer address
   * `granter` (optional): The cheqd fee granter address, Provided the grantee has an allowance by the granter
 
-> Note that transaction fees are paid by the cheqd account set in the `agent.yml` configuration file, [setup here](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md). Each of cheqd's on-ledger identity transactions has a **fixed fee,** [the pricing for cheqd DIDs and DID-Linked Resources can be found here](https://docs.cheqd.io/node/architecture/adr-list/adr-005-genesis-parameters#cheqd-module-did-module). If your account has insufficient balance the transaction will fail.
+> Note that transaction fees are paid by the cheqd account set in the `agent.yml` configuration file, [setup here](../../guides/sdk/veramo-sdk-for-cheqd/setup.md). Each of cheqd's on-ledger identity transactions has a **fixed fee,** [the pricing for cheqd DIDs and DID-Linked Resources can be found here](https://docs.cheqd.io/node/architecture/adr-list/adr-005-genesis-parameters#cheqd-module-did-module). If your account has insufficient balance the transaction will fail.
 
 ### 2. Update existing DID
 
@@ -103,4 +103,4 @@ If you would like to fetch the updated DIDDoc body following the successful DID 
 
 ## Next steps
 
-DID update operations can be complicated, especially when changing or updating keys, using multiple keys etc. Understand the [design of the cheqd DID method](https://docs.cheqd.io/node/architecture/adr-list/adr-002-cheqd-did-method) and [_Verification Relationships_ in the W3C DID Core specification](https://w3c.github.io/did-core/#verification-relationships) to understand the logic that is applied in these scenarios.
+DID update operations can be complicated, especially when changing or updating keys, using multiple keys etc. Understand the [design of the cheqd DID method](../../architecture/adr-list/adr-001-cheqd-did-method.md) and [_Verification Relationships_ in the W3C DID Core specification](https://w3c.github.io/did-core/#verification-relationships) to understand the logic that is applied in these scenarios.

@@ -7,10 +7,10 @@
 There are multiple supported ways to create DIDs on cheqd mainnet and testnet:
 
 1. Enterprise SDKs
-   1. [Veramo SDK for cheqd](create-a-did.md)
+   1. [Veramo SDK for cheqd](create-did.md)
    2. [walt.id SSI Kit](https://docs.walt.id/v/ssikit/ecosystems/cheqd/create-did)
-2. [DID Registrar](../did-registrar/create-a-did.md)
-3. [cheqd CLI](../../advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/create-did.md) (testing purposes only)
+2. [DID Registrar](../did-registrar/create-did.md)
+3. [cheqd CLI](../../advanced/cheqd-node-cli/create-did.md) (testing purposes only)
 
 > Learn about [cheqd's DID method in our guide here](../../architecture/adr-list/adr-001-cheqd-did-method.md)
 
@@ -20,27 +20,27 @@ This documentation describes how you can use the Veramo SDK for cheqd to create,
 
 > ⚠️ **Before you begin...**
 >
-> Make sure you've correctly [configured the cheqd plugin's agent settings](../../guides/software-development-kits-sdks/veramo-sdk-for-cheqd/setup-cli.md) for Veramo CLI
+> Make sure you've correctly [configured the cheqd plugin's agent settings](../../guides/sdk/veramo-sdk-for-cheqd/setup.md) for Veramo CLI
 
-* [Create a DID](create-a-did.md)
+* [Create a DID](create-did.md)
 * [Querying a DID](query-did.md)
 * [Update an existing DID](update-did.md)
-* [Deactivate a DID](deactivate-a-did.md)
+* [Deactivate a DID](deactivate-did.md)
 * [Create an off-ledger holder DID](create-subject-did.md)
-* [Manage identity keys](identity-key-handling.md)
-* [DID Operations Troubleshooting](did-operations-troubleshooting.md)
+* [Manage identity keys](identity-keys.md)
+* [DID Operations Troubleshooting](troubleshooting.md)
 
 ## DIDs with DID Registrar
 
 * [Setup DID Registrar](../did-registrar/did-registrar-setup.md)
-* [Create a DID](../did-registrar/create-a-did.md)
+* [Create a DID](../did-registrar/create-did.md)
 
 ## DIDs with cheqd CLI
 
 > Note that the cheqd Cosmos CLI is not suitable for use in production environments and should only be used for testing
 
-* [Setup cheqd CLI](../../advanced-features-and-alternatives/developer-guide.md)
-* [Create a DID](../../advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/create-did.md)
-* [Query a DID](../../advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/query-did-and-did-document.md)
-* [Update a DID](../../advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/update-and-manage-did-document.md)
-* [Deactivate a DID](../../advanced-features-and-alternatives/cheqd-cosmos-cli-for-identity/deactivate-a-did.md)
+* [Setup cheqd CLI](../../advanced/README.md)
+* [Create a DID](../../advanced/cheqd-node-cli/create-did.md)
+* [Query a DID](../../advanced/cheqd-node-cli/query-did.md)
+* [Update a DID](../../advanced/cheqd-node-cli/update-did.md)
+* [Deactivate a DID](../../advanced/cheqd-node-cli/deactivate-did.md)
