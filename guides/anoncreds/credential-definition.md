@@ -370,7 +370,7 @@ To create a CredDef on cheqd, you should follow the [tutorials for creating a DI
 
 ## Tying CredDef, RevRegDef and StatusListEntry Objects together
 
-Across the [cheqd CredDef Object Method](credential-definition.md#cheqd-anoncreds-object-method-for-creddefs), the [Revocation Registry Definition Object Method](revocation-registry-definition-object.md) and the [StatusListEntry Object Method](revocation-registry-entry-object.md) - each resource is associated with the same issuer DID and Collection ID.
+Across the [cheqd CredDef Object Method](credential-definition.md#cheqd-anoncreds-object-method-for-creddefs), the [Revocation Registry Definition Object Method](revocation-registry-definition.md) and the [StatusListEntry Object Method](revocation-registry-entry-object.md) - each resource is associated with the same issuer DID and Collection ID.
 
 Importantly, this allows each new resource to be indexed and versioned by their:
 
@@ -383,13 +383,13 @@ New resources can be created to update the existing CredDef or RevRegDef, whilst
 
 Existing DID Resolvers will be able to query for the CredDef Object Content using the [same patterns and parameters as the Schema Object found here](schema.md#fetching-a-cheqd-resource).
 
-The cheqd AnonCreds method also enables applications to derive the [CredDef](credential-definition.md), [Revocation Registry Definition Object](revocation-registry-definition-object.md) and [Status List Entries](revocation-registry-entry-object.md) from the same root:
+The cheqd AnonCreds method also enables applications to derive the [CredDef](credential-definition.md), [Revocation Registry Definition Object](revocation-registry-definition.md) and [Status List Entries](revocation-registry-entry-object.md) from the same root:
 
 ### Same Resource Name, different Resource type
 
 We propose that the `resourceName` for CredDefs, Revocation Registry Definitions and Status List Entries **should remain the same** when each of these resources is part of the same AnonCred. This will make it easier for resources to query by `resourceName` and `resourceType` to delineate between the three resources using a common root.
 
-Using this logic, the following queries can be used to dereference to [CredDefs](credential-definition.md), [Revocation Registry Definitions](revocation-registry-definition-object.md) and [Status List Entries](revocation-registry-entry-object.md), in a way which can derive all three resources from the same root:
+Using this logic, the following queries can be used to dereference to [CredDefs](credential-definition.md), [Revocation Registry Definitions](revocation-registry-definition.md) and [Status List Entries](revocation-registry-entry-object.md), in a way which can derive all three resources from the same root:
 
 #### Dereference to CredDef
 

@@ -32,7 +32,7 @@ There are multiple specific AnonCreds transaction types that cheqd needs to supp
 
 * [Schema Objects](schema.md)
 * [Credential Definition Objects](credential-definition.md)
-* [Revocation Registry Definition Objects](revocation-registry-definition-object.md)
+* [Revocation Registry Definition Objects](revocation-registry-definition.md)
 * [Revocation Status List Object and Entries](revocation-registry-entry-object.md)
 
 Through creating compatible formats for the above, cheqd will theoretically be able to support AnonCreds request/response/issuance data flows, via existing SDKs and Hyperledger Aries Libraries.
