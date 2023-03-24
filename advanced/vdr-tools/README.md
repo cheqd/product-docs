@@ -1,6 +1,6 @@
 # ⚒ VDR Tools CLI with cheqd
 
-This page describes how [identity-domain transactions can be integrated in 3rd party applications](developer-guide.md) such as [Evernym VDR Tools](https://gitlab.com/evernym/verity/vdr-tools).
+This page describes how [identity-domain transactions can be integrated in 3rd party applications](../../guides/sdk/README.md) such as [Evernym VDR Tools](https://gitlab.com/evernym/verity/vdr-tools).
 
 ## Base write flow
 
@@ -12,7 +12,7 @@ This page describes how [identity-domain transactions can be integrated in 3rd p
 
 ### Response format
 
-```bash
+```protobuf
   Response {
    check_tx: TxResult {
       code: 0,
