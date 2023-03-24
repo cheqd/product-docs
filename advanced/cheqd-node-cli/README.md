@@ -11,5 +11,5 @@ List of tutorials:
 * [Query DIDs and DID Document](query-did-and-did-document.md)
 * [Deactivate a DID](deactivate-did.md)
 * [Create DID-Linked Resource](create-resource.md)
-* [Add new DID-Linked Resource to existing Collection](add-resource-to-existing-collection.md)
+* [Add new DID-Linked Resource to existing Collection](add-more-resources.md)
   
