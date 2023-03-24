@@ -6,7 +6,7 @@ Our objective in building DID-Linked Resources on cheqd is to **improve the way 
 
 ## Contents
 
-* [Context for developing DID-Linked Resources on cheqd](context-for-developing-did-linked-resources.md)
+* [Context for developing DID-Linked Resources on cheqd](context.md)
 * [Technical composition of DID-Linked Resources](technical-composition-of-did-linked-resources/)
   * [Workflow for creating DID-Linked Resources](technical-composition-of-did-linked-resources/creating-a-resource.md)
   * [Referencing DID-Linked Resources in Verifiable Credentials](technical-composition-of-did-linked-resources/referencing-did-linked-resources-in-vcs.md)

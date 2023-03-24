@@ -2,7 +2,7 @@
 
 Once created, issuers of Verifiable Credentials may want to reference resources within the body of issued Verifiable Credentials.
 
-As mentioned in the section on [Context for Resources](../context-for-developing-did-linked-resources.md), this may be useful for referencing:
+As mentioned in the section on [Context for Resources](../context.md), this may be useful for referencing:
 
 * **Schemas;**
 * **Status lists;**
