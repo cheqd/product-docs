@@ -45,7 +45,7 @@
     * [Referencing DID-Linked Resources in VCs](guides/did-linked-resources/technical-composition/resources-in-credentials.md)
 * [🔒 AnonCreds on cheqd](guides/anoncreds/README.md)
   * [Schemas](guides/anoncreds/schema.md)
-  * [CredDef Object](guides/anoncreds/creddef-object.md)
+  * [CredDef Object](guides/anoncreds/credential-definition.md)
   * [Revocation Registry Definition Object](guides/anoncreds/revocation-registry-definition-object.md)
   * [Status List Entry Object](guides/anoncreds/revocation-registry-entry-object.md)
 * [🔍 Understanding cheqd DID Resolver](guides/did-resolver.md)

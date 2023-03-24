@@ -31,7 +31,7 @@ Importantly, we want to make sure that this work is done in a manner which bring
 There are multiple specific AnonCreds transaction types that cheqd needs to support. This documentation will provide guidance and instructions on how equivalent AnonCreds formats can be replicated using cheqd DID-Linked resources, for:
 
 * [Schema Objects](schema.md)
-* [Credential Definition Objects](creddef-object.md)
+* [Credential Definition Objects](credential-definition.md)
 * [Revocation Registry Definition Objects](revocation-registry-definition-object.md)
 * [Revocation Status List Object and Entries](revocation-registry-entry-object.md)
 

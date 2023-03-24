@@ -40,7 +40,7 @@ The required content and data model for the AnonCreds Revocation Registry Defini
 
 * `issuerId` - the [Issuer Identifier](https://hyperledger.github.io/anoncreds-spec/#term:issuer-identifier) of the revocation registry. MUST adhere to [Issuer Identifiers](https://hyperledger.github.io/anoncreds-spec/#issuer-identifiers) rules and MUST be the same `issuerId` as the [Credential Definition](https://hyperledger.github.io/anoncreds-spec/#term:credential-definition) on which the [Revocation Registry](https://hyperledger.github.io/anoncreds-spec/#term:revocation-registry) is based.
 * `revocDefType`: the input parameter `type` (This is currently always `CL_ACCUM`)
-* `credDefId`: the input parameter `cred_def_id`, [further explained here](creddef-object.md).
+* `credDefId`: the input parameter `cred_def_id`, [further explained here](credential-definition.md).
 * `tag` - an arbitrary string defined by the \[ref: issuer], enabling an \[ref: issuer] to create multiple [Revocation Registry Definition](https://hyperledger.github.io/anoncreds-spec/#term:revocation-registry-definition)s for the same [Credential Definition](https://hyperledger.github.io/anoncreds-spec/#term:credential-definition).
 * `value` - The value of the revocation registry definition
   * `publicKeys` - Public keys data for signing the accumulator; the public key of a private/public key pair
@@ -258,7 +258,7 @@ To create a Revocation Registry Definition on cheqd, you should follow the [tuto
 
 ## Tying CredDef, RevRegDef and StatusListEntry Objects together
 
-Across the [cheqd CredDef Object Method](creddef-object.md#cheqd-anoncreds-object-method-for-creddefs), the [Revocation Registry Definition Object Method](revocation-registry-definition-object.md#cheqd-anoncreds-object-method-for-revocation-registry-definition-objects) and the [StatusListEntry Object Method](revocation-registry-entry-object.md) - each resource is associated with the same issuer DID and Collection ID.
+Across the [cheqd CredDef Object Method](credential-definition.md#cheqd-anoncreds-object-method-for-creddefs), the [Revocation Registry Definition Object Method](revocation-registry-definition-object.md#cheqd-anoncreds-object-method-for-revocation-registry-definition-objects) and the [StatusListEntry Object Method](revocation-registry-entry-object.md) - each resource is associated with the same issuer DID and Collection ID.
 
 Importantly, this allows each new resource to be indexed and versioned by their:
 
@@ -271,13 +271,13 @@ New resources can be created to update the existing CredDef or RevRegDef, whilst
 
 Existing DID Resolvers will be able to query for the Revocation Registry Definition Object Content using the [same patterns and parameters as the Schema Object found here](schema.md#fetching-a-cheqd-resource).
 
-The cheqd AnonCreds method also enables applications to derive the [CredDef](creddef-object.md), [Revocation Registry Definition Object](revocation-registry-definition-object.md) and [Status List Entries](revocation-registry-entry-object.md) from the same root:
+The cheqd AnonCreds method also enables applications to derive the [CredDef](credential-definition.md), [Revocation Registry Definition Object](revocation-registry-definition-object.md) and [Status List Entries](revocation-registry-entry-object.md) from the same root:
 
 ### Same Resource Name, different Resource type
 
 We propose that the `resourceName` for CredDefs, Revocation Registry Definitions and Status List Entries **should remain the same** when each of these resources is part of the same AnonCred. This will make it easier for resources to query by `resourceName` and `resourceType` to delineate between the three resources using a common root.
 
-Using this logic, the following queries can be used to dereference to [CredDefs](creddef-object.md), [Revocation Registry Definitions](revocation-registry-definition-object.md) and [Status List Entries](revocation-registry-entry-object.md), in a way which can derive all three resources from the same root:
+Using this logic, the following queries can be used to dereference to [CredDefs](credential-definition.md), [Revocation Registry Definitions](revocation-registry-definition-object.md) and [Status List Entries](revocation-registry-entry-object.md), in a way which can derive all three resources from the same root:
 
 #### Dereference to CredDef
 
@@ -318,9 +318,9 @@ This is similar to how Hyperledger Indy uses composite strings to derive assoica
 
 Like both the Legacy Schema Object ID and the Legacy CredDef Object ID, the Legacy Revocation Registry Definition Object ID was defined as a composite string of the following information:
 
-1. `Publisher DID`: The DID of the creator of the revocation registry. Generally this will be the same publisher as the creator of the [CredDef Object](creddef-object.md).
+1. `Publisher DID`: The DID of the creator of the revocation registry. Generally this will be the same publisher as the creator of the [CredDef Object](credential-definition.md).
 2. `Object Type`: An integer denoting the type of object. `4` is used for Revocation Registry Objects.
-3. `CredDef Object ID`: This is the [AnonCreds CredDef Object ID](creddef-object.md).
+3. `CredDef Object ID`: This is the [AnonCreds CredDef Object ID](credential-definition.md).
 4. `Revocation Registry Type`: The type of Revocation Registry used, this is by default always "`CL_ACCUM`".
 5. `tag`: A unique name or tag given to the Revocation Registry Object.
 

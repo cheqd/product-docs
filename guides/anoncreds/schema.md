@@ -8,7 +8,7 @@ description: cheqd support for Ledger-Agnostic AnonCreds schemas
 
 Schemas are used to list a set of attributes. Issuers of Verifiable Credentials may reference schemas within Credentials they issue in order to provide a layer of semantic interoperability with other issuers utilising the same schema.
 
-In the [AnonCreds Specification](https://hyperledger.github.io/anoncreds-spec/), schemas are written directly to a [Verifiable Data Registry](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-decentralised-identifier-did/what-is-a-verifiable-data-registry), rather than using a centralized service such as [schema.org](https://schema.org/). Schemas are also referenced within Credential Definitions, which are used to link the schema, issuer and holder together ([detailed further here](creddef-object.md)).
+In the [AnonCreds Specification](https://hyperledger.github.io/anoncreds-spec/), schemas are written directly to a [Verifiable Data Registry](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-decentralised-identifier-did/what-is-a-verifiable-data-registry), rather than using a centralized service such as [schema.org](https://schema.org/). Schemas are also referenced within Credential Definitions, which are used to link the schema, issuer and holder together ([detailed further here](credential-definition.md)).
 
 This documentation will guide an implementor of AnonCreds on cheqd on how the cheqd AnonCreds Object Method defines the structure of [**cheqd schema IDs**](schema.md#cheqd-schema-id), the [**schema request format**](schema.md#cheqd-schema-request-format) and the [**schema response format**](schema.md#cheqd-schema-response-format).
 
