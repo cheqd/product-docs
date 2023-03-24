@@ -6,7 +6,7 @@ The [Status List 2021 Specification](https://w3c-ccg.github.io/vc-status-list-20
 
 The [Status List 2021 Specification](https://w3c-ccg.github.io/vc-status-list-2021/) utilises [bitstrings](https://w3c-ccg.github.io/vc-status-list-2021/#conceptual-framework) to represent whether a Verifiable Credential has been suspended/revoked or not. A bitstring can be thought of as a long list of 1s and 0s, where, if the binary value of the position in the list is 1 (one), the [verifiable credential](https://w3c-ccg.github.io/vc-status-list-2021/#dfn-verifiable-credentials) is revoked, if it is 0 (zero) it is not revoked.
 
-![Graphic showing the StatusList2021 bitstring](../../../.gitbook/assets/StatusList21%20Bitstring.png)
+![Graphic showing the StatusList2021 bitstring](../../.gitbook/assets/StatusList21%20Bitstring.png)
 
 ***Figure 1**: Graphic showing the StatusList2021 bitstring*
 
@@ -99,7 +99,7 @@ The [Status List 2021 Specification](https://w3c-ccg.github.io/vc-status-list-20
 
 Using cheqd's Resource Module, the same benefits may be achieved. In fact, storing a StatusList as an on-ledger Resource is a much better application of technology than using a Verifiable Credential for the same purpose.
 
-By storing a StatusList on the cheqd Network as a Resource, it creates a much more resilient and decentralised mechanism for storing and maintaining the revocation/suspension status of Verifiable Credentials. The [benefits of using the cheqd Resource module over traditional centralised architecture are detailed here](../../did-linked-resources/).
+By storing a StatusList on the cheqd Network as a Resource, it creates a much more resilient and decentralised mechanism for storing and maintaining the revocation/suspension status of Verifiable Credentials. The [benefits of using the cheqd Resource module over traditional centralised architecture are detailed here](../../guides/did-linked-resources/context.md).
 
 Moreover, cheqd's Resource Module enables individual Resources to be referenced and retrieved using a DID URL in conformance with DID Core. This is being standardized at [the Trust over IP Foundation](https://trustoverip.org/) within a specification called [DID URLs for Digital Resources](https://wiki.trustoverip.org/display/HOME/DID-Linked+Resources+Specification).
 
@@ -109,7 +109,7 @@ Using the cheqd Resource module, the same content and semantics of StatusList202
 
 #### Create a DID and DID Document with keys to manage the StatusList
 
-You can follow the [tutorial to create a DID and DID Document here](../../../tutorials/did-operations/create-did.md).
+You can follow the [tutorial to create a DID and DID Document here](../did-operations/create-did.md).
 
 Let's assume that the following DID is created.
 
@@ -314,7 +314,7 @@ Resulting in the following metadata syntax:
 
 ### Issuing a Verifiable Credential referencing cheqd StatusList
 
-Follow the [instructions for issuing a Verifiable Credential here](../../../tutorials/credentials-and-presentations/), including the credentialStatus information, as shown in the example below:
+Follow the [instructions for issuing a Verifiable Credential here](../credentials-and-presentations/README.md), including the `credentialStatus` information, as shown in the example below:
 
 ```json
 {
