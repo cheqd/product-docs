@@ -47,11 +47,9 @@
   * [Schemas](guides/anoncreds/schema.md)
   * [Credential Definitions ("CredDefs")](guides/anoncreds/credential-definition.md)
   * [Revocation Registry Definitions](guides/anoncreds/revocation-registry-definition.md)
-  * [Status List Entry Object](guides/anoncreds/revocation-registry-entries.md)
+  * [Revocation Registry Entries](guides/anoncreds/revocation-registry-entries.md)
 * [🔍 Understanding cheqd DID Resolver](guides/did-resolver.md)
 * [Smart Governance](guides/smart-governance/README.md)
-  * [Governance File](guides/smart-governance/governance-file.md)
-  * [Trust Registry](guides/smart-governance/trust-registry.md)
 
 ## 🏗 Architecture
 
@@ -77,7 +75,7 @@
 ## ⚖️ Legal
 
 * [License](LICENSE.md)
-* [Code of Conduct](CODE\_OF\_CONDUCT.md)
+* [Code of Conduct](CODE_OF_CONDUCT.md)
 * [Security Policy](SECURITY.md)
 
 ## 🆘 Support
