@@ -12,7 +12,7 @@
   * [Update an existing DID](tutorials/did-operations/update-did.md)
   * [Deactivate a DID](tutorials/did-operations/deactivate-did.md)
   * [Create an off-ledger holder DID](tutorials/did-operations/create-subject-did.md)
-  * [Managing identity keys](tutorials/did-operations/identity-keys.md)
+  * [Managing identity keys]
   * [Troubleshooting](tutorials/did-operations/troubleshooting.md)
 * [🔄 DID Resolver setup](tutorials/did-resolver.md)
 * [📃 Verifiable Credentials and Presentations](tutorials/credentials-and-presentations/README.md)
