@@ -22,14 +22,14 @@ This documentation describes how you can use the Veramo SDK for cheqd to create 
 >
 > Make sure you've correctly [configured the cheqd plugin's agent settings](../../guides/sdk/veramo-sdk-for-cheqd/setup.md) for Veramo CLI
 
-* [Create a DID-Linked Resource](create-a-resource.md)
+* [Create a DID-Linked Resource](create-resource.md)
 * [Create a new Resource version](create-a-new-resource-version.md)
 * [Create a Status List as a Resource](../../guides/sdk/veramo-sdk-for-cheqd/statuslist2021-resources.md)
 
 ## DID-Linked Resources with DID Registrar
 
 * [Setup DID Registrar](../did-registrar/did-registrar-setup.md)
-* [Create a DID-Linked Resource](../did-registrar/create-a-resource.md)
+* [Create a DID-Linked Resource](../did-registrar/create-resource.md)
 
 ## DID-Linked Resources with cheqd CLI
 

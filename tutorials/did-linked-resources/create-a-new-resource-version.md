@@ -14,7 +14,7 @@ Follow [this](../did-operations/) tutorial to generate keys and create a DID.
 
 ### 2. Create a DID-Linked Resource
 
-Follow [this](create-a-resource.md) tutorial to create the first version of the resource.
+Follow [this](create-resource.md) tutorial to create the first version of the resource.
 
 ### 3. Publish the new Resource version
 
@@ -30,4 +30,4 @@ New versions have dedicated unique IDs and can be referenced and retrieved as an
 
 #### Steps
 
-Follow [the same](create-a-resource.md) tutorial as for resource creation, but use the same `collectionId,` `name` and `resourceType` as for the previous Resource version.
+Follow [the same](create-resource.md) tutorial as for resource creation, but use the same `collectionId,` `name` and `resourceType` as for the previous Resource version.
