@@ -116,7 +116,7 @@ You can then use this template to populate your `payload.json` file in [Step 2](
 
 ### Unexpected output
 
-After running the above command, if you see an unexpected error, follow our [DID Operations Troubleshooting Guide](did-operations-troubleshooting.md) to fix it. A common error is:
+After running the above command, if you see an unexpected error, follow our [DID Operations Troubleshooting Guide](troubleshooting.md) to fix it. A common error is:
 
 ```bash
 Unexpected token v in JSON at position 1
@@ -323,4 +323,4 @@ If your transaction is successful, you'll receive a success message along with t
 1. If you are using testnet, you can top-up your testnet balance using our [testnet faucet](https://testnet-faucet.cheqd.io/).
 2. You can also configure your Keplr wallet to [support cheqd testnet using the instructions here](../../guides/sdk/veramo-sdk-for-cheqd/setup.md).
 3. If you are using mainnet, you can [purchase CHEQ tokens here](https://cheqd.io/buy).
-4. Check out our [troubleshooting guide for DID Operations](did-operations-troubleshooting.md) to see common errors and fixes.
+4. Check out our [troubleshooting guide for DID Operations](troubleshooting.md) to see common errors and fixes.

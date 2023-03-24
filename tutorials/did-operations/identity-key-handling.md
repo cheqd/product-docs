@@ -112,7 +112,7 @@ Result : {
 
 ### Unexpected output
 
-After running the above command, if you see an unexpected error, follow our [DID Operations Troubleshooting Guide](did-operations-troubleshooting.md) to fix it. A common error is:
+After running the above command, if you see an unexpected error, follow our [DID Operations Troubleshooting Guide](troubleshooting.md) to fix it. A common error is:
 
 ```bash
 Unexpected token v in JSON at position 1

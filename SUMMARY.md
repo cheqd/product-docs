@@ -13,7 +13,7 @@
   * [Deactivate a DID](tutorials/did-operations/deactivate-did.md)
   * [Create an off-ledger holder DID](tutorials/did-operations/create-subject-did.md)
   * [Managing identity keys](tutorials/did-operations/identity-key-handling.md)
-  * [DID Operations Troubleshooting](tutorials/did-operations/did-operations-troubleshooting.md)
+  * [Troubleshooting](tutorials/did-operations/troubleshooting.md)
 * [📃 Verifiable Credentials and Presentations](tutorials/credentials-and-presentations/README.md)
   * [Issue a Verifiable Credential](tutorials/credentials-and-presentations/issue-credential.md)
   * [Verify a Verifiable Credential](tutorials/credentials-and-presentations/verify-a-verifiable-credential/README.md)
