@@ -24,7 +24,7 @@ This documentation describes how you can use the Veramo SDK for cheqd to create 
 
 * [Create a DID-Linked Resource](create-resource.md)
 * [Create a new Resource version](create-new-version.md)
-* [Create a Status List as a Resource](../../guides/sdk/veramo-sdk-for-cheqd/statuslist2021-resources.md)
+* [Create a Status List as a Resource](statuslist2021-resources.md)
 
 ## DID-Linked Resources with DID Registrar
 
