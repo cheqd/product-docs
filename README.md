@@ -30,7 +30,7 @@
 
 * :nerd: [Direct interaction with ledger code](advanced/README.md)
 * :satellite_orbital: [cheqd Cosmos CLI for identity](advanced/cheqd-node-cli/)
-* :hammer_pick: [VDR Tools CLI with cheqd](advanced/vdr-tools-with-cheqd.md)
+* :hammer_pick: [VDR Tools CLI with cheqd](advanced/vdr-tools/README.md)
 
 ## 📖 Other useful documentation sites for cheqd
 
