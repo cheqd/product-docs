@@ -65,7 +65,7 @@
 * [🤓 Direct interaction with ledger code](advanced/README.md)
 * [🛰 cheqd Cosmos CLI for identity](advanced/cheqd-node-cli/README.md)
   * [Creating a DID with cheqd Cosmos CLI](advanced/cheqd-node-cli/create-did.md)
-  * [Updating existing DIDs with cheqd Cosmos CLI](advanced/cheqd-node-cli/update-and-manage-did-document.md)
+  * [Updating existing DIDs with cheqd Cosmos CLI](advanced/cheqd-node-cli/update-did.md)
   * [Deactivating existing DIDs with cheqd Cosmos CLI](advanced/cheqd-node-cli/deactivate-did.md)
   * [Querying DIDs with cheqd Cosmos CLI](advanced/cheqd-node-cli/query-did.md)
   * [Creating a DID-Linked Resource using cheqd Cosmos CLI](advanced/cheqd-node-cli/create-resource.md)

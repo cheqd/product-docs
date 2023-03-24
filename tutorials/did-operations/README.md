@@ -42,5 +42,5 @@ This documentation describes how you can use the Veramo SDK for cheqd to create,
 * [Setup cheqd CLI](../../advanced/README.md)
 * [Create a DID](../../advanced/cheqd-node-cli/create-did.md)
 * [Query a DID](../../advanced/cheqd-node-cli/query-did.md)
-* [Update a DID](../../advanced/cheqd-node-cli/update-and-manage-did-document.md)
+* [Update a DID](../../advanced/cheqd-node-cli/update-did.md)
 * [Deactivate a DID](../../advanced/cheqd-node-cli/deactivate-did.md)

@@ -7,7 +7,7 @@
 List of tutorials:
 
 * [Create DIDs and DID Documents](create-did.md)
-* [Update and manage existing DIDs and DID Documents](update-and-manage-did-document.md)
+* [Update and manage existing DIDs and DID Documents](update-did.md)
 * [Query DIDs and DID Document](query-did.md)
 * [Deactivate a DID](deactivate-did.md)
 * [Create DID-Linked Resource](create-resource.md)
