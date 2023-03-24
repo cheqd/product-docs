@@ -1,6 +1,6 @@
 # Creating a Resource using cheqd Cosmos CLI
 
-The purpose of this document is to outline how someone can create a Resource on the cheqd network using [cheqd Cosmos CLI](create-did.md). The process that's followed is similar to what's described in the [high-level Resource creation flow](../../guides/did-linked-resources/technical-composition-of-did-linked-resources/creating-a-resource.md).
+The purpose of this document is to outline how someone can create a Resource on the cheqd network using [cheqd Cosmos CLI](create-did.md). The process that's followed is similar to what's described in the [high-level Resource creation flow](../../guides/did-linked-resources/technical-composition/creating-a-resource.md).
 
 ## Pre-requisites
 
