@@ -44,7 +44,7 @@
     * [Workflow for creating DID-Linked Resources](guides/did-linked-resources/technical-composition/creating-a-resource.md)
     * [Referencing DID-Linked Resources in VCs](guides/did-linked-resources/technical-composition/resources-in-credentials.md)
 * [🔒 AnonCreds on cheqd](guides/anoncreds/README.md)
-  * [Schema Object](guides/anoncreds/schema-object.md)
+  * [Schemas](guides/anoncreds/schema.md)
   * [CredDef Object](guides/anoncreds/creddef-object.md)
   * [Revocation Registry Definition Object](guides/anoncreds/revocation-registry-definition-object.md)
   * [Status List Entry Object](guides/anoncreds/revocation-registry-entry-object.md)

@@ -381,7 +381,7 @@ New resources can be created to update the existing CredDef or RevRegDef, whilst
 
 ### Fetching a cheqd CredDef Object
 
-Existing DID Resolvers will be able to query for the CredDef Object Content using the [same patterns and parameters as the Schema Object found here](schema-object.md#fetching-a-cheqd-resource).
+Existing DID Resolvers will be able to query for the CredDef Object Content using the [same patterns and parameters as the Schema Object found here](schema.md#fetching-a-cheqd-resource).
 
 The cheqd AnonCreds method also enables applications to derive the [CredDef](creddef-object.md), [Revocation Registry Definition Object](revocation-registry-definition-object.md) and [Status List Entries](revocation-registry-entry-object.md) from the same root:
 
@@ -428,7 +428,7 @@ This is similar to how Hyperledger Indy uses composite strings to derive assoica
 
 <summary>Legacy AnonCreds CredDef Object</summary>
 
-Like with [Schema Objects](schema-object.md), each CredDef Object ID (`cred_def_id`) was previously a **composite** string, consisting of the following elements:
+Like with [Schema Objects](schema.md), each CredDef Object ID (`cred_def_id`) was previously a **composite** string, consisting of the following elements:
 
 * `issuer DID`: The DID of the Issuer, the issuer of the credentials that will utilise the CredDef.
 * `object type`: The type of object. `3` is used for CredDefs.

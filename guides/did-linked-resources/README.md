@@ -18,7 +18,7 @@ Our objective in building DID-Linked Resources on cheqd is to **improve the way 
 ### Support for AnonCreds using DID-Linked Resources
 
 * [Understanding AnonCreds on cheqd:](../anoncreds/)
-  * [Schema object](../anoncreds/schema-object.md)
+  * [Schema object](../anoncreds/schema.md)
   * [CredDef object](../anoncreds/creddef-object.md)
   * [Revocation Registry Definition object](../anoncreds/revocation-registry-definition-object.md)
   * [Status List Entry object](../anoncreds/revocation-registry-entry-object.md)

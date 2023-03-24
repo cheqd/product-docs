@@ -259,7 +259,7 @@ New resources can be created to update the existing CredDef or RevRegDef, whilst
 
 ### Fetching a cheqd Status List Object
 
-Existing DID Resolvers will be able to query for the Status List Object Content using the [same patterns and parameters as the Schema Object found here](schema-object.md#fetching-a-cheqd-resource).
+Existing DID Resolvers will be able to query for the Status List Object Content using the [same patterns and parameters as the Schema Object found here](schema.md#fetching-a-cheqd-resource).
 
 The cheqd AnonCreds method also enables applications to derive the [CredDef](creddef-object.md), [Revocation Registry Definition Object](revocation-registry-definition-object.md) and [Status List Entries](revocation-registry-entry-object.md) from the same root:
 

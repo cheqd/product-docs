@@ -10,7 +10,7 @@ Schemas are used to list a set of attributes. Issuers of Verifiable Credentials 
 
 In the [AnonCreds Specification](https://hyperledger.github.io/anoncreds-spec/), schemas are written directly to a [Verifiable Data Registry](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-decentralised-identifier-did/what-is-a-verifiable-data-registry), rather than using a centralized service such as [schema.org](https://schema.org/). Schemas are also referenced within Credential Definitions, which are used to link the schema, issuer and holder together ([detailed further here](creddef-object.md)).
 
-This documentation will guide an implementor of AnonCreds on cheqd on how the cheqd AnonCreds Object Method defines the structure of [**cheqd schema IDs**](schema-object.md#cheqd-schema-id), the [**schema request format**](schema-object.md#cheqd-schema-request-format) and the [**schema response format**](schema-object.md#cheqd-schema-response-format).
+This documentation will guide an implementor of AnonCreds on cheqd on how the cheqd AnonCreds Object Method defines the structure of [**cheqd schema IDs**](schema.md#cheqd-schema-id), the [**schema request format**](schema.md#cheqd-schema-request-format) and the [**schema response format**](schema.md#cheqd-schema-response-format).
 
 ### Hyperledger AnonCreds Schema Object
 
@@ -74,7 +74,7 @@ The cheqd schema request format comprises of:
 Both of these inputs are required to provide the ledger enough information to:
 
 1. Populate a [cheqd DID-Linked Resource](../did-linked-resources/); and
-2. Compile a standardised AnonCreds schema object in the [Response format](schema-object.md#cheqd-schema-response-format).
+2. Compile a standardised AnonCreds schema object in the [Response format](schema.md#cheqd-schema-response-format).
 
 #### cheqd Schema Resource file
 
@@ -168,7 +168,7 @@ Once you have created your resource on cheqd, the following metadata will be gen
 
 ### cheqd Schema Response format
 
-Using the [cheqd Schema Request Format](schema-object.md#cheqd-schema-request-format) and associated [resource metadata](schema-object.md#cheqd-resource-metadata), the ledger has enough information to compile the following data structure as a response format.
+Using the [cheqd Schema Request Format](schema.md#cheqd-schema-request-format) and associated [resource metadata](schema.md#cheqd-resource-metadata), the ledger has enough information to compile the following data structure as a response format.
 
 This can either be compiled by the associated SDK handling cheqd AnonCreds, or it can be assembled by the cheqd DID resolver.
 
