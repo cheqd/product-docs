@@ -13,7 +13,7 @@ Therefore, the barrier for integrating cheqd DIDs into existing client applicati
 ## Getting started
 
 * [Setting up DID Registrar](did-registrar-setup.md)
-* [Create a DID](create-a-did.md)
+* [Create a DID](create-did.md)
 * [Create a DID-Linked Resource](create-a-resource.md)
 * [Architecture Decision Record - DID Registrar](../../architecture/adr-list/adr-004-did-registrar.md)
 * [DID Registrar Driver](https://did-registrar.cheqd.net/api-docs/)

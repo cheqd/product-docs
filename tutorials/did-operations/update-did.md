@@ -12,7 +12,7 @@ Follow these instructions to update an existing `did:cheqd` entry on cheqd ledge
 
 Before updating the DID, you will need to prepare the updated DIDDoc and parameters for the transaction in an `payload.json` file.
 
-This file can be saved whereever you choose, but the location must be specified in the [create DID command used in Step 2](create-a-did.md). (By default, it will be saved under the project root directory.)
+This file can be saved whereever you choose, but the location must be specified in the [create DID command used in Step 2](create-did.md). (By default, it will be saved under the project root directory.)
 
 #### Parameters
 

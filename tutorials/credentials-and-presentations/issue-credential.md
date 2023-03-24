@@ -45,7 +45,7 @@ You'll be presented with an multiple options select:
 
 Select which Issuer DID stored in your local storage you'd like to issue the credential from, e.g., `did:cheqd:mainnet:zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX`
 
-The assumption here is that you've either [created the issuer DID](../did-operations/create-a-did.md) or [stored the DIDDoc by querying it](../did-operations/query-did.md).
+The assumption here is that you've either [created the issuer DID](../did-operations/create-did.md) or [stored the DIDDoc by querying it](../did-operations/query-did.md).
 
 ### 5. Specify the subject DID (credential holder's DID)
 

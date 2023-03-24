@@ -7,9 +7,9 @@
 There are multiple supported ways to create DIDs on cheqd mainnet and testnet:
 
 1. Enterprise SDKs
-   1. [Veramo SDK for cheqd](create-a-did.md)
+   1. [Veramo SDK for cheqd](create-did.md)
    2. [walt.id SSI Kit](https://docs.walt.id/v/ssikit/ecosystems/cheqd/create-did)
-2. [DID Registrar](../did-registrar/create-a-did.md)
+2. [DID Registrar](../did-registrar/create-did.md)
 3. [cheqd CLI](../../advanced/cheqd-node-cli/create-did.md) (testing purposes only)
 
 > Learn about [cheqd's DID method in our guide here](../../architecture/adr-list/adr-001-cheqd-did-method.md)
@@ -22,7 +22,7 @@ This documentation describes how you can use the Veramo SDK for cheqd to create,
 >
 > Make sure you've correctly [configured the cheqd plugin's agent settings](../../guides/sdk/veramo-sdk-for-cheqd/setup.md) for Veramo CLI
 
-* [Create a DID](create-a-did.md)
+* [Create a DID](create-did.md)
 * [Querying a DID](query-did.md)
 * [Update an existing DID](update-did.md)
 * [Deactivate a DID](deactivate-a-did.md)
@@ -33,7 +33,7 @@ This documentation describes how you can use the Veramo SDK for cheqd to create,
 ## DIDs with DID Registrar
 
 * [Setup DID Registrar](../did-registrar/did-registrar-setup.md)
-* [Create a DID](../did-registrar/create-a-did.md)
+* [Create a DID](../did-registrar/create-did.md)
 
 ## DIDs with cheqd CLI
 

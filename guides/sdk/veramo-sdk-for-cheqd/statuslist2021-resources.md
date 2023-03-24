@@ -109,7 +109,7 @@ Using the cheqd Resource module, the same content and semantics of StatusList202
 
 #### Create a DID and DID Document with keys to manage the StatusList
 
-You can follow the [tutorial to create a DID and DID Document here](../../../tutorials/did-operations/create-a-did.md).
+You can follow the [tutorial to create a DID and DID Document here](../../../tutorials/did-operations/create-did.md).
 
 Let's assume that the following DID is created.
 

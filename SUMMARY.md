@@ -7,7 +7,7 @@
 ## 📖 Tutorials
 
 * [🆔 Decentralised Identifiers (DIDs)](tutorials/did-operations/README.md)
-  * [Create a DID](tutorials/did-operations/create-a-did.md)
+  * [Create a DID](tutorials/did-operations/create-did.md)
   * [Querying a DID](tutorials/did-operations/query-did.md)
   * [Update an existing DID](tutorials/did-operations/update-did.md)
   * [Deactivate a DID](tutorials/did-operations/deactivate-a-did.md)
@@ -28,7 +28,7 @@
 * [🛅 Demo Wallet for identity setup](tutorials/demo-wallet.md)
 * [➡ DID Registrar](tutorials/did-registrar/README.md)
   * [Setup DID Registrar](tutorials/did-registrar/did-registrar-setup.md)
-  * [Create a DID](tutorials/did-registrar/create-a-did.md)
+  * [Create a DID](tutorials/did-registrar/create-did.md)
   * [Create a DID-Linked Resource](tutorials/did-registrar/create-a-resource.md)
 
 ## 📑 Guides

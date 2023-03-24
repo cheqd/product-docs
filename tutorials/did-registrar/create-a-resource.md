@@ -3,7 +3,7 @@
 Follow these instructions to create a new Resource linked to a DID using DID registrar. This tutorial will use the cheqd did regisrtar swagger API's and the Veramo CLI.
 
 > ⚠️ **Before you begin...**
-> Make sure you've completed [creating a DID](./create-a-did.md) for this tutorial for Veramo CLI
+> Make sure you've completed [creating a DID](./create-did.md) for this tutorial for Veramo CLI
 
 ## 1. Request Create Operation
 
