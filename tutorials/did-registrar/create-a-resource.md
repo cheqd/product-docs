@@ -57,8 +57,6 @@ Use the `/{did}/create-resource` api to publish a new DID-Linked Resource
 
     This response requests an `action` for you to sign the serialized payload again in a CLI. This is a security feature which means you are not passing your private key to the Registrar. Note down the serialized payload, jobId from the response.
 
-
-
 ## 2. Sign Payload
 
 Sign the serialized payload in your CLI with the below command
