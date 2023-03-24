@@ -21,7 +21,7 @@
   * [Verify a Verifiable Presentation](tutorials/credentials-and-presentations/verify-jwt-presentation.md)
 * [🔗 DID-Linked Resources](tutorials/did-linked-resources/README.md)
   * [Create a DID-Linked Resource](tutorials/did-linked-resources/create-resource.md)
-  * [Create a new Resource version within existing Collection](tutorials/did-linked-resources/create-a-new-resource-version.md)
+  * [Create a new Resource version within existing Collection](tutorials/did-linked-resources/create-new-version.md)
   * [Create Status List as a Resource](guides/sdk/veramo-sdk-for-cheqd/statuslist2021-resources.md)
 * [🔄 DID Resolver setup](tutorials/did-resolver.md)
 * [🛅 Demo Wallet for identity setup](tutorials/demo-wallet.md)
