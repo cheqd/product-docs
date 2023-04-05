@@ -47,7 +47,7 @@
   * [Schemas](guides/anoncreds/schema.md)
   * [Credential Definitions ("CredDefs")](guides/anoncreds/credential-definition.md)
   * [Revocation Registry Definitions](guides/anoncreds/revocation-registry-definition.md)
-  * [Revocation Registry Entries](guides/anoncreds/revocation-registry-entries.md)
+  * [Revocation Status Lists](guides/anoncreds/revocation-status-list.md)
 * [🔍 Understanding cheqd DID Resolver](guides/did-resolver.md)
 * [Smart Governance](guides/smart-governance/README.md)
 
