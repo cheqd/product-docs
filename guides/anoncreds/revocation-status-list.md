@@ -276,7 +276,7 @@ Using this logic, the following queries can be used to dereference to [CredDefs]
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=universityDegree&resourceType=anonCredsRevocRegDef`
 
-#### Dereference to Revocation Status List 
+#### Dereference to Revocation Status List
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?resourceName=universityDegree&resourceType=anonCredsStatusList`
 
@@ -304,7 +304,7 @@ Furthermore, it will be possible to query Status Lists at certain times. This ma
 
 It will be very common for a proof of non-revocation to require the latest Status List and work its way back from there.
 
-The following DID URL will be able to call the latest Status List 
+The following DID URL will be able to call the latest Status List:
 
 `did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J?universityDegree&resourceType=anonCredsStatusList`
 
