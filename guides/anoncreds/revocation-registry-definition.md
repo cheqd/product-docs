@@ -252,7 +252,7 @@ The cheqd DID resolver will use the following logic to compile the standardised 
 _If "**resourceType=anonCredsRevocRegDef**" then **append "issuerId"** to the beginning of the Response Format for the resource presented_
 {% endhint %}
 
-### create Revocation Registry Definition transaction
+### Create Revocation Registry Definition transaction
 
 To create a Revocation Registry Definition on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../tutorials/did-linked-resources/), and pass the relevant JSON file for the object in the transaction.
 
