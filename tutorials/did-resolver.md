@@ -32,6 +32,28 @@ To configure the resolver, modify the values under the `environment` section of 
 3. **`RESOLVER_LISTENER`**`: A string with address and port where the resolver listens for requests from clients.
 4. **`LOG_LEVEL`**: `debug`/`warn`/`info`/`error` - to define the application log level.
 
+#### gRPC Endpoints used by DID Resolver
+
+Our DID Resolver uses the [Cosmos gRPC endpoint](https://docs.cosmos.network/main/core/grpc_rest) from `cheqd-node` to fetch data. Typically, this would be running on port `9090` on a `cheqd-node` instance.
+
+You can either use [public gRPC endpoints for the cheqd network](https://cosmos.directory/cheqd/nodes) (such as the default ones mentioned above), or point it to your own `cheqd-node` instance by enabling gRPC in the `app.toml` configuration file on a node:
+
+```toml
+###############################################################################
+###                           gRPC Configuration                            ###
+###############################################################################
+
+[grpc]
+
+# Enable defines if the gRPC server should be enabled.
+enable = true
+
+# Address defines the gRPC server address to bind to.
+address = "0.0.0.0:9090"
+```
+
+**Note**: If you're pointing a DID Resolver to your own node instance, by default `cheqd-node` instance gRPC endpoints are *not* served up with a TLS certificate. This means the `useTls` property would need to be set to `false`, unless you're otherwise using a load balancer that provides TLS connections to the gRPC port.
+
 ## Building your own Docker image
 
 ### Using Docker Build
