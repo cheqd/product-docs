@@ -4,7 +4,7 @@
 
 DID methods are expected to provide [standards-compliant methods of DID and DID Document ("DIDDoc") production](https://w3c.github.io/did-core/#production-and-consumption).
 
-The [cheqd DID Resolver](https://github.com/cheqd/did-resolver) is designed to implement the [W3C DID _Resolution_ specification](https://w3c-ccg.github.io/did-resolution/) for [`did:cheqd`](../architecture/adr-list/adr-001-cheqd-did-method.md) method.
+The [cheqd DID Resolver](https://github.com/cheqd/did-resolver) is designed to implement the [W3C DID _Resolution_ specification](https://w3c-ccg.github.io/did-resolution/) for [`did:cheqd`](../../architecture/adr-list/adr-001-cheqd-did-method.md) method.
 
 > **💻 Github:** [**cheqd/did-resolver**](https://github.com/cheqd/did-resolver/)
 >
@@ -20,7 +20,7 @@ The cheqd DID Resolver uses these existing gRPC/REST API endpoints to carry out 
 
 > **📝 Architecture Decision Record for cheqd DID Resolver**
 >
-> Full discussion and details on the [design of cheqd DID Resolver are available in its ADR](../architecture/adr-list/adr-003-did-resolver.md)
+> Full discussion and details on the [design of cheqd DID Resolver are available in its ADR](../../architecture/adr-list/adr-003-did-resolver.md)
 
 ## Deployment patterns for cheqd DID Resolver
 
@@ -34,7 +34,7 @@ The _Full cheqd DID Resolver_ is able to use `github.com/cheqd/cheqd-node` as a 
 
 Since the _Full cheqd DID Resolver_ is wrapped for usage as a Docker container image using the Universal Resolver specification, the end-to-end sequence diagram for our DID Resolver would look like below:
 
-![Full cheqd DID Resolver sequence diagram](../.gitbook/assets/cheqd-full-did-resolver-sequence-diagram.png)
+![Full cheqd DID Resolver sequence diagram](../../.gitbook/assets/cheqd-full-did-resolver-sequence-diagram.png)
 
 _Figure 1_: "Full" cheqd DID Resolver sequence diagram ([editable version](https://swimlanes.io/u/CE_Rjphs9?rev=7))
 

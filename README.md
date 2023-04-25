@@ -9,7 +9,7 @@
 * :package: [Software Development Kits (SDKs)](guides/sdk/README.md)
 * :link: [Understanding DID-Linked Resources](guides/did-linked-resources/README.md)
 * :unlock: [AnonCreds on cheqd](guides/anoncreds/README.md)
-* :arrows\_counterclockwise: [Understanding cheqd DID Resolver](guides/did-resolver.md)
+* :arrows\_counterclockwise: [Understanding cheqd DID Resolver](guides/resolver/did-resolver.md)
 * :judge: [Smart Governance](guides/smart-governance/README.md)
 
 ### :book: Tutorials
