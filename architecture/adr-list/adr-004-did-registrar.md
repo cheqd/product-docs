@@ -16,7 +16,7 @@ The [`did:cheqd` method ADR](adr-001-cheqd-did-method.md) defines how DIDs are c
 
 The [cheqd DID Registrar](https://github.com/cheqd/did-registrar) is designed to implement the [DIF _Registrar_ specification](https://identity.foundation/did-registration/) for [`did:cheqd`](adr-001-cheqd-did-method.md) method to enable create/update/deactivate DID operations easily.
 
-The [cheqd DID Registrar](https://github.com/cheqd/did-registrar) also supports the creation of [DID-Linked Resources](https://docs.cheqd.io/identity/guides/did-resolver) for example, schemas, credential definitions, status lists, trust registries and logos.
+The [cheqd DID Registrar](https://github.com/cheqd/did-registrar) also supports the creation of [DID-Linked Resources](https://docs.cheqd.io/identity/guides/resolver/did-resolver) for example, schemas, credential definitions, status lists, trust registries and logos.
 
 ## Architecture
 
