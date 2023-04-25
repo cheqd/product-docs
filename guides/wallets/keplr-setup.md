@@ -45,7 +45,7 @@ Sign in to your Keplr wallet on your browser (do not use the mobile app).
 
     ```json
     {
-        "chainId": "cheqd-testnet-5",
+        "chainId": "cheqd-testnet-6",
         "chainName": "cheqd Testnet",
         "rpc": "https://rpc.cheqd.network",
         "rest": "https://api.cheqd.network",
@@ -55,7 +55,7 @@ Sign in to your Keplr wallet on your browser (do not use the mobile app).
             "coinDecimals": 9,
             "coinGeckoId": "cheqd-network"
         },
-        "walletUrlForStaking": "https://wallet.cheqd.io",
+        "walletUrlForStaking": "https://cheqd.omniflix.co/",
         "bip44": {
             "coinType": 118
         },
@@ -82,8 +82,8 @@ Sign in to your Keplr wallet on your browser (do not use the mobile app).
                 "coinDecimals": 9,
                 "coinGeckoId": "cheqd-network",
                 "gasPriceStep": {
-                    "low": 25,
-                    "average": 50,
+                    "low": 50,
+                    "average": 75,
                     "high": 100
                 }
             }
