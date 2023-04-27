@@ -49,6 +49,8 @@
   * [Revocation Registry Definitions](guides/anoncreds/revocation-registry-definition.md)
   * [Revocation Status Lists](guides/anoncreds/revocation-status-list.md)
 * [🔍 Understanding cheqd DID Resolver](guides/resolver/did-resolver.md)
+* [💳 Wallet](guides/wallets/README.md)
+  * [Setup Keplr wallet](guides/wallets/keplr-setup.md)
 * [Smart Governance](guides/smart-governance/README.md)
 
 ## 🏗 Architecture
