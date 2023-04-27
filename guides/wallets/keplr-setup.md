@@ -41,7 +41,7 @@ In order to see $CHEQ in your Keplr wallet, you’ll need to follow the steps be
 
 1. Go to the Axelar Netork documentation to [`Add a custom network to Keplr`](https://docs.axelar.dev/resources/keplr#add-your-custom-network)
 2. Scroll to `Add your custom network`
-3.  In space provided, paste the full contents of cheqd chain testnet information listed below
+3. In space provided, paste the full contents of cheqd chain testnet information listed below
 
     ```json
     {
@@ -92,6 +92,7 @@ In order to see $CHEQ in your Keplr wallet, you’ll need to follow the steps be
         "beta": true
     }
     ```
+
 4. Once you've pasted the contents above, select `Validate Input & Add to Keplr`
 5. You have now added the cheqd testnet to Keplr. This network uses the SAME mnemonic that was used when setting up the account\\
 
