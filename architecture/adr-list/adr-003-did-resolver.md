@@ -240,6 +240,7 @@ Since the cheqd DID Resolver APIs are REST APIs, the default `Content-Type: appl
 ### Resolve/Dereference a DidDocument from ledger
 
 Here we have 3 possible path for query:
+
 - DID URL with just DID. Please, follow this [section](#did-url-without-fragment-and-queries)
 - Ask with fragment. Instead of `#` symbol it requires to use URL encoding symbol (`%23`). Will be described more in [section](#did-url-with-fragment)
 - Ask with queries parameters for getting metadata or resource, filtered by metadata-related parameters. Please follow this [section](#did-url-with-queries)
@@ -269,21 +270,58 @@ For getting such section we need to point with the section identifier. The secti
       }
     ],
 ```
+
 and want to ask for it, we need to pass `key-1` as a fragment parameter for query., like in example:
 
 **Example**:
-- DIDUrl: 
-```
+
+- DIDUrl:
+
+```text
 1.0/identifiers/did:cheqd:testnet:97e351e6-2d9d-4314-82ec-e0d12bc5de43%23key-1
 ```
 
 - Response:
-  {ToDo}
+
+```json
+{
+  "@context": "https://w3id.org/did-resolution/v1",
+  "dereferencingMetadata": {
+    "contentType": "application/did+ld+json",
+    "retrieved": "2023-04-27T14:12:44Z",
+    "did": {
+      "didString": "did:cheqd:testnet:97e351e6-2d9d-4314-82ec-e0d12bc5de43",
+      "methodSpecificId": "97e351e6-2d9d-4314-82ec-e0d12bc5de43",
+      "method": "cheqd"
+    }
+  },
+  "contentStream": {
+    "@context": [
+      "https://www.w3.org/ns/did/v1"
+    ],
+    "id": "did:cheqd:testnet:97e351e6-2d9d-4314-82ec-e0d12bc5de43#key-1",
+    "type": "JsonWebKey2020",
+    "controller": "did:cheqd:testnet:97e351e6-2d9d-4314-82ec-e0d12bc5de43",
+    "publicKeyJwk": {
+      "crv": "Ed25519",
+      "kty": "OKP",
+      "x": "q8-CHj4_nIYo8tK5RdjYbXlsTUnwW_i4gIEclps2i2o"
+    }
+  },
+  "contentMetadata": {
+    "created": "2023-03-01T08:47:07.919899771Z",
+    "updated": "2023-03-01T08:52:27.785774183Z",
+    "versionId": "cfe2f51f-8ec5-4fd8-8ab9-61859de879f4"
+  }
+}
+```
+
 #### DID URL with queries
 
 All the queries can be divided into 2 main groups:
+
 - Queries for getting the DIDDoc.
-- DID Dereferencing. 
+- DID Dereferencing.
 
 DID Dereferencing means, that response is not a DIDDoc. It could be just DIDDoc Metadata or any kind of linked resources.
 Default behavior in case of absent `versionId` and `versionTime` parameters - get the latest version of DIDDoc.
@@ -307,11 +345,10 @@ Default behavior in case of absent `versionId` and `versionTime` parameters - ge
   - `versionId` or `resourceId` are not valid UUID strings
   - `versionTime` or `resourceVersionTime` are not in RFC3339 or RFC3339Nano formats.
   - `resourceVersionTime` is used without any other resource parameters.
-  
 
 ##### Get the DIDDoc
 
-Here we have an ability to apply some kind of filters for the DIDDoc by asking with specific definitions. 
+Here we have an ability to apply some kind of filters for the DIDDoc by asking with specific definitions.
 
 ###### VersionId
 
@@ -327,7 +364,7 @@ It can be combined with any other queries for building more complex requests.
 /1.0/identifiers/did:cheqd:testnet:b5d70adf-31ca-4662-aa10-d3a54cd8f06c?versionId=ce298b6f-594b-426e-b431-370d6bc5d3ad
 ```
 
-- Response 
+- Response
 
 ```json
 {
@@ -405,7 +442,7 @@ The logic about `linkedResourceMetadata` is the same. Here, resolver figure out 
 1.0/identifiers/did:cheqd:testnet:b5d70adf-31ca-4662-aa10-d3a54cd8f06c?versionTime=2023-03-06T09:53:44.46Z
 ```
 
-- Response 
+- Response
 
 ```json
 {
@@ -487,7 +524,7 @@ It allows you to change `publicKey` representation into the one of next variants
 1.0/identifiers/did:cheqd:testnet:b5d70adf-31ca-4662-aa10-d3a54cd8f06c?transformKey=Ed25519VerificationKey2020
 ```
 
-- Response 
+- Response
 
 ```json
 {
@@ -564,7 +601,7 @@ Service - is a DIDDoc section which includes `ServiceEndpoint` field with URL in
 1.0/identifiers/did:cheqd:testnet:b5d70adf-31ca-4662-aa10-d3a54cd8f06c?service=bar
 ```
 
-- Response 
+- Response
 
 ```text
 Will be redirect to https://bar.example.com
@@ -572,7 +609,7 @@ Will be redirect to https://bar.example.com
 
 ###### RelativeRef
 
-`relativeRef` - additional part for `ServiceEndpoint` and can be used only with [service](#service) parameter. 
+`relativeRef` - additional part for `ServiceEndpoint` and can be used only with [service](#service) parameter.
 It concatenates `ServiceEndpoint` URL with `relativeRef` value and does the redirect to the URL.
 
 **Example**:
@@ -583,11 +620,12 @@ It concatenates `ServiceEndpoint` URL with `relativeRef` value and does the redi
 1.0/identifiers/did:cheqd:testnet:b5d70adf-31ca-4662-aa10-d3a54cd8f06c?service=bar&relativeRef=%2Ffoo
 ```
 
-- Response 
+- Response
 
 ```text
 Will be redirect to https://bar.example.com/foo
 ```
+
 ###### Metadata
 
 By default, without `metadata=true` pair `DID-resolver` returns only particular DIDDoc. In case, if it requires to get only metadata you can pass such additional query. It can be helpful, for example if it requires to get all the resources which were created for the exact `versionId` or before `versionTime`.
@@ -600,7 +638,7 @@ By default, without `metadata=true` pair `DID-resolver` returns only particular 
 1.0/identifiers/did:cheqd:testnet:b5d70adf-31ca-4662-aa10-d3a54cd8f06c?versionId=ce298b6f-594b-426e-b431-370d6bc5d3ad&metadata=true
 ```
 
-- Response 
+- Response
 
 ```json
 {
@@ -640,17 +678,22 @@ By default, without `metadata=true` pair `DID-resolver` returns only particular 
 ```
 
 ##### Get the exact data of Resource or Metadata
+
 Here we have several query parameters for resources filtering. By default, it returns the exact resource abut such behavior may be changed to show only list of resources metadata by adding `resourceMetadata=true` parameter.
 There are some special rules:
+
 1. If `resourceMetadata=true` is not set, only `resourceName=<some name>` is placed and there are several resources with the same name then logic is:
- - If all such resources have the same `ResourceType` then the latest one will be returned.
- - Otherwise, it's `NotFoundError` cause it's ambiguous what the resource should be shown.
+
+   - If all such resources have the same `ResourceType` then the latest one will be returned.
+   - Otherwise, it's `NotFoundError` cause it's ambiguous what the resource should be shown.
+
 2. The same logic for `resourceType` parameter.
 For example, there are 2 linked resources for such did `did:cheqd:testnet:c1685ca0-1f5b-439c-8eb8-5c0e85ab7cd0` with the same `resourceType` ('String') but names are not the same and in case of requesting:
 
 ```text
 1.0/identifiers/did:cheqd:testnet:c1685ca0-1f5b-439c-8eb8-5c0e85ab7cd0?resourceType=String
 ```
+
 the next response is expected:
 
 ```json
@@ -726,7 +769,6 @@ Response:
 }
 ```
 
-
 ###### ResourceId
 
 `ResourceId` parameter can be used for filtering particular resource cause it exactly identifies it.
@@ -739,7 +781,7 @@ Response:
 1.0/identifiers/did:cheqd:testnet:b5d70adf-31ca-4662-aa10-d3a54cd8f06c?resourceId=5e16a3f9-7c6e-4b6b-8e28-20f56780ee25
 ```
 
-- Response 
+- Response
 
 ```text
 Hello world
@@ -758,7 +800,7 @@ Without `resourceMetadata=true` parameter will return the latest created resourc
 1.0/identifiers/did:cheqd:testnet:d8ac0372-0d4b-413e-8ef5-8e8f07822b2c?resourceCollectionId=d8ac0372-0d4b-413e-8ef5-8e8f07822b2c
 ```
 
-- Response 
+- Response
 
 ```json
 {
@@ -779,6 +821,7 @@ Without `resourceMetadata=true` parameter will return the latest created resourc
     "schemaId": "did:cheqd:testnet:d8ac0372-0d4b-413e-8ef5-8e8f07822b2c/resources/bae5cb6c-564a-4ed4-8c0e-d5c3b0f8ae0a"
 }
 ```
+
 ###### ResourceType
 
 This one is also just filter by `Type` field through resources. But there is a corner case if the user asks about exact resource (exact data). If after applying all the parameters in request several resources are left with the same `Name` - the latest one will be responded. Otherwise - error `NotFoundError` will be raised.
@@ -791,7 +834,7 @@ This one is also just filter by `Type` field through resources. But there is a c
 1.0/identifiers/did:cheqd:testnet:d8ac0372-0d4b-413e-8ef5-8e8f07822b2c?resourceType=anonCredsCredDef
 ```
 
-- Response 
+- Response
 
 ```json
 {
@@ -812,6 +855,7 @@ This one is also just filter by `Type` field through resources. But there is a c
     "schemaId": "did:cheqd:testnet:d8ac0372-0d4b-413e-8ef5-8e8f07822b2c/resources/bae5cb6c-564a-4ed4-8c0e-d5c3b0f8ae0a"
 }
 ```
+
 ###### ResourceName
 
 Behavior of this parameter is similar with [resourceType](#resourcetype) one.
@@ -824,7 +868,7 @@ Behavior of this parameter is similar with [resourceType](#resourcetype) one.
 1.0/identifiers/did:cheqd:testnet:d8ac0372-0d4b-413e-8ef5-8e8f07822b2c?resourceName=TAG
 ```
 
-- Response 
+- Response
 
 ```json
 {
@@ -858,7 +902,7 @@ It just filters by `Version` field. We introduced it with latest network upgrade
 1.0/identifiers/did:cheqd:testnet:d8ac0372-0d4b-413e-8ef5-8e8f07822b2c?resourceVersion=b9029cf7-c40b-4850-b9a1-9bfad46a68d7
 ```
 
-- Response 
+- Response
 
 ```json
 {
@@ -895,7 +939,7 @@ The most useful use-case here is checking that some "Credential" (driver's licen
 1.0/identifiers/did:cheqd:testnet:d8ac0372-0d4b-413e-8ef5-8e8f07822b2c?resourceVersionTime=2023-02-22T06:58:18.61Z&resourceVersion=1.14.417474384596773
 ```
 
-- Response 
+- Response
 
 ```json
 {
@@ -919,7 +963,7 @@ It just checks that `checksum` is the same as resource's metadata and also can u
 1.0/identifiers/did:cheqd:testnet:d8ac0372-0d4b-413e-8ef5-8e8f07822b2c?checksum=27ad51a49f079a6634b18bbc3ac08dd2d91f13fabf72ea8e5d83692fe4820058
 ```
 
-- Response 
+- Response
 
 ```json
 {
@@ -949,7 +993,7 @@ Possible variants:
 1.0/identifiers/did:cheqd:testnet:d8ac0372-0d4b-413e-8ef5-8e8f07822b2c?resourceType=anonCredsSchema&resourceMetadata=true
 ```
 
-- Response 
+- Response
 
 ```json
 {
