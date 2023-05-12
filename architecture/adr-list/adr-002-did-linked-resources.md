@@ -2,14 +2,13 @@
 
 ## Status
 
-| Category | Status |
-| :--- | :--- |
-| **Authors** | Ankur Banerjee, Alexandr Kolesov, Alex Tweeddale, Renata Toktar   |
-| **ADR Stage** | ACCEPTED |
-| **Implementation Status** | Implemented |
-| **Start Date** | 2021-09-23 |
-| **Last Updated** | 2023-02-06 |
-
+| Category                  | Status                                                          |
+| ------------------------- | --------------------------------------------------------------- |
+| **Authors**               | Ankur Banerjee, Alexandr Kolesov, Alex Tweeddale, Renata Toktar |
+| **ADR Stage**             | ACCEPTED                                                        |
+| **Implementation Status** | Implemented                                                     |
+| **Start Date**            | 2021-09-23                                                      |
+| **Last Updated**          | 2023-02-06                                                      |
 
 ## Summary
 
@@ -27,9 +26,9 @@ Common types of resources that might be required to issue and validate Verifiabl
 
 * **Schemas**: Describe [the fields and content types in a credential](https://w3c.github.io/vc-data-model/#data-schemas) in a machine-readable format. Prominent examples of this include [Schema.org](https://schema.org/docs/schemas.html), [Hyperledger Indy `SCHEMA` objects](https://hyperledger-indy.readthedocs.io/projects/node/en/latest/transactions.html#schema), etc.
 * **Status lists**: Allow recipients of a Verifiable Credential exchange to [check the revocation status of a credential](https://w3c.github.io/vc-data-model/#validity-checks) for validity. Prominent examples of this include the [W3C `Status List 2021`](https://w3c-ccg.github.io/vc-status-list-2021/) specification, [W3C `Revocation List 2020`](https://w3c-ccg.github.io/vc-status-rl-2020/), [Hyperledger Indy revocation registries](https://hyperledger-indy.readthedocs.io/projects/sdk/en/latest/docs/concepts/revocation/cred-revocation.html), etc.
-* **Visual representations for Verifiable Credentials**: Although Verifiable Credentials can be exchanged digitally, in practice most identity wallets want to present "human-friendly" representations. This allows the credential representation to be shown according to the brand guidelines of the issuer, [internationalisation ("i18n") translations](https://en.wikipedia.org/wiki/Internationalization_and_localization), etc. Examples of this include the [Overlays Capture Architecture (OCA) specification](https://oca.colossi.network/), [Apple Wallet PassKit](https://developer.apple.com/documentation/walletpasses) ("`.pkpass`"), [Google Wallet Pass](https://developers.google.com/wallet/generic), etc.
+* **Visual representations for Verifiable Credentials**: Although Verifiable Credentials can be exchanged digitally, in practice most identity wallets want to present "human-friendly" representations. This allows the credential representation to be shown according to the brand guidelines of the issuer, [internationalisation ("i18n") translations](https://en.wikipedia.org/wiki/Internationalization\_and\_localization), etc. Examples of this include the [Overlays Capture Architecture (OCA) specification](https://oca.colossi.network/), [Apple Wallet PassKit](https://developer.apple.com/documentation/walletpasses) ("`.pkpass`"), [Google Wallet Pass](https://developers.google.com/wallet/generic), etc.
 
-![Mobile boarding pass](../../.gitbook/assets/On-ledger%20resources%20-%20boarding%20passes.jpeg)
+![Mobile boarding pass](<../../.gitbook/assets/On-ledger resources - boarding passes.jpeg>)
 
 Figure 1: Mobile boarding passes in Apple Wallet showing different visual styles (source [British Airways Media centre](https://mediacentre.britishairways.com/pressrelease/details/86/2016-72/6130)
 
@@ -38,7 +37,7 @@ Such visual representations can also be used to quickly communicate information 
 More broadly, there are other resources that might be relevant for issuers and verifiers in a self-sovereign identity exchange:
 
 * **Documents related to SSI ecosystems**: [ToIP recommends making Governance Frameworks available through DID URLs](https://wiki.trustoverip.org/pages/viewpage.action?pageId=71241), which would typically be a text file, a [Markdown file](https://en.wikipedia.org/wiki/Markdown), PDF etc. This, for example, can enable parties building self-sovereign identity ecosystems to use DIDs to reference Governance Frameworks they conform to, at different levels of the technical stack.
-* **Logos**: Issuers may want to provide authorised image logos to display in relation to their DID or Verifiable Credentials. Examples of this include [key-publishing sites like Keybase.io](https://keybase.io/cheqd_identity) (which is used by [Cosmos SDK block explorers such as our own](https://explorer.cheqd.io/validators) to show logos for validators) and "[favicons](https://en.wikipedia.org/wiki/Favicon)" (commonly used to set the logo for websites in browser tabs).
+* **Logos**: Issuers may want to provide authorised image logos to display in relation to their DID or Verifiable Credentials. Examples of this include [key-publishing sites like Keybase.io](https://keybase.io/cheqd\_identity) (which is used by [Cosmos SDK block explorers such as our own](https://explorer.cheqd.io/validators) to show logos for validators) and "[favicons](https://en.wikipedia.org/wiki/Favicon)" (commonly used to set the logo for websites in browser tabs).
 
 ## Rationale for storing resources on-ledger
 
@@ -51,25 +50,24 @@ DIDs _can_ be stored on traditional centralised-storage endpoints (e.g., [`did:w
 1. **DIDs could be tampered by compromising the hosting provider**: DIDs and DID Documents ("DIDDocs") stored at a centralised web endpoint can be compromised and replaced by malicious actors.
 2. **Hosting providers could unilaterally cease to host particular clients**: Hosting providers could terminate accounts due to factors such as non-payment of fees, violation of Terms of Service, etc.
 3. **Single point-of-failure in resiliency**: Even for highly-trusted and sophisticated hosting providers who may not present a risk of infrastructure being compromised, a service outage at the hosting provider can make a DID anchored on their systems inaccessible.
+   * See [notable examples of service outages](https://totaluptime.com/notable-network-and-cloud-outages-of-2021/) from major cloud providers: [Amazon Web Services (AWS)](https://awsmaniac.com/aws-outages/), [Microsoft Azure](https://www.theregister.com/2018/09/17/azure\_outage\_report/), [Google Cloud](https://www.thousandeyes.com/blog/google-cloud-platform-outage-analysis), [Facebook / Meta](https://en.wikipedia.org/wiki/2021\_Facebook\_outage), [GitHub](https://github.blog/2022-03-23-an-update-on-recent-service-disruptions/), [Cloudflare](https://blog.cloudflare.com/cloudflare-outage-on-june-21-2022/)...\\
+   *
 
-    * See [notable examples of service outages](https://totaluptime.com/notable-network-and-cloud-outages-of-2021/) from major cloud providers: [Amazon Web Services (AWS)](https://awsmaniac.com/aws-outages/), [Microsoft Azure](https://www.theregister.com/2018/09/17/azure_outage_report/), [Google Cloud](https://www.thousandeyes.com/blog/google-cloud-platform-outage-analysis), [Facebook / Meta](https://en.wikipedia.org/wiki/2021_Facebook_outage), [GitHub](https://github.blog/2022-03-23-an-update-on-recent-service-disruptions/), [Cloudflare](https://blog.cloudflare.com/cloudflare-outage-on-june-21-2022/)...\
-
-    * ![Graph showing drop in Facebook traffic from their global service outage in 2021](../../.gitbook/assets/On-ledger%20resources%20-%20Facebook%20global%20outage.png)
-  
-    * Source: [Why Facebook, Instagram, and WhatsApp All Went Down Today](https://web.archive.org/web/20211005032128/https://www.wired.com/story/why-facebook-instagram-whatsapp-went-down-outage/). Figure 2: Graph showing drop in Facebook traffic from their global service outage in 2021 (source: [_Kentik_](https://www.kentik.com/blog/facebooks-historic-outage-explained/)).
-
-    * In particular, [the 2021 global Facebook outage](https://www.kentik.com/blog/facebooks-historic-outage-explained/) also [took down apps that used "Login with Facebook"](https://www.wired.com/story/why-facebook-instagram-whatsapp-went-down-outage/) functionality. This highlights the risks of "contagion impact" (e.g., [a _different_ Facebook outage took down Spotify, TikTok, Pinterest](https://www.engadget.com/facebook-sdk-spotify-tinder-tiktok-ios-outage-125806814.html)) of centralised digital systems - even ones run by extremely-capable tech providers.
+       ![Graph showing drop in Facebook traffic from their global service outage in 2021](<../../.gitbook/assets/On-ledger resources - Facebook global outage.png>)
+   * Source: [Why Facebook, Instagram, and WhatsApp All Went Down Today](https://web.archive.org/web/20211005032128/https://www.wired.com/story/why-facebook-instagram-whatsapp-went-down-outage/). Figure 2: Graph showing drop in Facebook traffic from their global service outage in 2021 (source: [_Kentik_](https://www.kentik.com/blog/facebooks-historic-outage-explained/)).
+   * In particular, [the 2021 global Facebook outage](https://www.kentik.com/blog/facebooks-historic-outage-explained/) also [took down apps that used "Login with Facebook"](https://www.wired.com/story/why-facebook-instagram-whatsapp-went-down-outage/) functionality. This highlights the risks of "contagion impact" (e.g., [a _different_ Facebook outage took down Spotify, TikTok, Pinterest](https://www.engadget.com/facebook-sdk-spotify-tinder-tiktok-ios-outage-125806814.html)) of centralised digital systems - even ones run by extremely-capable tech providers.
 4. **Link rot**: "Link rot" happens when over time, URLs become inaccessible, either because the endpoint where the content was stored is no longer active, or the URL format itself changes. The graph below from [an analysis by _The New York Times_ of linkrot](https://www.cjr.org/analysis/linkrot-content-drift-new-york-times.php) shows degradation over time of URLs.
 
-* ![Image of Link Rot over time](../../.gitbook/assets/On-ledger%20resources%20-%20Link%20Rot.jpeg)
+*
 
-* _Figure 3: Linkrot analysis over 1996-2019 by New York Times (source:_ [_Columbia Journalism Review / New York Times_](https://www.cjr.org/analysis/linkrot-content-drift-new-york-times.php))_
+    ![Image of Link Rot over time](<../../.gitbook/assets/On-ledger resources - Link Rot.jpeg>)
+* _Figure 3: Linkrot analysis over 1996-2019 by New York Times (source:_ [_Columbia Journalism Review / New York Times_](https://www.cjr.org/analysis/linkrot-content-drift-new-york-times.php))\_
 
 ## Risks applicable in the context of Verifiable Credentials
 
 The issues highlighted above **a material difference to the longevity of Verifiable Credentials**.
 
-For example, a passport ([which typically have a 5-10 year validity](https://en.wikipedia.org/wiki/Passport_validity) issued as a Verifiable Credential anchored to a DID (regardless of whether the DID was on-ledger or not) might stop working if the credential schema, visual presentation format, or other necessary resources were stored off-ledger on traditional centralised storage.
+For example, a passport ([which typically have a 5-10 year validity](https://en.wikipedia.org/wiki/Passport\_validity) issued as a Verifiable Credential anchored to a DID (regardless of whether the DID was on-ledger or not) might stop working if the credential schema, visual presentation format, or other necessary resources were stored off-ledger on traditional centralised storage.
 
 Despite these issues, many self-sovereign identity (SSI) implementations - _even ones that use ledgers / distributed systems for DIDs_ - often utilise centralised storage. From the [W3C Verifiable Credential Implementation Guide](https://w3c.github.io/vc-imp-guide/#creating-new-credential-types):
 
@@ -109,13 +107,13 @@ We took the following design principles into consideration, along with an explan
 
 Resources on cheqd ledger are collated under _Resource Collections_, which are defined as a list of resources linked to and controlled using a DID Document ("DIDDoc").
 
-![Swimlanes for Resource creation](../../.gitbook/assets/On-ledger%20resources%20-%20flow%20simple.png)
+![Swimlanes for Resource creation](<../../.gitbook/assets/On-ledger resources - flow simple.png>)
 
 Figure 4: Overview of Resource and Resource Collection creation [editable version](https://swimlanes.io/u/GI-Jxpnr5))
 
 To create a new Resource, a client application first needs to create a DID (or use an existing not deactivated DID along with its associated DIDDoc.) This _DID-Linked Resource_ is the lowest, direct level of create/update/deactivate operation control that exists.
 
-Individual Resources are uniquely identified by a common _Resource Name_ and common _Resource Type_ that MUST remain consistent across versions. The specific _version number_ of a Resource is described using the _Resource ID_, which is a [Universally-Unique Identifier (UUID)](https://en.wikipedia.org/wiki/Universally_unique_identifier). Since UUIDs can be generated by _any_ compatible software library, client applications are able to define this version number independent of the cheqd ledger. This same technique and rationale is described in [ADR-001: cheqd DID method](adr-001-cheqd-did-method.md).
+Individual Resources are uniquely identified by a common _Resource Name_ and common _Resource Type_ that MUST remain consistent across versions. The specific _version number_ of a Resource is described using the _Resource ID_, which is a [Universally-Unique Identifier (UUID)](https://en.wikipedia.org/wiki/Universally\_unique\_identifier). Since UUIDs can be generated by _any_ compatible software library, client applications are able to define this version number independent of the cheqd ledger. This same technique and rationale is described in [ADR-001: cheqd DID method](adr-001-cheqd-did-method.md).
 
 This allows a _specific_ Resource version to be referenced in a Verifiable Credential, as well as allowing client applications to query historical/updated Resource versions along with metadata that describes how the Resource evolved within a Resource Collection.
 
@@ -240,7 +238,7 @@ Example of referencing a resource using the _service_ section:
 
 To create a new DID-Linked Resource, a client application first needs to create a DID (or use an existing DID along with its associated DIDDoc). This _DID-Linked Resource_ is the lowest, direct level of create/update/deactivate operation control that exits.
 
-![Complex swimlanes for resource creation](../../.gitbook/assets/On-ledger%20resources%20-%20flow%20detailed.png)
+![Complex swimlanes for resource creation](<../../.gitbook/assets/On-ledger resources - flow detailed.png>)
 
 Figure 5: Detailed sequence diagram of Resource creation on cheqd [editable version](https://swimlanes.io/u/hjeucFOQA).
 
@@ -342,7 +340,6 @@ This section will delineate between expected inputs in JSON and how the cheqd le
 ```
 
 </details>
-
 
 ### MsgCreateResourceResponse
 
@@ -581,11 +578,9 @@ Returns `resource's metadata` with a given `collection ID` and `ID`.
 ### CreateResource
 
 * Input:
-  * [MsgCreateResource](#msgcreateresource)
-
+  * [MsgCreateResource](adr-002-did-linked-resources.md#msgcreateresource)
 * Output:
-  * [MsgCreateResourceResponse](#msgcreateresourceresponse)
-
+  * [MsgCreateResourceResponse](adr-002-did-linked-resources.md#msgcreateresourceresponse)
 * Processing logic:
   * Check that associated DIDDoc exists;
   * Authenticate request the same way as DIDDoc creation and updating;
@@ -639,14 +634,10 @@ cheqd-noded tx resource create [payload-file] [resource-data-file]
 ### GetCollectionResources
 
 * Input:
-  * [QueryCollectionResourcesRequest](#querycollectionresourcesrequest)
-
+  * [QueryCollectionResourcesRequest](adr-002-did-linked-resources.md#querycollectionresourcesrequest)
 * Output:
-
-  * [QueryCollectionResourcesResponse](#querycollectionresourcesresponse)
-
+  * [QueryCollectionResourcesResponse](adr-002-did-linked-resources.md#querycollectionresourcesresponse)
 * Processing logic:
-
   * Retrieves the whole resource collection for the specified DID;
   * Returns only resource headers (without `data` field);
 
@@ -655,16 +646,13 @@ cheqd Cosmos CLI Example:
 ```bash
 cheqd-noded query resource collection-metadata [collection-id]
 ```
-  
+
 ### GetResource
 
 * Input:
-  * [QueryResourceRequest](#queryresourcerequest)
-
+  * [QueryResourceRequest](adr-002-did-linked-resources.md#queryresourcerequest)
 * Output:
-
-  * [QueryResourceResponse](#queryresourceresponse)
-
+  * [QueryResourceResponse](adr-002-did-linked-resources.md#queryresourceresponse)
 * Processing logic:
   * Retrieves a specific resource by Collection-ID and resource ID;
 
@@ -677,14 +665,12 @@ cheqd-noded query resource specific-resource [collectionId] [id]
 ### QueryResourceMetadata
 
 * Input:
-  * [QueryResourceMetadataRequest](#queryresourcemetadatarequest)
-
+  * [QueryResourceMetadataRequest](adr-002-did-linked-resources.md#queryresourcemetadatarequest)
 * Output:
-  * [QueryResourceMetadataResponse](#queryresourcemetadataresponse)
-
+  * [QueryResourceMetadataResponse](adr-002-did-linked-resources.md#queryresourcemetadataresponse)
 * Processing logic:
   * Retrieves all resource versions by collection id, resource id
-  * Returns a resource's metadata from a collection with a given collection_id and id
+  * Returns a resource's metadata from a collection with a given collection\_id and id
 
 cheqd Cosmos CLI Example:
 
@@ -729,21 +715,21 @@ Step 1. Resource exists in the ledger:
   }
 }
 
-  ```
+```
 
 Step 2. Client send request for creating a new resource with a transaction MsgCreateResource
 
-  ```jsonc
-  MsgCreateResource for creating Resource2
-  {
-    "collectionId":   "91e5f0cf-5f1e-5c19-97d3-d313e84033b4", // same collection ID
-    "id":             "bb2118f3-5e55-4510-b420-33ef9e1726d2", // new unique ID
-    "name":           "PassportSchema", // same resource name
-    "resourceType":   "CL-Schema", // same resource type
-    
-    "data":           ...
-  }
-  ```
+```jsonc
+MsgCreateResource for creating Resource2
+{
+  "collectionId":   "91e5f0cf-5f1e-5c19-97d3-d313e84033b4", // same collection ID
+  "id":             "bb2118f3-5e55-4510-b420-33ef9e1726d2", // new unique ID
+  "name":           "PassportSchema", // same resource name
+  "resourceType":   "CL-Schema", // same resource type
+  
+  "data":           ...
+}
+```
 
 Step 3. After the transaction is applied
 

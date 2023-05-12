@@ -16,6 +16,6 @@ cheqd are constantly expanding the amount of SDKs supported in order to support 
 
 You can take a look at which [specific protocols are covered by which SDKs on our Product site here](https://product.cheqd.io/products/toolbox).
 
-* [Veramo SDK for cheqd](veramo-sdk-for-cheqd/)
+* [Veramo SDK for cheqd](broken-reference)
 * [walt.id SSI Kit](https://docs.walt.id/v/ssikit/ecosystems/cheqd)
-* [Hyperledger Aries Framework JavaScript](hyperledger-aries-framework-javascript.md)
+* [Hyperledger Aries Framework JavaScript](hyperledger-aries-framework-javascript/)

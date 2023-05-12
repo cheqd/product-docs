@@ -37,7 +37,11 @@
     * [👉 Setting up Veramo CLI for cheqd](guides/sdk/veramo-sdk-for-cheqd/setup.md)
     * [🤨 Troubleshooting Veramo CLI setup](guides/sdk/veramo-sdk-for-cheqd/troubleshooting.md)
   * [🛠 Walt.id SSI Kit](https://docs.walt.id/v/ssikit/ecosystems/cheqd)
-  * [🛠 Hyperledger Aries Framework JavaScript](guides/sdk/hyperledger-aries-framework-javascript.md)
+  * [🛠 Hyperledger Aries Framework JavaScript](guides/sdk/hyperledger-aries-framework-javascript/README.md)
+    * [AFJ cheqd Agent Setup](https://aries.js.org/guides/next/getting-started/set-up/cheqd)
+    * [Tutorial: Create a DID](https://aries.js.org/guides/next/tutorials/cheqd)
+    * [Tutorial: Create a Schema and CredDef](https://aries.js.org/guides/next/tutorials/registering-schema-and-credential-definition)
+    * [Tutorial: Issue a Credential](https://aries.js.org/guides/next/tutorials/issue-a-credential)
 * [🔗 Understanding DID-Linked Resources](guides/did-linked-resources/README.md)
   * [Context for developing DID-Linked Resources](guides/did-linked-resources/context.md)
   * [Technical composition of DID-Linked Resources](guides/did-linked-resources/technical-composition/README.md)
@@ -77,7 +81,7 @@
 ## ⚖️ Legal
 
 * [License](LICENSE.md)
-* [Code of Conduct](CODE_OF_CONDUCT.md)
+* [Code of Conduct](CODE\_OF\_CONDUCT.md)
 * [Security Policy](SECURITY.md)
 
 ## 🆘 Support
