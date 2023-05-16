@@ -1,5 +1,14 @@
 # 🛠 Hyperledger Aries Framework JavaScript
 
-Hyperledger Aries Framework JavaScript is currently in development. Full tutorials will be published on here once the integration is complete.
+Through the Hyperledeger Aries Framework JavaScript SDK, the cheqd Network is able to natively support the [Ledger Agnostic AnonCreds Specification (v1.0)](https://hyperledger.github.io/anoncreds-spec/) through its [AnonCreds Object Method](https://docs.cheqd.io/identity/guides/anoncreds).
 
-You can [keep up to date with the latest developments and work on GitHub here](https://github.com/animo/aries-framework-javascript/tree/cheqd-integration).&#x20;
+## Getting started
+
+* [Aries Framework JavaScript cheqd Agent Setup](https://aries.js.org/guides/next/getting-started/set-up/cheqd)
+
+## Tutorials
+
+* [Create a DID](https://aries.js.org/guides/next/tutorials/cheqd])
+* [Create a Schema and CredDef](https://aries.js.org/guides/next/tutorials/registering-schema-and-credential-definition)
+* [Issue a Credential](https://aries.js.org/guides/next/tutorials/issue-a-credential)
+

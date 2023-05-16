@@ -1,4 +1,4 @@
-# 📖 DID Registrar setup
+# Setup DID Registrar
 
 ## Setting up cheqd DID Registrar
 
@@ -18,7 +18,6 @@ Environment variables needed for the Registrar are
 2. `FEE_PAYER_MAINNET_MNEMONIC` : The cosmos payer mnemonic for the Cheqd Tesnet, By default it's the Testnet Faucet
 3. `LOCAL_STORE_TTL` (default: `600`): The time in seconds for the registrar to store data in cache
 4. `PORT` (default: `3000`): The port number
-
 
 Clone the repository
 
