@@ -47,7 +47,9 @@ Walt.id run multiple SaaS offering for customers with varying levels of support 
 
 [GoDiddy](https://godiddy.com/) is a product from [DanubeTech](https://danubetech.com/) which uses both the Universal Registrar and Universal Resolver interfaces to provide an enterprise-level service for customers to create, update and resolve DIDs across a variety of identity networks, including did:cheqd.
 
-## Moderate complexity: Veramo SDK plugin for cheqd
+## Moderate complexity:&#x20;
+
+### 1. Veramo SDK plugin for cheqd
 
 The [Veramo SDK](https://github.com/uport-project/veramo) is an agent designed to handle multiple networks and DID methods. Current implementations of the Veramo SDK include _did:ethr, did:web, did:key_ and more.
 
@@ -65,7 +67,17 @@ Veramo provides an excellent foundation for clients that want to build verifiabl
 
 Using the DID-Provider-cheqd package, we have also been able to **reuse identity functionality** and abstract the complexity of cheqd/SDK and cheqd Network in less complex packages (see above).
 
-## High complexity: cheqd SDK
+### 2. Aries Framework JavaScript for cheqd&#x20;
+
+Aries Framework JavaScript is a framework written in TypeScript for building **SSI Agents and DIDComm services** that aims to be **compliant and interoperable** with the standards defined in the [Aries RFCs](https://github.com/hyperledger/aries-rfcs).
+
+cheqd is now fully supported in AFJ and can be used for the issuance of AnonCreds as well as the creation of Credential Schemas and Credential Definitions.&#x20;
+
+AnonCreds using cheqd are facilitated using the [cheqd AnonCreds Object Method](../anoncreds/).
+
+## High complexity
+
+### 1. cheqd SDK
 
 The [cheqd SDK](https://github.com/cheqd/sdk) plugs directly into cheqd Network and is responsible for communicating with the core ledger code. Therefore, the cheqd SDK plays the role of handling:
 
@@ -76,7 +88,7 @@ Owing to this, the cheqd SDK requires a high amount of complexity to integrate d
 
 <figure><img src="../../.gitbook/assets/cheqd SDK package.png" alt=""><figcaption><p>cheqd SDK package diagram</p></figcaption></figure>
 
-## Supported SDKs
+## Summary of Supported SDKs
 
 cheqd are constantly expanding the amount of SDKs supported in order to support multiple credential types and protocols.
 
