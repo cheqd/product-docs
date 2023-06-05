@@ -1,14 +1,48 @@
 # 📦 Software Development Kits (SDKs)
 
+## Integrate with cheqd
+
+cheqd has created simple tooling to enable third parties to create DIDs and resources, issue and verify Verifiable Credentials, using cheqd DIDs, DID Documents and Schemas.
+
+## Choose a software stack to suit your needs
+
+cheqd is continually integrating into different software development kits to suit the needs of different partners and their clients.
+
+Below is a comparison between our three initial supported SDKs, Veramo SDK for cheqd, Aries Framework JavaScript and Walt.id's SSI Kit.
+
+| Functionality                                                                                                                                            | Veramo SDK for cheqd | Aries Framework JavaScript for cheqd | Walt.id SSI Kit |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------: | :----------------------------------: | :-------------: |
+| **Create cheqd DIDs**                                                                                                                                    |          ✔️          |                  ✔️                  |        ✔️       |
+| **JSON based JWT Verifiable Credential**                                                                                                                 |          ✔️          |                   ❌                  |        ✔️       |
+| **JSON-LD Verifiable Credential**                                                                                                                        |          ✔️          |              ⌛(roadmap)              |        ✔️       |
+| **AnonCreds (ZKP-CL)**                                                                                                                                   |           ❌          |                  ✔️                  |        ❌        |
+| **Selective Disclosure-JWT Credential**                                                                                                                  |      ⌛(roadmap)      |                   ❌                  |    ⌛(roadmap)   |
+| **Create on-ledger Schema**                                                                                                                              |          ✔️          |                  ✔️                  |        ❌        |
+| **Create Credential Definition**                                                                                                                         |           ❌          |                  ✔️                  |        ❌        |
+| **DIDComm v1.0**                                                                                                                                         |          ✔️          |                  ✔️                  |        ❌        |
+| **DIDComm v2.0**                                                                                                                                         |          ✔️          |                  ✔️                  |        ❌        |
+| **DID Exchange Protocol (**[**RFC 0023**](https://github.com/hyperledger/aries-rfcs/tree/main/features/0023-did-exchange)**)**                           |           ❌          |                  ✔️                  |        ❌        |
+| **Agent Connection Protocol (**[**RFC 0160**](https://github.com/hyperledger/aries-rfcs/blob/main/features/0160-connection-protocol/README.md)**)**      |           ❌          |                  ✔️                  |        ❌        |
+| **Basic Message Protocol**                                                                                                                               |           ❌          |                  ✔️                  |        ❌        |
+| **Out of Band Protocol (**[**RFC 0434**](https://github.com/hyperledger/aries-rfcs/blob/main/features/0434-outofband/README.md)**)**                     |           ❌          |                  ✔️                  |        ❌        |
+| **Self Issued OpenID Provider v2 (OIDC-SIOP)**                                                                                                           |      ⌛(roadmap)      |                   ❌                  |        ✔️       |
+| **OpenID for Verifiable Credential Issuance**                                                                                                            |      ⌛(roadmap)      |              ⌛(roadmap)              |        ✔️       |
+| **OpenID for Verifiable Credential Presentations**                                                                                                       |      ⌛(roadmap)      |              ⌛(roadmap)              |        ✔️       |
+| **AnonCreds (ZKP-CL)**                                                                                                                                   |           ❌          |                  ✔️                  |        ❌        |
+| **Status List 2021 Revocation**                                                                                                                          |          ✔️          |                   ❌                  |        ✔️       |
+| **AnonCreds Revocation Registry Definitions**                                                                                                            |           ❌          |                  ✔️                  |        ❌        |
+| **AnonCreds Status List Entries**                                                                                                                        |           ❌          |                  ✔️                  |        ❌        |
+| **Issue Credential Protocol (**[**RFC 0036**](https://github.com/hyperledger/aries-rfcs/blob/master/features/0036-issue-credential/README.md)**)**       |           ❌          |                  ✔️                  |        ❌        |
+| **Issue Credential Protocol V2 (**[**RFC 0453**](https://github.com/hyperledger/aries-rfcs/blob/master/features/0453-issue-credential-v2/README.md)**)** |           ❌          |                  ✔️                  |        ❌        |
+| **DIF Presentation Exchange**                                                                                                                            |          ✔️          |                   ❌                  |        ✔️       |
+| **Aries Present Proof**                                                                                                                                  |           ❌          |                  ✔️                  |        ❌        |
+| **DID-Linked Trust Registries**                                                                                                                          |      ⌛(roadmap)      |                   ❌                  |        ❌        |
+
+
+
+## Understanding the structure of cheqd's packages
+
 One of cheqd's primary motives is to make itself accessible to the widest set of identity applications possible. To accomplish this, cheqd has built a **flexible set of packages and tooling** to accommodate its identity capabilities into a **broad set of external SDKs and applications**.&#x20;
-
-{% hint style="info" %}
-:books: **Learn about SDKs**
-
-Learn more about [SDKs, libraries and platforms on our learn site here](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-verifiable-credential-vc/sdks-libraries-and-platforms)**.**
-{% endhint %}
-
-## Understanding cheqd's SDK and package composition
 
 cheqd maintains an array of packages with **varying levels of integration complexity** to allow its partners and customers to have a variety of ways of plugging into cheqd's identity functionality.
 
@@ -88,12 +122,4 @@ Owing to this, the cheqd SDK requires a high amount of complexity to integrate d
 
 <figure><img src="../../.gitbook/assets/cheqd SDK package.png" alt=""><figcaption><p>cheqd SDK package diagram</p></figcaption></figure>
 
-## Summary of Supported SDKs
-
-cheqd are constantly expanding the amount of SDKs supported in order to support multiple credential types and protocols.
-
-You can take a look at which [specific protocols are covered by which SDKs on our Product site here](https://product.cheqd.io/products/toolbox).
-
-* [Veramo SDK for cheqd](veramo-sdk-for-cheqd/)
-* [walt.id SSI Kit](https://docs.walt.id/v/ssikit/ecosystems/cheqd)
-* [Hyperledger Aries Framework JavaScript](hyperledger-aries-framework-javascript.md)
+##
