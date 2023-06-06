@@ -609,7 +609,7 @@ Here we have an ability to specify different parameters to filter to particular 
 | `resourceCollectionId` | A [string](https://infra.spec.whatwg.org/#string) that conforms to a method specific unique identifier format.                                                                                                        | Can be used to query all resources associated with a DID if combined with resourceMetadata=true |
 | `resourceName`         | A [string](https://infra.spec.whatwg.org/#string)                                                                                                                                                                     | The specific name of a DID-Linked Resource                                                      |
 | `resourceType`         | A [string](https://infra.spec.whatwg.org/#string)                                                                                                                                                                     | The specific type of a DID-Linked Resource                                                      |
-| `resourceVersionTime`  | A [JSON String](https://www.rfc-editor.org/rfc/rfc8259#section-7) serialized as an [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) normalized to UTC 00:00:00 and without sub-second decimal precision. |                                                                                                 |
+| `resourceVersionTime`  | A [JSON String](https://www.rfc-editor.org/rfc/rfc8259#section-7) serialized as an [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) normalized to UTC 00:00:00 and without sub-second decimal precision. | Used to fetch a version of a resource at a specific point in time                               |
 | `checksum`             | A [string](https://infra.spec.whatwg.org/#string)                                                                                                                                                                     | Used to specify a particular resource checksum to demonstrate it is untampered                  |
 | `resourceMetadata`     | [Boolean](https://infra.spec.whatwg.org/#booleans)                                                                                                                                                                    | Used to fetch metadata related to a specific resource or group of resources                     |
 
@@ -971,7 +971,7 @@ This parameter a kind of modifier which works in the same manner as [metadata](a
 
 * `resourceMetadata=true`
 * `resourceMetadata=false`
-* Unnused
+* Unused
 
 **Example**:
 
