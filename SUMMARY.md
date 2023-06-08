@@ -29,6 +29,8 @@
   * [Setup DID Registrar](tutorials/did-registrar/did-registrar-setup.md)
   * [Create a DID](tutorials/did-registrar/create-did.md)
   * [Create a DID-Linked Resource](tutorials/did-registrar/create-resource.md)
+* [🔁 Credential Service](tutorials/credential-service/README.md)
+  * [Walkthrough](tutorials/credential-service/walkthrough.md)
 
 ## 📑 Guides
 
