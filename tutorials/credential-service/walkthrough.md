@@ -36,7 +36,7 @@ If you are using an authenticated API and need to top up your account with CHEQ 
 3. If you are using mainnet, you will need to [purchase CHEQ tokens](https://cheqd.io/get-involved/).&#x20;
 4. You will need to send tokens from your Keplr account to your cheqd wallet address for using the Credential Service.&#x20;
 
-## Understanding Creating cheqd DIDs
+## 3. Understanding Creating cheqd DIDs
 
 To create a cheqd DID there are two ways of building the payload for the request:
 
@@ -123,7 +123,7 @@ From this request, we will create a DID, compile a DIDDoc and return it as a res
 
 You can check your DID on the [Universal Resolver](https://dev.uniresolver.io/) or by going to `https://resolver.cheqd.net/1.0/identifiers/{yourDID}`
 
-## Creating a "subject" DID
+## 4. Creating a "subject" DID
 
 We currently support two types of "subject" DIDs:
 
@@ -132,7 +132,7 @@ We currently support two types of "subject" DIDs:
 
 With the latter, you can setup your did:vda subject DID on your [Verida wallet](https://www.verida.io/). Using the Credential Service, you will be able to send credentials to your Verida wallet and use it to store and securely back them up.
 
-## Understanding Issuing Credentials
+## 5. Understanding Issuing Credentials
 
 Once you have created your cheqd "issuer" DID and you know the subject DID you want to issue to, you are now able to begin issuing Credentials.
 
@@ -194,10 +194,10 @@ Within the response, after issuing the credential you will find a JWT with which
 
 </details>
 
-## Verifying a Credential
+## 6. Verifying a Credential
 
 Once you have issued your credential and have a JWT as part of the credential proof, you can use the /verify API to check that the JWT has not been tampered.
 
-## Creating a Resource
+## 7. Creating a Resource
 
 We will soon update the Credential Service to be able to create specific DID-Linked Resources such as StatusLists and Trust Registries.&#x20;
