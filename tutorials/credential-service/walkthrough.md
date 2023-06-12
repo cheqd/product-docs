@@ -8,6 +8,10 @@ These instructions will help developers create DIDs and issue Verifiable Credent
 
 There are two options for authentication with the cheqd Credential Service:
 
+{% hint style="info" %}
+Currently, AUTH is **disabled by default** as we are in the latter stages of testing fully enabled authentication.
+{% endhint %}
+
 <details>
 
 <summary>AUTH is enabled</summary>
