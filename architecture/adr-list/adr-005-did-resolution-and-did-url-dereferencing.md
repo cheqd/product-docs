@@ -152,7 +152,7 @@ Here we have an ability to specify different parameters to filter to particular 
 | `versionId`    | A [string](https://infra.spec.whatwg.org/#string) that conforms to a method specific unique identifier format.                                                                                                        | Used to filter to a specific version id of the DIDDoc                                                                  |
 | `versionTime`  | A [JSON String](https://www.rfc-editor.org/rfc/rfc8259#section-7) serialized as an [XML Datetime](https://www.w3.org/TR/xmlschema11-2/#dateTime) normalized to UTC 00:00:00 and without sub-second decimal precision. | Used to filter to a specific version of the DIDDoc at a point in time                                                  |
 | `service`      | Using a [string](https://infra.spec.whatwg.org/#string) from the service`id` property within the DID document, this will dereference to the associated `serviceEndpoint`                                              | Used to navigate to a serviceEndpoint of a DIDDoc, using the serviceId as a query parameter                            |
-| `transformKey` | A [string](https://infra.spec.whatwg.org/#string) that identifies the intended key type                                                                                                                               | Used to transform the verificationMethod key material into a different key type, based on the same cryptographic curve |
+| `transformKeys` | A [string](https://infra.spec.whatwg.org/#string) that identifies the intended key type                                                                                                                               | Used to transform the verificationMethod key material into a different key type, based on the same cryptographic curve |
 | `relativeRef`  | A [string](https://infra.spec.whatwg.org/#string) that identifies a particular "secondary" resource appended to the `serviceEndpoint`                                                                                 | Used to fetch a specific part of a serviceEndpoint, such as a particular heading on a website                          |
 | `metadata`     | [Boolean](https://infra.spec.whatwg.org/#booleans)                                                                                                                                                                    | Used to fetch the metadata associated with a particular DIDDoc                                                         |
 
@@ -333,9 +333,9 @@ The user could ask resolver for the nearest DIDDoc which was created/updated bef
 
 </details>
 
-**TransformKey**
+**TransformKeys**
 
-The transformKey parameter changes the representation of `verificationMethod` section in DIDDoc. It allows you to change `publicKey` representation into the one of next variants. To do so, just pass the parameter `transfromKey` with one of the following values:
+The transformKeys parameter changes the representation of `verificationMethod` section in DIDDoc. It allows you to change `publicKey` representation into the one of next variants. To do so, just pass the parameter `transformKeys` with one of the following values:
 
 * Ed25519VerificationKey2020
 * Ed25519VerificationKey2018
@@ -348,7 +348,7 @@ The transformKey parameter changes the representation of `verificationMethod` se
 <summary>Request format</summary>
 
 ```
-1.0/identifiers/did:cheqd:testnet:b5d70adf-31ca-4662-aa10-d3a54cd8f06c?transformKey=Ed25519VerificationKey2020
+1.0/identifiers/did:cheqd:testnet:b5d70adf-31ca-4662-aa10-d3a54cd8f06c?transformKeys=Ed25519VerificationKey2020
 ```
 
 </details>
@@ -538,7 +538,7 @@ By default, without `metadata=true` pair `DID-resolver` returns only particular 
 * `RepresentationNotSupported` raises if there are:
   * unsupported query parameters
   * value for parameters are empty
-  * unsupported `transformKey` value
+  * unsupported `transformKeys` value
   * `metadata` or `resourceMetadata` parameter has value not only `true` or `false`
   * `relativeRef` parameter is used without `service` one. They must be used only together
 * `InvalidDidUrl` raises if there are:
