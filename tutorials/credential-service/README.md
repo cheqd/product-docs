@@ -8,8 +8,8 @@ With these APIs, it simplifies the developer experience, helping customers build
 
 Getting started:
 
-* [Credential Service APIs within Swagger file](https://credential-service.cheqd.net/swagger/)
-* [User Guide for the Credential Service APIs](user-guide.md)
+* [Credential Service Swagger file](https://credential-service.cheqd.net/swagger/)
+* [User Guide for understanding the Credential Service APIs](user-guide.md)
 * [Developer Guide for setting up Credential Service](developer-guide.md)
 * [GitHub repository](https://github.com/cheqd/credential-service)
 
@@ -53,6 +53,8 @@ With Credential Service, there are multiple ways it can be deployed and hosted t
 This mode is the most simple for users, allowing cheqd to custody **both Cosmos AND Identity keys in Veramo KMS.** This means that manages both ledger-writes and signing identity transactions on behalf of the customer.
 
 To ensure this is highly secure, we have deployed an instance of a **Veramo Key Management Store (KMS)** which uses a **Postgress DB** (**TypeOrm)** to store **Cosmos AND identity** **keys** in one encrypted table, so  it cannot be read in plaintext. This design allows us to segment different customers' keys securely and efficiently.
+
+We use similar techniques to Password Managers such as [1Password](https://1password.com/) and [Bitwarden](https://bitwarden.com/) to ensure that even if the database were to be compromised, the keys would remain encrypted and unusable.
 
 #### User optionality and toggles:
 
@@ -106,6 +108,16 @@ By default, `ENABLE_AUTHENTICATION` is set to off/`false`. To enable external Ve
 
 ### Option 2: Self-custodied (Client-managed mode)
 
+Client-managed mode gives the Credential Service user the ability to utilise their own identity keys for signing identity transactions, while still allowing the Credential Service to manage the CHEQ account keys for writing to the cheqd network. This mode is intended to be used for more production environments where the user signs each identity transaction independently, affording a greater level of security and control to the client.
+
 {% hint style="info" %}
 Full client-managed mode is still in development and we will update this documentation as and when it becomes available
 {% endhint %}
+
+## Architecture
+
+Under the hood, the Credential Service leverages our [Veramo SDK plugin](https://github.com/cheqd/did-provider-cheqd) for its identity functionality. Check out our guide on SDKs below to understand how Credential Service fits together with our other Open Source packages.
+
+{% content-ref url="../../guides/sdk/" %}
+[sdk](../../guides/sdk/)
+{% endcontent-ref %}
