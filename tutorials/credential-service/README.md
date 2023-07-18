@@ -35,5 +35,5 @@ Soon we will be adding an authentication layer into Credential Service which use
 
 * [Swagger file](https://credential-service.cheqd.net/swagger/)
 * [GitHub repository](https://github.com/cheqd/credential-service)
-* [Walkthrough](walkthrough.md)
+* [User Guide](user-guide.md)
 
