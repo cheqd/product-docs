@@ -31,6 +31,7 @@
   * [Create a DID-Linked Resource](tutorials/did-registrar/create-resource.md)
 * [🔁 Credential Service](tutorials/credential-service/README.md)
   * [User Guide](tutorials/credential-service/user-guide.md)
+  * [Developer guide](tutorials/credential-service/developer-guide.md)
 
 ## 📑 Guides
 

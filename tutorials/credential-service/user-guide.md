@@ -1,17 +1,17 @@
 ---
-description: Simple guide for using the cheqd Credential Service
+description: Simple guide and walkthrough for using the cheqd Credential Service
 ---
 
 # User Guide
 
 These instructions will help developers create DIDs and issue Verifiable Credentials on cheqd using the Credential Service. This Walkthrough should be read in conjunction with [our APIs defined in our Swagger File here](https://credential-service.cheqd.net/swagger/).
 
-## Verifiable Credentials
+## Verifiable Credentials (VCs)
 
 Verifiable Credentials are a tamper-evident data format for asserting a set of claims about a subject. Using the cheqd Credential Service, it is possible to issue Verifiable Credentials, signed by a cheqd DID, in a few clicks or lines of code.&#x20;
 
 {% hint style="info" %}
-Once you have [created your cheqd `issuer` DID](user-guide.md#did-create) and you know the `subject` DID you want to issue to, you are now able to begin issuing Credentials.
+Once you have [created your cheqd `issuer` DID](user-guide.md#did-create) and you know the [`subject` DID](user-guide.md#creating-a-subject-did) you want to issue to, you are now able to begin issuing Credentials.
 {% endhint %}
 
 Within the JSON object of the API request, you will need to input the `issuer` and `subject` information, as well as the `attributes` which you want to issue in the Credential.
@@ -49,7 +49,7 @@ Users are also able to suspend Verifiable Credentials. The difference between re
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
 {% endswagger %}
 
-## Verifiable Presentations
+## Verifiable Presentations (VPs)
 
 A Verifiable Presentation is a collection of multiple Verifiable Credentials that are being presented by a `holder` to a `verifier`. In addition to checking whether the Credentials are untampered, Verifiable Presentation verification also checks that the `holder` subject DID is valid.&#x20;
 
@@ -109,24 +109,13 @@ With AUTH disabled:
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
 {% endswagger %}
 
-## Creating a Subject DID
-
-We currently support two types of `subject` DIDs:
-
-* did:key
-* did:vda
-
-With the former, you can follow the [did:key specification](https://w3c-ccg.github.io/did-method-key/) to create a subject DID based on a generated keypair.&#x20;
-
-With the latter, you can setup your did:vda subject DID on your [Verida wallet](https://www.verida.io/). Using the Credential Service, you will be able to send credentials to your Verida wallet and use it to store and securely back them up.
-
 ## Decentralized Identifiers (DIDs)
 
 To create a cheqd DID there are two ways of building the payload for the request:
 
 ### Option 1. Choose from a few variables and we will compile the DID for you
 
-This is the easiest way to create DIDs on cheqd and is recommended for those who are not overly familiar with compiling DIDDocuments.&#x20;
+This is the easiest way to create DIDs on cheqd and is recommended for those who are not overly familiar with compiling DID Documents.&#x20;
 
 Simply, copy the code below, based on the variables of your choice.
 
@@ -224,6 +213,17 @@ From this request, we will create a DID, compile a DIDDoc and return it as a res
 {% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/did/{did}" method="get" %}
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
 {% endswagger %}
+
+## Creating a Subject DID
+
+We currently support two types of `subject` DIDs:
+
+* `did:key`
+* `did:vda`
+
+With the former, you can follow the [did:key specification](https://w3c-ccg.github.io/did-method-key/) to create a subject DID based on a generated keypair.&#x20;
+
+With the latter, you can setup your [did:vda](https://news.verida.io/introducing-did-vda-a-fast-cheap-web3-identity-solution-on-polygon-5d1487941477) subject DID on your [Verida wallet](https://www.verida.io/). Using the Credential Service, you will be able to send credentials to your Verida wallet and use it to store and securely back them up.
 
 ## DID-Linked Resources (DLRs)
 
