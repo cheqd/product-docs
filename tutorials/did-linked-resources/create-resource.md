@@ -30,7 +30,7 @@ Save this file locally and call it something like `resource.json.`
 
 ### 3. Create a UUID for the Resource
 
-[UUIDs are used to identify DID-Linked Resources](https://en.wikipedia.org/wiki/Universally_unique_identifier). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
+[UUIDs are used to identify DID-Linked Resources](https://en.wikipedia.org/wiki/Universally\_unique\_identifier). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
 
 ```bash
 $ uuidgen
@@ -74,14 +74,14 @@ Before carrying out a Resource transaction, you will need to prepare the `payloa
   * `name`: Arbitrary human-readable string used to identify the resource
   * `resourceType`: Resource type, such as `CL-Schema`, `JSONSchema2020`, etc
   * `version`: (Optional) client-given resource version
-  * `alsoKnownAs`: (Optional) alternative URI(s) provided for the resource&#x20;
+  * `alsoKnownAs`: (Optional) alternative URI(s) provided for the resource
   * `data`: (Optional) base64 encoded data of resource file
 * `signInputs`: Keys used to sign the corresponding DIDDoc. These must match the ones specified in the DIDDoc, otherwise an error will be thrown
-  * `verificationMethodId`:  Verification method ID from DIDDoc where key is published
+  * `verificationMethodId`: Verification method ID from DIDDoc where key is published
   * `keyType` should match values that you used to create the DIDDoc
   * `privateKeyHex` should match values that you used to create the DIDDoc
 * `file`: (Optional) path to resource file
-* `fee:`&#x20;
+* `fee:`
   * `amount`: An array of coins, coins are represented as an object with 2 fields
     * `denom`: ncheq (smallest denomination classification)
     * `amount`: **See section below on fees**
@@ -104,7 +104,7 @@ The Payload file can include a Resource passed either as a file or a base64 enco
         "name": "TestResource",
         "resourceType": "JsonDocument",
         "version": "",
-        "alsoKnownAs": "",
+        "alsoKnownAs": [],
         "data": "SGVsbG8sIHdvcmxk" // note that the base64 encoded content is passed here
     },
     "network": "testnet",
@@ -118,7 +118,7 @@ The Payload file can include a Resource passed either as a file or a base64 enco
         "denom": "ncheq",
         "amount": "2500000000" // 2.5 CHEQ is the fixed fee for a JSON transaction
         }],
-      "gas": "400000",
+      "gas": "1000000",
       "payer": "cheqd1rnr5jrt4exl0samwj0yegv99jeskl0hsxmcz96" // must match the account set in the agent.yaml file
     }
 }
@@ -139,7 +139,7 @@ The Payload file can include a Resource passed either as a file or a base64 enco
         "name": "TestResource",
         "resourceType": "JsonDocument"
         "version": "",
-        "alsoKnownAs": ""
+        "alsoKnownAs": []
     },
     "network": "testnet",
     "signInputs": [{
@@ -153,7 +153,7 @@ The Payload file can include a Resource passed either as a file or a base64 enco
         "denom": "ncheq",
         "amount": "2500000000" // 2.5 CHEQ is the fixed fee for a JSON transaction
         }],
-      "gas": "400000",
+      "gas": "1000000",
       "payer": "cheqd1rnr5jrt4exl0samwj0yegv99jeskl0hsxmcz96" // must match the account set in the agent.yaml file
     }
 }
@@ -162,6 +162,10 @@ The Payload file can include a Resource passed either as a file or a base64 enco
 </details>
 
 ### 6. Understanding Resource Fees
+
+{% hint style="info" %}
+The maximum file size for a resource is roughly **46KB** which may require a gas fee of up to **2000000**.
+{% endhint %}
 
 The fee for a resource transaction changes depending on the file type being passed to the ledger. Currently there are three different variations on the fee:
 
@@ -188,6 +192,8 @@ Within the payload file the amount should be specified as:
 * `amount:` 10000000000
 
 This equates to **10 CHEQ.**
+
+_Note that images may also require a larger 'gas' fee of up to 2000000_
 
 </details>
 

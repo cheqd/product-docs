@@ -1,0 +1,5 @@
+{
+  "verificationMethod": "JsonWebKey2020",
+  "methodSpecificIdAlgo": "uuid",
+  "network": "testnet"
+}

@@ -14,13 +14,27 @@ The first step is generating a template for your DID Document, including a new D
 
 > It is important to note that this step does not create your DID on ledger, but it generates your identity keys as a draft DID Document for you to use in the on-ledger transaction in [Step 3](create-did.md#3-create-new-did-and-publish-diddoc).
 
-### Command
+### Command (inline)
 
 You can use the following command in your CLI to create your DIDDoc and associated identity keys:
 
 ```bash
-veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "<exampleVerificationMethod>", "methodSpecificIdAlgo": "<exampleAlgo>", "network": "exampleNetwork"}'
+veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "JsonWebKey2020", "methodSpecificIdAlgo": "uuid", "network": "testnet"}'
 ```
+
+### Command (pass as file)
+
+You can pass the payload of the inputs and arguments as a file rather than inline using:
+
+```
+veramo execute -m cheqdGenerateDidDoc --argsFile path/to/exampleFile.json
+```
+
+You can reuse this example file:
+
+{% file src="../../.gitbook/assets/identity-keys-on-the-fly-with-did-docs.json" %}
+Example file for creating DID Document template
+{% endfile %}
 
 ### Inputs and arguments
 
@@ -68,8 +82,7 @@ Method:  cheqdGenerateDidDoc
 Arguments:  {
   "argsObj": {
     "verificationMethod": "Ed25519VerificationKey2020",
-    "methodSpecificIdAlgo": "base58btc",
-    "methodSpecificIdLength": 16,
+    "methodSpecificIdAlgo": "uuid",
     "network": "testnet"
   }
 }
@@ -124,7 +137,7 @@ Unexpected token v in JSON at position 1
 
 ## 2. Prepare/edit DIDDoc contents
 
-Before creating a DID on-ledger, you will need to prepare the `payload.json` file. This file can be saved where ever you choose, but the location must be specified in the create DID command used in [Step 3](create-did.md#3-create-new-did-and-publish-diddoc). (By default, it will be saved under the project root directory.)
+Once you have created a template for your DIDDoc and generated your keys, and before creating a DID on-ledger, you will need to prepare the `payload.json` file. This file can be saved where ever you choose, but the location must be specified in the create DID command used in [Step 3](create-did.md#3-create-new-did-and-publish-diddoc). (By default, it will be saved under the project root directory.)
 
 You should copy and paste the output of [Step 1](create-did.md#1-create-your-identity-keys-within-a-did-document-template) as an initial starting template for your `payload.json` file.
 
@@ -176,7 +189,7 @@ The below examples show the variation in syntax for different verification metho
       "amount": "50000000000"
       }],
     "gas": "400000",
-    "payer": "cheqd1rnr5jrt4exl0samwj0yegv99jeskl0hsxmcz96"
+    "payer": "cheqd1rnr5jrt4exl0samwj0yegv99jeskl0hsxmcz96" // add the cheqd account the transaction will come from
   }
 }
 ```
@@ -227,7 +240,7 @@ The below examples show the variation in syntax for different verification metho
       "amount": "50000000000"
       }],
     "gas": "400000",
-    "payer": "cheqd1rnr5jrt4exl0samwj0yegv99jeskl0hsxmcz96"
+    "payer": "cheqd1rnr5jrt4exl0samwj0yegv99jeskl0hsxmcz96" // add the cheqd account the transaction will come from
   }
 }
 ```
@@ -282,7 +295,7 @@ The below examples show the variation in syntax for different verification metho
       "amount": "50000000000"
       }],
     "gas": "400000",
-    "payer": "cheqd1rnr5jrt4exl0samwj0yegv99jeskl0hsxmcz96"
+    "payer": "cheqd1rnr5jrt4exl0samwj0yegv99jeskl0hsxmcz96" // add the cheqd account the transaction will come from
   }
 }
 ```
