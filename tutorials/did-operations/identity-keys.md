@@ -14,13 +14,27 @@ Follow these instructions to:
 
 Instead of creating identity keys standalone, you can generate them along with a DIDDoc template. This makes it far easier to handle different inputs and arguments, such as generating DID Docs with different key types.
 
-### Command
+### Command (inline)
 
 You can use the following command in your CLI to create your DIDDoc and associated identity keys:
 
 ```bash
-veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "<exampleVerificationMethod>", "methodSpecificIdAlgo": "<exampleAlgo>", "network": "exampleNetwork"}'
+veramo execute -m cheqdGenerateDidDoc --argsJSON '{"verificationMethod": "JsonWebKey2020", "methodSpecificIdAlgo": "uuid", "network": "testnet"}'
 ```
+
+### Command (pass as file)
+
+You can pass the payload of the inputs and arguments as a file rather than inline using:
+
+```
+veramo execute -m cheqdGenerateDidDoc --argsFile path/to/exampleFile.json
+```
+
+You can reuse this example file:
+
+{% file src="../../.gitbook/assets/identity-keys-on-the-fly-with-did-docs.json" %}
+Example file for creating DID Document template
+{% endfile %}
 
 ### Inputs and arguments
 
