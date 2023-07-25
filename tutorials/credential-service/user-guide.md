@@ -6,6 +6,49 @@ description: Simple guide and walkthrough for using the cheqd Credential Service
 
 These instructions will help developers create DIDs and issue Verifiable Credentials on cheqd using the Credential Service. This Walkthrough should be read in conjunction with [our APIs defined in our Swagger File here](https://credential-service.cheqd.net/swagger/).
 
+## Understanding your account
+
+The user is required to **login** to the Credential Service to authenticate in order to access the APIs. This guards the API from unauthorized access and is recommend for production environments.
+
+The following API can be used to create a new user-account.
+
+{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/account" method="post" %}
+[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
+{% endswagger %}
+
+The following API can be used to fetch the new account information:
+
+* `customer_id` is used as an identifier for the particular customer using the Credential Service. It is generated as a sub-field of the JWT token used in the authorization header.
+* `cheqd_account` is used to pay for identity transactions on either `testnet` or `mainnet`. A cheqd account is automatically generated when a new `customer_id` is generated.
+
+{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/account" method="get" %}
+[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
+{% endswagger %}
+
+Users will need to add our token, CHEQ, to their `cheqd_account` on either `testnet` or `mainnet` in order to be able to use the ledger-based identity functionality on Credential Service, such as creating DIDs and DID-Linked Resources. This can be carried out by following the instructions in Section 2 below.
+
+## Adding CHEQ tokens to your account
+
+If you need to add CHEQ tokens to your Credential Service `cheqd_account`, there are a few steps you need to follow:
+
+<details>
+
+<summary>Mainnet</summary>
+
+* First you need to setup a wallet which is able to hold CHEQ tokens. We recommend using [Leap Wallet](https://www.leapwallet.io/) which natively supports all CHEQ transactions in a browser plugin or on mobile. Alternatively, follow the [tutorial here to setup your Keplr wallet](https://github.com/cheqd/identity-docs/blob/2e371336b70d5d89bf3434d3daf6a743d5b99cd9/guides/wallets/keplr-setup.md).
+* You will then need to [purchase CHEQ tokens](https://cheqd.io/get-involved/) from either a Centralized Exchange (CEX) or exchanging tokens on a Decentralized Exchange (DEX).
+* You will need to send tokens from your new cheqd Wallet account to your `cheqd_account` address for using the Credential Service.
+
+</details>
+
+<details>
+
+<summary>Testnet</summary>
+
+* This is super simple. You can add free CHEQ tokens to your cheqd\_account [via our testnet faucet](https://testnet-faucet.cheqd.io/) by inputting your cheqd account address.
+
+</details>
+
 ## Verifiable Credentials (VCs)
 
 Verifiable Credentials are a tamper-evident data format for asserting a set of claims about a subject. Using the cheqd Credential Service, it is possible to issue Verifiable Credentials, signed by a cheqd DID, in a few clicks or lines of code.&#x20;
