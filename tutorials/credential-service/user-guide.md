@@ -4,7 +4,9 @@ description: Simple guide and walkthrough for using the cheqd Credential Service
 
 # User Guide
 
-These instructions will help developers create DIDs and issue Verifiable Credentials on cheqd using the Credential Service. This Walkthrough should be read in conjunction with [our APIs defined in our Swagger File here](https://credential-service.cheqd.net/swagger/).
+These instructions will help developers create DIDs and issue Verifiable Credentials on cheqd using the Credential Service. This Walkthrough should be read in conjunction with [our cheqd Credential Service ](https://credential-service.cheqd.net/swagger/)Swagger APIs.
+
+## [**Get started with our Credential Service APIs**](https://credential-service.cheqd.net/swagger/#/)
 
 ## Understanding your account
 
