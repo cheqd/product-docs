@@ -20,7 +20,7 @@
 * :arrows\_counterclockwise: [DID Resolver setup](tutorials/did-resolver.md)
 * 🛅 [Demo Wallet for identity setup](tutorials/demo-wallet.md)
 * ➡️ [DID Registrar](tutorials/did-registrar/)
-* 🔁 [Credential Service](guides/anoncreds/credential-definition.md)
+* 🔁 [Credential Service](tutorials/credential-service/)
 
 ### :construction\_site: Architecture
 
