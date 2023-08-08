@@ -14,7 +14,7 @@ The user is required to **login** to the Credential Service to authenticate in o
 
 The following API can be used to create a new user-account.
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/account" method="post" %}
+{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/account" method="post" expanded="false" %}
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
 {% endswagger %}
 
@@ -99,48 +99,6 @@ Users are also able to suspend Verifiable Credentials. The difference between re
 A Verifiable Presentation is a collection of multiple Verifiable Credentials that are being presented by a `holder` to a `verifier`. In addition to checking whether the Credentials are untampered, Verifiable Presentation verification also checks that the `holder` subject DID is valid.&#x20;
 
 {% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/presentation/verify" method="post" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
-{% endswagger %}
-
-## Account
-
-Understanding the account APIs:
-
-<details>
-
-<summary>AUTH is enabled</summary>
-
-If authentication is enabled, then the user is required to provide a JWT Bearer token in the authorization header to access the Credential Service via a specific **account**. This guards the API from unauthorized access and is recommend for production environments.
-
-The user is able to provide the JWT bearer token via logging into [LogTo](https://logto.io/) (the service we use for authentication).&#x20;
-
-With AUTH enabled:
-
-* `customer_id` is used as an identifier for the particular customer using the Credential Service. It is generated as a sub-field of the JWT token used in the authorization header.
-* `cheqd_account` is used to pay for identity transactions on either `testnet` or `mainnet`. A cheqd account is automatically generated when a new `customer_id` is generated.
-
-Users will need to add our token, CHEQ, to their `cheqd_account` on either `testnet` or `mainnet` in order to be able to use the ledger-based identity functionality on Credential Service, such as creating DIDs and DID-Linked Resources. This can be carried out by following the instructions in Section 2 below.&#x20;
-
-</details>
-
-<details>
-
-<summary>AUTH is disabled</summary>
-
-If authentication is disabled, the user **does not** need to provide a JWT Bearer token to access the Credential Service. The user can simply start using the APIs without authentication. This is recommended to **only be used for testing environments**.&#x20;
-
-With AUTH disabled:
-
-* `customer_id` is a default account, which is the same for all users of Credential Service.
-* `cheqd_account` is also a default fee-payer account, which can be used to create `testnet` transactions on the Credential Service for demo and testing purposes.&#x20;
-
-</details>
-
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/account" method="get" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
-{% endswagger %}
-
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/account" method="post" %}
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
 {% endswagger %}
 
