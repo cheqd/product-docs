@@ -86,16 +86,16 @@ From this request, we will create a DID, compile a DIDDoc and return it as a res
 
 ```
 
-## Get started using the API below:
+## Create a DID using the API below:
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/swagger-host/src/static/swagger.json" path="/did/create" method="post" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/swagger-host/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/swagger-host/src/static/swagger.json)
+{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/resource/create/{did}" method="post" expanded="true" %}
+[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
 {% endswagger %}
 
 ## List DIDs associated with your account
 
 Using the `/did/list` API, users can list all the created DIDs associated with their account.
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/swagger-host/src/static/swagger.json" path="/did/list" method="get" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/swagger-host/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/swagger-host/src/static/swagger.json)
+{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/did/list" method="get" expanded="true" %}
+[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
 {% endswagger %}

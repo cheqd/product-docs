@@ -50,8 +50,8 @@ For example:
 
 Once the Issuer has populated the requisite information for the Payment Conditions, they can use the API below to submit the gated Status List to the ledger.&#x20;
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/swagger-host/src/static/swagger.json" path="/credential-status/create" method="post" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/swagger-host/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/swagger-host/src/static/swagger.json)
+{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/credential-status/create" method="post" expanded="true" %}
+[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
 {% endswagger %}
 
 ### Encrypted Status List Response format

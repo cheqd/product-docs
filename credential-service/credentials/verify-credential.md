@@ -11,7 +11,7 @@ Simply paste the JWT or the full credential body which you obtain from the respo
 3. Whether the Credential has expired
 4. Whether the Credential Status is valid
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/swagger-host/src/static/swagger.json" path="/credential/verify" method="post" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/swagger-host/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/swagger-host/src/static/swagger.json)
+{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/credential/verify" method="post" expanded="true" %}
+[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
 {% endswagger %}
 

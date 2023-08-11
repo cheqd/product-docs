@@ -31,8 +31,8 @@ The following API can be used to fetch the new account information:
 * `customer_id` is used as an identifier for the particular customer using the Credential Service. It is generated as a sub-field of the JWT token used in the authorization header.
 * `cheqd_account` is used to pay for identity transactions on either `testnet` or `mainnet`. A cheqd account is automatically generated when a new `customer_id` is generated.
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/swagger-host/src/static/swagger.json" path="/account" method="get" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/swagger-host/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/swagger-host/src/static/swagger.json)
+{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/account" method="get" expanded="true" %}
+[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
 {% endswagger %}
 
 ### (Optional) Step 3: Adding CHEQ tokens to your account

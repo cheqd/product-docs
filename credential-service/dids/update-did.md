@@ -19,6 +19,6 @@ Users are also able to deactivate DID Documents to prevent further updates and t
 
 A `/did/deactivate` request must be signed by all of the Verification Method keys listed in the DID Document.&#x20;
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/swagger-host/src/static/swagger.json" path="/did/deactivate/{did}" method="post" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/swagger-host/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/swagger-host/src/static/swagger.json)
+{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/did/deactivate/{did}" method="post" expanded="true" %}
+[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
 {% endswagger %}

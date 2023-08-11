@@ -6,7 +6,7 @@
 
 ## 🟢 Start Issuing Credentials <a href="#credential-service" id="credential-service"></a>
 
-* [Getting started with Credential Service](credential-service/get-started/README.md)
+* [Get started with Credential Service](credential-service/get-started/README.md)
   * [🔄 Advanced configuration options](credential-service/get-started/advanced.md)
 * [👉 Set up your account](credential-service/set-up-account.md)
 * [✅ Issue Credentials and Presentations](credential-service/credentials/README.md)

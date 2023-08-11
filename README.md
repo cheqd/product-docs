@@ -43,8 +43,8 @@ Credential Service is the easiest route to get started with cheqd's identity fun
 
 Under the hood, Credential Service utilises the Veramo SDK for cheqd, providing the most feature complete set of functionality and tooling.
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="credential-service/get-started/" %}
+[get-started](credential-service/get-started/)
 {% endcontent-ref %}
 
 If you'd rather build a deeper integration using a Software Development Kit (SDK) or lower level package, we've created a simple diagram to show how our packages are structured below.
