@@ -64,4 +64,4 @@ The output should look like the following:
 
 ## Next steps
 
-DID queries are passed and handled using the [cheqd DID Resolver](broken-reference). You can also check out the API endpoints exposed by the DID Resolver to understand how this can be fetched/consumed outside Veramo CLI.
+DID queries are passed and handled using [the cheqd DID Resolver](../../../advanced-features-and-alternatives/did-resolver/). You can also check out the API endpoints exposed by the DID Resolver to understand how this can be fetched/consumed outside Veramo CLI.

@@ -1,6 +1,6 @@
 # Adding a new Resource version
 
-The purpose of this document is to describe how someone can create [a _new_ Resource on under an existing _Collection_](broken-reference).
+The purpose of this document is to describe how someone can create a _new_ Resource on under an existing _Collection_.
 
 This tutorial uses the [cheqd Cosmos CLI](https://docs.cheqd.io/node/getting-started/cheqd-cli), similar to the [creating a new Resource tutorial](create-resource.md).
 
