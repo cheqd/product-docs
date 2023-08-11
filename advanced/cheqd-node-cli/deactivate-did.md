@@ -1,4 +1,4 @@
-# Deactivate existing DIDs with cheqd Cosmos CLI
+# Deactivating existing DIDs with cheqd Cosmos CLI
 
 The purpose of this document is to describe how an existing DID (and associated DIDDoc) can be _deactivated_ using [the `cheqd-node` Cosmos CLI](https://docs.cheqd.io/node/getting-started/cheqd-cli).
 
@@ -6,7 +6,7 @@ The purpose of this document is to describe how an existing DID (and associated 
 >
 > Using `cheqd-node` Cosmos CLI for real-world production usage is not recommended, since the identity keys are passed in raw form to the CLI. This is fine in development/testing usage, but is not recommend for mainnet.
 >
-> Developers are encouraged to use [production-grade CLI tools such as Veramo SDK for cheqd](../../guides/sdk/veramo-sdk-for-cheqd/) or look at [our developer guide on how to integrate custom applications](../README.md).
+> Developers are encouraged to use [production-grade CLI tools such as Veramo SDK for cheqd](../../sdk/veramo-plugin/) or look at [our developer guide on how to integrate custom applications](../).
 
 ## Setup
 
@@ -19,8 +19,7 @@ The purpose of this document is to describe how an existing DID (and associated 
 
 ### 1. Compile the payload
 
-As in flow with [creating DID-Document](create-did.md) we need to compile `payload.json` file with private key inside and pass it to the CLI.
-The resulting JSON in our example will look liks:
+As in flow with [creating DID-Document](create-did.md) we need to compile `payload.json` file with private key inside and pass it to the CLI. The resulting JSON in our example will look liks:
 
 ```json
 {

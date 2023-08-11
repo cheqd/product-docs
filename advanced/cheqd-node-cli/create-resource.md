@@ -1,6 +1,6 @@
-# Creating a Resource using cheqd Cosmos CLI
+# Creating a DID-Linked Resource using cheqd Cosmos CLI
 
-The purpose of this document is to outline how someone can create a Resource on the cheqd network using [cheqd Cosmos CLI](create-did.md). The process that's followed is similar to what's described in the [high-level Resource creation flow](../../guides/did-linked-resources/technical-composition/creating-a-resource.md).
+The purpose of this document is to outline how someone can create a Resource on the cheqd network using [cheqd Cosmos CLI](create-did.md). The process that's followed is similar to what's described in the [high-level Resource creation flow](broken-reference).
 
 ## Pre-requisites
 
@@ -21,7 +21,7 @@ Let's assume the DID for the DIDDoc is as follows:
 
 ### 2. Create a UUID for the Resource
 
-[UUIDs are used to identify Resources](https://en.wikipedia.org/wiki/Universally_unique_identifier). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
+[UUIDs are used to identify Resources](https://en.wikipedia.org/wiki/Universally\_unique\_identifier). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
 
 ```bash
 $ uuidgen
@@ -86,7 +86,7 @@ This equates to **5 CHEQ.**
 * `payload-file` - file with JSON formatted payload. The format and structure can be found in example
 * `resource-data-file` - file which will be sent to the ledger as a `data`. Can be a picture or an image or whatever you want.
 * `flags` - additional parameters like, `--gas` or `--from`.
-* `fees` - the specific fee for the transaction, depending on the [type of resource file defined here](#understanding-resource-fees)
+* `fees` - the specific fee for the transaction, depending on the [type of resource file defined here](create-resource.md#understanding-resource-fees)
 
 Example input:
 
@@ -199,8 +199,7 @@ There are also 2 annother commands for getting resource from ledger depending wh
 
 #### Get metadata
 
-Here is the command which allows to get only metadata information without getting the whole resource.
-The format of call is:
+Here is the command which allows to get only metadata information without getting the whole resource. The format of call is:
 
 ```bash
 cheqd-noded query resource metadata [collection-id] [resource-id] [flags]

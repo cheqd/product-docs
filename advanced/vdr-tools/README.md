@@ -1,6 +1,10 @@
-# ⚒ VDR Tools CLI with cheqd
+# ⚒ VDR Tools CLI with cheqd (deprecated)
 
-This page describes how [identity-domain transactions can be integrated in 3rd party applications](../../guides/sdk/README.md) such as [Evernym VDR Tools](https://gitlab.com/evernym/verity/vdr-tools).
+This page describes how [identity-domain transactions can be integrated in 3rd party applications](../../sdk/understanding-sdks.md) such as [Evernym VDR Tools](https://gitlab.com/evernym/verity/vdr-tools).
+
+{% hint style="warning" %}
+Note: This cheqd SDK integration has now been **deprecated** and is **no longer actively maintained**.&#x20;
+{% endhint %}
 
 ## Base write flow
 

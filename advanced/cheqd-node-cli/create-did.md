@@ -6,7 +6,7 @@ The purpose of this document is to describe how a DID (and associated DIDDoc) ca
 >
 > Using `cheqd-node` Cosmos CLI for real-world production environments is not recommended, since the identity keys are passed in raw form to the CLI. This is fine in development/testing usage, but is not recommend for mainnet.
 >
-> Developers are encouraged to use [production-grade CLI tools such as Veramo SDK for cheqd](../../guides/sdk/veramo-sdk-for-cheqd/) or look at [our developer guide on how to integrate custom applications](../README.md).
+> Developers are encouraged to use [production-grade CLI tools such as Veramo SDK for cheqd](../../sdk/veramo-plugin/) or look at [our developer guide on how to integrate custom applications](../).
 
 ## Setup
 
@@ -45,6 +45,7 @@ _**Note**: Keep this key safe! It is used to create the DIDDoc, and to update it
 Encode the identity key's _public_ key to one of the formats below according to the verificaiton method type you selected, as this will be later required in the `verificationMethod` section:
 
 <details>
+
 <summary>Ed25519VerificationKey2018</summary>
 
 Encoding to `publicKeyBase58`
@@ -63,6 +64,7 @@ $ cheqd-noded debug encoding base64-base58 MnrTheU+vCrN3W+WMvcpBXYBG6D1HrN5usL1z
 </details>
 
 <details>
+
 <summary>Ed25519VerificationKey2020</summary>
 
 Encoding to `publicKeyMultibase`
@@ -81,6 +83,7 @@ z6MkhrK4MAmJxYne1t5tME64jofNvEcSoStQ4niYsMsvVNEc
 </details>
 
 <details>
+
 <summary>JsonWebKey2020</summary>
 
 Encoding to `publicKeyJwk`
@@ -438,7 +441,7 @@ cheqd-noded query cheqd did-version did:cheqd:mainnet:c82f2b02-bdab-4dd7-b833-3e
 
 Output:
 
-> Note that the output here is in snake_case because of how the cheqd ledger represents protobufs. This output would be in spec compliant JSON if queried using our DID resolver.
+> Note that the output here is in snake\_case because of how the cheqd ledger represents protobufs. This output would be in spec compliant JSON if queried using our DID resolver.
 
 ```json
 {
