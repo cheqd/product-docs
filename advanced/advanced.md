@@ -54,6 +54,6 @@ The high-level steps are:
 2. **Prepare and sign the message correctly**: This relies partly on understanding general Cosmos SDK message format and transaction signing, as well as any cheqd-specific bits. _A real-world example of this is the_ [_`@cheqd/sdk`_](https://github.com/cheqd/sdk) _NPM package that consumes `@cheqd/ts-proto` NPM package._
 3. **Send the message to ledger using gRPC/RPC**: Once a message/transaction is correctly compiled and signed, standard transport libraries can be used to target the [gRPC/RPC endpoints](https://docs.cosmos.network/main/core/grpc\_rest.html) for a `cheqd-node` instance.
 
-> Example 2: [**Evernym VDR Tools**](vdr-tools/)
+> Example 2: [**Evernym VDR Tools**](vdr-tools.md)
 >
-> [**Evernym's VDR Tools SDK**](https://gitlab.com/evernym/verity/vdr-tools/-/tree/main/libvdrtools/src/services/cheqd\_ledger) is an independent implementation written in Rust that [integrates some cheqd ledger functionality](vdr-tools/).
+> [**Evernym's VDR Tools SDK**](https://gitlab.com/evernym/verity/vdr-tools/-/tree/main/libvdrtools/src/services/cheqd\_ledger) is an independent implementation written in Rust that [integrates some cheqd ledger functionality](vdr-tools.md).

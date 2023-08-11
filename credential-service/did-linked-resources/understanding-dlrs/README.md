@@ -20,8 +20,8 @@ Our objective in building DID-Linked Resources on cheqd is to **improve the way 
 
 ### Support for AnonCreds using DID-Linked Resources
 
-* [Understanding AnonCreds on cheqd:](../../../advanced-features-and-alternatives/anoncreds/)
-  * [Schema Object](../../../advanced-features-and-alternatives/anoncreds/schema.md)
-  * [CredDef Object](../../../advanced-features-and-alternatives/anoncreds/credential-definition.md)
-  * [Revocation Registry Definition Object](../../../advanced-features-and-alternatives/anoncreds/revocation-registry-definition.md)
-  * [Revocation Status List Object](../../../advanced-features-and-alternatives/anoncreds/revocation-status-list.md)
+* [Understanding AnonCreds on cheqd:](../../../advanced/anoncreds/)
+  * [Schema Object](../../../advanced/anoncreds/schema.md)
+  * [CredDef Object](../../../advanced/anoncreds/credential-definition.md)
+  * [Revocation Registry Definition Object](../../../advanced/anoncreds/revocation-registry-definition.md)
+  * [Revocation Status List Object](../../../advanced/anoncreds/revocation-status-list.md)

@@ -73,20 +73,20 @@
   * [4⃣ ADR 004: DID Registrar](architecture/adr-list/adr-004-did-registrar.md)
   * [5⃣ ADR 005: DID Resolution & DID URL Dereferencing](architecture/adr-list/adr-005-did-resolution-and-did-url-dereferencing.md)
 
-## 💫 Advanced features and alternatives
+## 💫 Advanced features and alternatives <a href="#advanced" id="advanced"></a>
 
-* [➡ DID Registrar](advanced-features-and-alternatives/did-registrar/README.md)
-  * [Setup DID Registrar](advanced-features-and-alternatives/did-registrar/did-registrar-setup.md)
-  * [Create a DID](advanced-features-and-alternatives/did-registrar/create-did.md)
-  * [Create a DID-Linked Resource](advanced-features-and-alternatives/did-registrar/create-resource.md)
-* [⬅ DID Resolver](advanced-features-and-alternatives/did-resolver/README.md)
-  * [Setup DID Resolver](advanced-features-and-alternatives/did-resolver/setup-did-resolver.md)
-* [🔒 AnonCreds on cheqd](advanced-features-and-alternatives/anoncreds/README.md)
-  * [Schemas](advanced-features-and-alternatives/anoncreds/schema.md)
-  * [Credential Definitions ("CredDefs")](advanced-features-and-alternatives/anoncreds/credential-definition.md)
-  * [Revocation Registry Definitions](advanced-features-and-alternatives/anoncreds/revocation-registry-definition.md)
-  * [Revocation Status Lists](advanced-features-and-alternatives/anoncreds/revocation-status-list.md)
-* [🤓 Direct interaction with ledger code](advanced/README.md)
+* [➡ DID Registrar](advanced/did-registrar/README.md)
+  * [Setup DID Registrar](advanced/did-registrar/did-registrar-setup.md)
+  * [Create a DID](advanced/did-registrar/create-did.md)
+  * [Create a DID-Linked Resource](advanced/did-registrar/create-resource.md)
+* [⬅ DID Resolver](advanced/did-resolver/README.md)
+  * [Setup DID Resolver](advanced/did-resolver/setup-did-resolver.md)
+* [🔒 AnonCreds on cheqd](advanced/anoncreds/README.md)
+  * [Schemas](advanced/anoncreds/schema.md)
+  * [Credential Definitions ("CredDefs")](advanced/anoncreds/credential-definition.md)
+  * [Revocation Registry Definitions](advanced/anoncreds/revocation-registry-definition.md)
+  * [Revocation Status Lists](advanced/anoncreds/revocation-status-list.md)
+* [🤓 Direct interaction with ledger code](advanced/advanced.md)
 * [🛰 cheqd Cosmos CLI for identity](advanced/cheqd-node-cli/README.md)
   * [Creating a DID with cheqd Cosmos CLI](advanced/cheqd-node-cli/create-did.md)
   * [Updating existing DIDs with cheqd Cosmos CLI](advanced/cheqd-node-cli/update-did.md)
@@ -94,10 +94,10 @@
   * [Querying DIDs with cheqd Cosmos CLI](advanced/cheqd-node-cli/query-did.md)
   * [Creating a DID-Linked Resource using cheqd Cosmos CLI](advanced/cheqd-node-cli/create-resource.md)
   * [Adding a new Resource version](advanced/cheqd-node-cli/add-more-resources.md)
-* [🛅 Demo Wallet for identity setup](advanced-features-and-alternatives/demo-wallet.md)
-* [⚒ VDR Tools CLI with cheqd (deprecated)](advanced/vdr-tools/README.md)
-* [💳 Wallets](advanced-features-and-alternatives/wallets/README.md)
-  * [Setup Keplr wallet](advanced-features-and-alternatives/wallets/keplr-setup.md)
+* [🛅 Demo Wallet for identity setup](advanced/demo-wallet.md)
+* [⚒ VDR Tools CLI with cheqd (deprecated)](advanced/vdr-tools.md)
+* [💳 Wallets](advanced/wallets/README.md)
+  * [Setup Keplr wallet](advanced/wallets/keplr-setup.md)
 
 ## ⚖️ Legal
 

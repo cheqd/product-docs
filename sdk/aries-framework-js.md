@@ -4,7 +4,7 @@ Hyperledger Aries Framework JavaScript is a framework written in TypeScript for 
 
 In the recent months AFJ has heavily been expanding into a more modular and "less specific" framework. The integration with cheqd is a prime example of this, being the first true showcase of anchoring AnonCreds on non-Indy ledgers Supporting more credential formats, ledgers and DID methods is crucial and essential to the continual development of AFJ. cheqd is now fully supported in AFJ and can be used for the issuance of AnonCreds as well as the creation of Credential Schemas and Credential Definitions.
 
-AnonCreds using cheqd are facilitated using the [cheqd AnonCreds Object Method](../advanced-features-and-alternatives/anoncreds/).
+AnonCreds using cheqd are facilitated using the [cheqd AnonCreds Object Method](../advanced/anoncreds/).
 
 ## Get started
 
