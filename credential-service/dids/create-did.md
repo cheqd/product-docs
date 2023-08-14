@@ -1,3 +1,7 @@
+---
+description: Create a DID using the did:cheqd method
+---
+
 # Create Issuer DID
 
 ## Create Decentralized Identifiers (DIDs)
@@ -63,6 +67,8 @@ From this request, we will create a DID, compile a DIDDoc and return it as a res
 
 **Request format:**
 
+Instead of generating a DID Document using simple parameters, you can create a fully formatted DID Document yourself. Before, submitting a manually created DID, you will need to have [created a set of identity keys](create-subject-did.md) to input the key material into the DID document, for example:
+
 ```json
 {
   "didDocument": {
@@ -80,6 +86,9 @@ From this request, we will create a DID, compile a DIDDoc and return it as a res
         "publicKeyBase58": "BTJiso1S4iSiReP6wGksSneGfiKHxz9SYcm2KknpqBJt",
         "type": "Ed25519VerificationKey2018"
       }
+    ],
+    "authentication": [
+      "did:cheqd:testnet:7bf81a20-633c-4cc7-bc4a-5a45801005e0#key-1"
     ]
   }
 }
@@ -88,13 +97,13 @@ From this request, we will create a DID, compile a DIDDoc and return it as a res
 
 ## Create a DID using the API below:
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/resource/create/{did}" method="post" expanded="true" %}
+{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/did/create" method="post" expanded="true" %}
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
 {% endswagger %}
 
 ## List DIDs associated with your account
 
-Using the `/did/list` API, users can list all the created DIDs associated with their account.
+After creating a DID or multiple DIDs, users can list all the created DIDs associated with their account. Using the `/did/list` API.&#x20;
 
 {% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/did/list" method="get" expanded="true" %}
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
