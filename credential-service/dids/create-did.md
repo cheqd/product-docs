@@ -65,30 +65,43 @@ From this request, we will create a DID, compile a DIDDoc and return it as a res
 
 ### Option 2. Publish a DID Document body yourself
 
-**Request format:**
+Instead of generating a DID Document using simple parameters, you can create a fully formatted DID Document yourself. Before, submitting a manually created DID, you will need to have [created a set of identity keys](create-subject-did.md) to input the key material into the DID document.
 
-Instead of generating a DID Document using simple parameters, you can create a fully formatted DID Document yourself. Before, submitting a manually created DID, you will need to have [created a set of identity keys](create-subject-did.md) to input the key material into the DID document, for example:
+#### Step 1: Create a new keypair
+
+Use the [`/key/create` API](create-subject-did.md) to generate a new keypair within the Credential Service key management store. Copy the "publicKeyHex".&#x20;
+
+#### Step 2: Utilise the DID Document template helper&#x20;
+
+To simplify this process of formatting a DID Document using your own keys, we've created a [Helper Tool in our DID Registrar here](https://did-registrar.cheqd.net/api-docs/#/Cheqd%20Helpers/get\_did\_document). Simply paste in your publicKeyHex and choose the variables to compile your DID Document template.
+
+#### Step 3: Paste the response
+
+Within the `/did/create` JSON payload, paste the response of your DID Document template, with your own signing keys.&#x20;
+
+**Request format:**
 
 ```json
 {
   "didDocument": {
-    "authentication": [
-      "did:cheqd:testnet:7bf81a20-633c-4cc7-bc4a-5a45801005e0#key-1"
-    ],
+    "id": "did:cheqd:testnet:0ff9df5d-653b-4f77-a66c-0035abc34d63",
     "controller": [
-      "did:cheqd:testnet:7bf81a20-633c-4cc7-bc4a-5a45801005e0"
+      "did:cheqd:testnet:0ff9df5d-653b-4f77-a66c-0035abc34d63"
     ],
-    "id": "did:cheqd:testnet:7bf81a20-633c-4cc7-bc4a-5a45801005e0",
     "verificationMethod": [
       {
-        "controller": "did:cheqd:testnet:7bf81a20-633c-4cc7-bc4a-5a45801005e0",
-        "id": "did:cheqd:testnet:7bf81a20-633c-4cc7-bc4a-5a45801005e0#key-1",
-        "publicKeyBase58": "BTJiso1S4iSiReP6wGksSneGfiKHxz9SYcm2KknpqBJt",
-        "type": "Ed25519VerificationKey2018"
+        "id": "did:cheqd:testnet:0ff9df5d-653b-4f77-a66c-0035abc34d63#key-1",
+        "type": "JsonWebKey2020",
+        "controller": "did:cheqd:testnet:0ff9df5d-653b-4f77-a66c-0035abc34d63",
+        "publicKeyJwk": {
+          "crv": "Ed25519",
+          "kty": "OKP",
+          "x": "BFSLOxwMJgpmWRtTUuo0JAvz6VXGp4WDDcN0dFfCQKo"
+        }
       }
     ],
     "authentication": [
-      "did:cheqd:testnet:7bf81a20-633c-4cc7-bc4a-5a45801005e0#key-1"
+      "did:cheqd:testnet:0ff9df5d-653b-4f77-a66c-0035abc34d63#key-1"
     ]
   }
 }
