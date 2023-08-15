@@ -45,7 +45,7 @@ Under the hood, Credential Service utilises the Veramo SDK for cheqd, providing 
 
 
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Get started with Credential Service!</strong></mark></td><td>Click here to start your journey with Credential Service, create your accout and begin issuing Credentials.</td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:green;">🟢 <strong>Get started with Credential Service!</strong></mark></td><td>Click here to start your journey with Credential Service, create your account and begin issuing Credentials.</td><td><a href="credential-service/get-started/">get-started</a></td></tr></tbody></table>
 
 If you'd rather build a deeper integration using a Software Development Kit (SDK) or lower level package, we've created a simple diagram to show how our packages are structured below.
 
