@@ -1,4 +1,4 @@
-# 4⃣ ADR 004: DID Registrar
+# 🟠 ADR 004: DID Registrar
 
 ## Status
 

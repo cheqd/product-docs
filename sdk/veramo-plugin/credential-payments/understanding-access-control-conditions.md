@@ -10,7 +10,7 @@ By employing a combination of Decentralised Identifiers (DIDs), DID-Linked Resou
 
 For Credential Payments, the predominant Access Control Condition is a **payment made from the Verifier of a Credential back to the Issuer**.
 
-The payment conditions outlined in the code snippet below define the payment requirements that **must** be met to access and interact with an encrypted Resource. These are written into a `payload.json` file when a create Status List transaction is made to the ledger ([see section below on creating an encrypted Status List](payment-conditions.md#creating-an-encrypted-status-list)).
+The payment conditions outlined in the code snippet below define the payment requirements that **must** be met to access and interact with an encrypted Resource. These are written into a `payload.json` file when a create Status List transaction is made to the ledger ([see section below on creating an encrypted Status List](understanding-access-control-conditions.md#creating-an-encrypted-status-list)).
 
 These conditions are established to ensure that authorized entities or users contribute a specified fee before gaining access to the Resource.&#x20;
 

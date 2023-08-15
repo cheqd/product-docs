@@ -1,4 +1,4 @@
-# 🛰 cheqd Cosmos CLI for identity
+# cheqd Cosmos CLI for identity
 
 > **NOTE: The tutorials below are only recommended to be used for testing purposes!**
 >
@@ -12,4 +12,3 @@ List of tutorials:
 * [Deactivate a DID](deactivate-did.md)
 * [Create DID-Linked Resource](create-resource.md)
 * [Add new DID-Linked Resource to existing Collection](add-more-resources.md)
-  

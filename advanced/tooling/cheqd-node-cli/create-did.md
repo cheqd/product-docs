@@ -6,7 +6,7 @@ The purpose of this document is to describe how a DID (and associated DIDDoc) ca
 >
 > Using `cheqd-node` Cosmos CLI for real-world production environments is not recommended, since the identity keys are passed in raw form to the CLI. This is fine in development/testing usage, but is not recommend for mainnet.
 >
-> Developers are encouraged to use [production-grade CLI tools such as Veramo SDK for cheqd](../../sdk/veramo-plugin/) or look at [our developer guide on how to integrate custom applications](../advanced.md).
+> Developers are encouraged to use [production-grade CLI tools such as Veramo SDK for cheqd](../../../sdk/veramo-plugin/) or look at [our developer guide on how to integrate custom applications](../advanced.md).
 
 ## Setup
 
@@ -119,7 +119,7 @@ The result for our example will be `b0ca0b75-ca6a-4674-a261-45f6dd0c9c77`, so le
 
 Copy-paste the template below into your terminal into a blank file (e.g., using `nano`). We will add additional required information into the blank fields `<xxxxx>` in the next steps.
 
-You'll need to replace some values (as described in the [cheqd DID method](../../architecture/adr-list/adr-001-cheqd-did-method.md)):
+You'll need to replace some values (as described in the [cheqd DID method](../../../architecture/adr-list/adr-001-cheqd-did-method.md)):
 
 * `<namespace>`: Can be `testnet` or `mainnet`. For this CLI, we strongly suggest using `testnet`.
 * `<unique-id>`: Unique identifier, created in step #3

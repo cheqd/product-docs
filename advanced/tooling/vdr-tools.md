@@ -1,4 +1,4 @@
-# ⚒ VDR Tools CLI with cheqd (deprecated)
+# VDR Tools CLI with cheqd (deprecated)
 
 This page describes how identity-domain transactions can be integrated in 3rd party applications such as [Evernym VDR Tools](https://gitlab.com/evernym/verity/vdr-tools).
 

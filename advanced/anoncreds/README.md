@@ -2,11 +2,15 @@
 description: cheqd AnonCreds Object Method Specification
 ---
 
-# 🔒 AnonCreds on cheqd
+# 🔃 AnonCreds on cheqd
 
 ## cheqd AnonCreds Object Method
 
 cheqd intends to directly support AnonCreds using its [DID-Linked Resource module](../../credential-service/did-linked-resources/understanding-dlrs/) in an AnonCreds Object Method. With its resource module, cheqd will identify each on-ledger resource with a [DID Core](https://www.w3.org/TR/did-core/) compliant [DID URL](https://www.w3.org/TR/did-core/). This DID URL will be able to be dereferenced in order to fetch the resource and associated metadata.
+
+## Get started
+
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Schemas</strong></mark></td><td>Create schemas on cheqd to support AnonCreds using DID-Linked Resources.</td><td></td><td><a href="schema.md">schema.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Credential Definitions (CredDefs)</strong></mark></td><td>Create CredDefs on cheqd to support AnonCreds using DID-Linked Resources.</td><td></td><td><a href="credential-definition.md">credential-definition.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Revocation Registry Definitions</strong></mark></td><td>Create RevRegDefs on cheqd to support AnonCreds using DID-Linked Resources.</td><td></td><td><a href="revocation-registry-definition.md">revocation-registry-definition.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Revocation Status Lists</strong></mark></td><td>Create Revocation Status Lists on cheqd to support AnonCreds using DID-Linked Resources.</td><td></td><td><a href="revocation-status-list.md">revocation-status-list.md</a></td></tr></tbody></table>
 
 ### Why is AnonCreds support important?
 
@@ -19,14 +23,3 @@ Therefore, it is important for cheqd to provide support for AnonCreds in order t
 Our aim is to support the functionality enabled by [identity-domain transactions in by Hyperledger Indy](https://github.com/hyperledger/indy-node/blob/master/docs/source/transactions.md) into `cheqd-node`. This will reach the goal of allowing use cases of existing SSI networks on Hyperledger Indy to be supported by the cheqd network.
 
 Importantly, we want to make sure that this work is done in a manner which brings AnonCreds closer to W3C compliance and wide-scale interoperability.
-
-### Compatibility
-
-There are multiple specific AnonCreds transaction types that cheqd needs to support. This documentation will provide guidance and instructions on how equivalent AnonCreds formats can be replicated using cheqd DID-Linked resources, for:
-
-* [Schema Objects](schema.md)
-* [Credential Definition Objects](credential-definition.md)
-* [Revocation Registry Definition Objects](revocation-registry-definition.md)
-* [Revocation Status List Objects](revocation-status-list.md)
-
-Through creating compatible formats for the above, cheqd will theoretically be able to support AnonCreds request/response/issuance data flows, via existing SDKs and Hyperledger Aries Libraries.

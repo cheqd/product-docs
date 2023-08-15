@@ -1,4 +1,10 @@
+---
+description: Setup Keplr wallet to access CHEQ
+---
+
 # Setup Keplr wallet
+
+_Disclaimer: All information provided is intended to help users get set up on cheqd. However, we do not expressly recommend or mandate a certain approach. All actions taken are your personal responsibility._
 
 ## Overview
 
@@ -9,7 +15,7 @@ In this guide we'll share how to setup a Keplr wallet which you can use for payi
 1. Go to the [Keplr website](https://www.keplr.app/) to find the relevant extension for your browser. If you’re using Chrome, which we’d recommend, [click here → browser extension](https://chrome.google.com/webstore/detail/keplr/dmkamcknogkgcdfhhbddcghachkejeap)
 2. Create an Account via Secret Seed/mnemonic Phrase
    1. By clicking on the Keplr browser icon for the first time will take you to the accounts setup page. Choose option Create new account.
-   2. The next page shows you your secret seed/mnemonic phrase. You can select a 12 or 24-word phrase.&#x20;
+   2. The next page shows you your secret seed/mnemonic phrase. You can select a 12 or 24-word phrase.
    3. Save this phrase in a secure place but also do not lose it. You’ll need to input this phrase into the following page.
    4. Next, enter a name for your account and password (you can change these later). Click Next.
    5. To confirm the creation of this new account, you’ll need to click on the words in the right order in which they appear in your seed/mnemonic phrase and press Register.
@@ -41,7 +47,7 @@ In order to see $CHEQ in your Keplr wallet, you’ll need to follow the steps be
 
 1. Go to the Axelar Netork documentation to [`Add a custom network to Keplr`](https://docs.axelar.dev/resources/keplr#add-your-custom-network)
 2. Scroll to `Add your custom network`
-3. In space provided, paste the full contents of cheqd chain testnet information listed below
+3.  In space provided, paste the full contents of cheqd chain testnet information listed below
 
     ```json
     {
@@ -92,7 +98,6 @@ In order to see $CHEQ in your Keplr wallet, you’ll need to follow the steps be
         "beta": true
     }
     ```
-
 4. Once you've pasted the contents above, select `Validate Input & Add to Keplr`
 5. You have now added the cheqd testnet to Keplr. This network uses the SAME mnemonic that was used when setting up the account\\
 

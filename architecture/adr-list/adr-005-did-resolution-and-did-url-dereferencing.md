@@ -4,7 +4,7 @@ description: >-
   fragments
 ---
 
-# 5⃣ ADR 005: DID Resolution & DID URL Dereferencing
+# 🟣 ADR 005: DID Resolution & DID URL Dereferencing
 
 ## Status
 

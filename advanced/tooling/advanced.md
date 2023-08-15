@@ -1,8 +1,8 @@
-# 🤓 Direct interaction with ledger code
+# Direct interaction with ledger code
 
 > This is an **advanced** guide for those who want to develop applications that directly interact with the ledger code.
 >
-> Most developers should start with our pre-built SDKs such as [Veramo SDK for cheqd](../sdk/veramo-plugin/) or the cheqd-node Cosmos CLI.
+> Most developers should start with our pre-built SDKs such as [Veramo SDK for cheqd](../../sdk/veramo-plugin/) or the cheqd-node Cosmos CLI.
 
 ## Overview
 
@@ -11,7 +11,7 @@ The [ledger code package `cheqd-node`](https://github.com/cheqd/cheqd-node) is b
 There are two custom modules on cheqd ledger related to identity functionality:
 
 1. `cheqd` module, for everything related to Decentralized Identifiers (DIDs)
-2. `resource` module, for [DID-Linked Resources](../credential-service/did-linked-resources/understanding-dlrs/)
+2. `resource` module, for [DID-Linked Resources](../../credential-service/did-linked-resources/understanding-dlrs/)
 
 ## Developing Golang apps for cheqd
 
@@ -44,7 +44,7 @@ After compiling a message (in your custom application), you can make a gRPC call
 
 In general, the process building applications that work with cheqd in other languages follows very similar logic as described above for Golang apps.
 
-> Example 1: [**Veramo SDK for cheqd**](../sdk/veramo-plugin/)
+> Example 1: [**Veramo SDK for cheqd**](../../sdk/veramo-plugin/)
 >
 > **Veramo SDK for cheqd** combines the base NPM packages mentioned above to integrate cheqd ledger functionality into the 3rd party [Veramo SDK](https://veramo.io).
 

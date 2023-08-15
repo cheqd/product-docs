@@ -1,4 +1,4 @@
-# ADR 002: DID-Linked Resources
+# 🟢 ADR 002: DID-Linked Resources
 
 ## Status
 
