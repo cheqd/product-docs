@@ -15,7 +15,7 @@ layout:
 
 # Product Overview
 
-[**cheqd**](https://learn.cheqd.io) is a purpose-built network for decentralised identity. This documentation site provides **technical and product information** for all **identity features & functionality** on the cheqd network.
+[**cheqd**](https://cheqd.io/) is a purpose-built network for decentralised identity. This documentation site provides **technical and product information** for all **identity features & functionality** on the cheqd network.
 
 ## Integrate with cheqd
 
@@ -42,8 +42,6 @@ If you want to utilise cheqd DIDs or DID-Linked Resources within applications wi
 Credential Service is the easiest route to get started with cheqd's identity functionality, or for testing with very low integration effort. Using simple REST APIs, it is possible to integrate Credential Service in a few lines of code, or issue Credentials within a few clicks.&#x20;
 
 Under the hood, Credential Service utilises the Veramo SDK for cheqd, providing the most feature complete set of functionality and tooling.
-
-
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:green;">🟢 <strong>Get started with Credential Service!</strong></mark></td><td>Click here to start your journey with Credential Service, create your account and begin issuing Credentials.</td><td><a href="credential-service/get-started/">get-started</a></td></tr></tbody></table>
 
