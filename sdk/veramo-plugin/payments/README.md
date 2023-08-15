@@ -14,6 +14,6 @@ Credential Payments brings a significant evolution to the Verifiable Credentials
 
 Below are a list of alternatives for using Credential Payments.
 
-<table data-card-size="large" data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Credential Service</strong></mark></td><td><strong>Credential Service</strong> is a SaaS product offering the easiest and quickest way to issue Credentials, using REST APIs and very little integration effort.</td><td><a href="../">..</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Credential Service</strong></mark></td><td><strong>Credential Service</strong> is a SaaS product offering the easiest and quickest way to issue Credentials, using REST APIs and very little integration effort.</td><td><a href="../../../credential-service/get-started/">get-started</a></td></tr></tbody></table>
 
 ##
