@@ -2,7 +2,7 @@
 description: Understanding cheqd's Credentials-as-a-Service product offering
 ---
 
-# Getting started with Credential Service
+# Get started with Credential Service
 
 ## Introduction
 
@@ -12,7 +12,7 @@ With these APIs, it simplifies the developer experience, helping customers build
 
 ## Get started
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Sign in / Sign up</strong></mark></td><td>Head to our Credential Service and <strong>click Log In</strong> to get started</td><td></td><td><a href="https://credential-service.cheqd.net/swagger/#/">https://credential-service.cheqd.net/swagger/#/</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue a Credential</strong></mark></td><td>Issue <strong>W3C conformant Verifiable Credentials</strong> easily over REST API.</td><td></td><td><a href="../credentials/issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Advanced config options</strong></mark></td><td>Run the Credential Service yourself or utilise your own external database</td><td></td><td><a href="advanced.md">advanced.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Sign in / Sign up</strong></mark></td><td>Head to our Credential Service and <strong>click Log In</strong> to get started</td><td><a href="https://credential-service.cheqd.net/swagger/#/">https://credential-service.cheqd.net/swagger/#/</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue a Credential</strong></mark></td><td>Issue <strong>W3C conformant Verifiable Credentials</strong> easily over REST API.</td><td><a href="../credentials/issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Advanced config options</strong></mark></td><td>Run the Credential Service yourself or utilise your own external database</td><td><a href="advanced.md">advanced.md</a></td></tr></tbody></table>
 
 ## Features
 
