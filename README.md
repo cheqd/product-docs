@@ -1,5 +1,5 @@
 ---
-description: Overview of cheqd's product and identity functionality
+description: Dive into cheqd's product and identity functionality
 layout:
   title:
     visible: true
@@ -23,7 +23,7 @@ cheqd maintains an array of packages with **varying levels of integration comple
 
 There are three core ways of integrating and building with cheqd:
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Credential Service (SaaS)</strong></td><td><em>Low complexity</em></td><td>Customers can easily integrate cheqd's identity functionality into their existing applications through hitting simple REST APIs using Credential Service. </td><td><a href=".gitbook/assets/credential-service-image.png">credential-service-image.png</a></td><td><a href="credential-service/get-started/">get-started</a></td></tr><tr><td><strong>Software Development Kits (SDKs)</strong></td><td><em>Moderate complexity</em></td><td>To have greater customisability, customers can customers can build identity solutions through a set of SDKs to meet different technical stacks and requirements.</td><td><a href=".gitbook/assets/SDKs-image.png">SDKs-image.png</a></td><td><a href="sdk/understanding-sdks.md">understanding-sdks.md</a></td></tr><tr><td><strong>Direct integration with ledger code (cheqd SDK)</strong></td><td><em>High complexity</em></td><td>For full customisability and flexibility, the cheqd SDK plugs directly into cheqd Network and is responsible for communicating with the core ledger code. </td><td><a href=".gitbook/assets/cheqd-sdk-image.png">cheqd-sdk-image.png</a></td><td><a href="advanced/tooling/advanced.md">advanced.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Credential Service (SaaS)</strong></td><td><em>Low complexity</em></td><td>Customers can easily integrate cheqd's identity functionality into their existing applications through hitting simple REST APIs using Credential Service. </td><td><a href=".gitbook/assets/credential-service-image.png">credential-service-image.png</a></td><td><a href="credential-service/get-started/">get-started</a></td></tr><tr><td><strong>Software Development Kits (SDKs)</strong></td><td><em>Moderate complexity</em></td><td>To have greater flexibility, customers can build identity solutions through a set of SDKs to meet different technical stacks and requirements.</td><td><a href=".gitbook/assets/SDKs-image.png">SDKs-image.png</a></td><td><a href="sdk/understanding-sdks.md">understanding-sdks.md</a></td></tr><tr><td><strong>Direct integration with ledger code (cheqd SDK)</strong></td><td><em>High complexity</em></td><td>For full customisability and flexibility, the cheqd SDK plugs directly into cheqd Network and is responsible for communicating with the core ledger code. </td><td><a href=".gitbook/assets/cheqd-sdk-image.png">cheqd-sdk-image.png</a></td><td><a href="advanced/tooling/advanced.md">advanced.md</a></td></tr></tbody></table>
 
 ## What functionality does cheqd offer?
 
@@ -45,7 +45,7 @@ Under the hood, Credential Service utilises the [Veramo SDK cheqd Plugin](sdk/ve
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:green;">🟢 <strong>Get started with Credential Service!</strong></mark></td><td>Click here to start your journey with Credential Service, create your account and begin issuing Credentials.</td><td><a href="credential-service/get-started/">get-started</a></td></tr></tbody></table>
 
-If you'd rather build a deeper integration using a Software Development Kit (SDK) or lower level package, we've created a simple diagram to show how our packages are structured below.
+If you'd rather build a deeper integration [using a Software Development Kit (SDK)](sdk/understanding-sdks.md) or lower level package, we've created a simple diagram to show how our packages are structured below.
 
 ## Understanding the _structure_ of cheqd's packages
 
