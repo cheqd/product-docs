@@ -4,14 +4,20 @@ cheqd has designed a wallet to demonstrate and test its DeFi functionality as we
 
 [CHEQ Wallet](https://wallet.cheqd.io) allows users to perform standard DeFi activities on Cosmos such as staking/delegating, voting on governance Proposals, and sending tokens. Crucially, the CHEQ wallet goes one step further than this, offering the ability to store and share [Verifiable Credentials](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-verifiable-credential-vc).
 
-## 🔥 Features
+## Features
 
 * Access your CHEQ wallet account by connecting to the [Keplr browser extension](https://keplr.app)
 * Send CHEQ tokens
 * Delegate, undelegate and redelegate to validators
 * Store and share digital identity credentials
 
-## 🧑‍💻🛠 Developer Guide
+## What is the core business value of this work?
+
+The wallet demonstrates how Verifiable Credentials and $CHEQ tokens could be held in the same place and managed with one UI. This is the kind of work that cheqd wants to approach alongside its partners in H2 2022.
+
+We also want to use the cheqd wallet to issue the cheqd community reward Credentials, based on their engagement and loyalty to cheqd. Through gamifying engagement, we can showcase the value of Verifiable Credentials to a much larger audience than the identity ecosystem.
+
+## Developer Guide
 
 ### Setup
 
