@@ -8,7 +8,7 @@ The cheqd network is a highly scalable, enterprise-ready blockchain for identity
 
 ## Get started
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Setup your wallet</strong></mark></td><td>Setup a wallet to hold your CHEQ tokens.</td><td><a href="../wallets/">wallets</a></td></tr><tr><td><mark style="color:blue;"><strong>Setup a node</strong></mark></td><td>Setup a validator node on either cheqd mainnet or testnet.</td><td><a href="https://docs.cheqd.io/node">https://docs.cheqd.io/node</a></td></tr><tr><td><mark style="color:blue;"><strong>Explore other tools</strong></mark></td><td>Explore our cheqd Network tooling and APIs</td><td><a href="../tools/">tools</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Setup your wallet</strong></mark></td><td>Setup a wallet to hold your CHEQ tokens.</td><td><a href="../wallets/">wallets</a></td></tr><tr><td><mark style="color:blue;"><strong>Setup a node</strong></mark></td><td>Setup a validator node on either cheqd mainnet or testnet.</td><td><a href="https://docs.cheqd.io/node">https://docs.cheqd.io/node</a></td></tr><tr><td><mark style="color:blue;"><strong>Explore other tools</strong></mark></td><td>Explore our cheqd Network tooling and APIs.</td><td><a href="../tools/">tools</a></td></tr></tbody></table>
 
 ## Other useful information
 
