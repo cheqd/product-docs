@@ -8,7 +8,7 @@ description: Learn how to set up your account on Credential Service.
 
 The user is required to **log in** to the Credential Service to authenticate in order to access the APIs. This guards the API from unauthorized access and is required for both testing production environments.
 
-### Step 1: Click log in on Credential Service Swagger
+### Step 1: Click Log In on Credential Service Swagger
 
 Head to our [**Credential Service Swagger UI**](https://credential-service.cheqd.net/swagger/#/) and click **Log In** to get started.
 
@@ -45,9 +45,9 @@ If you need to add CHEQ tokens to your Credential Service `cheqd_account`, there
 
 <summary>Mainnet</summary>
 
-* First you need to setup a wallet which is able to hold CHEQ tokens. We recommend using [Leap Wallet](https://www.leapwallet.io/) which natively supports all CHEQ transactions in a browser plugin or on mobile. Alternatively, follow the [tutorial here to setup your Keplr wallet](https://github.com/cheqd/identity-docs/blob/2e371336b70d5d89bf3434d3daf6a743d5b99cd9/guides/wallets/keplr-setup.md).
+* First you need to [setup your wallet](../network/wallets/) which is able to hold CHEQ tokens. We recommend using [Leap Wallet](https://www.leapwallet.io/) which natively supports all CHEQ transactions in a browser plugin or on mobile. Alternatively, follow the [tutorial here to setup your Keplr wallet](../network/wallets/keplr-setup.md).
 * You will then need to [get CHEQ tokens from any of the listed providers here](https://cheqd.io/get-involved/).
-* You will need to send tokens from your new cheqd Wallet account to your `cheqd_account` address for using the Credential Service.
+* You will need to send CHEQ tokens from your new cheqd Wallet account to your `cheqd_account` address for using the Credential Service.
 
 </details>
 
@@ -56,7 +56,7 @@ If you need to add CHEQ tokens to your Credential Service `cheqd_account`, there
 <summary>Testnet</summary>
 
 * It is unlikely that you will ever need to top up your Testnet account, as this is handled automatically. However, in the event that your Testnet account runs out of tokens, you can follow the step below.
-* This is super simple. You can add free CHEQ tokens to your cheqd\_account [via our testnet faucet](https://testnet-faucet.cheqd.io/) by inputting your cheqd account address.
+* This is super simple. You can add free CHEQ tokens to your cheqd\_account [via our Testnet Faucet](../network/tools/testnet-faucet.md) by inputting your cheqd account address. Access the [Testnet Faucet directly here](https://testnet-faucet.cheqd.io/).
 
 </details>
 

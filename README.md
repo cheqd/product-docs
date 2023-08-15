@@ -33,7 +33,7 @@ cheqd's identity functionality is fully standards compliant, ensuring interopera
 
 ## Industry Standard DID Support
 
-If you want to utilise cheqd DIDs or DID-Linked Resources within applications without a specific cheqd integration, you can incorporate a Universal Registrar or Universal Resolver driver to support did:cheqd alongside other commonly adopted DID methods.&#x20;
+If you want to utilise cheqd DIDs or DID-Linked Resources within applications without a specific cheqd integration, you can incorporate a Universal Registrar or Universal Resolver driver to support [did:cheqd](architecture/adr-list/adr-001-cheqd-did-method.md) alongside other commonly adopted DID methods.&#x20;
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>DID Registrar (and Universal Registrar Driver)</strong></mark></td><td><em>Low complexity</em></td><td>Simple setup for building cheqd DIDs into existing applications using REST APIs, building into the <a href="https://uniregistrar.io/">Universal Registrar</a>.</td><td><a href="advanced/did-registrar/">did-registrar</a></td></tr><tr><td><mark style="color:blue;"><strong>DID Resolver (and Universal Resolver Driver)</strong></mark></td><td><em>Low complexity</em></td><td>Service for resolving cheqd DIDs and DID URLs. Feature complete with query-based DID URL dereferencing. Full integration and driver within the <a href="https://dev.uniresolver.io/">Universal Resolver</a>.</td><td><a href="advanced/did-resolver/">did-resolver</a></td></tr></tbody></table>
 
@@ -41,7 +41,7 @@ If you want to utilise cheqd DIDs or DID-Linked Resources within applications wi
 
 Credential Service is the easiest route to get started with cheqd's identity functionality, or for testing with very low integration effort. Using simple REST APIs, it is possible to integrate Credential Service in a few lines of code, or issue Credentials within a few clicks.&#x20;
 
-Under the hood, Credential Service utilises the Veramo SDK for cheqd, providing the most feature complete set of functionality and tooling.
+Under the hood, Credential Service utilises the [Veramo SDK cheqd Plugin](sdk/veramo-plugin/), providing the most feature complete set of functionality and tooling.
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:green;">🟢 <strong>Get started with Credential Service!</strong></mark></td><td>Click here to start your journey with Credential Service, create your account and begin issuing Credentials.</td><td><a href="credential-service/get-started/">get-started</a></td></tr></tbody></table>
 
