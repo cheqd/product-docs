@@ -6,7 +6,7 @@ The purpose of this document is to describe how an existing DID (and associated 
 >
 > Using `cheqd-node` Cosmos CLI for real-world production usage is not recommended, since the identity keys are passed in raw form to the CLI. This is fine in development/testing usage, but is not recommend for mainnet.
 >
-> Developers are encouraged to use [production-grade CLI tools such as Veramo SDK for cheqd](../../sdk/veramo-plugin/) or look at [our developer guide on how to integrate custom applications](../advanced.md).
+> Developers are encouraged to use [production-grade CLI tools such as Veramo SDK for cheqd](../../../sdk/veramo-plugin/) or look at [our developer guide on how to integrate custom applications](../advanced.md).
 
 ## Setup
 

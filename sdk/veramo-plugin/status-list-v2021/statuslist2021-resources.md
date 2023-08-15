@@ -1,6 +1,8 @@
-# Status List v2021 on cheqd
+---
+description: Create Verifiable Credential Status List v2021 on cheqd
+---
 
-## StatusList2021 using cheqd Resource Module
+# Create Status List
 
 The [Status List 2021 Specification](https://w3c-ccg.github.io/vc-status-list-2021/) indicates that it may be desirable to store the actual StatusList using something like a [Content Distribution Network](https://w3c-ccg.github.io/vc-status-list-2021/#content-distribution-networks) to lessen the load on the server maintained by the issuer to return a result in real-time.
 

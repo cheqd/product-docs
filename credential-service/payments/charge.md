@@ -4,13 +4,19 @@
 
 To create an encrypted Verifiable Credential Status List v2021 with a set of Access Control Conditions, an Issuer will need to follow the steps below:
 
-### Step 1: Create an Issuer DID
+### Step 1: Set up your account
 
-To create a DID, users can utilise the API in the page below:
+Make sure you have set up your account with Credential Service and are logged in, using our guide below:
 
-* [**Create Issuer DID**](../dids/create-did.md)
+* [Set up your account](../set-up-account.md)
 
-### Step 2: Create an encrypted Status List
+### Step 2: Create an Issuer DID
+
+Before you can create an encrypted Status List for charging for Credentials, you need to create a DID which is used to link the Status List on-ledger. Use the API in the page below to create a DID:
+
+* [Create Issuer DID](../dids/create-did.md)
+
+### Step 3: Create an encrypted Status List
 
 When [creating a Status List](../status-lists/), a user will have the following options:&#x20;
 
@@ -83,5 +89,5 @@ The following code snippet shows an example of an encrypted Status List response
 ```
 
 {% hint style="info" %}
-Note: The only encrypted element is the "`encodedList`" element. This provides the Verifier sufficient information to be able to make the payment back the the Issuer and to fulfill the [Access Control Conditions](payment-conditions.md), without being able to see the contents of the Status List itself.
+Note: The only encrypted element is the "`encodedList`" element. This provides the Verifier sufficient information to be able to make the payment back the the Issuer and to fulfill the [Access Control Conditions](../../sdk/veramo-plugin/payments/access-control-conditions.md), without being able to see the contents of the Status List itself.
 {% endhint %}

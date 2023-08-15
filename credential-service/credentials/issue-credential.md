@@ -8,21 +8,31 @@ description: Issue conformant W3C Verifiable Credentials over REST API
 
 Using the `/credential/create` API, it is possible to issue Verifiable Credentials, signed by a cheqd DID, in a few clicks or lines of code.&#x20;
 
-### Step 1: Create an Issuer DID
+### Step 1: Set up your account
+
+Make sure you have set up your account with Credential Service and are logged in, using our guide below:
+
+* [Set up your account](../set-up-account.md)
+
+### Step 2: Create an Issuer DID
 
 Before you can issue a Verifiable Credential, you need to create an Issuer DID which is used to sign the Credential payload. Use the API in the page below to create an Issuer DID:
 
-* [Create Issuer DID](../dids/create-did.md)
+* [Create an Issuer DID](../dids/create-did.md)
 
-### (Optional) Step 2: Create a Subject DID
+### (Optional) Step 3: Create a Subject DID
 
 Again, before you issue a Verifiable Credential, you need to know to whom you are issuing it. If you need to create a Subject DID, you can take a look at the page here:
 
 * [Create a Subject DID](../dids/create-subject-did.md)
 
-### Step 3: Compile your Credential body
+### Step 4: Compile your Credential body
 
 Within the JSON object of the API request, you will need to input the `issuer` and `subject` information, as well as the `attributes` which you want to issue in the Credential. You may also want to add additional fields such as a `credentialSchema`.
+
+### Step 5: Issue a Credential using the API below
+
+Hit the API below to issue a Verifiable Credential, signed by your issuer DID.
 
 {% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/credential/issue" method="post" expanded="true" %}
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)

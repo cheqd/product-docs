@@ -1,4 +1,4 @@
-# ADR 003: DID Resolver
+# 🟡 ADR 003: DID Resolver
 
 ## Status
 
