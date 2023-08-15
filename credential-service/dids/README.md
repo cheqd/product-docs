@@ -14,7 +14,7 @@ A Decentralized Identifier "DID" is a globally unique identifier that does not r
 
 <table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create Issuer DID</strong></mark></td><td>Create an Issuer DID using the did:cheqd DID method over REST API. </td><td><a href="create-did.md">create-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create Subject DID</strong></mark></td><td>Create <strong>an off-ledger</strong> Subject DID using the <code>did:key</code> or <code>did:vda</code> DID methods.</td><td><a href="create-subject-did.md">create-subject-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Resolve DID</strong></mark></td><td>Resolve a DID to retrieve the associated DID Document. </td><td><a href="resolve-did.md">resolve-did.md</a></td></tr></tbody></table>
 
-## cheqd DID Method
+## DID Method
 
 On-ledger DIDs created using the Credential Service use the cheqd DID Method. This is fully defined below:
 

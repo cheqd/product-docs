@@ -12,6 +12,12 @@ This package includes [Veramo SDK Agent methods](https://veramo.io/docs/veramo\_
 
 The package's core functionality is borrowed from [Veramo Core NPM package](https://www.npmjs.com/package/@veramo/core) and extends this to include cheqd ledger functionality, such as creating and managing DIDs.
 
+## Get started
+
+Utilise cheqd's identity functionality through the Veramo SDK Plugin by installing the Veramo CLI and getting started below:
+
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Setup Veramo CLI</strong></mark></td><td>Set up the Veramo CLI and required packages to use the Veramo SDK Plugin for cheqd.</td><td><a href="setup/">setup</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue Credentials and Presentations</strong></mark></td><td>Issue fully W3C conformant Verifiable Credentials and Presentations</td><td><a href="credentials-and-presentations/">credentials-and-presentations</a></td></tr><tr><td><mark style="color:blue;"><strong>Charge for Credentials</strong></mark></td><td>Gate encrypted Status Lists with CHEQ using Payment Conditions.</td><td><a href="payments/">payments</a></td></tr><tr><td><mark style="color:blue;"><strong>Create Decentralised Identifiers (DIDs)</strong></mark></td><td>Create fully W3C conformant Decentralised Identifiers (DIDs) on cheqd.</td><td><a href="did-operations/">did-operations</a></td></tr><tr><td><mark style="color:blue;"><strong>Create Status Lists</strong></mark></td><td>Create Verifiable Credential Status List v2021 on-ledger, using DID-Linked Resources</td><td><a href="status-list-v2021/">status-list-v2021</a></td></tr><tr><td><mark style="color:blue;"><strong>Create DID-Linked Resources</strong></mark></td><td>Create a variety of DID-Linked Resources, including schemas, status lists and trust registries on cheqd.</td><td><a href="did-linked-resources/">did-linked-resources</a></td></tr></tbody></table>
+
 ## Why did we choose Veramo?
 
 We chose to build a cheqd plugin into Veramo SDK for a few key reasons.
@@ -28,7 +34,7 @@ Veramo provides an excellent foundation for clients that want to build verifiabl
 
 Using the DID-Provider-cheqd package, we have also been able to **reuse identity functionality** and abstract the complexity of cheqd/SDK and cheqd Network in less complex packages.
 
-### 🆔 `did:cheqd`-specific functionality
+### `did:cheqd`-specific functionality
 
 `did-provider-cheqd` is the first Veramo SDK plug-in that utilises the _DID Manager Update_ method to offer a full-body DIDDoc update for a DID on cheqd ledger, rather than individual field update transactions used more commonly in other DID methods such as [`did:ethr`](https://developer.uport.me/ethr-did/docs/index).
 
@@ -38,7 +44,7 @@ New DID creation can also be done by passing a full-body DIDoc payload in JSON, 
 >
 > Our [Veramo CLI setup guide](setup/) provides step-by-step instructions on how to configure your installation for cheqd network
 
-## 📝 Architecture
+## Architecture
 
 ![Veramo SDK for cheqd architecture](<../../.gitbook/assets/Veramo SDK packages.png>)
 

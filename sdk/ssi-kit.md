@@ -4,9 +4,9 @@ description: Walt ID SSI Kit with cheqd support
 
 # 🫐 Walt.id SSI Kit
 
-[SSI Kit is an Open Source SDK from walt.id](https://walt.id/ssi-kit) which allows cheqd functionality, and other identity networks, to be used through API calls or through a CLI tool. &#x20;
+[SSI Kit is an Open Source SDK from walt.id](https://walt.id/ssi-kit) which supports cheqd functionality, and other identity networks, via REST API calls or through a native CLI tool. &#x20;
 
-Walt.id run multiple SaaS offering for customers with varying levels of support and integration requirements.
+[Walt.id](https://walt.id/) run multiple SaaS offering for customers with varying levels of support and integration requirements.
 
 ## Get started
 
@@ -16,9 +16,7 @@ Walt.id run multiple SaaS offering for customers with varying levels of support 
 
 In order to be able to onboard the `did:cheqd` on testnet and mainnet, SSIKit relies on a [cheqd universal registrar](https://github.com/cheqd/did-registrar) deployed on walt.id infrastructure. The DID will be created using a key imported into or also created with SSIKit.
 
-
-
-<figure><img src="../.gitbook/assets/walt id architecture.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/walt id architecture.png" alt=""><figcaption><p>Walt.id and cheqd architecture diagram</p></figcaption></figure>
 
 ## Supported Credential types
 
