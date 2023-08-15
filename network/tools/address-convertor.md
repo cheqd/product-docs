@@ -6,7 +6,7 @@ There is an assumption in the Cosmos Ecosystem that wallet addresses across diff
 
 Interestingly, each network’s wallet address can be derived using a common derivation path from the Cosmos Hub wallet address. Using one derivation path #BIP44 means that users that use one secret recovery phrase and core account to interact with multiple networks.
 
-Our cross-chain address convertor is able to automate the derivation of any chain address from one Cosmos address to another. We’ve seen some examples of this previously, but they are mostly designed to do one-off conversions in a browser rather than large-scale batch conversions. Emphatically, our converter could do 200k+ addresses in a few minutes. Doing this using any existing CLI tools or shell scripts can take hours.
+Our cross-chain address convertor is able to **automate the derivation of any chain address from one Cosmos address to another in bulk**. We’ve seen some examples of this previously, but they are mostly designed to do one-off conversions in a browser rather than large-scale batch conversions. Emphatically, our converter could do 200k+ addresses in a few minutes. Doing this using any existing CLI tools or shell scripts can take hours.
 
 ### **Why is this valuable?**
 

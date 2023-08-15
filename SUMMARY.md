@@ -115,6 +115,7 @@
   * [Cheqd x Cosmos Data APIs](network/tools/data-apis.md)
   * [Cosmos Airdrop Helpers](network/tools/airdrop.md)
   * [Cosmos Address Convertor](network/tools/address-convertor.md)
+  * [Ethereum Bridge](network/tools/ethereum-bridge.md)
 * [⬆ Network Upgrades](network/network-upgrades/README.md)
   * [2021](network/network-upgrades/2021/README.md)
     * [0.1.x](network/network-upgrades/2021/0.1.x.md)
