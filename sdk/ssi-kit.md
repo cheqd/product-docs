@@ -1,3 +1,7 @@
+---
+description: Walt ID SSI Kit with cheqd support
+---
+
 # 🫐 Walt.id SSI Kit
 
 [SSI Kit is an Open Source SDK from walt.id](https://walt.id/ssi-kit) which allows cheqd functionality, and other identity networks, to be used through API calls or through a CLI tool. &#x20;

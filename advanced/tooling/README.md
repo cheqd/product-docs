@@ -1,3 +1,7 @@
+---
+description: Alternative ways of using cheqd's identity functionality
+---
+
 # 🤓 Advanced Tooling
 
 We have a series of advanced tooling options for developers that want to dig deeper into our code or build in different ways.

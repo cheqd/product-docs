@@ -1,3 +1,7 @@
+---
+description: Veramo SDK plugin for cheqd identity functionality
+---
+
 # 🍈 Veramo SDK Plugin
 
 ## Overview

@@ -1,3 +1,7 @@
+---
+description: Setting up a wallet to hold CHEQ
+---
+
 # ⏩ Setup your wallet
 
 _Disclaimer: All information provided is intended to help users get set up on cheqd. However, we do not expressly recommend or mandate a certain approach. All actions taken are your personal responsibility._

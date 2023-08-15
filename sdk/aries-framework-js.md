@@ -1,3 +1,7 @@
+---
+description: Hyperledger Aries Framework JavaScript (AFJ) with cheqd support
+---
+
 # 🍏 Aries Framework JavaScript
 
 Hyperledger Aries Framework JavaScript is a framework written in TypeScript for building **SSI Agents and DIDComm services** that aims to be **compliant and interoperable** with the standards defined in the [Aries RFCs](https://github.com/hyperledger/aries-rfcs).

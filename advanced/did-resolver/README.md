@@ -1,3 +1,7 @@
+---
+description: Service for resolving DIDs and dereferencing DID-Linked Resources
+---
+
 # ⬅ DID Resolver
 
 ## Overview

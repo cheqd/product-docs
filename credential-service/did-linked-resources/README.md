@@ -1,3 +1,7 @@
+---
+description: Create digital Resources linked to cheqd DIDs on-ledger
+---
+
 # ↕ Create DID-Linked Resources
 
 **"DID-Linked Resources"** are identified with a [`did:cheqd` Decentralized Identifier](../../architecture/adr-list/adr-002-did-linked-resources.md) with a [Universally Unique Identifier (UUID)](https://www.uuidgenerator.net/) that acts as a permanently-accessible link to fetch the resources from the cheqd ledger. We refer to this as the "**resource ID**". Through the "**resource ID**" or a set of DID URL query parameters, applications are able to persistently access a digital resource on the cheqd network.

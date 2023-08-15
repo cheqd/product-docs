@@ -1,3 +1,7 @@
+---
+description: Create a Verifiable Credential Status List v2021 on-ledger
+---
+
 # 🎋 Create Status Lists
 
 Credential Status Lists are on-ledger objects which can be used to mathematically derive whether an issued Credential has been revoked, suspended or is still valid.&#x20;
