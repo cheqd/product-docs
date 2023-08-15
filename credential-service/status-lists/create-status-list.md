@@ -54,7 +54,7 @@ Setting the value of encrypted to **false** will create a regular Status List on
 
 </details>
 
-If a user sets the value to `encrypted:true`, then they will be [creating a Payment-gated Status List and should follow the page here](../payments/charge-for-status-list.md). Therefore, this page assumes the user is creating an unencrypted Status List.&#x20;
+If a user sets the value to `encrypted:true`, then they will be [creating a Payment-gated Status List and should follow the page here](../payments/charge.md). Therefore, this page assumes the user is creating an unencrypted Status List.&#x20;
 
 ### Step 4: Create your Status List
 

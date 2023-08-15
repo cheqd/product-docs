@@ -15,4 +15,4 @@ This DID URL will contain:
 
 This gives the verifier requisite information they need in order to pay the Issuer to unlock the Credential Status.&#x20;
 
-If they make a payment of the specified amount in the payment conditions back to the Issuer, the [Access Control Conditions](understanding-access-control-conditions.md) will be met, and verifier will obtain the keys to decrypt the Status List and access the content.&#x20;
+If they make a payment of the specified amount in the payment conditions back to the Issuer, the [Access Control Conditions](access-control-conditions.md) will be met, and verifier will obtain the keys to decrypt the Status List and access the content.&#x20;
