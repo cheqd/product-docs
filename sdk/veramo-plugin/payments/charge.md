@@ -23,7 +23,7 @@ Below are examples of encrypted Status List Payload files:&#x20;
 {
     "kms": "local",
     "issuerDid": "did:cheqd:testnet:322761ea-587d-454a-a955-745200301b99",
-    "statusListName": "revocation-list-encrypted-inverse-timelock",
+    "statusListName": "status-list-2021-encrypted",
     "statusPurpose": "revocation",
     "encrypted": true,
     "paymentConditions": [
@@ -36,8 +36,8 @@ Below are examples of encrypted Status List Payload files:&#x20;
     ],
     "returnSymmetricKey": true,
     "dkgOptions": {
-        "chain": "cheqdMainnet",
-        "network": "localhost"
+        "chain": "cheqdTestnet",
+        "network": "serrano"
     }
 }
 
@@ -53,7 +53,7 @@ Below are examples of encrypted Status List Payload files:&#x20;
 {
     "kms": "local",
     "issuerDid": "did:cheqd:testnet:322761ea-587d-454a-a955-745200301b99",
-    "statusListName": "suspension-list-encrypted-inverse-timelock",
+    "statusListName": "status-list-2021-encrypted",
     "statusPurpose": "suspension",
     "encrypted": true,
     "paymentConditions": [
@@ -66,8 +66,8 @@ Below are examples of encrypted Status List Payload files:&#x20;
     ],
     "returnSymmetricKey": true,
     "dkgOptions": {
-        "chain": "cheqdMainnet",
-        "network": "localhost"
+        "chain": "cheqdTestnet",
+        "network": "serrano"
     }
 }
 
@@ -81,24 +81,13 @@ The Payload files are a crucial configuration element that establishes Payment C
 
 
 
-| Parameter              | Value                                                      | Description                                                                                                                                                                            |
-| ---------------------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"kms"`                | `"local"`                                                  | This indicates that a local Key Management System (KMS) is being used for cryptographic operations, ensuring secure key handling.                                                      |
-| `"issuerDid"`          | `"did:cheqd:testnet:322761ea-587d-454a-a955-745200301b99"` | Specifies the issuer's Decentralized Identifier (DID), uniquely identifying the entity responsible for managing and issuing verifiable credentials.                                    |
-| `"statusListName"`     | `"revocation-list-encrypted"`                              | Names the Verifiable Credential Status List, providing context for its purpose.                                                                                                        |
-| `"statusPurpose"`      | `"revocation"`                                             | Defines the purpose of the status list. This can be either **revocation** or **suspension.**                                                                                           |
-| `"encrypted"`          | `true`                                                     | Indicates that the Verifiable Credential Status List, crucially, **is encrypted**, enhancing data privacy and security. This can be either **true** or **false (unencrypted).**        |
-| `"paymentConditions"`  | `[...]`                                                    | Describes the payment conditions required for accessing the status list. In this case, a timelock payment mechanism is used, specifying the fee payment address, amount, and interval. |
-| `"returnSymmetricKey"` | `true`                                                     | Specifies that the symmetric key for decrypting the status list will be returned.                                                                                                      |
-| `"dkgOptions"`         | `{...}`                                                    | Configures Distributed Key Generation (DKG) options, including the blockchain and network information.                                                                                 |
-
-
+<table><thead><tr><th width="248.33333333333331">Parameter</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td><code>"kms"</code></td><td><code>"local"</code></td><td>This indicates that a local Key Management System (KMS) is being used for cryptographic operations, ensuring secure key handling.</td></tr><tr><td><code>"issuerDid"</code></td><td><code>"did:cheqd:testnet:322761ea-587d-454a-a955-745200301b99"</code></td><td>Specifies the issuer's Decentralized Identifier (DID), uniquely identifying the entity responsible for managing and issuing verifiable credentials.</td></tr><tr><td><code>"statusListName"</code></td><td><code>"status-list-2021-encrypted"</code></td><td>Names the Verifiable Credential Status List, providing context for its purpose.</td></tr><tr><td><code>"statusPurpose"</code></td><td><code>"revocation"</code> </td><td>Defines the purpose of the status list. This can be either <strong>revocation</strong> or <strong>suspension.</strong></td></tr><tr><td><code>"encrypted"</code></td><td><code>true</code></td><td>Indicates that the Verifiable Credential Status List, crucially, <strong>is encrypted</strong>, enhancing data privacy and security. This can be either <strong>true</strong> or <strong>false (unencrypted).</strong></td></tr><tr><td><code>"paymentConditions"</code></td><td><code>[...]</code></td><td>Describes the payment conditions required for accessing the status list. In this case, a timelock payment mechanism is used, specifying the fee payment address, amount, and interval.</td></tr><tr><td><code>"returnSymmetricKey"</code></td><td><code>true</code></td><td>Specifies that the symmetric key for decrypting the status list will be returned.</td></tr><tr><td><code>"chain"</code></td><td><code>"cheqdTestnet"</code></td><td>Specifies whether the encrypted keys should be broadcast on <code>cheqdMainnet</code> or <code>cheqdTestnet</code></td></tr><tr><td><code>"network"</code></td><td><code>"serrano"</code></td><td>Specifies the network where the sharded decryption keys will be stored (across Lit Protocol)</td></tr></tbody></table>
 
 ### Step 3: Submit a create Status List transaction to the ledger
 
-Once an Issuer has compiled the Payload file, they can submit this to the ledger using the following transaciton:
+Once an Issuer has compiled the Payload file, they can submit this to the ledger using the following transaction:
 
-```
+```bash
 veramo execute -m cheqdCreateStatusList2021 --argsFile path/to/payload.json
 ```
 
@@ -106,7 +95,7 @@ The ledger will acknowledge that this StatusList bitstring should be This indica
 
 ### Encrypted Status List Response format
 
-The following code snippet shows an example of an encrypted Status List:
+The following code snippet shows an example of an encrypted Status List broadcast on-ledger as a DID-Linked Resource:
 
 ```json
 {
@@ -132,6 +121,6 @@ The following code snippet shows an example of an encrypted Status List:
 }
 ```
 
-Importantly, the only encrypted element is the "encodedList" element. This provides the Verifier sufficient information to be able to make the payment back the the Issuer and to fulfill the Access Control Conditions, without being able to see the contents of the Status List itself.
+Importantly, the only encrypted element is the `"encodedList"` element. This provides the Verifier sufficient information to be able to make the payment back the the Issuer and to fulfill the Access Control Conditions, without being able to see the contents of the Status List itself.
 
 By utilizing cryptographic operations, specifying payment requirements, and ensuring data encryption, this configuration enhances the security, integrity, and controlled access to the Status List, aligning with the principles of decentralized and secure identity management.
