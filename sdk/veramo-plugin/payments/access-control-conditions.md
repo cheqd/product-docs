@@ -1,3 +1,7 @@
+---
+description: Understand how cheqd's Payment Rails work with Access Control Conditions
+---
+
 # Understanding Access Control Conditions
 
 ## Access Control Conditions
@@ -73,3 +77,9 @@ Each of these conditions are defined as follows:
 | `"value"`         | `"3153600000"`                                                                                                                                                                  | Defines the value (in seconds) against which the extracted timestamp is compared. This value represents a time interval.                                                                                                                      |
 
 Once an Access Control Condition has been set, the decryption keys are sharded between an array of nodes to prevent any single node or few malicious nodes from decrypting the data. This comprehensive setup ensures secure and controlled access to the specified resource based on specified criteria and events from the cheqd blockchain.&#x20;
+
+## Get started
+
+Using the Veramo SDK Plugin for cheqd, you can get started setting up your encrypted Status Lists with Access Control Conditions below:
+
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Charge for Status List</strong></mark></td><td>Set your payment conditions and encrypt a Status List 2021 Resource.</td><td></td><td><a href="charge.md">charge.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue Credential with Encrypted Status List</strong></mark></td><td>Issue a Verifiable Credential referencing an encrypted Status List in the Credential body.</td><td></td><td><a href="issue-paid-credential.md">issue-paid-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Verifier pays Issuer</strong></mark></td><td>Pay an Issuer directly in CHEQ, meeting the Access Control Conditions. Verify the Credential to view the Status information.</td><td></td><td><a href="verifier-pays-issuer.md">verifier-pays-issuer.md</a></td></tr></tbody></table>
