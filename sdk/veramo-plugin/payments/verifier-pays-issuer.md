@@ -39,7 +39,7 @@ This payment should be made in CHEQ.&#x20;
 Note that the `"feePaymentAmount"` may be specified in ncheq. This is lowest denomination of the CHEQ token, "nano" CHEQ which is 1 x 10^-9 CHEQ.
 {% endhint %}
 
-### Step 3: Verifying the Credential
+### Step 3: Constructing a payload to verify the Credential
 
 Once the Verifier makes a payment of the specified amount in the payment conditions back to the Issuer, the [Access Control Conditions](access-control-conditions.md) will be met.
 
@@ -94,7 +94,18 @@ This indicates that the Verifier wants to claim that they have met the Access Co
 
 </details>
 
-If successful, the Verifier will obtain the keys to decrypt the Status List and access the Credential Status information. The Verifier will receive a response indicating whether the Credential in question has been revoked (or suspended) or not.
+### Step 4: Submitting the Credential verify transaction
+
+Using the Veramo CLI. Verifiers can submit the following transaction, alongside the payload file to verify the Credential:
+
+```bash
+veramo execute -m cheqdVerifyCredential --argsFile path/to/payload.json
+```
+
+If successful, the Verifier will obtain the keys to decrypt the Status List and access the Credential Status information. The Verifier will receive a response indicating whether the Credential:
+
+1. Is verified and untampered
+2. Has been revoked (or suspended) or not
 
 <details>
 

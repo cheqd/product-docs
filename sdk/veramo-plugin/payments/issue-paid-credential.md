@@ -192,7 +192,7 @@ Ensure that the `"statusPurpose"` and `"statusListName"` is the same as the exis
 Once you have constructed your payload file, and have saved it as a JSON file, use the transaction below to issue the Verifiable Credential.
 
 ```
-veramo execute -m cheqdIssueRevocableCredentialWithStatusList2021 --argsFile
+veramo execute -m cheqdIssueRevocableCredentialWithStatusList2021 --argsFile path/to/payload.json
 ```
 
 ### Response format
