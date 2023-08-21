@@ -9,7 +9,7 @@ To create an encrypted Verifiable Credential Status List v2021 with a set of Acc
 
 ### Step 1: Create a DID
 
-* [Create a DID](../did-operations/create-did.md)
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create a DID</strong></mark></td><td>Create a W3C conformant Decentralised Identifier using cheqd's DID Method (did:cheqd), using the Veramo SDK Plugin.</td><td><a href="../did-operations/create-did.md">create-did.md</a></td></tr></tbody></table>
 
 ### Step 2: Compiling a Status List 2021 Payload file
 

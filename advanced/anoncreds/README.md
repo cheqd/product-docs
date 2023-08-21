@@ -2,7 +2,7 @@
 description: cheqd AnonCreds Object Method Specification
 ---
 
-# 🔃 AnonCreds Object Method
+# ⚡ AnonCreds Object Method
 
 ## cheqd AnonCreds Object Method
 

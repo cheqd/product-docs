@@ -2,7 +2,7 @@
 description: Understand how cheqd's Payment Rails work with Access Control Conditions
 ---
 
-# Understanding Access Control Conditions
+# Access Control Conditions
 
 ## Access Control Conditions
 
@@ -38,7 +38,7 @@ The parameters within the payment conditions are defined as follows:
 | `"feePaymentAmount"`  | `"147603000000000ncheq"`                         | Defines the amount of the payment fee. In this case, the fee is specified in the smallest unit of CHEQ, (ncheq).                                                                                                                                                                                                                                                                                                                                                       |
 | `"intervalInSeconds"` | `3153600000`                                     | Sets the duration of the timelock interval, measured in seconds. The verifier must make the payment within the specified time frame relative to a particular block-time on the cheqd blockchain. If the payment is successfully confirmed within this interval, the Verifier's access to the Resource is granted. However, if the payment claim is made outside of this window, it may be considered invalid, and the verifier's access to the Resource may be denied. |
 
-By including these payment conditions in the Status List Payload file, the ledger enforces a financial gate from verifiers seeking access. Additionally, the timelock mechanism adds a layer of time-based verification to the payment process. With the timelock, the payment can only be made in a specific time-interval from the latest block-time on the cheqd network. This ensures that historical payments cannot be used to meet the access control conditions, and fresh payments need to be made to access the Resource, helping to maintain the integrity of the payment and access process.
+By including these payment conditions in the Status List Payload, the ledger enforces a financial gate from verifiers seeking access. Additionally, the timelock mechanism adds a layer of time-based verification to the payment process. With the timelock, the payment can only be made in a specific time-interval from the latest block-time on the cheqd network. This ensures that historical payments cannot be used to meet the access control conditions, and fresh payments need to be made to access the Resource, helping to maintain the integrity of the payment and access process.
 
 ### Response format: Access Control Conditions
 
@@ -82,4 +82,4 @@ Once an Access Control Condition has been set, the decryption keys are sharded b
 
 Using the Veramo SDK Plugin for cheqd, you can get started setting up your encrypted Status Lists with Access Control Conditions below:
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Charge for Status List</strong></mark></td><td>Set your payment conditions and encrypt a Status List 2021 Resource.</td><td></td><td><a href="charge.md">charge.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue Credential with Encrypted Status List</strong></mark></td><td>Issue a Verifiable Credential referencing an encrypted Status List in the Credential body.</td><td></td><td><a href="issue-paid-credential.md">issue-paid-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Verifier pays Issuer</strong></mark></td><td>Pay an Issuer directly in CHEQ, meeting the Access Control Conditions. Verify the Credential to view the Status information.</td><td></td><td><a href="verifier-pays-issuer.md">verifier-pays-issuer.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Charge for Status List</strong></mark></td><td>Set your payment conditions and encrypt a Status List 2021 Resource.</td><td></td><td><a href="../charge.md">charge.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue Credential with Encrypted Status List</strong></mark></td><td>Issue a Verifiable Credential referencing an encrypted Status List in the Credential body.</td><td></td><td><a href="../issue-paid-credential.md">issue-paid-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Verifier pays Issuer</strong></mark></td><td>Pay an Issuer directly in CHEQ, meeting the Access Control Conditions. Verify the Credential to view the Status information.</td><td></td><td><a href="../verifier-pays-issuer.md">verifier-pays-issuer.md</a></td></tr></tbody></table>

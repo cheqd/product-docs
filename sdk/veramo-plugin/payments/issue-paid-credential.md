@@ -12,7 +12,7 @@ There is a specific transaction type for issuing Verifiable Credentials that ref
 
 Follow the tutorial here to create an encrypted Status List 2021 Resource on cheqd.
 
-* [Charge for Status List](charge.md)
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Charge for Status List</strong></mark></td><td>Create an encrypted Status List on cheqd with payment conditions, unlockable on payment of CHEQ</td><td><a href="charge.md">charge.md</a></td></tr></tbody></table>
 
 ### Step 2: Choose index number for Credential
 

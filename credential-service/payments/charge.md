@@ -89,5 +89,5 @@ The following code snippet shows an example of an encrypted Status List response
 ```
 
 {% hint style="info" %}
-Note: The only encrypted element is the "`encodedList`" element. This provides the Verifier sufficient information to be able to make the payment back the the Issuer and to fulfill the [Access Control Conditions](../../sdk/veramo-plugin/payments/access-control-conditions.md), without being able to see the contents of the Status List itself.
+Note: The only encrypted element is the "`encodedList`" element. This provides the Verifier sufficient information to be able to make the payment back the the Issuer and to fulfill the [Access Control Conditions](../../sdk/veramo-plugin/payments/learn/access-control-conditions.md), without being able to see the contents of the Status List itself.
 {% endhint %}

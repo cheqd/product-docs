@@ -4,7 +4,7 @@ Credential Payments brings a significant evolution to the Verifiable Credentials
 
 ## Get started
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>🟢 <mark style="color:green;"><strong>Charge for Status List</strong></mark></td><td>With Credential Payments, Issuers are able to create payment-gated Status Lists in order to charge for the verification of Credential Status information.</td><td><a href="charge.md">charge.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Understanding Access Control Conditions</strong></mark></td><td>Before diving into Credential Payments, developers may want to familiarise themselves with how the Payment gating and Access Control condition logic works.</td><td><a href="../../sdk/veramo-plugin/payments/access-control-conditions.md">access-control-conditions.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>🟢 <mark style="color:green;"><strong>Charge for Status List</strong></mark></td><td>With Credential Payments, Issuers are able to create payment-gated Status Lists in order to charge for the verification of Credential Status information.</td><td><a href="charge.md">charge.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Understanding Credential Payments</strong></mark></td><td>Before diving into Credential Payments, developers may want to learn how the Payment gating and Access Control condition logic works.</td><td><a href="../../sdk/veramo-plugin/payments/learn/">learn</a></td></tr></tbody></table>
 
 ## Alternatives
 
