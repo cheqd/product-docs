@@ -18,14 +18,13 @@ Using the `/resource/create` API, users are able to create **custom DID-Linked R
 
 Make sure you have set up your account with Credential Service and are logged in, using our guide below:
 
-* [Set up your account](../set-up-account.md)
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Set up your account with cheqd Credential Service and log in to start using the APIs.</td><td><a href="../set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
 
 ### Step 2: Create a DID
 
 Before you can create a DID-Linked Resource, you need to create a _**"parent"**_ DID which is used to link the Resource on-ledger. Use the API in the page below to create a DID:
 
-* [Create a DID](create-dlr.md)
-* [Learn more about DID-Linked Resources](understanding-dlrs/)
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create an Issuer DID</strong></mark></td><td>Create a W3C conformant DID on cheqd using the <code>did:cheqd</code> DID Method.</td><td><a href="../dids/create-did.md">create-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Learn more about DID-Linked Resources</strong></mark></td><td>Understand the context and technical composition of cheqd's DID-Linked Resources.</td><td><a href="understanding-dlrs/">understanding-dlrs</a></td></tr></tbody></table>
 
 ### Step 3. Create your Resource content and save the file locally
 

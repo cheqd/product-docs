@@ -12,19 +12,19 @@ Using the `/credential/create` API, it is possible to issue Verifiable Credentia
 
 Make sure you have set up your account with Credential Service and are logged in, using our guide below:
 
-* [Set up your account](../set-up-account.md)
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Set up your account with cheqd Credential Service and log in to start using the APIs.</td><td><a href="../set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
 
 ### Step 2: Create an Issuer DID
 
 Before you can issue a Verifiable Credential, you need to create an Issuer DID which is used to sign the Credential payload. Use the API in the page below to create an Issuer DID:
 
-* [Create an Issuer DID](../dids/create-did.md)
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create an Issuer DID</strong></mark></td><td>Create a W3C conformant DID on cheqd using the <code>did:cheqd</code> DID Method.</td><td><a href="../dids/create-did.md">create-did.md</a></td></tr></tbody></table>
 
 ### (Optional) Step 3: Create a Subject DID
 
 Again, before you issue a Verifiable Credential, you need to know to whom you are issuing it. If you need to create a Subject DID, you can take a look at the page here:
 
-* [Create a Subject DID](../dids/create-subject-did.md)
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create a Subject DID</strong></mark></td><td>Create an off-ledger <code>did:key</code> or <code>did:vda</code> Subject DID to receive a Verifiable Credential.</td><td><a href="../dids/create-subject-did.md">create-subject-did.md</a></td></tr></tbody></table>
 
 ### Step 4: Compile your Credential body
 

@@ -10,13 +10,13 @@ Users are able to create [Verifiable Credential Status List v2021](https://www.w
 
 Make sure you have set up your account with Credential Service and are logged in, using our guide below:
 
-* [Set up your account](../set-up-account.md)
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Set up your account with cheqd Credential Service and log in to start using the APIs.</td><td><a href="../set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
 
 ### Step 2: Create a DID
 
 Before you can create a Status List, you need to create a DID which is used to link the Status List on-ledger. Use the API in the page below to create a DID:
 
-* [Create Issuer DID](../dids/create-did.md)
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create an Issuer DID</strong></mark></td><td>Create a W3C conformant DID on cheqd using the <code>did:cheqd</code> DID Method.</td><td><a href="../dids/create-did.md">create-did.md</a></td></tr></tbody></table>
 
 ### Step 3: Understanding Status Lists
 

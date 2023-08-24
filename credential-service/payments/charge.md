@@ -8,13 +8,13 @@ To create an encrypted Verifiable Credential Status List v2021 with a set of Acc
 
 Make sure you have set up your account with Credential Service and are logged in, using our guide below:
 
-* [Set up your account](../set-up-account.md)
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Set up your account with cheqd Credential Service and log in to start using the APIs.</td><td><a href="../set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
 
 ### Step 2: Create an Issuer DID
 
 Before you can create an encrypted Status List for charging for Credentials, you need to create a DID which is used to link the Status List on-ledger. Use the API in the page below to create a DID:
 
-* [Create Issuer DID](../dids/create-did.md)
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create an Issuer DID</strong></mark></td><td>Create a W3C conformant DID on cheqd using the <code>did:cheqd</code> DID Method.</td><td><a href="../dids/create-did.md">create-did.md</a></td></tr></tbody></table>
 
 ### Step 3: Create an encrypted Status List
 
@@ -38,10 +38,11 @@ Setting the value of encrypted to **false** will create a regular Status List on
 
 If a user sets the value to `encrypted:true`, they will then need to input the following information into the payload of the request.
 
-| Parameter             | Value                                            | Description                                                                                                                                                      |
-| --------------------- | ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"feePaymentAddress"` | `"cheqd1xl5wccz667lk06ahama26pdqvrkz5aws6m0ztp"` | This specifies the cheqd address to which the payment fee should be sent. **This address is associated with the User who wants to charge for Credential Status** |
-| `"feePaymentAmount"`  | `"1000"`                                         | This defines the amount of the **payment fee in CHEQ which the Issuer will charge** for a third party to unlock the Credential Status.                           |
+| Parameter             | Value                                            | Description                                                                                                                                                                                                                               |
+| --------------------- | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"feePaymentAddress"` | `"cheqd1xl5wccz667lk06ahama26pdqvrkz5aws6m0ztp"` | This specifies the cheqd address to which the payment fee should be sent. **This address is associated with the User who wants to charge for Credential Status**                                                                          |
+| `"feePaymentAmount"`  | `"1000"`                                         | <p>This defines the amount of the <strong>payment fee in CHEQ which the Issuer will charge</strong> for a third party to unlock the Credential Status. <br><br>The amount may be up to 2 decimal points, e.g. "<code>1000.25</code>".</p> |
+| `"feePaymentWindow"`  | "`10`"                                           | The amount of time, in minutes, after making the payment in which a Verifier is able to unlock an encrypted resource.                                                                                                                     |
 
 For example:
 
@@ -51,6 +52,7 @@ For example:
   "statusListName": "cheqd-employee-credentials"
   "feePaymentAddress": "cheqd1xl5wccz667lk06ahama26pdqvrkz5aws6m0ztp",
   "feePaymentAmount": "1000"
+  "feePaymentWindow": "10"
 }
 ```
 

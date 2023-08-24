@@ -12,7 +12,7 @@ To create a cheqd DID and associated DID Document there are two ways of building
 
 Make sure you have set up your account with Credential Service and are logged in, using our guide below:
 
-* [Set up your account](../set-up-account.md)
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Set up your account with cheqd Credential Service and log in to start using the APIs.</td><td><a href="../set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
 
 ### Step 2: Compile your DID Document
 
