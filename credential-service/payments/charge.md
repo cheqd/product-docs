@@ -216,6 +216,10 @@ Once the Issuer has populated the requisite information for the Payment Conditio
 
 The following code snippet shows an example of an encrypted Status List response format, which will be published to the ledger:
 
+{% hint style="info" %}
+Note: it is important to save the response, including the "`encryptedSymmetricKey`" locally, as this will be used for [updating encrypted Status List operations](update.md).
+{% endhint %}
+
 ```json
 {
   "created": true,

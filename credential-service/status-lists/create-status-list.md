@@ -1,8 +1,8 @@
 ---
-description: Create and Publish Status List
+description: Create Status List 2021 Resource on cheqd.
 ---
 
-# Create and Publish Status List
+# Create Status List
 
 Users are able to create [Verifiable Credential Status List v2021](https://www.w3.org/TR/vc-status-list/) entries on-ledger, in order to revoke or suspend Verifiable Credentials. This is a derivation from the core spec made by cheqd to support a more decentralized and resilient approach to storing Status Lists.
 

@@ -133,7 +133,9 @@ Format of the Verifiable Credential. Defaults to VC-JWT.
 
 <summary><strong>credentialStatus (optional)</strong></summary>
 
-`credentialStatus` properties for VC revocation or suspension. Takes `statusListName` and `statusListPurpose` as inputs. If you have already created a Status List, you can include the same inputs here to map this issued credential within the created bitstring, For example:
+`credentialStatus` properties for VC revocation or suspension. Takes `statusListName` and `statusListPurpose` as inputs. If you have already created a Status List, you can include the same inputs here to map this issued credential within the created bitstring.&#x20;
+
+Note that this is the same for [unencrypted Status Lists](../status-lists/) and for [encrypted Status Lists](../payments/charge.md). For example:
 
 ```json
 {
@@ -210,7 +212,7 @@ Below are a set of examples of alternative input parameters for users to specify
 </details>
 
 {% hint style="info" %}
-Ensure that the `"statusPurpose"` and `"statusListName"` is the same as the existing Status List on-ledger.&#x20;
+Ensure that the `"statusPurpose"` and `"statusListName"` is the same as the existing Status List on-ledger.
 {% endhint %}
 
 ### Option 2. Publish a JSON payload yourself
