@@ -8,6 +8,6 @@ The `/credential-status/update` API enables users to update the indices of a Sta
 
 This may also be used for re-encrypting a Status List if the Issuer wants to rotate or change the encryption.&#x20;
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/credential-status/update" method="post" expanded="true" %}
+{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/credential-status/update/unencrypted" method="post" %}
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
 {% endswagger %}

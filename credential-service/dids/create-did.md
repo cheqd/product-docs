@@ -4,17 +4,15 @@ description: Create a DID using the did:cheqd method
 
 # Create Issuer DID
 
-## Create Decentralized Identifiers (DIDs)
+To create a cheqd DID (`did:cheqd`) and associated DID Document there are two ways of building the payload for the request:
 
-To create a cheqd DID and associated DID Document there are two ways of building the payload for the request:
-
-### Step 1: Set up your account
+## Step 1: Set up your account
 
 Make sure you have set up your account with Credential Service and are logged in, using our guide below:
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Set up your account with cheqd Credential Service and log in to start using the APIs.</td><td><a href="../set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
 
-### Step 2: Create a DID and associated DID Document
+## Step 2: Create a DID and associated DID Document
 
 Using the `/did/create` API, users have two options for creating a `did:cheqd` DID and associated DID Document on-ledger:
 
@@ -137,7 +135,7 @@ Within the `/did/create` JSON payload, paste the response of your DID Document t
 
 ```
 
-### Step 3: Hit execute on the API
+## Step 3: Hit execute on the API
 
 Hit execute on the API below to create your `did:cheqd` DID and associated DID Document.
 

@@ -4,23 +4,21 @@ description: Creating an encrypted Status List 2021 Resource using Credential Se
 
 # Charge for Status List
 
-## **Charge for a Credential**
-
 To create an encrypted Verifiable Credential Status List v2021 with a set of Access Control Conditions, an Issuer will need to follow the steps below:
 
-### Step 1: Set up your account
+## Step 1: Set up your account
 
 Make sure you have set up your account with Credential Service and are logged in, using our guide below:
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Set up your account with cheqd Credential Service and log in to start using the APIs.</td><td><a href="../set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
 
-### Step 2: Create an Issuer DID
+## Step 2: Create an Issuer DID
 
 Before you can create an encrypted Status List for charging for Credentials, you need to create a DID which is used to link the Status List on-ledger. Use the API in the page below to create a DID:
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create an Issuer DID</strong></mark></td><td>Create a W3C conformant DID on cheqd using the <code>did:cheqd</code> DID Method.</td><td><a href="../dids/create-did.md">create-did.md</a></td></tr></tbody></table>
 
-### Step 3: Select the encrypted Status List API
+## Step 3: Select the encrypted Status List API
 
 When [creating a Status List](../status-lists/), a user will have the following options:&#x20;
 
@@ -42,7 +40,7 @@ Using this API will create a regular Status List on-ledger, where the contents o
 
 For the purpose of this tutorial, we will assume the user is creating an encrypted Status List. For unencrypted Status Lists, [follow the tutorial here](../status-lists/create-status-list.md).
 
-### Step 4: Create encrypted Status List
+## Step 4: Create encrypted Status List
 
 Using the `/credential-status/create/encrypted` API, users have two options for creating an encrypted Status List on-ledger:
 
@@ -214,7 +212,7 @@ Once the Issuer has populated the requisite information for the Payment Conditio
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
 {% endswagger %}
 
-### Encrypted Status List Response format
+## Encrypted Status List Response format
 
 The following code snippet shows an example of an encrypted Status List response format, which will be published to the ledger:
 

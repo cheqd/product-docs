@@ -60,14 +60,6 @@ If a user sets the value to `encrypted:true`, then they will be [creating a Paym
 
 Hit the API below to create your Status List :
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/credential-status/create" method="post" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
-{% endswagger %}
-
-### (Optional) Step 5: Publish pre-existing Status List
-
-If a User has pre-existing Status Lists or has assembled the Status List themselves, they are able to publish the full contents of the Status List to the ledger.
-
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/credential-status/publish" method="post" expanded="true" %}
+{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/credential-status/create/unencrypted" method="post" %}
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
 {% endswagger %}

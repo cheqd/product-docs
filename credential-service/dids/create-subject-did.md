@@ -1,7 +1,5 @@
 # Create Identity Keys and Subject DIDs
 
-## Create Identity Keys
-
 Issuers may want to create identity keypairs for multiple reasons, such as for signing payloads or for creating `did:key` DIDs.
 
 {% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/key/create" method="post" expanded="true" %}
@@ -10,7 +8,7 @@ Issuers may want to create identity keypairs for multiple reasons, such as for s
 
 There is also an option to fetch an identity keypair by inputting a Key ID (kid) as a request format.
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/key/{kid}" method="get" expanded="true" %}
+{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/key/read/{kid}" method="get" expanded="true" %}
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
 {% endswagger %}
 
