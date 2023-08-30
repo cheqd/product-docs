@@ -106,24 +106,24 @@ cheqd1qs0nhyk868c246defezhz5eymlt0dmajna2csg
 
 <details>
 
-<summary>feePaymentWindow (required)</summary>
-
-Time window (in minutes) within which the payment to unlock the encrypted StatusList2021 DID-Linked Resource is considered valid. For example:
-
-```json
-10
-```
-
-</details>
-
-<details>
-
 <summary>feePaymentAmount (required)</summary>
 
 The amount in CHEQ tokens to unlocked the encrypted StatusList2021 DID-Linked Resource. For example:
 
 ```json
 100
+```
+
+</details>
+
+<details>
+
+<summary>feePaymentWindow (required)</summary>
+
+Time window (in minutes) within which the payment to unlock the encrypted StatusList2021 DID-Linked Resource is considered valid. For example:
+
+```json
+10
 ```
 
 </details>
