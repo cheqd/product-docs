@@ -6,7 +6,13 @@ description: How a Verifier pays an Issuer to decrypt an encrypted Status List
 
 Credential Service supports payments for verifying Credential Status. This is an innovative feature that is also commonly known as cheqd's Payment Rails. Using the API in this tutorial, there are multiple ways for a Verifier to pay an Issuer to unlock and verify a Credential's status.
 
-## Step 1: Set parameters for check
+## Step 1: Set up an account
+
+A Verifier will need a Credential Service account to take advantage of the `/credential-status/check` API and easily use cheqd's Credential Payments. Make sure you are set up and are logged in, using our guide below:
+
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Set up your account with cheqd Credential Service and log in to start using the APIs.</td><td><a href="../set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
+
+## Step 2: Set parameters for check
 
 Using the `/credential-status/check` API, users have two options for checking whether a particular Credential index is revoked or suspended:
 
@@ -85,7 +91,7 @@ This will automatically make fee payment (if required) based on payment conditio
 
 If there is sufficient CHEQ in the account of the Verifier, this will automatically make a payment to the Issuer and meet the Access Control Conditions.
 
-## Step 2: Hit the API
+### Step 3: Hit the API
 
 In the same action, the Credential Service will perform a verification check on the Credential Status and pay the issuer the fee specified in the Payment Conditions.
 
@@ -155,3 +161,8 @@ The response format below will indicate clearly whether the check is successful 
   "revoked": false
 }
 ```
+
+Alternatively, if Verifiers have made the payment manually they can also use the /credential/verify API in the tutorial below:
+
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Verify Credential</strong></mark></td><td>Verify a W3C Verifiable Credential using cheqd's Credential Service APIs.</td></tr></tbody></table>
+
