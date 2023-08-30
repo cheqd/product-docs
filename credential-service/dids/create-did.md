@@ -14,45 +14,26 @@ Make sure you have set up your account with Credential Service and are logged in
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Set up your account with cheqd Credential Service and log in to start using the APIs.</td><td><a href="../set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
 
-### Step 2: Compile your DID Document
+### Step 2: Create a DID and associated DID Document
 
-#### Option 1. Choose from a few variables and we will compile the DID for you
+Using the `/did/create` API, users have two options for creating a `did:cheqd` DID and associated DID Document on-ledger:
 
-This is the easiest way to create DIDs on cheqd and is recommended for those who are not overly familiar with compiling DID Documents.&#x20;
+1. **Filling out a simple form** using the `application/x-www-url-form-encoded` option on the Swagger UI
+2. **Compiling a DID Document body yourself** using the `application/json` option on the Swagger UI
 
-Simply, copy the code below, based on the variables of your choice.
+{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/did/create" method="post" expanded="false" %}
+[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
+{% endswagger %}
 
-**Request format:**
+### Option 1. Choose from a few variables and we will compile the DID for you
 
-```json
-{
-  "options": {
-    "methodSpecificIdAlgo": "uuid",
-    "network": "testnet"
-  },
-  "secret": {
-    "verificationMethod": {
-      "id": "key-1",
-      "type": "Ed25519VerificationKey2018"
-    }
-  }
-}
-```
+This is the easiest way to create DIDs on cheqd and is recommended for users who are not overly familiar with compiling DID Documents.&#x20;
 
-Here, you are able to choose between the following variables to compile your DID:
+Using the `application/x-www-url-form-encoded` option on the Swagger UI, users are able to choose between the following variables to compile your DID:
 
 <details>
 
-<summary>methodSpecificIdAlgo</summary>
-
-* "uuid" - this is a Universally Unique Identifier (recommended)
-* "base58btc" - this is an identifier which is commonly used for Hyperledger Indy transactions
-
-</details>
-
-<details>
-
-<summary>network</summary>
+<summary>network (required)</summary>
 
 * "testnet" (recommended for testing)
 * "mainnet" (recommended for production)
@@ -61,7 +42,16 @@ Here, you are able to choose between the following variables to compile your DID
 
 <details>
 
-<summary>verificationMethod / type</summary>
+<summary>methodSpecificIdAlgo (required)</summary>
+
+* "uuid" - this is a Universally Unique Identifier (recommended)
+* "base58btc" - this is an identifier which is commonly used for Hyperledger Indy transactions
+
+</details>
+
+<details>
+
+<summary>verificationMethod / type (required)</summary>
 
 * "Ed25519VerificationKey2018" (recommended)
 * "Ed25519VerificationKey2020"
@@ -69,9 +59,40 @@ Here, you are able to choose between the following variables to compile your DID
 
 </details>
 
-From this request, we will create a DID, compile a DIDDoc and return it as a response.
+<details>
 
-#### Option 2. Publish a DID Document body yourself
+<summary>assertionMethod (optional)</summary>
+
+* true (recommended if used for issuing Verifiable Credentials)
+* false&#x20;
+
+</details>
+
+<details>
+
+<summary>didDocument (optional)</summary>
+
+This input field contains either a complete DID document, or an incremental change (diff) to a DID document. For example:
+
+```json
+{
+  "service": [
+    {
+      "id": "did:cheqd:testnet:7bf81a20-633c-4cc7-bc4a-5a45801005e0#service-1",
+      "type": "LinkedDomains",
+      "serviceEndpoint": [
+        "https://example.com"
+      ]
+    }
+  ]
+}
+```
+
+</details>
+
+From this request, the Credential Service **will automatically create and publish a DID and associated DID Document to the ledger** and return it as a response.
+
+### Option 2. Publish a DID Document body yourself
 
 Instead of generating a DID Document using simple parameters, you can create a fully formatted DID Document yourself. Before, submitting a manually created DID, you will need to have [created a set of identity keys](create-subject-did.md) to input the key material into the DID document.
 
@@ -116,11 +137,11 @@ Within the `/did/create` JSON payload, paste the response of your DID Document t
 
 ```
 
-### Step 3: Create a DID using the API below:
+### Step 3: Hit execute on the API
 
-Hit the API below to create your DID for issuing Verifiable Credentials.
+Hit execute on the API below to create your `did:cheqd` DID and associated DID Document.
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/did/create" method="post" expanded="true" %}
+{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/did/create" method="post" expanded="false" %}
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
 {% endswagger %}
 
