@@ -12,7 +12,7 @@ Our objective in building DID-Linked Resources on cheqd is to **improve the way 
 
 * [Context for developing DID-Linked Resources on cheqd](context.md)
 * [Technical composition of DID-Linked Resources](technical-composition.md)
-* [Referencing DID-Linked Resources in Verifiable Credentials](resources-in-credentials.md)
+* [Referencing DID-Linked Resources in Verifiable Credentials](referencing.md)
 
 > **📝 Architecture Decision Record for On-ledger Resources**
 >

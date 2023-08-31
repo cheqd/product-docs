@@ -82,7 +82,7 @@ To automatically make a payment to an Issuer in order to verify an encrypted Sta
 
 <summary>makeFeePayment</summary>
 
-This will automatically make fee payment (if required) based on payment conditions to unlock encrypted StatusList2021 DID-Linked Resource.
+This will automatically make the fee payment to the issuer (if required) based on payment conditions to unlock encrypted StatusList2021 DID-Linked Resource. This can be set to:
 
 * true (automatically make fee payment)
 * false (do not automatically make fee payment)
@@ -112,7 +112,7 @@ The response format below will indicate clearly whether the check is successful 
 
 ## Option 2: Manually Paying an Issuer to unlock a Credential Status
 
-If a Verifier does not want to automatically pay the Issuer using the API, they can choose to make a manual payment to the Issuer if they want to obtain this extra Credential Status information to build a higher level of trust within the Credential presented to them.
+If a Verifier does not want to automatically pay the Issuer using the API, they can choose to make a manual payment to unlock the Credential Status information to build a higher level of trust within the Credential presented to them.
 
 ### Step 1: Locating Issuers' payment address and conditions
 
@@ -145,7 +145,11 @@ Note that the `"feePaymentAmount"` may be specified in ncheq. This is lowest den
 
 ### Step 3: Hit the API
 
-In the same action, the Credential Service will perform a verification check on the Credential Status and pay the issuer the fee specified in the Payment Conditions.
+The Credential Service will perform a verification check on the Credential Status and pay the issuer the fee specified in the Payment Conditions.&#x20;
+
+{% hint style="info" %}
+Note the "`intervalInSeconds`" which is the amount of time after making the payment that the Verifier has to hit the API and request access to the encrypted Status List.
+{% endhint %}
 
 {% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/credential-status/check" method="post" expanded="true" %}
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)

@@ -36,7 +36,7 @@
   * [Understanding DID-Linked Resources](credential-service/did-linked-resources/understanding-dlrs/README.md)
     * [Context for developing DID-Linked Resources](credential-service/did-linked-resources/understanding-dlrs/context.md)
     * [Technical composition of DID-Linked Resources](credential-service/did-linked-resources/understanding-dlrs/technical-composition.md)
-    * [Referencing DID-Linked Resources in VCs](credential-service/did-linked-resources/understanding-dlrs/resources-in-credentials.md)
+    * [Referencing DID-Linked Resources in VCs](credential-service/did-linked-resources/understanding-dlrs/referencing.md)
 
 ## 🛠 Integrate an SDK <a href="#sdk" id="sdk"></a>
 

@@ -40,9 +40,9 @@ For the purpose of an example, lets use an AnonCreds schema (JSON file) as the r
 
 Save this file locally and call it something like `resource.json.`
 
-## Step 4: Encode the file in Base64
+## Step 4: Encode the file
 
-Prepare a file with resource and encode it into `base64`. On Unix systems, you can use the following command input:
+Prepare a file with resource and encode it into `base64, base64url` or `hex`. On Unix systems, you can use the following command input:
 
 ```bash
 $ base64 -w 0 resource.json
@@ -56,7 +56,7 @@ $ base64 -w 0 resource.json
 SGVsbG8sIHdvcmxk
 ```
 
-## Step 5: Create a consistent name and type
+## Step 5: Set a consistent name and type
 
 Resources are grouped by having identical **names** and **types**. This means if you want to create a new version of the same Resource, you will need to **specify the same name and type in the following request**.&#x20;
 

@@ -206,7 +206,9 @@ The table below expands on some of the required parameters:
 | `"feePaymentAmount"`  | `"1000"`                                         | <p>This defines the amount of the <strong>payment fee in CHEQ which the Issuer will charge</strong> for a third party to unlock the Credential Status. <br><br>The amount may be up to 2 decimal points, e.g. "<code>1000.25</code>".</p> |
 | `"feePaymentWindow"`  | "`10`"                                           | The amount of time, in minutes, after making the payment in which a Verifier is able to unlock an encrypted resource.                                                                                                                     |
 
-Once the Issuer has populated the requisite information for the Payment Conditions, they can use the API below to submit the encrypted Status List to the ledger.&#x20;
+## Step 5: Hit the API
+
+Once the Issuer has populated the requisite information for the encrypted Status List request, they can use the API below to submit it to the ledger.&#x20;
 
 {% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/credential-status/create/encrypted" method="post" expanded="true" %}
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
