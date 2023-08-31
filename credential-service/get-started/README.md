@@ -18,32 +18,33 @@ With these APIs, it simplifies the developer experience, helping customers build
 
 The Credential Service directly leverages our [Veramo SDK Plugin](https://github.com/cheqd/did-provider-cheqd), making a wide array of features available from launch, including:
 
-|               Category               |             Feature             | Status                                         |
-| :----------------------------------: | :-----------------------------: | ---------------------------------------------- |
-|   **Verifiable Credentials (VCs)**   |         Issue Credential        | [✅](https://emojipedia.org/check-mark-button/) |
-|                                      |        Verify Credential        | [✅](https://emojipedia.org/check-mark-button/) |
-|                                      |        Revoke Credential        | [✅](https://emojipedia.org/check-mark-button/) |
-|                                      |        Suspend Credential       | [✅](https://emojipedia.org/check-mark-button/) |
-|                                      |       Unsuspend Credential      | [✅](https://emojipedia.org/check-mark-button/) |
-|  **Verifiable Presentations (VPs)**  |       Verify Presentation       | [✅](https://emojipedia.org/check-mark-button/) |
-| **Decentralized Identifiers (DIDs)** |   Create DID and DID Document   | [✅](https://emojipedia.org/check-mark-button/) |
-|                                      |       Update DID Document       | [✅](https://emojipedia.org/check-mark-button/) |
-|                                      |           Resolve DID           | [✅](https://emojipedia.org/check-mark-button/) |
-|                                      |          Deactivate DID         | [✅](https://emojipedia.org/check-mark-button/) |
-|                                      |            List DIDs            | [✅](https://emojipedia.org/check-mark-button/) |
-|           **Identity keys**          |       Create identity keys      | [✅](https://emojipedia.org/check-mark-button/) |
-|                                      |       Fetch identity keys       | [✅](https://emojipedia.org/check-mark-button/) |
-|        **Revocation Registry**       |        Create status list       | [✅](https://emojipedia.org/check-mark-button/) |
-|                                      |       Publish status list       | [✅](https://emojipedia.org/check-mark-button/) |
-|                                      |        Update status list       | [✅](https://emojipedia.org/check-mark-button/) |
-|                                      |        Check status list        | [✅](https://emojipedia.org/check-mark-button/) |
-|                                      |        Query status lists       | [✅](https://emojipedia.org/check-mark-button/) |
-|    **DID-Linked Resources (DLRs)**   |    Create DID-Linked Resource   | [✅](https://emojipedia.org/check-mark-button/) |
-|              **Account**             |        Create new account       | [✅](https://emojipedia.org/check-mark-button/) |
-|                                      |      Fetch account details      | [✅](https://emojipedia.org/check-mark-button/) |
-|        **Credential payments**       |  Create payment-gated resource  |                                                |
-|                                      |  Update payment-gated resource  |                                                |
-|                                      | Pay-to-verify credential status | [⌛](https://emojipedia.org/hourglass-done/)    |
+|               Category               |             Feature             | Status |
+| :----------------------------------: | :-----------------------------: | ------ |
+|   **Verifiable Credentials (VCs)**   |         Issue Credential        | ✅      |
+|                                      |        Verify Credential        | ✅      |
+|                                      |        Revoke Credential        | ✅      |
+|                                      |        Suspend Credential       | ✅      |
+|                                      |       Unsuspend Credential      | ✅      |
+|  **Verifiable Presentations (VPs)**  |       Verify Presentation       | ✅      |
+|        **Credential Payments**       |  Create payment-gated resource  | ✅      |
+|                                      |  Update payment-gated resource  | ✅      |
+|                                      | Pay-to-verify credential status | ✅      |
+| **Decentralised Identifiers (DIDs)** |   Create DID and DID Document   | ✅      |
+|                                      |       Update DID Document       | ✅      |
+|                                      |           Resolve DID           | ✅      |
+|                                      |          Deactivate DID         | ✅      |
+|                                      |            List DIDs            | ✅      |
+|           **Identity keys**          |       Create identity keys      | ✅      |
+|                                      |       Fetch identity keys       | ✅      |
+|           **Status Lists**           |        Create status list       | ✅      |
+|                                      |       Publish status list       | ✅      |
+|                                      |        Update status list       | ✅      |
+|                                      |        Check status list        | ✅      |
+|                                      |       Search status lists       | ✅      |
+|    **DID-Linked Resources (DLRs)**   |    Create DID-Linked Resource   | ✅      |
+|                                      |   Search DID-Linked Resources   | ✅      |
+|              **Account**             |        Create new account       | ✅      |
+|                                      |      Fetch account details      | ✅      |
 
 ## Understanding the different modes and client choices
 
