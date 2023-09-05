@@ -8,7 +8,9 @@ The user is required to **Log In** to the Credential Service and authenticate in
 
 ## Step 1: Click Log In on Credential Service Swagger
 
-Head to our [**Credential Service Swagger UI**](https://credential-service.cheqd.net/swagger/#/) and click **Log In** to get started.
+Head to our [**Credential Service**](https://credential-service.cheqd.net/swagger/#/) and click **Log In** to get started.
+
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Credential Service</strong></mark></td><td>Click here to access the Credential Service Swagger UI to get started with the REST API interface. Log in to get started.</td><td><a href="https://credential-service.cheqd.net/swagger/#/">https://credential-service.cheqd.net/swagger/#/</a></td></tr></tbody></table>
 
 Credential Service uses a [third party service called LogTo](https://logto.io/) to handle user authentication and login. This allows users to create new accounts as well as sign in using their email, Google single sign-on, or Discord login.&#x20;
 
