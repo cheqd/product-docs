@@ -17,7 +17,7 @@ A Verifier will need a Credential Service account to take advantage of the `/cre
 Using the `/credential-status/check` API, users have two options for checking whether a particular Credential index is revoked or suspended:
 
 1. **Filling out a simple form** using the `application/x-www-url-form-encoded` option on the Swagger UI.
-2. **Compiling a DID Document body yourself** using the `application/json` option on the Swagger UI.
+2. **Compiling the JSON transaction yourself** using the `application/json` option on the Swagger UI.
 
 This is the easiest way to check whether a particular credential index is revoked or suspended.
 
