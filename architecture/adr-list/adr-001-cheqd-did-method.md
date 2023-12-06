@@ -61,7 +61,7 @@ Schemas and Credential Definitions are also not covered under the scope of this 
 
 ### DID Method Name
 
-The `method-name` for the **cheqd DID Method** will be identified by the string `cheqd`.
+The `method-name` for the [**cheqd DID Method** ](https://app.creds.xyz/claim?claimCode=DecentralisedIdentifier2yr)will be identified by the string `cheqd`.
 
 A DID that uses the cheqd DID method MUST begin with the prefix `did:cheqd`. This prefix string MUST be in lowercase. The remainder of the DID, after the prefix, is as follows:
 
