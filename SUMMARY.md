@@ -11,6 +11,7 @@
 * [👉 Set up your account](credential-service/set-up-account.md)
 * [✅ Issue Credentials and Presentations](credential-service/credentials/README.md)
   * [Issue Credential](credential-service/credentials/issue-credential.md)
+  * [Setup Verida Wallet](credential-service/credentials/verida.md)
   * [Verify Credential](credential-service/credentials/verify-credential.md)
   * [Verify Presentation](credential-service/credentials/verify-presentation.md)
   * [Revoke Credential](credential-service/credentials/revoke-credential.md)
