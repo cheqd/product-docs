@@ -26,7 +26,7 @@ git clone git@github.com:cheqd/did-registrar.git
 cd did-registrar
 ```
 
-
+***
 
 ## Running a DID Registrar Using Docker
 
@@ -42,7 +42,7 @@ Run the Docker container (modify according to your own build tags and other desi
 docker run -it did-registrar:local
 ```
 
-
+***
 
 ## Running a DID Registrar Locally
 

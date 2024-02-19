@@ -41,7 +41,7 @@
 ## 🛠 Integrate an SDK <a href="#sdk" id="sdk"></a>
 
 * [Choosing the right SDK](sdk/understanding-sdks.md)
-* [🍈 Veramo SDK Plugin](sdk/veramo-plugin/README.md)
+* [🍈 Veramo](sdk/veramo-plugin/README.md)
   * [Set up Veramo CLI for cheqd](sdk/veramo-plugin/setup/README.md)
     * [Troubleshooting Veramo CLI setup](sdk/veramo-plugin/setup/troubleshooting.md)
   * [Verifiable Credentials and Presentations](sdk/veramo-plugin/credentials-and-presentations/README.md)
@@ -70,7 +70,7 @@
   * [DID-Linked Resources](sdk/veramo-plugin/did-linked-resources/README.md)
     * [Create a DID-Linked Resource](sdk/veramo-plugin/did-linked-resources/create-resource.md)
     * [Create a new Resource version within existing Collection](sdk/veramo-plugin/did-linked-resources/create-new-version.md)
-* [🍏 Aries Framework JavaScript](sdk/aries-framework-js.md)
+* [🍏 Credo](sdk/credo.md)
 * [🫐 Walt.id SSI Kit](sdk/ssi-kit.md)
 
 ## 🏗 Architecture
