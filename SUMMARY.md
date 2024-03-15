@@ -122,6 +122,7 @@
   * [Testnet Faucet](network/tools/testnet-faucet.md)
   * [Validator Status API](network/tools/validator-status-api.md)
   * [Cheqd x Cosmos Data APIs](network/tools/data-apis.md)
+  * [Indexers](network/tools/indexers.md)
   * [Cosmos Airdrop Helpers](network/tools/airdrop.md)
   * [Cosmos Address Convertor](network/tools/address-convertor.md)
   * [Ethereum Bridge](network/tools/ethereum-bridge.md)
