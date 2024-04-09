@@ -1,6 +1,6 @@
 # Table of contents
 
-## ℹ Getting Started
+## ℹ️ Getting Started
 
 * [Product Overview](README.md)
 
@@ -16,7 +16,7 @@
   * [Verify Presentation](credential-service/credentials/verify-presentation.md)
   * [Revoke Credential](credential-service/credentials/revoke-credential.md)
   * [Suspend or Unsuspend Credential](credential-service/credentials/suspend-credential.md)
-* [♻ Charge for Verifiable Credentials](credential-service/payments/README.md)
+* [♻️ Charge for Verifiable Credentials](credential-service/payments/README.md)
   * [Charge for Status List](credential-service/payments/charge.md)
   * [Issue Credential with Encrypted Status List](credential-service/payments/issue-credential.md)
   * [Verifier pays Issuer](credential-service/payments/verifier-pays-issuer.md)
@@ -31,7 +31,7 @@
   * [Update Status List](credential-service/status-lists/update-status-list.md)
   * [Check Status List](credential-service/status-lists/check.md)
   * [Search Status List](credential-service/status-lists/search.md)
-* [↕ Create DID-Linked Resources](credential-service/did-linked-resources/README.md)
+* [↕️ Create DID-Linked Resources](credential-service/did-linked-resources/README.md)
   * [Create DID-Linked Resource](credential-service/did-linked-resources/create-dlr.md)
   * [Search DID-Linked Resource](credential-service/did-linked-resources/search.md)
   * [Understanding DID-Linked Resources](credential-service/did-linked-resources/understanding-dlrs/README.md)
@@ -39,7 +39,7 @@
     * [Technical composition of DID-Linked Resources](credential-service/did-linked-resources/understanding-dlrs/technical-composition.md)
     * [Referencing DID-Linked Resources in VCs](credential-service/did-linked-resources/understanding-dlrs/referencing.md)
 
-## 🛠 Integrate an SDK <a href="#sdk" id="sdk"></a>
+## 🛠️ Integrate an SDK <a href="#sdk" id="sdk"></a>
 
 * [Choosing the right SDK](sdk/understanding-sdks.md)
 * [🍈 Veramo](sdk/veramo-plugin/README.md)
@@ -74,7 +74,7 @@
 * [🍏 Credo](sdk/credo.md)
 * [🫐 Walt.id SSI Kit](sdk/ssi-kit.md)
 
-## 🏗 Architecture
+## 🏗️ Architecture
 
 * [Architecture Decision Record (ADR) Process](architecture/README.md)
 * [List of ADRs](architecture/adr-list/README.md)
@@ -86,11 +86,11 @@
 
 ## 💫 Advanced features and alternatives <a href="#advanced" id="advanced"></a>
 
-* [➡ DID Registrar](advanced/did-registrar/README.md)
+* [➡️ DID Registrar](advanced/did-registrar/README.md)
   * [Setup DID Registrar](advanced/did-registrar/did-registrar-setup.md)
   * [Create a DID](advanced/did-registrar/create-did.md)
   * [Create a DID-Linked Resource](advanced/did-registrar/create-resource.md)
-* [⬅ DID Resolver](advanced/did-resolver/README.md)
+* [⬅️ DID Resolver](advanced/did-resolver/README.md)
   * [Setup DID Resolver](advanced/did-resolver/setup-did-resolver.md)
 * [⚡ AnonCreds Object Method](advanced/anoncreds/README.md)
   * [Schemas](advanced/anoncreds/schema.md)
@@ -109,7 +109,7 @@
   * [VDR Tools CLI with cheqd (deprecated)](advanced/tooling/vdr-tools.md)
   * [Demo Wallet for identity setup](advanced/tooling/demo-wallet.md)
 
-## ⚛ Network
+## ⚛️ Network
 
 * [Get started with cheqd Network](network/cheqd/README.md)
   * [Identity Write Pricing](network/cheqd/identity-write-pricing.md)
@@ -117,7 +117,7 @@
 * [⏩ Setup your Wallet](network/wallets/README.md)
   * [Setup Leap Wallet](network/wallets/setup-leap-wallet.md)
   * [Setup Keplr wallet](network/wallets/keplr-setup.md)
-* [↪ Useful Tools and APIs](network/tools/README.md)
+* [↪️ Useful Tools and APIs](network/tools/README.md)
   * [Block Explorer](network/tools/block-explorer.md)
   * [Testnet Faucet](network/tools/testnet-faucet.md)
   * [Validator Status API](network/tools/validator-status-api.md)
@@ -125,7 +125,7 @@
   * [Cosmos Airdrop Helpers](network/tools/airdrop.md)
   * [Cosmos Address Convertor](network/tools/address-convertor.md)
   * [Ethereum Bridge](network/tools/ethereum-bridge.md)
-* [⬆ Network Upgrades](network/network-upgrades/README.md)
+* [⬆️ Network Upgrades](network/network-upgrades/README.md)
   * [2021](network/network-upgrades/2021/README.md)
     * [0.1.x](network/network-upgrades/2021/0.1.x.md)
     * [0.2.x](network/network-upgrades/2021/0.2.x.md)

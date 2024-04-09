@@ -14,6 +14,7 @@ Compare cheqd's functionality to another identity chain, Hyperledger Indy, using
 | **Governance Framework**                                                                | On-ledger Governance Framework via DID URL     | Off-ledger Governance Framework |
 | **JSON based JWT Verifiable Credentials**                                               | ✔️                                             | ❌                               |
 | **JSON-LD Verifiable Credentials**                                                      | ✔️                                             | ❌                               |
+| **SD-JWT**                                                                              | ✔️                                             | ❌                               |
 | **JSON-LD BBS+ signatures**                                                             | ⌛(roadmap)                                     | ❌                               |
 | **AnonCreds (ZKP-CL)**                                                                  | ✔️                                             | ✔️                              |
 | **DID method**                                                                          | did:cheqd                                      | did:indy                        |
@@ -23,9 +24,7 @@ Compare cheqd's functionality to another identity chain, Hyperledger Indy, using
 | **Multiple DID Controllers per DIDDoc**                                                 | ✔️                                             | ❌                               |
 | **Verification relationships with specific keys for a particular verification purpose** | ✔️                                             | ❌                               |
 | **Support Aries Framework JavaScript**                                                  | ✔️                                             | ✔️                              |
-| **Support: Aries Framework.NET**                                                        | ⌛(roadmap)                                     | ✔️                              |
 | **Support: ACA-Py**                                                                     | ⌛(roadmap)                                     | ✔️                              |
-| **Support: Aries Framework Go**                                                         | ⌛(roadmap)                                     | ✔️                              |
 | **Support: Veramo SDK**                                                                 | ✔️                                             | ❌                               |
 | **Support: Other JSON/JSON-LD SDKs**                                                    | ✔️ (Walt.id)                                   | ❌                               |
 | **On-ledger Schemas**                                                                   | ✔️                                             | ✔️                              |
@@ -33,7 +32,7 @@ Compare cheqd's functionality to another identity chain, Hyperledger Indy, using
 | **AnonCreds Revocation Registry Definitions**                                           | ✔️                                             | ✔️                              |
 | **AnonCreds Revocation Registry Entries**                                               | ✔️                                             | ✔️                              |
 | **Status List 2021**                                                                    | ✔️                                             | ❌                               |
-| **Trust Registry Definitions**                                                          | ⌛(roadmap)                                     | ❌                               |
-| **Trust Registry Entries**                                                              | ⌛(roadmap)                                     | ❌                               |
+| **Trust Registry Definitions**                                                          | ✔️                                             | ❌                               |
+| **Trust Registry Entries ("Verifiable Accreditations")**                                | ✔️                                             | ❌                               |
 | **Other assets (images, docs, policies)**                                               | ✔️                                             | ❌                               |
 | **Payments for Verifiable Credentials**                                                 | ✔️                                             | ❌                               |
