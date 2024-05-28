@@ -8,9 +8,9 @@ Users are able to create [Verifiable Credential Status List v2021](https://www.w
 
 ## Step 1: Set up your account
 
-Make sure you have set up your account with Credential Service and are logged in, using our guide below:
+Make sure you have set up your account with cheqd Studio and are logged in, using our guide below:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Set up your account with cheqd Credential Service and log in to start using the APIs.</td><td><a href="../set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Set up your account with cheqd Studio and log in to start using the APIs.</td><td><a href="../set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
 
 ## Step 2: Create a DID
 
@@ -47,8 +47,8 @@ Using the `/credential-status/create/unencrypted` API, users have two options fo
 1. **Filling out a simple form** using the `application/x-www-url-form-encoded` option on the Swagger UI.
 2. **Compiling a Status List payload yourself** using the `application/json` option on the Swagger UI.
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/credential-status/create/unencrypted" method="post" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
+{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/credential-status/create/unencrypted" method="post" expanded="true" %}
+[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
 {% endswagger %}
 
 ### Option 1. Choose from a few variables and we will compile the Status List for you
@@ -159,6 +159,6 @@ An example of the JSON payload needed to be submitted is below:
 
 Once the Issuer has populated the requisite information for the unencrypted Status List request, they can use the API below to submit it to the ledger.&#x20;
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/credential-status/create/unencrypted" method="post" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
+{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/credential-status/create/unencrypted" method="post" %}
+[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
 {% endswagger %}

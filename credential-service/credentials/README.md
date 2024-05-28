@@ -4,7 +4,7 @@ description: Learn how to issue and manage Verifiable Credentials and Presentati
 
 # ✅ Issue Credentials and Presentations
 
-Verifiable Credentials are a tamper-evident data format for asserting a set of claims about a subject. You can issue and verify Verifiable Credentials and Presentations without building complex integrations, using our simple Credential Service APIs.
+Verifiable Credentials are a tamper-evident data format for asserting a set of claims about a subject. You can issue and verify Verifiable Credentials and Presentations without building complex integrations, using our simple cheqd Studio APIs.
 
 {% hint style="info" %}
 :books: **Learn about Verifiable Credentials and Presentations**
@@ -14,13 +14,13 @@ If you want to learn more about what [Verifiable Credentials and Presentations a
 
 ## Get started
 
-Make sure you've [set up your account with Credential Service](../set-up-account.md), then you can start to:
+Make sure you've [set up your account with cheqd Studio](../set-up-account.md), then you can start to:
 
 <table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue Credentials</strong></mark></td><td>Issue <strong>W3C conformant Verifiable Credentials</strong> easily over REST API.</td><td><a href="issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Verify Credentials</strong></mark></td><td>Verify whether Credentials are valid, have been tampered or have expired.</td><td><a href="verify-credential.md">verify-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Verify Presentation</strong></mark></td><td>Verify whether a combination of Credentials are valid, have been tampered or have expired.</td><td><a href="verify-presentation.md">verify-presentation.md</a></td></tr></tbody></table>
 
 ## Supported Credential types
 
-Credential Service supports two major digital Credential types and uses our [Veramo SDK Plugin](../../sdk/veramo-plugin/) under the hood. Below you can learn about these Credential formats:
+cheqd Studio supports two major digital Credential types and uses our [Veramo SDK Plugin](../../sdk/veramo-plugin/) under the hood. Below you can learn about these Credential formats:
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>JSON (JWT)</strong></mark></td><td><strong>JSON Web Token (JWT)</strong> Credentials are a simple way to transmit Trusted Data as a JSON object.</td><td><a href="https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-verifiable-credential-vc/what-are-the-different-types-of-verifiable-credentials/json-jwt">https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-verifiable-credential-vc/what-are-the-different-types-of-verifiable-credentials/json-jwt</a></td></tr><tr><td><mark style="color:blue;"><strong>JSON-LD</strong></mark></td><td><strong>JSON-LD (Linked Data)</strong> Credentials are a richer data format, allowing applications to follow embedded links to other pieces of Linked Data across the web.</td><td><a href="https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-verifiable-credential-vc/what-are-the-different-types-of-verifiable-credentials/json-ld">https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-verifiable-credential-vc/what-are-the-different-types-of-verifiable-credentials/json-ld</a></td></tr></tbody></table>
 

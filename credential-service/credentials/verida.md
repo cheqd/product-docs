@@ -1,14 +1,14 @@
 ---
-description: Setup your wallet to receive credentials
+description: Setup your wallet to receive credentials.
 ---
 
 # Setup Verida Wallet
 
-Credential Service currently is setup to work with the Verida Wallet. In 2024, we will be building compatibility with a full suite of other digital identity wallets.&#x20;
+cheqd Studio currently is setup to work with the Verida Wallet. In 2024, we will be building compatibility with a full suite of other digital identity wallets.&#x20;
 
 ## Verida Wallet <a href="#verida-wallet" id="verida-wallet"></a>
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Verida wallet</strong></mark></td><td>Download the Verida wallet to receive credentials issued by cheqd's Credential Service to a <code>did:vda</code> address.</td><td><a href="../../.gitbook/assets/verida wallet.png">verida wallet.png</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Verida wallet</strong></mark></td><td>Download the Verida wallet to receive credentials issued by cheqd Studio to a <code>did:vda</code> address.</td><td><a href="../../.gitbook/assets/verida wallet.png">verida wallet.png</a></td></tr></tbody></table>
 
 ### Subject DID
 

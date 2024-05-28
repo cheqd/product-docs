@@ -4,11 +4,16 @@
 
 * [Product Overview](README.md)
 
-## 🟢 Start Issuing Credentials <a href="#credential-service" id="credential-service"></a>
+## 🟢 Start using cheqd <a href="#credential-service" id="credential-service"></a>
 
-* [Get started with Credential Service](credential-service/get-started/README.md)
+* [Get started with cheqd Studio](credential-service/get-started/README.md)
   * [🔄 Advanced configuration options](credential-service/get-started/advanced.md)
 * [👉 Set up your account](credential-service/set-up-account.md)
+* [🆔 Create DIDs and Identity keys](credential-service/dids/README.md)
+  * [Create Issuer DID](credential-service/dids/create-did.md)
+  * [Create Identity Keys and Subject DIDs](credential-service/dids/create-subject-did.md)
+  * [Resolve a DID](credential-service/dids/resolve-did.md)
+  * [Update or Deactivate DID](credential-service/dids/update-did.md)
 * [✅ Issue Credentials and Presentations](credential-service/credentials/README.md)
   * [Issue Credential](credential-service/credentials/issue-credential.md)
   * [Setup Verida Wallet](credential-service/credentials/verida.md)
@@ -21,11 +26,6 @@
   * [Issue Credential with Encrypted Status List](credential-service/payments/issue-credential.md)
   * [Verifier pays Issuer](credential-service/payments/verifier-pays-issuer.md)
   * [Bulk Update or Rotate Encryption Keys](credential-service/payments/update.md)
-* [🆔 Create DIDs and Identity keys](credential-service/dids/README.md)
-  * [Create Issuer DID](credential-service/dids/create-did.md)
-  * [Create Identity Keys and Subject DIDs](credential-service/dids/create-subject-did.md)
-  * [Resolve a DID](credential-service/dids/resolve-did.md)
-  * [Update or Deactivate DID](credential-service/dids/update-did.md)
 * [🎋 Create Status Lists](credential-service/status-lists/README.md)
   * [Create Status List](credential-service/status-lists/create-status-list.md)
   * [Update Status List](credential-service/status-lists/update-status-list.md)

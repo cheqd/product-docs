@@ -16,7 +16,7 @@ A Decentralized Identifier "DID" is a globally unique identifier that does not r
 
 ## DID Method
 
-On-ledger DIDs created using the Credential Service use the cheqd DID Method. This is fully defined below:
+On-ledger DIDs created using cheqd Studio use the cheqd DID Method. This is fully defined below:
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>cheqd DID Method</strong></mark></td><td>Click here to learn more about the cheqd DID method (did:cheqd).</td><td><a href="../../architecture/adr-list/adr-001-cheqd-did-method.md">adr-001-cheqd-did-method.md</a></td><td><a href="../../.gitbook/assets/cheqd logo docs.png">cheqd logo docs.png</a></td></tr></tbody></table>
 

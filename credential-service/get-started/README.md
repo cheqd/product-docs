@@ -2,21 +2,21 @@
 description: Understanding cheqd's Credentials-as-a-Service product offering
 ---
 
-# Get started with Credential Service
+# Get started with cheqd Studio
 
 ## Introduction
 
-The Credential Service is a set of REST APIs for using cheqd's identity functionality in a lightweight and highly efficient way.&#x20;
+**cheqd Studio** is a set of REST APIs for using cheqd's identity functionality in a lightweight and highly efficient way.&#x20;
 
-With these APIs, it simplifies the developer experience, helping customers build Trusted Data Markets from the ground up, with zero prior knowledge of the technology under the hood. All of cheqd’s existing open-source libraries remain available, and the Credential Service does not necessitate developers to switch their SSI stack in their entirety, but allows them to build into their existing tooling, for example alongside APIs such as the Universal Resolver.
+With these APIs, it simplifies the developer experience, helping customers build Trusted Data Markets from the ground up, with zero prior knowledge of the technology under the hood. All of cheqd’s existing open-source libraries remain available, and cheqd Sudio does not necessitate developers to switch their SSI stack in their entirety, but allows them to build into their existing tooling, for example alongside APIs such as the Universal Resolver.
 
 ## Get started
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Sign in / Sign up</strong></mark></td><td>Head to our Credential Service and <strong>click Log In</strong> to create an account and get started.</td><td><a href="https://credential-service.cheqd.net/swagger/#/">https://credential-service.cheqd.net/swagger/#/</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue a Credential</strong></mark></td><td>Issue <strong>W3C conformant Verifiable Credentials</strong> easily over REST API.</td><td><a href="../credentials/issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Advanced config options</strong></mark></td><td>Run the Credential Service yourself or utilise your own external database.</td><td><a href="advanced.md">advanced.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Sign in / Sign up</strong></mark></td><td>Head to our cheqd Studio and <strong>click Log In</strong> to create an account and get started.</td><td><a href="https://credential-service.cheqd.net/swagger/#/">https://credential-service.cheqd.net/swagger/#/</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue a Credential</strong></mark></td><td>Issue <strong>W3C conformant Verifiable Credentials</strong> easily over REST API.</td><td><a href="../credentials/issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Advanced config options</strong></mark></td><td>Run cheqd Studio yourself or utilise your own external database.</td><td><a href="advanced.md">advanced.md</a></td></tr></tbody></table>
 
 ## Features
 
-The Credential Service directly leverages our [Veramo SDK Plugin](https://github.com/cheqd/did-provider-cheqd), making a wide array of features available from launch, including:
+cheqd Studio directly leverages our [Veramo SDK Plugin](https://github.com/cheqd/did-provider-cheqd), making a wide array of features available from launch, including:
 
 |               Category               |             Feature             | Status |
 | :----------------------------------: | :-----------------------------: | ------ |
@@ -48,7 +48,7 @@ The Credential Service directly leverages our [Veramo SDK Plugin](https://github
 
 ## Understanding the different modes and client choices
 
-With Credential Service, there are multiple ways it can be deployed and hosted to support clients with different requirements.&#x20;
+With cheqd Studio, there are multiple ways it can be deployed and hosted to support clients with different requirements.&#x20;
 
 ### Option 1: Custodied by cheqd (Custodian Mode)
 
@@ -110,7 +110,7 @@ By default, `ENABLE_AUTHENTICATION` is set to off/`false`. To enable external Ve
 
 ### Option 2: Self-custodied (Client-managed mode)
 
-Client-managed mode gives the Credential Service user the ability to utilise their own identity keys for signing identity transactions, while still allowing the Credential Service to manage the CHEQ account keys for writing to the cheqd network. This mode is intended to be used for more production environments where the user signs each identity transaction independently, affording a greater level of security and control to the client.
+Client-managed mode gives the cheqd Studio user the ability to utilise their own identity keys for signing identity transactions, while still allowing cheqd Studio to manage the CHEQ account keys for writing to the cheqd network. This mode is intended to be used for more production environments where the user signs each identity transaction independently, affording a greater level of security and control to the client.
 
 {% hint style="info" %}
 Full client-managed mode is still in development and we will update this documentation as and when it becomes available
@@ -118,7 +118,7 @@ Full client-managed mode is still in development and we will update this documen
 
 ## Architecture
 
-Under the hood, the Credential Service leverages our [Veramo SDK Plugin](https://github.com/cheqd/did-provider-cheqd) for its identity functionality. Check out our [guide on supported SDKs](../../sdk/understanding-sdks.md) to understand how Credential Service fits together with our other Open Source packages.
+Under the hood, cheqd Studio leverages our [Veramo SDK Plugin](https://github.com/cheqd/did-provider-cheqd) for its identity functionality. Check out our [guide on supported SDKs](../../sdk/understanding-sdks.md) to understand how cheqd Studio fits together with our other Open Source packages.
 
 ## Alternatives
 

@@ -1,5 +1,5 @@
 ---
-description: Developer guide for running the Credential Service
+description: Developer guide for running the cheqd Studio.
 ---
 
 # 🔄 Advanced configuration options
@@ -64,7 +64,7 @@ When upgrading either the external Veramo KMS or LogTo, you might need to run mi
 
 You can run _just_ the migration scripts using [Docker Compose profiles](https://docs.docker.com/compose/profiles/) defined in the Compose file.
 
-For example, to run Credential Service app migrations on an existing Postgres database (for external Veramo KMS):
+For example, to run cheqd Studio app migrations on an existing Postgres database (for external Veramo KMS):
 
 ```
 docker compose -f docker/with-external-db/docker-compose-with-db.yml --profile app-setup up --detach

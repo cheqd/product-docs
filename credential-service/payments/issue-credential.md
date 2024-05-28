@@ -10,9 +10,9 @@ Issuers are able to add encrypted Status Lists to the body of the Credential if 
 
 ## Step 1: Set up your account
 
-Make sure you have set up your account with Credential Service and are logged in, using our guide below:
+Make sure you have set up your account with cheqd Studio and are logged in, using our guide below:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Set up your account with cheqd Credential Service and log in to start using the APIs.</td><td><a href="../set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Set up your account with cheqd Studio and log in to start using the APIs.</td><td><a href="../set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
 
 ## Step 2: Create an Issuer DID
 
@@ -30,7 +30,7 @@ Follow the tutorial here to create an encrypted Status List with a set of Paymen
 
 Follow the instructions within the `/credential/create` API below to format and issue a Verifiable Credential.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue Credential</strong></mark></td><td>Issue a W3C conformant Verifiable Credential using the Credential Service APIs.</td><td><a href="../credentials/issue-credential.md">issue-credential.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue Credential</strong></mark></td><td>Issue a W3C conformant Verifiable Credential using the cheqd Studio APIs.</td><td><a href="../credentials/issue-credential.md">issue-credential.md</a></td></tr></tbody></table>
 
 {% hint style="info" %}
 Ensure that the "`statusListName`" and "`statusPurpose`" are the same as the Status List [created in Step 3](issue-credential.md#step-3-create-an-encrypted-status-list). This makes sure that if the Credential Status is changed, for example, if it is revoked or suspended, the correct Status List will be updated.

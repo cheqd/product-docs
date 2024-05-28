@@ -4,13 +4,13 @@ description: How a Verifier pays an Issuer to decrypt an encrypted Status List
 
 # Verifier pays Issuer
 
-Credential Service supports payments for verifying Credential Status. This is an innovative feature that is also commonly known as cheqd's Payment Rails. Using the API in this tutorial, there are multiple ways for a Verifier to pay an Issuer to unlock and verify a Credential's status.
+cheqd Studio supports payments for verifying Credential Status. This is an innovative feature that is also commonly known as cheqd's Payment Rails. Using the API in this tutorial, there are multiple ways for a Verifier to pay an Issuer to unlock and verify a Credential's status.
 
 ## Step 1: Set up an account
 
-A Verifier will need a Credential Service account to take advantage of the `/credential-status/check` API and easily use cheqd's Credential Payments. Make sure you are set up and are logged in, using our guide below:
+A Verifier will need a cheqd Studio account to take advantage of the `/credential-status/check` API and easily use cheqd's Credential Payments. Make sure you are set up and are logged in, using our guide below:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Set up your account with cheqd Credential Service and log in to start using the APIs.</td><td><a href="../set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Set up your account with cheqd Studio and log in to start using the APIs.</td><td><a href="../set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
 
 ## Step 2: Set parameters for check
 
@@ -21,8 +21,8 @@ Using the `/credential-status/check` API, users have two options for checking wh
 
 This is the easiest way to check whether a particular credential index is revoked or suspended.
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/credential-status/check" method="post" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
+{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/credential-status/check" method="post" expanded="true" %}
+[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
 {% endswagger %}
 
 &#x20;Using the `application/x-www-url-form-encoded` option on the Swagger UI, users are able to choose between the following variables to compile your DID:
@@ -95,8 +95,8 @@ If there is sufficient CHEQ in the account of the Verifier, this will automatica
 
 In the same action, the Credential Service will perform a verification check on the Credential Status and pay the issuer the fee specified in the Payment Conditions.
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/credential-status/check" method="post" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
+{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/credential-status/check" method="post" expanded="true" %}
+[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
 {% endswagger %}
 
 #### Response format
@@ -145,14 +145,14 @@ Note that the `"feePaymentAmount"` may be specified in ncheq. This is lowest den
 
 ### Step 3: Hit the API
 
-The Credential Service will perform a verification check on the Credential Status and pay the issuer the fee specified in the Payment Conditions.&#x20;
+cheqd Studio will perform a verification check on the Credential Status and pay the issuer the fee specified in the Payment Conditions.&#x20;
 
 {% hint style="info" %}
 Note the "`intervalInSeconds`" which is the amount of time after making the payment that the Verifier has to hit the API and request access to the encrypted Status List.
 {% endhint %}
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/credential-status/check" method="post" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
+{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/credential-status/check" method="post" expanded="true" %}
+[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
 {% endswagger %}
 
 #### Response format
@@ -168,5 +168,5 @@ The response format below will indicate clearly whether the check is successful 
 
 Alternatively, if Verifiers have made the payment manually they can also use the /credential/verify API in the tutorial below:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Verify Credential</strong></mark></td><td>Verify a W3C Verifiable Credential using cheqd's Credential Service APIs.</td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Verify Credential</strong></mark></td><td>Verify a W3C Verifiable Credential using the cheqd Studio APIs.</td></tr></tbody></table>
 

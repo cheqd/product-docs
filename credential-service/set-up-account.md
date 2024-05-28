@@ -1,18 +1,18 @@
 ---
-description: Learn how to set up your account on Credential Service.
+description: Learn how to set up your account on cheqd Studio.
 ---
 
 # 👉 Set up your account
 
-The user is required to **Log In** to the Credential Service and authenticate in order to access the APIs. This guards the API from unauthorized access and is required for both testing production environments.
+The user is required to **Log In** to cheqd Studio and authenticate in order to access the APIs. This guards the API from unauthorized access and is required for both testing production environments.
 
-## Step 1: Click Log In on Credential Service Swagger
+## Step 1: Click Log In on cheqd Studio Swagger
 
-Head to our [**Credential Service**](https://credential-service.cheqd.net/swagger/#/) and click **Log In** to get started.
+Head to our [**cheqd Studio**](https://credential-service.cheqd.net/swagger/#/) and click **Log In** to get started.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Credential Service</strong></mark></td><td>Click here to access the Credential Service Swagger UI to get started with the REST API interface. Log in to get started.</td><td><a href="https://credential-service.cheqd.net/swagger/#/">https://credential-service.cheqd.net/swagger/#/</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>cheqd Studio</strong></mark></td><td>Click here to access cheqd Studio Swagger UI to get started with the REST API interface. Log in to get started.</td><td><a href="https://credential-service.cheqd.net/swagger/#/">https://credential-service.cheqd.net/swagger/#/</a></td></tr></tbody></table>
 
-Credential Service uses a [third party service called LogTo](https://logto.io/) to handle user authentication and login. This allows users to create new accounts as well as sign in using their email, Google single sign-on, or Discord login.&#x20;
+cheqd Studio uses a [third party service called LogTo](https://logto.io/) to handle user authentication and login. This allows users to create new accounts as well as sign in using their email, Google single sign-on, or Discord login.&#x20;
 
 <div align="left">
 
@@ -28,18 +28,18 @@ Credential Service uses a [third party service called LogTo](https://logto.io/) 
 
 The following API can be used to fetch the new account information:
 
-* `customer_id` is used as an identifier for the particular customer using the Credential Service. It is generated as a sub-field of the JWT token used in the authorization header.
+* `customer_id` is used as an identifier for the particular customer using cheqd Studio. It is generated as a sub-field of the JWT token used in the authorization header.
 * `cheqd_account` is used to pay for identity transactions on either `testnet` or `mainnet`. A cheqd account is automatically generated when a new `customer_id` is generated.
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json" path="/account" method="get" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger.json)
+{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/account" method="get" expanded="true" %}
+[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
 {% endswagger %}
 
 ## (Optional) Step 3: Adding CHEQ tokens to your account
 
-Users will need to add our token, CHEQ, to their `cheqd_account`  on `mainnet` in order to be able to use the ledger-based identity functionality on Credential Service, such as creating DIDs and DID-Linked Resources.
+Users will need to add our token, CHEQ, to their `cheqd_account`  on `mainnet` in order to be able to use the ledger-based identity functionality on cheqd Studio, such as creating DIDs and DID-Linked Resources.
 
-If you need to add CHEQ tokens to your Credential Service `cheqd_account`, there are a few steps you need to follow:
+If you need to add CHEQ tokens to your cheqd Studio `cheqd_account`, there are a few steps you need to follow:
 
 <details>
 
