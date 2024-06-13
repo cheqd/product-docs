@@ -1,10 +1,12 @@
 ---
-description: Create a Verifiable Credential Status List on-ledger
+description: >-
+  Create, update and fetch Status Lists on cheqd, stored as a DID-Linked
+  Resources
 ---
 
 # 🎋 Create Status Lists
 
-Credential Status Lists are generally sets of indices which can be used to mathematically derive whether an issued Credential has been revoked, suspended or is still valid. Status Lists are crucial for verifier applications to determine whether to accept a credential, presented by a holder.
+Status Lists are generally sets of indices which can be used to mathematically derive whether an issued Credential has been revoked, suspended or is still valid. Status Lists are crucial for verifier applications to determine whether to accept a credential, presented by a holder.
 
 ## Get started
 
@@ -14,8 +16,6 @@ There are two predominant Status List formats supported in cheqd Studio. Please 
 
 ## Alternatives
 
-Below are a list of alternatives for creating cheqd Status Lists.
+Below are a list of alternatives for creating Status Lists on cheqd.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>DID Registrar</strong></mark></td><td>Simple setup for building cheqd DIDs into existing applications using REST APIs, building into the <a href="https://uniregistrar.io/">Universal Registrar</a>.</td><td><a href="../../advanced/did-registrar/">did-registrar</a></td></tr><tr><td><mark style="color:blue;"><strong>Veramo SDK Plugin</strong></mark></td><td>The <strong>Veramo SDK Plugin</strong> is an extension of the Veramo SDK, a JavaScript framework for Trusted Data, adding support for cheqd functionality.</td><td><a href="../../sdk/veramo-plugin/">veramo-plugin</a></td></tr></tbody></table>
-
-t
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>DID Registrar</strong></mark></td><td>Simple setup for building cheqd DIDs into existing applications using REST APIs, building into the <a href="https://uniregistrar.io/">Universal Registrar</a>.</td><td><a href="../../advanced/did-registrar/">did-registrar</a></td></tr><tr><td><mark style="color:blue;"><strong>Veramo SDK Plugin</strong></mark></td><td>The <strong>Veramo SDK Plugin</strong> is an extension of the Veramo SDK, a JavaScript framework for Trusted Data, adding support for cheqd functionality.</td><td><a href="../../sdk/veramo-plugin/">veramo-plugin</a></td></tr><tr><td><mark style="color:blue;"><strong>AnonCreds Accumulator Revocation</strong></mark></td><td>Follow the cheqd AnonCreds Object Method to create Accumulator-based Status Lists</td><td><a href="../../advanced/anoncreds/">anoncreds</a></td></tr></tbody></table>

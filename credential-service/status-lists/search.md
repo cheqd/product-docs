@@ -1,4 +1,4 @@
-# Search Status List
+# Search Status List v2021
 
 The `/credential-status/search` API allows users to search for specific entries of a Status List on the cheqd network. For example, if there are multiple Status Lists associated with the same DID, the search functionality allows applications to make requests only to a specified Status List.&#x20;
 

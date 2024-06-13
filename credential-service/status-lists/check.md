@@ -70,7 +70,7 @@ The index within the bitstring that the user wants to query. For example:
 
 To automatically make a payment to an Issuer in order to verify an encrypted Status List, follow the tutorial here:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Verifier pays Issuer</strong></mark></td><td>Understand how a Verifier pays an Issuer to decrypt an encrypted Status List and verify a Credential Status.</td><td><a href="../../payments/verifier-pays-issuer.md">verifier-pays-issuer.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Verifier pays Issuer</strong></mark></td><td>Understand how a Verifier pays an Issuer to decrypt an encrypted Status List and verify a Credential Status.</td><td><a href="../payments/verifier-pays-issuer.md">verifier-pays-issuer.md</a></td></tr></tbody></table>
 
 ### Option 2. Publish a JSON Payload
 

@@ -2,7 +2,7 @@
 description: Update indices in Status List
 ---
 
-# Update Status List
+# Update Status List v2021
 
 The `/credential-status/update/unencrypted` API enables users to update the indices of a Status List. This may be useful for revoking Credentials in bulk, rather than submitting individual `/credential/revoke` requests.
 
