@@ -152,7 +152,7 @@ In order to **reference the latest version of the Token Status List**, the follo
 
 For example:
 
-`did:cheqd:testnet:`0a5b94d0-a417-48ed-a6f5-4abc9e95888d`?resourceName=DegreeCredentialStatus&resourceType=TokenStatusList`
+`did:cheqd:testnet:0a5b94d0-a417-48ed-a6f5-4abc9e95888d?resourceName=DegreeCredentialStatus&resourceType=TokenStatusList`
 
 ### Token Status List at specific point in time
 
