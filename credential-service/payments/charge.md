@@ -38,7 +38,7 @@ Using this API will create a regular Status List on-ledger, where the contents o
 
 </details>
 
-For the purpose of this tutorial, we will assume the user is creating an encrypted Status List. For unencrypted Status Lists, [follow the tutorial here](../status-lists/create-status-list.md).
+For the purpose of this tutorial, we will assume the user is creating an encrypted Status List. For unencrypted Status Lists, [follow the tutorial here](../status-lists/status-list-v2021/create-status-list.md).
 
 ## Step 4: Create encrypted Status List
 

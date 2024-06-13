@@ -2,7 +2,7 @@
 description: Create Status List 2021 Resource on cheqd.
 ---
 
-# Create Status List
+# Create Status List v2021
 
 Users are able to create [Verifiable Credential Status List v2021](https://www.w3.org/TR/vc-status-list/) entries on-ledger, in order to revoke or suspend Verifiable Credentials. This is a derivation from the core spec made by cheqd to support a more decentralized and resilient approach to storing Status Lists.
 
@@ -10,17 +10,17 @@ Users are able to create [Verifiable Credential Status List v2021](https://www.w
 
 Make sure you have set up your account with cheqd Studio and are logged in, using our guide below:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Set up your account with cheqd Studio and log in to start using the APIs.</td><td><a href="../set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Set up your account with cheqd Studio and log in to start using the APIs.</td><td><a href="../../set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
 
 ## Step 2: Create a DID
 
 Before you can create a Status List, you need to create a DID which is used to link the Status List on-ledger. Use the API in the page below to create a DID:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create an Issuer DID</strong></mark></td><td>Create a W3C conformant DID on cheqd using the <code>did:cheqd</code> DID Method.</td><td><a href="../dids/create-did.md">create-did.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create an Issuer DID</strong></mark></td><td>Create a W3C conformant DID on cheqd using the <code>did:cheqd</code> DID Method.</td><td><a href="../../dids/create-did.md">create-did.md</a></td></tr></tbody></table>
 
 ## Step 3: Select the unencrypted Status List API
 
-When [creating a Status List](./), a user will have the following options:&#x20;
+When [creating a Status List](../), a user will have the following options:&#x20;
 
 <details>
 
@@ -38,7 +38,7 @@ Using this API will create a regular Status List on-ledger, where the contents o
 
 </details>
 
-For the purpose of this tutorial, we will assume the user is creating an unencrypted Status List. For encrypted Status Lists, [follow the tutorial here](../payments/charge.md).
+For the purpose of this tutorial, we will assume the user is creating an unencrypted Status List. For encrypted Status Lists, [follow the tutorial here](../../payments/charge.md).
 
 ## Step 4: Create unencrypted Status List
 
