@@ -18,33 +18,7 @@ With these APIs, it simplifies the developer experience, helping customers build
 
 cheqd Studio directly leverages our [Veramo SDK Plugin](https://github.com/cheqd/did-provider-cheqd), making a wide array of features available from launch, including:
 
-|               Category               |             Feature             | Status |
-| :----------------------------------: | :-----------------------------: | ------ |
-|   **Verifiable Credentials (VCs)**   |         Issue Credential        | ✅      |
-|                                      |        Verify Credential        | ✅      |
-|                                      |        Revoke Credential        | ✅      |
-|                                      |        Suspend Credential       | ✅      |
-|                                      |       Unsuspend Credential      | ✅      |
-|  **Verifiable Presentations (VPs)**  |       Verify Presentation       | ✅      |
-|        **Credential Payments**       |  Create payment-gated resource  | ✅      |
-|                                      |  Update payment-gated resource  | ✅      |
-|                                      | Pay-to-verify credential status | ✅      |
-| **Decentralised Identifiers (DIDs)** |   Create DID and DID Document   | ✅      |
-|                                      |       Update DID Document       | ✅      |
-|                                      |           Resolve DID           | ✅      |
-|                                      |          Deactivate DID         | ✅      |
-|                                      |            List DIDs            | ✅      |
-|           **Identity keys**          |       Create identity keys      | ✅      |
-|                                      |       Fetch identity keys       | ✅      |
-|           **Status Lists**           |        Create status list       | ✅      |
-|                                      |       Publish status list       | ✅      |
-|                                      |        Update status list       | ✅      |
-|                                      |        Check status list        | ✅      |
-|                                      |       Search status lists       | ✅      |
-|    **DID-Linked Resources (DLRs)**   |    Create DID-Linked Resource   | ✅      |
-|                                      |   Search DID-Linked Resources   | ✅      |
-|              **Account**             |        Create new account       | ✅      |
-|                                      |      Fetch account details      | ✅      |
+<table data-view="cards"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>DIDs and Identity Keys</strong></mark></td><td>Create <code>did:cheqd</code> DIDs for credential issuers and for DID-Linked Resources</td></tr><tr><td>T<mark style="color:blue;"><strong>rust Registries</strong></mark></td><td>Create chains of trusted Verifiable Accreditations for EU digital identity markets and beyond</td></tr><tr><td><mark style="color:blue;"><strong>Payments</strong></mark></td><td>Create commercial models for verifiable credentials, such as verifier-pays-issuer</td></tr><tr><td><mark style="color:blue;"><strong>Status Lists</strong></mark></td><td>Create status lists, including Status List v2021 and Token Status List</td></tr><tr><td><mark style="color:blue;"><strong>Credentials</strong></mark></td><td>Issue any type of credential, including SD-JWT, VCDM and AnonCreds via our partners, including trust registries, status lists and payments.</td></tr><tr><td><mark style="color:blue;"><strong>Resources</strong></mark></td><td>Create custom resources for policies, presentation definitions, schemas and visual representations of credentials</td></tr></tbody></table>
 
 ## Understanding the different modes and client choices
 
