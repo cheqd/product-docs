@@ -1,6 +1,6 @@
 # Creating a DID-Linked Resource using cheqd Cosmos CLI
 
-The purpose of this document is to outline how someone can create a Resource on the cheqd network using [cheqd Cosmos CLI](create-did.md). The process that's followed is similar to what's described in the [high-level Resource creation flow](../../../credential-service/did-linked-resources/understanding-dlrs/technical-composition.md).
+The purpose of this document is to outline how someone can create a Resource on the cheqd network using [cheqd Cosmos CLI](create-did.md). The process that's followed is similar to what's described in the [high-level Resource creation flow](../../../studio/did-linked-resources/understanding-dlrs/technical-composition.md).
 
 ## Pre-requisites
 

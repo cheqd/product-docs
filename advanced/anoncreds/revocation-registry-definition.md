@@ -75,7 +75,7 @@ For example, the on-ledger Revocation Registry Definition Object Content is as f
 
 ### cheqd Revocation Registry Definition Object ID
 
-cheqd uses [DID-Linked Resources](../../credential-service/did-linked-resources/understanding-dlrs/) to identify individual resources, associated with a DID, using fully resolvable DID URLs.
+cheqd uses [DID-Linked Resources](../../studio/did-linked-resources/understanding-dlrs/) to identify individual resources, associated with a DID, using fully resolvable DID URLs.
 
 cheqd resources module uses the following format:
 
@@ -112,7 +112,7 @@ The cheqd revocation registry definition request format comprises of:
 
 Both of these inputs are required to provide the ledger enough information to:
 
-1. Populate a [cheqd DID-Linked Resource](../../credential-service/did-linked-resources/understanding-dlrs/); and
+1. Populate a [cheqd DID-Linked Resource](../../studio/did-linked-resources/understanding-dlrs/); and
 2. Compile a standardised AnonCreds revocation registry definition object in the [Response format](revocation-registry-definition.md#cheqd-revocation-registry-definition-response-format).
 
 #### Revocation Registry Definition Resource file
@@ -142,7 +142,7 @@ In the example below, the content should be saved as a file, for example: `degre
 Note: The associated Credential Definition specified must have enabled revocation support for the Revocation Registry Definition to be able to be used properly in an SDK.
 {% endhint %}
 
-This Revocation Registry Definition Resource file fields should be replicated where possible within the Payload file, to populate a [DID-Linked resource](../../credential-service/did-linked-resources/understanding-dlrs/) stored on cheqd, with the following mapping:
+This Revocation Registry Definition Resource file fields should be replicated where possible within the Payload file, to populate a [DID-Linked resource](../../studio/did-linked-resources/understanding-dlrs/) stored on cheqd, with the following mapping:
 
 | Resource file field | Resource file input | Payload file field | Payload file input     |
 | ------------------- | ------------------- | ------------------ | ---------------------- |
@@ -176,7 +176,7 @@ Below is an example of a Payload file:
 }
 ```
 
-When passing the Payload file to the ledger, additional inputs may be required within the Payload file to populate the [DID-Linked Resource](../../credential-service/did-linked-resources/understanding-dlrs/). In this instance, the only additional information required is:
+When passing the Payload file to the ledger, additional inputs may be required within the Payload file to populate the [DID-Linked Resource](../../studio/did-linked-resources/understanding-dlrs/). In this instance, the only additional information required is:
 
 | Additional parameter | Expected input                   | Rationale                                                                                                                                                                                                                              |
 | -------------------- | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

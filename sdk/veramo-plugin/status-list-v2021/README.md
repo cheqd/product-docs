@@ -24,7 +24,7 @@ The issuer keeps a bitstring list of all Verifiable Credentials it has issued. T
 
 ### Where does cheqd store the Status List?
 
-cheqd stores each Status List and subsequent entries on-ledger as [DID-Linked Resource](../../../architecture/adr-list/adr-002-did-linked-resources.md) versions. This has notable benefits, including the provenance, legitimacy and security of the Status List. For a full list of benefits, see [the context for creating DID-Linked Resources](../../../credential-service/did-linked-resources/understanding-dlrs/context.md).
+cheqd stores each Status List and subsequent entries on-ledger as [DID-Linked Resource](../../../architecture/adr-list/adr-002-did-linked-resources.md) versions. This has notable benefits, including the provenance, legitimacy and security of the Status List. For a full list of benefits, see [the context for creating DID-Linked Resources](../../../studio/did-linked-resources/understanding-dlrs/context.md).
 
 ## Alternatives
 

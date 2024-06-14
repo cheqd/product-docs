@@ -53,7 +53,7 @@ Therefore, for each new Revocation Status List, the the `revocRegDefId` remains 
 
 ### cheqd Revocation Status List Object ID
 
-cheqd uses [DID-Linked Resources](../../credential-service/did-linked-resources/understanding-dlrs/) to identify individual resources, associated with a DID, using fully resolvable DID URLs.
+cheqd uses [DID-Linked Resources](../../studio/did-linked-resources/understanding-dlrs/) to identify individual resources, associated with a DID, using fully resolvable DID URLs.
 
 cheqd resources module uses the following format:
 
@@ -90,7 +90,7 @@ The cheqd AnonCreds Status List request format comprises of:
 
 Both of these inputs are required to provide the ledger enough information to:
 
-1. Populate a [cheqd DID-Linked Resource](../../credential-service/did-linked-resources/understanding-dlrs/); and
+1. Populate a [cheqd DID-Linked Resource](../../studio/did-linked-resources/understanding-dlrs/); and
 2. Compile a standardised AnonCreds Revocation Registry Definition object in the [Response format](revocation-status-list.md#cheqd-status-list-response-format).
 
 #### Status List Resource file
@@ -107,7 +107,7 @@ In the example below, the content should be saved as a file, for example: `degre
 }
 ```
 
-This Status List Resource file inputs should be replicated where possible within the Payload file, to populate a [DID-Linked resource](../../credential-service/did-linked-resources/understanding-dlrs/) stored on cheqd, with the following mapping:
+This Status List Resource file inputs should be replicated where possible within the Payload file, to populate a [DID-Linked resource](../../studio/did-linked-resources/understanding-dlrs/) stored on cheqd, with the following mapping:
 
 | Resource file field | Resource file input  | Payload file field | Payload file input    |
 | ------------------- | -------------------- | ------------------ | --------------------- |
@@ -140,7 +140,7 @@ Below is an example of a Payload file:
 }
 ```
 
-When passing the Payload file to the ledger, additional inputs may be required within the Payload file to populate the [DID-Linked Resource](../../credential-service/did-linked-resources/understanding-dlrs/). In this instance, the only additional information required is:
+When passing the Payload file to the ledger, additional inputs may be required within the Payload file to populate the [DID-Linked Resource](../../studio/did-linked-resources/understanding-dlrs/). In this instance, the only additional information required is:
 
 | Additional parameter | Expected input                                   | Rationale                                                                                                                                                                                                                              |
 | -------------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

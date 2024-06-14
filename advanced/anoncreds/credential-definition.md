@@ -2,7 +2,7 @@
 description: cheqd support for Ledger-Agnostic AnonCreds CredDefs
 ---
 
-# Credential Definitions ("CredDefs")
+# Credential Definitions
 
 ## cheqd AnonCreds Object Method for CredDefs
 
@@ -145,7 +145,7 @@ An example of a CredDef Object content with revocation is below:
 
 ### cheqd CredDef ID
 
-cheqd uses [DID-Linked Resources](../../credential-service/did-linked-resources/understanding-dlrs/) to identify individual resources, associated with a DID, using fully resolvable DID URLs.
+cheqd uses [DID-Linked Resources](../../studio/did-linked-resources/understanding-dlrs/) to identify individual resources, associated with a DID, using fully resolvable DID URLs.
 
 cheqd resources module uses the following path-based syntax:
 
@@ -182,7 +182,7 @@ The cheqd CredDef request format comprises of:
 
 Both of these inputs are required to provide the ledger enough information to:
 
-1. Populate a [cheqd DID-Linked Resource](../../credential-service/did-linked-resources/understanding-dlrs/); and
+1. Populate a [cheqd DID-Linked Resource](../../studio/did-linked-resources/understanding-dlrs/); and
 2. Compile a standardised AnonCreds CredDef object in the [Response format](credential-definition.md#cheqd-creddef-response-format).
 
 #### cheqd CredDef Resource file
@@ -244,7 +244,7 @@ Or with revocation:
 }
 ```
 
-This CredDef Resource file inputs should be replicated where possible within the Payload file, to populate a [DID-Linked resource](../../credential-service/did-linked-resources/understanding-dlrs/) stored on cheqd, with the following mapping:
+This CredDef Resource file inputs should be replicated where possible within the Payload file, to populate a [DID-Linked resource](../../studio/did-linked-resources/understanding-dlrs/) stored on cheqd, with the following mapping:
 
 | CredDef Object field | CredDef Object expected input | Mapped Payload file field | Mapped Payload file input |
 | -------------------- | ----------------------------- | ------------------------- | ------------------------- |
@@ -278,7 +278,7 @@ Below is an example of a Payload file:
 }
 ```
 
-When passing the Payload file to the ledger, additional inputs may be required within the Payload file to populate the [DID-Linked Resource](../../credential-service/did-linked-resources/understanding-dlrs/). In this instance, the only additional information required is:
+When passing the Payload file to the ledger, additional inputs may be required within the Payload file to populate the [DID-Linked Resource](../../studio/did-linked-resources/understanding-dlrs/). In this instance, the only additional information required is:
 
 | Additional parameter | Expected input     | Rationale                                                                                                                                                                                                                              |
 | -------------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

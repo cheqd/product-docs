@@ -11,7 +11,7 @@ The [ledger code package `cheqd-node`](https://github.com/cheqd/cheqd-node) is b
 There are two custom modules on cheqd ledger related to identity functionality:
 
 1. `cheqd` module, for everything related to Decentralized Identifiers (DIDs)
-2. `resource` module, for [DID-Linked Resources](../../credential-service/did-linked-resources/understanding-dlrs/)
+2. `resource` module, for [DID-Linked Resources](../../studio/did-linked-resources/understanding-dlrs/)
 
 ## Developing Golang apps for cheqd
 

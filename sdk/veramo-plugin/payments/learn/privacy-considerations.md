@@ -6,7 +6,7 @@ description: Understand how privacy is protected throughout the payment flow
 
 ## Privacy considerations
 
-cheqd's implementation of Credential Payments uses encrypted [DID-Linked Resources](../../../../credential-service/did-linked-resources/understanding-dlrs/) (such as a Status Lists), with Payment Conditions required to unlock. Learn about cheqd's Access Control Condition logic below:
+cheqd's implementation of Credential Payments uses encrypted [DID-Linked Resources](../../../../studio/did-linked-resources/understanding-dlrs/) (such as a Status Lists), with Payment Conditions required to unlock. Learn about cheqd's Access Control Condition logic below:
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Access Control Conditions</strong></mark></td><td>Understand how cheqd gates encrypted resources using payment conditions and Access Control logic.</td></tr></tbody></table>
 
