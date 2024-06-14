@@ -17,6 +17,7 @@ Below is a comparison between our three initial supported SDKs, Veramo SDK for c
 | Functionality                                                                                                                                            |   Veramo   | Credo | Walt.id SSI Kit |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------: | :---: | :-------------: |
 | **Create cheqd DIDs (**[**ADR**](../architecture/adr-list/adr-001-cheqd-did-method.md)**)**                                                              |     ✔️     |   ✔️  |        ✔️       |
+| **cheqd Credential Payments**                                                                                                                            |     ✔️     |   ❌   |        ❌        |
 | **JSON based JWT Verifiable Credential (**[**spec**](https://www.w3.org/TR/vc-data-model/)**)**                                                          |     ✔️     |   ❌   |        ✔️       |
 | **JSON-LD Verifiable Credential (**[**spec**](https://www.w3.org/TR/vc-data-model/)**)**                                                                 |     ✔️     |   ✔️  |        ✔️       |
 | **AnonCreds (**[**spec**](https://hyperledger.github.io/anoncreds-spec/)**)**                                                                            |      ❌     |   ✔️  |        ❌        |
@@ -32,6 +33,7 @@ Below is a comparison between our three initial supported SDKs, Veramo SDK for c
 | **OpenID for Verifiable Credential Issuance (**[**spec**](https://openid.net/specs/openid-4-verifiable-credential-issuance-1\_0.html)**)**               | ⌛(roadmap) |   ✔️  |        ✔️       |
 | **OpenID for Verifiable Credential Presentations (**[**spec**](https://openid.net/specs/openid-4-verifiable-presentations-1\_0.html)**)**                | ⌛(roadmap) |   ✔️  |        ✔️       |
 | **Status List v2021 Revocation (**[**spec**](https://www.w3.org/TR/vc-status-list/)**)**                                                                 |     ✔️     |   ❌   |        ✔️       |
+| **Token Status List**                                                                                                                                    |      ❌     |   ✔️  |        ✔️       |
 | **AnonCreds Revocation Registry Definitions (**[**spec**](https://docs.cheqd.io/identity/guides/anoncreds/revocation-registry-definition)**)**           |      ❌     |   ✔️  |        ❌        |
 | **AnonCreds Status List Entries (**[**spec**](https://docs.cheqd.io/identity/guides/anoncreds/revocation-status-list)**)**                               |      ❌     |   ✔️  |        ❌        |
 | **Issue Credential Protocol (**[**RFC 0036**](https://github.com/hyperledger/aries-rfcs/blob/master/features/0036-issue-credential/README.md)**)**       |      ❌     |   ✔️  |        ❌        |

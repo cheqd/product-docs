@@ -14,7 +14,7 @@ If you want to learn more about what [Verifiable Credentials and Presentations a
 
 ## Get started
 
-Make sure you've [set up your account with cheqd Studio](../set-up-account.md), then you can start to:
+Make sure you've [set up your account with cheqd Studio](../../getting-started/get-started/set-up-account.md), then you can start to:
 
 <table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue Credentials</strong></mark></td><td>Issue <strong>W3C conformant Verifiable Credentials</strong> easily over REST API.</td><td><a href="issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Verify Credentials</strong></mark></td><td>Verify whether Credentials are valid, have been tampered or have expired.</td><td><a href="verify-credential.md">verify-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Verify Presentation</strong></mark></td><td>Verify whether a combination of Credentials are valid, have been tampered or have expired.</td><td><a href="verify-presentation.md">verify-presentation.md</a></td></tr></tbody></table>
 

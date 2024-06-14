@@ -3,12 +3,12 @@
 ## ℹ️ Getting Started
 
 * [Product Overview](README.md)
+* [Get started with cheqd Studio](getting-started/get-started/README.md)
+  * [👉 Set up your account](getting-started/get-started/set-up-account.md)
+  * [🔄 Advanced configuration options](getting-started/get-started/advanced.md)
 
 ## 🟢 Start using cheqd <a href="#credential-service" id="credential-service"></a>
 
-* [Get started with cheqd Studio](credential-service/get-started/README.md)
-  * [🔄 Advanced configuration options](credential-service/get-started/advanced.md)
-* [👉 Set up your account](credential-service/set-up-account.md)
 * [🆔 Create DIDs and Identity keys](credential-service/dids/README.md)
   * [Create Issuer DID](credential-service/dids/create-did.md)
   * [Create Identity Keys and Subject DIDs](credential-service/dids/create-subject-did.md)
