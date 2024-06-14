@@ -1,5 +1,5 @@
 ---
-description: Understanding cheqd's Credentials-as-a-Service product offering
+description: Understanding cheqd's API product offering, cheqd Studio
 ---
 
 # Get started with cheqd Studio
