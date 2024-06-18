@@ -1,13 +1,10 @@
 # Verifiable Accreditations
 
-Verifiable Accreditations are credentials that are issued from one organisation to another organisation to "accredit" that organisation to perform a particular action. These types of credentials are stored directly on-ledger as [DID-Linked Resources](../../architecture/adr-list/adr-002-did-linked-resources.md), meaning that they are persistent, sequentially versioned and highly available.&#x20;
+Verifiable Accreditations are credentials that are issued from one organisation to another organisation to "accredit" that organisation to perform a particular action. These types of credentials are stored directly on-ledger as [DID-Linked Resources](../../../architecture/adr-list/adr-002-did-linked-resources.md), meaning that they are persistent, sequentially versioned and highly available.&#x20;
 
 There are two types of Verifiable Accreditation:
 
-| Type                                 | Description                                                                                                                                                        |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Verifiable Accreditation to Accredit | This Credential verifies that an organisation has the permissions needed to accredit other organisations for issuing a particular type of Verifiable Accredittion. |
-| Verifiable Accreditation to Attest   | This Credential verifies that an organisation has the permissions needed to issue Verifiable Credentials, defined by a particular schema.                          |
+<table><thead><tr><th width="299">Type</th><th>Description</th></tr></thead><tbody><tr><td>Verifiable Accreditation to Accredit</td><td>This Credential verifies that an organisation has the permissions needed to accredit other organisations for issuing a particular type of Verifiable Accredittion.</td></tr><tr><td>Verifiable Accreditation to Attest</td><td>This Credential verifies that an organisation has the permissions needed to issue Verifiable Credentials, defined by a particular schema.</td></tr></tbody></table>
 
 For a trusted ecosystem, these attestations are required to trace the legitimacy of a credential issuer to a root-of-trust.&#x20;
 
@@ -155,12 +152,6 @@ Notably, Verifiable Accreditations are credentials that are issued to organisati
     "id": "did:cheqd:testnet:098c4f66-b461-4037-9cf0-c5db75b270c6?resourceName=accreditationStatus&resourceType=StatusList2021Revocation",
     "type": "StatusList2021Revocation"
   },
-  "termsOfUse": [
-    {
-      "id": "did:cheqd:testnet:098c4f66-b461-4037-9cf0-c5db75b270c6/resources/ab670b62-469c-4901-af7e-0ce94b5cccea",
-      "type": "IssuanceCertificate"
-    }
-  ],
   "credentialSchema": [
     {
       "id": "did:cheqd:testnet:098c4f66-b461-4037-9cf0-c5db75b270c6/resources/83eb0ed8-37d1-4ba6-9e0b-40d60676d4aa",
@@ -212,8 +203,8 @@ Notably, Verifiable Accreditations are credentials that are issued to organisati
   },
   "termsOfUse": [
     {
-      "id": "https://api-test.ebsi.eu/trusted-issuers-registry/../..xyz",
-      "type": "IssuanceCertificate"
+      "id": "https://example.com/governance-framework/../..xyz",
+      "type": "GovernanceFramework"
     }
   ],
   "credentialSchema": [
@@ -235,4 +226,4 @@ Storing Verifiable Accreditations as DID-Linked Resources enables each accredita
 
 The diagram below shows how DID-Linked Resources can be applied to the trust hierarchy to enable DID resolvable Verifiable Accreditations:
 
-<figure><img src="../../.gitbook/assets/Trust Chains using DLRs.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Trust Chains using DLRs.png" alt=""><figcaption></figcaption></figure>

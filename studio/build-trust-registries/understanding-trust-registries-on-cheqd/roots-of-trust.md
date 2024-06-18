@@ -1,4 +1,4 @@
-# Root of Trust
+# Roots of Trust
 
 ## Traditional Root of Trust
 

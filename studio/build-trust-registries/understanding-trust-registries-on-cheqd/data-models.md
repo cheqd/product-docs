@@ -1,4 +1,4 @@
-# Data model
+# Data Models
 
 ## Process for creating a trust chain
 

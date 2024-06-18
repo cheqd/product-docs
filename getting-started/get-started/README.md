@@ -8,11 +8,11 @@ description: Understanding cheqd's API product offering, cheqd Studio
 
 **cheqd Studio** is a set of REST APIs for using cheqd's identity functionality in a lightweight and highly efficient way.&#x20;
 
-With these APIs, it simplifies the developer experience, helping customers build Trusted Data Markets from the ground up, with zero prior knowledge of the technology under the hood. All of cheqd’s existing open-source libraries remain available, and cheqd Sudio does not necessitate developers to switch their SSI stack in their entirety, but allows them to build into their existing tooling, for example alongside APIs such as the Universal Resolver.
+With these APIs, it simplifies the developer experience, helping customers build cheqd's trust infrastructure into existing applications. All of cheqd’s existing open-source libraries remain available, and cheqd Studio does not necessitate developers to switch their SSI stack in their entirety, but allows them to build into their existing tooling, for example alongside APIs such as the Universal Resolver.
 
 ## Get started
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Sign in / Sign up</strong></mark></td><td>Head to our cheqd Studio and <strong>click Log In</strong> to create an account and get started.</td><td><a href="https://credential-service.cheqd.net/swagger/#/">https://credential-service.cheqd.net/swagger/#/</a></td></tr><tr><td><mark style="color:blue;"><strong>Advanced config options</strong></mark></td><td>Run cheqd Studio yourself or utilise your own external database.</td><td><a href="advanced.md">advanced.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Sign in / Sign up</strong></mark></td><td>Head to our cheqd Studio and <strong>click Log In</strong> to create an account and get started.</td><td><a href="https://credential-service.cheqd.net/swagger/#/">https://credential-service.cheqd.net/swagger/#/</a></td></tr><tr><td><mark style="color:blue;"><strong>Advanced config options</strong></mark></td><td>Run cheqd Studio yourself or utilise your own external database.</td><td><a href="advanced.md">advanced.md</a></td></tr></tbody></table>
 
 ## Features
 

@@ -2,7 +2,7 @@
 description: How a Verifier pays an Issuer to decrypt an encrypted Status List
 ---
 
-# Verifier pays Issuer
+# Create Verifier pays Issuer flow
 
 cheqd Studio supports payments for verifying Credential Status. This is an innovative feature that is also commonly known as cheqd's Payment Rails. Using the API in this tutorial, there are multiple ways for a Verifier to pay an Issuer to unlock and verify a Credential's status.
 
@@ -131,7 +131,7 @@ This on-ledger Resource will contain:
 
 This gives the verifier requisite information they need in order to pay the Issuer to unlock the Credential Status. You can learn more about Access Control Conditions below.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Understanding Access Control Conditions</strong></mark></td><td>Learn what different Payment Conditions mean and how they affect a Verifier when verifying Credentials.</td><td><a href="../../sdk/veramo-plugin/payments/learn/access-control-conditions.md">access-control-conditions.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Understanding Access Control Conditions</strong></mark></td><td>Learn what different Payment Conditions mean and how they affect a Verifier when verifying Credentials.</td><td><a href="learn/access-control-conditions.md">access-control-conditions.md</a></td></tr></tbody></table>
 
 ### Step 2: Pay the Issuer
 

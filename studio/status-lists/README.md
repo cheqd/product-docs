@@ -8,14 +8,14 @@ description: >-
 
 Status Lists are generally sets of indices which can be used to mathematically derive whether an issued Credential has been revoked, suspended or is still valid. Status Lists are crucial for verifier applications to determine whether to accept a credential, presented by a holder.
 
-## Get started
+## What options do I have for creating status lists on cheqd?
+
+There are many different ways to create status lists on cheqd, with options for easy integration (e.g. cheqd Studio) and more bespoke integrations (e.g. Credo and Veramo). Below are a list of options for creating cheqd DIDs.
+
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>cheqd Studio</strong></mark></td><td>Our API product enables users to <strong>use cheqd's functionality with minimal complexity</strong> and easily integrate APIs into existing apps. </td><td><a href="../dids/create-did.md">create-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Credo</strong></mark></td><td>Credo is an SDK which <strong>supports the European Architecture and Reference Framework (ARF)</strong> <strong>standards as well as AnonCreds</strong> with full cheqd support for DIDs. </td><td><a href="../../sdk/credo.md">credo.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Veramo</strong></mark></td><td>The <strong>Veramo SDK Plugin</strong> supports JSON, JSON-LD credentials as well as cheqd Credential Payments in an SDK.</td><td><a href="../../sdk/veramo-plugin/">veramo-plugin</a></td></tr><tr><td><mark style="color:blue;"><strong>Walt.id Community Stack</strong></mark></td><td>Walt.id Community Stack is an SDK that supports the <strong>European Architecture and Reference Framework (ARF)</strong> standards for identity, with full cheqd support. </td><td><a href="../../sdk/ssi-kit.md">ssi-kit.md</a></td></tr></tbody></table>
+
+## Get started with cheqd Studio
 
 There are two predominant Status List formats supported in cheqd Studio. Please choose a Status List type below to get started.
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Status List v2021</strong></mark></td><td>This Status List is a generic Bitstring Status List used for most JSON and JSON-LD credential implementations.</td><td><a href="status-list-v2021/">status-list-v2021</a></td></tr><tr><td><mark style="color:blue;"><strong>Token Status List</strong></mark></td><td>This Status List is generally used for SD-JWT specific credential types.</td><td><a href="token-status-list/">token-status-list</a></td></tr></tbody></table>
-
-## Alternatives
-
-Below are a list of alternatives for creating Status Lists on cheqd.
-
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>DID Registrar</strong></mark></td><td>Simple setup for building cheqd DIDs into existing applications using REST APIs, building into the <a href="https://uniregistrar.io/">Universal Registrar</a>.</td><td><a href="../../advanced/did-registrar/">did-registrar</a></td></tr><tr><td><mark style="color:blue;"><strong>Veramo SDK Plugin</strong></mark></td><td>The <strong>Veramo SDK Plugin</strong> is an extension of the Veramo SDK, a JavaScript framework for Trusted Data, adding support for cheqd functionality.</td><td><a href="../../sdk/veramo-plugin/">veramo-plugin</a></td></tr><tr><td><mark style="color:blue;"><strong>AnonCreds Accumulator Revocation</strong></mark></td><td>Follow the cheqd AnonCreds Object Method to create Accumulator-based Status Lists</td><td><a href="../../advanced/anoncreds/">anoncreds</a></td></tr></tbody></table>

@@ -1,16 +1,10 @@
-# ⛓️ Trust Infrastructure
+# Understanding Trust Registries on cheqd
 
-{% hint style="info" %}
-Note that this work on Trust Infrastructure is in a draft stage, and will change as it is improved and iterated over the coming months.&#x20;
-{% endhint %}
-
-## Issuer Trust model
-
-### Introduction[​](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v3#introduction) <a href="#introduction" id="introduction"></a>
+## Introduction[​](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v3#introduction) <a href="#introduction" id="introduction"></a>
 
 Verifiable Credentials (VCs) are, in most cases, issued by legal entities. Verifiers need to know who issued the VCs, whether the issuer is recognised as trusted within the domain, and who made the recognition. By default, legal entities have no accreditations; thus, verifiers may not recognise the Verifiable Credentials they issued.
 
-cheqd introduces a Verifiable Trust Model, that directly mirrors the model [created by EBSI](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v3), that contains permissions and policies. Permissions allow governance or issuance in the Trust Model, while policies are used to define who made the accreditation, which Trust Framework is followed, and the legal basis of it. Trust Model participants make the whole Verifiable Trust Model publicly available by registering it as [DID-Linked Resources](../../architecture/adr-list/adr-002-did-linked-resources.md) on cheqd.
+cheqd introduces a Verifiable Trust Model, that directly mirrors the model [created by EBSI](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v3), that contains permissions and policies. Permissions allow governance or issuance in the Trust Model, while policies are used to define who made the accreditation, which Trust Framework is followed, and the legal basis of it. Trust Model participants make the whole Verifiable Trust Model publicly available by registering it as [DID-Linked Resources](../../../architecture/adr-list/adr-002-did-linked-resources.md) on cheqd.
 
 The Trust Model enables verifiers to trust roots of hierarchies without needing to know each issuer directly. All permissions and policies are verifiable by verifiers, which allows building greater trust towards issuers.
 
@@ -90,7 +84,7 @@ The Trust Framework Policy is a document that links to a regulation, directive, 
 
 All Trust Model policies are located in the `termsOfUse` property of the corresponding `VerifiableTrustModel` credential that contains the permissions related to the policy.
 
-<figure><img src="../../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ## Permissionless Trust Framework <a href="#validating-the-trust-models-data-model" id="validating-the-trust-models-data-model"></a>
 

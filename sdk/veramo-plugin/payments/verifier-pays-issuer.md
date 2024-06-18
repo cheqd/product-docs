@@ -27,7 +27,7 @@ This on-ledger Resource will contain:
 
 This gives the verifier requisite information they need in order to pay the Issuer to unlock the Credential Status. You can learn more about Access Control Conditions below.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Understanding Access Control Conditions</strong></mark></td><td>Learn what different Payment Conditions mean and how they affect a Verifier when verifying Credentials.</td><td><a href="learn/access-control-conditions.md">access-control-conditions.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Understanding Access Control Conditions</strong></mark></td><td>Learn what different Payment Conditions mean and how they affect a Verifier when verifying Credentials.</td><td><a href="../../../studio/payments/learn/access-control-conditions.md">access-control-conditions.md</a></td></tr></tbody></table>
 
 ### Step 2: Pay the Issuer
 
@@ -41,7 +41,7 @@ Note that the `"feePaymentAmount"` may be specified in ncheq. This is lowest den
 
 ### Step 3: Constructing a payload to verify the Credential
 
-Once the Verifier makes a payment of the specified amount in the payment conditions back to the Issuer, the [Access Control Conditions](learn/access-control-conditions.md) will be met.
+Once the Verifier makes a payment of the specified amount in the payment conditions back to the Issuer, the [Access Control Conditions](../../../studio/payments/learn/access-control-conditions.md) will be met.
 
 {% hint style="info" %}
 Note the `"intervalInSeconds"` which indicates how long after making the payment the Verifier has to verify the Credential.&#x20;
