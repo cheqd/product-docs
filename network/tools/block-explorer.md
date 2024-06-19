@@ -10,7 +10,7 @@ Big Dipper is an open-source block explorer and token management tool serving ov
 
 Check out our Block Explorers here for mainnet and testnet:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Mainnet Block Explorer</strong></mark></td><td>Click here to view our mainnet block explorer for the cheqd network.</td><td><a href="https://bigdipper.live/cheqd">https://bigdipper.live/cheqd</a></td></tr><tr><td><mark style="color:blue;"><strong>Testnet Block Explorer</strong></mark></td><td>Click here to view our testnet block explorer for the cheqd network.</td><td><a href="https://testnet-explorer.cheqd.io/">https://testnet-explorer.cheqd.io/</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Mainnet Block Explorer</strong></mark></td><td>Click here to view our mainnet block explorer for the cheqd network.</td><td><a href="https://explorer.cheqd.io/">https://explorer.cheqd.io/</a></td></tr><tr><td><mark style="color:blue;"><strong>Testnet Block Explorer</strong></mark></td><td>Click here to view our testnet block explorer for the cheqd network.</td><td><a href="https://testnet-explorer.cheqd.io/">https://testnet-explorer.cheqd.io/</a></td></tr></tbody></table>
 
 ### Features specific to cheqd
 
