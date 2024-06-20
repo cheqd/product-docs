@@ -3,9 +3,9 @@
 ## ℹ️ Getting Started
 
 * [Product Overview](README.md)
-* [Get started with cheqd Studio](getting-started/get-started/README.md)
-  * [👉 Set up your account](getting-started/get-started/set-up-account.md)
-  * [🔄 Advanced configuration options](getting-started/get-started/advanced.md)
+* [Get started with cheqd Studio](getting-started/studio/README.md)
+  * [👉 Set up your account](getting-started/studio/set-up-account.md)
+  * [🔄 Advanced configuration options](getting-started/studio/advanced.md)
 
 ## 🟢 Start using cheqd <a href="#studio" id="studio"></a>
 

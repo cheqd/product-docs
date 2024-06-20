@@ -10,7 +10,7 @@ cheqd Studio supports payments for verifying Credential Status. This is an innov
 
 A Verifier will need a cheqd Studio account to take advantage of the `/credential-status/check` API and easily use cheqd's Credential Payments. Make sure you are set up and are logged in, using our guide below:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Set up your account with cheqd Studio and log in to start using the APIs.</td><td><a href="../../getting-started/get-started/set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Set up your account with cheqd Studio and log in to start using the APIs.</td><td><a href="../../getting-started/studio/set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
 
 ## Step 2: Set parameters for check
 
