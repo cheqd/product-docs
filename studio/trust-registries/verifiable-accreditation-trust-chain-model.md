@@ -1,8 +1,18 @@
 ---
-description: Learn about cheqd's Trust Infrastructure model
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
-# Understanding Trust Infrastructure on cheqd
+# Verifiable Accreditation Trust Chain Model
 
 ## Introduction[​](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v3#introduction) <a href="#introduction" id="introduction"></a>
 
@@ -18,7 +28,7 @@ To solve this industry-wide challenge, cheqd introduces a **Verifiable Trust Inf
 
 The Trust Infrastructure Model also includes **permissions and policies** set via "**Verifiable Accreditations**" and an overall "**Governance Framework**". Herein, permissions govern the scope of , while policies are used to define who made the accreditation; which Trust Framework is followed; and, the legal basis of the credential.&#x20;
 
-cheqd Trust Infrastructure users **make the whole Verifiable Trust Model publicly available by registering it as a collection of** [**DID-Linked Resources**](../../../architecture/adr-list/adr-002-did-linked-resources.md) on cheqd. cheqd's Trust Infrastructure therefore enables verifiers to automatically resolve and establish trust in hierarchies of trust without needing to know each organisation directly, using industry-standard resolution mechanisms defined in the W3C DID-Core and the DID Resolution Spec.
+cheqd Trust Infrastructure users **make the whole Verifiable Trust Model publicly available by registering it as a collection of** [**DID-Linked Resources**](../../architecture/adr-list/adr-002-did-linked-resources.md) on cheqd. cheqd's Trust Infrastructure therefore enables verifiers to automatically resolve and establish trust in hierarchies of trust without needing to know each organisation directly, using industry-standard resolution mechanisms defined in the W3C DID-Core and the DID Resolution Spec.
 
 ## Glossary[​](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v3#glossary) <a href="#glossary" id="glossary"></a>
 
@@ -26,6 +36,7 @@ There are many terms used within this guide, and as such, familiarise yourself o
 
 | Abbreviation | Term                                    | Description                                                                                                                                   |
 | ------------ | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| -            | Accreditation Policy                    | Part of a Verifiable Credential, using the `termsOfUse` section to reference the parentAccreditation in the Trust Chain                       |
 | DID          | Decentralised Identifier                | Legal entity identifier for Trust Registry, cannot be natural person in context of Trust Infrastructure                                       |
 | GA           | Governance Authority                    | The legal entity or consortia responsible for writing the Governance Framework. In many instances the Governance Authority is also a Root TAO |
 | GF           | Governance Framework                    | A policy document outlining the purpose, roles, scopes and permissions for a given ecosystem using the Trust Infrastructure.                  |
@@ -83,9 +94,9 @@ The TI permission is defined by `VerifiableAccreditationToAttest`, and the polic
 
 The **Governance Framework Policy** is a document, written by a **Governance Authority**,  that defines requirements that must be met for the Trust Ecosystem. These requirements may include security, legal, operational, or functional requirements and may relate to regulation, directives, national policy, or similar documents.
 
-All Trust Model policies are located in the `termsOfUse` property of the corresponding `VerifiableTrustModel` credential that contains the permissions related to the policy.
+All Trust Model policies are located in the `termsOfUse` property of the corresponding  Accreditation or credential that contains the permissions related to the policy.
 
-<figure><img src="../../../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### Trust Types[​](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v3#concepts) <a href="#glossary" id="glossary"></a>
 
@@ -93,9 +104,11 @@ All Trust Model policies are located in the `termsOfUse` property of the corresp
 
 Accreditations are certifications of being qualified to accredit or attest. Accreditations are attribute-driven and are always restricted to domain-specific credential types. These restrictions cannot be extended. For example, if a legal entity is accredited to accredit Issuers of diploma VCs, they may only pass this or a subset downstream of the hierarchy. Depending on the accreditation, the accredited legal entity may govern (accredit) or issue (attest), but always within the Trust Model and the accredited boundaries.
 
-#### Credential Attestations[​](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v4#attestations) <a href="#attestations" id="attestations"></a>
+Each Verifiable Accreditation is also associated with an `AccreditationPolicy` in the `termsOfUse` section of the credential. This Policy links to the parent or root accreditation to enable verifiers to traverse the trust registry.&#x20;
 
-All Verifiable Credentials are attestations of something. Any issuer may issue non-accredited attestation (default), while accredited Trusted Issuers may issue domain-specific VCs with the accreditation, by attaching the `AttestationPolicy` into `termsOfUse`.
+#### Credentials[​](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v4#attestations) <a href="#attestations" id="attestations"></a>
+
+All Verifiable Credentials are attestations of something. Any issuer may issue credentials (default), while accredited Trusted Issuers may issue domain-specific VCs with the accreditation, by attaching the `AttestationPolicy` into `termsOfUse`.
 
 End Users (legal entities or natural persons) can accumulate multiple Verifiable Credentials from one or many Trust Models.
 
@@ -103,24 +116,16 @@ End Users (legal entities or natural persons) can accumulate multiple Verifiable
 
 The following diagram show how a Root TAO accredits two TAOs lower in the hierarchy:
 
-<figure><img src="../../../.gitbook/assets/Trust_Registry_Hierarchy.png" alt=""><figcaption><p>Diagram showing cheqd Trust model</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Trust Chain Model.png" alt=""><figcaption></figcaption></figure>
 
 where:
 
 * **Root of Trust (rTAO) DID:**
-  * Controls DID-Linked Governance Framework Policy (GFP) and Verifiable Accreditations (VAs) issued from rTAO to TAOs.
+  * Controls Verifiable Accreditations (VAs) issued from rTAO to TAOs.
 * **Accredited Org (TAO) DID:**
-  * Controls DID-Linked Verifiable Accreditations (VAs) issued from TAOs to Trusted Issuers.&#x20;
+  * Controls Verifiable Accreditations (VAs) issued from TAOs to Trusted Issuers.&#x20;
 * **Trusted Issuer DID:**
-  * Controls DID-Linked Accreditation Policies (APs) referencing Accreditor DIDs, Verifiable Accreditations DID URLs and Governance Framework Policy DID URL
+  * Issues Verifiable Credentials with Issuance Policies
 * **Verifiable Credentials**
-  * Issued including the Accreditation Policies in the TermsOfUse section of the data model.
-  *   Issued to Digital Identity Wallet of user or organisation, which can be later verified up the entire trust chain.
-
-      \
-
-
-      \
-
-
-      \
+  * Issued including the Issuance Policies in the `TermsOfUse` section of the data model.
+  * Issued to Digital Identity Wallet of user or organisation, which can be later verified up the entire trust chain.

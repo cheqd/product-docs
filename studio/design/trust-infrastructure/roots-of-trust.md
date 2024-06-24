@@ -1,10 +1,16 @@
 # Roots of Trust
 
-## Traditional Root of Trust
+## Supported Roots of Trust
+
+cheqd supports two predominant Root of Trust Models.&#x20;
+
+## Well-Known DIDs
+
+## X.509 Certificates linked to DIDs
 
 For existing trust frameworks such as eIDAS, organisations need to establish a root of trust using [X.509 certificates](https://www.sectigo.com/resource-library/what-is-x509-certificate) in traditional "[Trusted List](https://digital-strategy.ec.europa.eu/en/policies/eu-trusted-lists)" infrastructure. These certificates establish that an organisation is authorised to provide a service under a particular jurisdiction.&#x20;
 
-Article 22 of the eIDAS Regulation obliges Member States to establish, maintain and publish trusted lists. These lists should include information related to the qualified trust service providers for which they are responsible, and information related to the qualified trust services provided by them. The lists are to be published in a secured manner, electronically signed or sealed in a format suitable for automated processing.
+Article 22 of the eIDAS Regulation obliges Member States to **establish, maintain and publish trusted lists**. These lists should include information related to the qualified trust service providers for which they are responsible, and information related to the qualified trust services provided by them. The lists are to be published in a secured manner, electronically signed or sealed in a format suitable for automated processing.
 
 Standard information in an X509 certificate includes:
 
@@ -26,7 +32,9 @@ As a first iteration of trust infrastructure on cheqd, we suggest that:
 2. `did:cheqd` DIDs can reference X.509 certificates using a serviceEndpoint
 3. X.509 certificates can reference `did:cheqd` DIDs using the "Subject Alternative Name" field within the X.509 certificate.
 
-This will enable Root TAOs to create a reciprocal root of trust across European Trusted Lists for eIDAS compliance, and equally on cheqd.&#x20;
+This will enable Root TAOs to create **a reciprocal root of trust** across European Trusted Lists for eIDAS compliance, and equally on cheqd.&#x20;
+
+
 
 ## Decentralised Root of Trust
 

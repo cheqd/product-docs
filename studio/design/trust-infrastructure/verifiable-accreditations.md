@@ -1,6 +1,6 @@
 # Verifiable Accreditations
 
-Verifiable Accreditations are credentials that are issued from one organisation to another organisation to "accredit" that organisation to perform a particular action. These types of credentials are stored directly on-ledger as [DID-Linked Resources](../../../architecture/adr-list/adr-002-did-linked-resources.md), meaning that they are persistent, sequentially versioned and highly available.&#x20;
+Verifiable Accreditations are credentials that are issued from **one organisation to another organisation to "accredit" that organisation to perform a particular action**. These types of credentials are stored directly on-ledger as [DID-Linked Resources](../../../architecture/adr-list/adr-002-did-linked-resources.md), meaning that they are persistent, sequentially versioned and highly available.&#x20;
 
 There are two types of Verifiable Accreditation:
 
@@ -156,6 +156,13 @@ Notably, Verifiable Accreditations are credentials that are issued to organisati
     {
       "id": "did:cheqd:testnet:098c4f66-b461-4037-9cf0-c5db75b270c6/resources/83eb0ed8-37d1-4ba6-9e0b-40d60676d4aa",
       "type": "FullJsonSchemaValidator2021"
+    },
+  "termsOfUse": {
+    "type": "AccreditationPolicy",
+    "parentAccreditation": "did:cheqd:testnet:098c4f66-b461-4037-9cf0-c5db75b270c6/resources/83eb0ed8-37d1-4ba6-9e0b-40d60676d4aa",
+    "policyId": "https://example.com/policies/124",
+    "rootAuthorisation": "did:cheqd:testnet:098c4f66-b461-4037-9cf0-c5db75b270c6/resources/83eb0ed8-37d1-4ba6-9e0b-40d60676d4aa",
+    "trustFramework": "cheqd Governance Framework"
     }
   ]
 }

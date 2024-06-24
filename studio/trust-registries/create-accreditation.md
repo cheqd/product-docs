@@ -1,6 +1,10 @@
+---
+description: Issue Verifiable Accreditations as DID-Linked Resources
+---
+
 # Create Verifiable Accreditation
 
-Users are able to **issue Verifiable Accreditations on-ledger**, which may be used to **verify  whether a particular recipient of an accreditation is accredited to issue a certain type of credential**, under the scope of a particular governance framework. This implementation on cheqd builds on the principles of the EBSI Trust Chain model, using DID-Linked Resources to create a more standardised format for storing, retrieving and dereferencing to trust registry entries.
+Users are able to **issue Verifiable Accreditations as DID-Linked Resources on-ledger**, which may be used to **verify whether a particular recipient of an accreditation is accredited to issue a certain type of credential**, under the scope of a particular governance framework. This implementation on cheqd builds on the principles of the EBSI Trust Chain model, using DID-Linked Resources to create a more standardised format for storing, retrieving and dereferencing to trust registry entries.
 
 ## Step 1: Set up your account
 
@@ -14,7 +18,7 @@ Before you can create a Verifiable Accreditation, you need to create a DID which
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create an Issuer DID</strong></mark></td><td>Create a W3C conformant DID on cheqd using the <code>did:cheqd</code> DID Method.</td><td><a href="../dids/create-did.md">create-did.md</a></td></tr></tbody></table>
 
-## Step 3. Create your Verifiable Accreditation body and save the file locally
+## Step 3: Create your Verifiable Accreditation body and save the file locally
 
 Verifiable Accreditations are JSON objects that take the form of the Verifiable Credential data model. There are two types of Verifiable Accreditation:
 
@@ -113,12 +117,14 @@ For a trusted ecosystem, these attestations are required to trace the legitimacy
      "id": "did:cheqd:testnet:098c4f66-b461-4037-9cf0-c5db75b270c6?resourceName=accreditationStatus&resourceType=StatusList2021Revocation",
      "type": "StatusList2021Revocation"
   },
-  "termsOfUse": [
-    {
-      "id": "https://example.com/governance-framework/../..xyz",
-      "type": "GovernanceFramework"
-    }
-  ],
+  "termsOfUse": {
+    "type": "AccreditationPolicy",
+    "parentAccreditation": "did:cheqd:testnet:098c4f66-b461-4037-9cf0-c5db75b270c6/resources/da4159f1-ff50-4a7c-b0cb-40d3a1f71003a",
+    "policyId": "https://example.com/policies/124",
+    "rootAuthorisation": "did:cheqd:testnet:098c4f66-b461-4037-9cf0-c5db75b270c6/resources/da4159f1-ff50-4a7c-b0cb-40d3a1f71003a",
+    "trustFramework": "Name of the Governance Framework (GF)",
+    "lib": "urn:professional-qualifications-directive"
+  },
   "credentialSchema": [
     {
       "id": "did:cheqd:testnet:098c4f66-b461-4037-9cf0-c5db75b270c6/resources/da4159f1-ff50-4a7c-b0cb-40d3a1f71003a",
@@ -173,9 +179,9 @@ For example:
 
 ## Step 6: Populate the request inputs and hit the API
 
-Ensure that you link this Token Status List to the DID that you created in step 3. This will sign the resource with the same verification method keys in your DID Document, ensuring cryptographic integrity and Controllership of the Status List.
+Ensure that you link this Verifiable Accreditation to the DID that you created in step 3. This will sign the resource with the same verification method keys in your DID Document, ensuring cryptographic integrity and Controllership of the Status List.
 
-As a DID-Linked Resource, the Token Status List will have a **fully resolvable DID URL** which can be referenced within the body of Verifiable Credentials, and queried by verification policies to establish the status of the specific credential.&#x20;
+As a DID-Linked Resource, the Verifiable Accreditation will have a **fully resolvable DID URL** which can be referenced within the body of Verifiable Credentials, and queried by verification policies to establish the status of the specific credential.&#x20;
 
 {% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/resource/create/{did}" method="post" expanded="true" %}
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
@@ -212,17 +218,17 @@ In the DID Document Metadata, users should find "linkedResourceMetadata", like t
 
 ### Specific version of the Verifiable Accreditation
 
-Here, the "`resourceURI`" specifies the DID URL of the specific Token Status List that was created.
+Here, the "`resourceURI`" specifies the DID URL of the specific Verifiable Accreditation that was created.
 
 ### Latest version of the Verifiable Accreditation
 
-In order to **reference the latest version of the Token Status List**, the following construction needs to be used:
+In order to **reference the latest version of the Verifiable Accreditation**, the following construction needs to be used:
 
 `did:cheqd:<namespace>:<resourceCollectionId>?resourceName=<resourceName>&resourceType=<resourceType>`
 
 For example:
 
-`did:cheqd:testnet:0a5b94d0-a417-48ed-a6f5-4abc9e95888d?resourceName=DegreeCredentialStatus&resourceType=VerifiableAccreditationToAccredit`
+`did:cheqd:testnet:0a5b94d0-a417-48ed-a6f5-4abc9e95888d?resourceName=OxfordUniversityAccreditation&resourceType=VerifiableAccreditationToAccredit`
 
 ### Verifiable Accreditation at specific point in time
 
@@ -232,4 +238,4 @@ In order to **reference the Verifiable Accreditation at a particular point in ti
 
 For example:
 
-`did:cheqd:testnet:0a5b94d0-a417-48ed-a6f5-4abc9e95888d?resourceName=DegreeCredentialStatus&resourceType=VerifiableAccreditationToAccredit&resourceVersionTime=2023-02-22T06:58:18.61Z`
+`did:cheqd:testnet:0a5b94d0-a417-48ed-a6f5-4abc9e95888d?resourceName=OxfordUniversityAccreditation&resourceType=VerifiableAccreditationToAccredit&resourceVersionTime=2023-02-22T06:58:18.61Z`

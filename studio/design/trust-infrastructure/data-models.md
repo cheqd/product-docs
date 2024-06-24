@@ -4,8 +4,9 @@
 
 1. Create `did:cheqd` DID for Root TAO
 2. Establish root of trust, by:
-   1. Associating Root TAO DID with X.509 certificate; or
-   2. Associating Root TAO DID with cheqd Validator
+   1. Associating Root TAO DID with X.509 certificate;
+   2. Publishing Root TAO DID as a Well-Known DID;
+   3. Associating Root TAO DID with cheqd Validator.&#x20;
 3. Create `did:cheqd` DIDs for TAOs or TIs within the ecosystem
 4. Create body of Verifiable Accreditation, specifying:
    1. The `did:cheqd` DID of the subject organisation that the Accreditation is being issued to
