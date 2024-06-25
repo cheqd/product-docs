@@ -2,7 +2,7 @@
 description: Understanding cheqd's API product offering, cheqd Studio
 ---
 
-# Get started with cheqd Studio
+# ➡️ Get started with cheqd Studio
 
 ## Introduction
 

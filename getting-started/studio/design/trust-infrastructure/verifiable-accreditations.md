@@ -1,6 +1,6 @@
 # Verifiable Accreditations
 
-Verifiable Accreditations are credentials that are issued from **one organisation to another organisation to "accredit" that organisation to perform a particular action**. These types of credentials are stored directly on-ledger as [DID-Linked Resources](../../../architecture/adr-list/adr-002-did-linked-resources.md), meaning that they are persistent, sequentially versioned and highly available.&#x20;
+Verifiable Accreditations are credentials that are issued from **one organisation to another organisation to "accredit" that organisation to perform a particular action**. These types of credentials are stored directly on-ledger as [DID-Linked Resources](../../../../architecture/adr-list/adr-002-did-linked-resources.md), meaning that they are persistent, sequentially versioned and highly available.&#x20;
 
 There are two types of Verifiable Accreditation:
 
@@ -233,4 +233,4 @@ Storing Verifiable Accreditations as DID-Linked Resources enables each accredita
 
 The diagram below shows how DID-Linked Resources can be applied to the trust hierarchy to enable DID resolvable Verifiable Accreditations:
 
-<figure><img src="../../../.gitbook/assets/Trust Chains using DLRs.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Trust Chains using DLRs.png" alt=""><figcaption></figcaption></figure>
