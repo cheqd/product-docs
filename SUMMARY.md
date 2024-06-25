@@ -3,21 +3,23 @@
 ## ℹ️ Getting Started
 
 * [Product Overview](README.md)
+* [1️⃣ 1️⃣ Design your Solution](getting-started/design/README.md)
+  * [Establish Parties in Trust Ecosystem](getting-started/design/establish-parties.md)
+  * [Design your Trust Infrastructure](getting-started/design/trust-infrastructure/README.md)
+    * [Roots of Trust](getting-started/design/trust-infrastructure/roots-of-trust.md)
+    * [Verifiable Accreditations](getting-started/design/trust-infrastructure/verifiable-accreditations.md)
+    * [Accreditation and Issuance Policies](getting-started/design/trust-infrastructure/policies.md)
+    * [Data Models](getting-started/design/trust-infrastructure/data-models.md)
+    * [Governance Framework](getting-started/design/trust-infrastructure/governance-framework.md)
+  * [Establish Schemas for Accreditations and Credentials](getting-started/design/schemas.md)
+  * [Choose a Credential Issuance Provider](getting-started/design/choose-a-credential-issuance-provider.md)
+  * [Monetise your solution](getting-started/design/monetise-your-solution.md)
 * [Get started with cheqd Studio](getting-started/studio/README.md)
   * [👉 Set up your account](getting-started/studio/set-up-account.md)
   * [🔄 Advanced configuration options](getting-started/studio/advanced.md)
 
 ## 🟢 Start using cheqd <a href="#studio" id="studio"></a>
 
-* [1️⃣ Design your Solution](studio/design/README.md)
-  * [Establish Parties in Trust Ecosystem](studio/design/establish-parties.md)
-  * [Design your Trust Infrastructure](studio/design/trust-infrastructure/README.md)
-    * [Roots of Trust](studio/design/trust-infrastructure/roots-of-trust.md)
-    * [Verifiable Accreditations](studio/design/trust-infrastructure/verifiable-accreditations.md)
-    * [Accreditation and Issuance Policies](studio/design/trust-infrastructure/policies.md)
-    * [Data Models](studio/design/trust-infrastructure/data-models.md)
-    * [Governance Framework](studio/design/trust-infrastructure/governance-framework.md)
-  * [Establish Schemas for Accreditations and Credentials](studio/design/schemas.md)
 * [🆔 Create DIDs and Identity keys](studio/dids/README.md)
   * [Create Issuer DID](studio/dids/create-did.md)
   * [Create Identity Keys and Subject DIDs](studio/dids/create-subject-did.md)

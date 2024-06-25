@@ -83,7 +83,7 @@ For a trusted ecosystem, these attestations are required to trace the legitimacy
 
 <details>
 
-<summary>Verifiable Accreditation to Attest Example</summary>
+<summary>Example of Verifiable Accreditation to Attest</summary>
 
 ```json
 {
@@ -164,7 +164,7 @@ SGVsbG8sIHdvcmxk
 
 DID-Linked Resources are grouped by having identical **names** and **types**. This means if you want to create a new version of the same Resource, you will need to **specify the same name and type in the following request**.&#x20;
 
-For Verifiable Accreditations, the "type" MUST be either:  **`"VerifiableAccreditationToAccredit"`** or **`"VerifiableAccreditationToAccredit"`**
+For Verifiable Accreditations, the "type" MUST be either:  **`"VerifiableAccreditationToAccredit"`** or **`"VerifiableAccreditationToAttest"`**
 
 For example:
 
