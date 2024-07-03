@@ -4,13 +4,13 @@ description: Learn how to set up your account on cheqd Studio.
 
 # 👉 Set up your account
 
-The user is required to **Log In** to cheqd Studio and authenticate in order to access the APIs. This guards the API from unauthorized access and is required for both testing production environments.
+The user is required to **Log In** to our **cheqd Studio** portal, select a billing plan and then access their API key to authenticate with our APIs. The API key guards the API from unauthorized access and is required for both testing production environments.
 
-## Step 1: Click Log In on cheqd Studio Swagger
+## Step 1: Get started with cheqd Studio portal
 
-Head to our [**cheqd Studio**](https://credential-service.cheqd.net/swagger/#/) and click **Log In** to get started.
+Head to our [**cheqd Studio**](https://credential-service.cheqd.net/swagger/#/) and click **Sign up** or **Log in** to get started.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>cheqd Studio</strong></mark></td><td>Click here to access cheqd Studio Swagger UI to get started with the REST API interface. Log in to get started.</td><td><a href="https://credential-service.cheqd.net/swagger/#/">https://credential-service.cheqd.net/swagger/#/</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>cheqd Studio</strong></mark></td><td>Click here to access cheqd Studio dashboard to get started with a billing plan and creating API keys. </td><td><a href="https://portal.cheqd.net/">https://portal.cheqd.net/</a></td></tr></tbody></table>
 
 cheqd Studio uses a [third party service called LogTo](https://logto.io/) to handle user authentication and login. This allows users to create new accounts as well as sign in using their email, Google single sign-on, or Discord login.&#x20;
 
@@ -24,40 +24,22 @@ cheqd Studio uses a [third party service called LogTo](https://logto.io/) to han
 
 </div>
 
-## Step 2: Locate your cheqd address (for CHEQ)
+## Step 2: Select a Billing plan
 
-The following API can be used to fetch the new account information:
+Once a user has signed in or created a new account, they will need to select a **Billing Plan** from the **Billing tab** on the **cheqd Studio dashboard**.&#x20;
 
-* `customer_id` is used as an identifier for the particular customer using cheqd Studio. It is generated as a sub-field of the JWT token used in the authorization header.
-* `cheqd_account` is used to pay for identity transactions on either `testnet` or `mainnet`. A cheqd account is automatically generated when a new `customer_id` is generated.
+You will be able to get started for free by selecting the **"Test"** plan, which includes a **Free Trial**. cheqd Studio billing uses [Stripe](https://stripe.com/au) as a payments processor and users will need to input their card information to initiate a billing plan.&#x20;
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/account" method="get" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endswagger %}
+{% hint style="info" %}
+New users can cancel their cheqd Studio plan at any time within the **free trial period** and will not be charged.
+{% endhint %}
 
-## (Optional) Step 3: Adding CHEQ tokens to your account
+## Step 3: Create a new API key and authenticate with cheqd Studio APIs
 
-Users will need to add our token, CHEQ, to their `cheqd_account`  on `mainnet` in order to be able to use the ledger-based identity functionality on cheqd Studio, such as creating DIDs and DID-Linked Resources.
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>API keys</strong></mark></td><td>Create a new API key to authenticate with the cheqd Studio APIs.</td><td><a href="api-keys.md">api-keys.md</a></td></tr></tbody></table>
 
-If you need to add CHEQ tokens to your cheqd Studio `cheqd_account`, there are a few steps you need to follow:
+## Step 4: Start using cheqd
 
-<details>
+Get started with our tutorials for cheqd Studio functionality.
 
-<summary>Mainnet</summary>
-
-* First you need to [setup your wallet](../../network/wallets/) which is able to hold CHEQ tokens. We recommend using [Leap Wallet](https://www.leapwallet.io/) which natively supports all CHEQ transactions in a browser plugin or on mobile. Alternatively, follow the [tutorial here to setup your Keplr wallet](../../network/wallets/keplr-setup.md).
-* You will then need to [get CHEQ tokens from any of the listed providers here](https://cheqd.io/get-involved/).
-* You will need to send CHEQ tokens from your new cheqd Wallet account to your `cheqd_account` address for using the Credential Service.
-
-</details>
-
-<details>
-
-<summary>Testnet</summary>
-
-* It is unlikely that you will ever need to top up your Testnet account, as this is handled automatically. However, in the event that your Testnet account runs out of tokens, you can follow the step below.
-* This is super simple. You can add free CHEQ tokens to your cheqd\_account [via our Testnet Faucet](../../network/tools/testnet-faucet.md) by inputting your cheqd account address. Access the [Testnet Faucet directly here](https://testnet-faucet.cheqd.io/).
-
-</details>
-
-Once you have successfully created an account and have topped up your CHEQ tokens, you are ready to get started!
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>DIDs and Identity Keys</strong></mark></td><td>Create <code>did:cheqd</code> DIDs for credential issuers and for DID-Linked Resources</td><td><a href="../../studio/dids/create-did.md">create-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Trust Registries</strong></mark></td><td>Create an end-to-end trusted ecosystem, using Trust Chains to build a full Trust Registry.</td><td><a href="../../studio/trust-registries/">trust-registries</a></td></tr><tr><td><mark style="color:blue;"><strong>Payments</strong></mark></td><td>Create commercial models for verifiable credentials, such as verifier-pays-issuer</td><td><a href="../../studio/payments/">payments</a></td></tr><tr><td><mark style="color:blue;"><strong>Status Lists</strong></mark></td><td>Create status lists, including Status List v2021 and Token Status List</td><td><a href="../../studio/status-lists/">status-lists</a></td></tr><tr><td><mark style="color:blue;"><strong>Credentials</strong></mark></td><td>Issue any type of credential, including SD-JWT, VCDM and AnonCreds via our partners, including trust registries, status lists and payments.</td><td><a href="../../studio/credentials/">credentials</a></td></tr><tr><td><mark style="color:blue;"><strong>Resources</strong></mark></td><td>Create custom resources for policies, presentation definitions, schemas and visual representations of credentials</td><td><a href="../../studio/did-linked-resources/">did-linked-resources</a></td></tr></tbody></table>
