@@ -120,10 +120,8 @@ For a trusted ecosystem, these attestations are required to trace the legitimacy
   "termsOfUse": {
     "type": "AccreditationPolicy",
     "parentAccreditation": "did:cheqd:testnet:098c4f66-b461-4037-9cf0-c5db75b270c6/resources/da4159f1-ff50-4a7c-b0cb-40d3a1f71003a",
-    "policyId": "https://example.com/policies/124",
     "rootAuthorisation": "did:cheqd:testnet:098c4f66-b461-4037-9cf0-c5db75b270c6/resources/da4159f1-ff50-4a7c-b0cb-40d3a1f71003a",
-    "trustFramework": "Name of the Governance Framework (GF)",
-    "lib": "urn:professional-qualifications-directive"
+    "trustFramework": "Name of the Governance Framework (GF)"
   },
   "credentialSchema": [
     {

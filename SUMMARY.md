@@ -45,6 +45,7 @@
 * [🤝 Build Trust Registries](studio/trust-registries/README.md)
   * [Verifiable Accreditation Trust Chain Model](studio/trust-registries/verifiable-accreditation-trust-chain-model.md)
   * [Create Verifiable Accreditation](studio/trust-registries/create-accreditation.md)
+  * [Referencing Trust Registry within a Verifiable Credential](studio/trust-registries/referencing.md)
 * [🎋 Create Status Lists](studio/status-lists/README.md)
   * [Status List v2021](studio/status-lists/status-list-v2021/README.md)
     * [Create Status List v2021](studio/status-lists/status-list-v2021/create-status-list.md)
