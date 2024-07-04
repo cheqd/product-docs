@@ -23,7 +23,8 @@ Within the body of the Verifiable Credential, issuers will need to configure the
     "type": "AccreditationPolicy",
     "parentAccreditation": "did:cheqd:testnet:c2f18b6b-32e2-48d1-a5a8-5f5d2d9798f0/resources/58c01595-f884-4a3b-add4-8c691e16b8ee",
     "rootAuthorisation": "did:cheqd:testnet:c2f18b6b-32e2-48d1-a5a8-5f5d2d9798f0/resources/58c01595-f884-4a3b-add4-8c691e16b8ee",
-    "trustFramework": "cheqd Governance Framework"
+    "trustFramework": "cheqd Governance Framework",
+    "trustFrameworkId": "https://learn.cheqd.io/governance/start"
   }
 }
 ```

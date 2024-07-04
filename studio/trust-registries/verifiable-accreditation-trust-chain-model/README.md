@@ -28,7 +28,7 @@ To solve this industry-wide challenge, cheqd introduces a **Verifiable Trust Inf
 
 The Trust Infrastructure Model also includes **permissions and policies** set via "**Verifiable Accreditations**" and an overall "**Governance Framework**". Herein, permissions govern the scope of , while policies are used to define who made the accreditation; which Trust Framework is followed; and, the legal basis of the credential.&#x20;
 
-cheqd Trust Infrastructure users **make the whole Verifiable Trust Model publicly available by registering it as a collection of** [**DID-Linked Resources**](../../architecture/adr-list/adr-002-did-linked-resources.md) on cheqd. cheqd's Trust Infrastructure therefore enables verifiers to automatically resolve and establish trust in hierarchies of trust without needing to know each organisation directly, using industry-standard resolution mechanisms defined in the W3C DID-Core and the DID Resolution Spec.
+cheqd Trust Infrastructure users **make the whole Verifiable Trust Model publicly available by registering it as a collection of** [**DID-Linked Resources**](../../../architecture/adr-list/adr-002-did-linked-resources.md) on cheqd. cheqd's Trust Infrastructure therefore enables verifiers to automatically resolve and establish trust in hierarchies of trust without needing to know each organisation directly, using industry-standard resolution mechanisms defined in the W3C DID-Core and the DID Resolution Spec.
 
 ## Glossary[​](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v3#glossary) <a href="#glossary" id="glossary"></a>
 
@@ -69,6 +69,8 @@ The **Root TAO** is the owner of a **Trust Chain**, responsible for the **govern
 
 The RTAO permission is defined by `VerifiableAuthorisationForTrustChain`, and the policies are contained in `termsOfUse` as `TrustFrameworkPolicy`.
 
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>RTAO -> TAO</strong></mark></td><td>Learn about how Root TAOs can accredit other TAOs in the trust ecosystem with permissions and Trust Framework Policies.</td><td><a href="rtao-greater-than-tao.md">rtao-greater-than-tao.md</a></td></tr></tbody></table>
+
 ### **Trusted Accreditation Organisation (TAO)**[**​**](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v4#trusted-accreditation-organisation-tao)
 
 A TAO governs an accredited segment on behalf of the RTAO. It may:
@@ -80,6 +82,8 @@ A TAO governs an accredited segment on behalf of the RTAO. It may:
 
 The TAO permission is defined by `VerifiableAccreditationToAccredit`, and the policies are contained in `termsOfUse` as `AccreditationPolicy`.
 
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>TAO -> SubTAO</strong></mark></td><td>Learn about how TAOs can accredit other SubTAOs in the trust ecosystem with permissions and Accreditation Policies.</td><td><a href="tao-greater-than-subtao.md">tao-greater-than-subtao.md</a></td></tr><tr><td><mark style="color:blue;"><strong>TAO - TI</strong></mark></td><td>Learn about how TAOs can accredit Trusted Issuers to issue credentials within the trust ecosystem, using permissions and Accreditation Policies.</td><td><a href="tao-greater-than-ti.md">tao-greater-than-ti.md</a></td></tr></tbody></table>
+
 ### **Trusted Issuer (TI)**[**​**](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v4#trusted-issuer-ti)
 
 A Trusted Issuer represents the Issuer in a Trust Chain. It may issue domain-specific Verifiable Credential types defined by the received accreditation.&#x20;
@@ -90,13 +94,15 @@ Note that issuers may issue Verifiable Credentials outside the Trust Chain, but 
 
 The TI permission is defined by `VerifiableAccreditationToAttest`, and the policies are contained in `termsOfUse` as `AccreditationPolicy`. When the Trusted Issuer is using their accreditation to issue a domain-specific VC, the issued domain VC must contain a `termsOfUse` property with `AttestationPolicy` type, which links to the Trusted Issuer's accreditation and into Root TAO's accreditation, where both are located in TIR.
 
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Referencing Trust Registry within a Verifiable Credential</strong></mark></td><td>Learn how a Trusted Issuer can reference a Trust Registry in an issued credential, enabling a relying party to traverse the Trust Chain.</td><td><a href="referencing.md">referencing.md</a></td></tr></tbody></table>
+
 ## Policies Overview[​](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v4#policies-overview) <a href="#policies-overview" id="policies-overview"></a>
 
 The **Governance Framework Policy** is a document, written by a **Governance Authority**,  that defines requirements that must be met for the Trust Ecosystem. These requirements may include security, legal, operational, or functional requirements and may relate to regulation, directives, national policy, or similar documents.
 
 All Trust Model policies are located in the `termsOfUse` property of the corresponding  Accreditation or credential that contains the permissions related to the policy.
 
-<figure><img src="../../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### Trust Types[​](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v3#concepts) <a href="#glossary" id="glossary"></a>
 
@@ -116,7 +122,7 @@ End Users (legal entities or natural persons) can accumulate multiple Verifiable
 
 The following diagram show how a Root TAO accredits two TAOs lower in the hierarchy:
 
-<figure><img src="../../.gitbook/assets/Trust Chain Model.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Trust Chain Model.png" alt=""><figcaption></figcaption></figure>
 
 where:
 
