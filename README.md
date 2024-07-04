@@ -53,7 +53,7 @@ One of cheqd's primary motives is to make itself accessible to the widest set of
 
 These can be represented through the visual below:
 
-<figure><img src=".gitbook/assets/cheqd packages diagram (1).png" alt=""><figcaption><p>cheqd SDK packages diagram</p></figcaption></figure>
+<figure><img src=".gitbook/assets/cheqd packages.png" alt=""><figcaption><p>cheqd packages diagram</p></figcaption></figure>
 
 ## Get involved
 
