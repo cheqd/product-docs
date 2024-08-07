@@ -8,9 +8,9 @@ The user is required to **Log In** to our **cheqd Studio** portal, select a bill
 
 ## Step 1: Get started with cheqd Studio portal
 
-Head to our [**cheqd Studio**](https://credential-service.cheqd.net/swagger/#/) and click **Sign up** or **Log in** to get started.
+Head to our [**cheqd Studio**](https://studio.cheqd.net/) and click **Sign up** or **Log in** to get started.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>cheqd Studio</strong></mark></td><td>Click here to access cheqd Studio dashboard to get started with a billing plan and creating API keys. </td><td><a href="https://portal.cheqd.net/">https://portal.cheqd.net/</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>cheqd Studio</strong></mark></td><td>Click here to access cheqd Studio dashboard to get started with a billing plan and creating API keys. </td><td><a href="https://studio.cheqd.net/">https://studio.cheqd.net/</a></td></tr></tbody></table>
 
 cheqd Studio uses a [third party service called LogTo](https://logto.io/) to handle user authentication and login. This allows users to create new accounts as well as sign in using their email, Google single sign-on, or Discord login.&#x20;
 
