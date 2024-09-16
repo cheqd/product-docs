@@ -6,11 +6,21 @@ description: Learn how to set up your account on cheqd Studio.
 
 The user is required to **Log In** to our **cheqd Studio** portal, select a billing plan and then access their API key to authenticate with our APIs. The API key guards the API from unauthorized access and is required for both testing production environments.
 
-## Step 1: Get started with cheqd Studio portal
+## Step 1: Get started with cheqd Studio
 
-Head to our [**cheqd Studio**](https://studio.cheqd.net/) and click **Sign up** or **Log in** to get started.
+Head to our **cheqd Studio** and click **Get Started**.
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>cheqd Studio</strong></mark></td><td>Click here to sign up for a cheqd Studio plan to get started with creating API keys. </td><td><a href="https://cheqd.io/solutions/cheqd-studio/">https://cheqd.io/solutions/cheqd-studio/</a></td></tr></tbody></table>
+
+## Step 2: Select a Billing plan
+
+You will be able to get started for free by selecting either plan, which includes a **Free Trial**. cheqd Studio billing uses [Stripe](https://stripe.com/au) as a payments processor and users will need to input their card information to initiate a billing plan.&#x20;
+
+{% hint style="info" %}
+New users can cancel their cheqd Studio plan at any time within the **free trial period** and will not be charged.
+{% endhint %}
+
+## Step 3: Create your account
 
 cheqd Studio uses a [third party service called LogTo](https://logto.io/) to handle user authentication and login. This allows users to create new accounts as well as sign in using their email, Google single sign-on, or Discord login.&#x20;
 
@@ -23,16 +33,6 @@ cheqd Studio uses a [third party service called LogTo](https://logto.io/) to han
 <figure><img src="../../.gitbook/assets/Credential Service Sign up.png" alt="" width="375"><figcaption><p>Create a new account</p></figcaption></figure>
 
 </div>
-
-## Step 2: Select a Billing plan
-
-Once a user has signed in or created a new account, they will need to select a **Billing Plan** from the **Billing tab** on the **cheqd Studio dashboard**.&#x20;
-
-You will be able to get started for free by selecting the **"Test"** plan, which includes a **Free Trial**. cheqd Studio billing uses [Stripe](https://stripe.com/au) as a payments processor and users will need to input their card information to initiate a billing plan.&#x20;
-
-{% hint style="info" %}
-New users can cancel their cheqd Studio plan at any time within the **free trial period** and will not be charged.
-{% endhint %}
 
 ## Step 3: Create a new API key and authenticate with cheqd Studio APIs
 
