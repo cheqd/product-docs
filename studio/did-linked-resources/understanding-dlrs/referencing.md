@@ -58,30 +58,31 @@ The schema in the above Credential dereferences to the following data:
 
 ```json
 {
-    "@context": {
-        "id": "@id",
-        "type": "@type",
-        "@version": 1.1,
-        "schema": "http://schema.org/#",
-        "xsd": "https://www.w3.org/2001/XMLSchema#",
-        "reservationId": {
-            "@id": "schema: reservationId",
-            "@type": "xsd:string"
-            },
-        "reservationStatus": "schema: reservationStatus",
-        "reservationFor": {
-            "@id": "schema: reservationFor",
-            "@type": "@id",
-    "@context": { 
+  "@context": {
+    "id": "@id",
+    "type": "@type",
+    "@version": 1.1,
+    "schema": "http://schema.org/#",
+    "xsd": "https://www.w3.org/2001/XMLSchema#",
+    "reservationId": {
+      "@id": "schema: reservationId",
+      "@type": "xsd:string"
+    },
+    "reservationStatus": "schema: reservationStatus",
+    "reservationFor": {
+      "@id": "schema: reservationFor",
+      "@type": "@id",
+      "@context": {
         "name": "schema: name",
         "startDate": "schema: startDate",
         "endDate": "schema: endDate",
-        "location":{ 
-            "@id": "schema: location",
-            "@type": "xsd: string"},
-            "logo": "schema: logo"
-            }
-        }
+        "location": {
+          "@id": "schema: location",
+          "@type": "xsd: string"
+        },
+        "logo": "schema: logo"
+      }
     }
+  }
 }
 ```
