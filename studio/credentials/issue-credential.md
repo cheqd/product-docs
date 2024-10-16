@@ -34,14 +34,14 @@ Within the JSON object of the API request, you will need to input the `issuer` a
 
 Users have two options for compiling the Credential bodies and issuing Verifiable Credentials:
 
-1. **Filling out a simple form** using the `application/x-www-url-form-encoded` option on the Swagger UI.
-2. **Compiling a Credential body yourself** using the `application/json` option on the Swagger UI.
+1. **Filling out a simple form** using the `application/x-www-url-form-encoded` option within an API client of your choice.
+2. **Compiling a Credential body yourself** using the `application/json` option within an API client of your choice.
 
 ### Option 1. Choose from a few variables and we will compile the Credential body for you
 
 This is the easiest way to issue Credentials and is recommended for users who are not overly familiar with compiling JSON objects.&#x20;
 
-Using the `application/x-www-url-form-encoded` option on the Swagger UI, users are able to choose between the following variables and options to issue Verifiable Credentials:
+Using the `application/x-www-url-form-encoded` option, users are able to choose between the following variables and options to issue Verifiable Credentials:
 
 <details>
 
@@ -229,7 +229,7 @@ Ensure that the `"statusPurpose"` and `"statusListName"` is the same as the exis
 
 ### Option 2. Publish a JSON payload yourself
 
-Instead of using simple form variables, you can issue a Verifiable Credential using a JSON payload with the `application/json` option on the Swagger UI.&#x20;
+Instead of using simple form variables, you can issue a Verifiable Credential using a JSON payload with the `application/json` option.&#x20;
 
 #### Request format
 

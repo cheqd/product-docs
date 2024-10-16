@@ -16,8 +16,8 @@ Make sure you have set up your account with **cheqd Studio** and are logged in, 
 
 Using the `/did/create` API, users have two options for creating a `did:cheqd` DID and associated DID Document on-ledger:
 
-1. **Filling out a simple form** using the `application/x-www-url-form-encoded` option on the Swagger UI
-2. **Compiling a DID Document body yourself** using the `application/json` option on the Swagger UI
+1. **Filling out a simple form** using the `application/x-www-url-form-encoded` option within an API client of your choice.
+2. **Compiling a DID Document body yourself** using the `application/json` option within an API client of your choice.
 
 {% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/did/create" method="post" expanded="true" %}
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
@@ -27,7 +27,7 @@ Using the `/did/create` API, users have two options for creating a `did:cheqd` D
 
 This is the easiest way to create DIDs on cheqd and is recommended for users who are not overly familiar with compiling DID Documents.&#x20;
 
-Using the `application/x-www-url-form-encoded` option on the Swagger UI, users are able to choose between the following variables to compile your DID:
+Using the `application/x-www-url-form-encoded` option, users are able to choose between the following variables to compile your DID:
 
 <details>
 
