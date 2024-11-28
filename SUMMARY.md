@@ -142,7 +142,8 @@
 * [⏩ Setup your Wallet](network/wallets/README.md)
   * [Setup Leap Wallet](network/wallets/setup-leap-wallet/README.md)
     * [Congifure cheqd testnet for Leap](network/wallets/setup-leap-wallet/testnet.md)
-  * [Setup Keplr wallet](network/wallets/keplr-setup.md)
+  * [Setup Keplr Wallet](network/wallets/keplr-setup.md)
+  * [Migrate from Keplr to Leap Wallet](network/wallets/migrate.md)
 * [↪️ Useful Tools and APIs](network/tools/README.md)
   * [Block Explorer](network/tools/block-explorer.md)
   * [Testnet Faucet](network/tools/testnet-faucet.md)
@@ -169,7 +170,7 @@
 ## ⚖️ Legal
 
 * [License](LICENSE.md)
-* [Code of Conduct](CODE\_OF\_CONDUCT.md)
+* [Code of Conduct](CODE_OF_CONDUCT.md)
 * [Security Policy](SECURITY.md)
 
 ## 🆘 Support

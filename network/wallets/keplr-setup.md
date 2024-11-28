@@ -1,14 +1,14 @@
 ---
-description: Setup Keplr wallet to access CHEQ
+description: Setup Keplr Wallet to access CHEQ
 ---
 
-# Setup Keplr wallet
+# Setup Keplr Wallet
 
 _Disclaimer: All information provided is intended to help users get set up on cheqd. However, we do not expressly recommend or mandate a certain approach. All actions taken are your personal responsibility._
 
 ## Overview
 
-In this guide we'll share how to setup a Keplr wallet which you can use for paying for transactions on the cheqd network. We'll also share how to add the cheqd mainnet and testnet to your Keplr wallet.
+In this guide we'll share how to setup a Keplr Wallet which you can use for paying for transactions on the cheqd network. We'll also share how to add the cheqd mainnet and testnet to your Keplr wallet.
 
 ## Setting up a Keplr Wallet on PC/Mac
 
