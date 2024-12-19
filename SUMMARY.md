@@ -98,6 +98,7 @@
     * [Create a new Resource version within existing Collection](sdk/veramo-plugin/did-linked-resources/create-new-version.md)
 * [🍏 Credo](sdk/credo.md)
 * [🫐 Walt.id SSI Kit](sdk/ssi-kit.md)
+* [🍊 ACA-Py](sdk/aca-py.md)
 
 ## 🏗️ Architecture
 
