@@ -6,7 +6,7 @@ description: >-
 
 # 🍏 Credo
 
-[Credo](https://credo.js.org/) is a framework written in TypeScript for building **SSI Agents and services** that aims to be **compliant and interoperable** with the standards defined in the European Archicture and Reference Framework.
+[Credo](https://credo.js.org/) is a framework written in TypeScript for building **SSI Agents and services** that aims to be **compliant and interoperable** with the standards defined in the European Architecture and Reference Framework.
 
 The Aries Framework JavaScript project has recently been rebranded to "Credo" and was moved from the Hyperledger Foundation to the [Open Wallet Foundation](https://openwallet.foundation/).&#x20;
 

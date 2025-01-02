@@ -98,7 +98,14 @@
     * [Create a new Resource version within existing Collection](sdk/veramo-plugin/did-linked-resources/create-new-version.md)
 * [🍏 Credo](sdk/credo.md)
 * [🫐 Walt.id SSI Kit](sdk/ssi-kit.md)
-* [🍊 ACA-Py](sdk/aca-py.md)
+* [🍊 ACA-Py](sdk/aca-py/README.md)
+  * [Setup ACA-Py Agent](sdk/aca-py/setup-aca-py-agent.md)
+  * [Decentralized Identifiers (DIDs)](sdk/aca-py/decentralized-identifiers-dids/README.md)
+    * [Create a DID](sdk/aca-py/decentralized-identifiers-dids/create-a-did.md)
+  * [Verifiable Credentials and Presentations](sdk/aca-py/verifiable-credentials-and-presentations/README.md)
+    * [Issue a Verifiable Credential](sdk/aca-py/verifiable-credentials-and-presentations/issue-a-verifiable-credential.md)
+    * [Present a Verifiable Credential](sdk/aca-py/verifiable-credentials-and-presentations/present-a-verifiable-credential.md)
+    * [Revoke a Verifiable Credential](sdk/aca-py/verifiable-credentials-and-presentations/revoke-a-verifiable-credential.md)
 
 ## 🏗️ Architecture
 
