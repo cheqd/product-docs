@@ -208,7 +208,7 @@ Once you have created your Revocation Registry as a resource on cheqd, the follo
   "resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
   "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
   "resourceId": "af20b1f0-5c4d-4037-9669-eaedddb9c2df",
-  "resourceName": "universityDegree",
+  "resourceName": "universityDegree-1.0",
   "resourceType": "anonCredsRevocRegDef",
   "resourceVersion": "2.0",
   "mediaType": "application/json",
