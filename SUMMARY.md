@@ -102,6 +102,8 @@
   * [Setup ACA-Py Agent](sdk/aca-py/setup-aca-py-agent.md)
   * [Decentralized Identifiers (DIDs)](sdk/aca-py/decentralized-identifiers-dids/README.md)
     * [Create a DID](sdk/aca-py/decentralized-identifiers-dids/create-a-did.md)
+    * [Update a DID](sdk/aca-py/decentralized-identifiers-dids/update-a-did.md)
+    * [Deactivate a DID](sdk/aca-py/decentralized-identifiers-dids/deactivate-a-did.md)
   * [Verifiable Credentials and Presentations](sdk/aca-py/verifiable-credentials-and-presentations/README.md)
     * [Issue a Verifiable Credential](sdk/aca-py/verifiable-credentials-and-presentations/issue-a-verifiable-credential.md)
     * [Present a Verifiable Credential](sdk/aca-py/verifiable-credentials-and-presentations/present-a-verifiable-credential.md)
