@@ -12,11 +12,15 @@ Follow these instructions to create a new DID from ACA-Py Agent and publish the 
 
 For wallet storage, utilise a Postgres database to ensure key persistence, enabling future updates to the DID.
 
+## Create DID
+
+Populate the various `options`and `features`in the JSON request body and call the API to create the DID.&#x20;
+
 {% swagger src="../../../.gitbook/assets/swagger.json" path="/did/cheqd/create" method="post" %}
 [swagger.json](../../../.gitbook/assets/swagger.json)
 {% endswagger %}
 
-#### Request Body
+## Request Body
 
 These are the variables that can be passed in the Body:
 
@@ -40,7 +44,7 @@ Optional Object with Key-Value format for additional configuration options, reco
 
 </details>
 
-### List DIDs associated with your wallet <a href="#list-dids-associated-with-your-account" id="list-dids-associated-with-your-account"></a>
+## List DIDs associated with your wallet <a href="#list-dids-associated-with-your-account" id="list-dids-associated-with-your-account"></a>
 
 After creating a DID or multiple DIDs, users can list all the created DIDs associated with their wallet. Using the `/wallet/did` API.
 

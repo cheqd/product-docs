@@ -3,7 +3,7 @@
 A Decentralized Identifier "DID" is a globally unique identifier that does not require a centralized registration authority because it is registered with distributed ledger technology or other form of decentralized network.
 
 {% hint style="info" %}
-**Learn about DIDs** If you want to learn about what [DIDs are, please go over to our learning site here.](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-decentralised-identifier-did)
+**Learn about DIDs** If you want to learn about what [DIDs are, please go over to our learning site here.](https://learn.cheqd.io/decentralised-identity/dids)
 {% endhint %}
 
 ## Get started
