@@ -6,6 +6,73 @@ Using the `/issue-credential-2.0` API endpoints, it is possible to issue Verifia
 
 Use any supported method to create a connection with the Holder of the credential. Automated [out-of-band protocol](https://identity.foundation/didcomm-messaging/spec/#out-of-band-messages) is recommended.
 
+### 1a: Issuer Creates Connection Invite
+
+The Issuer agent will create a new connection invite for the Holder. This is needed to securely communicate between the Issuer and the Holder agents.
+
+{% swagger src="../../../.gitbook/assets/swagger.json" path="/out-of-band/create-invitation" method="post" %}
+[swagger.json](../../../.gitbook/assets/swagger.json)
+{% endswagger %}
+
+#### Parameters and Request Body
+
+For automated acceptance, pass the following parameters:
+
+<details>
+
+<summary>auto_accept</summary>
+
+Set this to true
+
+</details>
+
+A simple request body is below:
+
+```json
+{
+    "alias": "Holder",
+    "handshake_protocols": ["https://didcomm.org/didexchange/1.0"],
+    "use_public_did": false,
+    "my_label": "Invitation to Holder"
+}
+```
+
+### 1b: Holder receives invitation
+
+The above request will have an `invitation` in the response. Holder will have to copy that inivitation and pass in the body of the following API call.
+
+{% swagger src="../../../.gitbook/assets/swagger.json" path="/out-of-band/receive-invitation" method="post" %}
+[swagger.json](../../../.gitbook/assets/swagger.json)
+{% endswagger %}
+
+#### Parameters and Request Body
+
+<details>
+
+<summary>auto_accept</summary>
+
+Set this to true
+
+</details>
+
+<details>
+
+<summary>alias</summary>
+
+Pass an alias for the connection
+
+</details>
+
+<details>
+
+<summary>use_existing_connection</summary>
+
+Set this to true
+
+</details>
+
+The request body should be the `invitation` value from the `/create-invitation` call by the Issuer.
+
 ## Step 2: Prepare Credential Offer
 
 Generate a credential offer using the `/issue-credential-2.0/send-offer` API. This offer is sent to the holder, informing them about the available credential and its attributes.
