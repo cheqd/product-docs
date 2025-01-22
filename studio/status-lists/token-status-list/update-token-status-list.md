@@ -72,7 +72,7 @@ HfSynOpmBrhgfYguING
 
 ## Step 3: Set the same Resource Name and Type
 
-To create a new version you must use the **same "name" and "type"** for your resource, and ensure that the new Token Status List resource is being created **underneath the same DID** as your initial DID**.** You will also need to be logged into the same cheqd Studio account that you used to create the initial Token Status List to have access to the keys to sign the update.
+To create a new version you must use the **same "name" and "type"** for your resource, and ensure that the new Token Status List resource is being created **underneath the same DID** as your initial DI&#x44;**.** You will also need to be logged into the same cheqd Studio account that you used to create the initial Token Status List to have access to the keys to sign the update.
 
 For Token Status Lists, the "type" MUST be: **`"TokenStatusList"`.**
 

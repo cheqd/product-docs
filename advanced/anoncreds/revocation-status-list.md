@@ -126,7 +126,7 @@ Below is an example of a Payload file:
   "payload": {
     "collectionId": "zF7rhDBfUt9d1gJPjx7s1J",
     "id": "af20b1f0-5c4d-4037-9669-eaedddb9c2df",
-    "name": "universityDegree",
+    "name": "universityDegree-1.0",
     "version": "",
     "resourceType": "anonCredsStatusList",
     "alsoKnownAs": []
@@ -142,9 +142,9 @@ Below is an example of a Payload file:
 
 When passing the Payload file to the ledger, additional inputs may be required within the Payload file to populate the [DID-Linked Resource](../../studio/did-linked-resources/understanding-dlrs/). In this instance, the only additional information required is:
 
-| Additional parameter | Expected input                                   | Rationale                                                                                                                                                                                                                              |
-| -------------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| "name"               | "\<insert same name as CredDef and RevocRegDef>" | The Payload file drawing inputs from the Resource file on its own does not provide the ledger the requisite amount of information to create a full DID-Linked Resource. resourceName must be provided as an additional input parameter |
+| Additional parameter | Expected input                                     | Rationale                                                                                                                                                                                                                                                                                                 |
+| -------------------- | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| "name"               | "\<insert same name as CredDef>-\<Revocation Tag>" | The Payload file drawing inputs from the Resource file on its own does not provide the ledger the requisite amount of information to create a full DID-Linked Resource. resourceName must be provided as an additional input parameter, as well as a revocation tag. There must be a hyphen between them. |
 
 #### Publishing resource using CLI
 
@@ -172,7 +172,7 @@ Once you have created your Status List Object as a resource on cheqd, the follow
   "resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/9d26b902-555d-43bd-bac3-0bedeb462887",
   "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
   "resourceId": "9d26b902-555d-43bd-bac3-0bedeb462887",
-  "resourceName": "universityDegree",
+  "resourceName": "universityDegree-1.0",
   "resourceType": "anonCredsStatusList",
   "mediaType": "application/json",
   "created": "2022-08-21T08:40:00Z",
@@ -230,7 +230,7 @@ Once the transaction has been created, the `resourceMetadata` will look like the
   "resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/c154bc07-43f7-4b69-ac0c-5514001f2ca3",
   "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
   "resourceId": "513d8a44-6188-41c2-8de8-eda562f82947",
-  "resourceName": "universityDegree",
+  "resourceName": "universityDegree-1.0",
   "resourceType": "anonCredsStatusList",
   "mediaType": "application/json",
   "created": "2022-09-01T04:30:01Z",

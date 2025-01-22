@@ -48,7 +48,8 @@
     * [TAO -> SubTAO](studio/trust-registries/verifiable-accreditation-trust-chain-model/tao-greater-than-subtao.md)
     * [TAO -> TI](studio/trust-registries/verifiable-accreditation-trust-chain-model/tao-greater-than-ti.md)
     * [Referencing Trust Registry within a Verifiable Credential](studio/trust-registries/verifiable-accreditation-trust-chain-model/referencing.md)
-  * [Create Verifiable Accreditation](studio/trust-registries/create-accreditation.md)
+  * [Issue Verifiable Accreditation](studio/trust-registries/issue-accreditation.md)
+  * [Verify Verifiable Accreditation](studio/trust-registries/verify-verifiable-accreditation.md)
 * [🎋 Create Status Lists](studio/status-lists/README.md)
   * [Status List v2021](studio/status-lists/status-list-v2021/README.md)
     * [Create Status List v2021](studio/status-lists/status-list-v2021/create-status-list.md)
@@ -97,6 +98,19 @@
     * [Create a new Resource version within existing Collection](sdk/veramo-plugin/did-linked-resources/create-new-version.md)
 * [🍏 Credo](sdk/credo.md)
 * [🫐 Walt.id SSI Kit](sdk/ssi-kit.md)
+* [🍊 ACA-Py](sdk/aca-py/README.md)
+  * [Setup ACA-Py Agent](sdk/aca-py/setup-aca-py-agent.md)
+  * [Decentralized Identifiers (DIDs)](sdk/aca-py/decentralized-identifiers-dids/README.md)
+    * [Create a DID](sdk/aca-py/decentralized-identifiers-dids/create-a-did.md)
+    * [Update a DID](sdk/aca-py/decentralized-identifiers-dids/update-a-did.md)
+    * [Deactivate a DID](sdk/aca-py/decentralized-identifiers-dids/deactivate-a-did.md)
+  * [DID-Linked Resources](sdk/aca-py/did-linked-resources/README.md)
+    * [Create AnonCreds Schema](sdk/aca-py/did-linked-resources/create-anoncreds-schema.md)
+    * [Create AnonCreds Credential Definition](sdk/aca-py/did-linked-resources/create-anoncreds-credential-definition.md)
+  * [Verifiable Credentials and Presentations](sdk/aca-py/verifiable-credentials-and-presentations/README.md)
+    * [Issue a Verifiable Credential](sdk/aca-py/verifiable-credentials-and-presentations/issue-a-verifiable-credential.md)
+    * [Present a Verifiable Credential](sdk/aca-py/verifiable-credentials-and-presentations/present-a-verifiable-credential.md)
+    * [Revoke a Verifiable Credential](sdk/aca-py/verifiable-credentials-and-presentations/revoke-a-verifiable-credential.md)
 
 ## 🏗️ Architecture
 
@@ -139,8 +153,10 @@
   * [Identity Write Pricing](network/cheqd/identity-write-pricing.md)
   * [Comparison to Hyperledger Indy](network/cheqd/comparison-to-hyperledger-indy.md)
 * [⏩ Setup your Wallet](network/wallets/README.md)
-  * [Setup Leap Wallet](network/wallets/setup-leap-wallet.md)
-  * [Setup Keplr wallet](network/wallets/keplr-setup.md)
+  * [Setup Leap Wallet](network/wallets/setup-leap-wallet/README.md)
+    * [Congifure cheqd testnet for Leap](network/wallets/setup-leap-wallet/testnet.md)
+  * [Setup Keplr Wallet](network/wallets/keplr-setup.md)
+  * [Migrate from Keplr to Leap Wallet](network/wallets/migrate.md)
 * [↪️ Useful Tools and APIs](network/tools/README.md)
   * [Block Explorer](network/tools/block-explorer.md)
   * [Testnet Faucet](network/tools/testnet-faucet.md)
@@ -160,14 +176,16 @@
     * [0.6.x](network/network-upgrades/2022/0.6.x.md)
   * [2023](network/network-upgrades/2023/README.md)
     * [1.x](network/network-upgrades/2023/1.x.md)
-  * [2024](network/network-upgrades/2024.md)
+  * [2024](network/network-upgrades/2024/README.md)
+    * [2.x](network/network-upgrades/2024/2.x.md)
+    * [3.x](network/network-upgrades/2024/3.x.md)
   * [Root Cause Analysis of outages](network/network-upgrades/root-cause-analysis-of-outages/README.md)
     * [v1.x upgrade RCA](network/network-upgrades/root-cause-analysis-of-outages/v1.x-upgrade-rca.md)
 
 ## ⚖️ Legal
 
 * [License](LICENSE.md)
-* [Code of Conduct](CODE\_OF\_CONDUCT.md)
+* [Code of Conduct](CODE_OF_CONDUCT.md)
 * [Security Policy](SECURITY.md)
 
 ## 🆘 Support

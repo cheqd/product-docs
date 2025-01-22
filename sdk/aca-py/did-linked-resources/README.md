@@ -1,0 +1,8 @@
+# DID-Linked Resources
+
+**"DID-Linked Resources"** are identified with a [`did:cheqd` Decentralized Identifier](https://docs.cheqd.io/product/architecture/adr-list/adr-002-did-linked-resources) with a [Universally Unique Identifier (UUID)](https://www.uuidgenerator.net/) that acts as a permanently-accessible link to fetch the resources from the cheqd ledger. We refer to this as the "**resource ID**". Through the "**resource ID**" or a set of DID URL query parameters, applications are able to persistently access a digital resource on the cheqd network.
+
+## Get started
+
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Understanding DLRs</strong></mark></td><td>More details about DID-Linked Resources on Cheqd.</td><td></td><td><a href="../../../studio/did-linked-resources/understanding-dlrs/">understanding-dlrs</a></td></tr><tr><td><mark style="color:blue;"><strong>Understanding AnonCreds</strong></mark></td><td>More details about AnonCreds Object Method.</td><td></td><td><a href="../../../advanced/anoncreds/">anoncreds</a></td></tr><tr><td><mark style="color:blue;"><strong>Create Schema</strong></mark></td><td>Create an AnonCreds Schema.</td><td></td><td><a href="create-anoncreds-schema.md">create-anoncreds-schema.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create Credential Definition</strong></mark></td><td>Create an AnonCreds Credential Definition</td><td></td><td><a href="create-anoncreds-credential-definition.md">create-anoncreds-credential-definition.md</a></td></tr></tbody></table>
+

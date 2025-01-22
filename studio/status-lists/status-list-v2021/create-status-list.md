@@ -44,8 +44,8 @@ For the purpose of this tutorial, we will assume the user is creating an unencry
 
 Using the `/credential-status/create/unencrypted` API, users have two options for creating an encrypted Status List on-ledger:
 
-1. **Filling out a simple form** using the `application/x-www-url-form-encoded` option on the Swagger UI.
-2. **Compiling a Status List payload yourself** using the `application/json` option on the Swagger UI.
+1. **Filling out a simple form** using the `application/x-www-url-form-encoded` option within an API client of your choice.
+2. **Compiling a Status List payload yourself** using the `application/json` option within an API client of your choice.
 
 {% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/credential-status/create/unencrypted" method="post" expanded="true" %}
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
@@ -55,7 +55,7 @@ Using the `/credential-status/create/unencrypted` API, users have two options fo
 
 This is the easiest way to create unencrypted Status Lists on cheqd and is recommended for users who are not overly familiar with compiling JSON objects.&#x20;
 
-Using the `application/x-www-url-form-encoded` option on the Swagger UI, users are able to choose between the following variables and options to create an unencrypted Status List on-ledger:
+Using the `application/x-www-url-form-encoded` option, users are able to choose between the following variables and options to create an unencrypted Status List on-ledger:
 
 <details>
 

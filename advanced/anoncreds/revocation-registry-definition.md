@@ -48,7 +48,7 @@ The required content and data model for the AnonCreds Revocation Registry Defini
       * `z` - a public key used to sign the accumulator (described further below)
   * `maxCredNum` - The maximum amount of Credentials that can be revoked in the Revocation Registry before a new one needs to be started
   * `tailsLocation` - The URL pointing to the related tails file
-  * `tailsHash` - The hash of the tails file [TAILS\_FILE](https://hyperledger.github.io/anoncreds-spec/#term:tails\_file) (see also: [next section](https://hyperledger.github.io/anoncreds-spec/#tails-file-and-tails-file-generation)) resulting from hashing the tails file version prepended to the tails file as SHA256 and then encoded to base58.
+  * `tailsHash` - The hash of the tails file [TAILS\_FILE](https://hyperledger.github.io/anoncreds-spec/#term:tails_file) (see also: [next section](https://hyperledger.github.io/anoncreds-spec/#tails-file-and-tails-file-generation)) resulting from hashing the tails file version prepended to the tails file as SHA256 and then encoded to base58.
 
 For example, the on-ledger Revocation Registry Definition Object Content is as fol
 
@@ -162,7 +162,7 @@ Below is an example of a Payload file:
   "payload": {
     "collectionId": "zF7rhDBfUt9d1gJPjx7s1J",
     "id": "af20b1f0-5c4d-4037-9669-eaedddb9c2df",
-    "name": "universityDegree", // this is an additional input
+    "name": "universityDegree-1.0", // this is an additional input
     "version": "2.0", // this is an optional additional input
     "resourceType": "anonCredsRevocRegDef",
     "alsoKnownAs": []
@@ -178,9 +178,9 @@ Below is an example of a Payload file:
 
 When passing the Payload file to the ledger, additional inputs may be required within the Payload file to populate the [DID-Linked Resource](../../studio/did-linked-resources/understanding-dlrs/). In this instance, the only additional information required is:
 
-| Additional parameter | Expected input                   | Rationale                                                                                                                                                                                                                              |
-| -------------------- | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| "name"               | "\<insert same name as CredDef>" | The Payload file drawing inputs from the Resource file on its own does not provide the ledger the requisite amount of information to create a full DID-Linked Resource. resourceName must be provided as an additional input parameter |
+| Additional parameter | Expected input                                     | Rationale                                                                                                                                                                                                                                                                                                 |
+| -------------------- | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| "name"               | "\<insert same name as CredDef>-\<revocation tag>" | The Payload file drawing inputs from the Resource file on its own does not provide the ledger the requisite amount of information to create a full DID-Linked Resource. resourceName must be provided as an additional input parameter, as well as a revocation tag. There must be a hyphen between them. |
 
 #### Publishing resource using CLI
 
@@ -208,7 +208,7 @@ Once you have created your Revocation Registry as a resource on cheqd, the follo
   "resourceURI": "did:cheqd:mainnet:zF7rhDBfUt9d1gJPjx7s1J/resources/af20b1f0-5c4d-4037-9669-eaedddb9c2df",
   "resourceCollectionId": "zF7rhDBfUt9d1gJPjx7s1J",
   "resourceId": "af20b1f0-5c4d-4037-9669-eaedddb9c2df",
-  "resourceName": "universityDegree",
+  "resourceName": "universityDegree-1.0",
   "resourceType": "anonCredsRevocRegDef",
   "resourceVersion": "2.0",
   "mediaType": "application/json",
