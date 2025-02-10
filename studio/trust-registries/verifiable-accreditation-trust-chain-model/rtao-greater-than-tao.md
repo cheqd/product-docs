@@ -62,3 +62,49 @@ Whereby:
 | type             | Must be `TrustFrameworkPolicy`                                  |
 | trustFramework   | Name of Governance Framework set by the Governance Authority    |
 | trustFrameworkId | URL linking to where the written Governance Framework is stored |
+
+### Example of fully formed Accreditation
+
+The example below shows a Verifiable Accreditation that is issued by an rTAO to a TAO, specifying a schema under which the recipient is able to use for issuing their own accreditations.
+
+```
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://schema.org/schema.jsonld",
+    "https://veramo.io/contexts/profile/v1"
+  ],
+  "issuer": {
+    "id": "did:cheqd:testnet:b003df6f-ec8e-48dd-9a2b-7011c5cf0a5e"
+  },
+  "type": [
+    "VerifiableCredential",
+    "VerifiableAuthorisationForTrustChain"
+  ],
+  "issuanceDate": "2024-08-07T02:08:30.000Z",
+  "credentialSubject": {
+    "accreditedFor": [
+      {
+        "schemaId": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:b003df6f-ec8e-48dd-9a2b-7011c5cf0a5e?resourceName=VerifiableAccreditation&resourceType=JSONSchemaValidator2020",
+        "types": [
+          "VerifiableCredential",
+          "VerifiableAccreditation",
+          "VerifiableAttestation",
+          "VerifiableAccreditationToAccredit"
+        ]
+      }
+    ],
+    "id": "did:cheqd:testnet:6af412d7-2f04-4e12-a424-e6719db487ad"
+  },
+  "termsOfUse": {
+    "type": "TrustFrameworkPolicy",
+    "trustFramework": "cheqd Governance Framework",
+    "trustFrameworkId": "https://learn.cheqd.io/governance/start"
+  },
+  "proof": {
+    "type": "JwtProof2020",
+    "jwt": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vc2NoZW1hLm9yZy9zY2hlbWEuanNvbmxkIiwiaHR0cHM6Ly92ZXJhbW8uaW8vY29udGV4dHMvcHJvZmlsZS92MSJdLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW50aWFsIiwiVmVyaWZpYWJsZUF1dGhvcmlzYXRpb25Gb3JUcnVzdENoYWluIl0sImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImFjY3JlZGl0ZWRGb3IiOlt7InNjaGVtYUlkIjoiZGlkOmNoZXFkOnRlc3RuZXQ6OGVhMDM2ZGEtZjM0MC00ODBkLTg5NTItZjU1NjFlYTE3NjNjL3Jlc291cmNlcy9iMTAxNDZkNy0wZDBmLTQxZTAtOGVlMy1jNzZkYjY0ODkwYmUiLCJ0eXBlcyI6WyJWZXJpZmlhYmxlQ3JlZGVudGlhbCIsIlZlcmlmaWFibGVBY2NyZWRpdGF0aW9uIiwiVmVyaWZpYWJsZUF0dGVzdGF0aW9uIiwiVmVyaWZpYWJsZUFjY3JlZGl0YXRpb25Ub0FjY3JlZGl0Il0sImxpbWl0SnVyaXNkaWN0aW9uIjoiaHR0cHM6Ly9wdWJsaWNhdGlvbnMuZXVyb3BhLmV1L3Jlc291cmNlL2F1dGhvcml0eS9hdHUvRklOIn1dfX0sInN1YiI6ImRpZDpjaGVxZDp0ZXN0bmV0OjZhZjQxMmQ3LTJmMDQtNGUxMi1hNDI0LWU2NzE5ZGI0ODdhZCIsIm5iZiI6MTcyMjk5NjUxMCwiaXNzIjoiZGlkOmNoZXFkOnRlc3RuZXQ6YjAwM2RmNmYtZWM4ZS00OGRkLTlhMmItNzAxMWM1Y2YwYTVlIn0.CrEirG-Yki2HCfY6GjNR_Oqx0ZV6uJr1NPpTTLnVWfG1Q9R3YASj7IyEZ3FtVGRmdSNhQ9v2pmPijVxeBnwPAg"
+  }
+}
+```
+
