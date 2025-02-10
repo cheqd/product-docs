@@ -67,7 +67,7 @@ Whereby:
 
 The example below shows a Verifiable Accreditation that is issued by an rTAO to a TAO, specifying a schema under which the recipient is able to use for issuing their own accreditations.
 
-```
+```json
 {
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
@@ -107,4 +107,12 @@ The example below shows a Verifiable Accreditation that is issued by an rTAO to 
   }
 }
 ```
+
+For all Verifiable Accreditations, the accreditations are stored as DID-Linked Resources (DLRs), linked to the DID of the Accreditor. This means that the Accreditations are publically available, fully DID resolvable and are signed by the `authentication` keys within the DID Document of the Accreditor.
+
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>DID-Linked Resources</strong></mark></td><td>Learn about cheqd's approach to implementing DID-Linked Resources</td><td><a href="../../../architecture/adr-list/adr-002-did-linked-resources.md">adr-002-did-linked-resources.md</a></td></tr></tbody></table>
+
+To issue a Verifiable Accreditation, follow the tutorial below:
+
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Issue Verifiable Accreditation</td><td>Issue a Verifiable Accreditation to start a trust registry on cheqd</td><td><a href="../issue-accreditation.md">issue-accreditation.md</a></td></tr></tbody></table>
 
