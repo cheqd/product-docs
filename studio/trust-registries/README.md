@@ -4,7 +4,7 @@ description: Establish end-to-end trust using cheqd's trust registry infrastruct
 
 # 🤝 Build Trust Registries
 
-Trust Registries enable a Relying Party to determine the authenticity of a legal entity within a digital credential ecosytem. Trust Registries are crucial to establish for production environments, because they add extra levels of assurance to the authenticity of Decentralized Identifiers (DIDs).&#x20;
+Trust Registries enable a Relying Party to determine the authenticity and authorization of a legal entity within a digital credential ecosystem. Trust Registries are crucial to establish for production environments, because they allow relying parties to make informed decisions on whether to trust the credentials they receive.
 
 cheqd has **pioneered a industry-leading trust registry solution**, allowing users to **create hierarchical chains of trust, with each trust registry entry being DID-Resolvable**.
 

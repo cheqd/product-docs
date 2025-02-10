@@ -48,9 +48,31 @@ There are many terms used within this guide, and as such, familiarise yourself o
 | -            | Verifiable Accreditation                | Type of on-ledger Verifiable Credential that is specifically used for establishing governance permissions and policies                        |
 | -            | Verifiable Trust Model                  | Permissions with policies to either accredit, or to attest                                                                                    |
 
+## Establishing a Trust Hierarchy <a href="#hierarchy-examples" id="hierarchy-examples"></a>
+
+cheqd's Trust Registry model is predicated on the notion of a trust hierarchy, which is conceptually very similar to traditional Public Key Infrastructure (PKI). Specifically, the model relies on a **Root of Trust** from which trusted relationships can be established.
+
+In our model, each organisation in the trust hierarchy is able to issue Verifiable Accreditations to other entities, conveying a set of permissions or scopes that determine what the recipient entity is permitted to do.&#x20;
+
+The following diagram show how a Root TAO accredits two TAOs lower in the hierarchy:
+
+<figure><img src="../../../.gitbook/assets/Trust Chain Model.png" alt=""><figcaption></figcaption></figure>
+
+where:
+
+* **Root of Trust (rTAO) DID:**
+  * Controls Verifiable Accreditations (VAs) issued from rTAO to TAOs.
+* **Accredited Org (TAO) DID:**
+  * Controls Verifiable Accreditations (VAs) issued from TAOs to Trusted Issuers.&#x20;
+* **Trusted Issuer DID:**
+  * Issues Verifiable Credentials with Issuance Policies
+* **Verifiable Credentials**
+  * Issued including the Issuance Policies in the `TermsOfUse` section of the data model.
+  * Issued to Digital Identity Wallet of user or organisation, which can be later verified up the entire trust chain.
+
 ## Trust Infrastructure Roles and their Permissions <a href="#trust-model-roles-and-their-permissions" id="trust-model-roles-and-their-permissions"></a>
 
-Depending on their accreditations and authorisations, legal entities can play the following roles:
+As shown in the diagram above, legal entities can play the following roles:
 
 * **Root Trusted Accreditation Organisation (Root TAO)**
 * **Trusted Accreditation Organisation (TAO)**
@@ -117,21 +139,3 @@ Each Verifiable Accreditation is also associated with an `AccreditationPolicy` i
 All Verifiable Credentials are attestations of something. Any issuer may issue credentials (default), while accredited Trusted Issuers may issue domain-specific VCs with the accreditation, by attaching the `AttestationPolicy` into `termsOfUse`.
 
 End Users (legal entities or natural persons) can accumulate multiple Verifiable Credentials from one or many Trust Models.
-
-### Hierarchy example <a href="#hierarchy-examples" id="hierarchy-examples"></a>
-
-The following diagram show how a Root TAO accredits two TAOs lower in the hierarchy:
-
-<figure><img src="../../../.gitbook/assets/Trust Chain Model.png" alt=""><figcaption></figcaption></figure>
-
-where:
-
-* **Root of Trust (rTAO) DID:**
-  * Controls Verifiable Accreditations (VAs) issued from rTAO to TAOs.
-* **Accredited Org (TAO) DID:**
-  * Controls Verifiable Accreditations (VAs) issued from TAOs to Trusted Issuers.&#x20;
-* **Trusted Issuer DID:**
-  * Issues Verifiable Credentials with Issuance Policies
-* **Verifiable Credentials**
-  * Issued including the Issuance Policies in the `TermsOfUse` section of the data model.
-  * Issued to Digital Identity Wallet of user or organisation, which can be later verified up the entire trust chain.
