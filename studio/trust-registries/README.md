@@ -20,7 +20,7 @@ Learn about a data model below:
 
 Start building with our cheqd Studio APIs and configure a trust registry for your digital credential ecosystem:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create Verifiable Accreditation</strong></mark></td><td>Issue Verifiable Accreditations between DIDs on the cheqd Network, to accredit the DID to perform a certain action.</td><td><a href="issue-accreditation.md">issue-accreditation.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue Verifiable Accreditation</strong></mark></td><td>Issue Verifiable Accreditations between DIDs on the cheqd Network, to accredit the DID to perform a certain action.</td><td><a href="issue-accreditation.md">issue-accreditation.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Verify Verifiable Accreditation</strong></mark></td><td>Verify Verifiable Accreditations to determine whether a DID is trustworthy, and is accredited by a Root of Trust</td><td><a href="verify-verifiable-accreditation.md">verify-verifiable-accreditation.md</a></td></tr></tbody></table>
 
 ## Extensions
 
