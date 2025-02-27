@@ -10,6 +10,18 @@ ACA-Py now includes support for the **Cheqd DID** method, facilitating integrati
 
 AnonCreds using cheqd are facilitated using the [cheqd AnonCreds Object Method](https://docs.cheqd.io/product/advanced/anoncreds).
 
+## **Universal Registrar Integration**
+
+The Cheqd plugin now supports **dynamic DID registration** using the Universal Registrar. This eliminates the need for separate configurations for different DID methods—users simply need to run the appropriate driver.
+
+### **Key Benefits**
+
+* **Unified DID Support**: Allows multiple DID method registrations (not just Cheqd) through a single interface.
+* **Streamlined Setup**: Reduces configuration complexity by dynamically handling DID registrations.
+* **Seamless Interoperability**: Integrates effortlessly with supported DID methods.
+
+For further configuration and usage examples, refer to the [Universal Registrar GitHub repository](https://github.com/decentralized-identity/universal-registrar).
+
 ## Get started <a href="#get-started" id="get-started"></a>
 
 <table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>cheqd Agent Setup</strong></mark></td><td>Setup the ACA-Py agent with cheqd plugin.</td><td></td><td><a href="setup-aca-py-agent.md">setup-aca-py-agent.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create cheqd DIDs</strong></mark></td><td>Use the agent to create cheqd DIDs.</td><td></td><td><a href="decentralized-identifiers-dids/create-a-did.md">create-a-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue a Credential</strong></mark></td><td>Issue a verifiable credential using ACA-Py agent.</td><td></td><td><a href="verifiable-credentials-and-presentations/issue-a-verifiable-credential.md">issue-a-verifiable-credential.md</a></td></tr></tbody></table>
