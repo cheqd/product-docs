@@ -153,22 +153,21 @@ Using **PostgreSQL as a wallet storage backend** is recommended for scalability 
 
 ## Build the Agent and deploy
 
-1. Example Dockerfile:
+1.  Example Dockerfile:
 
-```docker
-FROM ghcr.io/openwallet-foundation/acapy:py3.12-1.1.0
+    ```docker
+    FROM ghcr.io/openwallet-foundation/acapy:py3.12-1.1.0
 
-USER root
+    USER root
 
-# install plugins as binaries
-RUN pip install git+https://github.com/openwallet-foundation/acapy-plugins@main#subdirectory=cheqd
+    # install plugins as binaries
+    RUN pip install git+https://github.com/openwallet-foundation/acapy-plugins@main#subdirectory=cheqd
 
-USER $user
-COPY ./configs configs
+    USER $user
+    COPY ./configs configs
 
-ENTRYPOINT ["aca-py"]
-```
-
+    ENTRYPOINT ["aca-py"]
+    ```
 2.  Build the ACA-Py Agent docker image with the plugin.
 
     ```bash
