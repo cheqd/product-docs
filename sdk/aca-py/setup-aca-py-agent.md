@@ -136,7 +136,7 @@ Using **PostgreSQL as a wallet storage backend** is recommended for scalability 
 #### **Setting Up PostgreSQL for ACA-Py**
 
 1. Install PostgreSQL and create a database for ACA-Py.
-2.  Configure ACA-Py to use PostgreSQL, add the following to `settings.yml`:
+2.  Configure ACA-Py to use PostgreSQL, add the following to `./configs/settings.yml`:
 
     ```yaml
     wallet-name: issuer
@@ -148,14 +148,12 @@ Using **PostgreSQL as a wallet storage backend** is recommended for scalability 
 3.  Start ACA-Py with PostgreSQL-backed wallet storage.
 
     ```bash
-    aca-py start --arg-file ./settings.yml
+    aca-py start --arg-file ./configs/settings.yml
     ```
 
 ## Build the Agent and deploy
 
-Build the ACA-Py Agent docker image with the plugin, and then deploy on your choice of infrastructure.&#x20;
-
-Example Dockerfile:
+1. Example Dockerfile:
 
 ```docker
 FROM ghcr.io/openwallet-foundation/acapy:py3.12-1.1.0
@@ -170,6 +168,38 @@ COPY ./configs configs
 
 ENTRYPOINT ["aca-py"]
 ```
+
+2.  Build the ACA-Py Agent docker image with the plugin.
+
+    ```bash
+    docker build -t issuer-agent .
+    ```
+3.  Deploy the agent. Sample docker-compose is below.
+
+    ```yaml
+    issuer:
+        image: issuer-agent:latest
+        ports:
+          - "3001:3001"
+          - "3002:3002"
+        command: >
+          start --arg-file ./configs/settings.yml
+        healthcheck:
+          test: curl -s -o /dev/null -w '%{http_code}' "http://localhost:3001/status/live" | grep "200" > /dev/null
+          start_period: 30s
+          interval: 7s
+          timeout: 5s
+          retries: 5
+        depends_on:
+          - did_registrar
+          - did_resolver
+    ```
+4. Where all the plugin settings are populated in `./configs/settings.yml` , a sample file is [here](https://github.com/openwallet-foundation/acapy-plugins/blob/main/cheqd/docker/default.yml).
+5.  Run the Agent.
+
+    ```bash
+    docker-compose up -d
+    ```
 
 ## Next steps
 
