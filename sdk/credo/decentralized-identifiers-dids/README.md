@@ -8,7 +8,7 @@ A Decentralized Identifier "DID" is a globally unique identifier that does not r
 
 ## Get started
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create DID</strong></mark></td><td>Create an Issuer DID using the did:cheqd DID method.</td><td><a href="../../aca-py/decentralized-identifiers-dids/create-a-did.md">create-a-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Update DID</strong></mark></td><td>Update a did:cheqd DID.</td><td><a href="update-a-did.md">update-a-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Deactivate DID</strong></mark></td><td>Deactivate a did:cheqd DID.</td><td><a href="deactivate-a-did.md">deactivate-a-did.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create DID</strong></mark></td><td>Create an Issuer DID using the did:cheqd DID method.</td><td><a href="create-a-did.md">create-a-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Update DID</strong></mark></td><td>Update a did:cheqd DID.</td><td><a href="update-a-did.md">update-a-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Deactivate DID</strong></mark></td><td>Deactivate a did:cheqd DID.</td><td><a href="deactivate-a-did.md">deactivate-a-did.md</a></td></tr></tbody></table>
 
 ## Alternatives
 
