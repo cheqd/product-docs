@@ -39,7 +39,7 @@ A simple request body is below:
 
 ### 1b: Holder receives invitation
 
-The above request will have an `invitation` in the response. Holder will have to copy that inivitation and pass in the body of the following API call.
+The above request will have an `invitation` in the response. Holder will have to copy that invitation and pass in the body of the following API call.
 
 {% openapi src="../../../.gitbook/assets/swagger.json" path="/out-of-band/receive-invitation" method="post" %}
 [swagger.json](../../../.gitbook/assets/swagger.json)
