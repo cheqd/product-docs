@@ -157,6 +157,7 @@
   * [Direct interaction with ledger code](advanced/tooling/advanced.md)
   * [VDR Tools CLI with cheqd (deprecated)](advanced/tooling/vdr-tools.md)
   * [Demo Wallet for identity setup](advanced/tooling/demo-wallet.md)
+  * [MCP Server Setup](advanced/tooling/mcp-server-setup.md)
 
 ## ⚛️ Network
 
