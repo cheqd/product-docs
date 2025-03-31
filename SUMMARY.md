@@ -43,7 +43,7 @@
   * [Create Verifier pays Issuer flow](studio/payments/verifier-pays-issuer.md)
   * [Bulk Update or Rotate Encryption Keys](studio/payments/update.md)
 * [🤝 Build Trust Registries](studio/trust-registries/README.md)
-  * [Verifiable Accreditation Trust Chain Model](studio/trust-registries/verifiable-accreditation-trust-chain-model/README.md)
+  * [Decentralized Trust Chains (DTCs)](studio/trust-registries/verifiable-accreditation-trust-chain-model/README.md)
     * [RTAO -> TAO](studio/trust-registries/verifiable-accreditation-trust-chain-model/rtao-greater-than-tao.md)
     * [TAO -> SubTAO](studio/trust-registries/verifiable-accreditation-trust-chain-model/tao-greater-than-subtao.md)
     * [TAO -> TI](studio/trust-registries/verifiable-accreditation-trust-chain-model/tao-greater-than-ti.md)
@@ -158,6 +158,10 @@
   * [VDR Tools CLI with cheqd (deprecated)](advanced/tooling/vdr-tools.md)
   * [Demo Wallet for identity setup](advanced/tooling/demo-wallet.md)
   * [MCP Server Setup](advanced/tooling/mcp-server-setup.md)
+
+***
+
+* [💡 Build Trust for AI Agents](build-trust-for-ai-agents.md)
 
 ## ⚛️ Network
 
