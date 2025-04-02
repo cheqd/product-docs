@@ -147,5 +147,5 @@ Now that you have the Cheqd MCP Server running, you can:
 * Create your first verifiable credential using the provided tools
 * Set up a complete identity verification workflow
 
-<table data-view="cards"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue and Verify Credentials</strong></mark></td><td>Issue Verifiable Credentials signed by cheqd DIDs using MCP Toolkit.</td></tr><tr><td></td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue Credentials</strong></mark></td><td>Issue Verifiable Credentials signed by cheqd DIDs using MCP Toolkit.</td><td><a href="issue-a-verifiable-credential.md">issue-a-verifiable-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Verify Credentials</strong></mark></td><td>Verify a Credential using MCP Toolkit.</td><td><a href="verify-a-credential.md">verify-a-credential.md</a></td></tr></tbody></table>
 
