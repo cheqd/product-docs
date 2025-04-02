@@ -107,6 +107,8 @@ Add the following configuration to your claude\_desktop\_config.json or .cursor/
         "--rm",
         "-p", 
         "3000:3000",
+        "--name",
+        "faber",
         "-T",
         "mcp-server"
       ]
@@ -119,7 +121,7 @@ Add the following configuration to your claude\_desktop\_config.json or .cursor/
 
 When successfully started, the number of tools available to Claude Desktop will increase.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-03-28 at 16.46.59.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-03-28 at 16.46.59.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 There may be a error on top right corner, but it can be safely ignored. It is because of port binding, as Claude creates two processes for each MCP Server.
@@ -144,3 +146,6 @@ Now that you have the Cheqd MCP Server running, you can:
 * Explore the available tools for DID management and credential operations
 * Create your first verifiable credential using the provided tools
 * Set up a complete identity verification workflow
+
+<table data-view="cards"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue and Verify Credentials</strong></mark></td><td>Issue Verifiable Credentials signed by cheqd DIDs using MCP Toolkit.</td></tr><tr><td></td><td></td></tr></tbody></table>
+
