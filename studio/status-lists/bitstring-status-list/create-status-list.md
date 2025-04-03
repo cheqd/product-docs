@@ -1,10 +1,10 @@
 ---
-description: Create Status List 2021 Resource on cheqd.
+description: Create Bitstring Status List Resource on cheqd.
 ---
 
-# Create Status List v2021
+# Create Bitstring Status List
 
-Users are able to create [Verifiable Credential Status List v2021](https://www.w3.org/TR/vc-status-list/) entries on-ledger, in order to revoke or suspend Verifiable Credentials. This is a derivation from the core spec made by cheqd to support a more decentralized and resilient approach to storing Status Lists.
+Users are able to create Bitstring Status List entries on-ledger, in order to revoke or suspend Verifiable Credentials. This is a derivation from the core spec made by cheqd to support a more decentralized and resilient approach to storing Status Lists.
 
 ## Step 1: Set up your account
 
@@ -47,9 +47,9 @@ Using the `/credential-status/create/unencrypted` API, users have two options fo
 1. **Filling out a simple form** using the `application/x-www-url-form-encoded` option within an API client of your choice.
 2. **Compiling a Status List payload yourself** using the `application/json` option within an API client of your choice.
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/credential-status/create/unencrypted" method="post" expanded="true" %}
+{% openapi src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/credential-status/create/unencrypted" method="post" expanded="true" %}
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endswagger %}
+{% endopenapi %}
 
 ### Option 1. Choose from a few variables and we will compile the Status List for you
 
@@ -159,6 +159,6 @@ An example of the JSON payload needed to be submitted is below:
 
 Once the Issuer has populated the requisite information for the unencrypted Status List request, they can use the API below to submit it to the ledger.&#x20;
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/credential-status/create/unencrypted" method="post" %}
+{% openapi src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/credential-status/create/unencrypted" method="post" %}
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endswagger %}
+{% endopenapi %}

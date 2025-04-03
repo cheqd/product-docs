@@ -38,7 +38,7 @@ Using this API will create a regular Status List on-ledger, where the contents o
 
 </details>
 
-For the purpose of this tutorial, we will assume the user is creating an encrypted Status List. For unencrypted Status Lists, [follow the tutorial here](../status-lists/status-list-v2021/create-status-list.md).
+For the purpose of this tutorial, we will assume the user is creating an encrypted Status List. For unencrypted Status Lists, [follow the tutorial here](../status-lists/bitstring-status-list/create-status-list.md).
 
 ## Step 4: Create encrypted Status List
 
@@ -47,9 +47,9 @@ Using the `/credential-status/create/encrypted` API, users have two options for 
 1. **Filling out a simple form** using the `application/x-www-url-form-encoded` option on the Swagger UI.
 2. **Compiling a Status List payload yourself** using the `application/json` option on the Swagger UI.
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/credential-status/update/encrypted" method="post" expanded="true" %}
+{% openapi src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/credential-status/update/encrypted" method="post" expanded="true" %}
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endswagger %}
+{% endopenapi %}
 
 ### Option 1. Choose from a few variables and we will compile the Status List for you
 
@@ -210,9 +210,9 @@ The table below expands on some of the required parameters:
 
 Once the Issuer has populated the requisite information for the encrypted Status List request, they can use the API below to submit it to the ledger.&#x20;
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/credential-status/update/encrypted" method="post" %}
+{% openapi src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/credential-status/update/encrypted" method="post" %}
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endswagger %}
+{% endopenapi %}
 
 ## Encrypted Status List Response format
 
