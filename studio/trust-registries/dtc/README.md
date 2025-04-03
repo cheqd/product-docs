@@ -12,7 +12,7 @@ layout:
     visible: true
 ---
 
-# Verifiable Accreditation Trust Chain Model
+# Decentralized Trust Chains (DTCs)
 
 ## Introduction[​](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v3#introduction) <a href="#introduction" id="introduction"></a>
 
@@ -24,7 +24,7 @@ Note: This **Trust Registry challenge is a significant problem** for the digital
 
 At present, legal entities that issue credentials have no mechanism to establish that they are trustworthy; thus, Relying Parties may not recognise the DIDs signing the Verifiable Credentials they receive. To fully establish trust, Relying Parties need to know _**who**_ issued the VCs, whether the _**issuer is recognised**_ _**as trusted**_ within a particular governance framework, and _**who accredited the issuer for the purpose of issuing the credential**_.&#x20;
 
-To solve this industry-wide challenge, cheqd introduces a **Verifiable Trust Infrastructure**, that directly complements the model [created by EBSI](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v3). Within cheqd's Trust Infrastructure, users can create hierarchical chains of trust "**Trust Chains"** that together encapsulate a "**Trust Registry"** for a given ecosystem.
+To solve this industry-wide challenge, cheqd introduces a **Verifiable Trust Infrastructure "Decentralzied Trust Chains (DTCs)"**, that directly complements the model [created by EBSI](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v3). Within Decentralized Trust Chains, users can create hierarchical chains of trust "**Trust Chains"** that together encapsulate a "**Trust Registry"** for a given ecosystem.
 
 The Trust Infrastructure Model also includes **permissions and policies** set via "**Verifiable Accreditations**" and an overall "**Governance Framework**". Herein, permissions govern the scope of , while policies are used to define who made the accreditation; which Trust Framework is followed; and, the legal basis of the credential.&#x20;
 
@@ -37,7 +37,7 @@ There are many terms used within this guide, and as such, familiarise yourself o
 | Abbreviation | Term                                    | Description                                                                                                                                   |
 | ------------ | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | -            | Accreditation Policy                    | Part of a Verifiable Credential, using the `termsOfUse` section to reference the parentAccreditation in the Trust Chain                       |
-| DID          | Decentralised Identifier                | Legal entity identifier for Trust Registry, cannot be natural person in context of Trust Infrastructure                                       |
+| DID          | Decentralized Identifier                | Legal entity identifier for Trust Registry, cannot be natural person in context of Trust Infrastructure                                       |
 | GA           | Governance Authority                    | The legal entity or consortia responsible for writing the Governance Framework. In many instances the Governance Authority is also a Root TAO |
 | GF           | Governance Framework                    | A policy document outlining the purpose, roles, scopes and permissions for a given ecosystem using the Trust Infrastructure.                  |
 | Root TAO     | Root Trusted Accreditation Organization | Legal entity governing the whole trust chain                                                                                                  |
@@ -50,9 +50,9 @@ There are many terms used within this guide, and as such, familiarise yourself o
 
 ## Establishing a Trust Hierarchy <a href="#hierarchy-examples" id="hierarchy-examples"></a>
 
-cheqd's Trust Registry model is predicated on the notion of a trust hierarchy, which is conceptually very similar to traditional Public Key Infrastructure (PKI). Specifically, the model relies on a **Root of Trust** from which trusted relationships can be established.
+The Decentralized Trust Chain model is predicated on the notion of a trust hierarchy, which is conceptually very similar to traditional Public Key Infrastructure (PKI). Specifically, the model relies on a **Root of Trust** from which trusted relationships can be established.
 
-In our model, each organisation in the trust hierarchy is able to issue Verifiable Accreditations to other entities, conveying a set of permissions or scopes that determine what the recipient entity is permitted to do.&#x20;
+In our model, each organisation in the trust hierarchy possesses a Decentralized Identifier (DID) and is able to issue Verifiable Accreditations to other entities, conveying a set of permissions or scopes that determine what the recipient entity is permitted to do.&#x20;
 
 The following diagram show how a Root TAO accredits two TAOs lower in the hierarchy:
 
@@ -62,8 +62,8 @@ where:
 
 * **Root of Trust (rTAO) DID:**
   * Controls Verifiable Accreditations (VAs) issued from rTAO to TAOs.
-* **Accredited Org (TAO) DID:**
-  * Controls Verifiable Accreditations (VAs) issued from TAOs to Trusted Issuers.&#x20;
+* **Trusted Accreditation Organisation (TAO) DID:**
+  * Controls Verifiable Accreditations (VAs) issued from TAOs to Trusted Issuers or subTAOs.&#x20;
 * **Trusted Issuer DID:**
   * Issues Verifiable Credentials with Issuance Policies
 * **Verifiable Credentials**
@@ -91,7 +91,7 @@ The **Root TAO** is the owner of a **Trust Chain**, responsible for the **govern
 
 The RTAO permission is defined by `VerifiableAuthorisationForTrustChain`, and the policies are contained in `termsOfUse` as `TrustFrameworkPolicy`.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>RTAO -> TAO</strong></mark></td><td>Learn about how Root TAOs can accredit other TAOs in the trust ecosystem with permissions and Trust Framework Policies.</td><td><a href="rtao-greater-than-tao.md">rtao-greater-than-tao.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>RTAO -> TAO</strong></mark></td><td>Learn about how Root TAOs can accredit other TAOs in the trust ecosystem with permissions and Trust Framework Policies.</td><td><a href="rtao-to-tao.md">rtao-to-tao.md</a></td></tr></tbody></table>
 
 ### **Trusted Accreditation Organisation (TAO)**[**​**](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v4#trusted-accreditation-organisation-tao)
 
@@ -104,7 +104,7 @@ A TAO governs an accredited segment on behalf of the RTAO. It may:
 
 The TAO permission is defined by `VerifiableAccreditationToAccredit`, and the policies are contained in `termsOfUse` as `AccreditationPolicy`.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>TAO -> SubTAO</strong></mark></td><td>Learn about how TAOs can accredit other SubTAOs in the trust ecosystem with permissions and Accreditation Policies.</td><td><a href="tao-greater-than-subtao.md">tao-greater-than-subtao.md</a></td></tr><tr><td><mark style="color:blue;"><strong>TAO - TI</strong></mark></td><td>Learn about how TAOs can accredit Trusted Issuers to issue credentials within the trust ecosystem, using permissions and Accreditation Policies.</td><td><a href="tao-greater-than-ti.md">tao-greater-than-ti.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>TAO -> SubTAO</strong></mark></td><td>Learn about how TAOs can accredit other SubTAOs in the trust ecosystem with permissions and Accreditation Policies.</td><td><a href="tao-to-subtao.md">tao-to-subtao.md</a></td></tr><tr><td><mark style="color:blue;"><strong>TAO - TI</strong></mark></td><td>Learn about how TAOs can accredit Trusted Issuers to issue credentials within the trust ecosystem, using permissions and Accreditation Policies.</td><td><a href="tao-to-ti.md">tao-to-ti.md</a></td></tr></tbody></table>
 
 ### **Trusted Issuer (TI)**[**​**](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v4#trusted-issuer-ti)
 
@@ -116,7 +116,7 @@ Note that issuers may issue Verifiable Credentials outside the Trust Chain, but 
 
 The TI permission is defined by `VerifiableAccreditationToAttest`, and the policies are contained in `termsOfUse` as `AccreditationPolicy`. When the Trusted Issuer is using their accreditation to issue a domain-specific VC, the issued domain VC must contain a `termsOfUse` property with `AttestationPolicy` type, which links to the Trusted Issuer's accreditation and into Root TAO's accreditation, where both are located in TIR.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Referencing Trust Registry within a Verifiable Credential</strong></mark></td><td>Learn how a Trusted Issuer can reference a Trust Registry in an issued credential, enabling a relying party to traverse the Trust Chain.</td><td><a href="referencing.md">referencing.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Referencing Trust Registry within a Verifiable Credential</strong></mark></td><td>Learn how a Trusted Issuer can reference a Trust Registry in an issued credential, enabling a relying party to traverse the Trust Chain.</td><td><a href="vc-referencing.md">vc-referencing.md</a></td></tr></tbody></table>
 
 ## Policies Overview[​](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v4#policies-overview) <a href="#policies-overview" id="policies-overview"></a>
 
