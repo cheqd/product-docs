@@ -62,6 +62,8 @@ The Cheqd MCP Server is configurable through environment variables:
 
 <table><thead><tr><th width="296.36328125">Variable</th><th width="314.140625">Description</th><th>Required</th></tr></thead><tbody><tr><td><code>CREDO_CHEQD_TESTNET_MNEMONIC</code></td><td>Mnemonic for cheqd testnet wallet</td><td>Yes</td></tr><tr><td><code>CREDO_PORT</code></td><td>Port for the Credo agent</td><td>No</td></tr><tr><td><code>CREDO_NAME</code></td><td>Name for the Credo agent</td><td>No</td></tr><tr><td><code>CREDO_ENDPOINT</code></td><td>Public endpoint for DIDComm connections</td><td>No</td></tr></tbody></table>
 
+{% embed url="https://youtu.be/sT6soNmMGIs" %}
+
 ### Setup
 
 #### 1. Get the code
@@ -121,7 +123,7 @@ Add the following configuration to your claude\_desktop\_config.json or .cursor/
 
 When successfully started, the number of tools available to Claude Desktop will increase.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-03-28 at 16.46.59.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-03-28 at 16.46.59.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 There may be a error on top right corner, but it can be safely ignored. It is because of port binding, as Claude creates two processes for each MCP Server.
