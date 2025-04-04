@@ -1,5 +1,5 @@
 ---
-description: Establish a full trust registry for your AI Agent or Swarm
+description: Establish a full Trust Registry for your AI Agent or Swarm of Agents
 ---
 
 # Build an AI Agent Trust Registry
@@ -554,7 +554,7 @@ Authorisations are issued between two DIDs (which may be the same). As such, if 
 Generally, the Root Authorisation also contains the schemas and types of credentials that will be issued below in the trust chain.&#x20;
 
 {% hint style="info" %}
-Note that it is common that the `rootAuthorisationForTrustChain` is self-issued, from the same issuer DID to subject DID, authorising it to carry out other operations.
+Note that it is common for the `rootAuthorisationForTrustChain` to be self-issued, from the same issuer DID to subject DID, authorising it to carry out other operations.
 {% endhint %}
 
 ### 5.1 Verifiable Authorisation for Trust Chain

@@ -1,5 +1,5 @@
 ---
-description: Issue a Credential to an AI Agent or Swarm of AI Agents\
+description: Issue a Credential to an AI Agent or Swarm of AI Agents
 ---
 
 # Issue Verifiable Credentials to AI Agent
