@@ -157,13 +157,16 @@
   * [Direct interaction with ledger code](advanced/tooling/advanced.md)
   * [VDR Tools CLI with cheqd (deprecated)](advanced/tooling/vdr-tools.md)
   * [Demo Wallet for identity setup](advanced/tooling/demo-wallet.md)
-  * [MCP Server Setup](advanced/tooling/mcp-server-setup/README.md)
-    * [Issue a Verifiable Credential](advanced/tooling/mcp-server-setup/issue-a-verifiable-credential.md)
-    * [Verify a Credential](advanced/tooling/mcp-server-setup/verify-a-credential.md)
 
 ***
 
-* [💡 Build Trust for AI Agents](build-trust-for-ai-agents.md)
+* [💡 Build Trust for AI Agents](ai-agents/README.md)
+  * [Build an AI Agent Trust Registry](ai-agents/build-trust-registry.md)
+  * [Issue Verifiable Credentials to AI Agent](ai-agents/issue.md)
+  * [Validate AI Agent Trust Chain](ai-agents/validate.md)
+  * [MCP Server Setup](ai-agents/mcp/README.md)
+    * [Issue a Verifiable Credential](ai-agents/mcp/issue-a-verifiable-credential.md)
+    * [Verify a Credential](ai-agents/mcp/verify-a-credential.md)
 
 ## ⚛️ Network
 
