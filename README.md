@@ -19,7 +19,7 @@ layout:
 
 ## Integrate with cheqd
 
-cheqd maintains an array of products and packages with **varying levels of integration complexity** to allow its partners and customers to have a variety of ways of plugging into cheqd's identity functionality. Via these different packages, customers and partners can  create cheqd DIDs, DID-Linked Resources, Status Lists, Trust Registries and Schemas, as well as use cheqd's Credential Payments model, with **different levels of integration effort and flexibility**.
+cheqd maintains an array of products and packages with **varying levels of integration complexity** to allow its partners and customers to have multiple ways of plugging into cheqd's identity functionality. Via these different packages, customers and partners can create cheqd DIDs, DID-Linked Resources, Status Lists, Trust Registries and Schemas, as well as use cheqd's Credential Payments model.
 
 There are three core ways of integrating and building with cheqd:
 
@@ -43,7 +43,7 @@ cheqd Studio is the easiest route to get started with cheqd's identity functiona
 
 Under the hood, cheqd Studio utilises the [Veramo SDK cheqd Plugin](sdk/veramo-plugin/), providing the most feature complete set of functionality and tooling.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Get started with cheqd Studio</strong></mark></td><td>Click here to start your journey with cheqd Studio, create your account and begin using cheqd's underlying functionality.</td><td><a href="getting-started/studio/">studio</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Get started with cheqd Studio</strong></mark></td><td>Click here to start your journey with cheqd Studio, create your account and begin using cheqd's underlying functionality.</td><td><a href="getting-started/studio/">studio</a></td><td><a href=".gitbook/assets/cheqd_logo_card.jpg">cheqd_logo_card.jpg</a></td></tr></tbody></table>
 
 If you'd rather build a deeper integration [using a Software Development Kit (SDK)](sdk/understanding-sdks.md) or lower level package, we've created a simple diagram to show how our packages are structured below.
 
@@ -60,6 +60,12 @@ One of cheqd's primary motives is to make itself accessible to the widest set of
 These can be represented through the visual below:
 
 <figure><img src=".gitbook/assets/cheqd packages.png" alt=""><figcaption><p>cheqd packages diagram</p></figcaption></figure>
+
+## Partner SaaS products
+
+You can use SaaS products from our partners to create best-in-class credential ecosystems, built on cheqd:
+
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Paradym</strong></mark></td><td>Paradym by Animo Solutions fully supports <strong>EU Architecture &#x26; Reference Framework</strong> standards with cheqd under the hood.</td><td><a href=".gitbook/assets/paradym-for-website.png">paradym-for-website.png</a></td><td><a href="https://paradym.id/">https://paradym.id/</a></td></tr><tr><td><mark style="color:blue;">Tr<strong>uvera (Dock)</strong></mark></td><td>Truvera is a full platform that supports credential issuance and management using cheqd as the primary DID Method.</td><td><a href=".gitbook/assets/Truvera.avif">Truvera.avif</a></td><td><a href="https://docs.truvera.io/">https://docs.truvera.io/</a></td></tr><tr><td><mark style="color:blue;"><strong>Hovi</strong></mark></td><td>Hovi provides an all-in-one platform for issuing and managing Verifiable Credentials with cheqd DIDs supported.</td><td><a href=".gitbook/assets/Hovi.png">Hovi.png</a></td><td><a href="https://www.hovi.id/">https://www.hovi.id/</a></td></tr><tr><td><mark style="color:blue;"><strong>Cloud Platform (Walt.id)</strong></mark></td><td>Cloud Platform by Walt.id similarly fully supports <strong>EU Architecture &#x26; Reference Framework</strong> standards with cheqd under the hood.</td><td><a href=".gitbook/assets/walt.id-cloud-platform.png">walt.id-cloud-platform.png</a></td><td><a href="https://walt.id/waitlist">https://walt.id/waitlist</a></td></tr><tr><td><mark style="color:blue;"><strong>Godiddy</strong></mark></td><td>Godiddy from Danube Tech is a DID-specific SaaS offering focussed on enterprise registration and resolution of DIDs across multiple methods.</td><td><a href=".gitbook/assets/godiddy.png">godiddy.png</a></td><td><a href="https://godiddy.com/">https://godiddy.com/</a></td></tr></tbody></table>
 
 ## Get involved
 

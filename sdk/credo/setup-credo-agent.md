@@ -1,3 +1,7 @@
+---
+description: Setup your Credo Agent to get started
+---
+
 # Setup Credo Agent
 
 ## Pre-requisites

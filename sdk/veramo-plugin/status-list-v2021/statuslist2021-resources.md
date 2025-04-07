@@ -4,7 +4,7 @@ description: Create Verifiable Credential Status List v2021 on cheqd
 
 # Create Status List
 
-The [Status List 2021 Specification](https://w3c-ccg.github.io/vc-status-list-2021/) indicates that it may be desirable to store the actual StatusList using something like a [Content Distribution Network](https://w3c-ccg.github.io/vc-status-list-2021/#content-distribution-networks) to lessen the load on the server maintained by the issuer to return a result in real-time.
+The Bitstring Status List Specification indicates that it may be desirable to store the actual StatusList using something like a [Content Distribution Network](https://w3c-ccg.github.io/vc-status-list-2021/#content-distribution-networks) to lessen the load on the server maintained by the issuer to return a result in real-time.
 
 Using cheqd's Resource Module, the same benefits may be achieved. In fact, storing a StatusList as an on-ledger Resource is a much better application of technology than using a Verifiable Credential for the same purpose.
 
@@ -14,7 +14,7 @@ Moreover, cheqd's Resource Module enables individual Resources to be referenced 
 
 ### Creating a StatusList Resource using Veramo SDK for cheqd
 
-Using the cheqd Resource module, the same content and semantics of StatusList2021 can be replicated, with additional benefits of enabling DID Resolvers to fetch the contents of the StatusList.
+Using the cheqd Resource module, the same content and semantics of Bistring Status List can be replicated, with additional benefits of enabling DID Resolvers to fetch the contents of the StatusList.
 
 #### Create a DID and DID Document with keys to manage the StatusList
 
@@ -47,7 +47,7 @@ Let's assume that the following DID is created.
 
 #### Prepare encodedList content
 
-Prepare a file with the StatusList2021 bitstring `encodedList` and encode it into `base64`, following the [same generate algorithm as in the Status List2021 Specification](https://w3c-ccg.github.io/vc-status-list-2021/#generate-algorithm).
+Prepare a file with the Bistring Status List bitstring `encodedList` and encode it into `base64`, following the [same generate algorithm as in the Specification](https://w3c-ccg.github.io/vc-status-list-2021/#generate-algorithm).
 
 {% hint style="info" %}
 Note: The uncompressed bitstring _MUST_ be at least 16KB in size to maintain herd privacy for the holder.
@@ -55,7 +55,7 @@ Note: The uncompressed bitstring _MUST_ be at least 16KB in size to maintain her
 
 #### Create a unique ID for the StatusList Resource
 
-[UUIDs are used to identify Resources](https://en.wikipedia.org/wiki/Universally\_unique\_identifier). On Unix systems, the `uuidgen` tool can be used to generate a new UUID.
+[UUIDs are used to identify Resources](https://en.wikipedia.org/wiki/Universally_unique_identifier). On Unix systems, the `uuidgen` tool can be used to generate a new UUID.
 
 #### Create a new Resource for an unencrypted StatusList
 
@@ -65,8 +65,8 @@ Note: The uncompressed bitstring _MUST_ be at least 16KB in size to maintain her
   "payload": {
     "collectionId": "zGgLTsq96mTsFcFBUCxX6k4kc5i5RNpY",
     "id": "4a71319b-00b1-4db9-bc05-56dc426f7062",
-    "name": "ExampleStatusList2021",
-    "resourceType": "StatusList2021Revocation",
+    "name": "ExampleStatusList",
+    "resourceType": "StatusListRevocation",
     "encrypted": false
     "data": "SGVsbG8sIHdvcmxk"
   },
@@ -82,13 +82,13 @@ Note: The uncompressed bitstring _MUST_ be at least 16KB in size to maintain her
 
 Where the fields within the payload have the following meaning:
 
-| Parameter        | Description                                                                                                                                        |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **collectionId** | The unique identifier of the parent DID, to link the Resource to a particular DID                                                                  |
-| **id**           | A UUID for the resource, to enable it to be specifically referenced and fetched                                                                    |
-| **name**         | This must be a unique name indicating the `type` of Status List`,` but also a qualifying name for the List. For example: **ExampleStatusList2021** |
-| **resourceType** | This must indicate the `statusPurpose.` This value should be either: **StatusList2021Revocation** or **StatusList2021Suspension**                  |
-| **data**         | Base 64 encoded file containing the full bitstring for the StatusList                                                                              |
+| Parameter        | Description                                                                                                                                    |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| **collectionId** | The unique identifier of the parent DID, to link the Resource to a particular DID                                                              |
+| **id**           | A UUID for the resource, to enable it to be specifically referenced and fetched                                                                |
+| **name**         | This must be a unique name indicating the `type` of Status List`,` but also a qualifying name for the List. For example: **ExampleStatusList** |
+| **resourceType** | This must indicate the `statusPurpose.` This value should be either: **StatusList2021Revocation** or **StatusList2021Suspension**              |
+| **data**         | Base 64 encoded file containing the full bitstring for the StatusList                                                                          |
 
 {% hint style="info" %}
 Note: If an issuer wants to create multiple StatusLists within the same Collection, they must have **unique** and **distinct names**.
