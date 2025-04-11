@@ -6,7 +6,7 @@
 | ------------------------- | ------------ |
 | **Authors**               | Daev Mithran |
 | **ADR Stage**             | ACCEPTED     |
-| **Implementation Status** | In Progress  |
+| **Implementation Status** | Implemented  |
 | **Start Date**            | 2023-01-30   |
 | **Last Updated**          | 2023-01-30   |
 

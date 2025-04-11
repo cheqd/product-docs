@@ -1,12 +1,12 @@
 ---
-description: Understanding cheqd's API product offering, cheqd Studio
+description: Understanding cheqd's API product offering, cheqd Studio.
 ---
 
 # ➡️ Get started with cheqd Studio
 
 ## Introduction
 
-**cheqd Studio** is a set of guides, tutorials and APIs to help users establish an end-to-end trusted ecosystem for digital credentials.
+**cheqd Studio** is a set of APIs, guides and tutorials to help users establish an end-to-end trusted ecosystem for digital credentials.
 
 Using REST APIs, customers can build cheqd's trust infrastructure into existing applications. All of cheqd’s existing open-source libraries remain available, and cheqd Studio does not necessitate developers to switch their SSI stack in their entirety, but allows them to build into their existing tooling, for example alongside APIs such as the Universal Resolver.
 

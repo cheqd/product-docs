@@ -24,14 +24,14 @@ Compare cheqd's functionality to another identity chain, Hyperledger Indy, using
 | **Multiple DID Controllers per DIDDoc**                                                 | ✔️                                             | ❌                               |
 | **Verification relationships with specific keys for a particular verification purpose** | ✔️                                             | ❌                               |
 | **Support Aries Framework JavaScript**                                                  | ✔️                                             | ✔️                              |
-| **Support: ACA-Py**                                                                     | ⌛(roadmap)                                     | ✔️                              |
+| **Support: ACA-Py**                                                                     | ✔️                                             | ✔️                              |
 | **Support: Veramo SDK**                                                                 | ✔️                                             | ❌                               |
-| **Support: Other JSON/JSON-LD SDKs**                                                    | ✔️ (Walt.id)                                   | ❌                               |
+| **Support: Other JSON/JSON-LD SDKs**                                                    | ✔️ (Walt.id, Dock)                             | ❌                               |
 | **On-ledger Schemas**                                                                   | ✔️                                             | ✔️                              |
 | **Credential Definitions**                                                              | ✔️                                             | ✔️                              |
 | **AnonCreds Revocation Registry Definitions**                                           | ✔️                                             | ✔️                              |
 | **AnonCreds Revocation Registry Entries**                                               | ✔️                                             | ✔️                              |
-| **Status List 2021**                                                                    | ✔️                                             | ❌                               |
+| **Bitstring Status List**                                                               | ✔️                                             | ❌                               |
 | **Trust Registry Definitions**                                                          | ✔️                                             | ❌                               |
 | **Trust Registry Entries ("Verifiable Accreditations")**                                | ✔️                                             | ❌                               |
 | **Other assets (images, docs, policies)**                                               | ✔️                                             | ❌                               |

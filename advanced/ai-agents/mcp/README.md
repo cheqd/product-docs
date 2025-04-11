@@ -123,7 +123,7 @@ Add the following configuration to your claude\_desktop\_config.json or .cursor/
 
 When successfully started, the number of tools available to Claude Desktop will increase.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-03-28 at 16.46.59.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-03-28 at 16.46.59.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 There may be a error on top right corner, but it can be safely ignored. It is because of port binding, as Claude creates two processes for each MCP Server.

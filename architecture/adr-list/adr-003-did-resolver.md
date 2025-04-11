@@ -5,8 +5,8 @@
 | Category                  | Status                                                        |
 | ------------------------- | ------------------------------------------------------------- |
 | **Authors**               | Alex Tweeddale, Renata Toktar, Ankur Banerjee, Andrew Nikitin |
-| **ADR Stage**             | PROPOSED                                                      |
-| **Implementation Status** | In Progress                                                   |
+| **ADR Stage**             | ACCEPTED                                                      |
+| **Implementation Status** | Implemented                                                   |
 | **Start Date**            | 2022-02-22                                                    |
 | **Last Updated**          | 2023-04-25                                                    |
 
@@ -33,7 +33,7 @@ resolve(did, resolutionOptions) →
 
 Since [cheqd uses the Cosmos SDK blockchain framework](https://blog.cheqd.io/why-cheqd-has-joined-the-cosmos-4db8845722c5), the underlying data storage and retrieval ("resolve") mechanisms used rely on those offered by the [Cosmos SDK framework](https://docs.cosmos.network/main/intro/overview.html). Cosmos SDK [uses Protobuf (Protocol Buffers) encoding for its wire protocol](https://docs.cosmos.network/main/core/encoding.html).
 
-Cosmos SDK framework typically provides [gRPC/gRPC-Web, JSON-RPC, and REST API endpoints for on-ledger modules](https://docs.cosmos.network/main/core/grpc\_rest.html) and functionality.
+Cosmos SDK framework typically provides [gRPC/gRPC-Web, JSON-RPC, and REST API endpoints for on-ledger modules](https://docs.cosmos.network/main/core/grpc_rest.html) and functionality.
 
 For example, `did:cheqd:testnet:DAzMQo4MDMxCjgwM` can be fetched using the native Cosmos SDK REST API endpoint (or equivalent endpoints). This provides responses that would meet the abstract definition of a `resolve` function as defined in the DID Core specification.
 
@@ -87,7 +87,7 @@ In case of the cheqd network _testnet_, an instance of this `resolve` endpoint t
 
 As you can see in the response body above, this is the raw Protobuf fetched from the cheqd testnet ledger, marshalled into a JSON form. Crucially, this form has certain deviations from the JSON/JSON-LD production expected in DID Core specification:
 
-1. JSON key names that correlate to DID Core properties are listed in [`snake_case`](https://en.wikipedia.org/wiki/Snake\_case), rather than [`camelCase`](https://en.wikipedia.org/wiki/Camel\_case) as required. This is because Protobuf standard linting rules require these properties to be defined in `snake_case`.
+1. JSON key names that correlate to DID Core properties are listed in [`snake_case`](https://en.wikipedia.org/wiki/Snake_case), rather than [`camelCase`](https://en.wikipedia.org/wiki/Camel_case) as required. This is because Protobuf standard linting rules require these properties to be defined in `snake_case`.
 2. DID Core properties with empty values are still shown in this JSON, whereas the requirement is to drop them from standards-compliant DIDDoc representations.
 
 ### Resolve Representation function
@@ -177,13 +177,13 @@ Since the _Full cheqd DID Resolver_ is wrapped for usage as a Docker container i
 
 ![Full cheqd DID Resolver sequence diagram](../../.gitbook/assets/cheqd-full-did-resolver-sequence-diagram.png)
 
-_Figure 1:_ "Full" cheqd DID Resolver sequence diagram ([editable version](https://swimlanes.io/u/CE\_Rjphs9?rev=7))
+_Figure 1:_ "Full" cheqd DID Resolver sequence diagram ([editable version](https://swimlanes.io/u/CE_Rjphs9?rev=7))
 
 The _Full cheqd DID Resolver_ is designed to handle requests concurrently, while reducing the risk of large quantities of threads and requests blocking the efficiency of the on-ledger services.
 
 #### Fetching Protobuf from ledger and converting it to JSON
 
-Since Cosmos SDK SDK encodes data in Protobuf, the DID Resolver "[marshalls](https://en.wikipedia.org/wiki/Marshalling\_\(computer\_science\))" them to JSON. The software class diagram below describes how these components/methods are tied together:
+Since Cosmos SDK SDK encodes data in Protobuf, the DID Resolver "[marshalls](https://en.wikipedia.org/wiki/Marshalling_\(computer_science\))" them to JSON. The software class diagram below describes how these components/methods are tied together:
 
 ![Full cheqd DID Resolver class diagram](../../.gitbook/assets/cheqd-full-did-resolver-class-diagram.png)
 
@@ -193,7 +193,7 @@ Marshalling/unmarshalling requests back-and-forth between Protobuf and JSON is c
 
 ![Full cheqd DID Resolver Protobuf <-> JSON marshalling](../../.gitbook/assets/cheqd-did-resolver-protobuf-json-marshalling.png)
 
-_Figure 3:_ "Full" cheqd DID Resolver Protobuf <-> JSON marshalling ([editable version](https://swimlanes.io/u/2W1PQKx\_s?rev=4))
+_Figure 3:_ "Full" cheqd DID Resolver Protobuf <-> JSON marshalling ([editable version](https://swimlanes.io/u/2W1PQKx_s?rev=4))
 
 ## Decision
 

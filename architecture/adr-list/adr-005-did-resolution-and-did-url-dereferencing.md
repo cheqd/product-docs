@@ -11,8 +11,8 @@ description: >-
 | Category                  | Status                                          |
 | ------------------------- | ----------------------------------------------- |
 | **Authors**               | Alex Tweeddale, Abdulla Ashurov, Andrew Nikitin |
-| **ADR Stage**             | PROPOSED                                        |
-| **Implementation Status** | DRAFT                                           |
+| **ADR Stage**             | ACCEPTED                                        |
+| **Implementation Status** | Implemented                                     |
 | **Start Date**            | 2023-06-05                                      |
 | **Last Updated**          | 2023-06-06                                      |
 
@@ -564,7 +564,7 @@ API endpoints related to on-ledger cheqd Resources are described below. All of t
 
 #### Get a specific Resource
 
-Returns the Resource data/payload stored on ledger for specified resource. `HEAD` request _type_ is also allowed for this endpoint since it can be used for [HTTP content negotiation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content\_negotiation) phase by client applications. In this case, _only_ the HTTP **Response** headers are returned without the body.
+Returns the Resource data/payload stored on ledger for specified resource. `HEAD` request _type_ is also allowed for this endpoint since it can be used for [HTTP content negotiation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation) phase by client applications. In this case, _only_ the HTTP **Response** headers are returned without the body.
 
 **Endpoint**: `/1.0/identifiers/<did>/resources/<resource_id>`
 
