@@ -26,16 +26,16 @@ Together, these components allow for **governance-aware, high-assurance validati
 
 When combined, they allow you to:
 
-✅ Establish a cryptographically linked trust hierarchy\
-✅ Publish root trust anchors in DNS\
-✅ Automatically validate credentials against published governance frameworks\
-✅ Support scalable, decentralized ecosystems without compromising on assurance
+* Establish a cryptographically linked trust hierarchy
+* Publish root DIDs (rTAOs) in DNS
+* Automatically validate credentials against published governance frameworks
+* Support scalable, decentralized ecosystems without compromising on assurance
 
 ***
 
 ## Step-by-Step: Setting Up Trust and Validation
 
-### 1. Deploy TDZM
+### 1. Deploy **Trust-DNS Zone Manager (**&#x54;DZM)
 
 Run the **TDZM backend and UI** using:
 
@@ -96,10 +96,10 @@ This enables the TRAIN Trust Validator to resolve and verify the rTAO’s authen
 
 Send a JSON request to TTV with the credential’s issuer, type, accreditation path, and optional DNS anchors. TTV will:
 
-✅ Traverse the Verifiable Accreditation chain\
-✅ Verify structural and policy compliance\
-✅ Optionally confirm the root via **DNS lookups**\
-✅ Return a structured verification result
+* Traverse the Verifiable Accreditation chain
+* Verify structural and policy compliance
+* Optionally confirm the root via **DNS lookups**
+* Return a structured verification result
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Validate Trust Chain</strong></mark></td><td>Validate Trust Chain to a root of trust using the TRAIN Trust Validator (TTV).</td><td><a href="validate.md">validate.md</a></td></tr></tbody></table>
 
