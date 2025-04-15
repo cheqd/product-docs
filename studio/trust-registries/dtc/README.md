@@ -126,16 +126,43 @@ All Trust Model policies are located in the `termsOfUse` property of the corresp
 
 <figure><img src="../../../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
 
-### Trust Types[​](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v3#concepts) <a href="#glossary" id="glossary"></a>
+## Trust Types
 
-#### Accreditations[​](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v4#accreditations) <a href="#accreditations" id="accreditations"></a>
+### Accreditations
 
-Accreditations are certifications of being qualified to accredit or attest. Accreditations are attribute-driven and are always restricted to domain-specific credential types. These restrictions cannot be extended. For example, if a legal entity is accredited to accredit Issuers of diploma VCs, they may only pass this or a subset downstream of the hierarchy. Depending on the accreditation, the accredited legal entity may govern (accredit) or issue (attest), but always within the Trust Model and the accredited boundaries.
+**Accreditations** are certifications that grant legal entities the authority to **accredit** or **attest**. They are always **attribute-driven** and restricted to specific **credential (attestation)** types within a defined **Trust Model**.
 
-Each Verifiable Accreditation is also associated with an `AccreditationPolicy` in the `termsOfUse` section of the credential. This Policy links to the parent or root accreditation to enable verifiers to traverse the trust registry.&#x20;
+These domain-specific boundaries **cannot be extended** arbitrarily. For example, if an organisation is accredited to accredit issuers of diploma attestations, it may only delegate this authority — or a subset of it — further down the trust hierarchy.
 
-#### Credentials[​](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v4#attestations) <a href="#attestations" id="attestations"></a>
+Each **Verifiable Accreditation** includes an `AccreditationPolicy` in its `termsOfUse` field. This policy references the parent or root accreditation, enabling verifiers to **traverse the trust chain** all the way to the root authority (rTAO).
 
-All Verifiable Credentials are attestations of something. Any issuer may issue credentials (default), while accredited Trusted Issuers may issue domain-specific VCs with the accreditation, by attaching the `AttestationPolicy` into `termsOfUse`.
+Depending on the accreditation, an entity may be authorised to:
 
-End Users (legal entities or natural persons) can accumulate multiple Verifiable Credentials from one or many Trust Models.
+* **Govern** (i.e. **accredit** others)
+* **Issue** (i.e. **attest**) to end users
+
+…but always **within the constraints** of the original trust framework and the scope of the received accreditation.
+
+***
+
+### Authorisations
+
+**Authorisations** define the rules, governance model, and trust framework that underpin an entire trust chain. At the top of every trust hierarchy is a **Root Authorisation for Trust Chain**, published by the **Root Trusted Accreditation Organisation (rTAO)**.
+
+A Root Authorisation includes:
+
+* A reference to the **governance framework URL**
+* A **trust framework ID**
+* (Optionally) a list of allowed credential schemas or terms
+
+Downstream Verifiable Accreditations must reference this **Root Authorisation** either directly or via intermediate accreditations. This creates a **traceable, policy-governed path** from each Trusted Issuer to the rTAO.
+
+***
+
+### Credentials (Attestations)
+
+**Credentials (Attestations)** are Verifiable Credentials that assert facts about an entity — such as identity, qualifications, or status. While **any DID-based issuer may issue generic credentials**, only **accredited Trusted Issuers** may issue **domain-specific attestations** within a governed Trust Model.
+
+When a Trusted Issuer issues a credential (attestation) under an accreditation, they must include the corresponding `AttestationPolicy` in the `termsOfUse` section. This creates a cryptographic and policy-bound link back to the Trust Chain and governance framework.
+
+End users (legal entities or natural persons) may receive and hold **multiple attestations** across one or many Trust Models, forming **portable, cross-domain reputations**.
