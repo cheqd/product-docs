@@ -1,5 +1,5 @@
 ---
-description: Issue AnonCreds with did:cheqd.
+description: Issue a Verifiable Credential (AnonCreds) with did:cheqd.
 ---
 
 # Issue a Verifiable Credential (AnonCreds)
@@ -8,14 +8,14 @@ Using **AnonCreds** and the **Issue Credential v2 Protocol**, you can issue Veri
 
 Before you begin, make sure you have:
 
-* ✅ A **registered `did:cheqd` identifier** for the Issuer
-* ✅ A **Credential Schema** and **Credential Definition** already created and published as DID-Linked Resources
-* ✅ A Credo Agent configured with:
+* A **registered `did:cheqd` identifier** for the Issuer
+* A **Credential Schema** and **Credential Definition** already created and published as DID-Linked Resources
+* A Credo Agent configured with:
   * `@credo-ts/cheqd` for DID operations and resource publishing
   * `@credo-ts/anoncreds` for AnonCreds credential handling
   * `@credo-ts/didcomm` for DIDComm messaging
-* ✅ Two agents: an **Issuer** and a **Holder** (can be separate apps or run locally)
-* ✅ Secure connectivity between agents using **Out-of-Band (OOB)** or a supported connection method
+* Two agents: an **Issuer** and a **Holder** (can be separate apps or run locally)
+* Secure connectivity between agents using **Out-of-Band (OOB)** or a supported connection method
 
 ## Step 1: Create a Connection with Holder
 

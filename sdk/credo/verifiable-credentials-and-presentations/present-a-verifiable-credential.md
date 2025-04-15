@@ -1,3 +1,7 @@
+---
+description: Present a Verifiable Credential using Credo
+---
+
 # Present a Verifiable Credential (AnonCreds)
 
 Verifiable Credentials signed by a `did:cheqd` can be securely presented using the **AnonCreds proof format** and the **Present Proof Protocol v2** within the Credo framework. This enables trust-minimised, selective disclosure of credential data between a **Holder** and a **Verifier**.
@@ -6,10 +10,10 @@ Verifiable Credentials signed by a `did:cheqd` can be securely presented using t
 
 Before presenting a credential:
 
-* ✅ A **Verifiable Credential** must have been issued and accepted by the Holder
-* ✅ A **Credo Agent** is running for both the Verifier and the Holder
-* ✅ A **DIDComm connection** exists between Holder and Verifier (via OOB or another method)
-* ✅ Both agents are configured with:
+* A **Verifiable Credential** must have been issued and accepted by the Holder
+* A **Credo Agent** is running for both the Verifier and the Holder
+* A **DIDComm connection** exists between Holder and Verifier (via OOB or another method)
+* Both agents are configured with:
   * `@credo-ts/anoncreds`
   * `@credo-ts/didcomm`
 

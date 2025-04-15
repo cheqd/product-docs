@@ -4,7 +4,7 @@ description: Credo with cheqd support
 
 # 🍏 Credo
 
-### Get Started with Credo
+## Get Started with Credo
 
 **Credo** is a TypeScript-based framework for building Self-Sovereign Identity (SSI) agents and services. It is designed for **modularity**, **interoperability**, and **compliance** with the European Architecture and Reference Framework (ARF).
 
@@ -40,13 +40,9 @@ This includes:
 * Support for the **cheqd AnonCreds Object Method**
 * Native DID and resource support for `did:cheqd`
 
-## Architecture
-
-<figure><img src="../../.gitbook/assets/afj packages diagram.png" alt=""><figcaption><p>Aries Framework JavaScript packages diagram</p></figcaption></figure>
-
 ## Get started
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>cheqd Agent Setup</strong></mark></td><td>Setup the cheqd agent to start being able to use cheqd inside Credo.</td><td><a href="setup-credo-agent.md">setup-credo-agent.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create cheqd DIDs</strong></mark></td><td>Use the cheqd DID module to start being able to create cheqd DIDs.</td><td><a href="decentralized-identifiers-dids/create-a-did.md">create-a-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue a Credential</strong></mark></td><td>Issue a digital Credential using a cheqd DID.</td><td><a href="verifiable-credentials-and-presentations/issue-a-verifiable-credential.md">issue-a-verifiable-credential.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>cheqd Agent Setup</strong></mark></td><td>Setup the cheqd agent to start being able to use cheqd inside Credo.</td><td><a href="setup-credo-agent.md">setup-credo-agent.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create cheqd DIDs</strong></mark></td><td>Use the cheqd DID module to start being able to create cheqd DIDs.</td><td><a href="decentralized-identifiers-dids/create-a-did.md">create-a-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue a Credential</strong></mark></td><td>Issue a Verifiable Credential using a cheqd DID.</td><td><a href="verifiable-credentials-and-presentations/issue-a-verifiable-credential.md">issue-a-verifiable-credential.md</a></td></tr></tbody></table>
 
 
 
