@@ -1,12 +1,23 @@
 ---
 description: Anchor DIDs in DNS records and validate trust chains using TRAIN.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # Get Started with TRAIN
 
 ## What is TRAIN?
 
-**TRAIN (TRust mAnagement INfrastructure)** is a framework for establishing and validating decentralized trust. It allows ecosystems to verify whether **Verifiable Credentials (VCs)** were issued by authorized and trustworthy entities through cryptographically linked **trust chains**.
+**TRAIN (TRust mAnagement INfrastructure)** is a framework, led by the team at the [Fraunhofer Institute](https://www.hci.iao.fraunhofer.de/), for establishing and validating decentralized trust. It allows ecosystems to verify whether **Verifiable Credentials (VCs)** were issued by authorized and trustworthy entities through cryptographically linked **trust chains**.
 
 TRAIN includes two core components:
 
