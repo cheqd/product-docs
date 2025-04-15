@@ -1,12 +1,69 @@
 ---
-description: Walt ID Community Stack with cheqd DID support
+description: >-
+  Walt ID Community Stack with cheqd support for DIDs, DID-Linked Resources
+  (DLRs) and Credentials.
+cover: ../.gitbook/assets/walt.id logo.png
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # 🫐 Walt.id Community Stack
 
 Community Stack[ is an Open Source SDK from walt.id](https://walt.id/ssi-kit) which supports cheqd functionality, and other identity networks, via REST API calls or through a native CLI tool. &#x20;
 
-[Walt.id](https://walt.id/) run multiple SaaS offering for customers with varying levels of support and integration requirements.
+## Key Features
+
+Community Stack may be the right choice, with the following benefits
+
+* **Open Source & Extensible**\
+  Completely open-source and built for developer flexibility. Run it yourself or extend to meet your unique requirements.
+* **cheqd Integration**\
+  Supports `did:cheqd` for DID creation, resolution, credential issuance, and DID-Linked Resources.
+* **Multi-ledger Support**\
+  Use other DID methods such as `did:key`, `did:web`, `did:ebsi`, and more—across public and private networks.
+* **API & CLI Interfaces**\
+  Interact with the stack through easy-to-use REST APIs or a powerful CLI tool.
+* **Credential Format Support**\
+  Issue and verify credentials using:
+  * JSON-LD (W3C Verifiable Credentials)
+  * JWT-based credentials (W3C Verifiable Credentials)
+  * SD-JWT-VC
+  * mDL
+
+***
+
+### Ideal for Developers Who
+
+* Want to experiment with identity use cases using `did:cheqd`
+* Need to run identity infrastructure locally or in private cloud
+* Prefer open tooling over closed-source SaaS platforms
+* Are building apps that need to issue, verify, or present VCs in a standards-based way
+
+***
+
+### Looking for Managed Hosting?
+
+In addition to the Community Stack, walt.id also offers a range of **SaaS identity services** for customers who need:
+
+* Turnkey deployment
+* Enterprise-grade reliability
+* SLA-backed support
+* Deep integration with wallet apps and verifiers
+
+Learn more about walt.id’s commercial offerings at [walt.id](https://walt.id).
 
 ## Get started
 

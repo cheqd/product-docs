@@ -1,5 +1,23 @@
 ---
-description: Credo with cheqd support
+description: >-
+  Credo SDK with cheqd support for DIDs, DID-Linked Resources (DLRs) and
+  Credentials.
+cover: ../../.gitbook/assets/Credo.png
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # 🍏 Credo
@@ -20,14 +38,16 @@ This integration showcases Credo’s expanding support for:
 
 Using Credo, developers can now issue **Verifiable Credentials**, create **Credential Schemas**, and define **Credential Definitions** using **cheqd-native AnonCreds**, enabled by the **cheqd AnonCreds Object Method**.
 
-### 🌟 Why Credo?
+## Key Features
 
-* ✅ **TypeScript-native** — strongly typed, developer-friendly, and production-ready
-* ✅ **Modular and extensible** — use only what you need, plug in new components
-* ✅ **Cross-ledger compatibility** — supports Indy, cheqd, and beyond
-* ✅ **Flexible credential support** — AnonCreds, W3C JSON-LD, JWT
-* ✅ **Aligned with EU standards** — interoperable with EBSI & ARF
-* ✅ **Backed by the Open Wallet Foundation** — with growing community adoption
+Credo may be the right choice as it has the following benefits:
+
+* **TypeScript-native** — strongly typed, developer-friendly, and production-ready
+* **Modular and extensible** — use only what you need, plug in new components
+* **Cross-ledger compatibility** — supports Indy, cheqd, and beyond
+* **Flexible credential support** — AnonCreds, W3C JSON-LD, JWT
+* **Aligned with EU standards** — interoperable with EU ARF and continuing to align with eIDAS 2.0 implementing acts
+* **Backed by the Open Wallet Foundation** — with growing community adoption
 
 ### Breaking New Ground: Credo + cheqd
 
@@ -35,14 +55,16 @@ Credo is now the **first framework to support AnonCreds on non-Indy ledgers**, t
 
 This includes:
 
-* Issuance of Verifiable Credentials on cheqd
+* Issuance of Verifiable Credentials using cheqd DIDs
 * Creation of Credential Schemas and Credential Definitions
 * Support for the **cheqd AnonCreds Object Method**
 * Native DID and resource support for `did:cheqd`
 
 ## Get started
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>cheqd Agent Setup</strong></mark></td><td>Setup the cheqd agent to start being able to use cheqd inside Credo.</td><td><a href="setup-credo-agent.md">setup-credo-agent.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create cheqd DIDs</strong></mark></td><td>Use the cheqd DID module to start being able to create cheqd DIDs.</td><td><a href="decentralized-identifiers-dids/create-a-did.md">create-a-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue a Credential</strong></mark></td><td>Issue a Verifiable Credential using a cheqd DID.</td><td><a href="verifiable-credentials-and-presentations/issue-a-verifiable-credential.md">issue-a-verifiable-credential.md</a></td></tr></tbody></table>
+Get setup with your Credo agent and begin using cheqd's functionality below:
+
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Setup your Credo Agent</strong></mark></td><td>Setup the cheqd agent to start being able to use cheqd inside Credo.</td><td><a href="setup-credo-agent.md">setup-credo-agent.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create a Decentralized Identifier (DID)</strong></mark></td><td>Use the cheqd DID module to start creating cheqd DIDs.</td><td><a href="decentralized-identifiers-dids/create-a-did.md">create-a-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create DID-Linked Resources (DLRs)</strong></mark></td><td>Create generic DID-Linked Resources, as well as schemas and credential definitions.</td><td></td></tr><tr><td><mark style="color:blue;"><strong>Issue a Verifiable Credential</strong></mark></td><td>Issue and present Verifiable Credentials using a cheqd DID.</td><td><a href="verifiable-credentials-and-presentations/issue-a-verifiable-credential.md">issue-a-verifiable-credential.md</a></td></tr></tbody></table>
 
 
 

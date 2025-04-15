@@ -1,5 +1,23 @@
 ---
-description: Veramo SDK plugin for cheqd identity functionality
+description: >-
+  Veramo SDK plugin with cheqd support for DIDs, DID-Linked Resources (DLRs) and
+  Credentials.
+cover: ../../.gitbook/assets/veramo logo.png
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # 🍈 Veramo
