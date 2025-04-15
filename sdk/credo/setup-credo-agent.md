@@ -1,32 +1,43 @@
 ---
-description: Setup your Credo Agent to get started
+description: Setup your Credo Agent to get started.
 ---
 
 # Setup Credo Agent
 
-## Pre-requisites
+This guide walks you through the setup process for a **Credo Agent** with support for **cheqd DIDs** and **AnonCreds**.
 
-* [Node.js](https://nodejs.org/) - v16 or v18
-* [yarn](https://classic.yarnpkg.com/lang/en/docs/install) or [npm](https://www.npmjs.com/)
-* Node.js or React Native project.
+## Prerequisites
 
-For more details, check [Credo Getting Started](https://credo.js.org/guides/getting-started) guide.
+Before you begin, make sure you have the following:
+
+* **Node.js** v16 or v18
+* **Yarn** or **npm** installed
+* A working **Node.js** or **React Native** project
+* Follow the Getting Started guide if you're new to Credo
 
 ## Installing Cheqd
 
-When using cheqd method with Credo, there are a few extra dependencies that need to be installed. We need to install the `@credo-ts/cheqd` package, which implements the needed interfaces for the agent.
+To enable cheqd in your agent, install the required package:
 
-#### **React Native**[**​**](https://credo.js.org/guides/getting-started/set-up/cheqd#react-native)
+```bash
+yarn add @credo-ts/cheqd
+# or
+npm install @credo-ts/cheqd
+```
 
-To enable react-native support we need to follow the steps below:
+This package provides everything needed to register, resolve, and interact with `did:cheqd` identifiers and AnonCreds objects.
 
-In the `package.json` file add the below code snippet, which replaces the cosmjs dependencies with the cosmjs-rn packages.
+### React Native Support
 
-Using [NPM `overrides`](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#overrides)  or  [Yarn `resolutions`](https://classic.yarnpkg.com/lang/en/docs/selective-version-resolutions/) we can point the `cosmjs` packages to `cosmjs-rn`.
+If you're using **React Native**, additional steps are needed to support `cosmjs`:
 
-{% tabs %}
-{% tab title="NPM" %}
-```javascript
+#### 1. Use `cosmjs-rn` packages
+
+Update your `package.json` using **npm overrides** or **Yarn resolutions**:
+
+**Example (NPM `overrides`):**
+
+```json
 {
   "overrides": {
     "@cosmjs/amino": "npm:@cosmjs-rn/amino@^0.27.1",
@@ -40,10 +51,10 @@ Using [NPM `overrides`](https://docs.npmjs.com/cli/v9/configuring-npm/package-js
   }
 }
 ```
-{% endtab %}
 
-{% tab title="Yarn" %}
-```javascript
+**Example (Yarn `resolutions`):**
+
+```json
 {
   "resolutions": {
     "@cosmjs/amino": "npm:@cosmjs-rn/amino@^0.27.1",
@@ -57,23 +68,27 @@ Using [NPM `overrides`](https://docs.npmjs.com/cli/v9/configuring-npm/package-js
   }
 }
 ```
-{% endtab %}
-{% endtabs %}
 
-After that, we need to add a buffer polyfill
+#### 2. Add Buffer Polyfill
+
+Install the `buffer` package:
 
 ```bash
-yarn add buffer
+bashCopyEdityarn add buffer
 ```
 
-Then, create a shim.js file with the below code snippet
+Create a `shim.js` file:
 
-```javascript
-import { Buffer } from 'buffer'
+```ts
+tsCopyEditimport { Buffer } from 'buffer'
 global.Buffer = Buffer
 ```
 
-`import shim.js` file into your file where the App is imported.
+Then, import this shim in your entry point (e.g. before your `App.tsx` is rendered):
+
+```ts
+tsCopyEditimport './shim'
+```
 
 ### Adding cheqd to the Agent[​](https://credo.js.org/guides/getting-started/set-up/cheqd#adding-the-cheqd-to-the-agent) <a href="#adding-the-cheqd-to-the-agent" id="adding-the-cheqd-to-the-agent"></a>
 
@@ -150,10 +165,12 @@ const agent = new Agent({
 })
 ```
 
-The `cosmosPayerSeed` can be a 32-bit seed value or mnemonic. It can be managed using the Keplr wallet, which is available as a mobile app or browser extension for Chrome and Safari. Keplr enables users to create accounts, exchange tokens, etc. To setup Keplr wallet for cheqd follow this [tutorial](https://learn.cheqd.io/getting-set-up-on-cheqd/cheqd-supported-wallets/keplr-wallet).
+The `cosmosPayerSeed` can be a 32-bit seed value or mnemonic. It can be managed using Leap wallet, which is available as a mobile app or browser extension for Chrome and Safari. Leap enables users to create accounts, exchange tokens, etc. To setup Leap wallet for cheqd follow the tutorial below:
+
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Leap Wallet</strong></mark></td><td>Manage your CHEQ natively through the Leap Wallet with full support on desktop, browser and mobile.</td><td><a href="../../.gitbook/assets/leap wallet.png">leap wallet.png</a></td><td><a href="../../network/wallets/setup-leap-wallet/">setup-leap-wallet</a></td></tr></tbody></table>
 
 ## Next steps
 
 Now that your Credo agent is successfully set up to work with cheqd, try following our tutorials for creating a new DID or issuing Verifiable Credentials.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create a DID</strong></mark></td><td>Create an Issuer DID using the did:cheqd DID method.</td><td><a href="decentralized-identifiers-dids/create-a-did.md">create-a-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue a Verifiable Credential</strong></mark></td><td>Issue a Verifiable Credential using Credo signed by a cheqd DID.</td><td><a href="verifiable-credentials-and-presentations/issue-a-verifiable-credential.md">issue-a-verifiable-credential.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create a DID</strong></mark></td><td>Create an Issuer DID using the <code>did:cheqd</code> DID method.</td><td><a href="decentralized-identifiers-dids/create-a-did.md">create-a-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue a Verifiable Credential</strong></mark></td><td>Issue a Verifiable Credential (AnonCreds) using Credo signed by a cheqd DID.</td><td><a href="verifiable-credentials-and-presentations/issue-a-verifiable-credential.md">issue-a-verifiable-credential.md</a></td></tr></tbody></table>
