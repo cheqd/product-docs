@@ -2,7 +2,7 @@
 description: >-
   Get started with cheqd's API product offering for creating DIDs, trust
   registries and monetising credentials: cheqd Studio.
-cover: ../../.gitbook/assets/cheqd Studio Banner (White Background).png
+cover: ../../.gitbook/assets/cheqd Studio Banner (Orange Transparent).png
 coverY: 0
 layout:
   cover:
