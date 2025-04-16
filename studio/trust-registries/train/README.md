@@ -99,7 +99,7 @@ This enables the TRAIN Trust Validator to resolve and verify the rTAO’s authen
 * Issue **Verifiable Accreditations** from rTAO → TAOs → Trusted Issuers
 * Define governance rules and credential schema policies as needed
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up Trust Chain</strong></mark></td><td>Design and build a trust chain for establishing a trust hierarchy in your ecosystem.</td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up Trust Chain</strong></mark></td><td>Design and build a trust chain for establishing a trust hierarchy in your ecosystem.</td><td><a href="../set-up-trust-chain/">set-up-trust-chain</a></td></tr></tbody></table>
 
 ***
 
