@@ -30,7 +30,7 @@ Using REST APIs, customers can build cheqd's trust infrastructure into existing 
 
 ## Get started
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Begin your cheqd Studio set up, creating your account, creating an API key and authenticating with our APIs.</td><td><a href="set-up-account.md">set-up-account.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Advanced config options</strong></mark></td><td>Run cheqd Studio yourself or utilise your own external database.</td><td><a href="advanced.md">advanced.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set Up Your Account</strong></mark></td><td>Begin your cheqd Studio set up, creating your account, creating an API key and authenticating with our APIs.</td><td><a href="set-up-account.md">set-up-account.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Advanced Configuration Options</strong></mark></td><td>Run cheqd Studio yourself or utilise your own external database.</td><td><a href="advanced.md">advanced.md</a></td></tr></tbody></table>
 
 ## Features
 

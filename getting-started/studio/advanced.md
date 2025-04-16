@@ -1,8 +1,8 @@
 ---
-description: Developer guide for running the cheqd Studio.
+description: Advanced setup guide for running the cheqd Studio.
 ---
 
-# 🔄 Advanced configuration options
+# 🔄 Advanced Configuration Options
 
 ## Run as standalone application using Docker Compose
 

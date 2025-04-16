@@ -1,4 +1,8 @@
-# 🪙 Token top up
+---
+description: Manually Top Up Your Account with CHEQ.
+---
+
+# 🪙 Token Top Up
 
 Users may exhaust their usage limits in their cheqd Studio billing plan, but may want to continue using the Studio before their usage limits refresh. Therefore, users can manually top up their account with CHEQ tokens to use any APIs that involve a ledger-write, e.g:
 
@@ -14,13 +18,13 @@ The following API can be used to fetch the new account information:
 * `customer_id` is used as an identifier for the particular customer using cheqd Studio. It is generated as a sub-field of the JWT token used in the authorization header.
 * `cheqd_account` is used to pay for identity transactions on either `testnet` or `mainnet`. A cheqd account is automatically generated when a new `customer_id` is generated.
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/account" method="get" expanded="true" %}
+{% openapi src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/account" method="get" expanded="true" %}
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endswagger %}
+{% endopenapi %}
 
 ## Step 2: Adding CHEQ tokens to your account
 
-Users will need to add our token, CHEQ, to their `cheqd_account`  on `mainnet` in order to be able to use the ledger-based identity functionality on cheqd Studio, such as creating DIDs and DID-Linked Resources.
+If you exceed the usage limits in your cheqd Studio billing plan but want to continue using ledger-based functionality before your limits reset, you can manually top up your account using **CHEQ tokens**.
 
 If you need to add CHEQ tokens to your cheqd Studio `cheqd_account`, there are a few steps you need to follow:
 
