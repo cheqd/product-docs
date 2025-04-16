@@ -1,5 +1,5 @@
 ---
-description: Dive into cheqd's product and identity functionality
+description: Dive into cheqd's product and identity functionality.
 layout:
   title:
     visible: true

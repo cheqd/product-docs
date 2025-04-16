@@ -1,5 +1,23 @@
 ---
-description: Understanding cheqd's API product offering, cheqd Studio.
+description: >-
+  Get started with cheqd's API product offering for creating DIDs, trust
+  registries and monetising credentials: cheqd Studio.
+cover: ../../.gitbook/assets/cheqd Studio Banner (White Background).png
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # ➡️ Get started with cheqd Studio
@@ -18,7 +36,7 @@ Using REST APIs, customers can build cheqd's trust infrastructure into existing 
 
 cheqd Studio directly leverages our [Veramo SDK Plugin](https://github.com/cheqd/did-provider-cheqd), making a wide array of features available from launch, including:
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>DIDs and Identity Keys</strong></mark></td><td>Create <code>did:cheqd</code> DIDs for credential issuers and for DID-Linked Resources</td><td><a href="../../studio/dids/create-did.md">create-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Trust Registries</strong></mark></td><td>Create an end-to-end trusted ecosystem, using Trust Chains to build a full Trust Registry.</td><td><a href="../../studio/trust-registries/">trust-registries</a></td></tr><tr><td><mark style="color:blue;"><strong>Payments</strong></mark></td><td>Create commercial models for verifiable credentials, such as verifier-pays-issuer</td><td><a href="../../studio/payments/">payments</a></td></tr><tr><td><mark style="color:blue;"><strong>Status Lists</strong></mark></td><td>Create status lists, including Bitstring Status List and Token Status List</td><td><a href="../../studio/status-lists/">status-lists</a></td></tr><tr><td><mark style="color:blue;"><strong>Credentials</strong></mark></td><td>Issue any type of credential, including SD-JWT, VCDM and AnonCreds via our partners, including trust registries, status lists and payments.</td><td><a href="../../studio/credentials/">credentials</a></td></tr><tr><td><mark style="color:blue;"><strong>Resources</strong></mark></td><td>Create custom resources for policies, presentation definitions, schemas and visual representations of credentials</td><td><a href="../../studio/did-linked-resources/">did-linked-resources</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>DIDs and Identity Keys</strong></mark></td><td>Create <code>did:cheqd</code> DIDs for credential issuers and for DID-Linked Resources</td><td><a href="../../studio/dids/create-did.md">create-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Trust Registries</strong></mark></td><td>Create an end-to-end trusted ecosystem, using Trust Chains to build a full Trust Registry.</td><td><a href="../../studio/trust-registries/">trust-registries</a></td></tr><tr><td><mark style="color:blue;"><strong>Payments</strong></mark></td><td>Create commercial models for verifiable credentials, such as verifier-pays-issuer</td><td><a href="../../studio/payments/">payments</a></td></tr><tr><td><mark style="color:blue;"><strong>Status Lists</strong></mark></td><td>Create status lists, including Bitstring Status List and Token Status List</td><td><a href="../../studio/status-lists/">status-lists</a></td></tr><tr><td><mark style="color:blue;"><strong>Verifiable Credentials</strong></mark></td><td>Issue any type of credential, including SD-JWT, VCDM and AnonCreds via our partners, including trust registries, status lists and payments.</td><td><a href="../../studio/credentials/">credentials</a></td></tr><tr><td><mark style="color:blue;"><strong>DID-Linked Resources</strong></mark></td><td>Create custom resources for policies, presentation definitions, schemas and visual representations of credentials</td><td><a href="../../studio/did-linked-resources/">did-linked-resources</a></td></tr></tbody></table>
 
 ## Understanding the different modes and client choices
 
