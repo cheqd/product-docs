@@ -22,7 +22,7 @@
 
 ## 🟢 Start using cheqd <a href="#studio" id="studio"></a>
 
-* [🆔 Create DIDs and Identity keys](studio/dids/README.md)
+* [🆔 Create DIDs and Identity Keys](studio/dids/README.md)
   * [Create Issuer DID](studio/dids/create-did.md)
   * [Create Identity Keys and Subject DIDs](studio/dids/create-subject-did.md)
   * [Resolve a DID](studio/dids/resolve-did.md)

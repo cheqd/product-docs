@@ -1,5 +1,5 @@
 ---
-description: Dive into cheqd's product and identity functionality.
+description: Get started with cheqd's identity functionality and product offerings.
 layout:
   title:
     visible: true
@@ -63,7 +63,7 @@ These can be represented through the visual below:
 
 ## Partner SaaS products
 
-You can use SaaS products from our partners to create best-in-class credential ecosystems, built on cheqd:
+You can also leverage SaaS products from our partners to build high-quality credential ecosystems on top of cheqd’s infrastructure:
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Paradym</strong></mark></td><td>Paradym by Animo Solutions fully supports <strong>EU Architecture &#x26; Reference Framework</strong> standards with cheqd under the hood.</td><td><a href=".gitbook/assets/paradym-for-website.png">paradym-for-website.png</a></td><td><a href="https://paradym.id/">https://paradym.id/</a></td></tr><tr><td><mark style="color:blue;">Tr<strong>uvera (Dock)</strong></mark></td><td>Truvera is a full platform that supports credential issuance and management using cheqd as the primary DID Method.</td><td><a href=".gitbook/assets/Truvera.avif">Truvera.avif</a></td><td><a href="https://docs.truvera.io/">https://docs.truvera.io/</a></td></tr><tr><td><mark style="color:blue;"><strong>Hovi</strong></mark></td><td>Hovi provides an all-in-one platform for issuing and managing Verifiable Credentials with cheqd DIDs supported.</td><td><a href=".gitbook/assets/Hovi.png">Hovi.png</a></td><td><a href="https://www.hovi.id/">https://www.hovi.id/</a></td></tr><tr><td><mark style="color:blue;"><strong>Cloud Platform (Walt.id)</strong></mark></td><td>Cloud Platform by Walt.id similarly fully supports <strong>EU Architecture &#x26; Reference Framework</strong> standards with cheqd under the hood.</td><td><a href=".gitbook/assets/walt.id-cloud-platform.png">walt.id-cloud-platform.png</a></td><td><a href="https://walt.id/waitlist">https://walt.id/waitlist</a></td></tr><tr><td><mark style="color:blue;"><strong>Godiddy</strong></mark></td><td>Godiddy from Danube Tech is a DID-specific SaaS offering focussed on enterprise registration and resolution of DIDs across multiple methods.</td><td><a href=".gitbook/assets/godiddy.png">godiddy.png</a></td><td><a href="https://godiddy.com/">https://godiddy.com/</a></td></tr></tbody></table>
 

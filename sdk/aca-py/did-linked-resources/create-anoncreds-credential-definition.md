@@ -1,3 +1,7 @@
+---
+description: Create an AnonCreds Credential Definition using ACA-Py.
+---
+
 # Create AnonCreds Credential Definition
 
 ## Create Credential Definition
@@ -6,9 +10,9 @@ The request body must contain the `credential_definition` object with the Issuer
 
 To enable revocation, the `options` must contain the revocation flag, and the size of the revocation registry. Also, ensure that a [Tails Server](https://github.com/bcgov/indy-tails-server) is configured for the issuer.
 
-{% swagger src="../../../.gitbook/assets/swagger.json" path="/anoncreds/credential-definition" method="post" %}
+{% openapi src="../../../.gitbook/assets/swagger.json" path="/anoncreds/credential-definition" method="post" %}
 [swagger.json](../../../.gitbook/assets/swagger.json)
-{% endswagger %}
+{% endopenapi %}
 
 ## Request Body
 
@@ -36,9 +40,9 @@ To enable revocation, the `options` must contain the revocation flag, and the si
 
 ## Check the new Credential Definition
 
-{% swagger src="../../../.gitbook/assets/swagger.json" path="/anoncreds/credential-definition/{cred_def_id}" method="get" %}
+{% openapi src="../../../.gitbook/assets/swagger.json" path="/anoncreds/credential-definition/{cred_def_id}" method="get" %}
 [swagger.json](../../../.gitbook/assets/swagger.json)
-{% endswagger %}
+{% endopenapi %}
 
 
 

@@ -1,3 +1,7 @@
+---
+description: Create an AnonCreds Schema using ACA-Py
+---
+
 # Create AnonCreds Schema
 
 To issue Verifiable Credentials, the issuer will have to first create a Schema and then a Credential Definition.
@@ -6,9 +10,9 @@ To issue Verifiable Credentials, the issuer will have to first create a Schema a
 
 The request body must contain the `schema` object, which defines the attributes, name and version of the Schema. This will create a [DID-Linked Resource](https://docs.cheqd.io/product/sdk/veramo-plugin/did-linked-resources) of type `anonCredsSchema`.
 
-{% swagger src="../../../.gitbook/assets/swagger.json" path="/anoncreds/schema" method="post" %}
+{% openapi src="../../../.gitbook/assets/swagger.json" path="/anoncreds/schema" method="post" %}
 [swagger.json](../../../.gitbook/assets/swagger.json)
-{% endswagger %}
+{% endopenapi %}
 
 ## Request Body
 
@@ -36,9 +40,9 @@ Optional Key-Value pairs of additional options.
 
 ## Check the new Schema
 
-{% swagger src="../../../.gitbook/assets/swagger.json" path="/anoncreds/schema/{schema_id}" method="get" %}
+{% openapi src="../../../.gitbook/assets/swagger.json" path="/anoncreds/schema/{schema_id}" method="get" %}
 [swagger.json](../../../.gitbook/assets/swagger.json)
-{% endswagger %}
+{% endopenapi %}
 
 
 

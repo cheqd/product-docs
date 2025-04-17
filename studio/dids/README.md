@@ -1,8 +1,8 @@
 ---
-description: Create DIDs and identity keys using cheqd's DID Method (did:cheqd)
+description: Create DIDs and identity keys using cheqd's DID Method (did:cheqd).
 ---
 
-# 🆔 Create DIDs and Identity keys
+# 🆔 Create DIDs and Identity Keys
 
 A Decentralized Identifier "DID" is a globally unique identifier that does not require a centralized registration authority because it is registered with distributed ledger technology or other form of decentralized network.
 
