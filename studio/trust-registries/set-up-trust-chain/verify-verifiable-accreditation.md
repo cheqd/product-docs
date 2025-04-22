@@ -1,3 +1,7 @@
+---
+description: Verify Verifiable Accreditations back to a Root of Trust.
+---
+
 # Verify Verifiable Accreditation
 
 Users are able to **issue Verifiable Accreditations** to determine the validity of the accreditation, as well to traverse the trust chain to a root of trust.&#x20;
@@ -10,7 +14,7 @@ Make sure you have already created at least one Verifiable Accreditation that yo
 
 ## Step 2: Use the Verify Accreditation API
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/studio/refs/heads/main/src/static/swagger-api.json" path="/trust-registry/accreditation/verify" method="post" %}
+{% openapi src="https://raw.githubusercontent.com/cheqd/studio/refs/heads/main/src/static/swagger-api.json" path="/trust-registry/accreditation/verify" method="post" %}
 [https://raw.githubusercontent.com/cheqd/studio/refs/heads/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/studio/refs/heads/main/src/static/swagger-api.json)
-{% endswagger %}
+{% endopenapi %}
 

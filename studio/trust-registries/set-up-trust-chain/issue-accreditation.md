@@ -1,5 +1,5 @@
 ---
-description: Issue Verifiable Accreditations as DID-Linked Resources
+description: Issue Verifiable Accreditations as DID-Linked Resources.
 ---
 
 # Issue Verifiable Accreditation

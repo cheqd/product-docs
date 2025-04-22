@@ -44,6 +44,7 @@
   * [Bulk Update or Rotate Encryption Keys](studio/payments/update.md)
 * [🤝 Build Trust Registries](studio/trust-registries/README.md)
   * [Decentralized Trust Chains (DTCs)](studio/trust-registries/dtc/README.md)
+    * [Root Authorisations](studio/trust-registries/dtc/root-authorisations.md)
     * [RTAO -> TAO](studio/trust-registries/dtc/rtao-to-tao.md)
     * [TAO -> SubTAO](studio/trust-registries/dtc/tao-to-subtao.md)
     * [TAO -> TI](studio/trust-registries/dtc/tao-to-ti.md)
