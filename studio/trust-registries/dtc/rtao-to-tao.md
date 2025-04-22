@@ -40,7 +40,7 @@ Whereby:
 | ----------------- | ------------------------------------------------------------------------------------------------------------- |
 | schemaId          | Schema of the Verifiable Accreditation that the TAO is accredited to issue themselves                         |
 | types             | Types of Credential that the TAO is accredited to issue                                                       |
-| limitJurisdiction | Permission that the RTAO can set to limit the jurisdictional scope of the credentials issued in the ecosystem |
+| limitJurisdiction | Permission that the rTAO can set to limit the jurisdictional scope of the credentials issued in the ecosystem |
 
 ## Policies
 
