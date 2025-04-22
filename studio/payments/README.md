@@ -1,3 +1,9 @@
+---
+description: >-
+  Charge for Verifiable Credentials and initiate verifier-pays-issuer payment
+  flows.
+---
+
 # ♻️ Charge for Verifiable Credentials
 
 Credential Payments brings a significant evolution to the Verifiable Credentials landscape, allowing **verifiers to directly pay issuers to unlock Credential Status information**. Underneath the hood, we've engineered a robust and secure payment flow that streamlines the end-to-end payment process, with accuracy, speed, and cryptographic integrity.
