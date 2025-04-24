@@ -1,3 +1,7 @@
+---
+description: Deploy the DNS Zone Manager and anchor your Root DID in a DNS Zone.
+---
+
 # Deploy TRAIN and Anchor rTAO in DNS
 
 ## Overview
