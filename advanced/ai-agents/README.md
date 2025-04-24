@@ -1,12 +1,12 @@
 ---
-description: Design and Build Trust Registries for AI Agents
+description: Design and Build Trust Registries for AI Agents on cheqd.
 ---
 
 # 💡 Build Trust for AI Agents
 
 ## Trust Registries for AI Agents <a href="#hierarchy-examples" id="hierarchy-examples"></a>
 
-Trust Registries play a critical role in establishing trust for AI Agents. Acting as authoritative databases, they can verify the AI Agent is accredited and authorised to carry out certain actions, ensuring transparency and accountability.
+Trust Registries play a critical role in establishing trust for AI Agents. Acting as authoritative databases, they can **verify the AI Agent is accredited and authorised** to carry out certain actions, ensuring transparency and accountability.
 
 Here’s how they support the AI ecosystem:
 
@@ -20,11 +20,7 @@ cheqd has developed a robust Trust Registry solution, enabling users to establis
 
 If you are already aware of how cheqd's Decentralized Trust Chains (DTCs) are structured, you can get started immediately below. Otherwise, we suggest reading the rest of this page:
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Build an AI Agent Trust Registry</strong></mark></td><td>Establish a comprehensive ecosystem for trusted AI Agents, organisations and governance authorities.</td><td><a href="build-trust-registry.md">build-trust-registry.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue Verifiable Credentials to AI Agent</strong></mark></td><td>Using your Trust Registry, issue your AI Agent a credential fully referencing the Trust Chain back to a Root DID.</td><td><a href="issue.md">issue.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Validate AI Agent Trust Chain</strong></mark></td><td>Use our Validation APIs to enable your AI Agent to autonomously prove that it is trusted and accredited.</td><td><a href="validate.md">validate.md</a></td></tr></tbody></table>
-
-
-
-
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Build an AI Agent Trust Registry</strong></mark></td><td>Establish a comprehensive ecosystem for trusted AI Agents, organisations and governance authorities.</td><td><a href="build-trust-registry.md">build-trust-registry.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue Verifiable Credentials to AI Agent</strong></mark></td><td>Using your Trust Registry, issue your AI Agent a credential fully referencing the Trust Chain back to a Root DID.</td><td><a href="issue.md">issue.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Validate AI Agent Trust Chain</strong></mark></td><td>Use our Validation APIs to enable your AI Agent to autonomously prove that it is trusted and accredited.</td><td><a href="validate.md">validate.md</a></td></tr><tr><td><mark style="color:blue;"><strong>MCP Server Setup</strong></mark></td><td>Get started with the cheqd MCP Server for building identity functionality into your AI Agent</td><td><a href="mcp/">mcp</a></td></tr></tbody></table>
 
 ## Establishing a Trust Hierarchy <a href="#hierarchy-examples" id="hierarchy-examples"></a>
 
@@ -34,13 +30,13 @@ In our model for AI Agents, each organisation in the trust hierarchy is able to 
 
 The following diagram shows an example of how an AI Agent Creator can accredit two AI Agents lower in the hierarchy:
 
-<figure><img src="../.gitbook/assets/AI Agent Trust Registries.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/AI Agent Trust Registries.jpg" alt=""><figcaption><p>Root DID (rTAO) accrediting or authorising sub-DIDs (TAOs)</p></figcaption></figure>
 
 Through this type of relationship, an AI Agent can prove that it is accredited by an AI Agent Creator through presenting the Verifiable Accreditation, which is stored on the cheqd blockchain.
 
 Similarly, an AI Agent creator can prove that it is also trustworthy, demonstrating that it is a real actor rather than a fraudulent actor. In the diagram below, a Governance Authority (such as an accreditation body for AI Agent Creators) can accredit AI Agent Creators directly.
 
-<figure><img src="../.gitbook/assets/AI Agent Trust Registries (Governance Authority).jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/AI Agent Trust Registries (Governance Authority).jpg" alt=""><figcaption><p>Full tree diagram of root DID accrediting DIDs, that accredit AI Agents.</p></figcaption></figure>
 
 Therefore, relying parties can query the accreditations of AI Agents all the way back to a Root of Trust.
 

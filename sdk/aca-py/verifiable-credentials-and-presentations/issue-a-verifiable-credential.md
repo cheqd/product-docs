@@ -1,3 +1,7 @@
+---
+description: Issue a Verifiable Credential using the ACA-Py API endpoints.
+---
+
 # Issue a Verifiable Credential
 
 Using the `/issue-credential-2.0` API endpoints, it is possible to issue Verifiable Credentials, signed by a cheqd DID, in a few clicks or lines of code. By following the following steps, you can effectively issue verifiable credentials using ACA-Py integrated with the cheqd ecosystem.

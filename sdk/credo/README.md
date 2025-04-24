@@ -1,34 +1,78 @@
 ---
 description: >-
-  Credo, formerly Hyperledger Aries Framework JavaScript (AFJ), with cheqd
-  support
+  Credo SDK with cheqd support for DIDs, DID-Linked Resources (DLRs) and
+  Credentials.
+cover: ../../.gitbook/assets/Credo.png
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # 🍏 Credo
 
-[Credo](https://credo.js.org/) is a framework written in TypeScript for building **SSI Agents and services** that aims to be **compliant and interoperable** with the standards defined in the European Architecture and Reference Framework.
+## Get Started with Credo
 
-The Aries Framework JavaScript project has recently been rebranded to "Credo" and was moved from the Hyperledger Foundation to the [Open Wallet Foundation](https://openwallet.foundation/).&#x20;
+**Credo** is a TypeScript-based framework for building Self-Sovereign Identity (SSI) agents and services. It is designed for **modularity**, **interoperability**, and **compliance** with the European Architecture and Reference Framework (ARF).
 
-In the recent months, Credo has heavily been expanding into a more modular and "less specific" framework. The integration with cheqd is a prime example of this, being the first true showcase of anchoring AnonCreds on non-Indy ledgers. Supporting more credential formats, ledgers and DID methods is crucial and essential to the continual development of Credo. cheqd is now fully supported in Credo and can be used for the issuance of Verifiable Credentials as well as the creation of Credential Schemas and Credential Definitions.
+Previously known as _Aries Framework JavaScript_, Credo has recently been **rebranded** and transitioned from the **Hyperledger Foundation** to the **Open Wallet Foundation**, reflecting its broader mission and growing community.
 
-AnonCreds using cheqd are facilitated using the [cheqd AnonCreds Object Method](../../advanced/anoncreds/).
+Credo has evolved into a more flexible and general-purpose SSI framework. A major milestone in this evolution is the full **integration with** [**cheqd**](https://cheqd.io) — making Credo the first framework to support **AnonCreds on non-Indy ledgers**.
 
-## Architecture
+This integration showcases Credo’s expanding support for:
 
-<figure><img src="../../.gitbook/assets/afj packages diagram.png" alt=""><figcaption><p>Aries Framework JavaScript packages diagram</p></figcaption></figure>
+* Multiple **credential formats**
+* Diverse **DID methods**
+* Interoperable **ledger technologies**
+
+Using Credo, developers can now issue **Verifiable Credentials**, create **Credential Schemas**, and define **Credential Definitions** using **cheqd-native AnonCreds**, enabled by the **cheqd AnonCreds Object Method**.
+
+## Key Features
+
+Credo may be the right choice as it has the following benefits:
+
+* **TypeScript-native** — strongly typed, developer-friendly, and production-ready
+* **Modular and extensible** — use only what you need, plug in new components
+* **Cross-ledger compatibility** — supports Indy, cheqd, and beyond
+* **Flexible credential support** — AnonCreds, W3C JSON-LD, JWT
+* **Aligned with EU standards** — interoperable with EU ARF and continuing to align with eIDAS 2.0 implementing acts
+* **Backed by the Open Wallet Foundation** — with growing community adoption
+
+### Breaking New Ground: Credo + cheqd
+
+Credo is now the **first framework to support AnonCreds on non-Indy ledgers**, thanks to a deep integration with [**cheqd**](https://cheqd.io). ACA-Py has since followed suit.
+
+This includes:
+
+* Issuance of Verifiable Credentials using cheqd DIDs
+* Creation of Credential Schemas and Credential Definitions
+* Support for the **cheqd AnonCreds Object Method**
+* Native DID and resource support for `did:cheqd`
 
 ## Get started
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>cheqd Agent Setup</strong></mark></td><td>Setup the cheqd agent to start being able to use cheqd inside Credo.</td><td><a href="setup-credo-agent.md">setup-credo-agent.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create cheqd DIDs</strong></mark></td><td>Use the cheqd DID module to start being able to create cheqd DIDs.</td><td><a href="decentralized-identifiers-dids/create-a-did.md">create-a-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue a Credential</strong></mark></td><td>Issue a digital Credential using a cheqd DID.</td><td><a href="verifiable-credentials-and-presentations/issue-a-verifiable-credential.md">issue-a-verifiable-credential.md</a></td></tr></tbody></table>
+Get setup with your Credo agent and begin using cheqd's functionality below:
+
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Setup your Credo Agent</strong></mark></td><td>Setup the cheqd agent to start being able to use cheqd inside Credo.</td><td><a href="setup-credo-agent.md">setup-credo-agent.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create a Decentralized Identifier (DID)</strong></mark></td><td>Use the cheqd DID module to start creating cheqd DIDs.</td><td><a href="decentralized-identifiers-dids/create-a-did.md">create-a-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create DID-Linked Resources (DLRs)</strong></mark></td><td>Create generic DID-Linked Resources, as well as schemas and credential definitions.</td><td><a href="did-linked-resources/">did-linked-resources</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue a Verifiable Credential</strong></mark></td><td>Issue and present Verifiable Credentials using a cheqd DID.</td><td><a href="verifiable-credentials-and-presentations/issue-a-verifiable-credential.md">issue-a-verifiable-credential.md</a></td></tr></tbody></table>
 
 
 
 ## Supported Credential types
 
-Aries Framework JavaScript supports the following Credential formats:
+Credo supports the following Credential formats:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>SD-JWT</strong></mark></td><td>Selective Disclosure JWT (SD-JWT) is the most <strong>commonly adopted credential format for European Digital Identity Ecosystems</strong>, allowing users to selectively disclose which attributes they would like to share in a presentation.</td><td><a href="https://docs.cheqd.io/product/learning-docs/decentralised-identity/credentials/types/sd-jwt">https://docs.cheqd.io/product/learning-docs/decentralised-identity/credentials/types/sd-jwt</a></td></tr><tr><td><mark style="color:blue;"><strong>AnonCreds</strong></mark></td><td><strong>AnonCreds</strong> is a Zero-Knowledge Credential format, offering full Holder privacy and selective disclosure.</td><td><a href="https://hyperledger.github.io/anoncreds-spec/">https://hyperledger.github.io/anoncreds-spec/</a></td></tr><tr><td><mark style="color:blue;"><strong>JSON-LD</strong></mark></td><td><strong>JSON-LD (Linked Data)</strong> Credentials are a richer data format, allowing applications to follow embedded links to other pieces of Linked Data across the web.</td><td><a href="https://learn.cheqd.io/decentralised-identity/credentials/types/json-ld">https://learn.cheqd.io/decentralised-identity/credentials/types/json-ld</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>AnonCreds</strong></mark></td><td><strong>AnonCreds</strong> is a Zero-Knowledge Credential format, offering full Holder privacy and selective disclosure.</td><td><a href="https://hyperledger.github.io/anoncreds-spec/">https://hyperledger.github.io/anoncreds-spec/</a></td></tr><tr><td><mark style="color:blue;"><strong>SD-JWT</strong></mark></td><td>Selective Disclosure JWT (SD-JWT) is the most <strong>commonly adopted credential format for European Digital Identity Ecosystems</strong>, allowing users to selectively disclose which attributes they would like to share in a presentation.</td><td><a href="https://docs.cheqd.io/product/learning-docs/decentralised-identity/credentials/types/sd-jwt">https://docs.cheqd.io/product/learning-docs/decentralised-identity/credentials/types/sd-jwt</a></td></tr><tr><td><mark style="color:blue;"><strong>JSON-LD</strong></mark></td><td><strong>JSON-LD (Linked Data)</strong> Credentials are a richer data format, allowing applications to follow embedded links to other pieces of Linked Data across the web.</td><td><a href="https://learn.cheqd.io/decentralised-identity/credentials/types/json-ld">https://learn.cheqd.io/decentralised-identity/credentials/types/json-ld</a></td></tr></tbody></table>
 
 ## Watch our demo video
 

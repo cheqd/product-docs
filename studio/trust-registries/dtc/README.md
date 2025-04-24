@@ -1,4 +1,5 @@
 ---
+description: Learn about Decentralized Trust Chains (DTCs) on cheqd.
 layout:
   title:
     visible: true
@@ -120,22 +121,88 @@ The TI permission is defined by `VerifiableAccreditationToAttest`, and the polic
 
 ## Policies Overview[​](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v4#policies-overview) <a href="#policies-overview" id="policies-overview"></a>
 
-The **Governance Framework Policy** is a document, written by a **Governance Authority**,  that defines requirements that must be met for the Trust Ecosystem. These requirements may include security, legal, operational, or functional requirements and may relate to regulation, directives, national policy, or similar documents.
+**Policies** define the rules and requirements that govern the trustworthiness of each entity or credential in the ecosystem. They ensure that every actor — from the root authority to the credential issuer — complies with defined standards for security, legal compliance, operational processes, and domain-specific functions.
 
-All Trust Model policies are located in the `termsOfUse` property of the corresponding  Accreditation or credential that contains the permissions related to the policy.
+Policies are embedded into the trust structure through the `termsOfUse` field of each Verifiable Accreditation or Credential.
 
-<figure><img src="../../../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
+There are three key types of policies:
 
-### Trust Types[​](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v3#concepts) <a href="#glossary" id="glossary"></a>
+| **Policy Type**            | **Applies To**                         | **Purpose**                                                                                                                                                               |
+| -------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Trust Framework Policy** | Root Authorisation (rTAO)              | Defines the overarching governance framework for the entire trust model. Sets baseline security, operational, legal, and regulatory requirements.                         |
+| **Accreditation Policy**   | Verifiable Accreditation (TAO)         | Defines the scope and conditions under which an accredited TAO can accredit others or issue domain-specific attestations, always within the bounds of the root framework. |
+| **Attestation Policy**     | Verifiable Credential (Trusted Issuer) | Defines the terms under which an attestation (credential) is issued, linking it back to the accreditation and ensuring compliance with the trust framework.               |
 
-#### Accreditations[​](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v4#accreditations) <a href="#accreditations" id="accreditations"></a>
+### How Policies are Linked
 
-Accreditations are certifications of being qualified to accredit or attest. Accreditations are attribute-driven and are always restricted to domain-specific credential types. These restrictions cannot be extended. For example, if a legal entity is accredited to accredit Issuers of diploma VCs, they may only pass this or a subset downstream of the hierarchy. Depending on the accreditation, the accredited legal entity may govern (accredit) or issue (attest), but always within the Trust Model and the accredited boundaries.
+* **The Trust Framework Policy** is referenced in the Root Authorisation for Trust Chain issued by the rTAO.
+* **Each Accreditation Policy** references either the Trust Framework Policy or a parent Accreditation Policy through its `termsOfUse`.
+* **Each Attestation Policy** ensures that issued credentials align with the specific permissions granted by the issuer’s accreditation.
 
-Each Verifiable Accreditation is also associated with an `AccreditationPolicy` in the `termsOfUse` section of the credential. This Policy links to the parent or root accreditation to enable verifiers to traverse the trust registry.&#x20;
+<figure><img src="../../../.gitbook/assets/image.png" alt="" width="375"><figcaption><p>Diagram showing different policy relationships in the trust chain</p></figcaption></figure>
 
-#### Credentials[​](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v4#attestations) <a href="#attestations" id="attestations"></a>
+This layered policy model enables verifiers to **traverse and validate the entire trust chain** — from a single credential back to a rTAO (optionally anchored in DNS) — while ensuring that all participants adhere to consistent governance and operational standards.
 
-All Verifiable Credentials are attestations of something. Any issuer may issue credentials (default), while accredited Trusted Issuers may issue domain-specific VCs with the accreditation, by attaching the `AttestationPolicy` into `termsOfUse`.
+## Trust Types
 
-End Users (legal entities or natural persons) can accumulate multiple Verifiable Credentials from one or many Trust Models.
+Decentralized Trust Chains (DTCs) organize trust relationships into three core building blocks: **Authorisations**, **Accreditations** and **Credentials (Attestations)**.\
+Each type plays a distinct role in constructing verifiable, governance-aligned trust chains across ecosystems.
+
+### Authorisations
+
+**Authorisations** form the foundation of a Decentralized Trust Chain by setting the rules, governance model, and trust framework that underpin the ecosystem.
+
+At the root of every trust chain is a **Root Authorisation**, issued by a **Root Trusted Accreditation Organisation (rTAO)**. This Root Authorisation:
+
+* Defines the governance framework governing the trust chain
+* Provides a machine-readable reference to a **Trust Framework Policy** (e.g., URL and trust framework ID)
+* (Optionally) restricts permissible credential types or schemas
+
+Every Verifiable Accreditation must reference the Root Authorisation, either directly or through intermediate accreditations.\
+This structure ensures a **policy-governed, cryptographically verifiable path** from any issued credential back to the root of trust.
+
+Root Authorisations may also be referenced within DNS records to establish stronger assurance in the identity of the legal entity.
+
+### Accreditations
+
+**Accreditations** are Verifiable Credentials that grant legal entities the authority to either **accredit** others or **issue attestations**. Accreditations are always **attribute-driven** and **domain-specific**, meaning they are restricted to particular credential types or fields of trust.
+
+These boundaries **cannot be arbitrarily expanded**.\
+For example, an organisation accredited to accredit issuers of diploma attestations may only delegate that specific authority — or a narrower subset — to others downstream in the trust hierarchy.
+
+Each **Verifiable Accreditation** includes an **Accreditation Policy** embedded in its `termsOfUse` field. This policy:
+
+* Defines the permissions and conditions attached to the accreditation
+* References a parent accreditation
+* Enables verifiers to trace the full accreditation path back to the original root authority
+
+Depending on the nature of the accreditation, an entity may be authorised to:
+
+* **Govern**: Accrediting other entities further down the trust chain
+* **Issue**: Attesting to facts through domain-specific Verifiable Credentials
+
+Accredited entities must operate **strictly within the boundaries** defined by their accreditation and the overarching trust framework.
+
+### Credentials (Attestations)
+
+**Credentials (Attestations)** are Verifiable Credentials that assert facts about an entity, such as identity, qualifications, certifications, or affiliations.
+
+Issuance rules differ depending on the entity:
+
+* **Generic credentials** may be issued by any DID-based entity without accreditation.
+* **Domain-specific attestations** must be issued by **accredited Trusted Issuers**, operating within an authorized scope defined by the trust chain.
+
+Each attestation issued under an accreditation must include an **Attestation Policy** in its `termsOfUse` field. This policy:
+
+* Links the credential back to the issuer’s accreditation
+* Establishes a cryptographic and policy-aligned trust path to the root authority
+
+End users — whether individuals or organisations — can collect **multiple attestations** across one or more decentralized trust ecosystems, building **portable, interoperable trust profiles**.
+
+#### In Summary:
+
+| **Element**                    | **Purpose**                                                            |
+| ------------------------------ | ---------------------------------------------------------------------- |
+| **Authorisations**             | Define the governance and policy rules at the root of the trust chain  |
+| **Accreditations**             | Delegate trust authority for accreditation or credential issuance      |
+| **Credentials (Attestations)** | Assert verifiable facts within the scope of a governed trust framework |

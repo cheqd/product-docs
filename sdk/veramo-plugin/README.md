@@ -1,5 +1,23 @@
 ---
-description: Veramo SDK plugin for cheqd identity functionality
+description: >-
+  Veramo SDK plugin with cheqd support for DIDs, DID-Linked Resources (DLRs) and
+  Credentials.
+cover: ../../.gitbook/assets/veramo logo.png
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # 🍈 Veramo
@@ -8,7 +26,7 @@ description: Veramo SDK plugin for cheqd identity functionality
 
 [Veramo SDK](https://veramo.io/) is a modular and pluggable client app SDK for decentralised identity and SSI applications. Our Veramo plugin - the [`@cheqd/did-provider-cheqd` NPM package](https://www.npmjs.com/package/@cheqd/did-provider-cheqd) - enables developers to interact with the cheqd ledger using Veramo SDK.
 
-This package includes [Veramo SDK Agent methods](https://veramo.io/docs/veramo\_agent/plugins) for use with the [Veramo CLI NPM package](https://www.npmjs.com/package/@veramo/cli). It can also be consumed as an NPM package outside Veramo CLI for building your own applications with NPM.
+This package includes [Veramo SDK Agent methods](https://veramo.io/docs/veramo_agent/plugins) for use with the [Veramo CLI NPM package](https://www.npmjs.com/package/@veramo/cli). It can also be consumed as an NPM package outside Veramo CLI for building your own applications with NPM.
 
 The package's core functionality is borrowed from [Veramo Core NPM package](https://www.npmjs.com/package/@veramo/core) and extends this to include cheqd ledger functionality, such as creating and managing DIDs.
 
@@ -34,7 +52,7 @@ Veramo provides an excellent foundation for clients that want to build verifiabl
 
 Using the DID-Provider-cheqd package, we have also been able to **reuse identity functionality** and abstract the complexity of cheqd/SDK and cheqd Network in less complex packages.
 
-### `did:cheqd`-specific functionality
+### did:cheqd-specific functionality
 
 `did-provider-cheqd` is the first Veramo SDK plug-in that utilises the _DID Manager Update_ method to offer a full-body DIDDoc update for a DID on cheqd ledger, rather than individual field update transactions used more commonly in other DID methods such as [`did:ethr`](https://developer.uport.me/ethr-did/docs/index).
 
@@ -62,7 +80,7 @@ The `@cheqd/sdk` package adds Cosmos SDK specific functionality such as signing 
 
 For identity-related keys, this plugin uses [Veramo's Key Management System (KMS)](https://www.npmjs.com/package/@veramo/key-manager) to manage keys for create and update operations.
 
-Find out about [other Veramo plug-ins in their official documentation](https://veramo.io/docs/veramo\_agent/plugins/).
+Find out about [other Veramo plug-ins in their official documentation](https://veramo.io/docs/veramo_agent/plugins/).
 
 ## Supported Credential types
 
@@ -80,6 +98,6 @@ Depending on the type of application you are looking to develop, you will need t
 
 For other applications, see:
 
-* [Veramo Node.js tutorial](https://veramo.io/docs/node\_tutorials/node\_setup\_identifiers)
-* [Veramo React tutorial](https://veramo.io/docs/react\_tutorials/react\_setup\_resolver)
-* [Veramo React Native tutorial](https://veramo.io/docs/react\_native\_tutorials/react\_native\_1\_setup\_identifiers)
+* [Veramo Node.js tutorial](https://veramo.io/docs/node_tutorials/node_setup_identifiers)
+* [Veramo React tutorial](https://veramo.io/docs/react_tutorials/react_setup_resolver)
+* [Veramo React Native tutorial](https://veramo.io/docs/react_native_tutorials/react_native_1_setup_identifiers)

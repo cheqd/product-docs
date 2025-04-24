@@ -1,6 +1,21 @@
-# Issue a Verifiable Credential
+---
+description: Issue a Verifiable Credential (AnonCreds) with did:cheqd.
+---
 
-Using [AnonCreds](https://anoncreds-wg.github.io/anoncreds-spec/) and the [Issue Credential V2 Protocol](https://github.com/hyperledger/aries-rfcs/blob/main/features/0453-issue-credential-v2/README.md), it is possible to issue Verifiable Credentials, signed by a cheqd DID, in a few clicks or lines of code. By following the following steps, you can effectively issue verifiable credentials using Credo Agent integrated with the cheqd ecosystem.
+# Issue a Verifiable Credential (AnonCreds)
+
+Using **AnonCreds** and the **Issue Credential v2 Protocol**, you can issue Verifiable Credentials signed by a **`did:cheqd`** identifier with just a few lines of code. This guide walks through the full flow using the **Credo Agent**.
+
+Before you begin, make sure you have:
+
+* A **registered `did:cheqd` identifier** for the Issuer
+* A **Credential Schema** and **Credential Definition** already created and published as DID-Linked Resources
+* A Credo Agent configured with:
+  * `@credo-ts/cheqd` for DID operations and resource publishing
+  * `@credo-ts/anoncreds` for AnonCreds credential handling
+  * `@credo-ts/didcomm` for DIDComm messaging
+* Two agents: an **Issuer** and a **Holder** (can be separate apps or run locally)
+* Secure connectivity between agents using **Out-of-Band (OOB)** or a supported connection method
 
 ## Step 1: Create a Connection with Holder
 
@@ -94,3 +109,10 @@ this.agent.events.on(CredentialEventTypes.CredentialStateChanged,
 ```
 {% endcode %}
 
+## Summary
+
+| Step | Action                                                           |
+| ---- | ---------------------------------------------------------------- |
+| 1    | Create and accept a secure connection between Issuer and Holder  |
+| 2    | Issuer prepares and sends a credential offer (via AnonCreds v2)  |
+| 3    | Holder accepts and stores the credential automatically or via UI |

@@ -40,7 +40,7 @@ Whereby:
 | ----------------- | ------------------------------------------------------------------------------------------------------------- |
 | schemaId          | Schema of the Verifiable Accreditation that the TAO is accredited to issue themselves                         |
 | types             | Types of Credential that the TAO is accredited to issue                                                       |
-| limitJurisdiction | Permission that the RTAO can set to limit the jurisdictional scope of the credentials issued in the ecosystem |
+| limitJurisdiction | Permission that the rTAO can set to limit the jurisdictional scope of the credentials issued in the ecosystem |
 
 ## Policies
 
@@ -114,5 +114,5 @@ For all Verifiable Accreditations, the accreditations are stored as DID-Linked R
 
 To issue a Verifiable Accreditation, follow the tutorial below:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue Verifiable Accreditation</strong></mark></td><td>Issue a Verifiable Accreditation to start a trust registry on cheqd</td><td><a href="../issue-accreditation.md">issue-accreditation.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue Verifiable Accreditation</strong></mark></td><td>Issue a Verifiable Accreditation to start a trust registry on cheqd</td><td><a href="../set-up-trust-chain/issue-accreditation.md">issue-accreditation.md</a></td></tr></tbody></table>
 

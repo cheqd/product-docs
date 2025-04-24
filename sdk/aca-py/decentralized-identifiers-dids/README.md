@@ -1,5 +1,5 @@
 ---
-description: Create cheqd DIDs using ACA-Py
+description: Create Decentralized Identifiers (DIDs) on cheqd using ACA-Py.
 ---
 
 # Decentralized Identifiers (DIDs)

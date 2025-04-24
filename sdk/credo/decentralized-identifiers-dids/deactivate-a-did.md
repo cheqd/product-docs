@@ -4,23 +4,45 @@ description: Deactivate a did:cheqd from Credo Agent
 
 # Deactivate a DID
 
-Follow these instructions to deactivate a did:cheqd DID from Credo Agent
+This guide explains how to **deactivate a `did:cheqd`** using a configured Credo Agent. Deactivating a DID marks it as no longer usable but does **not** remove it from the ledger — the DID can still be resolved and its deactivated state will be reflected in its metadata.
 
-## Deactivate DID
+## Prerequisites
 
-A DID can be deactivated, it can still be resolved
+Before deactivating a DID, ensure that:
 
-### **Parameters**[**​**](https://credo.js.org/guides/tutorials/cheqd#parameters-2)
+* The **Credo agent is configured** with cheqd support
+* The DID you are deactivating was created and is controlled by your agent
+* You have access to the signing key used to authorize DID updates
 
-1. `did`\*
-2. `options`
+## Behavior of Deactivated DIDs
 
-```typescript
+* Deactivated DIDs **remain resolvable**
+* DID resolvers will indicate that the DID is **deactivated**
+* The DID and its associated document become **immutable and non-functional**
+* Deactivation is **permanent**
+
+### Parameters
+
+| Parameter | Required | Description                                                    |
+| --------- | -------- | -------------------------------------------------------------- |
+| `did`     | ✅        | The full `did:cheqd` identifier you wish to deactivate         |
+| `options` | ❌        | Optional settings, including a `versionId` to track the update |
+
+### Example: Deactivate a cheqd DID
+
+```ts
 await agent.dids.deactivate({
   did: 'did:cheqd:testnet:b84817b8-43ee-4483-98c5-f03760816411',
-  // an optional versionId parameter
   options: {
-    versionId: '3.0',
+    versionId: '3.0', // Optional: for tracking version history or audit purposes
   },
 })
 ```
+
+***
+
+### Notes
+
+* The optional `versionId` parameter allows you to assign a custom version identifier to the deactivation transaction
+* Once deactivated, the DID cannot be updated, reactivated, or used for issuing credentials
+* You can still resolve the DID to verify its deactivated status via the `deactivated: true` metadata

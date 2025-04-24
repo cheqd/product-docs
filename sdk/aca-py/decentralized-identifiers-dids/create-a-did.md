@@ -1,5 +1,5 @@
 ---
-description: Create a DID using the did:cheqd method from ACA-Py Agent
+description: Create a DID using the did:cheqd method from ACA-Py Agent.
 ---
 
 # Create a DID
@@ -16,9 +16,9 @@ For wallet storage, utilise a Postgres database to ensure key persistence, enabl
 
 Populate the various `options`and `features`in the JSON request body and call the API to create the DID.&#x20;
 
-{% swagger src="../../../.gitbook/assets/swagger.json" path="/did/cheqd/create" method="post" %}
+{% openapi src="../../../.gitbook/assets/swagger.json" path="/did/cheqd/create" method="post" %}
 [swagger.json](../../../.gitbook/assets/swagger.json)
-{% endswagger %}
+{% endopenapi %}
 
 ## Request Body
 
@@ -48,9 +48,9 @@ Optional Object with Key-Value format for additional configuration options, reco
 
 After creating a DID or multiple DIDs, users can list all the created DIDs associated with their wallet. Using the `/wallet/did` API.
 
-{% swagger src="../../../.gitbook/assets/swagger.json" path="/wallet/did" method="get" %}
+{% openapi src="../../../.gitbook/assets/swagger.json" path="/wallet/did" method="get" %}
 [swagger.json](../../../.gitbook/assets/swagger.json)
-{% endswagger %}
+{% endopenapi %}
 
 
 
