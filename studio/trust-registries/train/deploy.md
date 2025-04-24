@@ -1,6 +1,6 @@
 # Deploy TRAIN and Anchor rTAO in DNS
 
-### Overview
+## Overview
 
 To enable DNS-based verification of root authorities in your trust ecosystem, TRAIN relies on a component called the **TDZM (Trust-DNS Zone Manager)**. This component manages DNS zones where **Root Trusted Accreditation Organisations (rTAOs)** can anchor their DIDs using TXT or TLSA records.
 
@@ -147,5 +147,3 @@ This DNS record will allow TRAIN to resolve and validate the rTAO’s DID during
 | **DNS Provider** | Must delegate NS and A records to the TDZM zone manager   |
 
 ***
-
-Let me know if you’d like a bash script template, a visual setup diagram, or a companion page for creating the TXT records!

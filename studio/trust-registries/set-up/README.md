@@ -1,12 +1,16 @@
+---
+description: Set up your Decentralized Trust Chain (DTC) on cheqd.
+---
+
 # Set up Trust Chain
 
-### Overview
+## Overview
 
 A **Trust Chain** is a hierarchical structure of **Verifiable Accreditations (VAs)** that connects a **Trusted Issuer** to a **Root Trusted Accreditation Organisation (rTAO)**. This structure allows credentials to be verified as trustworthy using tools like TRAIN, by tracing authority through cryptographic delegation.
 
 Each step in the chain is formalised using a **Verifiable Accreditation**, while the root is anchored using a **Root Authorisation for Trust Chain**, which establishes the governance framework of the ecosystem.
 
-If you're ready to issue your first accreditation, skip ahead:
+If you're ready to issue your first accreditation, skip ahead to use cheqd Studio:
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue Verifiable Accreditation</strong></mark></td><td>Issue a type of Verifiable Accreditation, including authorisations for the trust chain, and subordinate accreditations</td><td><a href="issue-accreditation.md">issue-accreditation.md</a></td></tr></tbody></table>
 
@@ -73,7 +77,7 @@ Use the rTAO to issue a Verifiable Accreditation to a **TAO**. This VA should:
 * Define the scope of trust (e.g. what credential types or domains the TAO can operate in)
 * Optionally include expiration or other constraints
 
-👉 [**Issue Verifiable Accreditations**](issue-accreditation.md)
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue Verifiable Accreditation</strong></mark></td><td>Issue a type of Verifiable Accreditation, including authorisations for the trust chain, and subordinate accreditations</td><td><a href="issue-accreditation.md">issue-accreditation.md</a></td></tr></tbody></table>
 
 #### 4. Delegate Further to Trusted Issuers
 
@@ -98,10 +102,31 @@ Each entity is linked by a signed **Verifiable Accreditation**, and all referenc
 
 ***
 
-### Optional: DNS Anchoring for rTAOs
+## Optional: DNS Anchoring for rTAOs
 
-The rTAO can include **DNSTrustFrameworkPointers** in its DID Document or Root Authorisation. These enable validators like TRAIN to confirm:
+In decentralized ecosystems, trust can be strengthened by combining blockchain-based identity with traditional Web PKI. To support this, **Root Trusted Accreditation Organisations (rTAOs)** can anchor their DIDs in DNS records, enabling domain-level verification of the root of the trust chain.
 
-* Domain control
-* Authenticity of the rTAO’s identity
-* Consistency with the governance framework published at that domain
+### Why Anchor Your rTAO in DNS?
+
+Anchoring a DID in DNS provides:
+
+* 🔐 **Cryptographic proof of domain control**
+* 🌍 **Public discoverability and auditability** of the rTAO’s identity
+* ✅ **Higher assurance in trust chain validation**, especially for public sector or federated environments
+* 🤝 **Interoperability** with tools like [TRAIN](../train/), which can validate trust chains using DNS lookups
+
+This optional step is highly recommended if your governance model involves domain ownership or if trust must be externally verifiable.
+
+***
+
+### How It Works: TDZM (Trust-DNS Zone Manager)
+
+**TDZM** is a component that manages DNS zones where rTAOs can publish their DIDs as TXT or TLSA records. It integrates with DNS infrastructure to serve trust metadata for automated validation.
+
+TRAIN uses TDZM to verify that:
+
+* The rTAO controls the claimed domain
+* The DID used in the trust chain is anchored in DNS
+* The governance framework is consistently represented
+
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Deploy TRAIN and Anchor rTAO in DNS</strong></mark></td><td>Add high assurance to your root DID, anchoring it within a DNS record.</td><td><a href="../../../.gitbook/assets/fraunhofer.png">fraunhofer.png</a></td><td><a href="../train/deploy.md">deploy.md</a></td></tr></tbody></table>
