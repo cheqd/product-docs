@@ -1,3 +1,9 @@
+---
+description: >-
+  Create an Credential Definition as a DID-Linked Resource on cheqd for issuing
+  AnonCreds.
+---
+
 # Create AnonCreds Credential Definition
 
 ## Register a Credential Definition

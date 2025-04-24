@@ -254,7 +254,7 @@ _If "**resourceType=anonCredsRevocRegDef**" then **append "issuerId"** to the be
 
 ### Create Revocation Registry Definition transaction
 
-To create a Revocation Registry Definition on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../sdk/veramo-plugin/did-linked-resources/), and pass the relevant JSON file for the object in the transaction.
+To create a Revocation Registry Definition on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../sdk/veramo/did-linked-resources/), and pass the relevant JSON file for the object in the transaction.
 
 ## Tying CredDef, RevRegDef and StatusList Objects together
 

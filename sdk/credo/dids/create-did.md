@@ -1,5 +1,5 @@
 ---
-description: Create a DID using the did:cheqd method from Credo Agent
+description: Create a did:cheqd DID using the Credo Agent.
 ---
 
 # Create a DID

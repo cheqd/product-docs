@@ -1,5 +1,5 @@
 ---
-description: Update a did:cheqd DID from ACA-Py Agent
+description: Update a did:cheqd DID using the ACA-Py Agent.
 ---
 
 # Update a DID
@@ -14,7 +14,7 @@ Follow these instructions to update a did:cheqd DID from ACA-Py Agent.
 
 To update an existing DID, you must pass the `did` id and the complete `didDocument`in the request body. The main field that is updated using this method os the `service` object of the DID.
 
-{% swagger src="../../../.gitbook/assets/swagger.json" path="/did/cheqd/update" method="post" %}
+{% openapi src="../../../.gitbook/assets/swagger.json" path="/did/cheqd/update" method="post" %}
 [swagger.json](../../../.gitbook/assets/swagger.json)
-{% endswagger %}
+{% endopenapi %}
 

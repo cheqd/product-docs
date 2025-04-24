@@ -1,5 +1,5 @@
 ---
-description: Deactivate a did:cheqd from ACA-Py Agent
+description: Deactivate a did:cheqd DID using the ACA-Py Agent.
 ---
 
 # Deactivate a DID
@@ -14,7 +14,7 @@ Follow these instructions to deactivate a did:cheqd DID from ACA-Py Agent.
 
 To deactivate an active DID, pass the `did`id in the request body, with any additional `options`that you may have configured.
 
-{% swagger src="../../../.gitbook/assets/swagger.json" path="/did/cheqd/deactivate" method="post" %}
+{% openapi src="../../../.gitbook/assets/swagger.json" path="/did/cheqd/deactivate" method="post" %}
 [swagger.json](../../../.gitbook/assets/swagger.json)
-{% endswagger %}
+{% endopenapi %}
 

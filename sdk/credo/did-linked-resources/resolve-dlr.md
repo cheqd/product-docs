@@ -1,3 +1,7 @@
+---
+description: Resolve a DID-Linked Resource (DLR) on cheqd using the Credo Agent.
+---
+
 # Resolve DID-Linked Resource
 
 The `resolveResource` method in the **Credo cheqd module** enables you to retrieve **DID-Linked Resources** stored on the cheqd network. These resources can be resolved in two primary ways:

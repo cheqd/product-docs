@@ -1,3 +1,7 @@
+---
+description: Revoke a Verifiable Credential, signed by a did:cheqd DID, using ACA-Py.
+---
+
 # Revoke a Verifiable Credential
 
 Revoking credentials is crucial for maintaining control over issued credentials and preventing misuse in the cheqd ecosystem. To revoke credentials within the ACA-Py framework, follow these steps:
@@ -10,9 +14,9 @@ The Issuer must determine the credential that needs to be revoked by getting the
 
 Initiate the credential revocation process by supplying the necessary credential identifiers like the connection id and the credential exchange id.
 
-{% swagger src="../../../.gitbook/assets/swagger.json" path="/anoncreds/revocation/revoke" method="post" %}
+{% openapi src="../../../.gitbook/assets/swagger.json" path="/anoncreds/revocation/revoke" method="post" %}
 [swagger.json](../../../.gitbook/assets/swagger.json)
-{% endswagger %}
+{% endopenapi %}
 
 #### Sample Request Body
 
@@ -28,4 +32,4 @@ Initiate the credential revocation process by supplying the necessary credential
 
 ## Step 3: Verify Revocation
 
-Follow the steps to [Present a Verifiable Credential](present-a-verifiable-credential.md) to verify that the credential has been successfully revoked. The response should have `verified: false`.
+Follow the steps to [Present a Verifiable Credential](present-credential.md) to verify that the credential has been successfully revoked. The response should have `verified: false`.

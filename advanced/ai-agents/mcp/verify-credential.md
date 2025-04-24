@@ -8,11 +8,11 @@ Follow these instructions to Verify a Credential from your MCP Client (e.g. Clau
 
 > ⚠️ **Before you begin...**
 >
-> Make sure you have configured the [MCP Client as per the setup instructions](./#getting-started) and [issued a Credential](issue-a-verifiable-credential.md) from the same MCP Client.
+> Make sure you have configured the [MCP Client as per the setup instructions](./#getting-started) and [issued a Credential](issue-credential.md) from the same MCP Client.
 
 ## Step 1: Create Connection between Holder and Claude Desktop.
 
-If the connection was disrupted, [create a new connection](issue-a-verifiable-credential.md#step-2-create-connection-between-holder-and-claude-desktop) between the Holder and Claude Desktop.
+If the connection was disrupted, [create a new connection](issue-credential.md#step-2-create-connection-between-holder-and-claude-desktop) between the Holder and Claude Desktop.
 
 ## Step 2: Ask Claude to issue a Proof Request
 

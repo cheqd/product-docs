@@ -1,5 +1,5 @@
 ---
-description: Update a did:cheqd DID from Credo Agent
+description: Update a did:cheqd DID using the Credo Agent.
 ---
 
 # Update a DID

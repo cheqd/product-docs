@@ -1,3 +1,7 @@
+---
+description: Create a DID-Linked Resource (DLR) on cheqd using the Credo Agent.
+---
+
 # Create DID-Linked Resource
 
 The `createResource` method from the **Credo cheqd module** allows you to create a **DID-Linked Resource** and publish it to the cheqd network under a `did:cheqd` identifier.

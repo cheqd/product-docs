@@ -1,5 +1,5 @@
 ---
-description: Create a DID using the did:cheqd method from ACA-Py Agent.
+description: Create a did:cheqd DID using the ACA-Py Agent.
 ---
 
 # Create a DID

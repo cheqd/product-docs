@@ -1,5 +1,5 @@
 ---
-description: Deactivate a did:cheqd from Credo Agent
+description: Deactivate a did:cheqd DID using the Credo Agent.
 ---
 
 # Deactivate a DID

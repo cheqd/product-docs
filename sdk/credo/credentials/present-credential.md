@@ -1,5 +1,5 @@
 ---
-description: Present a Verifiable Credential using Credo
+description: Present a Verifiable Credential, signed by a did:cheqd DID, using Credo.
 ---
 
 # Present a Verifiable Credential (AnonCreds)
@@ -19,7 +19,7 @@ Before presenting a credential:
 
 ## Step 1: Create a Connection with Holder
 
-Use any supported method to create a connection with the Holder. Automated [out-of-band protocol](https://identity.foundation/didcomm-messaging/spec/#out-of-band-messages) is recommended. You can follow the same steps as described in [Issue a Verifiable Credential](issue-a-verifiable-credential.md#step-1-create-a-connection-with-holder).
+Use any supported method to create a connection with the Holder. Automated [out-of-band protocol](https://identity.foundation/didcomm-messaging/spec/#out-of-band-messages) is recommended. You can follow the same steps as described in [Issue a Verifiable Credential](issue-credential.md#step-1-create-a-connection-with-holder).
 
 ## Step 2: Send Proof Request
 

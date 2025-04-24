@@ -1,5 +1,7 @@
 ---
-description: Create an AnonCreds Schema using ACA-Py
+description: >-
+  Create an AnonCreds Schema as a DID-Linked Resource on cheqd for issuing
+  AnonCreds.
 ---
 
 # Create AnonCreds Schema

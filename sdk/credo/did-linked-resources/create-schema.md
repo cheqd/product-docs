@@ -1,14 +1,20 @@
+---
+description: >-
+  Create an AnonCreds Schema as a DID-Linked Resource on cheqd for issuing
+  AnonCreds.
+---
+
 # Create AnonCreds Schema
 
 To issue Verifiable Credentials, the issuer will have to first create a Schema and then a Credential Definition.
 
 > ⚠️ **Before you begin...**
 >
-> Make sure you've correctly configured [the Credo agent with cheqd](../setup-credo-agent.md).
+> Make sure you've correctly configured [the Credo agent with cheqd](../set-up-agent.md).
 
 ## Import a DID (optional)
 
-In order to register a schema and credential definition, a DID must be added to the agent first. This can be done by calling `agent.dids.create()`, but this does require an endorser DID to be present as the `submitterDid`. This is optional, if you have created a DID from the agent before as described [here](../decentralized-identifiers-dids/create-a-did.md).
+In order to register a schema and credential definition, a DID must be added to the agent first. This can be done by calling `agent.dids.create()`, but this does require an endorser DID to be present as the `submitterDid`. This is optional, if you have created a DID from the agent before as described [here](../dids/create-did.md).
 
 {% code title="Issuer" %}
 ```typescript

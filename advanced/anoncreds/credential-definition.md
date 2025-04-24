@@ -80,7 +80,7 @@ A CredDef has a couple of important characteristics:
    3. `type`
    4. `tag`
 
-Further details regarding the use of cryptographic primatives are described in the [CredDefs section of the AnonCreds specification here](https://anoncreds-wg.github.io/anoncreds-spec/#generating-a-cred\_def-without-revocation-support).
+Further details regarding the use of cryptographic primatives are described in the [CredDefs section of the AnonCreds specification here](https://anoncreds-wg.github.io/anoncreds-spec/#generating-a-cred_def-without-revocation-support).
 
 An example of a CredDef Object content without revocation is below:
 
@@ -366,7 +366,7 @@ _If "**resourceType=anonCredsCredDef**" then **append "issuerId"** to the beginn
 
 ### create CredDef transaction
 
-To create a CredDef on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../sdk/veramo-plugin/did-linked-resources/), and pass the relevant JSON file for the object in the transaction.
+To create a CredDef on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../sdk/veramo/did-linked-resources/), and pass the relevant JSON file for the object in the transaction.
 
 ## Tying CredDef, RevRegDef and StatusList Objects together
 

@@ -41,7 +41,7 @@ If you want to utilise cheqd DIDs or DID-Linked Resources within applications wi
 
 cheqd Studio is the easiest route to get started with cheqd's identity functionality, or for testing with very low integration effort. Using simple REST APIs, it is possible to integrate cheqd Studio in a few lines of code.
 
-Under the hood, cheqd Studio utilises the [Veramo SDK cheqd Plugin](sdk/veramo-plugin/), providing the most feature complete set of functionality and tooling.
+Under the hood, cheqd Studio utilises the [Veramo SDK cheqd Plugin](sdk/veramo/), providing the most feature complete set of functionality and tooling.
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Get started with cheqd Studio</strong></mark></td><td>Click here to start your journey with cheqd Studio, create your account and begin using cheqd's underlying functionality.</td><td><a href="getting-started/studio/">studio</a></td><td><a href=".gitbook/assets/cheqd_logo_card.jpg">cheqd_logo_card.jpg</a></td></tr></tbody></table>
 

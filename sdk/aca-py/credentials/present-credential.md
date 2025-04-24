@@ -1,18 +1,22 @@
+---
+description: Present a Verifiable Credential, signed by a did:cheqd DID, using ACA-Py.
+---
+
 # Present a Verifiable Credential
 
 Using the `/present-proof-2.0` API endpoints, it is possible to present Verifiable Credentials, signed by a cheqd DID, in a few clicks or lines of code. This process enables secure and trustworthy sharing of verifiable credentials within the ACA-Py framework and cheqd ecosystem.
 
 ## Step 1: Create a Connection with Holder
 
-Use any supported method to create a connection with the Holder. Automated [out-of-band protocol](https://identity.foundation/didcomm-messaging/spec/#out-of-band-messages) is recommended. You can follow the same steps as described in [Issue a Verifiable Credential](issue-a-verifiable-credential.md#step-1-create-a-connection-with-holder).
+Use any supported method to create a connection with the Holder. Automated [out-of-band protocol](https://identity.foundation/didcomm-messaging/spec/#out-of-band-messages) is recommended. You can follow the same steps as described in [Issue a Verifiable Credential](issue-credential.md#step-1-create-a-connection-with-holder).
 
 ## Step 2: Send Proof Request
 
 After connection is established, the Verifier can send a proof request to the Holder.
 
-{% swagger src="../../../.gitbook/assets/swagger.json" path="/present-proof-2.0/send-request" method="post" %}
+{% openapi src="../../../.gitbook/assets/swagger.json" path="/present-proof-2.0/send-request" method="post" %}
 [swagger.json](../../../.gitbook/assets/swagger.json)
-{% endswagger %}
+{% endopenapi %}
 
 #### Sample Request Body
 
@@ -48,15 +52,15 @@ The request body will depend on the credential, but here is a sample.
 
 Holder can get the stored credentials from own wallet and format a proof to send to the Verifier.
 
-{% swagger src="../../../.gitbook/assets/swagger.json" path="/present-proof-2.0/records/{pres_ex_id}/send-presentation" method="post" %}
+{% openapi src="../../../.gitbook/assets/swagger.json" path="/present-proof-2.0/records/{pres_ex_id}/send-presentation" method="post" %}
 [swagger.json](../../../.gitbook/assets/swagger.json)
-{% endswagger %}
+{% endopenapi %}
 
 ## Step 4: Verifier verifies Presentation
 
 Verifier receives the presentation via the connection, and can use the following API to verify. The response must have `verified: true` .
 
-{% swagger src="../../../.gitbook/assets/swagger.json" path="/present-proof-2.0/records/{pres_ex_id}/verify-presentation" method="post" %}
+{% openapi src="../../../.gitbook/assets/swagger.json" path="/present-proof-2.0/records/{pres_ex_id}/verify-presentation" method="post" %}
 [swagger.json](../../../.gitbook/assets/swagger.json)
-{% endswagger %}
+{% endopenapi %}
 
