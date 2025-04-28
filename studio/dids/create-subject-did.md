@@ -2,23 +2,21 @@
 
 Issuers may want to create identity keypairs for multiple reasons, such as for signing payloads or for creating `did:key` DIDs.
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/key/create" method="post" expanded="true" %}
+{% openapi src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/key/create" method="post" expanded="true" %}
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endswagger %}
+{% endopenapi %}
 
 There is also an option to fetch an identity keypair by inputting a Key ID (kid) as a request format.
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/key/read/{kid}" method="get" expanded="true" %}
+{% openapi src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/key/read/{kid}" method="get" expanded="true" %}
 [https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endswagger %}
+{% endopenapi %}
 
 ## Creating a Subject DID
 
-cheqd Studio currently supports two types of `subject` DIDs:
+cheqd Studio currently supports one types of `subject` DIDs:
 
 * `did:key`
-* `did:vda`
 
-With the former, you can follow the [did:key specification](https://w3c-ccg.github.io/did-method-key/) to create a subject DID based on a generated keypair.&#x20;
+With the former, you can follow the [did:key specification](https://w3c-ccg.github.io/did-key-spec/) to create a subject DID based on a generated keypair.&#x20;
 
-With the latter, you can setup your [did:vda](https://news.verida.io/introducing-did-vda-a-fast-cheap-web3-identity-solution-on-polygon-5d1487941477) subject DID on your [Verida wallet](https://www.verida.io/). Using cheqd Studio, you will be able to send credentials to your Verida wallet and use it to store and securely back them up.

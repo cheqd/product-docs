@@ -1,5 +1,5 @@
 ---
-description: 'Architecture Decision Record detailing the cheqd DID Method: did:cheqd.'
+description: 'Architecture Decision Record (ADR) detailing the cheqd DID Method: did:cheqd.'
 ---
 
 # 🔵 ADR 001: cheqd DID Method
@@ -87,7 +87,7 @@ Any client application can generate these UUIDs using their own preferred implem
 
 Alternatively, [the `unique-id` **may** also be generated similar to the `did:indy method`](https://hyperledger.github.io/indy-did-method/#indy-did-method-identifiers) from the initial public key of the DID (e.g., base58 encoding of the first 16 bytes of the SHA256 of the first Verification Method `Ed25519` public key). This `unique-id` format is referred to as the "Indy-style" unique identifier in our documentation.
 
-Support for Indy-style unique identifiers makes compatibility with Indy-based client SDKs, such as those based on [Hyperledger Aries](https://www.hyperledger.org/use/aries).
+Support for Indy-style unique identifiers makes compatibility with Indy-based client SDKs, such as those based on [Hyperledger Aries](https://github.com/hyperledger/aries).
 
 #### Namespace
 
@@ -555,7 +555,7 @@ Further discussion on how these boundaries are separated in implementation, with
 
 #### Rename `NYM` transactions to `DID` transactions
 
-[**NYM** is the term used by Hyperledger Indy](https://hyperledger-indy.readthedocs.io/projects/node/en/latest/transactions.html#nym) for DIDs. cheqd uses the term `DID` instead of `NYM` in transactions, which should make it easier to understand the context of a transaction easier by bringing it closer to W3C DID terminology used by the rest of the SSI ecosystem.
+**NYM** is the term used by Hyperledger Indy for DIDs. cheqd uses the term `DID` instead of `NYM` in transactions, which should make it easier to understand the context of a transaction easier by bringing it closer to W3C DID terminology used by the rest of the SSI ecosystem.
 
 #### Removing `role` field from DID transactions
 

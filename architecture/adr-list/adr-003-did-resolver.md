@@ -232,6 +232,6 @@ Compiled packages/binaries for the _Full cheqd DID Resolver_ will be made availa
 ## References
 
 * [W3C Decentralized Identifiers (DIDs)](https://www.w3.org/TR/did-core/) recommendation
-* [W3C Decentralized Identifier Resolution (DID Resolution)](https://w3c-ccg.github.io/did-resolution/) specification
+* [W3C Decentralized Identifier Resolution (DID Resolution)](https://www.w3.org/TR/did-resolution/) specification
 * [Universal Resolver driver development](https://github.com/decentralized-identity/universal-resolver/blob/main/docs/driver-development.md) guide
 * [DID Core Specification Test Suite](https://w3c.github.io/did-test-suite/)

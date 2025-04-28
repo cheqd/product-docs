@@ -8,9 +8,4 @@
 
 Token Status List is a specification from the Internet Engineering Task Force, using JSON or CBOR encoded sets of bits and wrapping these as either a JSON Web Tokens (JWTs) or CBOR Web Tokens (CWTs), to comprise a full status list.
 
-The specification may be found below:
-
-{% embed url="https://www.ietf.org/id/draft-ietf-oauth-status-list-02.html" %}
-IETF Token Status List
-{% endembed %}
-
+The [link to the specification may be found here](https://www.ietf.org/archive/id/draft-ietf-oauth-status-list-02.html).

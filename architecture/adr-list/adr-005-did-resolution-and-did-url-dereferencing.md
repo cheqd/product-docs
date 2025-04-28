@@ -20,7 +20,7 @@ description: >-
 
 The [`did:cheqd` method ADR](adr-001-cheqd-did-method.md) defines how DIDs are created and read from ledger. According to the [W3C DID Core specification](https://w3c.github.io/did-core/), DID methods are expected to provide [standards-compliant methods of DID and DID Document ("DIDDoc") production](https://w3c.github.io/did-core/#production-and-consumption).
 
-The [cheqd DID Resolver](https://github.com/cheqd/did-resolver) is designed to implement the [W3C DID _Resolution_ specification](https://w3c-ccg.github.io/did-resolution/) for [`did:cheqd`](https://www.w3.org/TR/did-resolution/) method.
+The [cheqd DID Resolver](https://github.com/cheqd/did-resolver) is designed to implement the [W3C DID _Resolution_ specification](https://www.w3.org/TR/did-resolution/) for [`did:cheqd`](https://www.w3.org/TR/did-resolution/) method.
 
 Part of the [W3C DID _Resolution_ specification](https://www.w3.org/TR/did-resolution/) is the notion of DID URL Dereferencing whereby a DID URL identifies either a primary or secondary resource which is returned directly.
 

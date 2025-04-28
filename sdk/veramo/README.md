@@ -54,7 +54,7 @@ Using the DID-Provider-cheqd package, we have also been able to **reuse identity
 
 ### did:cheqd-specific functionality
 
-`did-provider-cheqd` is the first Veramo SDK plug-in that utilises the _DID Manager Update_ method to offer a full-body DIDDoc update for a DID on cheqd ledger, rather than individual field update transactions used more commonly in other DID methods such as [`did:ethr`](https://developer.uport.me/ethr-did/docs/index).
+`did-provider-cheqd` is the first Veramo SDK plug-in that utilises the _DID Manager Update_ method to offer a full-body DIDDoc update for a DID on cheqd ledger, rather than individual field update transactions used more commonly in other DID methods such as [`did:ethr`](https://github.com/uport-project/ethr-did).
 
 New DID creation can also be done by passing a full-body DIDoc payload in JSON, rather than having to assemble the document field-by-field.
 
