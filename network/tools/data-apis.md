@@ -2,7 +2,7 @@
 
 ## Summary
 
-Cosmos SDK offers [APIs for built-in modules using gRPC, REST, and Tendermint RPC](https://docs.cosmos.network/v0.47/core/grpc\_rest#comparison-table). This project aims to provide simple REST APIs for data that default Cosmos SDK APIs can't provide.
+Cosmos SDK offers [APIs for built-in modules using gRPC, REST, and Tendermint RPC](https://docs.cosmos.network/v0.47/core/grpc_rest#comparison-table). This project aims to provide simple REST APIs for data that default Cosmos SDK APIs can't provide.
 
 This collection of custom APIs can be deployed as a [Cloudflare Worker](https://workers.cloudflare.com/) or compatible serverless platforms.
 
@@ -68,7 +68,7 @@ Tokens that are still vesting for continuous/delayed vesting accounts, in CHEQ.
 
 #### Rationale
 
-There is no Cosmos SDK API that returns balances that are yet to be vested for [continuous or delayed vesting accounts](https://docs.cosmos.network/v0.45/modules/auth/05\_vesting.html#vesting-account-types).
+There is no Cosmos SDK API that returns balances that are yet to be vested for [continuous or delayed vesting accounts](https://docs.cosmos.network/v0.45/modules/auth/05_vesting.html#vesting-account-types).
 
 ### Vested Account Balance
 
@@ -82,7 +82,7 @@ Tokens that have already vested for continuous/delayed vesting accounts, in CHEQ
 
 #### Rationale
 
-There is no Cosmos SDK API that returns balances that are already vested for [continuous or delayed vesting accounts](https://docs.cosmos.network/v0.45/modules/auth/05\_vesting.html#vesting-account-types).
+There is no Cosmos SDK API that returns balances that are already vested for [continuous or delayed vesting accounts](https://docs.cosmos.network/v0.45/modules/auth/05_vesting.html#vesting-account-types).
 
 ### Liquid Account Balance
 
@@ -96,7 +96,7 @@ Tokens in continuous/delayed vesting accounts that can be converted to liquid ba
 
 #### Rationale
 
-Tokens in [continuous or delayed vesting accounts](https://docs.cosmos.network/v0.45/modules/auth/05\_vesting.html#vesting-account-types) that can be converted to liquid balances. This is calculated as the sum of the following figures:
+Tokens in [continuous or delayed vesting accounts](https://docs.cosmos.network/v0.45/modules/auth/05_vesting.html#vesting-account-types) that can be converted to liquid balances. This is calculated as the sum of the following figures:
 
 1. "Delegated free" balance (from the `/cosmos/auth/v1beta1/accounts/<address>` REST API) _or_ vested balance, whichever is higher
 2. "Available" balance (if applicable)
@@ -115,29 +115,6 @@ Total account balance for specified account, in CHEQ.
 #### Rationale
 
 The standard Cosmos SDK REST API for account balances returns JSON with the account balances along with its denomination, usually the lowest denomination. This is hard to parse in applications such as Google Sheets (e.g., to monitor the account balance by fetching a response from a REST API directly in Google Sheets). This API returns a plain number that can be directly plugged into such applications, without having to parse JSON.
-
-### Arbitrage
-
-#### Endpoint
-
-* Results filtered by threshold value: [`data-api.cheqd.io/arbitrage`](https://data-api.cheqd.io/arbitrage)
-* Unfiltered results: [`data-api.cheqd.io/arbitrage/all`](https://data-api.cheqd.io/arbitrage/all)
-
-#### Response
-
-Returns current price of CHEQ token among different markets along with an evaluation of whether they are at risk of arbitrage opportunities.
-
-#### Rationale
-
-The CHEQ token trades on multiple markets/exchanges (e.g., [Osmosis](https://app.osmosis.zone), [Gate.io](https://www.gate.io/trade/CHEQ\_USDT), [BitMart](https://www.bitmart.com/trade/en?layout=basic\&symbol=CHEQ\_USDT), [LBank](https://www.lbank.info/exchange/cheq/usdt), [Uniswap](https://app.uniswap.org/#/swap?inputCurrency=0x70edf1c215d0ce69e7f16fd4e6276ba0d99d4de7\&outputCurrency=0xdac17f958d2ee523a2206206994597c13d831ec7\&chain=mainnet)). This is typically established as CHEQ along with another token pair or currency.
-
-Fluctuations in the exchange rate between CHEQ and other tokens pairs can give rise to opportunities for arbitrage. Having a significant market arbitrage among different exchanges creates a [market inefficiencies](https://www.investopedia.com/terms/i/inefficientmarket.asp). Extreme market inefficiencies result [market failure](https://www.investopedia.com/terms/m/marketfailure.asp) and [deadweight loss](https://www.investopedia.com/terms/d/deadweightloss.asp).
-
-Having monitoring capabilities for arbitrage gives opportunities for the cheqd community to rectify potential liquidity issues and aware of exchange rate movements.
-
-#### Alerting via Zapier
-
-To alert a significant market arbitrages for CHEQ listings on different exchanges, we pull latest markets data from the [CoinGecko API for cheqd's ticker page](https://www.coingecko.com/en/coins/cheqd-network) via our Market Monitoring API [Monitor Markets API](https://github.com/cheqd/market-monitoring). If an arbitrage threshold is exceeded, a webhook trigger is sent to [Zapier](https://zapier.com/) for alerting via different channels (such as Slack).
 
 ## Developer Guide
 

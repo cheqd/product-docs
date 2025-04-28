@@ -32,8 +32,8 @@ Below is a comparison between our supported SDKs, including: Credo, ACA-Py, Vera
 |             **Self Issued OpenID Provider v2 (OIDC-SIOP) (**[**spec**](https://openid.net/specs/openid-connect-self-issued-v2-1_0.html)**)**             | ✔️    | ⌛(roadmap) |      ❌     |        ✔️       |
 |         **OpenID for Verifiable Credential Issuance (**[**spec**](https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html)**)**        | ✔️    | ⌛(roadmap) |      ❌     |        ✔️       |
 |         **OpenID for Verifiable Credential Presentations (**[**spec**](https://openid.net/specs/openid-4-verifiable-presentations-1_0.html)**)**         | ✔️    | ⌛(roadmap) |      ❌     |        ✔️       |
-|                                 **Status List v2021 Revocation (**[**spec**](https://www.w3.org/TR/vc-status-list/)**)**                                 | ❌     |     ✔️     |     ✔️     |        ✔️       |
-|                                                                   **Token Status List**                                                                  | ✔️    |      ❌     |     ✔️     |        ✔️       |
+|                                **Bitstring Status List (**[**spec**](https://www.w3.org/TR/vc-bitstring-status-list/)**)**                               | ❌     |     ✔️     |     ✔️     |        ✔️       |
+|                       **Token Status List (**[**spec**](https://www.ietf.org/archive/id/draft-ietf-oauth-status-list-02.html)**)**                       | ✔️    |      ❌     |     ✔️     |        ✔️       |
 |      **AnonCreds Revocation Registry Definitions (**[**spec**](https://docs.cheqd.io/identity/guides/anoncreds/revocation-registry-definition)**)**      | ✔️    |      ❌     |     ✔️     |        ❌        |
 |                **AnonCreds Status List Entries (**[**spec**](https://docs.cheqd.io/identity/guides/anoncreds/revocation-status-list)**)**                | ✔️    |      ❌     |     ✔️     |        ❌        |
 |    **Issue Credential Protocol (**[**RFC 0036**](https://github.com/hyperledger/aries-rfcs/blob/master/features/0036-issue-credential/README.md)**)**    | ✔️    |      ❌     |     ✔️     |        ❌        |
