@@ -86,7 +86,7 @@ By default, `ENABLE_AUTHENTICATION` is set to off/`false`. To enable external Ve
    3. `LOGTO_MANAGEMENT_API`: URL of management API for LogTo (default is `https://default.logto.app/api`)
    4. `CORS_ALLOWED_ORIGINS`: CORS allowed origins used in the app
 2. **User-facing APIs**
-   1. `LOGTO_APP_ID`: Application ID for the Credential Service application in LogTo. This can be set up as type "Traditional Web"
+   1. `LOGTO_APP_ID`: Application ID for the cheqd Studio application in LogTo. This can be set up as type "Traditional Web"
    2. `LOGTO_APP_SECRET`: Application secret associated with App ID above.
 3. **Machine-to-machine backend APIs**
    1. `LOGTO_M2M_APP_ID`: Application ID for machine-to-machine application in LogTo. This is used for elevated management APIs within LogTo.
