@@ -6,7 +6,7 @@ description: Advanced setup guide for running the cheqd Studio.
 
 ## Run as standalone application using Docker Compose
 
-If you want to run the application without any external databases or dependent services, we provide [a Docker Compose file](https://github.com/cheqd/credential-service/blob/main/docker/no-external-db/docker-compose-no-db.yml) to spin up a standalone service.
+If you want to run the application without any external databases or dependent services, we provide [a Docker Compose file](https://github.com/cheqd/studio/blob/main/docker/no-external-db/docker-compose-no-db.yml) to spin up a standalone service.
 
 ```
 docker compose -f docker/no-external-db/docker-compose-no-db.yml up --detach
@@ -14,17 +14,17 @@ docker compose -f docker/no-external-db/docker-compose-no-db.yml up --detach
 
 This standalone service uses an in-memory database with no persistence, and therefore is recommended only if you're managing key/secret storage separately.
 
-The [`no-db.env` file](https://github.com/cheqd/credential-service/blob/main/docker/no-external-db/no-db.env) in the same folder contains all the environment variables necessary to configure the service. (See section _Configuration_ above.)
+The [`no-db.env` file](https://github.com/cheqd/studio/blob/main/docker/no-external-db/no-db.env) in the same folder contains all the environment variables necessary to configure the service. (See section _Configuration_ above.)
 
 ## Run with external Key Management System (KMS) and/or authentication service using Docker Compose
 
 Construct the postgres URL and configure the env variables mentioned above.
 
-Spinning up a Docker container from the [pre-built credential-service Docker image on Github](https://github.com/cheqd/credential-service/pkgs/container/credential-service) is as simple as the command below:
+Spinning up a Docker container from the [pre-built cheqd Studio Docker image on Github](https://github.com/cheqd/studio/pkgs/container/studio) is as simple as the command below:
 
 ### **Configure PostgreSQL database**
 
-Configure the environment variables in the [`postgres.env` file](https://github.com/cheqd/credential-service/blob/main/docker/with-external-db/postgres.env):
+Configure the environment variables in the [`postgres.env` file](https://app.gitbook.com/u/wz25t2LypRNtlPTUsmFJGTS0FIw2):
 
 1. `POSTGRES_USER`: Username for Postgres database
 2. `POSTGRES_PASSWORD`: Password for Postgres database
@@ -38,7 +38,7 @@ chmod +x docker/with-external-db/pg-init-scripts/create-multiple-postgresql-data
 
 ### **Start LogTo service**
 
-Configure the environment variables in the [`logto.env` file](https://github.com/cheqd/credential-service/blob/main/docker/with-external-db/logto.env) with the settings described in section above.
+Configure the environment variables in the [`logto.env` file](https://github.com/cheqd/studio/blob/main/docker/with-external-db/logto.env) with the settings described in section above.
 
 Then, run the LogTo service to configure the LogTo application API resources, applications, sign-in experiences, roles etc using Docker Compose:
 
@@ -50,7 +50,7 @@ Configuring LogTo is outside the scope of this guide, and we recommend reading [
 
 ### **Start credential-service app**
 
-Configure the environment variables in the [`with-db.env` file](https://github.com/cheqd/credential-service/blob/main/docker/with-external-db/with-db.env) with the settings described in section above. Depending on whether you are using external Veramo KMS only, LogTo only, or both you will need to have previously provisioned these services as there are environment variables in this file that originate from Postgres/LogTo.
+Configure the environment variables in the [`with-db.env` file](https://github.com/cheqd/studio/blob/main/docker/with-external-db/with-db.env) with the settings described in section above. Depending on whether you are using external Veramo KMS only, LogTo only, or both you will need to have previously provisioned these services as there are environment variables in this file that originate from Postgres/LogTo.
 
 Then, start the service using Docker Compose:
 
@@ -78,7 +78,7 @@ docker compose -f docker/with-external-db/docker-compose-with-db.yml --profile l
 
 ### Build using Docker
 
-To build your own image using Docker, use the [Dockerfile](https://github.com/cheqd/credential-service/blob/main/docker/Dockerfile) provided.
+To build your own image using Docker, use the [Dockerfile](https://github.com/cheqd/studio/blob/main/docker/Dockerfile) provided.
 
 ```
 docker build --file docker/Dockerfile --target runner . --tag credential-service:local
