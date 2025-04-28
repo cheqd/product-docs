@@ -1,7 +1,7 @@
 ---
 description: >-
-  Rules and architecture of DID resolver to handle DID URL queries, paths and
-  fragments
+  Architecture Decision Record (ADR) describing how DID resolvers handle DID URL
+  queries, paths and fragments for DIDs and DID-Linked Resources.
 ---
 
 # 🟣 ADR 005: DID Resolution & DID URL Dereferencing
@@ -20,9 +20,9 @@ description: >-
 
 The [`did:cheqd` method ADR](adr-001-cheqd-did-method.md) defines how DIDs are created and read from ledger. According to the [W3C DID Core specification](https://w3c.github.io/did-core/), DID methods are expected to provide [standards-compliant methods of DID and DID Document ("DIDDoc") production](https://w3c.github.io/did-core/#production-and-consumption).
 
-The [cheqd DID Resolver](https://github.com/cheqd/did-resolver) is designed to implement the [W3C DID _Resolution_ specification](https://w3c-ccg.github.io/did-resolution/) for [`did:cheqd`](adr-001-cheqd-did-method.md) method.
+The [cheqd DID Resolver](https://github.com/cheqd/did-resolver) is designed to implement the [W3C DID _Resolution_ specification](https://w3c-ccg.github.io/did-resolution/) for [`did:cheqd`](https://www.w3.org/TR/did-resolution/) method.
 
-Part of the [W3C DID _Resolution_ specification](https://w3c-ccg.github.io/did-resolution/) is the notion of DID URL Dereferencing whereby a DID URL identifies either a primary or secondary resource which is returned directly.
+Part of the [W3C DID _Resolution_ specification](https://www.w3.org/TR/did-resolution/) is the notion of DID URL Dereferencing whereby a DID URL identifies either a primary or secondary resource which is returned directly.
 
 ## Understanding DID resolution vs DID URL dereferencing
 
@@ -1249,9 +1249,9 @@ This parameter a kind of modifier which works in the same manner as [metadata](a
 
 ### HTTP headers and associated rules
 
-The cheqd DID Resolver complies with the rules and algorithm defined in [Decentralized Identifier Resolution (DID Resolution) v0.3](https://w3c-ccg.github.io/did-resolution). This section clarifies and expands some descriptions specific to cheqd.
+The cheqd DID Resolver complies with the rules and algorithm defined in [Decentralized Identifier Resolution (DID Resolution) v0.3](https://www.w3.org/TR/did-resolution/). This section clarifies and expands some descriptions specific to cheqd.
 
-The [DID Resolution specification HTTP(S) bindings](https://w3c-ccg.github.io/did-resolution/#bindings-https) section states that:
+The [DID Resolution specification HTTP(S) bindings](https://www.w3.org/TR/did-resolution/#bindings) section states that:
 
 > If the output of the DID URL dereferencing function contains the `didDocumentStream`:
 >
@@ -1291,7 +1291,7 @@ Since the cheqd DID Resolver APIs are REST APIs, the default `Content-Type: appl
 
 ### Error handling
 
-The DID Resolution specification [defines an algorithm for how invalid DID URL Resolution/Dereferencing errors](https://w3c-ccg.github.io/did-resolution/#resolving-algorithm) should be handled. The cheqd DID Resolver aims to implement all of these scenarios, with the [correct HTTP Response status codes based on the specific error](https://w3c-ccg.github.io/did-resolution/#bindings) encountered.
+The DID Resolution specification [defines an algorithm for how invalid DID URL Resolution/Dereferencing errors](https://www.w3.org/TR/did-resolution/#resolving-algorithm) should be handled. The cheqd DID Resolver aims to implement all of these scenarios, with the [correct HTTP Response status codes based on the specific error](https://www.w3.org/TR/did-resolution/#bindings) encountered.
 
 ### DID Resolution errors
 

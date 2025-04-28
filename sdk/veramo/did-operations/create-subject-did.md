@@ -8,13 +8,13 @@ This tutorial offers step-by-step guidance on how to create a subject DID to be 
 
 ## Background
 
-We chose to use [`did:key`](https://github.com/w3c-ccg/did-method-key) for the holder because the [`did:key`](https://w3c-ccg.github.io/did-method-key/) specification has a lot synergy with cheqd did method, [`did:cheqd`](../../../architecture/adr-list/adr-001-cheqd-did-method.md).
+We chose to use [`did:key`](https://w3c-ccg.github.io/did-key-spec/) for the holder because the [`did:key`](https://w3c-ccg.github.io/did-key-spec/) specification has a lot synergy with cheqd did method, [`did:cheqd`](../../../architecture/adr-list/adr-001-cheqd-did-method.md).
 
-Using [`did:key`](https://github.com/w3c-ccg/did-method-key) also keeps holder DIDs off-ledger. This is very important for the privacy and data protection of the holder. If holder DIDs and DIDDocs were stored on-ledger, this could constitute a risk where data written within the DIDDoc could not be removed in line with a holder's right to be forgotten.
+Using [`did:key`](https://w3c-ccg.github.io/did-key-spec/) also keeps holder DIDs off-ledger. This is very important for the privacy and data protection of the holder. If holder DIDs and DIDDocs were stored on-ledger, this could constitute a risk where data written within the DIDDoc could not be removed in line with a holder's right to be forgotten.
 
 It is also easily managable by a client agent as a full ledger backup for the writing of a DID / DID Doc is not required, thereby making it easily reproducable in a client environment.
 
-Creating a subject [`did:key`](https://github.com/w3c-ccg/did-method-key) DID can be achieved through both the Veramo CLI, or directly through an application that has been setup to read and write to the cheqd ledger, using the Veramo SDK for cheqd.
+Creating a subject [`did:key`](https://w3c-ccg.github.io/did-key-spec/) DID can be achieved through both the Veramo CLI, or directly through an application that has been setup to read and write to the cheqd ledger, using the Veramo SDK for cheqd.
 
 ## Instructions
 
