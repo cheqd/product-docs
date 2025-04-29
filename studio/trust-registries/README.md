@@ -1,5 +1,7 @@
 ---
-description: Establish end-to-end trust using cheqd's trust registry infrastructure
+description: >-
+  Build and establish end-to-end trust using cheqd's trust registry
+  infrastructure.
 ---
 
 # 🤝 Build Trust Registries

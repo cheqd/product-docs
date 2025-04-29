@@ -1,3 +1,9 @@
+---
+description: >-
+  Architecture Decision Record (ADR) detailing cheqd's implementation of its DID
+  Registrar.
+---
+
 # 🟠 ADR 004: DID Registrar
 
 ## Status

@@ -1,5 +1,5 @@
 ---
-description: Create digital Resources linked to cheqd DIDs on-ledger
+description: Create DID-Linked Resources (DLRs) linked to cheqd DIDs.
 ---
 
 # ↕️ Create DID-Linked Resources

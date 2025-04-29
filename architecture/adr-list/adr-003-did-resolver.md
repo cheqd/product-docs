@@ -1,3 +1,9 @@
+---
+description: >-
+  Architecture Decision Record (ADR) detailing cheqd's implementation of its DID
+  Resolver.
+---
+
 # 🟡 ADR 003: DID Resolver
 
 ## Status

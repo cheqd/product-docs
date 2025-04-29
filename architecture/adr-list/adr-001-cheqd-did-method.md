@@ -603,7 +603,7 @@ With better compliance against the DID Core specification, the goal of the **che
 
 * [Hyperledger Indy](https://wiki.hyperledger.org/display/indy) official project background on Hyperledger Foundation wiki
   * [`indy-node`](https://github.com/hyperledger/indy-node) GitHub repository: Server-side blockchain node for Indy ([documentation](https://hyperledger-indy.readthedocs.io/projects/node/en/latest/index.html))
-  * [`indy-plenum`](https://github.com/hyperledger/indy-plenum) GitHub repository: Plenum Byzantine Fault Tolerant consensus protocol; used by `indy-node` ([documentation](https://hyperledger-indy.readthedocs.io/projects/plenum/en/latest/index.html))
+  * [`indy-plenum`](https://lf-hyperledger.atlassian.net/wiki/spaces/indy/overview) GitHub repository: Plenum Byzantine Fault Tolerant consensus protocol; used by `indy-node` ([documentation](https://hyperledger-indy.readthedocs.io/projects/plenum/en/latest/index.html))
   * [Indy DID method](https://hyperledger.github.io/indy-did-method/) (`did:indy`)
   * [Indy identity-domain transactions](https://github.com/hyperledger/indy-node/blob/main/docs/source/transactions.md)
 * [Hyperledger Aries](https://lf-hyperledger.atlassian.net/wiki/spaces/ARIES/overview) official project background on Hyperledger Foundation wiki

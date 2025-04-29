@@ -1,7 +1,7 @@
 ---
 description: >-
-  Learn how to issue and manage Verifiable Credentials and Presentations, signed
-  by cheqd DIDs.
+  Issue and manage Verifiable Credentials and Presentations, signed by cheqd
+  DIDs.
 ---
 
 # ✅ Issue Credentials and Presentations

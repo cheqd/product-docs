@@ -1,5 +1,7 @@
 ---
-description: Create DIDs and identity keys using cheqd's DID Method (did:cheqd).
+description: >-
+  Create Decentralized Identifiers (DIDs) and identity keys using cheqd's DID
+  Method (did:cheqd).
 ---
 
 # 🆔 Create DIDs and Identity Keys
