@@ -1,12 +1,12 @@
 ---
-description: Canonical list of cheqd Network upgrades
+description: Breakdown of cheqd Network upgrades from v0.1x onwards.
 ---
 
 # ⬆️ Network Upgrades
 
 ## Context
 
-Throughout 2022 we released a breaking upgrade roughly once every quarter. Throughout 2023 we continued with this frequency, however releasing non-breaking point releases consistently. In 2024, we intend to release one major network upgrade per quarter.
+Throughout 2022 we released a breaking upgrade roughly once every quarter. Throughout 2023 we continued with this frequency, however releasing non-breaking point releases consistently. In 2024, 2025 and beyond, we intend to release one major network upgrade per quarter.
 
 ## Release Timelines
 
