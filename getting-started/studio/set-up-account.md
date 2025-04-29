@@ -1,8 +1,10 @@
 ---
-description: Learn how to set up your account on cheqd Studio.
+description: >-
+  Follow these steps to create your account on cheqd Studio and begin using our
+  APIs securely.
 ---
 
-# 👉 Set up your account
+# 👉 Set Up Your Account
 
 The user is required to **Log In** to our **cheqd Studio** portal and then access their API key to authenticate with our APIs. The API key guards the API from unauthorized access and is required for both testing production environments.
 
@@ -14,11 +16,20 @@ Head to our **cheqd Studio** and click **Get Started**.
 
 ## Step 2: Create your account
 
-cheqd Studio uses a [third party service called LogTo](https://logto.io/) to handle user authentication and login. This allows users to create new accounts as well as sign in using their email, Google single sign-on, or Discord login.&#x20;
+cheqd Studio uses a [third party service called LogTo](https://logto.io/) to handle user authentication and login. You can create an account or sign in using:
+
+* Email and password
+* Google single sign-on
+* Discord login
+
+Click **Sign In** or **Create Account** to continue.
 
 <div align="left"><figure><img src="../../.gitbook/assets/Credential Service Sign In.png" alt="" width="375"><figcaption><p>Sign into your account</p></figcaption></figure> <figure><img src="../../.gitbook/assets/Credential Service Sign up.png" alt="" width="375"><figcaption><p>Create a new account</p></figcaption></figure></div>
 
 ## Step 3: Create a new API key and authenticate with cheqd Studio APIs
+
+Once signed in, create an API key from your account dashboard.\
+This key is required to authenticate with **cheqd Studio APIs** and protects your environment from unauthorized access.
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>API keys</strong></mark></td><td>Create a new API key to authenticate with the cheqd Studio APIs.</td><td><a href="api-keys.md">api-keys.md</a></td></tr></tbody></table>
 

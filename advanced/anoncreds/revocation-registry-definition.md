@@ -254,7 +254,7 @@ _If "**resourceType=anonCredsRevocRegDef**" then **append "issuerId"** to the be
 
 ### Create Revocation Registry Definition transaction
 
-To create a Revocation Registry Definition on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../sdk/veramo-plugin/did-linked-resources/), and pass the relevant JSON file for the object in the transaction.
+To create a Revocation Registry Definition on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../sdk/veramo/did-linked-resources/), and pass the relevant JSON file for the object in the transaction.
 
 ## Tying CredDef, RevRegDef and StatusList Objects together
 
@@ -340,6 +340,6 @@ Through combining each of the components into one string, it provides client app
 
 This is important to mention, since many client applications may still expect RevRegDef IDs or RevRegDef Content to contain the information or specific syntax of this Legacy `revocRegDefId.`
 
-This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds Objects Method](https://hyperledger-indy.readthedocs.io/projects/node/en/latest/requests.html#requests)
+This legacy format is now attributed to the[ Hyperledger Indy Legacy AnonCreds Objects Method](https://hyperledger.github.io/anoncreds-methods-registry/#hyperledger-indy-legacy-anoncreds-method)
 
 </details>

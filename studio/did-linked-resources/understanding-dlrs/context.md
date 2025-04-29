@@ -15,7 +15,7 @@ For example, common types of resources that might be required to issue and valid
 
 ### Schemas
 
-Schemas describe [the fields and content types in a credential](https://w3c.github.io/vc-data-model/#data-schemas) in a machine-readable format. Prominent examples of this include [schema.org](https://schema.org/docs/schemas.html), [Hyperledger Indy schema objects](https://hyperledger-indy.readthedocs.io/projects/node/en/latest/transactions.html#schema), etc. You can think of them as a template for what is included in a Verifiable Credential.
+Schemas describe [the fields and content types in a credential](https://w3c.github.io/vc-data-model/#data-schemas) in a machine-readable format. Prominent examples of this include [schema.org](https://schema.org/docs/schemas.html), [Hyperledger Indy schema objects](https://hyperledger-indy.readthedocs.io/projects/sdk/en/latest/docs/how-tos/save-schema-and-cred-def/README.html), etc. You can think of them as a template for what is included in a Verifiable Credential.
 
 Below is an example of a [schema.org](https://schema.org/docs/schemas.html) residential address with full URLs:
 
@@ -39,15 +39,15 @@ Prominent examples of this include [Schema.org](https://schema.org/docs/schemas.
 
 ### Status and Revocation Lists
 
-Status lists allow recipients of a Verifiable Credential exchange to [check the status of a credential](https://w3c.github.io/vc-data-model/#validity-checks) for validity. Prominent examples of this include the [W3C `Status List 2021`](https://w3c-ccg.github.io/vc-status-list-2021/) specification, [Hyperledger AnonCreds Revocation](https://hyperledger.github.io/anoncreds-spec/#issuer-create-and-publish-revocation-registry-objects), etc.
+Status lists allow recipients of a Verifiable Credential exchange to [check the status of a credential](https://w3c.github.io/vc-data-model/#validity-checks) for validity. Prominent examples of this include the [Bitstring Status List](https://www.w3.org/TR/vc-bitstring-status-list/) specification, [Hyperledger AnonCreds Revocation](https://hyperledger.github.io/anoncreds-spec/#issuer-create-and-publish-revocation-registry-objects), etc.
 
 ### **Trust registries**
 
-Trust registries enable recipients of a Verifiable Credential exchange to check that the Decentralized Identifier of the issuer is listed in a trusted registry. This provides a level of assurance in the authenticity of the issuer. Examples of Trust Registries include the [ToIP Trust Registry Specification](https://wiki.trustoverip.org/display/HOME/ToIP+Trust+Registry+Protocol+Specification), EBSI Trust Registry API, etc.
+Trust registries enable recipients of a Verifiable Credential exchange to check that the Decentralized Identifier of the issuer is listed in a trusted registry. This provides a level of assurance in the authenticity of the issuer. Examples of Trust Registries include the [ToIP Trust Registry Query Protocol](https://trustoverip.github.io/tswg-trust-registry-protocol/), [EBSI Trust Chains](https://hub.ebsi.eu/get-started/design/trust-chain), etc.
 
 ### **Visual representations for Verifiable Credentials**
 
-Although Verifiable Credentials can be exchanged digitally, in practice most identity wallets want to present “human-friendly” representations. Examples of this include the [Overlays Capture Architecture (OCA) specification](https://oca.colossi.network/), [Apple Wallet PassKit](https://developer.apple.com/documentation/walletpasses) ("`.pkpass`"), [Google Wallet Pass](https://developers.google.com/wallet/generic), etc. A resource, using something like [Overlay Capture Architecture (OCA)](https://humancolossus.foundation/blog/cjzegoi58xgpfzwxyrqlroy48dihwz) may enable a credential representation to be shown according to the brand guidelines of the issuer, [internationalisation (“i18n”) translations](https://en.wikipedia.org/wiki/Internationalization\_and\_localization), etc.
+Although Verifiable Credentials can be exchanged digitally, in practice most identity wallets want to present “human-friendly” representations. Examples of this include the [Overlays Capture Architecture (OCA) specification](https://oca.colossi.network/), [Apple Wallet PassKit](https://developer.apple.com/documentation/walletpasses) ("`.pkpass`"), [Google Wallet Pass](https://developers.google.com/wallet/generic), etc. A resource, using something like [Overlay Capture Architecture (OCA)](https://humancolossus.foundation/blog/cjzegoi58xgpfzwxyrqlroy48dihwz) may enable a credential representation to be shown according to the brand guidelines of the issuer, [internationalisation (“i18n”) translations](https://en.wikipedia.org/wiki/Internationalization_and_localization), etc.
 
 ![Image of Overlay Capture Architecture](<../../../.gitbook/assets/Overlay Capture Architecture diagram.png>)
 
@@ -67,11 +67,11 @@ While it’s useful to have digital credentials that can be verified cryptograph
 
 More broadly, there are other types of resources that might be relevant for companies beyond SSI vendors, that want a way to represent information about themselves in an immutable and trustworthy way.
 
-Many companies require documentation such as Privacy Policies, Data Protection Policies or Terms of Use to be made publicly available. Moreover, [Trust over IP (ToIP) recommends making Governance Frameworks available through DID URLs](https://wiki.trustoverip.org/pages/viewpage.action?pageId=71241), which would typically be a text file, a [Markdown file](https://en.wikipedia.org/wiki/Markdown), PDF etc.
+Many companies require documentation such as Privacy Policies, Data Protection Policies or Terms of Use to be made publicly available. Moreover, [Trust over IP (ToIP) recommends making Governance Frameworks available through DID URLs](https://trustoverip.org/wp-content/uploads/ToIP-Governance-Architecture-Specification-V1.0-2022-12-21.pdf), which would typically be a text file, a [Markdown file](https://en.wikipedia.org/wiki/Markdown), PDF etc.
 
 ### Logos
 
-Companies may want to provide authorised image logos to display across different websites, exchanges or block explorers. Examples of this include [key-publishing sites like Keybase.io](https://keybase.io/cheqd\_identity) (which is used by [Cosmos SDK block explorers such as our own](https://explorer.cheqd.io/validators) to show logos for validators) and “[favicons](https://en.wikipedia.org/wiki/Favicon)” (commonly used to set the logo for websites in browser tabs).
+Companies may want to provide authorised image logos to display across different websites, exchanges or block explorers. Examples of this include [key-publishing sites like Keybase.io](https://keybase.io/cheqd_identity) (which is used by [Cosmos SDK block explorers such as our own](https://explorer.cheqd.io/validators) to show logos for validators) and “[favicons](https://en.wikipedia.org/wiki/Favicon)” (commonly used to set the logo for websites in browser tabs).
 
 The current uses for resources are therefore very broad across the SSI ecosystem, and in addition, for other companies that may want to use DIDs to reference relevant information on ledger. For this reason, it is essential that the SSI community strengthens the way that resources are stored, referenced and retrieved in SSI ecosystems.
 
@@ -122,7 +122,7 @@ Image being pulled from the cheqd ledger using the resource module
 
 ### What are the problems with the way resources are stored?
 
-There are multiple approaches to decentralised identity which rely on centralised infrastructure across different technical layers. **Decentralised Identifiers (DIDs):** are often stored on ledgers (e.g., [cheqd](../../../architecture/adr-list/adr-001-cheqd-did-method.md), [Hyperledger Indy](https://hyperledger.github.io/indy-did-method/), distributed storage (e.g., [IPFS](https://ipfs.io/) in [Sidetree](https://identity.foundation/sidetree/spec/)), or non-ledger distributed systems (e.g., [KERI](https://keri.one/)). Yet, DIDs _can_ be stored on traditional centralised-storage endpoints (e.g., [_did:web_](https://w3c-ccg.github.io/did-method-web/), [_did:git_](https://github.com/decentralized-identity/github-did).
+There are multiple approaches to decentralised identity which rely on centralised infrastructure across different technical layers. **Decentralised Identifiers (DIDs):** are often stored on ledgers (e.g., [cheqd](../../../architecture/adr-list/adr-001-cheqd-did-method.md), [Hyperledger Indy](https://hyperledger.github.io/indy-did-method/), distributed storage (e.g., [IPFS](https://ipfs.io/) in [Sidetree](https://identity.foundation/sidetree/spec/)), or non-ledger distributed systems (e.g., [KERI](https://keri.one/)). Yet, DIDs _can_ be stored on traditional centralised-storage endpoints (e.g., [_did:web_](https://w3c-ccg.github.io/did-method-web/), [_did:git_](https://github.com/decentralized-identity/github-did).)
 
 The issue of centralisation affects **resources** providing extra context and information to support Verifiable Credentials. These resources, such as **schemas** and **revocation lists**, are often stored and referenced using centralised hosting providers.
 
@@ -136,7 +136,7 @@ Using centralised hosting providers to store resources **may have a significant 
 
 Even for highly-trusted and sophisticated hosting providers who may not present a risk of infrastructure being compromised, a service outage at the hosting provider can make a resource anchored on their systems inaccessible.
 
-The high centralisation of cloud providers and history of noteworthy outages clearly demonstrates why we should not host resources on centralised cloud storage in production environments. In Q1 of 2022, the three largest players in the cloud (AWS, Google Cloud, Microsoft Azure) dominated with [65 per cent in nearly all regions (outside of China)](https://www.theregister.com/2022/05/02/cloud\_market\_share\_q1\_2022/).
+The high centralisation of cloud providers and history of noteworthy outages clearly demonstrates why we should not host resources on centralised cloud storage in production environments. In Q1 of 2022, the three largest players in the cloud (AWS, Google Cloud, Microsoft Azure) dominated with [65 per cent in nearly all regions (outside of China)](https://www.theregister.com/2022/05/02/cloud_market_share_q1_2022/).
 
 ![Cloud provider market share](<../../../.gitbook/assets/Worlds cloud infrastructure image.png>)
 
@@ -170,7 +170,7 @@ This illustrates that link rot can affect a **significant proportion** of links 
 
 Finally, the centralised way that resources are currently stored and managed is not immutable, and as a result, it is liable to tampering. For example, if a hosting provider is compromised, or if malicious actors are working for the company, resources may be changed and previous resource versions may be purged from the central database.
 
-As we move towards a new web infrastructure with Web 3 ([and beyond…](https://www.tbd.website/)), and as more projects leverage blockchain and distributed ledgers, it’s important not to port the previous issues of the web, and instead find novel ways to better manage information, with longevity in mind. This is why at cheqd, we have decided to redesign the way resources are captured on the ledger.
+As we move towards a new web infrastructure with Web 3 (and beyond…), and as more projects leverage blockchain and distributed ledgers, it’s important not to port the previous issues of the web, and instead find novel ways to better manage information, with longevity in mind. This is why at cheqd, we have decided to redesign the way resources are captured on the ledger.
 
 ### Semantic Linkage
 
@@ -183,7 +183,7 @@ We took the following design principles into consideration, along with an explan
 1. **Built using existing, familiar DID Core Spec patterns**: Wherever possible, our design attempts to utilise existing patterns and behaviours within the W3C DID Core specification (such as the use of DID URLs to identify resources), instead of trying to implement proprietary/custom approaches. We believe that similar designs could be adopted by other DID methods if they choose.
 2. **Protection against linkrot for long-term retrieval**: Any Resource stored on-ledger is replicated across multiple nodes.
    1. If any individual node or endpoint is down, lookup requests can be sent to any other node on the network.
-   2. In a catastrophic scenario where the network itself stops to exist, e.g., companies shutting down, getting acquired etc the on-ledger data can still be restored by digital archivists using ledger snapshots. A practical example of this is how [Cosmos Hub makes historical chain archives available](https://github.com/cosmos/gaia/blob/main/docs/resources/archives.md) which can be restored. While this can be cumbersome, we wanted to design for this as a fail-safe.
+   2. In a catastrophic scenario where the network itself stops to exist, e.g., companies shutting down, getting acquired etc the on-ledger data can still be restored by digital archivists using ledger snapshots. A practical example of this is how Cosmos Hub makes historical chain archives available which can be restored. While this can be cumbersome, we wanted to design for this as a fail-safe.
 3. **Extensible by default**: Our objective was to build a flexible design pattern that allowed developers to define and extend their own resource types. Trying to control what kinds of resources could be written to ledger would make the ledger-side logic complex. Instead, we opted for a design where the cheqd ledger acts agnostically to store resources, as long as correctly authorised, as a permanently-accessible endpoint.
 4. **Design for DID-spec "dumb" as well as DID-spec "smart" client applications**: Many approaches in this space assume that client applications must be adept at parsing DIDDocs and resolving complex inter-DIDDoc relationships. We saw describing resources using DIDDocs as _metadata_ about the resource which _could_ be independently-parsed by "smart" client applications; while also providing a fallback approach for "dumb" client applications. We internally considered this as _"What if an identity wallet understood how to parse JSON, but didn't understand the DID Core spec?"_
 5. **Version controlled**: The ability to evolve a resource over time is critical for identity use cases. As described above, examples of this include when identity document schemas change, logos evolve, etc. Current approaches (such as Hyperledger Indy CredDefs) deal with this by creating entirely new, unlinked resources. We designed to make it easy, using existing DID Core specification techniques, so that client applications could query _"What was the version of a resource with **this** name on **this** date/time?"_

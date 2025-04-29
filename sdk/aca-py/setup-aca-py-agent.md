@@ -1,3 +1,7 @@
+---
+description: Set up your ACA-Py agent to start using cheqd.
+---
+
 # Setup ACA-Py Agent
 
 ## Pre-requisites
@@ -204,5 +208,5 @@ Using **PostgreSQL as a wallet storage backend** is recommended for scalability 
 
 Now that your ACA-Py agent is successfully set up to work with cheqd, try following our tutorials for creating a new DID or issuing Verifiable Credentials.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create a DID</strong></mark></td><td>Create an Issuer DID using the did:cheqd DID method.</td><td><a href="decentralized-identifiers-dids/create-a-did.md">create-a-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue a Verifiable Credential</strong></mark></td><td>Issue a Verifiable Credential using ACA-Py signed by a cheqd DID.</td><td><a href="verifiable-credentials-and-presentations/issue-a-verifiable-credential.md">issue-a-verifiable-credential.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create a DID</strong></mark></td><td>Create an Issuer DID using the did:cheqd DID method.</td><td><a href="dids/create-did.md">create-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue a Verifiable Credential</strong></mark></td><td>Issue a Verifiable Credential using ACA-Py signed by a cheqd DID.</td><td><a href="credentials/issue-credential.md">issue-credential.md</a></td></tr></tbody></table>
 

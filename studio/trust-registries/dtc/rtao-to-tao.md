@@ -1,6 +1,12 @@
+---
+description: >-
+  Verifiable Accreditations from a Root of Trust (rTAO) to a subordinate entity
+  (TAO).
+---
+
 # RTAO -> TAO
 
-As a Root of Trust (RTAO) entity, it is possible to accredit Trusted Accreditation Organisations to issue Verifiable Accreditations or Verifiable Attestations.
+A **Root Trusted Accreditation Organisation (rTAO)** can delegate trust by issuing **Verifiable Accreditations** to **Trusted Accreditation Organisations (TAOs)**. These accreditations define the permissions and scope under which the TAO can operate.
 
 The Verifiable Accreditation should include:
 
@@ -13,55 +19,54 @@ The Verifiable Accreditation should include:
 
 ## Permissions
 
-Root TAOs can set permissions under which TAOs must abide. This creates a level of codified governance for the trust ecosystem.
+The `credentialSubject` of the accreditation, issued by `issuer`  defines what the TAO is authorised to do — including which credential types they can issue and in which jurisdictions.
 
 ```json
 "credentialSubject": {
-    "id": "did:cheqd:testnet:a2b675de-33d0-4044-8183-0d74f210cceb",
-    "accreditedFor": [
-      {
-        "schemaId": "did:cheqd:testnet:8ea036da-f340-480d-8952-f5561ea1763c/resources/b10146d7-0d0f-41e0-8ee3-c76db64890be",
-        "types": [
-          "VerifiableCredential",
-          "VerifiableAccreditation",
-          "VerifiableAttestation",
-          "VerifiableAccreditationToAccredit"
-        ],
-        "limitJurisdiction": "https://publications.europa.eu/resource/authority/atu/FIN"
-      }
-    ]
-  },
-
+  "id": "did:cheqd:testnet:a2b675de-33d0-4044-8183-0d74f210cceb",
+  "accreditedFor": [
+    {
+      "schemaId": "did:cheqd:testnet:8ea036da-f340-480d-8952-f5561ea1763c/resources/b10146d7-0d0f-41e0-8ee3-c76db64890be",
+      "types": [
+        "VerifiableCredential",
+        "VerifiableAccreditation",
+        "VerifiableAttestation",
+        "VerifiableAccreditationToAccredit"
+      ],
+      "limitJurisdiction": "https://publications.europa.eu/resource/authority/atu/FIN"
+    }
+  ]
+}
 ```
 
-Whereby:
+**Field descriptions:**
 
-| Field             | Description                                                                                                   |
-| ----------------- | ------------------------------------------------------------------------------------------------------------- |
-| schemaId          | Schema of the Verifiable Accreditation that the TAO is accredited to issue themselves                         |
-| types             | Types of Credential that the TAO is accredited to issue                                                       |
-| limitJurisdiction | Permission that the RTAO can set to limit the jurisdictional scope of the credentials issued in the ecosystem |
+| Field               | Description                                                                           |
+| ------------------- | ------------------------------------------------------------------------------------- |
+| `schemaId`          | The schema the TAO is authorised to use when issuing accreditations or credentials    |
+| `types`             | Credential types the TAO is permitted to issue                                        |
+| `limitJurisdiction` | (Optional) A geographic or regulatory restriction on where the accreditation is valid |
 
 ## Policies
 
-The Root TAO can also set polices known as the `TrustFrameworkPolicy` within the `termsOfUse` section of the Verifiable Accreditation.
+The Root TAO can also set polices known as the `AccreditationPolicy` within the `termsOfUse` section of the Verifiable Accreditation.
 
 ```json
 "termsOfUse": {
-    "type": "TrustFrameworkPolicy",
-    "trustFramework": "Name of the Ecosystem Governance Framework (GF)",
-    "trustFrameworkId": "https://example.com/governance-framework/125"
-  },
+    "type": "AccreditationPolicy",
+    "parentAccreditation": "did:cheqd:testnet:8ea036da-f340-480d-8952-f5561ea1763c/resources/18de60ec-bed1-42e5-980c-601c432bc60b",
+    "rootAuthorisation": "did:cheqd:testnet:8ea036da-f340-480d-8952-f5561ea1763c/resources/18de60ec-bed1-42e5-980c-601c432bc60b"
+  }
 
 ```
 
 Whereby:
 
-| Field            | Description                                                     |
-| ---------------- | --------------------------------------------------------------- |
-| type             | Must be `TrustFrameworkPolicy`                                  |
-| trustFramework   | Name of Governance Framework set by the Governance Authority    |
-| trustFrameworkId | URL linking to where the written Governance Framework is stored |
+| Field               | Description                                                                       |
+| ------------------- | --------------------------------------------------------------------------------- |
+| type                | Must be `AccreditationPolicy`                                                     |
+| parentAccreditation | The DID URL of the Accreditation issued by another TAO or the Root TAO to the TAO |
+| rootAuthoroisation  | The DID URL of the Root of Trust Verifiable Authorsation                          |
 
 ### Example of fully formed Accreditation
 
@@ -79,7 +84,7 @@ The example below shows a Verifiable Accreditation that is issued by an rTAO to 
   },
   "type": [
     "VerifiableCredential",
-    "VerifiableAuthorisationForTrustChain"
+    "VerifiableAccreditationToAccredit"
   ],
   "issuanceDate": "2024-08-07T02:08:30.000Z",
   "credentialSubject": {
@@ -97,9 +102,9 @@ The example below shows a Verifiable Accreditation that is issued by an rTAO to 
     "id": "did:cheqd:testnet:6af412d7-2f04-4e12-a424-e6719db487ad"
   },
   "termsOfUse": {
-    "type": "TrustFrameworkPolicy",
-    "trustFramework": "cheqd Governance Framework",
-    "trustFrameworkId": "https://learn.cheqd.io/governance/start"
+    "type": "AccreditationPolicy",
+    "parentAccreditation": "did:cheqd:testnet:8ea036da-f340-480d-8952-f5561ea1763c/resources/18de60ec-bed1-42e5-980c-601c432bc60b",
+    "rootAuthorisation": "did:cheqd:testnet:8ea036da-f340-480d-8952-f5561ea1763c/resources/18de60ec-bed1-42e5-980c-601c432bc60b"
   },
   "proof": {
     "type": "JwtProof2020",
@@ -114,5 +119,6 @@ For all Verifiable Accreditations, the accreditations are stored as DID-Linked R
 
 To issue a Verifiable Accreditation, follow the tutorial below:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue Verifiable Accreditation</strong></mark></td><td>Issue a Verifiable Accreditation to start a trust registry on cheqd</td><td><a href="../set-up-trust-chain/issue-accreditation.md">issue-accreditation.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue Verifiable Accreditation</strong></mark></td><td>Issue a Verifiable Accreditation to start a trust registry on cheqd</td><td><a href="../set-up/issue-accreditation.md">issue-accreditation.md</a></td></tr></tbody></table>
 
+t

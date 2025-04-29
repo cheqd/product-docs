@@ -1,3 +1,9 @@
+---
+description: >-
+  Charge for Verifiable Credentials and initiate verifier-pays-issuer payment
+  flows.
+---
+
 # ♻️ Charge for Verifiable Credentials
 
 Credential Payments brings a significant evolution to the Verifiable Credentials landscape, allowing **verifiers to directly pay issuers to unlock Credential Status information**. Underneath the hood, we've engineered a robust and secure payment flow that streamlines the end-to-end payment process, with accuracy, speed, and cryptographic integrity.
@@ -18,4 +24,4 @@ Build your understanding of How Credential Payments work, including Access Contr
 
 Below are a list of alternatives for using Credential Payments.
 
-<table data-card-size="large" data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Veramo SDK Plugin</strong></mark></td><td>The <strong>Veramo SDK Plugin</strong> is an extension of the Veramo SDK, a JavaScript framework for Trusted Data, adding support for cheqd functionality.</td><td><a href="../../sdk/veramo-plugin/">veramo-plugin</a></td><td><a href="../../.gitbook/assets/veramo logo.png">veramo logo.png</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Veramo SDK Plugin</strong></mark></td><td>The <strong>Veramo SDK Plugin</strong> is an extension of the Veramo SDK, a JavaScript framework for Trusted Data, adding support for cheqd functionality.</td><td><a href="../../sdk/veramo/">veramo</a></td><td><a href="../../.gitbook/assets/veramo logo.png">veramo logo.png</a></td></tr></tbody></table>

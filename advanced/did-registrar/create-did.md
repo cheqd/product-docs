@@ -10,7 +10,7 @@ These instructions will help developers create DIDs on cheqd using the DID Regis
 
 ## What you need
 
-1. Any framework for creating keys and signing payloads, such as [Veramo CLI](../../sdk/veramo-plugin/setup/);
+1. Any framework for creating keys and signing payloads, such as [Veramo CLI](../../sdk/veramo/setup/);
 2. cheqd [DID Registrar](https://did-registrar.cheqd.net/api-docs/)
 3. 5 minutes!
 
@@ -20,7 +20,7 @@ _**Figure 1**:_ [_Swagger UI for DID Registrar_](https://did-registrar.cheqd.net
 
 ## 1. Setup Veramo CLI
 
-This tutorial will be using the Veramo CLI for Key management. Setup the cli following this [tutorial](../../sdk/veramo-plugin/setup/)
+This tutorial will be using the Veramo CLI for Key management. Setup the cli following this [tutorial](../../sdk/veramo/setup/)
 
 ## 2. Generate Key Pair in Veramo wallet
 
@@ -55,7 +55,7 @@ Note down the `kid` and `publicKeyHex` values of the generated key
 
 ## 3. Generate DID Payload
 
-Go to ["cheqd helpers" in our Registrar Driver here](https://did-registrar.cheqd.net/api-docs/#/Cheqd%20Helpers/get\_did\_document) and click "try it out" in the top right corner.
+Go to ["cheqd helpers" in our Registrar Driver here](https://did-registrar.cheqd.net/api-docs/#/Cheqd%20Helpers/get_did_document) and click "try it out" in the top right corner.
 
 Select the following options:
 

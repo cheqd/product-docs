@@ -348,8 +348,6 @@ For example:
 
 Important: Each AnonCreds Revocation Registry Entry has the **same ID** for a given Revocation Registry Definition Object.
 
-This is important to mention, since many client applications may still expect RevReg IDs or RevReg Content to contain the information or specific syntax of this Legacy `revocRegId.` This legacy format is now attributed to the Hyperledger Indy Legacy AnonCreds Objects Method
+This is important to mention, since many client applications may still expect RevReg IDs or RevReg Content to contain the information or specific syntax of this Legacy `revocRegId.` This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds Objects Method](https://hyperledger.github.io/anoncreds-methods-registry/#hyperledger-indy-legacy-anoncreds-method).
 
 </details>
-
-\`\`

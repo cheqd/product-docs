@@ -12,4 +12,4 @@ Our cross-chain address convertor is able to **automate the derivation of any ch
 
 This is valuable since it can automate airdrops or distributions to any account, just from a Cosmos Hub address in bulk, making data calculations far more efficient.
 
-For new chains in the Cosmos Ecosystem, this makes it much easier for the core team and [Cosmonauts](https://twitter.com/hashtag/cosmonauts?src=hashtag\_click) to discover and utilise their account addresses and carry out distributions.
+For new chains in the Cosmos Ecosystem, this makes it much easier for the core team and Cosmonauts to discover and utilise their account addresses and carry out distributions.

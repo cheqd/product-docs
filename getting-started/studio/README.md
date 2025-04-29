@@ -2,7 +2,7 @@
 description: >-
   Get started with cheqd's API product offering for creating DIDs, trust
   registries and monetising credentials: cheqd Studio.
-cover: ../../.gitbook/assets/cheqd Studio Banner (White Background).png
+cover: ../../.gitbook/assets/cheqd Studio Banner (Orange Transparent).png
 coverY: 0
 layout:
   cover:
@@ -30,7 +30,7 @@ Using REST APIs, customers can build cheqd's trust infrastructure into existing 
 
 ## Get started
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Begin your cheqd Studio set up, creating your account, creating an API key and authenticating with our APIs.</td><td><a href="set-up-account.md">set-up-account.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Advanced config options</strong></mark></td><td>Run cheqd Studio yourself or utilise your own external database.</td><td><a href="advanced.md">advanced.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set Up Your Account</strong></mark></td><td>Begin your cheqd Studio set up, creating your account, creating an API key and authenticating with our APIs.</td><td><a href="set-up-account.md">set-up-account.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Advanced Configuration Options</strong></mark></td><td>Run cheqd Studio yourself or utilise your own external database.</td><td><a href="advanced.md">advanced.md</a></td></tr></tbody></table>
 
 ## Features
 
@@ -86,12 +86,12 @@ By default, `ENABLE_AUTHENTICATION` is set to off/`false`. To enable external Ve
    3. `LOGTO_MANAGEMENT_API`: URL of management API for LogTo (default is `https://default.logto.app/api`)
    4. `CORS_ALLOWED_ORIGINS`: CORS allowed origins used in the app
 2. **User-facing APIs**
-   1. `LOGTO_APP_ID`: Application ID for the Credential Service application in LogTo. This can be set up as type "Traditional Web"
+   1. `LOGTO_APP_ID`: Application ID for the cheqd Studio application in LogTo. This can be set up as type "Traditional Web"
    2. `LOGTO_APP_SECRET`: Application secret associated with App ID above.
 3. **Machine-to-machine backend APIs**
    1. `LOGTO_M2M_APP_ID`: Application ID for machine-to-machine application in LogTo. This is used for elevated management APIs within LogTo.
    2. `LOGTO_M2M_APP_SECRET`: Application secret
-4. **Default role update using** [**LogTo webhooks**](https://docs.logto.io/next/docs/recipes/webhooks/): LogTo supports webhooks to fire of requests to an API when it detects certain actions/changes. If you want to automatically assign a role to users, a webhook is recommended to be setup for firing off whenever there's a new account created, or a new sign-in.
+4. **Default role update using** [**LogTo webhooks**](https://docs.logto.io/developers/webhooks): LogTo supports webhooks to fire of requests to an API when it detects certain actions/changes. If you want to automatically assign a role to users, a webhook is recommended to be setup for firing off whenever there's a new account created, or a new sign-in.
    1. `LOGTO_DEFAULT_ROLE_ID`: LogTo Role ID for the default role to put new users into.
    2. `LOGTO_WEBHOOK_SECRET`: Webhook secret to authenticate incoming webhook requests from LogTo.
 5. **Miscellaneous**
@@ -116,4 +116,4 @@ Under the hood, cheqd Studio leverages our [Veramo SDK Plugin](https://github.co
 
 Below are a list of alternatives for integrating with cheqd. Each offers a different set of protocols and underlying technical capabilities.
 
-<table data-card-size="large" data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Credo</strong></mark></td><td>Credo is an SDK that is building directly towards supporting the EUDI standards, as well as support for AnonCreds.</td><td></td><td><a href="../../sdk/credo/">credo</a></td><td><a href="../../.gitbook/assets/Credo.png">Credo.png</a></td></tr><tr><td><mark style="color:blue;"><strong>ACA-Py</strong></mark></td><td>ACA-Py is a quickly expanding SDK, moving from the AnonCreds ecosystem towards wider support for EUDI.</td><td></td><td><a href="../../sdk/aca-py/">aca-py</a></td><td><a href="../../.gitbook/assets/ACA-Py.png">ACA-Py.png</a></td></tr><tr><td><mark style="color:blue;"><strong>Veramo</strong></mark></td><td>The <strong>Veramo SDK Plugin</strong> is an extension of the Veramo SDK, a JavaScript framework for Trusted Data, adding support for cheqd functionality.</td><td></td><td><a href="../../sdk/veramo-plugin/">veramo-plugin</a></td><td><a href="../../.gitbook/assets/veramo logo.png">veramo logo.png</a></td></tr><tr><td><mark style="color:blue;"><strong>Walt.id Community Stack</strong></mark></td><td>Walt.id Community Stack is an SDK that supports the <a href="https://digital-strategy.ec.europa.eu/en/library/european-digital-identity-architecture-and-reference-framework-outline"><strong>European Architecture and Reference Framework (ARF)</strong></a> standards for identity, with cheqd DID support.</td><td></td><td><a href="../../sdk/walt-id.md">walt-id.md</a></td><td><a href="../../.gitbook/assets/walt.id logo.png">walt.id logo.png</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Credo</strong></mark></td><td>Credo is an SDK that is building directly towards supporting the EUDI standards, as well as support for AnonCreds.</td><td></td><td><a href="../../sdk/credo/">credo</a></td><td><a href="../../.gitbook/assets/Credo.png">Credo.png</a></td></tr><tr><td><mark style="color:blue;"><strong>ACA-Py</strong></mark></td><td>ACA-Py is a quickly expanding SDK, moving from the AnonCreds ecosystem towards wider support for EUDI.</td><td></td><td><a href="../../sdk/aca-py/">aca-py</a></td><td><a href="../../.gitbook/assets/ACA-Py.png">ACA-Py.png</a></td></tr><tr><td><mark style="color:blue;"><strong>Veramo</strong></mark></td><td>The <strong>Veramo SDK Plugin</strong> is an extension of the Veramo SDK, a JavaScript framework for Trusted Data, adding support for cheqd functionality.</td><td></td><td><a href="../../sdk/veramo/">veramo</a></td><td><a href="../../.gitbook/assets/veramo logo.png">veramo logo.png</a></td></tr><tr><td><mark style="color:blue;"><strong>Walt.id Community Stack</strong></mark></td><td>Walt.id Community Stack is an SDK that supports the <a href="https://digital-strategy.ec.europa.eu/en/library/european-digital-identity-architecture-and-reference-framework-outline"><strong>European Architecture and Reference Framework (ARF)</strong></a> standards for identity, with cheqd DID support.</td><td></td><td><a href="../../sdk/walt-id.md">walt-id.md</a></td><td><a href="../../.gitbook/assets/walt.id logo.png">walt.id logo.png</a></td></tr></tbody></table>

@@ -2,13 +2,13 @@
 description: Service for resolving DIDs and dereferencing DID-Linked Resources
 ---
 
-# ⬅ DID Resolver
+# ⬅️ DID Resolver
 
 ## Overview
 
 DID methods are expected to provide [standards-compliant methods of DID and DID Document ("DIDDoc") production](https://w3c.github.io/did-core/#production-and-consumption).
 
-The [cheqd DID Resolver](https://github.com/cheqd/did-resolver) is designed to implement the [W3C DID _Resolution_ specification](https://w3c-ccg.github.io/did-resolution/) for [`did:cheqd`](../../architecture/adr-list/adr-001-cheqd-did-method.md) method. It also supports full DID URL dereferencing, [defined in our ADR here](../../architecture/adr-list/adr-005-did-resolution-and-did-url-dereferencing.md).
+The [cheqd DID Resolver](https://www.w3.org/TR/did-resolution/) is designed to implement the [W3C DID _Resolution_ specification](https://www.w3.org/TR/did-resolution/) for [`did:cheqd`](../../architecture/adr-list/adr-001-cheqd-did-method.md) method. It also supports full DID URL dereferencing, [defined in our ADR here](../../architecture/adr-list/adr-005-did-resolution-and-did-url-dereferencing.md).
 
 Our DID resolver is a package which can be implemented directly into clients' own infrastructure as a library written in Golang. This provides full support for cheqd's resolver, and can be run by anyone, creating a secure and client-controlled environment for resolving cheqd DIDs.
 
