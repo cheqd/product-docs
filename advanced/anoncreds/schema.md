@@ -191,7 +191,7 @@ _If "**resourceType=anonCredsSchema**" then **append "issuerId"** to the beginni
 
 ### Create schema transaction
 
-To create a schema on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../sdk/veramo-plugin/did-linked-resources/), and pass the relevant JSON file for the object in the transaction.
+To create a schema on cheqd, you should follow the [tutorials for creating a DID-Linked Resource here](../../sdk/veramo/did-linked-resources/), and pass the relevant JSON file for the object in the transaction.
 
 ### Fetching a cheqd Resource
 
@@ -238,6 +238,6 @@ Through combining each of the components into one string, it provides client app
 
 This is important to mention, since many client applications may still expect Schema IDs or Schema Content to contain the information or syntax within this Legacy `schema_id.`
 
-This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds Objects Method](https://hyperledger-indy.readthedocs.io/projects/node/en/latest/requests.html#requests)
+This legacy format is now attributed to the [Hyperledger Indy Legacy AnonCreds Objects Method](https://hyperledger.github.io/anoncreds-methods-registry/#hyperledger-indy-legacy-anoncreds-method).
 
 </details>

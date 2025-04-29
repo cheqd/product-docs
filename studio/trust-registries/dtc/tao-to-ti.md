@@ -1,6 +1,10 @@
-# TAO -> TI
+---
+description: Verifiable Accreditations from a TAO to a Trusted Issuer.
+---
 
-As a Trusted Accreditation Organisation (TAO), it is possible to accredit Trusted Issuers (TIs) to issue Verifiable Attestations.
+# TAO -> Trusted Issuer (TI)
+
+A **Trusted Accreditation Organisation (TAO)** can delegate authority to **Trusted Issuers (TIs)** by issuing them **Verifiable Accreditations**. These accreditations grant permission to issue specific types of **Verifiable Attestations** — such as diplomas, licences, or professional credentials — within the boundaries of a defined governance framework.
 
 The Verifiable Accreditation should include:
 
@@ -33,25 +37,24 @@ Root TAOs can set permissions under which TAOs must abide. This creates a level 
 
 ```
 
-Whereby:
+Field descriptions:
 
-| Field             | Description                                                                                                  |
-| ----------------- | ------------------------------------------------------------------------------------------------------------ |
-| schemaId          | Schema of the Verifiable Accreditation that the SubTAO is accredited to issue themselves                     |
-| types             | Types of Credential that the SubTAO is accredited to issue                                                   |
-| limitJurisdiction | Permission that the TAO can set to limit the jurisdictional scope of the credentials issued in the ecosystem |
+| Field               | Description                                                    |
+| ------------------- | -------------------------------------------------------------- |
+| `id`                | The DID of the Trusted Issuer receiving the accreditation      |
+| `schemaId`          | The schema the TI is authorised to use for issuing credentials |
+| `types`             | Credential types the TI is allowed to issue                    |
+| `limitJurisdiction` | (Optional) Limits issuance to a specific jurisdiction          |
 
 ## Policies
 
-The Root TAO can also set polices known as the `AccreditationPolicy` within the `termsOfUse` section of the Verifiable Accreditation.
+The `termsOfUse` field contains the **AccreditationPolicy**, which provides governance context by linking to both the TAO’s parent accreditation and the root authorisation of the trust chain.
 
 ```json
 "termsOfUse": {
     "type": "AccreditationPolicy",
     "parentAccreditation": "did:cheqd:testnet:8ea036da-f340-480d-8952-f5561ea1763c/resources/18de60ec-bed1-42e5-980c-601c432bc60b",
-    "rootAuthorisation": "did:cheqd:testnet:8ea036da-f340-480d-8952-f5561ea1763c/resources/18de60ec-bed1-42e5-980c-601c432bc60b",
-    "trustFramework": "Name of the Governance Framework (GF)",
-    "trustFrameworkId": "https://example.com/governance-framework/124"
+    "rootAuthorisation": "did:cheqd:testnet:8ea036da-f340-480d-8952-f5561ea1763c/resources/18de60ec-bed1-42e5-980c-601c432bc60b"
   }
 
 ```
@@ -63,6 +66,11 @@ Whereby:
 | type                | Must be `AccreditationPolicy`                                                     |
 | parentAccreditation | The DID URL of the Accreditation issued by another TAO or the Root TAO to the TAO |
 | rootAuthoroisation  | The DID URL of the Root of Trust Verifiable Authorsation                          |
-| trustFramework      | Name of Governance Framework set by the Governance Authority                      |
-| trustFrameworkId    | URL linking to where the written Governance Framework is stored                   |
 
+For all Verifiable Accreditations, the accreditations are stored as DID-Linked Resources (DLRs), linked to the DID of the Accreditor. This means that the Accreditations are publically available, fully DID resolvable and are signed by the `authentication` keys within the DID Document of the Accreditor.
+
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>DID-Linked Resources</strong></mark></td><td>Learn about cheqd's approach to implementing DID-Linked Resources</td><td><a href="../../../architecture/adr-list/adr-002-did-linked-resources.md">adr-002-did-linked-resources.md</a></td></tr></tbody></table>
+
+To issue a Verifiable Accreditation, follow the tutorial below:
+
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue Verifiable Accreditation</strong></mark></td><td>Issue a Verifiable Accreditation to start a trust registry on cheqd</td><td><a href="../set-up/issue-accreditation.md">issue-accreditation.md</a></td></tr></tbody></table>

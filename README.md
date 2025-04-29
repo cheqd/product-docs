@@ -41,7 +41,7 @@ If you want to utilise cheqd DIDs or DID-Linked Resources within applications wi
 
 cheqd Studio is the easiest route to get started with cheqd's identity functionality, or for testing with very low integration effort. Using simple REST APIs, it is possible to integrate cheqd Studio in a few lines of code.
 
-Under the hood, cheqd Studio utilises the [Veramo SDK cheqd Plugin](sdk/veramo-plugin/), providing the most feature complete set of functionality and tooling.
+Under the hood, cheqd Studio utilises the [Veramo SDK cheqd Plugin](sdk/veramo/), providing the most feature complete set of functionality and tooling.
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Get started with cheqd Studio</strong></mark></td><td>Click here to start your journey with cheqd Studio, create your account and begin using cheqd's underlying functionality.</td><td><a href="getting-started/studio/">studio</a></td><td><a href=".gitbook/assets/cheqd_logo_card.jpg">cheqd_logo_card.jpg</a></td></tr></tbody></table>
 
@@ -75,4 +75,4 @@ Please reach out to us there for discussions, help, and feedback on the project.
 
 ## 🙋 Find us elsewhere
 
-[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge\&logo=telegram\&logoColor=white)](https://t.me/cheqd) [![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge\&logo=discord\&logoColor=white)](http://cheqd.link/discord-github) [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge\&logo=twitter\&logoColor=white)](https://twitter.com/intent/follow?screen_name=cheqd_io) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge\&logo=linkedin\&logoColor=white)](http://cheqd.link/linkedin)  [![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge\&logo=medium\&logoColor=white)](https://blog.cheqd.io) [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge\&logo=youtube\&logoColor=white)](https://www.youtube.com/channel/UCBUGvvH6t3BAYo5u41hJPzw/)
+[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge\&logo=telegram\&logoColor=white)](https://t.me/cheqd) [![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge\&logo=discord\&logoColor=white)](http://cheqd.link/discord-github)  [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge\&logo=linkedin\&logoColor=white)](http://cheqd.link/linkedin)  [![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge\&logo=medium\&logoColor=white)](https://blog.cheqd.io) [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge\&logo=youtube\&logoColor=white)](https://www.youtube.com/channel/UCBUGvvH6t3BAYo5u41hJPzw/)

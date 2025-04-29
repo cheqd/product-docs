@@ -14,13 +14,13 @@
 
 The [`did:cheqd` method ADR](adr-001-cheqd-did-method.md) defines how DIDs are created and read from ledger. According to the [W3C DID Core specification](https://w3c.github.io/did-core/), DID methods are expected to provide [standards-compliant methods of DID and DID Document ("DIDDoc") production](https://w3c.github.io/did-core/#production-and-consumption).
 
-The [cheqd DID Resolver](https://github.com/cheqd/did-resolver) is designed to implement the [W3C DID _Resolution_ specification](https://w3c-ccg.github.io/did-resolution/) for [`did:cheqd`](adr-001-cheqd-did-method.md) method.
+The [cheqd DID Resolver](https://github.com/cheqd/did-resolver) is designed to implement the [W3C DID _Resolution_ specification](https://www.w3.org/TR/did-resolution/) for [`did:cheqd`](adr-001-cheqd-did-method.md) method.
 
 ## Context
 
-The DID Resolution specification prescribes [a defined algorithm with standardised behaviour for expected and unexpected inputs](https://w3c-ccg.github.io/did-resolution/#resolving-algorithm) that a conforming DID method must be able to produce.
+The DID Resolution specification prescribes [a defined algorithm with standardised behaviour for expected and unexpected inputs](https://www.w3.org/TR/did-resolution/#resolving-algorithm) that a conforming DID method must be able to produce.
 
-All conforming DID resolvers implement `resolve` and `resolveRepresentation` abstract functions, as defined in the [DID Resolution specification](https://w3c-ccg.github.io/did-resolution/#resolving).
+All conforming DID resolvers implement `resolve` and `resolveRepresentation` abstract functions, as defined in the [DID Resolution specification](https://www.w3.org/TR/did-resolution/).
 
 ### Resolve function
 
@@ -31,9 +31,9 @@ resolve(did, resolutionOptions) →
 « didResolutionMetadata, didDocument, didDocumentMetadata »
 ```
 
-Since [cheqd uses the Cosmos SDK blockchain framework](https://blog.cheqd.io/why-cheqd-has-joined-the-cosmos-4db8845722c5), the underlying data storage and retrieval ("resolve") mechanisms used rely on those offered by the [Cosmos SDK framework](https://docs.cosmos.network/main/intro/overview.html). Cosmos SDK [uses Protobuf (Protocol Buffers) encoding for its wire protocol](https://docs.cosmos.network/main/core/encoding.html).
+Since [cheqd uses the Cosmos SDK blockchain framework](https://docs.cosmos.network/), the underlying data storage and retrieval ("resolve") mechanisms used rely on those offered by the [Cosmos SDK framework](https://docs.cosmos.network/). Cosmos SDK uses Protobuf (Protocol Buffers) encoding for its wire protocol.
 
-Cosmos SDK framework typically provides [gRPC/gRPC-Web, JSON-RPC, and REST API endpoints for on-ledger modules](https://docs.cosmos.network/main/core/grpc_rest.html) and functionality.
+Cosmos SDK framework typically provides gRPC/gRPC-Web, JSON-RPC, and REST API endpoints for on-ledger modules and functionality.
 
 For example, `did:cheqd:testnet:DAzMQo4MDMxCjgwM` can be fetched using the native Cosmos SDK REST API endpoint (or equivalent endpoints). This provides responses that would meet the abstract definition of a `resolve` function as defined in the DID Core specification.
 
@@ -232,6 +232,6 @@ Compiled packages/binaries for the _Full cheqd DID Resolver_ will be made availa
 ## References
 
 * [W3C Decentralized Identifiers (DIDs)](https://www.w3.org/TR/did-core/) recommendation
-* [W3C Decentralized Identifier Resolution (DID Resolution)](https://w3c-ccg.github.io/did-resolution/) specification
+* [W3C Decentralized Identifier Resolution (DID Resolution)](https://www.w3.org/TR/did-resolution/) specification
 * [Universal Resolver driver development](https://github.com/decentralized-identity/universal-resolver/blob/main/docs/driver-development.md) guide
 * [DID Core Specification Test Suite](https://w3c.github.io/did-test-suite/)
