@@ -4,7 +4,7 @@ description: Build an AI Agent Trust Registry on cheqd.
 
 # 🏗️ Build an AI Agent Trust Registry
 
-Building a Trust Registry for your AI Agent is split into two core flows that are distinct, but also contain overlapping dependencies:
+Building a Trust Registry for your AI Agent is split into two core flows that are distinct, but also contain some overlapping dependencies:
 
 {% stepper %}
 {% step %}

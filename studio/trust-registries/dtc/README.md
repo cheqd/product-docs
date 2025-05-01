@@ -197,7 +197,7 @@ Policies define the **rules, permissions, and governance bindings** for each lay
 * **Each Credential (Attestation)** must reference:
   * The `AttestationPolicy` pointing back to the issuer’s accreditation
 
-<figure><img src="../../../.gitbook/assets/image.png" alt="" width="375"><figcaption><p>Diagram showing different policy relationships in the trust chain</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt="" width="375"><figcaption><p>Diagram showing different policy relationships in the trust chain</p></figcaption></figure>
 
 This layered policy model enables verifiers to **traverse and validate the entire trust chain** — from a single credential back to a rTAO (optionally anchored in DNS) — while ensuring that all participants adhere to consistent governance and operational standards.
 

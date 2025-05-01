@@ -6,7 +6,7 @@ description: Design, Build and Validate Trust Registries for AI Agents on cheqd.
 
 ## Get Started
 
-cheqd Trust Registries can be designed and built by companies that create AI agents, and equally, validated against by users of AI agents. Choose what type of user you are below to get started:
+cheqd Trust Registries can be designed and built by companies that create AI agents, and verified by users of AI agents. Select your user type below to begin:
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f590">🖐️</span> <mark style="color:blue;"><strong>I want to set up a Trust Registry for my AI Agent</strong></mark></td><td>Design, build and configure your AI Agent trust registry with cheqd Studio and our MCP server. </td><td><a href="trust-registry/">trust-registry</a></td><td><a href="../../.gitbook/assets/Trust Registry Builder.png">Trust Registry Builder.png</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="2611">☑️</span> <mark style="color:blue;"><strong>I want to verify the trust in AI Agents I am using</strong></mark></td><td>Use our trust registry validation prompts to get AI agents to identify themselves and demonstrate their trustworthiness against a trust registry.</td><td><a href="validate.md">validate.md</a></td><td><a href="../../.gitbook/assets/AI Agent User.png">AI Agent User.png</a></td></tr></tbody></table>
 

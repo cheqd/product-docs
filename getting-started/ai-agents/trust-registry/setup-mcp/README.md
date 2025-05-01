@@ -1,6 +1,6 @@
 # Setup and Configure MCP Server
 
-> This is an **advanced** guide for those who want to integrate AI Agents with the Cheqd Network to create DIDs and Issue Verifiable Credentials.
+> This is an **advanced** guide for those who want to integrate AI Agents with the Cheqd Network to create DIDs, Issue Verifiable Credentials and store Verifiable Credentials.
 
 ## Overview
 
@@ -48,7 +48,7 @@ The Cheqd MCP Server is particularly well-suited for scenarios requiring trusted
 * An MCP Compatible Desktop based **AI Agent**. We have tested with [Claude Desktop](https://claude.ai/download).
 * **Node.js 20 or higher** (if running using npx).
 * **Docker Desktop** (if running using docker). This is preferred when running the ACA-Py demo.
-* **Working understanding of cheqd network**: Understanding of DID operations and verifiable credentials
+* **Working understanding of cheqd network**: Understanding of DID operations and verifiable credentials.
 
 ### Configuration
 
@@ -56,11 +56,11 @@ The Cheqd MCP Server is configurable through environment variables:
 
 #### Server Configuration Options
 
-<table><thead><tr><th width="291.85546875">Variable</th><th width="314.66796875">Description</th><th>Default</th></tr></thead><tbody><tr><td><code>TOOLS</code></td><td>Comma-separated list of tools to enable</td><td>"credo"</td></tr></tbody></table>
+<table><thead><tr><th width="291.85546875">Variable</th><th width="314.66796875">Description</th><th>Default</th></tr></thead><tbody><tr><td><code>TOOLS</code></td><td>Comma-separated list of tools to enable</td><td>"credo"</td></tr><tr><td><code>PORT</code></td><td>The port where remote MCP server will run</td><td>5000</td></tr></tbody></table>
 
 #### Credo Tool Configuration Options
 
-<table><thead><tr><th width="296.36328125">Variable</th><th width="314.140625">Description</th><th>Required</th></tr></thead><tbody><tr><td><code>CREDO_CHEQD_TESTNET_MNEMONIC</code></td><td>Mnemonic for cheqd testnet wallet</td><td>Yes</td></tr><tr><td><code>CREDO_PORT</code></td><td>Port for the Credo agent</td><td>No</td></tr><tr><td><code>CREDO_NAME</code></td><td>Name for the Credo agent</td><td>No</td></tr><tr><td><code>CREDO_ENDPOINT</code></td><td>Public endpoint for DIDComm connections</td><td>No</td></tr></tbody></table>
+<table><thead><tr><th width="296.36328125">Variable</th><th width="314.140625">Description</th><th>Required</th></tr></thead><tbody><tr><td><code>CREDO_CHEQD_TESTNET_MNEMONIC</code></td><td>Mnemonic for cheqd testnet wallet</td><td>Yes</td></tr><tr><td><code>CREDO_PORT</code></td><td>Port for the Credo agent</td><td>No</td></tr><tr><td><code>CREDO_NAME</code></td><td>Name for the Credo agent</td><td>No</td></tr><tr><td><code>CREDO_ENDPOINT</code></td><td>Public endpoint for DIDComm connections</td><td>No</td></tr><tr><td><code>TRAIN_ENDPOINT</code></td><td>The endpoint for verifying trust registry</td><td>No</td></tr></tbody></table>
 
 {% embed url="https://youtu.be/sT6soNmMGIs" %}
 
@@ -83,10 +83,12 @@ Update your local `env.example` file with the required environment variables:
 {% code title="./env.example" %}
 ```env
 TOOLS="credo"                                # Required tool configuration
+PORT="5000"                                # The Port where the Remote MCP Server will run
 CREDO_PORT="3000"                            # Port for the Credo agent
 CREDO_NAME="faber"                        # Name of the Credo agent
 CREDO_ENDPOINT="http://faber:3000"        # Public endpoint connections
 CREDO_CHEQD_TESTNET_MNEMONIC="your-testnet-mnemonic" # Required for cheqd network access
+TRAIN_ENDPOINT="https://dev-train.trust-scheme.de/tcr/v1/"    # The TRAIN endpoint for verification of trust registry 
 ```
 {% endcode %}
 
@@ -125,10 +127,6 @@ When successfully started, the number of tools available to Claude Desktop will 
 
 <figure><img src="../../../../.gitbook/assets/Screenshot 2025-03-28 at 16.46.59.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="warning" %}
-There may be a error on top right corner, but it can be safely ignored. It is because of port binding, as Claude creates two processes for each MCP Server.
-{% endhint %}
-
 ### Connection to cheqd network
 
 The server automatically connects to the cheqd testnet using the provided mnemonic. This connection is used for all DID operations and credential management.
@@ -149,5 +147,5 @@ Now that you have the Cheqd MCP Server running, you can:
 * Create your first verifiable credential using the provided tools
 * Set up a complete identity verification workflow
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue Credentials</strong></mark></td><td>Issue Verifiable Credentials signed by cheqd DIDs using MCP Toolkit.</td><td><a href="advanced/issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Verify Credentials</strong></mark></td><td>Verify a Credential using MCP Toolkit.</td><td><a href="advanced/verify-credential.md">verify-credential.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create AI Agent DID</strong></mark></td><td>Create a new DID for the AI Agent.</td><td><a href="create-did.md">create-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Provision AI Agent Credential</strong></mark></td><td>Accept a JWT Credential for your agent</td><td><a href="provision-credential.md">provision-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue Credentials</strong></mark></td><td>Issue Verifiable Credentials signed by cheqd DIDs using MCP Toolkit.</td><td><a href="advanced/issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Verify Credentials</strong></mark></td><td>Verify a Credential using MCP Toolkit.</td><td><a href="advanced/verify-credential.md">verify-credential.md</a></td></tr></tbody></table>
 
