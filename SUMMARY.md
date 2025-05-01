@@ -19,6 +19,17 @@
     * [Establish Schemas for Accreditations and Credentials](getting-started/studio/design/schemas.md)
     * [Choose a Credential Issuance Provider](getting-started/studio/design/choose-a-credential-issuance-provider.md)
     * [Monetise your solution](getting-started/studio/design/monetise-your-solution.md)
+* [☑️ Use Trust Registries for AI Agents](getting-started/ai-agents/README.md)
+  * [🏗️ Build an AI Agent Trust Registry](getting-started/ai-agents/trust-registry/README.md)
+    * [Setup AI Agent Trust Registry](getting-started/ai-agents/trust-registry/setup/README.md)
+      * [Issue Verifiable Credentials to AI Agent](getting-started/ai-agents/trust-registry/setup/issue-credential.md)
+    * [Setup and Configure MCP Server](getting-started/ai-agents/trust-registry/setup-mcp/README.md)
+      * [Create AI Agent DID](getting-started/ai-agents/trust-registry/setup-mcp/create-did.md)
+      * [Provision Credential to AI Agent](getting-started/ai-agents/trust-registry/setup-mcp/provision-credential.md)
+      * [Advanced functionality](getting-started/ai-agents/trust-registry/setup-mcp/advanced/README.md)
+        * [Issue a Verifiable Credential](getting-started/ai-agents/trust-registry/setup-mcp/advanced/issue-credential.md)
+        * [Verify a Credential](getting-started/ai-agents/trust-registry/setup-mcp/advanced/verify-credential.md)
+  * [🤝 Validate AI Agent Trust Chain](getting-started/ai-agents/validate.md)
 
 ## 🟢 Start using cheqd <a href="#studio" id="studio"></a>
 
@@ -142,13 +153,6 @@
 
 ## 💫 Advanced features and alternatives <a href="#advanced" id="advanced"></a>
 
-* [💡 Use Trust Registries for AI Agents](advanced/ai-agents/README.md)
-  * [🏗️ Build an AI Agent Trust Registry](advanced/ai-agents/build-trust-registry/README.md)
-    * [MCP Server Setup](advanced/ai-agents/build-trust-registry/mcp/README.md)
-      * [Issue a Verifiable Credential](advanced/ai-agents/build-trust-registry/mcp/issue-credential.md)
-      * [Verify a Credential](advanced/ai-agents/build-trust-registry/mcp/verify-credential.md)
-    * [Issue Verifiable Credentials to AI Agent](advanced/ai-agents/build-trust-registry/issue.md)
-  * [☑️ Validate AI Agent Trust Chain](advanced/ai-agents/validate.md)
 * [➡️ DID Registrar](advanced/did-registrar/README.md)
   * [Setup DID Registrar](advanced/did-registrar/did-registrar-setup.md)
   * [Create a DID](advanced/did-registrar/create-did.md)

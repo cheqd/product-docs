@@ -1,4 +1,4 @@
-# MCP Server Setup
+# Setup and Configure MCP Server
 
 > This is an **advanced** guide for those who want to integrate AI Agents with the Cheqd Network to create DIDs and Issue Verifiable Credentials.
 
@@ -149,5 +149,5 @@ Now that you have the Cheqd MCP Server running, you can:
 * Create your first verifiable credential using the provided tools
 * Set up a complete identity verification workflow
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue Credentials</strong></mark></td><td>Issue Verifiable Credentials signed by cheqd DIDs using MCP Toolkit.</td><td><a href="issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Verify Credentials</strong></mark></td><td>Verify a Credential using MCP Toolkit.</td><td><a href="verify-credential.md">verify-credential.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue Credentials</strong></mark></td><td>Issue Verifiable Credentials signed by cheqd DIDs using MCP Toolkit.</td><td><a href="advanced/issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Verify Credentials</strong></mark></td><td>Verify a Credential using MCP Toolkit.</td><td><a href="advanced/verify-credential.md">verify-credential.md</a></td></tr></tbody></table>
 

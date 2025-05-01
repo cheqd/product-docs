@@ -1,22 +1,26 @@
 ---
-description: Establish a full Trust Registry for your AI Agent or Swarm of Agents
+description: Establish a comprehensive Trust Registry for your AI Agents.
 ---
 
-# 🏗️ Build an AI Agent Trust Registry
+# Setup AI Agent Trust Registry
 
-Users are able to build AI Agent Trust Registries using our cheqd Studio APIs. The following steps will enable organisations, governance authorities and AI Agents to establish permissions, rules and hierarchty between each other.
+Users are able to build AI Agent Trust Registries using our cheqd Studio APIs. The following steps will enable organisations, governance authorities, auditors and AI Agents to establish permissions, rules and hierarchy between each other.
 
 ## Step 1: Set up your cheqd Studio account
 
 Make sure you have set up your account with **cheqd Studio** and are logged in, using our guide below:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Set up your account with <strong>cheqd Studio</strong> and log in to start using the APIs.</td><td><a href="../../../getting-started/studio/set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Set up your account with <strong>cheqd Studio</strong> and log in to start using the APIs.</td><td><a href="../../../studio/set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
 
 ## Step 2: Create a Root DID
 
-The first step for any trust registry is a Root DID, which acts as a trust anchor for the chain of trust below. This DID should be for the highest level of trust in your ecosystem, such as a governance authority, or a managing company.
+The first step for any trust registry is a Root DID, which acts as a trust anchor for the chain of trust below. This DID should be for the highest level of trust in your ecosystem, such as a governance authority, a managing company or an auditor.&#x20;
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create an Issuer DID</strong></mark></td><td>Create a W3C conformant DID on cheqd using the <code>did:cheqd</code> DID Method.</td><td><a href="../../../studio/dids/create-did.md">create-did.md</a></td></tr></tbody></table>
+{% hint style="success" %}
+For more basic trust registries, the company issuing the AI Agent credentials may also be the Root of Trust with the Root DID.&#x20;
+{% endhint %}
+
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create an Issuer DID</strong></mark></td><td>Create a W3C conformant DID on cheqd using the <code>did:cheqd</code> DID Method.</td><td><a href="../../../../studio/dids/create-did.md">create-did.md</a></td></tr></tbody></table>
 
 ## Step 3: Design Schemas for your Ecosystem
 
@@ -395,7 +399,7 @@ This schema can be always retrieved from the cheqd ledger at:
 
 {% embed url="https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:b003df6f-ec8e-48dd-9a2b-7011c5cf0a5e?resourceName=VerifiableAccreditation&resourceType=JSONSchemaValidator2020" %}
 
-{% hint style="info" %}
+{% hint style="success" %}
 We suggest that you use the same schemas that we have already made for Verifiable Accreditations and Attestations, although this is not a requirement
 {% endhint %}
 
@@ -539,9 +543,9 @@ For example, the following schema shows how the configuration of an AI Agent can
 
 With the Root DID you created in Step 2, you can create links to your schemas, storing them on-chain in a resolvable format.
 
-You can follow the tutorial here to publish your schemas as DID-Linked Resources. Generally we use the `resourceType` of `JSONSchemaValidator2020` for JSON schemas written.
+You can follow the tutorial here to publish your schemas as DID-Linked Resources. Generally we use the `resourceType` of `JSONSchemaValidator2020` for JSON schemas written to the ledger.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Create DID-Linked Resource</td><td>Link resources such as schemas to your DID, publishing as a DID-Linked Resource.</td><td><a href="../../../studio/did-linked-resources/">did-linked-resources</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create DID-Linked Resource</strong></mark></td><td>Link resources such as schemas to your DID, publishing as a DID-Linked Resource.</td><td><a href="../../../../studio/did-linked-resources/">did-linked-resources</a></td></tr></tbody></table>
 
 This will store the schemas securely on the cheqd Network, where they can be fetched using DID URLs.
 
@@ -646,9 +650,9 @@ Use the following request format:
 
 You can use the API below to make this transaction, using the parameter 'authorise'.
 
-{% openapi src="https://raw.githubusercontent.com/cheqd/studio/refs/heads/main/src/static/swagger-api.json" path="/trust-registry/accreditation/issue" method="post" %}
-[https://raw.githubusercontent.com/cheqd/studio/refs/heads/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/studio/refs/heads/main/src/static/swagger-api.json)
-{% endopenapi %}
+{% openapi-operation spec="cheqd-studio-api" path="/trust-registry/accreditation/issue" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
 ## Step 6: Issue your next Accreditation
 
@@ -830,3 +834,8 @@ For a trusted ecosystem, these attestations are required to trace the legitimacy
 Note that there MUST be an `accreditationToAttest` for credentials to be issued that reference an accreditation in the next tutorial.&#x20;
 {% endhint %}
 
+## Core Trust Registry Setup Complete!
+
+Great! Now you have set up the core functionality for your trust registry. Next you will want to issue a Verifiable Attestation from the "trusted issuer" in the Trust Registry to an AI Agent:
+
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue Verifiable Credentials to AI Agent</strong></mark></td><td>Issue a Verifiable Credential to your AI Agent referencing the <code>parentAccreditation</code> and <code>rootAuthorisation</code> for the trust chain.</td><td><a href="issue-credential.md">issue-credential.md</a></td></tr></tbody></table>

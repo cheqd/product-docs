@@ -8,7 +8,7 @@ Follow these instructions to Verify a Credential from your MCP Client (e.g. Clau
 
 > ⚠️ **Before you begin...**
 >
-> Make sure you have configured the [MCP Client as per the setup instructions](./#getting-started) and [issued a Credential](issue-credential.md) from the same MCP Client.
+> Make sure you have configured the [MCP Client as per the setup instructions](../#getting-started) and [issued a Credential](issue-credential.md) from the same MCP Client.
 
 ## Step 1: Create Connection between Holder and Claude Desktop.
 
@@ -20,14 +20,14 @@ Ask Claude to issue a proof request with some conditions based on the attributes
 
 For this tutorial, we asked Claude to generate a proof request with **score > 50**.
 
-<figure><img src="../../../../.gitbook/assets/Screenshot 2025-04-02 at 14.08.05.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2025-04-02 at 14.08.05.png" alt=""><figcaption></figcaption></figure>
 
 ## Step 3: Holder checks Request and sends Proof
 
 The next steps are at the Holder Agent side to accept the proof request and send the response. It can be simulated by running the following APIs in sequence from the Holder API at [http://localhost:4001/api/doc](http://localhost:4001/api/doc) or Postman.
 
-{% openapi src="../../../../.gitbook/assets/swagger.json" path="/present-proof-2.0/records" method="get" %}
-[swagger.json](../../../../.gitbook/assets/swagger.json)
+{% openapi src="../../../../../.gitbook/assets/swagger.json" path="/present-proof-2.0/records" method="get" %}
+[swagger.json](../../../../../.gitbook/assets/swagger.json)
 {% endopenapi %}
 
 **Parameters**
@@ -60,14 +60,14 @@ Set this to "request-received"
 
 Copy and save the `pres_ex_id` and the proof request `by_format.pres_request.anoncreds` from the response.
 
-{% openapi src="../../../../.gitbook/assets/swagger.json" path="/present-proof-2.0/records/{pres_ex_id}/credentials" method="get" %}
-[swagger.json](../../../../.gitbook/assets/swagger.json)
+{% openapi src="../../../../../.gitbook/assets/swagger.json" path="/present-proof-2.0/records/{pres_ex_id}/credentials" method="get" %}
+[swagger.json](../../../../../.gitbook/assets/swagger.json)
 {% endopenapi %}
 
 Fetch the relevant credentials and then create a proof response. Send the proof response by calling the below API.
 
-{% openapi src="../../../../.gitbook/assets/swagger.json" path="/present-proof-2.0/records/{pres_ex_id}/send-presentation" method="post" %}
-[swagger.json](../../../../.gitbook/assets/swagger.json)
+{% openapi src="../../../../../.gitbook/assets/swagger.json" path="/present-proof-2.0/records/{pres_ex_id}/send-presentation" method="post" %}
+[swagger.json](../../../../../.gitbook/assets/swagger.json)
 {% endopenapi %}
 
 **Request Body**

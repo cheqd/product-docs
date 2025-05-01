@@ -1,5 +1,5 @@
 ---
-description: Issue a Credential to an AI Agent or Swarm of AI Agents
+description: Issue a Credential to an AI Agent using cheqd's APIs.
 ---
 
 # Issue Verifiable Credentials to AI Agent
@@ -10,7 +10,7 @@ Once you have created your Trust Registry for the accreditation and authorisatio
 
 Each AI Agent will need to be identified by its own DID, to which it will receive credentials and/or accreditations. This enables the AI Agent to be cryptographically able to assert control over these credentials and/or accreditations.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create an Issuer DID</strong></mark></td><td>Create a W3C conformant DID on cheqd using the <code>did:cheqd</code> DID Method.</td><td><a href="../../../studio/dids/create-did.md">create-did.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create AI Agent DID</strong></mark></td><td>Create a W3C conformant DID on cheqd using our MCP Server.</td><td><a href="../setup-mcp/create-did.md">create-did.md</a></td></tr></tbody></table>
 
 ## Step 2: Choose Schema for Credential
 
@@ -26,8 +26,8 @@ An example of the request format is below:
 
 ```json
 {
-  "issuerDid": "did:cheqd:testnet:0a35d559-00ff-41b6-81ad-f64faa522771",
-  "subjectDid": "did:cheqd:testnet:a7e8bf7c-9d97-4b1e-a7bb-43a6754aafbf",
+  "issuerDid": "did:cheqd:testnet:0a35d559-00ff-41b6-81ad-f64faa522771", // DID of Trusted Issuer
+  "subjectDid": "did:cheqd:testnet:a7e8bf7c-9d97-4b1e-a7bb-43a6754aafbf", // DID of AI Agent
   "attributes": {
       "aiAgentName": "ChatGPT-4 Turbo",
       "aiAgentVersion": "4.0-turbo",
@@ -81,15 +81,15 @@ The table below breaks down what components are required and why they are needed
 
 ## Step 4: Issue Verifiable Credential to AI Agent
 
-Issue the compiled credential using the API below
+Issue the compiled credential using the API below:
 
-{% openapi src="https://raw.githubusercontent.com/cheqd/studio/refs/heads/main/src/static/swagger-api.json" path="/credential/issue" method="post" %}
-[https://raw.githubusercontent.com/cheqd/studio/refs/heads/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/studio/refs/heads/main/src/static/swagger-api.json)
-{% endopenapi %}
+{% openapi-operation spec="cheqd-studio-api" path="/credential/issue" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
-## Step 5: Publish Credential Response as a DID-Linked Resource
+## (Optional) Step 5: Publish Credential Response as a DID-Linked Resource
 
-The Issuer, after issuing the credential to the AI Agent, should publish the response (the fully formatted verifiable credential) as a DID-Linked Resource.
+The Issuer, after issuing the credential to the AI Agent, MAY publish the response (the fully formatted verifiable credential) as a DID-Linked Resource.
 
 The response format should look like the following example, including a proof (signed by the issuer).
 
@@ -142,12 +142,14 @@ The response format should look like the following example, including a proof (s
 }
 ```
 
-The Issuer should use this tutorial to publish the credential as a DID-Linked Resource to their own DID.&#x20;
-
 You can follow the tutorial here to publish your issued credential as a DID-Linked Resource. Generally we suggest the `resourceType` of `VerifiableAttestation` for credentials issued to AI Agents.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Create DID-Linked Resource</td><td>Link resources such as schemas to your DID, publishing as a DID-Linked Resource.</td><td><a href="../../../studio/did-linked-resources/">did-linked-resources</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create DID-Linked Resource</strong></mark></td><td>Link resources such as schemas to your DID, publishing as a DID-Linked Resource.</td><td><a href="../../../../studio/did-linked-resources/">did-linked-resources</a></td></tr></tbody></table>
 
 This will store the schemas securely on the cheqd Network, where they can be fetched using DID URLs.
 
-Now your AI Agent will have everything it needs to present its credential and prove that it is trustworthy, using our trust registry validator in the next tutorial!
+### Step 5: Provision Verifiable Credential into AI Agent using MCP server
+
+The final step to setup your AI Agent trust registry and associated credential is to provision this issued credential directly into the AI Agent's wallet, using our MCP Server. Follow the tutorial below to finalise your setup!
+
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Provision Credential to AI Agent</strong></mark></td><td>Once you have issued your credential and have the JWT, you can provision this credential directly to the AI Agent using our MCP server.</td><td><a href="../setup-mcp/provision-credential.md">provision-credential.md</a></td></tr></tbody></table>
