@@ -1,5 +1,5 @@
 ---
-description: Establish a comprehensive Trust Registry for your AI Agents.
+description: Walkthrough for setting up Trust Registries for your AI Agents.
 ---
 
 # Setup AI Agent Trust Registry
