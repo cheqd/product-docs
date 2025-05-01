@@ -40,7 +40,7 @@ Similarly, an AI Agent creator can prove that it is also trustworthy, demonstrat
 
 Therefore, relying parties can query the accreditations of AI Agents all the way back to a Root of Trust.
 
-## Learn more about the Trust Registry model
+## Learn more about cheqd's Trust Registry model
 
 Read through some of our guides below to getting setup with trust registries on cheqd:
 
