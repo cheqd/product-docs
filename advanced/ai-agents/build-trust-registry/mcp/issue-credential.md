@@ -26,8 +26,8 @@ Although, either agents can start the connection, in this tutorial we will start
 
 Open the Holder API at [http://localhost:4001/api/doc](http://localhost:4001/api/doc) or use Postman, to create a new connection request. Copy the `invitation_url` from the response.
 
-{% openapi src="../../../.gitbook/assets/swagger.json" path="/out-of-band/create-invitation" method="post" %}
-[swagger.json](../../../.gitbook/assets/swagger.json)
+{% openapi src="../../../../.gitbook/assets/swagger.json" path="/out-of-band/create-invitation" method="post" %}
+[swagger.json](../../../../.gitbook/assets/swagger.json)
 {% endopenapi %}
 
 **Parameters and Request Body**
@@ -61,7 +61,7 @@ Go to Claude Desktop, and accept the connection by pasting the `invitation_url` 
 Always "Allow for this chat" or "Allow once" when the prompt appears. This is a security feature to have human interaction for MCP tools.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-04-02 at 11.37.56.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screenshot 2025-04-02 at 11.37.56.png" alt=""><figcaption></figcaption></figure>
 
 ## Step 4: Ask Claude to issue a Credential
 
@@ -69,7 +69,7 @@ Now you can ask Claude Desktop to issue a Credential Offer to the connection. Cl
 
 For this tutorial, we asked Claude to create a credential offer with **score as 80 and subject as Mathematics**.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-04-02 at 11.40.26.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screenshot 2025-04-02 at 11.40.26.png" alt=""><figcaption></figcaption></figure>
 
 When all the steps are completed, a Credential Offer will be sent to Holder agent.
 
@@ -77,8 +77,8 @@ When all the steps are completed, a Credential Offer will be sent to Holder agen
 
 The rest of the steps are from the Holder to accept the credential offer and store the credential. This can be achieved by the following API Calls from the Holder API at [http://localhost:4001/api/doc](http://localhost:4001/api/doc) or Postman.
 
-{% openapi src="../../../.gitbook/assets/swagger.json" path="/issue-credential-2.0/records" method="get" %}
-[swagger.json](../../../.gitbook/assets/swagger.json)
+{% openapi src="../../../../.gitbook/assets/swagger.json" path="/issue-credential-2.0/records" method="get" %}
+[swagger.json](../../../../.gitbook/assets/swagger.json)
 {% endopenapi %}
 
 **Parameters**
@@ -95,14 +95,14 @@ Set this to "offer-received".
 
 Copy and save the `cred_ex_id` from the response and pass that in the next request to Accept the Offer.
 
-{% openapi src="../../../.gitbook/assets/swagger.json" path="/issue-credential-2.0/records/{cred_ex_id}/send-request" method="post" %}
-[swagger.json](../../../.gitbook/assets/swagger.json)
+{% openapi src="../../../../.gitbook/assets/swagger.json" path="/issue-credential-2.0/records/{cred_ex_id}/send-request" method="post" %}
+[swagger.json](../../../../.gitbook/assets/swagger.json)
 {% endopenapi %}
 
 Now, store the received Credential into the Holder wallet.
 
-{% openapi src="../../../.gitbook/assets/swagger.json" path="/issue-credential-2.0/records/{cred_ex_id}/store" method="post" %}
-[swagger.json](../../../.gitbook/assets/swagger.json)
+{% openapi src="../../../../.gitbook/assets/swagger.json" path="/issue-credential-2.0/records/{cred_ex_id}/store" method="post" %}
+[swagger.json](../../../../.gitbook/assets/swagger.json)
 {% endopenapi %}
 
 

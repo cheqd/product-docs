@@ -10,7 +10,7 @@ Once you have created your Trust Registry for the accreditation and authorisatio
 
 Each AI Agent will need to be identified by its own DID, to which it will receive credentials and/or accreditations. This enables the AI Agent to be cryptographically able to assert control over these credentials and/or accreditations.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create an Issuer DID</strong></mark></td><td>Create a W3C conformant DID on cheqd using the <code>did:cheqd</code> DID Method.</td><td><a href="../../studio/dids/create-did.md">create-did.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create an Issuer DID</strong></mark></td><td>Create a W3C conformant DID on cheqd using the <code>did:cheqd</code> DID Method.</td><td><a href="../../../studio/dids/create-did.md">create-did.md</a></td></tr></tbody></table>
 
 ## Step 2: Choose Schema for Credential
 
@@ -146,7 +146,7 @@ The Issuer should use this tutorial to publish the credential as a DID-Linked Re
 
 You can follow the tutorial here to publish your issued credential as a DID-Linked Resource. Generally we suggest the `resourceType` of `VerifiableAttestation` for credentials issued to AI Agents.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Create DID-Linked Resource</td><td>Link resources such as schemas to your DID, publishing as a DID-Linked Resource.</td><td><a href="../../studio/did-linked-resources/">did-linked-resources</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Create DID-Linked Resource</td><td>Link resources such as schemas to your DID, publishing as a DID-Linked Resource.</td><td><a href="../../../studio/did-linked-resources/">did-linked-resources</a></td></tr></tbody></table>
 
 This will store the schemas securely on the cheqd Network, where they can be fetched using DID URLs.
 

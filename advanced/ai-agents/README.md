@@ -1,10 +1,16 @@
 ---
-description: Design and Build Trust Registries for AI Agents on cheqd.
+description: Design, Build and Validate Trust Registries for AI Agents on cheqd.
 ---
 
-# 💡 Build Trust for AI Agents
+# 💡 Use Trust Registries for AI Agents
 
-## Trust Registries for AI Agents <a href="#hierarchy-examples" id="hierarchy-examples"></a>
+## Get Started
+
+cheqd Trust Registries can be designed and built by companies that create AI agents, and equally, validated against by users of AI agents. Choose what type of user you are below to get started:
+
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f590">🖐️</span> <mark style="color:blue;"><strong>I want to set up a Trust Registry for my AI Agent</strong></mark></td><td>Design, build and configure your AI Agent trust registry with cheqd Studio and our MCP server. </td><td><a href="build-trust-registry/">build-trust-registry</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="2611">☑️</span> <mark style="color:blue;"><strong>I want to verify the trust in AI Agents I am using</strong></mark></td><td>Use our trust registry validation prompts to get AI agents to identify themselves and demonstrate their trustworthiness against a trust registry.</td><td><a href="validate.md">validate.md</a></td></tr></tbody></table>
+
+## What are Trust Registries for AI Agents? <a href="#hierarchy-examples" id="hierarchy-examples"></a>
 
 Trust Registries play a critical role in establishing trust for AI Agents. Acting as authoritative databases, they can **verify the AI Agent is accredited and authorised** to carry out certain actions, ensuring transparency and accountability.
 
@@ -16,13 +22,7 @@ Here’s how they support the AI ecosystem:
 
 cheqd has developed a robust Trust Registry solution, enabling users to establish hierarchical chains of trust, with each registry entry being DID-resolvable for enhanced transparency and security. cheqd supports various Trust Registry Data Models, leveraging its versatile DID and DID-Linked Resource architecture.
 
-## Get Started
-
-If you are already aware of how cheqd's Decentralized Trust Chains (DTCs) are structured, you can get started immediately below. Otherwise, we suggest reading the rest of this page:
-
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Build an AI Agent Trust Registry</strong></mark></td><td>Establish a comprehensive ecosystem for trusted AI Agents, organisations and governance authorities.</td><td><a href="build-trust-registry.md">build-trust-registry.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue Verifiable Credentials to AI Agent</strong></mark></td><td>Using your Trust Registry, issue your AI Agent a credential fully referencing the Trust Chain back to a Root DID.</td><td><a href="issue.md">issue.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Validate AI Agent Trust Chain</strong></mark></td><td>Use our Validation APIs to enable your AI Agent to autonomously prove that it is trusted and accredited.</td><td><a href="validate.md">validate.md</a></td></tr><tr><td><mark style="color:blue;"><strong>MCP Server Setup</strong></mark></td><td>Get started with the cheqd MCP Server for building identity functionality into your AI Agent</td><td><a href="mcp/">mcp</a></td></tr></tbody></table>
-
-## Establishing a Trust Hierarchy <a href="#hierarchy-examples" id="hierarchy-examples"></a>
+## Establishing a Trust Hierarchy
 
 cheqd's Trust Registry model is predicated on the notion of a trust hierarchy, which is conceptually very similar to traditional Public Key Infrastructure (PKI). Specifically, the model relies on a **Root of Trust** from which trusted relationships can be established.
 
@@ -40,99 +40,8 @@ Similarly, an AI Agent creator can prove that it is also trustworthy, demonstrat
 
 Therefore, relying parties can query the accreditations of AI Agents all the way back to a Root of Trust.
 
-## Verifiable Accreditations
+## Learn more about the Trust Registry model
 
-Verifiable Accreditations may be issued between two different entities. Each Accreditation must include the DID of the issuer and the DID of the subject, as well as a set of claims or permissions.
+Read through some of our guides below to getting setup with trust registries on cheqd:
 
-An example of a Verifiable Accreditation can be found below:
-
-```json
-{
-  "@context": [
-    "https://www.w3.org/2018/credentials/v1",
-    "https://w3id.org/vc/status-list/2021/v1"
-  ],
-  "id": "urn:uuid:123e4567-e89b-12d3-a456-426614174000",
-  "type": ["VerifiableCredential", "VerifiableAuthorisationForTrustChain", "AIAgentAuthorization"],
-  "issuer": "did:cheqd:testnet:12345678-90ab-cdef-1234-567890abcdef",
-  "issuanceDate": "2025-03-28T12:00:00Z",
-  "credentialSubject": {
-    "accreditedFor": [
-      {
-        "schemaId": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:b003df6f-ec8e-48dd-9a2b-7011c5cf0a5e?resourceName=AIAgentAuthorization&resourceType=JSONSchemaValidator2020",
-        "types": [
-          "VerifiableCredential",
-          "VerifiableAccreditation",
-          "VerifiableAttestation",
-          "VerifiableAccreditationToAccredit",
-          "AIAgentAuthorization"
-        ]
-      }
-    ],
-    "id": "did:cheqd:testnet:abcdef12-3456-7890-abcd-ef1234567890"
-  },
-  "termsOfUse": {
-    "type": "TrustFrameworkPolicy",
-    "trustFramework": "AI Agent Governance Framework",
-    "trustFrameworkId": "https://example.com/ai-agent-governance-framework"
-  },
-  "proof": {
-    "type": "Ed25519Signature2020",
-    "created": "2025-03-28T12:00:00Z",
-    "proofPurpose": "assertionMethod",
-    "verificationMethod": "did:cheqd:testnet:12345678-90ab-cdef-1234-567890abcdef#keys-1",
-    "signature": "base64-encoded-signature"
-  }
-}
-
-```
-
-This accreditation gives permissions for the subject to issue accreditations of a particular schema, AI Agent Authorization. This is a Root Accreditation which references a Governance Framework, under which AI Agent Creators may be accredited or authorised.
-
-Following this accreditation, the AI Agent Creator can issue the AI Agent a Verifiable Attestation conforming to the schema, for example:
-
-```json
-{
-  "@context": [
-    "https://www.w3.org/2018/credentials/v1",
-    "https://example.com/ai-agent-context"
-  ],
-  "id": "urn:uuid:123e4567-e89b-12d3-a456-426614174000",
-  "type": ["VerifiableCredential", "AIAgentAccreditation"],
-  "issuer": "did:cheqd:testnet:b003df6f-ec8e-48dd-9a2b-7011c5cf0a5e",
-  "issuanceDate": "2025-03-28T12:00:00Z",
-  "credentialSubject": {
-    "id": "did:cheqd:testnet:41d27ee4-437c-4a0e-84e0-783001a621d1",
-    "aiAgentName": "ChatGPT-4 Turbo",
-    "aiAgentVersion": "4.0-turbo",
-    "model": "GPT-4 Turbo",
-    "modelVersion": "4.0",
-    "contextWindow": 128000,
-    "temperature": 0.7,
-    "topK": 40,
-    "topP": 0.9,
-    "maxTokens": 4096,
-    "fineTuned": false,
-    "fineTuningDetails": null,
-    "safetyRating": "ISO 42001 Certified",
-    "evaluationMetrics": ["BLEU-4", "ROUGE-L", "F1 Score: 92.5%"],
-    "certificationAuthority": "AI Ethics Board",
-    "validUntil": "2026-03-28T12:00:00Z"
-  },
-  "termsOfUse": {
-    "type": "VerifiableAttestation",
-    "parentAccreditation": "did:cheqd:testnet:abcdef12-3456-7890-abcd-ef1234567890?resourceName=AIAgentAuthorization&resourceType=VerifiableAuthorisationForTrustChain",
-    "rootAuthorisation": "did:cheqd:testnet:abcdef12-3456-7890-abcd-ef1234567890?resourceName=AIAgentAuthorization&resourceType=VerifiableAuthorisationForTrustChain"
-  },
-  "proof": {
-    "type": "Ed25519Signature2020",
-    "created": "2025-03-28T12:05:00Z",
-    "proofPurpose": "assertionMethod",
-    "verificationMethod": "did:cheqd:testnet:issuer123#keys-1",
-    "signature": "z5MkG2jD3...abcdef12345"
-  }
-}
-
-```
-
-The Credential above lists some of the core metadata and information that defines the AI Agent. The AI Agent may be prompted to return this credential, and a relying party will be able to trust that the AI is trustworthy, and that it comes from a legitimate/accredited Creator.
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Decentralized Trust Chains (DTCs)</strong></mark></td><td>Take a deep dive into the architecture and model for cheqd's trust registries.</td><td><a href="../../studio/trust-registries/dtc/">dtc</a></td></tr><tr><td><mark style="color:blue;"><strong>Set up Trust Chain</strong></mark></td><td>Set up a generic trust chain using our cheqd Studio APIs. </td><td><a href="../../studio/trust-registries/set-up/">set-up</a></td></tr><tr><td><mark style="color:blue;"><strong>Get Started with TRAIN</strong></mark></td><td>Set up and start using our trust registry valdation engine called TRAIN.</td><td><a href="../../studio/trust-registries/train/">train</a></td></tr></tbody></table>

@@ -2,7 +2,7 @@
 description: Establish a full Trust Registry for your AI Agent or Swarm of Agents
 ---
 
-# Build an AI Agent Trust Registry
+# 🏗️ Build an AI Agent Trust Registry
 
 Users are able to build AI Agent Trust Registries using our cheqd Studio APIs. The following steps will enable organisations, governance authorities and AI Agents to establish permissions, rules and hierarchty between each other.
 
@@ -10,13 +10,13 @@ Users are able to build AI Agent Trust Registries using our cheqd Studio APIs. T
 
 Make sure you have set up your account with **cheqd Studio** and are logged in, using our guide below:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Set up your account with <strong>cheqd Studio</strong> and log in to start using the APIs.</td><td><a href="../../getting-started/studio/set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Set up your account with <strong>cheqd Studio</strong> and log in to start using the APIs.</td><td><a href="../../../getting-started/studio/set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
 
 ## Step 2: Create a Root DID
 
 The first step for any trust registry is a Root DID, which acts as a trust anchor for the chain of trust below. This DID should be for the highest level of trust in your ecosystem, such as a governance authority, or a managing company.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create an Issuer DID</strong></mark></td><td>Create a W3C conformant DID on cheqd using the <code>did:cheqd</code> DID Method.</td><td><a href="../../studio/dids/create-did.md">create-did.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create an Issuer DID</strong></mark></td><td>Create a W3C conformant DID on cheqd using the <code>did:cheqd</code> DID Method.</td><td><a href="../../../studio/dids/create-did.md">create-did.md</a></td></tr></tbody></table>
 
 ## Step 3: Design Schemas for your Ecosystem
 
@@ -541,7 +541,7 @@ With the Root DID you created in Step 2, you can create links to your schemas, s
 
 You can follow the tutorial here to publish your schemas as DID-Linked Resources. Generally we use the `resourceType` of `JSONSchemaValidator2020` for JSON schemas written.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Create DID-Linked Resource</td><td>Link resources such as schemas to your DID, publishing as a DID-Linked Resource.</td><td><a href="../../studio/did-linked-resources/">did-linked-resources</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Create DID-Linked Resource</td><td>Link resources such as schemas to your DID, publishing as a DID-Linked Resource.</td><td><a href="../../../studio/did-linked-resources/">did-linked-resources</a></td></tr></tbody></table>
 
 This will store the schemas securely on the cheqd Network, where they can be fetched using DID URLs.
 

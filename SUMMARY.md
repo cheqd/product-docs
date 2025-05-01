@@ -142,13 +142,13 @@
 
 ## 💫 Advanced features and alternatives <a href="#advanced" id="advanced"></a>
 
-* [💡 Build Trust for AI Agents](advanced/ai-agents/README.md)
-  * [Build an AI Agent Trust Registry](advanced/ai-agents/build-trust-registry.md)
-  * [Issue Verifiable Credentials to AI Agent](advanced/ai-agents/issue.md)
-  * [Validate AI Agent Trust Chain](advanced/ai-agents/validate.md)
-  * [MCP Server Setup](advanced/ai-agents/mcp/README.md)
-    * [Issue a Verifiable Credential](advanced/ai-agents/mcp/issue-credential.md)
-    * [Verify a Credential](advanced/ai-agents/mcp/verify-credential.md)
+* [💡 Use Trust Registries for AI Agents](advanced/ai-agents/README.md)
+  * [🏗️ Build an AI Agent Trust Registry](advanced/ai-agents/build-trust-registry/README.md)
+    * [MCP Server Setup](advanced/ai-agents/build-trust-registry/mcp/README.md)
+      * [Issue a Verifiable Credential](advanced/ai-agents/build-trust-registry/mcp/issue-credential.md)
+      * [Verify a Credential](advanced/ai-agents/build-trust-registry/mcp/verify-credential.md)
+    * [Issue Verifiable Credentials to AI Agent](advanced/ai-agents/build-trust-registry/issue.md)
+  * [☑️ Validate AI Agent Trust Chain](advanced/ai-agents/validate.md)
 * [➡️ DID Registrar](advanced/did-registrar/README.md)
   * [Setup DID Registrar](advanced/did-registrar/did-registrar-setup.md)
   * [Create a DID](advanced/did-registrar/create-did.md)

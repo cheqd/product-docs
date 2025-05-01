@@ -2,7 +2,7 @@
 description: Verify and validate your AI Agent's trust with TRAIN
 ---
 
-# Validate AI Agent Trust Chain
+# ☑️ Validate AI Agent Trust Chain
 
 We have built a Trust Registry validation tool to allow AI Agents to demonstrate that they are trustworthy and have been created by accredited and authorised organisations.
 
