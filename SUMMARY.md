@@ -25,7 +25,7 @@
       * [Issue Verifiable Credentials to AI Agent](getting-started/ai-agents/trust-registry/setup/issue-credential.md)
     * [Setup and Configure MCP Server](getting-started/ai-agents/trust-registry/setup-mcp/README.md)
       * [Create AI Agent DID](getting-started/ai-agents/trust-registry/setup-mcp/create-did.md)
-      * [Provision Credential to AI Agent](getting-started/ai-agents/trust-registry/setup-mcp/provision-credential.md)
+      * [Import Credential to AI Agent](getting-started/ai-agents/trust-registry/setup-mcp/import-credential.md)
       * [Advanced functionality](getting-started/ai-agents/trust-registry/setup-mcp/advanced/README.md)
         * [Issue a Verifiable Credential](getting-started/ai-agents/trust-registry/setup-mcp/advanced/issue-credential.md)
         * [Verify a Credential](getting-started/ai-agents/trust-registry/setup-mcp/advanced/verify-credential.md)

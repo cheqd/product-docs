@@ -1,3 +1,9 @@
+---
+description: >-
+  Setup and Configure your MCP Server to begin using cheqd's identity
+  functionality with your AI Agent.
+---
+
 # Setup and Configure MCP Server
 
 > This is an **advanced** guide for those who want to integrate AI Agents with the Cheqd Network to create DIDs, Issue Verifiable Credentials and store Verifiable Credentials.
@@ -147,5 +153,5 @@ Now that you have the Cheqd MCP Server running, you can:
 * Create your first verifiable credential using the provided tools
 * Set up a complete identity verification workflow
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create AI Agent DID</strong></mark></td><td>Create a new DID for the AI Agent.</td><td><a href="create-did.md">create-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Provision AI Agent Credential</strong></mark></td><td>Accept a JWT Credential for your agent</td><td><a href="provision-credential.md">provision-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue Credentials</strong></mark></td><td>Issue Verifiable Credentials signed by cheqd DIDs using MCP Toolkit.</td><td><a href="advanced/issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Verify Credentials</strong></mark></td><td>Verify a Credential using MCP Toolkit.</td><td><a href="advanced/verify-credential.md">verify-credential.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create AI Agent DID</strong></mark></td><td>Create a new did:cheqd DID for the AI Agent.</td><td><a href="create-did.md">create-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Import AI Agent Credential</strong></mark></td><td>Import and provision a JWT Credential to your AI Agent</td><td><a href="import-credential.md">import-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue Credentials</strong></mark></td><td>Issue Verifiable Credentials signed by cheqd DIDs using MCP Toolkit.</td><td><a href="advanced/issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Verify Credentials</strong></mark></td><td>Verify a Credential using MCP Toolkit.</td><td><a href="advanced/verify-credential.md">verify-credential.md</a></td></tr></tbody></table>
 
