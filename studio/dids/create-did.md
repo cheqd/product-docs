@@ -19,9 +19,9 @@ Using the `/did/create` API, users have two options for creating a `did:cheqd` D
 1. **Filling out a simple form** using the `application/x-www-url-form-encoded` option within an API client of your choice.
 2. **Compiling a DID Document body yourself** using the `application/json` option within an API client of your choice.
 
-{% openapi src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/did/create" method="post" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endopenapi %}
+{% openapi-operation spec="cheqd-studio-api" path="/did/create" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
 ### Option 1. Choose from a few variables and we will compile the DID for you
 
@@ -139,9 +139,9 @@ Within the `/did/create` JSON payload, paste the response of your DID Document t
 
 Hit execute on the API below to create your `did:cheqd` DID and associated DID Document.
 
-{% openapi src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/did/create" method="post" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endopenapi %}
+{% openapi-operation spec="cheqd-studio-api" path="/did/create" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
 ## List DIDs associated with your account
 

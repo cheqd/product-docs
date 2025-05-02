@@ -23,6 +23,6 @@ When revoking a Credential, issuers can decide whether they want to publish an u
 
 Paste the Credential Body or JWT into the API below and execute the API to revoke the Credential.
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/credential/revoke" method="post" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endswagger %}
+{% openapi-operation spec="cheqd-studio-api" path="/credential/revoke" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}

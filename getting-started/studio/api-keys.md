@@ -1,5 +1,5 @@
 ---
-description: Generate API Keys to authenticate with cheqd Studio APIs.
+description: Generate API Keys to securely authenticate with cheqd Studio APIs.
 ---
 
 # 🗝️ API Keys

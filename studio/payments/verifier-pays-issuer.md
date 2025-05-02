@@ -21,9 +21,9 @@ Using the `/credential-status/check` API, users have two options for checking wh
 
 This is the easiest way to check whether a particular credential index is revoked or suspended.
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/credential-status/check" method="post" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endswagger %}
+{% openapi-operation spec="cheqd-studio-api" path="/credential-status/check" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
 &#x20;Using the `application/x-www-url-form-encoded` option on the Swagger UI, users are able to choose between the following variables to compile your DID:
 
@@ -95,9 +95,9 @@ If there is sufficient CHEQ in the account of the Verifier, this will automatica
 
 In the same action, the Credential Service will perform a verification check on the Credential Status and pay the issuer the fee specified in the Payment Conditions.
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/credential-status/check" method="post" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endswagger %}
+{% openapi-operation spec="cheqd-studio-api" path="/credential-status/check" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
 #### Response format
 
@@ -151,9 +151,9 @@ cheqd Studio will perform a verification check on the Credential Status and pay 
 Note the "`intervalInSeconds`" which is the amount of time after making the payment that the Verifier has to hit the API and request access to the encrypted Status List.
 {% endhint %}
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/credential-status/check" method="post" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endswagger %}
+{% openapi-operation spec="cheqd-studio-api" path="/credential-status/check" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
 #### Response format
 

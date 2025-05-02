@@ -38,6 +38,6 @@ When dealing with JSON-LD type Verifiable Credentials you also MUST provide the 
 
 Use the API below to verify a Presentation
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/presentation/verify" method="post" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endswagger %}
+{% openapi-operation spec="cheqd-studio-api" path="/presentation/verify" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}

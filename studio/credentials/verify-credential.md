@@ -43,7 +43,7 @@ Simply paste the JWT or the full credential body  into the request field of the 
 3. Whether the Credential has expired
 4. Whether the Credential Status is valid
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/credential/verify" method="post" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endswagger %}
+{% openapi-operation spec="cheqd-studio-api" path="/credential/verify" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 

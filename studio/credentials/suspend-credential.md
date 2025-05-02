@@ -23,9 +23,9 @@ When suspending a Credential, issuers can decide whether they want to publish an
 
 Paste the Credential Body or JWT into the API below and execute the API to suspend the Credential.
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/credential/suspend" method="post" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endswagger %}
+{% openapi-operation spec="cheqd-studio-api" path="/credential/suspend" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
 ## Unsuspend (reinstate) Verifiable Credentials
 
@@ -52,6 +52,6 @@ When unsuspending or reinstating a Credential, issuers can decide whether they w
 
 Paste the Credential Body or JWT into the API below and execute the API to unsuspend the Credential.
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/credential/reinstate" method="post" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endswagger %}
+{% openapi-operation spec="cheqd-studio-api" path="/credential/reinstate" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
