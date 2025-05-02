@@ -1,3 +1,9 @@
+---
+description: >-
+  Pricing for identity transactions on the cheqd Network, including
+  Decentralized Identifiers (DIDs) and DID-Linked Resources (DLRs).
+---
+
 # Identity Write Pricing
 
 > Note: the prices listed below are subject to change, as they are parameters controlled by community governance mechanisms.

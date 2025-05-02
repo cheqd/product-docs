@@ -1,3 +1,7 @@
+---
+description: Create a Decentralized Identifier (DID) on cheqd using the DID Registrar.
+---
+
 # Create a DID
 
 ## Summary
@@ -20,11 +24,11 @@ _**Figure 1**:_ [_Swagger UI for DID Registrar_](https://did-registrar.cheqd.net
 
 ## 1. Setup Veramo CLI
 
-This tutorial will be using the Veramo CLI for Key management. Setup the cli following this [tutorial](../../sdk/veramo/setup/)
+This tutorial will be using the Veramo CLI for Key management. Setup the CLI following this [tutorial](../../sdk/veramo/setup/)
 
 ## 2. Generate Key Pair in Veramo wallet
 
-Enter the below command in the cli
+Enter the below command in the CLI
 
 ```bash
 veramo execute -m keyManagerCreate --argsJSON '{ "type": "Ed25519", "kms": "local" }'

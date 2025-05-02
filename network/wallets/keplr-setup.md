@@ -1,5 +1,5 @@
 ---
-description: Setup Keplr Wallet to access CHEQ
+description: Setup Keplr Wallet to access CHEQ.
 ---
 
 # Setup Keplr Wallet

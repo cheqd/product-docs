@@ -1,4 +1,10 @@
-# Adding a new Resource version
+---
+description: >-
+  Update a DID-Linked Resource (DLR) or add new resources to an existing
+  Resource Collection.
+---
+
+# Update a DID-Linked Resource
 
 The purpose of this document is to describe how someone can create a _new_ Resource on under an existing _Collection_.
 
@@ -15,7 +21,7 @@ This tutorial uses the [cheqd Cosmos CLI](https://docs.cheqd.io/node/getting-sta
 
 ### 1. Generate a new UUID for the new Resource version
 
-[UUIDs are used to identify Resources](https://en.wikipedia.org/wiki/Universally\_unique\_identifier). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
+[UUIDs are used to identify Resources](https://en.wikipedia.org/wiki/Universally_unique_identifier). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
 
 ```bash
 $ uuidgen

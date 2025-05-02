@@ -377,7 +377,7 @@ Importantly, this allows each new resource to be indexed and versioned by their:
 1. `resourceName`
 2. `resourceType`
 
-New resources can be created to update the existing CredDef or RevRegDef, whilst maintaining the historical state of the previous versions. See the documentation on [Publishing a New Version of a Resource](../tooling/cheqd-node-cli/add-more-resources.md) to understand this further.
+New resources can be created to update the existing CredDef or RevRegDef, whilst maintaining the historical state of the previous versions. See the documentation on [Publishing a New Version of a Resource](../tooling/cheqd-node-cli/update-resource.md) to understand this further.
 
 ### Fetching a cheqd CredDef Object
 

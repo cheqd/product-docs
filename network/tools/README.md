@@ -1,5 +1,5 @@
 ---
-description: List of tooling and APIs to communicate with cheqd Network
+description: List of tooling and APIs to communicate with cheqd Network.
 ---
 
 # ↪️ Useful Tools and APIs

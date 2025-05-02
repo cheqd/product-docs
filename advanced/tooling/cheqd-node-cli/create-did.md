@@ -1,4 +1,8 @@
-# Creating a DID with cheqd Cosmos CLI
+---
+description: Create a Decentralized Identifier (DID) using the cheqd Cosmos CLI.
+---
+
+# Create a DID
 
 The purpose of this document is to describe how a DID (and associated DIDDoc) can be created using [the `cheqd-node` Cosmos CLI](https://docs.cheqd.io/node/getting-started/cheqd-cli).
 

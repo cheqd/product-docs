@@ -1,5 +1,5 @@
 ---
-description: Alternative ways of using cheqd's identity functionality
+description: Alternative ways of using cheqd's identity functionality.
 ---
 
 # 🌠 Advanced Tooling

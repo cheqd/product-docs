@@ -12,6 +12,8 @@ The cheqd network is a highly scalable, enterprise-ready blockchain for identity
 
 ## Other useful information
 
+Please see the following links for more specific information and guides regarding using the cheqd Network.
+
 <table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Block Explorer</strong></mark></td><td>Check out our BigDipper 2.0 block explorer here.</td><td><a href="https://bigdipper.live/cheqd">https://bigdipper.live/cheqd</a></td></tr><tr><td><mark style="color:blue;"><strong>Get CHEQ</strong></mark></td><td>Start your journey of acquiring CHEQ.</td><td><a href="https://cheqd.io/get-involved/">https://cheqd.io/get-involved/</a></td></tr><tr><td><mark style="color:blue;"><strong>Identity Write Pricing</strong></mark></td><td>Understand how much it costs to write to the cheqd Network.</td><td><a href="identity-write-pricing.md">identity-write-pricing.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Staking Dashboard</strong></mark></td><td>Use this dashboard for managing your CHEQ, hosted by our friends at OmniFlix.</td><td><a href="https://cheqd.omniflix.co/">https://cheqd.omniflix.co/</a></td></tr><tr><td><mark style="color:blue;"><strong>Governance Framework</strong></mark></td><td>Check out our cheqd Governance Framework. </td><td><a href="https://docs.cheqd.io/governance">https://docs.cheqd.io/governance</a></td></tr><tr><td><mark style="color:blue;"><strong>CHEQ Tokenomics</strong></mark></td><td>Learn about the tokenomics of CHEQ.</td><td><a href="https://learn.cheqd.io/overview/tokenomics">https://learn.cheqd.io/overview/tokenomics</a></td></tr></tbody></table>
 
 ## Integrating with cheqd

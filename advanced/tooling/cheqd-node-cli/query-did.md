@@ -1,4 +1,8 @@
-# Querying DIDs with cheqd Cosmos CLI
+---
+description: Query an existing Decentralized Identifier (DID) using the cheqd Cosmos CLI.
+---
+
+# Query a DID
 
 ## Pre-requisite
 

@@ -1,3 +1,9 @@
+---
+description: >-
+  Integrate directly with the cheqd ledger code to develop more advanced
+  applications with a deeper integration.
+---
+
 # Direct interaction with ledger code
 
 > This is an **advanced** guide for those who want to develop applications that directly interact with the ledger code.

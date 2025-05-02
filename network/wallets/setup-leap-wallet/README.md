@@ -1,5 +1,5 @@
 ---
-description: Setup your Leap Wallet to access CHEQ
+description: Setup your Leap Wallet to access CHEQ.
 ---
 
 # Setup Leap Wallet

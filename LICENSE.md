@@ -1,5 +1,5 @@
 ---
-description: Creative Commons Attribution-ShareAlike 4.0 International Public License
+description: Creative Commons Attribution-ShareAlike 4.0 International Public License.
 ---
 
 # License

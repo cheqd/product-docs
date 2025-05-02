@@ -1,3 +1,9 @@
+---
+description: >-
+  Create a DID-Linked Resource (DLR) linked to a cheqd DID using the DID
+  Registrar.
+---
+
 # Create a DID-Linked Resource
 
 Follow these instructions to create a new Resource linked to a DID using DID registrar. This tutorial will use the cheqd did regisrtar swagger API's and the Veramo CLI.

@@ -1,5 +1,5 @@
 ---
-description: How to Import Keplr into Leap Wallet
+description: How to Import your Keplr wallet into Leap Wallet.
 ---
 
 # Migrate from Keplr to Leap Wallet

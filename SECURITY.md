@@ -1,3 +1,7 @@
+---
+description: Security policy for users of cheqd software.
+---
+
 # Security Policy
 
 ## Reporting a Vulnerability

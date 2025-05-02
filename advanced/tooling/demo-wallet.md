@@ -1,4 +1,8 @@
-# Demo Wallet for identity setup
+---
+description: Setup a demo wallet for testing cheqd's identity functionality.
+---
+
+# Demo Wallet for Identity Setup
 
 cheqd has designed a wallet to demonstrate and test its DeFi functionality as well as its identity tooling.
 

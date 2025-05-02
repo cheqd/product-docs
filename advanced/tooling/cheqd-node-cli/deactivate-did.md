@@ -1,4 +1,10 @@
-# Deactivating existing DIDs with cheqd Cosmos CLI
+---
+description: >-
+  Deactivate an existing Decentralized Identifier (DID) using the cheqd Cosmos
+  CLI.
+---
+
+# Deactivate a DID
 
 The purpose of this document is to describe how an existing DID (and associated DIDDoc) can be _deactivated_ using [the `cheqd-node` Cosmos CLI](https://docs.cheqd.io/node/getting-started/cheqd-cli).
 

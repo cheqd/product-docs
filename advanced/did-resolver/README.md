@@ -1,5 +1,7 @@
 ---
-description: Service for resolving DIDs and dereferencing DID-Linked Resources
+description: >-
+  Service for resolving Decentralized Identifiers (DIDs) and dereferencing
+  DID-Linked Resources on cheqd.
 ---
 
 # ⬅️ DID Resolver

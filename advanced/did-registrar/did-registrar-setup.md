@@ -1,3 +1,9 @@
+---
+description: >-
+  Setup and configure cheqd's DID Registrar to start writing DIDs and DID-Linked
+  Resources.
+---
+
 # Setup DID Registrar
 
 ## Setting up cheqd DID Registrar

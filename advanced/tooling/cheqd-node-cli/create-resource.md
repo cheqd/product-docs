@@ -1,4 +1,10 @@
-# Creating a DID-Linked Resource using cheqd Cosmos CLI
+---
+description: >-
+  Create a DID-Linked Resource (DLR) linked to a cheqd DID, using the cheqd
+  Cosmos CLI.
+---
+
+# Create a DID-Linked Resource
 
 The purpose of this document is to outline how someone can create a Resource on the cheqd network using [cheqd Cosmos CLI](create-did.md). The process that's followed is similar to what's described in the [high-level Resource creation flow](../../../studio/did-linked-resources/understanding-dlrs/technical-composition.md).
 
@@ -21,7 +27,7 @@ Let's assume the DID for the DIDDoc is as follows:
 
 ### 2. Create a UUID for the Resource
 
-[UUIDs are used to identify Resources](https://en.wikipedia.org/wiki/Universally\_unique\_identifier). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
+[UUIDs are used to identify Resources](https://en.wikipedia.org/wiki/Universally_unique_identifier). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
 
 ```bash
 $ uuidgen

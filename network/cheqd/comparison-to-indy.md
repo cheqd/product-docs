@@ -1,3 +1,7 @@
+---
+description: Understand how the cheqd Network compares to Hyperledger Indy.
+---
+
 # Comparison to Hyperledger Indy
 
 Compare cheqd's functionality to another identity chain, Hyperledger Indy, using the information and table below:
