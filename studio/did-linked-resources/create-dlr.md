@@ -63,6 +63,6 @@ Resources are grouped by having identical **names** and **types**. This means if
 
 ## Step 6: Populate the request inputs and hit the API
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/resource/create/{did}" method="post" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endswagger %}
+{% openapi-operation spec="cheqd-studio-api" path="/resource/create/{did}" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}

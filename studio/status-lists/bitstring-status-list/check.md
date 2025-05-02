@@ -2,7 +2,7 @@
 description: Querying Status List entries or indices
 ---
 
-# Check Status List v2021
+# Check Bitstring Status List
 
 Using the `/credential-status/check` API, users are able to query specific Credential indices within a Status List to ascertain whether the Credential is revoked, suspended or currently valid.
 
@@ -89,6 +89,6 @@ Instead of using simple parameters, users can submit a JSON payload to the same 
 
 Execute the API request using the API below:
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/credential-status/check" method="post" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endswagger %}
+{% openapi-operation spec="cheqd-studio-api" path="/credential-status/check" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}

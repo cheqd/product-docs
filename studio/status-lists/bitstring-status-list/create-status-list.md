@@ -47,9 +47,9 @@ Using the `/credential-status/create/unencrypted` API, users have two options fo
 1. **Filling out a simple form** using the `application/x-www-url-form-encoded` option within an API client of your choice.
 2. **Compiling a Status List payload yourself** using the `application/json` option within an API client of your choice.
 
-{% openapi src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/credential-status/create/unencrypted" method="post" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endopenapi %}
+{% openapi-operation spec="cheqd-studio-api" path="/credential-status/create/unencrypted" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
 ### Option 1. Choose from a few variables and we will compile the Status List for you
 
@@ -159,6 +159,6 @@ An example of the JSON payload needed to be submitted is below:
 
 Once the Issuer has populated the requisite information for the unencrypted Status List request, they can use the API below to submit it to the ledger.&#x20;
 
-{% openapi src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/credential-status/create/unencrypted" method="post" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endopenapi %}
+{% openapi-operation spec="cheqd-studio-api" path="/credential-status/create/unencrypted" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}

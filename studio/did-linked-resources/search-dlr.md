@@ -6,6 +6,6 @@ description: Search and query for DID-Linked Resources
 
 The `/resource/search` API allows users to search for specific entries of a Resource on the cheqd Network. For example, if there are multiple Resources associated with the same DID, the search functionality allows applications to make requests only to a specified Resource.&#x20;
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/resource/search/{did}" method="get" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endswagger %}
+{% openapi-operation spec="cheqd-studio-api" path="/resource/search/{did}" method="get" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}

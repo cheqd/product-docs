@@ -14,7 +14,7 @@ Make sure you have already created at least one Verifiable Accreditation that yo
 
 ## Step 2: Use the Verify Accreditation API
 
-{% openapi src="https://raw.githubusercontent.com/cheqd/studio/refs/heads/main/src/static/swagger-api.json" path="/trust-registry/accreditation/verify" method="post" %}
-[https://raw.githubusercontent.com/cheqd/studio/refs/heads/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/studio/refs/heads/main/src/static/swagger-api.json)
-{% endopenapi %}
+{% openapi-operation spec="cheqd-studio-api" path="/trust-registry/accreditation/verify" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 

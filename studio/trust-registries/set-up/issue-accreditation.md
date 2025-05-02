@@ -235,9 +235,9 @@ For a trusted ecosystem, these attestations are required to trace the legitimacy
 
 ## Step 5: Make request to the API
 
-{% openapi src="https://raw.githubusercontent.com/cheqd/studio/refs/heads/main/src/static/swagger-api.json" path="/trust-registry/accreditation/issue" method="post" %}
-[https://raw.githubusercontent.com/cheqd/studio/refs/heads/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/studio/refs/heads/main/src/static/swagger-api.json)
-{% endopenapi %}
+{% openapi-operation spec="cheqd-studio-api" path="/trust-registry/accreditation/issue" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
 ## Step 7: Reference the Verifiable Accreditation
 

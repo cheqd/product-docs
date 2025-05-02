@@ -107,9 +107,9 @@ Ensure that you link this Token Status List to the DID that you created in step 
 
 As a DID-Linked Resource, the Token Status List will have a **fully resolvable DID URL** which can be referenced within the body of Verifiable Credentials, and queried by verification policies to establish the status of the specific credential.&#x20;
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/resource/create/{did}" method="post" expanded="true" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endswagger %}
+{% openapi-operation spec="cheqd-studio-api" path="/resource/create/{did}" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
 ## Step 7: Reference the Token Status List
 
@@ -117,9 +117,9 @@ Owing to the design of DID-Linked Resources, following the creation of the Token
 
 Using a DID Resolver or the search DID endpoint, users can find the DID URL and unique resourceId of the Token Status List. The unique resourceId allows users to specify this exact version of the Token Status List.
 
-{% swagger src="https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json" path="/did/search/{did}" method="get" %}
-[https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json](https://raw.githubusercontent.com/cheqd/credential-service/main/src/static/swagger-api.json)
-{% endswagger %}
+{% openapi-operation spec="cheqd-studio-api" path="/did/search/{did}" method="get" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
 In the DID Document Metadata, users should find "linkedResourceMetadata", like the following snippet:
 
