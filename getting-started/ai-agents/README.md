@@ -20,7 +20,33 @@ Here’s how they support the AI ecosystem:
 * **Transparency**: Trust Registries enable users and organisations to query and verify the origins and accreditations of AI systems they engage with. By providing a publicly accessible record of trusted AI agents, Trust Registries empower stakeholders to assess the credibility and history of an AI system before utilising it. This enhances confidence in the system, especially when the AI’s decisions impact sensitive areas like personal data or legal outcomes.
 * **Governance**: Trust Registries also serve as a governance tool, ensuring that AI developers and platforms are held accountable for their actions. By maintaining a registry of accredited AI systems, these registries can track the ongoing compliance of AI agents, making it easier to enforce ethical standards and regulatory requirements. In the event of a failure or harm caused by an AI agent, Trust Registries offer a clear point of reference for auditing and resolving accountability issues.
 
-cheqd has developed a robust Trust Registry solution, enabling users to establish hierarchical chains of trust, with each registry entry being DID-resolvable for enhanced transparency and security. cheqd supports various Trust Registry Data Models, leveraging its versatile DID and DID-Linked Resource architecture.
+cheqd has developed a robust Trust Registry solution, enabling users to establish hierarchical chains of trust, with each registry entry being DID-resolvable for enhanced transparency and security.
+
+## Capabilities of cheqd's Trust Registries for AI Agents
+
+cheqd’s Agentic Trust combine and build upon tried and tested capabilities, already deployed at scale:
+
+* Integrations with popular AI/ML tooling, such as MCP servers for easing how AI agents can interface with decentralised identity.
+* Work with our SaaS (cheqd Studio) or Software Development Kits (SDKs) depending on your desired level of control versus simplicity.
+* SDKs in multiple software languages to suit preferences / skillsets.
+* Industry-leading whilst interoperable capabilities. e.g. DIDs, DID-linked resources, and Trust Registries.
+
+<figure><img src="../../.gitbook/assets/cheqd AI Trust Registry Capabilities.png" alt=""><figcaption></figcaption></figure>
+
+## Components of cheqd's AI Trust Registry Solution
+
+Authorities can author trust registries and issue identifiers to agents using:&#x20;
+
+* cheqd studio (SaaS APIs) for easy and quick integration with no deployment requirements
+* SDKs for more control and tighter integration
+
+Agent frameworks, deployments or end-users can use:
+
+* Model Context Protocol (MCP) to surface responses directly to users via the agent, including a /who\_is command which has the agent verify itself.
+* Hosted TRAIN APIs to verify Agent accreditations.
+* SDKs to hold & proof credentials, including verifying signatures.
+
+<figure><img src="../../.gitbook/assets/cheqd AI Trust Registry Components.png" alt=""><figcaption></figcaption></figure>
 
 ## Establishing a Trust Hierarchy
 
@@ -39,6 +65,19 @@ Similarly, an AI Agent creator can prove that it is also trustworthy, demonstrat
 <figure><img src="../../.gitbook/assets/AI Agent Trust Registries (Governance Authority).jpg" alt=""><figcaption><p>Full tree diagram of root DID accrediting DIDs, that accredit AI Agents.</p></figcaption></figure>
 
 Therefore, relying parties can query the accreditations of AI Agents all the way back to a Root of Trust.
+
+## Use cases for AI Agent Trust registries
+
+Below are a series of use cases to which this solution architecture can be applied:
+
+| Use-case                         | Description                                                                                                                 | Governance authority             | (Governance authority issued) Verifiable Accreditation | Organisation     | (Organisation issued) Verifiable Accreditation |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ------------------------------------------------------ | ---------------- | ---------------------------------------------- |
+| **Ownership / representation**   | Verification of which agents are approved to represent which company for a given scope.                                     | Group company                    | Company relationship                                   | Subsidiary       | Scope of representation                        |
+| **Agent Bill of Materials**      | Verifiable proof of the “supply chain” of an AI Agent, including who, how and when it was developed, trained, and deployed. | Framework                        | Agent Bill of Materials (e.g. model, corpus, used)     | Not applicable   | Not applicable                                 |
+| **Regulatory compliance**        | Verifiable compliance with a given regulatory scheme for a given period.                                                    | Government (e.g. EU)             | Authority to audit against EU AI Act                   | Auditor          | Agent Compliance Certificate                   |
+| **Industry standard compliance** | Verifiable compliance with an industry-body administered scheme.                                                            | Industry body (e.g. DAIAA, SAIA) | Agent Compliance Certificate (issued to Agent)         | Not applicable   | Not applicable                                 |
+| **Security audit**               | Proof of a suitable and reputable security audit.                                                                           | Security company                 | Agent Compliance Certificate (issued to Agent)         | Not applicable   | Not applicable                                 |
+| **Generic trust check**          | The ability to state that a company or AI Agent trusts another for a given context.                                         | Any organisation                 | “I trust this organisation”                            | Any organisation | “I trust this agent”                           |
 
 ## Learn more about cheqd's Trust Registry model
 
