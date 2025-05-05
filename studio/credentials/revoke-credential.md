@@ -1,3 +1,7 @@
+---
+description: Revoke a W3C Verifiable Credential using cheqd Studio.
+---
+
 # Revoke Credential
 
 Using cheqd's innovative DID-Linked Resource module, cheqd is able to support decentralized and scalable Verifiable Credential revocation and suspension. Using this API, the user is able to choose whether they would like to publish the revocation status to the cheqd ledger or elsewhere.

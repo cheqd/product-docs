@@ -1,7 +1,7 @@
 ---
 description: >-
-  Aries Cloud Agent Python (ACA-Py) Plugin with cheqd support for DIDs,
-  DID-Linked Resources (DLRs) and Credentials.
+  Aries Cloud Agent Python (ACA-Py) Plugin with cheqd support for Decentralized
+  Identifiers (DIDs), DID-Linked Resources (DLRs) and Credentials.
 cover: ../../.gitbook/assets/ACA-Py.png
 coverY: 0
 layout:

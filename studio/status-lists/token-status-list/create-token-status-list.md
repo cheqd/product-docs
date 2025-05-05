@@ -1,5 +1,7 @@
 ---
-description: Create a Token Status List JWT or CWT as a DID-Linked Resource
+description: >-
+  Create a Token Status List JWT or CWT as a DID-Linked Resource (DLR), using
+  cheqd Studio.
 ---
 
 # Create Token Status List

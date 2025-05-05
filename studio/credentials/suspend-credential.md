@@ -1,3 +1,7 @@
+---
+description: Suspend or unsuspend a W3C Verifiable Credential using cheqd Studio.
+---
+
 # Suspend or Unsuspend Credential
 
 Users are also able to suspend Verifiable Credentials. The difference between revocation and suspension is that **suspended Credentials may be unsuspended at a future date**; whereas, **revoked credentials are permanently revoked**.

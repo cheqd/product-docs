@@ -1,5 +1,5 @@
 ---
-description: Verify Verifiable Accreditations back to a Root of Trust.
+description: Verify Verifiable Accreditations back to a Root of Trust using cheqd Studio.
 ---
 
 # Verify Verifiable Accreditation

@@ -1,7 +1,8 @@
 ---
 description: >-
-  Service for resolving Decentralized Identifiers (DIDs) and dereferencing
-  DID-Linked Resources on cheqd.
+  Get started with the cheqd DID Resolver, a REST API service for resolving
+  Decentralized Identifiers (DIDs) and dereferencing DID-Linked Resources (DLRs)
+  on cheqd.
 ---
 
 # ⬅️ DID Resolver

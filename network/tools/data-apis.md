@@ -1,3 +1,9 @@
+---
+description: >-
+  Use cheqd's Data APIs to query data from cheqd Network, including the total
+  supply, circulating supply and total supply staked.
+---
+
 # Cheqd x Cosmos Data APIs
 
 ## Summary

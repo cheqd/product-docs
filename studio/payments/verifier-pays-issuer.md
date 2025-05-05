@@ -1,8 +1,8 @@
 ---
-description: How a Verifier pays an Issuer to decrypt an encrypted Status List
+description: How a Verifier pays an Issuer to decrypt an encrypted Status List.
 ---
 
-# Create Verifier pays Issuer flow
+# Create Verifier Pays Issuer flow
 
 cheqd Studio supports payments for verifying Credential Status. This is an innovative feature that is also commonly known as cheqd's Payment Rails. Using the API in this tutorial, there are multiple ways for a Verifier to pay an Issuer to unlock and verify a Credential's status.
 

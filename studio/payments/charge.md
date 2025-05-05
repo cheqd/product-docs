@@ -1,5 +1,5 @@
 ---
-description: Creating an encrypted Status List 2021 Resource using cheqd Studio
+description: Create an encrypted Status List Resource using cheqd Studio.
 ---
 
 # Charge for Status List

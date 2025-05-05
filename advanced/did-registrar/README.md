@@ -1,5 +1,7 @@
 ---
-description: REST API service for creating cheqd DIDs and DID-Linked Resources.
+description: >-
+  Get started with the cheqd DID Registrar, a REST API service for creating
+  cheqd DIDs and DID-Linked Resources.
 ---
 
 # ➡️ DID Registrar

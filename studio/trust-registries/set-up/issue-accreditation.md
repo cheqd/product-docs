@@ -1,5 +1,5 @@
 ---
-description: Issue Verifiable Accreditations as DID-Linked Resources.
+description: Issue Verifiable Accreditations as DID-Linked Resources using cheqd Studio.
 ---
 
 # Issue Verifiable Accreditation

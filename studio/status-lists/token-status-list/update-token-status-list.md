@@ -1,5 +1,7 @@
 ---
-description: Update a Token Status List JWT or CWT as a new DID-Linked Resource
+description: >-
+  Update a Token Status List JWT or CWT as a new DID-Linked Resource (DLR),
+  using cheqd Studio.
 ---
 
 # Update Token Status List

@@ -1,7 +1,7 @@
 ---
 description: >-
   Issue and manage Verifiable Credentials and Presentations, signed by cheqd
-  DIDs.
+  DIDs, using cheqd Studio.
 ---
 
 # ✅ Issue Credentials and Presentations

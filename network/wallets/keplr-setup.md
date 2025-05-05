@@ -1,5 +1,7 @@
 ---
-description: Setup Keplr Wallet to access CHEQ.
+description: >-
+  Learn how to setup your Keplr Wallet to access CHEQ and participate in the
+  cheqd Network.
 ---
 
 # Setup Keplr Wallet

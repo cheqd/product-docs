@@ -1,5 +1,5 @@
 ---
-description: Establishing Root Authorisations for Trust Registries.
+description: Learn about establishing Root Authorisations for Trust Registries on cheqd.
 ---
 
 # Root Authorisations

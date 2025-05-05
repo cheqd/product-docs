@@ -1,5 +1,5 @@
 ---
-description: Understand how privacy is protected throughout the payment flow
+description: Understand how privacy is protected throughout the credential payment flow.
 ---
 
 # Privacy Considerations

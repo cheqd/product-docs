@@ -1,5 +1,5 @@
 ---
-description: Learn how cheqd's Credential Payments work
+description: Learn how cheqd's Credential Payments work.
 ---
 
 # Understanding Credential Payments

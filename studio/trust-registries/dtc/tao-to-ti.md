@@ -1,5 +1,7 @@
 ---
-description: Verifiable Accreditations from a TAO to a Trusted Issuer.
+description: >-
+  Learn about structuring Verifiable Accreditations from a Trusted Accreditation
+  Organisation (TAO) to a Trusted Issuer (TI) on cheqd.
 ---
 
 # TAO -> Trusted Issuer (TI)

@@ -1,5 +1,7 @@
 ---
-description: Update indices in Status List
+description: >-
+  Update the indices of a Bitstring Status List as a DID-Linked Resource (DLR)
+  on cheqd, using cheqd Studio.
 ---
 
 # Update Bitstring Status List

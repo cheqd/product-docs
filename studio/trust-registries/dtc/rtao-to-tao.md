@@ -1,7 +1,7 @@
 ---
 description: >-
-  Verifiable Accreditations from a Root of Trust (rTAO) to a subordinate entity
-  (TAO).
+  Learn about structuring Verifiable Accreditations from a Root of Trust (rTAO)
+  to a subordinate entity (TAO) on cheqd.
 ---
 
 # RTAO -> TAO

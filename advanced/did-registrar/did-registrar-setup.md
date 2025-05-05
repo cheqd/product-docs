@@ -1,7 +1,7 @@
 ---
 description: >-
-  Setup and configure cheqd's DID Registrar to start writing DIDs and DID-Linked
-  Resources.
+  Setup and configure cheqd's DID Registrar to start writing Decentralized
+  Identifiers (DIDs) and DID-Linked Resources (DLRs) on cheqd.
 ---
 
 # Setup DID Registrar

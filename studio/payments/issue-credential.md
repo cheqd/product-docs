@@ -1,7 +1,7 @@
 ---
 description: >-
-  Understand how to issue a Verifiable Credential including an encrypted Status
-  List in the body.
+  Understand how to issue a W3C Verifiable Credential including an encrypted
+  Status List in the body.
 ---
 
 # Issue Credential with Encrypted Status List

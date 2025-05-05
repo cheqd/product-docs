@@ -1,5 +1,7 @@
 ---
-description: Resolve a DID to fetch the associated DID Documet
+description: >-
+  Resolve a did:cheqd Decentralized Identifier (DID) to fetch the associated DID
+  Document, using cheqd Studio.
 ---
 
 # Resolve a DID

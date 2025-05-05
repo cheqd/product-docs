@@ -1,5 +1,7 @@
 ---
-description: Building and integrating with the cheqd Network
+description: >-
+  Get started the cheqd Network, setting up your wallet, connecting with the
+  network, and using our suite of APIs to help integrate applications.
 ---
 
 # Get started with cheqd Network

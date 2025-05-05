@@ -1,3 +1,9 @@
+---
+description: >-
+  Use cheqd's Cosmos address convertor to quickly convert any IBC wallet address
+  to another chain, e.g. CHEQ to ATOM.
+---
+
 # Cosmos Address Convertor
 
 > 🛠️ **Github repository**: [cheqd/cosmjs-cli-converter](https://github.com/cheqd/cosmjs-cli-converter)

@@ -1,5 +1,5 @@
 ---
-description: Issue conformant W3C Verifiable Credentials over REST API.
+description: Issue W3C conformant Verifiable Credentials over REST API, using cheqd Studio.
 ---
 
 # Issue Credential

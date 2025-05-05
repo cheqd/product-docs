@@ -1,5 +1,5 @@
 ---
-description: Create a Decentralized Identifier (DID) on cheqd using the DID Registrar.
+description: Create a Decentralized Identifier (DID) on cheqd using cheqd's DID Registrar.
 ---
 
 # Create a DID

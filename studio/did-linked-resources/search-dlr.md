@@ -1,5 +1,7 @@
 ---
-description: Search and query for DID-Linked Resources
+description: >-
+  Search for a DID-Linked Resource (DLR) associated with a cheqd Decentralized
+  Identifier (DID) over REST API, using cheqd Studio.
 ---
 
 # Search DID-Linked Resource

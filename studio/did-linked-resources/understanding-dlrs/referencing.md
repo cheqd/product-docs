@@ -1,3 +1,9 @@
+---
+description: >-
+  Understand how to reference a DID-Linked Resource (DLR) within the body of a
+  W3C Verifiable Credential.
+---
+
 # Referencing DID-Linked Resources in VCs
 
 Once created, issuers of Verifiable Credentials may want to reference resources within the body of issued Verifiable Credentials.

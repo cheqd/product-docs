@@ -1,7 +1,7 @@
 ---
 description: >-
-  Setup the DID Resolver to start resolving or dereferencing cheqd Decentralized
-  Identifiers (DIDs) and DID-Linked Resources (DLRs).
+  Setup the cheqd DID Resolver to start resolving or dereferencing cheqd
+  Decentralized Identifiers (DIDs) and DID-Linked Resources (DLRs).
 ---
 
 # Setup DID Resolver

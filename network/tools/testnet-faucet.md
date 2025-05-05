@@ -1,3 +1,9 @@
+---
+description: >-
+  Use the testnet faucet to top up your testnet wallet and start using cheqd's
+  identity functionality.
+---
+
 # Testnet Faucet
 
 > 🛠️ **Github repository**: [cheqd/faucet-ui](https://github.com/cheqd/faucet-ui)

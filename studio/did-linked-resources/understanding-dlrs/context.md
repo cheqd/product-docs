@@ -1,3 +1,9 @@
+---
+description: >-
+  Understand the context and design decisions around why cheqd developed
+  DID-Linked Resources (DLRs).
+---
+
 # Context for developing DID-Linked Resources
 
 ## Understanding "Resources" in decentralised identity

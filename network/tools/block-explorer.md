@@ -1,3 +1,7 @@
+---
+description: Explore the available Block Explorers for both cheqd mainnet and testnet.
+---
+
 # Block Explorer
 
 ## Big Dipper 2.0

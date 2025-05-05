@@ -1,5 +1,8 @@
 ---
-description: Validate the trust chain of a credential using TRAIN.
+description: >-
+  Validate the trust chain of a credential using TRAIN, to recursively traverse
+  back to a Root of Trust, and determine the accreditations and authorizations
+  of an issuer Decentralized Identifier (DID).
 ---
 
 # Validate Trust Chain

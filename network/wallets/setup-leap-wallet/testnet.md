@@ -1,3 +1,9 @@
+---
+description: >-
+  Learn how to configure a cheqd testnet wallet address and connect to testnet
+  using Leap Wallet.
+---
+
 # Congifure cheqd testnet for Leap
 
 To configure your Leap wallet to support cheqd testnet, please follow the instructions below:

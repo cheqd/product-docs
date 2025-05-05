@@ -1,5 +1,5 @@
 ---
-description: Querying Status List entries or indices
+description: Query Bitstring Status List entries or indices using cheqd Studio.
 ---
 
 # Check Bitstring Status List

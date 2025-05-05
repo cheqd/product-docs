@@ -1,5 +1,7 @@
 ---
-description: Create a DID using the did:cheqd method
+description: >-
+  Create an issuer Decentralized Identifier (DID) with the did:cheqd DID method
+  using cheqd Studio.
 ---
 
 # Create Issuer DID

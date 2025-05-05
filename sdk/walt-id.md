@@ -1,7 +1,7 @@
 ---
 description: >-
-  Walt ID Community Stack with cheqd support for DIDs, DID-Linked Resources
-  (DLRs) and Credentials.
+  Walt ID Community Stack with cheqd support for Decentralized Identifiers
+  (DIDs), DID-Linked Resources (DLRs) and Credentials.
 cover: ../.gitbook/assets/walt.id logo.png
 coverY: 0
 layout:

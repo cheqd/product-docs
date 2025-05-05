@@ -1,3 +1,9 @@
+---
+description: >-
+  Search and filter for Bitstring Status List DID-Linked Resources (DLRs) using
+  cheqd Studio.
+---
+
 # Search Bitstring Status List
 
 The `/credential-status/search` API allows users to search for specific entries of a Status List on the cheqd network. For example, if there are multiple Status Lists associated with the same DID, the search functionality allows applications to make requests only to a specified Status List.&#x20;

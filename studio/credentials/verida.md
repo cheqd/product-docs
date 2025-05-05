@@ -1,5 +1,5 @@
 ---
-description: Setup your wallet to receive credentials.
+description: Setup your Verida Wallet to receive W3C Verifiable Credentials.
 ---
 
 # Setup Verida Wallet

@@ -1,3 +1,9 @@
+---
+description: >-
+  Use the Validator Status API to query a validator's status, such as whether it
+  is losing blocks, on cheqd.
+---
+
 # Validator Status API
 
 ## Summary

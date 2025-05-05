@@ -1,3 +1,7 @@
+---
+description: Understand the technical composition of DID-Linked Resources (DLRs) on cheqd.
+---
+
 # Technical composition of DID-Linked Resources
 
 ## Formatting a Resource
@@ -6,9 +10,9 @@
 
 Using UUIDs, we can have a **high level of confidence that no two identical resource IDs will ever be created**. This is important for ensuring the integrity and uniqueness of each individual resource.
 
-![Image showing a formatted DID URL for a cheqd resource](../../../.gitbook/assets/Formatting%20resource%20diagram.png)
+![Image showing a formatted DID URL for a cheqd resource](<../../../.gitbook/assets/Formatting resource diagram.png>)
 
-***Figure 1**: DID-linked Resource DID URL path*
+_**Figure 1**: DID-linked Resource DID URL path_
 
 This will be explained further in the section on DID URL dereferencing to fetch a resource.
 
@@ -16,7 +20,7 @@ This will be explained further in the section on DID URL dereferencing to fetch 
 
 Resources are organised into groups called "**Collections**". Each DID may have an associated Collection, and the Collection ID is **derived from the unique identifier of the DID**.
 
-Collections can store any type of Resource, but for the purpose of this documentation we will focus on the use case where the Collection is *used for storing a set of schemas*.
+Collections can store any type of Resource, but for the purpose of this documentation we will focus on the use case where the Collection is _used for storing a set of schemas_.
 
 The most important concept used in this design is that each on-ledger **Collection** is **identified using a DID** and is **described using a DID Document**.
 
@@ -28,9 +32,9 @@ did:cheqd:mainnet:1f8e08a2-eeb6-40c3-9e01-33e4a0d1479d
 
 will derive the Collection ID: **1f8e08a2-eeb6-40c3-9e01-33e4a0d1479d**
 
-![Relation between a DID and Resource Collection](../../../.gitbook/assets/DID%20and%20Collection%20relationship.png)
+![Relation between a DID and Resource Collection](<../../../.gitbook/assets/DID and Collection relationship.png>)
 
-***Figure 2**: Relationship between a DID and Resource Collection*
+_**Figure 2**: Relationship between a DID and Resource Collection_
 
 A Collection is created using a `createResource` transaction, and specifying the Collection ID as the same identifier as that of the parent DID.
 
@@ -46,9 +50,9 @@ To create a **"DID-Linked Resource"**, you must already have created a 'parent' 
 
 This is shown in the diagram below:
 
-![Relationship between a DID and DID-linked Resource](../../../.gitbook/assets/DID%20and%20Resource%20relationship.png)
+![Relationship between a DID and DID-linked Resource](<../../../.gitbook/assets/DID and Resource relationship.png>)
 
-***Figure 3**: Relationship between a DID and DID-linked Resource*
+_**Figure 3**: Relationship between a DID and DID-linked Resource_
 
 Example of `createResource` transaction using Veramo SDK:
 
@@ -82,7 +86,7 @@ This relationship is shown in the diagram below:
 
 ![DID Document metadata with linked Resource metadata](../../../.gitbook/assets/DIDDocumentMetadata.png)
 
-***Figure 4**: DID Document metadata with DID-linked Resource metadata*
+_**Figure 4**: DID Document metadata with DID-linked Resource metadata_
 
 For simplicity, we will focus on the use case where a Resource is a **schema**. The same logic used in fetching schemas from the ledger can be applied to any of the aforementioned types of Resources.
 
@@ -115,35 +119,35 @@ A [Golang library is used to derive and set media type](https://ipfs.io/) based 
 
 The following list defines which specific parameters a resource request format may contain:
 
-| Parameter | Description |
-| :--- | :--- |
-| **`resourceUri`** | A string or a map that conforms to the rules of [RFC3986 URIs](https://www.w3.org/TR/did-core/#dfn-uri) which SHOULD directly lead to a location where the resource can be accessed from. For example: `dic:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c/resources/0f964a80-5d18-4867-83e3-b47f5a756f02`   |
-| **`resourceCollectionId`** | A string that conforms to a cheqd-supported unique identifier format. For example a UUID: `46e2af9a-2ea0-4815-999d-730a6778227c`  |
-| **`resourceId`** | A string that uniquely identifies the resource, cheqd uses UUIDs. For example a UUID: `0f964a80-5d18-4867-83e3-b47f5a756f02` |
-| **`resourceName`** | A string that uniquelt names and identifies a resource. This property, along with the resourceType below, can be used to track version changes within a resource. |
-| **`resourceType`** | A string that identifies the type of resource. This property, along with the resourceName above, can be used to track version changes within a resource. Not to be confused with media type. |
-| **`resourceVersion`** | (Optional) A string that identifies the version of resource. This property is provided by the client and can be any value |
-| **`alsoKnownAs`** | (Optional) An array that describes alternative URIs for the  resource. |
+| Parameter                  | Description                                                                                                                                                                                                                                                                                                    |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`resourceUri`**          | A string or a map that conforms to the rules of [RFC3986 URIs](https://www.w3.org/TR/did-core/#dfn-uri) which SHOULD directly lead to a location where the resource can be accessed from. For example: `dic:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c/resources/0f964a80-5d18-4867-83e3-b47f5a756f02` |
+| **`resourceCollectionId`** | A string that conforms to a cheqd-supported unique identifier format. For example a UUID: `46e2af9a-2ea0-4815-999d-730a6778227c`                                                                                                                                                                               |
+| **`resourceId`**           | A string that uniquely identifies the resource, cheqd uses UUIDs. For example a UUID: `0f964a80-5d18-4867-83e3-b47f5a756f02`                                                                                                                                                                                   |
+| **`resourceName`**         | A string that uniquelt names and identifies a resource. This property, along with the resourceType below, can be used to track version changes within a resource.                                                                                                                                              |
+| **`resourceType`**         | A string that identifies the type of resource. This property, along with the resourceName above, can be used to track version changes within a resource. Not to be confused with media type.                                                                                                                   |
+| **`resourceVersion`**      | (Optional) A string that identifies the version of resource. This property is provided by the client and can be any value                                                                                                                                                                                      |
+| **`alsoKnownAs`**          | (Optional) An array that describes alternative URIs for the resource.                                                                                                                                                                                                                                          |
 
 ## Resource Response Parameters
 
 The following list defines which specific parameters a resource response format may contain:
 
-| Parameter | Description |
-| :--- | :--- |
-| **`resourceUri`** | A string or a map that conforms to the rules of [RFC3986 URIs](https://www.w3.org/TR/did-core/#dfn-uri) which SHOULD directly lead to a location where the resource can be accessed from. For example: `dic:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c/resources/0f964a80-5d18-4867-83e3-b47f5a756f02`   |
-| **`resourceCollectionId`** | A string that conforms to a cheqd-supported unique identifier format. For example a UUID: `46e2af9a-2ea0-4815-999d-730a6778227c`  |
-| **`resourceId`** | A string that uniquely identifies the resource, cheqd uses UUIDs. For example a UUID: `0f964a80-5d18-4867-83e3-b47f5a756f02` |
-| **`resourceName`** | A string that uniquelt names and identifies a resource. This property, along with the resourceType below, can be used to track version changes within a resource. |
-| **`resourceType`** | A string that identifies the type of resource. This property, along with the resourceName above, can be used to track version changes within a resource. Not to be confused with media type. |
-| **`resourceVersion`** | (Optional) A string that identifies the version of resource. This property is provided by the client and can be any value |
-| **`alsoKnownAs`** | (Optional) An array that describes alternative URIs for the  resource. |
-| **`mediaType`** | A string that identifies the IANA-media type of the resource. |
-| **`created`** | A string that identifies the time the resource was created in XML date-time. |
-| **`updated`** | (Optional) A string that identifies the time the resource was updated in XML date-time. |
-| **`checksum`** | A string that may be used to prove that the resource has not been tampered. |
-| **`previousVersionId`** | (Optional) A string that identifies the previous version of the resource. |
-| **`nextVersionId`** | (Optional) A string that identifies the next version of the resource. |
+| Parameter                  | Description                                                                                                                                                                                                                                                                                                    |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`resourceUri`**          | A string or a map that conforms to the rules of [RFC3986 URIs](https://www.w3.org/TR/did-core/#dfn-uri) which SHOULD directly lead to a location where the resource can be accessed from. For example: `dic:cheqd:mainnet:46e2af9a-2ea0-4815-999d-730a6778227c/resources/0f964a80-5d18-4867-83e3-b47f5a756f02` |
+| **`resourceCollectionId`** | A string that conforms to a cheqd-supported unique identifier format. For example a UUID: `46e2af9a-2ea0-4815-999d-730a6778227c`                                                                                                                                                                               |
+| **`resourceId`**           | A string that uniquely identifies the resource, cheqd uses UUIDs. For example a UUID: `0f964a80-5d18-4867-83e3-b47f5a756f02`                                                                                                                                                                                   |
+| **`resourceName`**         | A string that uniquelt names and identifies a resource. This property, along with the resourceType below, can be used to track version changes within a resource.                                                                                                                                              |
+| **`resourceType`**         | A string that identifies the type of resource. This property, along with the resourceName above, can be used to track version changes within a resource. Not to be confused with media type.                                                                                                                   |
+| **`resourceVersion`**      | (Optional) A string that identifies the version of resource. This property is provided by the client and can be any value                                                                                                                                                                                      |
+| **`alsoKnownAs`**          | (Optional) An array that describes alternative URIs for the resource.                                                                                                                                                                                                                                          |
+| **`mediaType`**            | A string that identifies the IANA-media type of the resource.                                                                                                                                                                                                                                                  |
+| **`created`**              | A string that identifies the time the resource was created in XML date-time.                                                                                                                                                                                                                                   |
+| **`updated`**              | (Optional) A string that identifies the time the resource was updated in XML date-time.                                                                                                                                                                                                                        |
+| **`checksum`**             | A string that may be used to prove that the resource has not been tampered.                                                                                                                                                                                                                                    |
+| **`previousVersionId`**    | (Optional) A string that identifies the previous version of the resource.                                                                                                                                                                                                                                      |
+| **`nextVersionId`**        | (Optional) A string that identifies the next version of the resource.                                                                                                                                                                                                                                          |
 
 ## Example of a resolved DID with an associated Resource
 
@@ -283,9 +287,9 @@ Let’s take a look at a fully resolved **output response** for a **DID with a C
 }
 ```
 
-Collections are identified by a **Collection ID** which is a **unique identifier** of the **linked, parent DID**. Within the *DID Document Metadata* of the *Collection DIDDoc*, the Linked Resource metadata describes Resources within this Collection:
+Collections are identified by a **Collection ID** which is a **unique identifier** of the **linked, parent DID**. Within the _DID Document Metadata_ of the _Collection DIDDoc_, the Linked Resource metadata describes Resources within this Collection:
 
-Note that the Linked Resource output above does not show the actual data / schema attributes when displaying all Resources in this Collection. It only shows Resource *metadata*.
+Note that the Linked Resource output above does not show the actual data / schema attributes when displaying all Resources in this Collection. It only shows Resource _metadata_.
 
 This logic prevents `GetResourceCollection` requests returning large quantities of data, which may be stored across multiple Resources within a Collection.
 

@@ -1,4 +1,8 @@
-# Root Cause Analysis of outages
+---
+description: Read about historical Root Cause Analysis of Outages on cheqd.
+---
+
+# Root Cause Analysis of Outages
 
 This is a list of **root cause analysis (RCA)** of major network incidents/outages. These are intended to summarise any investigations in more detail.
 

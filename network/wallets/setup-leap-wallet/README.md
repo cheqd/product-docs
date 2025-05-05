@@ -1,5 +1,7 @@
 ---
-description: Setup your Leap Wallet to access CHEQ.
+description: >-
+  Learn how to setup your Leap Wallet to access CHEQ and participate in the
+  cheqd Network.
 ---
 
 # Setup Leap Wallet

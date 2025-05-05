@@ -1,3 +1,9 @@
+---
+description: >-
+  Publish multiple revocation or suspension updates, or rotate encryption keys
+  using cheqd Studio.
+---
+
 # Bulk Update or Rotate Encryption Keys
 
 The `/credential-status/update/encrypted` API enables users to update the indices of a Status List or rotate the encryption keys. This may be useful for revoking Credentials in bulk, rather than submitting individual `/credential/revoke` requests.

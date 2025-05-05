@@ -1,5 +1,5 @@
 ---
-description: Verify a Credential using cheqd Studio.
+description: Verify a W3C Verifiable Credential using cheqd Studio.
 ---
 
 # Verify Credential

@@ -1,5 +1,5 @@
 ---
-description: Verify presentations on cheqd Studio.
+description: Verify W3C Verifiable Presentations using cheqd Studio.
 ---
 
 # Verify Presentation

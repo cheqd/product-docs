@@ -51,7 +51,7 @@
     * [Privacy Considerations](studio/payments/learn/privacy-considerations.md)
   * [Charge for Status List](studio/payments/charge.md)
   * [Issue Credential with Encrypted Status List](studio/payments/issue-credential.md)
-  * [Create Verifier pays Issuer flow](studio/payments/verifier-pays-issuer.md)
+  * [Create Verifier Pays Issuer flow](studio/payments/verifier-pays-issuer.md)
   * [Bulk Update or Rotate Encryption Keys](studio/payments/update.md)
 * [🤝 Build Trust Registries](studio/trust-registries/README.md)
   * [Decentralized Trust Chains (DTCs)](studio/trust-registries/dtc/README.md)
@@ -208,7 +208,7 @@
   * [2024](network/network-upgrades/2024/README.md)
     * [2.x](network/network-upgrades/2024/2.x.md)
     * [3.x](network/network-upgrades/2024/3.x.md)
-  * [Root Cause Analysis of outages](network/network-upgrades/root-cause-analysis-of-outages/README.md)
+  * [Root Cause Analysis of Outages](network/network-upgrades/root-cause-analysis-of-outages/README.md)
     * [v1.x upgrade RCA](network/network-upgrades/root-cause-analysis-of-outages/v1.x-upgrade-rca.md)
 
 ## ⚖️ Legal

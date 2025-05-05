@@ -1,5 +1,7 @@
 ---
-description: Create Bitstring Status List Resource on cheqd.
+description: >-
+  Create a Bitstring Status List as a DID-Linked Resource (DLR) on cheqd, using
+  cheqd Studio.
 ---
 
 # Create Bitstring Status List

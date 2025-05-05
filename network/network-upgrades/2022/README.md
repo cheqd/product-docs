@@ -1,3 +1,7 @@
+---
+description: Explore cheqd's mainnet network software upgrades for 2022.
+---
+
 # 2022
 
 See below for all of our [`cheqd-node` ledger software](https://github.com/cheqd/cheqd-node/) releases in 2022:

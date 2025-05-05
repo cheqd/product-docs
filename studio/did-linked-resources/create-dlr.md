@@ -1,5 +1,7 @@
 ---
-description: Create a DID-Linked Resource associated with a cheqd DID over REST API
+description: >-
+  Create a DID-Linked Resource (DLR) associated with a cheqd Decentralized
+  Identifier (DID) over REST API, using cheqd Studio.
 ---
 
 # Create DID-Linked Resource

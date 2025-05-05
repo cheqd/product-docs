@@ -1,5 +1,7 @@
 ---
-description: Verifiable Accreditations from a TAO to a SubTAO.
+description: >-
+  Learn about structuring Verifiable Accreditations from a Trusted Accreditation
+  Organisation (TAO) to a subordinate TAO (subTAO) on cheqd.
 ---
 
 # TAO -> SubTAO

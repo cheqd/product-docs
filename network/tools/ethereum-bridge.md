@@ -1,3 +1,7 @@
+---
+description: Use ERC20 representations of CHEQ through the Ethereum Bridge.
+---
+
 # Ethereum Bridge
 
 To create an ERC20 representation of the Cosmos based CHEQ token we’ve used a bridge. A blockchain bridge or ‘cross-chain bridge’ enables users to transfer assets or any form of data seamlessly from one entirely separate protocol or ecosystem to another (i.e. Solana to Ethereum, or in our case Cosmos to Ethereum and vice versa).

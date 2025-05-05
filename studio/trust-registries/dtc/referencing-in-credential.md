@@ -1,7 +1,7 @@
 ---
 description: >-
-  Include Trust Registries and Verifiable Accreditations within the body of
-  Verifiable Credentials.
+  Learn how to include or reference Trust Registries and Verifiable
+  Accreditations within the body of W3C Verifiable Credentials.
 ---
 
 # Referencing Trust Registry within a Verifiable Credential

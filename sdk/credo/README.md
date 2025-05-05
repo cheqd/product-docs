@@ -1,7 +1,7 @@
 ---
 description: >-
-  Credo SDK with cheqd support for DIDs, DID-Linked Resources (DLRs) and
-  Credentials.
+  Credo SDK with cheqd support for Decentralized Identifiers (DIDs), DID-Linked
+  Resources (DLRs) and Credentials.
 cover: ../../.gitbook/assets/Credo.png
 coverY: 0
 layout:

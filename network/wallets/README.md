@@ -1,6 +1,6 @@
 ---
 description: >-
-  Setup your Cosmos wallet to hold CHEQ and carry out cheqd Network
+  Setup a Cosmos-native wallet to hold CHEQ and carry out cheqd Network
   functionality, such as staking and governance.
 ---
 

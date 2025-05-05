@@ -1,5 +1,5 @@
 ---
-description: Update or deactivate a DID
+description: Update a did:cheqd Decentralized Identifier (DID) using cheqd Studio.
 ---
 
 # Update or Deactivate DID

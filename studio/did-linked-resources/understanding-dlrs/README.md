@@ -1,5 +1,7 @@
 ---
-description: Understanding the context and construction of DID-Linked Resources
+description: >-
+  Understanding the context and construction of DID-Linked Resources (DLRs) on
+  cheqd.
 ---
 
 # Understanding DID-Linked Resources

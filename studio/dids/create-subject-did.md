@@ -1,3 +1,9 @@
+---
+description: >-
+  Create holder Decentralized Identifiers (DIDs), of method did:key, and
+  associated identity keys using cheqd Studio.
+---
+
 # Create Identity Keys and Subject DIDs
 
 Issuers may want to create identity keypairs for multiple reasons, such as for signing payloads or for creating `did:key` DIDs.

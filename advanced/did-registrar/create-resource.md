@@ -1,6 +1,6 @@
 ---
 description: >-
-  Create a DID-Linked Resource (DLR) linked to a cheqd DID using the DID
+  Create a DID-Linked Resource (DLR) linked to a cheqd DID using cheqd's DID
   Registrar.
 ---
 

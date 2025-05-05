@@ -1,3 +1,9 @@
+---
+description: >-
+  Use cheqd's Open Source tooling for running an airdrop, including a frontend
+  UI and distribution repository.
+---
+
 # Cosmos Airdrop Helpers
 
 The airdrop tools, used for our [community airdrop rewards](https://github.com/cheqd/airdrop-ui) site, are split into two repos; one for managing the actual distribution of airdrop rewards to wallets, and another for the frontend itself to handle claims.

@@ -1,5 +1,5 @@
 ---
-description: Understand how cheqd's Payment Rails work with Access Control Conditions
+description: Understand how cheqd's Payment Rails work with Access Control Conditions.
 ---
 
 # Access Control Conditions
