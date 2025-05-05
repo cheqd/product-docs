@@ -99,7 +99,7 @@ This enables the TRAIN Trust Validator to resolve and verify the rTAO’s authen
 * Issue **Verifiable Accreditations** from rTAO → TAOs → Trusted Issuers
 * Define governance rules and credential schema policies as needed
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up Trust Chain</strong></mark></td><td>Design and build a trust chain for establishing a trust hierarchy in your ecosystem.</td><td><a href="../set-up/">set-up</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up Trust Chain</strong></mark></td><td>Design and build a trust chain for establishing a trust hierarchy in your ecosystem.</td><td><a href="../set-up/">set-up</a></td><td><a href="../../../.gitbook/assets/Set Up Trust Chain.png">Set Up Trust Chain.png</a></td></tr></tbody></table>
 
 ***
 
@@ -112,7 +112,7 @@ Send a JSON request to TTV with the credential’s issuer, type, accreditation p
 * Optionally confirm the root via **DNS lookups**
 * Return a structured verification result
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Validate Trust Chain</strong></mark></td><td>Validate Trust Chain to a root of trust using the TRAIN Trust Validator (TTV).</td><td><a href="validate.md">validate.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Validate Trust Chain</strong></mark></td><td>Validate Trust Chain to a root of trust using the TRAIN Trust Validator (TTV).</td><td><a href="validate.md">validate.md</a></td><td><a href="../../../.gitbook/assets/validate trust chain.png">validate trust chain.png</a></td></tr></tbody></table>
 
 ***
 

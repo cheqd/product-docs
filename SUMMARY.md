@@ -3,7 +3,7 @@
 ## ℹ️ Getting Started
 
 * [Product Overview](README.md)
-* [➡️ Get started with cheqd Studio](getting-started/studio/README.md)
+* [➡️ Get Started with cheqd Studio](getting-started/studio/README.md)
   * [👉 Set Up Your Account](getting-started/studio/set-up-account.md)
   * [🗝️ API Keys](getting-started/studio/api-keys.md)
   * [🪙 Token Top Up](getting-started/studio/token-top-up.md)
