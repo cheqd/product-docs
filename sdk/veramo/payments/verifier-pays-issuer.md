@@ -1,5 +1,7 @@
 ---
-description: Paying an Issuer to unlock a Credential Status
+description: >-
+  Pay an Issuer to unlock a Credential Status when verifying a Verifiable
+  Credential, using Veramo.
 ---
 
 # Verifier pays Issuer

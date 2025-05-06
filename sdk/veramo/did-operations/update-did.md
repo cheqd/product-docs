@@ -1,3 +1,7 @@
+---
+description: Update an existing Decentralized Identifier (DID) on cheqd using Veramo.
+---
+
 # Update an existing DID
 
 Follow these instructions to update an existing `did:cheqd` entry on cheqd ledger.

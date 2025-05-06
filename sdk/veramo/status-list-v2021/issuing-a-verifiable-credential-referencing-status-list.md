@@ -1,3 +1,9 @@
+---
+description: >-
+  Issue a Verifiable Credential referencing a Bitstring Status List within the
+  credentialStatus section of the Credential Body.
+---
+
 # Issuing a Verifiable Credential referencing Status List
 
 ### Issuing a Verifiable Credential referencing cheqd StatusList

@@ -1,5 +1,7 @@
 ---
-description: Issue Verifiable Credentials, signed by cheqd DIDs, using ACA-Py.
+description: >-
+  Issue and present Verifiable Credentials, signed by cheqd Decentralized
+  Identifiers (DIDs), using ACA-Py.
 ---
 
 # Verifiable Credentials and Presentations

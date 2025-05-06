@@ -1,5 +1,7 @@
 ---
-description: Issue a Verifiable Credential using the ACA-Py API endpoints.
+description: >-
+  Issue a Verifiable Credential, signed by a did:cheqd Decentralized Identifier
+  (DID), using the ACA-Py API endpoints.
 ---
 
 # Issue a Verifiable Credential

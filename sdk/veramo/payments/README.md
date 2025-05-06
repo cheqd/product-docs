@@ -1,5 +1,5 @@
 ---
-description: Getting started with Payment Rails for Verifiable Credentials
+description: Get started with Payment Rails for Verifiable Credentials using Veramo.
 ---
 
 # Credential Payments

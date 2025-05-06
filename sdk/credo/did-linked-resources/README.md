@@ -1,5 +1,7 @@
 ---
-description: Create cheqd DID-Linked Resources using Credo.
+description: >-
+  Create cheqd DID-Linked Resources (DLRs) linked to cheqd Decentralized
+  Identifiers (DIDs) using Credo.
 ---
 
 # DID-Linked Resources
@@ -25,7 +27,7 @@ DID-Linked Resources enable storage of a wide variety of DID-associated metadata
 
 ## Get started
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create DID-Linked Resource</strong></mark></td><td>Create a generic DID-Linked Resource tied to a cheqd DID.</td><td></td><td><a href="create-dlr.md">create-dlr.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Understanding DLRs</strong></mark></td><td>More details about DID-Linked Resources on Cheqd.</td><td></td><td><a href="../../../studio/did-linked-resources/understanding-dlrs/">understanding-dlrs</a></td></tr><tr><td><mark style="color:blue;"><strong>Understanding AnonCreds</strong></mark></td><td>More details about AnonCreds Object Method.</td><td></td><td><a href="../../../advanced/anoncreds/">anoncreds</a></td></tr><tr><td><mark style="color:blue;"><strong>Create Schema</strong></mark></td><td>Create an AnonCreds Schema.</td><td></td><td><a href="create-schema.md">create-schema.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create Credential Definition</strong></mark></td><td>Create an AnonCreds Credential Definition</td><td></td><td><a href="create-cred-def.md">create-cred-def.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create DID-Linked Resource</strong></mark></td><td>Create a generic DID-Linked Resource (DLR) tied to a cheqd DID using Credo.</td><td></td><td><a href="create-dlr.md">create-dlr.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Understanding DLRs</strong></mark></td><td>More details about DID-Linked Resources on Cheqd.</td><td></td><td><a href="../../../studio/did-linked-resources/understanding-dlrs/">understanding-dlrs</a></td></tr><tr><td><mark style="color:blue;"><strong>Understanding AnonCreds</strong></mark></td><td>More details about AnonCreds Object Method.</td><td></td><td><a href="../../../advanced/anoncreds/">anoncreds</a></td></tr><tr><td><mark style="color:blue;"><strong>Create Schema</strong></mark></td><td>Create an AnonCreds Schema using Credo.</td><td></td><td><a href="create-schema.md">create-schema.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create Credential Definition</strong></mark></td><td>Create an AnonCreds Credential Definition using Credo.</td><td></td><td><a href="create-cred-def.md">create-cred-def.md</a></td></tr></tbody></table>
 
 ## Alternatives
 

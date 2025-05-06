@@ -1,3 +1,9 @@
+---
+description: >-
+  Create a DID-Linked Resource (DLR), linked to a Decentralized Identifier (DID)
+  on cheqd, using Veramo.
+---
+
 # Create a DID-Linked Resource
 
 Follow these instructions to create a new DID-Linked Resource on cheqd mainnet or testnet.
@@ -30,7 +36,7 @@ Save this file locally and call it something like `resource.json.`
 
 ### 3. Create a UUID for the Resource
 
-[UUIDs are used to identify DID-Linked Resources](https://en.wikipedia.org/wiki/Universally\_unique\_identifier). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
+[UUIDs are used to identify DID-Linked Resources](https://en.wikipedia.org/wiki/Universally_unique_identifier). On Unix systems, the `uuidgen` tool can be used to generate a new UUID:
 
 ```bash
 $ uuidgen

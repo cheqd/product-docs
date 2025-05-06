@@ -1,3 +1,7 @@
+---
+description: Query a Decentralized Identifier (DID) on cheqd using Veramo.
+---
+
 # Querying a DID
 
 Follow these instructions to query a DID from cheqd ledger.

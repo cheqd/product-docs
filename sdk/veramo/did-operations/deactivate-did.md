@@ -1,3 +1,7 @@
+---
+description: Deactivate a Decentralized Identifier (DID) on cheqd using Veramo.
+---
+
 # Deactivate a DID
 
 Follow these instructions to update an existing `did:cheqd` entry on cheqd ledger.

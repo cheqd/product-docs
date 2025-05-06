@@ -1,5 +1,7 @@
 ---
-description: Issue a Verifiable Credential (AnonCreds) with did:cheqd.
+description: >-
+  Issue a Verifiable Credential (AnonCreds), signed with a did:cheqd
+  Decentralized Identifier (DID).
 ---
 
 # Issue a Verifiable Credential (AnonCreds)

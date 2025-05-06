@@ -1,5 +1,7 @@
 ---
-description: Issue Verifiable Credential with Encrypted Status List 2021 and index
+description: >-
+  Issue a Verifiable Credential referencing an Encrypted Status List  and index
+  within the Credential Body.
 ---
 
 # Issue Credential with Encrypted Status List
@@ -16,7 +18,7 @@ Follow the tutorial here to create an encrypted Status List 2021 Resource on che
 
 ### Step 2: Choose index number for Credential
 
-Each encrypted Status List is a [bitstring](https://en.wikipedia.org/wiki/Bit\_array), where each bit represents a Credential which is either revoked or unrevoked (or suspended or unsuspended).
+Each encrypted Status List is a [bitstring](https://en.wikipedia.org/wiki/Bit_array), where each bit represents a Credential which is either revoked or unrevoked (or suspended or unsuspended).
 
 {% hint style="info" %}
 Users should maintain and manage a list of which Credentials match with which specific bitstring indices to be able to revoke or suspend Credentials in the future, and to avoid collisions.

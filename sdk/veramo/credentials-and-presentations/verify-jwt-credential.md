@@ -1,3 +1,9 @@
+---
+description: >-
+  Verify a Verifiable Credential, signed by a did:cheqd Decentralized Identifier
+  (DID), using Veramo.
+---
+
 # Verify a Verifiable Credential
 
 This tutorial offers step-by-step guidance on how to verify a [JSON credential](https://www.w3.org/TR/vc-data-model/#json), encoded as a [JWT (JSON Web Token)](https://www.w3.org/TR/vc-data-model/#json-web-token), a [W3C compliant proof format.](https://www.w3.org/TR/vc-data-model/#proof-formats)

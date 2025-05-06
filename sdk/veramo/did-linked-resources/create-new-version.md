@@ -1,3 +1,9 @@
+---
+description: >-
+  Create a new DID-Linked Resource (DLR) within an existing collection of DLRs,
+  through specifying the same resourceName and resourceType.
+---
+
 # Create a new Resource version within existing Collection
 
 Follow these instructions to create a new DID and publish the associated DIDDoc on cheqd ledger.

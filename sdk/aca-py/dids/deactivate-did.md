@@ -1,5 +1,5 @@
 ---
-description: Deactivate a did:cheqd DID using the ACA-Py Agent.
+description: Deactivate a did:cheqd Decentralized Identifier (DID) using the ACA-Py Agent.
 ---
 
 # Deactivate a DID

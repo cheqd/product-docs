@@ -105,4 +105,4 @@ await agent.dids.create({
 
 Now that your DID is live on the cheqd network, try:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create DID-Linked Resource</strong></mark></td><td>Associate DID-Linked Resources to your DID.</td></tr><tr><td><mark style="color:blue;"><strong>Issue Verifiable Credentials</strong></mark></td><td>Issue Credentials using your cheqd DID.</td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create DID-Linked Resource</strong></mark></td><td>Associate DID-Linked Resources to your DID using Credo.</td></tr><tr><td><mark style="color:blue;"><strong>Issue Verifiable Credentials</strong></mark></td><td>Issue Credentials using your cheqd DID using Credo.</td></tr></tbody></table>

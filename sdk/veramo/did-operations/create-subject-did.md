@@ -1,3 +1,9 @@
+---
+description: >-
+  Create an off-ledger Decentralized Identifier for holders and credentials
+  subjects, of method did:key.
+---
+
 # Create an off-ledger holder DID
 
 This tutorial offers step-by-step guidance on how to create a subject DID to be used for a holder that will receive a Verifiable Credentials.

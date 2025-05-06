@@ -1,3 +1,9 @@
+---
+description: >-
+  Create a Verifiable Presentation, signed by a did:cheqd Decentralized
+  Identifier (DID) and a did:key DID, using Veramo.
+---
+
 # Create a Verifiable Presentation
 
 This tutorial offers step-by-step guidance on how to create a [Verifiable Presentation](https://w3c-ccg.github.io/vp-request-spec/).
@@ -8,7 +14,7 @@ This tutorial offers step-by-step guidance on how to create a [Verifiable Presen
 
 A Verifiable Presentation is a way a credential holder can generate cryptographicall-verifiable proof that they are in posession of the identity keys (e.g., `did:key`) the credential was issued to.
 
-This is important because [just the Verifiable Credential and its JWT proof](verify-jwt-credential.md), on its own, is susceptible to [_replay attacks_](https://en.wikipedia.org/wiki/Replay\_attack) where intercepted Verifiable Credentials could be played back.
+This is important because [just the Verifiable Credential and its JWT proof](verify-jwt-credential.md), on its own, is susceptible to [_replay attacks_](https://en.wikipedia.org/wiki/Replay_attack) where intercepted Verifiable Credentials could be played back.
 
 The process of creating a _Verifiable Presentation_ is one way of addressing these security concerns.
 

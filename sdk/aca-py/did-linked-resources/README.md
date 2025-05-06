@@ -1,5 +1,7 @@
 ---
-description: Create DID-Linked Resources (DLRs) on cheqd using ACA-Py.
+description: >-
+  Create DID-Linked Resources (DLRs) linked to Decentralized Identifiers (DIDs)
+  on cheqd using ACA-Py.
 ---
 
 # DID-Linked Resources

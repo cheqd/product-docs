@@ -1,4 +1,10 @@
-# DID Operations Troubleshooting
+---
+description: >-
+  Troubleshoot and errors you are encountering when creating a Decentralized
+  Identifier (DID) using Veramo.
+---
+
+# Troubleshooting
 
 This guide provides common errors and potential fixes for them if you encountered errors when [creating a DID](create-did.md).
 
@@ -14,7 +20,7 @@ If you encounter an error below
 
 `Unexpected token v in JSON at position 1`
 
-Create a `.json` file (e.g. name it something like `identity-keys-on-the-fly-with-did-docs.json` in same working directory level).&#x20;
+Create a `.json` file (e.g. name it something like `identity-keys-on-the-fly-with-did-docs.json` in same working directory level).
 
 Copy and paste the content from below into your newly created `.json` file. You can choose from any of the inputs and arguments below:
 

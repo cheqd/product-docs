@@ -1,5 +1,5 @@
 ---
-description: Update a did:cheqd DID using the ACA-Py Agent.
+description: Update a did:cheqd Decentralized Identifier (DID) using the ACA-Py Agent.
 ---
 
 # Update a DID

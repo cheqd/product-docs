@@ -1,3 +1,9 @@
+---
+description: >-
+  Issue and present Verifiable Credentials, signed by cheqd Decentralized
+  Identifiers (DIDs), using Veramo.
+---
+
 # Verifiable Credentials and Presentations
 
 {% hint style="info" %}

@@ -1,3 +1,9 @@
+---
+description: >-
+  Charge for a Status List stored as a DID-Linked Resource (DLR) through Access
+  Control Conditions, using Veramo.
+---
+
 # Charge for Status List
 
 ## **Charge for a Credential Status List**

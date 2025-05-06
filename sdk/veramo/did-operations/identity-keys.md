@@ -1,4 +1,10 @@
-# Managing identity keys
+---
+description: >-
+  Manage your identity keys for creating cheqd Decentralized Identifiers (DIDs)
+  using Veramo.
+---
+
+# Managing Identity Keys
 
 Follow these instructions to:
 

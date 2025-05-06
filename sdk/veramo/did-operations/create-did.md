@@ -1,3 +1,7 @@
+---
+description: Create a Decentralized Identifier (DID) on cheqd using Veramo.
+---
+
 # Create a DID
 
 Follow these instructions to create a new DID and publish the associated DID Document on cheqd ledger.

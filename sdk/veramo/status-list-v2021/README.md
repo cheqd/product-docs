@@ -1,5 +1,7 @@
 ---
-description: Create Bitstring Status Lists on cheqd with Veramo
+description: >-
+  Create Bitstring Status Lists, stored as DID-Linked Resources (DLRs) on cheqd,
+  using Veramo.
 ---
 
 # Bitstring Status List

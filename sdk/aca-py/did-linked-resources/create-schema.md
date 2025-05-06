@@ -1,6 +1,6 @@
 ---
 description: >-
-  Create an AnonCreds Schema as a DID-Linked Resource on cheqd for issuing
+  Create an AnonCreds Schema as a DID-Linked Resource (DLR) on cheqd for issuing
   AnonCreds.
 ---
 

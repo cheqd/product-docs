@@ -123,7 +123,7 @@
     * [Update an existing DID](sdk/veramo/did-operations/update-did.md)
     * [Deactivate a DID](sdk/veramo/did-operations/deactivate-did.md)
     * [Create an off-ledger holder DID](sdk/veramo/did-operations/create-subject-did.md)
-    * [Managing identity keys](sdk/veramo/did-operations/identity-keys.md)
+    * [Managing Identity Keys](sdk/veramo/did-operations/identity-keys.md)
     * [Troubleshooting](sdk/veramo/did-operations/troubleshooting.md)
   * [Verifiable Credentials and Presentations](sdk/veramo/credentials-and-presentations/README.md)
     * [Issue a Verifiable Credential](sdk/veramo/credentials-and-presentations/issue-credential.md)

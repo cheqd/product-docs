@@ -1,5 +1,7 @@
 ---
-description: Revoke a Verifiable Credential, signed by a did:cheqd DID, using ACA-Py.
+description: >-
+  Revoke a Verifiable Credential, signed by a did:cheqd Decentralized Identifier
+  (DID), using ACA-Py.
 ---
 
 # Revoke a Verifiable Credential

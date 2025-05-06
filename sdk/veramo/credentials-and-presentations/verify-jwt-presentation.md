@@ -1,3 +1,9 @@
+---
+description: >-
+  Verify a Verifiable Presentation, signed by a did:cheqd Decentralized
+  Identifier (DID) and a did:key DID, using Veramo.
+---
+
 # Verify a Verifiable Presentation
 
 This tutorial offers step-by-step guidance on how to verify a [Verifiable Presentation](https://w3c-ccg.github.io/vp-request-spec/).

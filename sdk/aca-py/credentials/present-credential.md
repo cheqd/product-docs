@@ -1,5 +1,7 @@
 ---
-description: Present a Verifiable Credential, signed by a did:cheqd DID, using ACA-Py.
+description: >-
+  Present a Verifiable Credential, signed by a did:cheqd Decentralized
+  Identifier (DID), using ACA-Py.
 ---
 
 # Present a Verifiable Credential

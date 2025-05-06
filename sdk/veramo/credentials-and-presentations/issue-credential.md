@@ -1,3 +1,9 @@
+---
+description: >-
+  Issue a Verifiable Credential, signed by a did:cheqd Decentralized Identifier
+  (DID), using Veramo.
+---
+
 # Issue a Verifiable Credential
 
 This tutorial offers step-by-step guidance on how to issue a verifiable credential

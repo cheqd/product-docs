@@ -1,5 +1,7 @@
 ---
-description: Create Verifiable Credential Status List v2021 on cheqd
+description: >-
+  Create a Bitstring Status List on cheqd, stored as a DID-Linked Resource
+  (DLR), using Veramo.
 ---
 
 # Create Status List

@@ -1,5 +1,7 @@
 ---
-description: Present a Verifiable Credential, signed by a did:cheqd DID, using Credo.
+description: >-
+  Present a Verifiable Credential, signed by a did:cheqd Decentralized
+  Identifier (DID), using Credo.
 ---
 
 # Present a Verifiable Credential (AnonCreds)
