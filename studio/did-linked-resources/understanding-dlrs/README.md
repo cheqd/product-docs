@@ -12,7 +12,9 @@ Our objective in building DID-Linked Resources on cheqd is to **improve the way 
 
 ## Contents
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Context for developing DID-Linked Resources</strong></mark></td><td>Understand the rationale for creating DID-Linked Resources and how they improve the current paradigm.</td><td><a href="context.md">context.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Technical composition of DID-Linked Resources</strong></mark></td><td>Understand the requirements and technical composition for DID-Linked Resources.</td><td></td></tr><tr><td><mark style="color:blue;"><strong>Referencing DID-Linked Resources in VCs</strong></mark></td><td>Learn how to embed DID-Linked Resources into the body of credentials for different purposes.</td><td></td></tr></tbody></table>
+Read the guides below to understand the context, rationale and design decisions involved in the DID-Linked Resource (DLR) implementation on cheqd.
+
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Context for developing DID-Linked Resources</strong></mark></td><td>Understand the rationale for creating DID-Linked Resources and how they improve the current paradigm.</td><td><a href="context.md">context.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Technical composition of DID-Linked Resources</strong></mark></td><td>Understand the requirements and technical composition for DID-Linked Resources.</td><td><a href="technical-composition.md">technical-composition.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Referencing DID-Linked Resources in VCs</strong></mark></td><td>Learn how to embed DID-Linked Resources into the body of credentials for different purposes.</td><td><a href="referencing.md">referencing.md</a></td></tr></tbody></table>
 
 ## Architecture for DID-Linked Resources
 
