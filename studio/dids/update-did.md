@@ -19,11 +19,12 @@ For the `/did/update` function, users are recommended to use the `application/js
 
 #### Update Service Section
 
-To update individual sections of the DID Document, users are able to pass only the section they would like to update. For example:
+To update individual sections of the DID Document, users are able to pass only the section they would like to update. For example, users may often want to update the `service` section to add or change a `serviceEndpoint`:
 
-<pre class="language-json"><code class="lang-json">{
-<strong>  "did": "did:cheqd:mainnet:71e24492-e62c-4e55-a581-007a6e36e881",
-</strong>  "service": [
+```json
+{
+  "did": "did:cheqd:mainnet:71e24492-e62c-4e55-a581-007a6e36e881",
+  "service": [
       {
         "id": "did:cheqd:mainnet:71e24492-e62c-4e55-a581-007a6e36e881#website",
         "type": "LinkedDomains",
@@ -33,13 +34,17 @@ To update individual sections of the DID Document, users are able to pass only t
       }
     ]
 }
-</code></pre>
+```
 
-The above request format will replace the `service` section of the existing DID Document with the new section. No extra information, such as the verificationMethod need to be passed, because cheqd Studio custodies the keys on behalf of the user.&#x20;
+The above request format will replace the `service` section of the existing DID Document with the new section. No extra information, such as the verificationMethod or `authentication` keys need to be passed with the request, because cheqd Studio custodies the keys on behalf of the user.&#x20;
 
 #### Rotate Keys
 
-Users may regularly want to rotate the keys used to control the DID. Like with the `service` section above, users are able to pass the sections of the DID Document that include the rotated keys, usually `verificationMethod` and `authentication`.
+Users may regularly want to rotate the keys used to control the DID. Like with the `service` section above, users are able to pass the sections of the DID Document that include the rotated keys, usually contained within the`verificationMethod` and `authentication` sections.
+
+{% hint style="info" %}
+Other sections such as `keyAgreement`, `capabilityInvocation`, `capabilityDelegation`, `assertionMethod`, etc. may also be updated via this method
+{% endhint %}
 
 ```json
 {
@@ -107,7 +112,7 @@ This method may be better for users wanting to update larger portions of the DID
 
 ## Get started with the API below
 
-Use the `/did/update` API below to format your DID Document uodate.
+Use the `/did/update` API below to pass your DID Document update as a request, using either the full body or a specific section.
 
 {% openapi-operation spec="cheqd-studio-api" path="/did/update" method="post" %}
 [Broken link](broken-reference)
