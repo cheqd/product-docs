@@ -5,7 +5,7 @@
 * [Product Overview](README.md)
 * [➡️ Get Started with cheqd Studio](getting-started/studio/README.md)
   * [👉 Set Up Your Account](getting-started/studio/set-up-account.md)
-  * [🗝️ API Keys](getting-started/studio/api-keys.md)
+  * [🗝️ Create API Keys](getting-started/studio/api-keys.md)
   * [🪙 Token Top Up](getting-started/studio/token-top-up.md)
   * [🔄 Advanced Configuration Options](getting-started/studio/advanced.md)
   * [🎨 Design your Solution](getting-started/studio/design/README.md)
