@@ -12,22 +12,20 @@ To create a cheqd DID (`did:cheqd`) and associated DID Document there are two wa
 
 Make sure you have set up your account with **cheqd Studio** and are logged in, using our guide below:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up your account</strong></mark></td><td>Set up your account with <strong>cheqd Studio</strong> and get your API key to start using the APIs.</td><td><a href="../../getting-started/studio/set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set Up Your Account</strong></mark></td><td>Set up your account with <strong>cheqd Studio</strong> and get your API key to start using the APIs.</td><td><a href="../../getting-started/studio/set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
 
 ## Step 2: Create a DID and associated DID Document
 
 Using the `/did/create` API, users have two options for creating a `did:cheqd` DID and associated DID Document on-ledger:
 
-1. **Filling out a simple form** using the `application/x-www-url-form-encoded` option within an API client of your choice.
-2. **Compiling a DID Document body yourself** using the `application/json` option within an API client of your choice.
-
-{% openapi-operation spec="cheqd-studio-api" path="/did/create" method="post" %}
-[Broken link](broken-reference)
-{% endopenapi-operation %}
+1. **Filling out a simple form** using the `application/x-www-url-form-encoded` or `application/json` option within an API client of your choice.
+2. **Compiling a full DID Document body yourself** using the `application/json` option, using already created identity keys, within an API client of your choice.
 
 ### Option 1. Choose from a few variables and we will compile the DID for you
 
 This is the easiest way to create DIDs on cheqd and is recommended for users who are not overly familiar with compiling DID Documents.&#x20;
+
+#### Using application/x-www-url-form-encoded
 
 Using the `application/x-www-url-form-encoded` option, users are able to choose between the following variables to compile your DID:
 
@@ -90,9 +88,35 @@ This input field contains either a complete DID document, or an incremental chan
 
 </details>
 
-From this request, the Credential Service **will automatically create and publish a DID and associated DID Document to the ledger** and return it as a response.
+From this request, cheqd Studio **will automatically create and publish a DID and associated DID Document to the ledger** and return it as a response.
 
-### Option 2. Publish a DID Document body yourself
+#### Using application/json
+
+Alternatively, you can use the `application/json` option and pass only a few specific inputs, for example:
+
+```json
+{
+  "network": "testnet",
+  "identifierFormatType": "uuid",
+  "assertionMethod": false
+}
+```
+
+Or, if you have created a keypair already that you want to use, you can reference that in the request:
+
+```json
+{
+  "network": "testnet",
+  "identifierFormatType": "uuid",
+  "assertionMethod": false,
+  "options": {
+    "key": "8255ddadd75695e01f3d98fcec8ccc7861a030b317d4326b0e48a4d579ddc43a", // Pass if you have created a key separately
+    "verificationMethodType": "Ed25519VerificationKey2018"
+  }
+}
+```
+
+### Option 2. Publish a fully compiled DID Document body yourself
 
 Instead of generating a DID Document using simple parameters, you can create a fully formatted DID Document yourself. Before, submitting a manually created DID, you will need to have [created a set of identity keys](create-subject-did.md) to input the key material into the DID document.
 
