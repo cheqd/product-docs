@@ -1,6 +1,6 @@
 ---
 description: >-
-  Build and establish Decentralized Trust Chains, using cheqd Decentralized
+  Build and validate Decentralized Trust Chains, using cheqd Decentralized
   Identifiers (DIDs) and Verifiable Accreditations stored as DID-Linked
   Resources (DLRs).
 ---
