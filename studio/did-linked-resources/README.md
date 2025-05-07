@@ -1,5 +1,7 @@
 ---
-description: Create DID-Linked Resources (DLRs) linked to cheqd DIDs.
+description: >-
+  Create DID-Linked Resources (DLRs) linked to cheqd Decentralized Identifiers
+  (DIDs).
 ---
 
 # ↕️ Create DID-Linked Resources

@@ -1,7 +1,7 @@
 ---
 description: >-
-  Charge for Verifiable Credentials and initiate verifier-pays-issuer payment
-  flows.
+  Charge for Verifiable Credentials using encrypted DID-Linked Resources (DLRs)
+  with Access Control Conditions, and build Verifier-pays-Issuer payment flows.
 ---
 
 # ♻️ Charge for Verifiable Credentials
