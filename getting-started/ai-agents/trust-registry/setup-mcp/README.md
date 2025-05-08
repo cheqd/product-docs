@@ -52,29 +52,49 @@ The Cheqd MCP Server is particularly well-suited for scenarios requiring trusted
 ### Prerequisites
 
 * An MCP Compatible Desktop based **AI Agent**. We have tested with [Claude Desktop](https://claude.ai/download).
+* **Working understanding of cheqd network**: Understanding of DID operations and verifiable credentials.
 * **Node.js 20 or higher** (if running using npx).
 * **Docker Desktop** (if running using docker). This is preferred when running the ACA-Py demo.
-* **Working understanding of cheqd network**: Understanding of DID operations and verifiable credentials.
 
-### Configuration
+### Quick Start: Use the Remote MCP Server
 
-The Cheqd MCP Server is configurable through environment variables:
+The simplest way to get started with MCP and Trust Registry verification is to use our hosted remote MCP server.
 
-#### Server Configuration Options
+#### Configuration
 
-<table><thead><tr><th width="291.85546875">Variable</th><th width="314.66796875">Description</th><th>Default</th></tr></thead><tbody><tr><td><code>TOOLS</code></td><td>Comma-separated list of tools to enable</td><td>"credo"</td></tr><tr><td><code>PORT</code></td><td>The port where remote MCP server will run</td><td>5000</td></tr></tbody></table>
+* Open your Claude Desktop configuration file:
+  * **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+  * **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+* Or, for Cursor `.cursor/mcp.json`&#x20;
+* Add the following configuration:
 
-#### Credo Tool Configuration Options
+```json
+"mcpServers": {
+    "cheqd-mcp": {
+        "command": "npx",
+        "args": [
+            "mcp-remote",
+            "https://remote-mcp.cheqd.io/sse",
+            "--transport", "sse-only"
+        ],
+    }
+}
+```
 
-<table><thead><tr><th width="296.36328125">Variable</th><th width="314.140625">Description</th><th>Required</th></tr></thead><tbody><tr><td><code>CREDO_CHEQD_TESTNET_MNEMONIC</code></td><td>Mnemonic for cheqd testnet wallet</td><td>Yes</td></tr><tr><td><code>CREDO_PORT</code></td><td>Port for the Credo agent</td><td>No</td></tr><tr><td><code>CREDO_NAME</code></td><td>Name for the Credo agent</td><td>No</td></tr><tr><td><code>CREDO_ENDPOINT</code></td><td>Public endpoint for DIDComm connections</td><td>No</td></tr><tr><td><code>TRAIN_ENDPOINT</code></td><td>The endpoint for verifying trust registry</td><td>No</td></tr></tbody></table>
+* Save the file and restart Claude Desktop.
+* You should now see the Trust Registry verification tools available in Claude Desktop/ Cursor.
+
+<figure><img src="../../../../.gitbook/assets/Screenshot 2025-05-08 at 16.24.19.png" alt=""><figcaption></figcaption></figure>
 
 {% embed url="https://youtu.be/sT6soNmMGIs" %}
 
-### Setup
+### Alternative: Local Installation (For Developers)
+
+If you prefer to run the MCP server locally, with more control on the configuration and environment variables, you can run locally using docker.
 
 #### 1. Get the code
 
-Get the `docker-compose.yaml` specially designed for Claude:&#x20;
+Get the `docker-compose.yaml` specially designed for Claude Desktop:&#x20;
 
 ```bash
 # Clone the repository
@@ -99,6 +119,14 @@ TRAIN_ENDPOINT="https://dev-train.trust-scheme.de/tcr/v1/"    # The TRAIN endpoi
 {% endcode %}
 
 Replace `your-testnet-mnemonic` with a valid mnemonic for the cheqd testnet. You can generate one using the cheqd CLI or get one from the cheqd faucet.
+
+#### Server Configuration Options
+
+<table><thead><tr><th width="291.85546875">Variable</th><th width="314.66796875">Description</th><th>Default</th></tr></thead><tbody><tr><td><code>TOOLS</code></td><td>Comma-separated list of tools to enable</td><td>"credo"</td></tr><tr><td><code>PORT</code></td><td>The port where remote MCP server will run</td><td>5000</td></tr></tbody></table>
+
+#### Credo Tool Configuration Options
+
+<table><thead><tr><th width="296.36328125">Variable</th><th width="314.140625">Description</th><th>Required</th></tr></thead><tbody><tr><td><code>CREDO_CHEQD_TESTNET_MNEMONIC</code></td><td>Mnemonic for cheqd testnet wallet</td><td>Yes</td></tr><tr><td><code>CREDO_PORT</code></td><td>Port for the Credo agent</td><td>No</td></tr><tr><td><code>CREDO_NAME</code></td><td>Name for the Credo agent</td><td>No</td></tr><tr><td><code>CREDO_ENDPOINT</code></td><td>Public endpoint for DIDComm connections</td><td>No</td></tr><tr><td><code>TRAIN_ENDPOINT</code></td><td>The endpoint for verifying trust registry</td><td>No</td></tr></tbody></table>
 
 #### 3. Update Claude Config
 
@@ -129,21 +157,18 @@ Add the following configuration to your claude\_desktop\_config.json or .cursor/
 
 #### 4. Restart Claude Desktop
 
-When successfully started, the number of tools available to Claude Desktop will increase.
+When successfully started, the MCP tools will be available.
 
-<figure><img src="../../../../.gitbook/assets/Screenshot 2025-03-28 at 16.46.59.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screenshot 2025-05-08 at 16.24.19 (1).png" alt=""><figcaption></figcaption></figure>
 
-### Connection to cheqd network
+## Using the MCP with Trust Registry
 
-The server automatically connects to the cheqd testnet using the provided mnemonic. This connection is used for all DID operations and credential management.
+Once configured, you can interact with the Trust Registry through Claude by:
 
-#### Verifying Network Connection
+1. Using the `verify-trust-registry` tool to verify credentials against the Trust Registry
+2. Running a verification check for a cheqd DID or credential
 
-To verify the connection to the cheqd network, you can use the server to create and resolve a DID. You can ask the following to the AI Agent:
-
-> "Can you create a DID on the cheqd network?"
-
-If configured correctly, the server will create a new DID and then display its complete DID document, confirming proper connection to the cheqd network.
+For detailed usage examples, refer to our [Trust Registry Verification Guide](https://docs.cheqd.io/product/getting-started/ai-agents/validate).
 
 ## Next Steps
 
