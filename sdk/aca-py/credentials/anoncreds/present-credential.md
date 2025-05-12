@@ -1,7 +1,7 @@
 ---
 description: >-
-  Present a Verifiable Credential, signed by a did:cheqd Decentralized
-  Identifier (DID), using ACA-Py.
+  Present an AnonCreds Verifiable Credential, signed by a did:cheqd
+  Decentralized Identifier (DID), using ACA-Py.
 ---
 
 # Present a Verifiable Credential
@@ -16,8 +16,8 @@ Use any supported method to create a connection with the Holder. Automated [out-
 
 After connection is established, the Verifier can send a proof request to the Holder.
 
-{% openapi src="../../../.gitbook/assets/swagger.json" path="/present-proof-2.0/send-request" method="post" %}
-[swagger.json](../../../.gitbook/assets/swagger.json)
+{% openapi src="../../../../.gitbook/assets/swagger.json" path="/present-proof-2.0/send-request" method="post" %}
+[swagger.json](../../../../.gitbook/assets/swagger.json)
 {% endopenapi %}
 
 #### Sample Request Body
@@ -54,15 +54,15 @@ The request body will depend on the credential, but here is a sample.
 
 Holder can get the stored credentials from own wallet and format a proof to send to the Verifier.
 
-{% openapi src="../../../.gitbook/assets/swagger.json" path="/present-proof-2.0/records/{pres_ex_id}/send-presentation" method="post" %}
-[swagger.json](../../../.gitbook/assets/swagger.json)
+{% openapi src="../../../../.gitbook/assets/swagger.json" path="/present-proof-2.0/records/{pres_ex_id}/send-presentation" method="post" %}
+[swagger.json](../../../../.gitbook/assets/swagger.json)
 {% endopenapi %}
 
 ## Step 4: Verifier verifies Presentation
 
 Verifier receives the presentation via the connection, and can use the following API to verify. The response must have `verified: true` .
 
-{% openapi src="../../../.gitbook/assets/swagger.json" path="/present-proof-2.0/records/{pres_ex_id}/verify-presentation" method="post" %}
-[swagger.json](../../../.gitbook/assets/swagger.json)
+{% openapi src="../../../../.gitbook/assets/swagger.json" path="/present-proof-2.0/records/{pres_ex_id}/verify-presentation" method="post" %}
+[swagger.json](../../../../.gitbook/assets/swagger.json)
 {% endopenapi %}
 

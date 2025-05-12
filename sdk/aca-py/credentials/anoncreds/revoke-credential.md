@@ -1,7 +1,7 @@
 ---
 description: >-
-  Revoke a Verifiable Credential, signed by a did:cheqd Decentralized Identifier
-  (DID), using ACA-Py.
+  Revoke an AnonCreds Verifiable Credential, signed by a did:cheqd Decentralized
+  Identifier (DID), using ACA-Py.
 ---
 
 # Revoke a Verifiable Credential
@@ -16,8 +16,8 @@ The Issuer must determine the credential that needs to be revoked by getting the
 
 Initiate the credential revocation process by supplying the necessary credential identifiers like the connection id and the credential exchange id.
 
-{% openapi src="../../../.gitbook/assets/swagger.json" path="/anoncreds/revocation/revoke" method="post" %}
-[swagger.json](../../../.gitbook/assets/swagger.json)
+{% openapi src="../../../../.gitbook/assets/swagger.json" path="/anoncreds/revocation/revoke" method="post" %}
+[swagger.json](../../../../.gitbook/assets/swagger.json)
 {% endopenapi %}
 
 #### Sample Request Body
