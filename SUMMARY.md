@@ -35,7 +35,8 @@
 
 * [🆔 Create DIDs and Identity Keys](studio/dids/README.md)
   * [Create Issuer DID](studio/dids/create-did.md)
-  * [Create Identity Keys and Subject DIDs](studio/dids/create-subject-did.md)
+  * [Create Identity Keys](studio/dids/create-identity-keys.md)
+  * [Create Subject DID](studio/dids/create-subject-did.md)
   * [Resolve a DID](studio/dids/resolve-did.md)
   * [Update a DID](studio/dids/update-did.md)
   * [Deactivate a DID](studio/dids/deactivate-did.md)
