@@ -1,6 +1,12 @@
+---
+description: >-
+  Issue, present and revoke AnonCreds signed by cheqd Decentralized Identifiers
+  (DIDs), using ACA-Py.
+---
+
 # AnonCreds
 
-[AnonCreds](https://www.lfdecentralizedtrust.org/projects/anoncreds) – short for “Anonymous Credentials” - is the most commonly used Verifiable Credential (VC) format in the world. Ledger agnostic and with a formal open specification, AnonCreds is a VC format that adds important privacy-protecting ZKP (zero-knowledge proof) capabilities to the core VC assurances. Read [more about cheqd AnonCreds object method](../../../../advanced/anoncreds/).
+[AnonCreds](https://www.lfdecentralizedtrust.org/projects/anoncreds) – short for “Anonymous Credentials” - is one of the most commonly used Verifiable Credential (VC) format in the world. Ledger agnostic and with a formal open specification, AnonCreds is a VC format that adds important privacy-protecting ZKP (zero-knowledge proof) capabilities to the core VC assurances. Read [more about cheqd AnonCreds object method](../../../../advanced/anoncreds/).
 
 ## Next Steps
 

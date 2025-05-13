@@ -1,3 +1,9 @@
+---
+description: >-
+  Issue and present JSON-LD credentials signed by cheqd Decentralized
+  Identifiers (DIDs), using ACA-Py.
+---
+
 # JSON-LD
 
 JSON-LD is a lightweight [Linked Data format](https://en.wikipedia.org/wiki/Linked_data). It is easier for humans to read and write. It is based on the already successful JSON format and provides a way to help JSON data interoperate at Web-scale.
@@ -8,4 +14,4 @@ Read [more about JSON-LD Credentials](https://docs.cheqd.io/product/learning-doc
 
 ## Next Steps
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue JSON-LD Credentials</strong></mark></td><td>Issue JSON-LD Credentials signed by cheqd DIDs using ACA-Py.</td><td><a href="issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Present JSON-LD Credentials</strong></mark></td><td>Present JSON-LD Credentials using ACA-Py.</td><td><a href="present-credential.md">present-credential.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue JSON-LD Credentials</strong></mark></td><td>Issue JSON-LD Credentials signed by cheqd DIDs using ACA-Py.</td><td><a href="issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Present JSON-LD Credentials</strong></mark></td><td>Present JSON-LD Credentials using ACA-Py.</td><td><a href="present-credential.md">present-credential.md</a></td></tr></tbody></table>
