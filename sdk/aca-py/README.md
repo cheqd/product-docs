@@ -45,7 +45,8 @@ ACA-Py now includes full support for the **`did:cheqd`** method, enabling seamle
 
 * Create and resolve `did:cheqd` identifiers
 * Publish **Credential Schemas** and **Credential Definitions** to cheqd
-* Issue and verify **AnonCreds** credentials using cheqd as the backing ledger
+* Issue and verify **AnonCreds** credentials using cheqd DIDs as signatures
+* Issue and verify **JSON-LD** credentials using cheqd DIDs as signatures
 * Replace legacy `did:sov`/Sovrin usage with a modern, scalable alternative
 
 > 💡 AnonCreds on cheqd are enabled via the **cheqd AnonCreds Object Method**, maintaining compatibility with ACA-Py's credential exchange workflows.
@@ -69,4 +70,4 @@ The **cheqd plugin for ACA-Py** supports dynamic DID registration via the **Univ
 
 Get setup with your ACA-Py agent and begin using cheqd's functionality below:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>cheqd Agent Setup</strong></mark></td><td>Setup the ACA-Py agent with cheqd plugin.</td><td></td><td><a href="setup-aca-py-agent.md">setup-aca-py-agent.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create cheqd DIDs</strong></mark></td><td>Use the agent to create cheqd DIDs.</td><td></td><td><a href="dids/create-did.md">create-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create DID-Linked Resources</strong></mark></td><td>Create a DID-Linked Resource (DLR) linked to a cheqd DID.</td><td></td><td><a href="did-linked-resources/">did-linked-resources</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue a Credential</strong></mark></td><td>Issue a Verifiable Credential using ACA-Py agent with <code>did:cheqd</code>.</td><td></td><td><a href="credentials/anoncreds/issue-credential.md">issue-credential.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>cheqd Agent Setup</strong></mark></td><td>Setup the ACA-Py agent with cheqd plugin.</td><td></td><td><a href="setup-aca-py-agent.md">setup-aca-py-agent.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create cheqd DIDs</strong></mark></td><td>Use the ACA-Py agent to create cheqd Decentralized Identifiers (DIDs).</td><td></td><td><a href="dids/create-did.md">create-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create DID-Linked Resources</strong></mark></td><td>Create a DID-Linked Resource (DLR) linked to a cheqd Decentralized Identifier (DID).</td><td></td><td><a href="did-linked-resources/">did-linked-resources</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue a Credential</strong></mark></td><td>Issue and verify Verifiable Credential using ACA-Py agent with <code>did:cheqd</code>.</td><td></td><td><a href="credentials/">credentials</a></td></tr></tbody></table>

@@ -12,9 +12,39 @@ description: >-
 If you want to learn more about what [Verifiable Credentials and Presentations are, please go over to our learning site here.](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-verifiable-credential-vc)
 {% endhint %}
 
+**Aries Cloud Agent Python (ACA-Py)** provides full support for working with **Verifiable Credentials (VCs)** and **Verifiable Presentations (VPs)**, based on the standards defined by the **W3C** and the **Aries RFCs**.
+
+ACA-Py enables agents to **issue**, **hold**, **present**, and **verify** credentials in a secure and interoperable way using **DIDComm messaging protocols**. This functionality forms the foundation of any Self-Sovereign Identity (SSI) ecosystem.
+
 ## Get started
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Setup ACA-Py Agent</strong></mark></td><td>Before you get started, you need to setup your ACA-Py Agent. </td><td><a href="../setup-aca-py-agent.md">setup-aca-py-agent.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue AnonCreds</strong><strong> </strong><strong>Credentials</strong></mark></td><td>Issue AnonCreds Credentials signed by cheqd DIDs using ACA-Py.</td><td><a href="anoncreds/issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Present AnonCreds Credentials</strong></mark></td><td>Present AnonCreds Credentials using ACA-Py.</td><td><a href="anoncreds/present-credential.md">present-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue JSON-LD Credentials</strong></mark></td><td>Issue JSON-LD Credentials signed by cheqd DIDs using ACA-Py.</td><td><a href="json-ld/issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Present JSON-LD Credentials</strong></mark></td><td>Present JSON-LD Credentials using ACA-Py.</td><td><a href="json-ld/present-credential.md">present-credential.md</a></td></tr></tbody></table>
+Get started issuing and presenting credentials with your ACA-Py agent, either with AnonCreds or JSON-LD:
+
+### AnonCreds
+
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue AnonCreds Credentials</strong></mark></td><td>Issue AnonCreds Credentials signed by cheqd DIDs using ACA-Py.</td><td><a href="anoncreds/issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Present AnonCreds Credentials</strong></mark></td><td>Present AnonCreds Credentials using ACA-Py.</td><td><a href="anoncreds/present-credential.md">present-credential.md</a></td></tr></tbody></table>
+
+### JSON-LD
+
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue JSON-LD Credentials</strong></mark></td><td>Issue JSON-LD Credentials signed by cheqd DIDs using ACA-Py.</td><td><a href="json-ld/issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Present JSON-LD Credentials</strong></mark></td><td>Present JSON-LD Credentials signed by cheqd DIDs using ACA-Py.</td><td><a href="json-ld/present-credential.md">present-credential.md</a></td></tr></tbody></table>
+
+## Credential Format Support
+
+ACA-Py supports multiple credential formats out of the box, including:
+
+#### ✅ AnonCreds
+
+* Ideal for privacy-preserving use cases that require **zero-knowledge proofs**, **selective disclosure**, and **non-revocation proofs**
+* Backed by a **credential definition and revocation registry** stored on a supported ledger (e.g., **cheqd**, **Indy**)
+* Common in **enterprise and government** deployments
+
+#### ✅ W3C Verifiable Credentials (JSON-LD)
+
+* Standards-compliant with the **W3C VC Data Model**
+* Extensible for cheqd DID-Linked Resources and Trust Registries
+* Suitable for **web-native and mobile-first** use cases
+
+> 🧩 ACA-Py allows issuing, presenting, and verifying **both AnonCreds and JSON-LD credentials** using the same agent architecture.
 
 ## Alternatives
 
