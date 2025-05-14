@@ -1,14 +1,14 @@
 ---
 description: >-
-  Create an 'Issuer' Decentralized Identifier (DID) with the did:cheqd DID
-  method using cheqd Studio.
+  Create a Decentralized Identifier (DID) with the did:cheqd DID method using
+  cheqd Studio.
 ---
 
-# Create Issuer DID
+# Create a DID
 
 In cheqd Studio, you can easily create and publish a `did:cheqd` DID to the **cheqd testnet or mainnet**, anchoring it on-ledger with associated public keys and metadata. This DID can then be used to:
 
-* Sign and issue verifiable credentials.
+* Sign and issue verifiable credentials as an 'issuer'.
 * Establish a trusted identity on cheqd for entities like organisations, digital products or AI Agents.
 * Serve as the parent identifier for DID-Linked Resources (e.g. status lists, trust registries).
 
