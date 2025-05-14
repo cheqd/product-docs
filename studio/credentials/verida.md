@@ -4,11 +4,11 @@ description: Setup your Verida Wallet to receive W3C Verifiable Credentials.
 
 # Setup Verida Wallet
 
-cheqd Studio currently is setup to work with the Verida Wallet. In 2024, we will be building compatibility with a full suite of other digital identity wallets.&#x20;
+cheqd Studio currently is setup to work with the Verida Wallet. In 2025, we will be building compatibility with a full suite of other digital identity wallets.&#x20;
 
 ## Verida Wallet <a href="#verida-wallet" id="verida-wallet"></a>
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Verida wallet</strong></mark></td><td>Download the Verida wallet to receive credentials issued by cheqd Studio to a <code>did:vda</code> address.</td><td><a href="../../.gitbook/assets/verida wallet.png">verida wallet.png</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Verida wallet</strong></mark></td><td>Download the Verida wallet to receive credentials issued by cheqd Studio to a <code>did:vda</code> address.</td><td><a href="../../.gitbook/assets/verida wallet.png">verida wallet.png</a></td><td><a href="https://www.verida.network/verida-wallet">https://www.verida.network/verida-wallet</a></td></tr></tbody></table>
 
 ### Subject DID
 

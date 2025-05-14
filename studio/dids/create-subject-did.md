@@ -1,10 +1,10 @@
 ---
 description: >-
-  Create a 'Holder' or 'Subject' Decentralized Identifier (DIDs), of method
+  Create a 'Holder' or 'Subject' Decentralized Identifier (DID), of method
   did:key using cheqd Studio.
 ---
 
-# Create Subject DID
+# Create a Subject DID
 
 In decentralized identity systems, **Holders** (also referred to as **Subjects**) are the recipients of **Verifiable Credentials**—typically representing individuals, organisations, objects or devices.
 
