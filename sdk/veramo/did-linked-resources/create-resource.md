@@ -16,7 +16,7 @@ Follow these instructions to create a new DID-Linked Resource on cheqd mainnet o
 
 ### 1. Create a DID
 
-Follow [this](../did-operations/) tutorial to generate keys and create a DID.
+Follow [this](../dids/) tutorial to generate keys and create a DID.
 
 ### 2. Create your Resource content and save the file locally
 

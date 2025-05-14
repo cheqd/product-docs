@@ -1,7 +1,7 @@
 ---
 description: >-
   Veramo SDK plugin with cheqd support for Decentralized Identifiers (DIDs),
-  DID-Linked Resources (DLRs) and Credentials.
+  DID-Linked Resources (DLRs) and Verifiable Credentials.
 cover: ../../.gitbook/assets/veramo logo.png
 coverY: 0
 layout:
@@ -34,7 +34,7 @@ The package's core functionality is borrowed from [Veramo Core NPM package](http
 
 Utilise cheqd's identity functionality through the Veramo SDK Plugin by installing the Veramo CLI and getting started below:
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Setup Veramo CLI</strong></mark></td><td>Set up the Veramo CLI and required packages to use the Veramo SDK Plugin for cheqd.</td><td><a href="setup/">setup</a></td></tr><tr><td><mark style="color:blue;"><strong>Create Decentralised Identifiers (DIDs)</strong></mark></td><td>Create fully W3C conformant Decentralised Identifiers (DIDs) on cheqd.</td><td><a href="did-operations/">did-operations</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue Credentials and Presentations</strong></mark></td><td>Issue fully W3C conformant Verifiable Credentials and Presentations</td><td><a href="credentials-and-presentations/">credentials-and-presentations</a></td></tr><tr><td><mark style="color:blue;"><strong>Charge for Credentials</strong></mark></td><td>Gate encrypted Status Lists with CHEQ using Payment Conditions.</td><td><a href="payments/">payments</a></td></tr><tr><td><mark style="color:blue;"><strong>Create Status Lists</strong></mark></td><td>Create Verifiable Credential Status List v2021 on-ledger, using DID-Linked Resources</td><td><a href="status-list-v2021/">status-list-v2021</a></td></tr><tr><td><mark style="color:blue;"><strong>Create DID-Linked Resources</strong></mark></td><td>Create a variety of DID-Linked Resources, including schemas, status lists and trust registries on cheqd.</td><td><a href="did-linked-resources/">did-linked-resources</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Setup Veramo CLI</strong></mark></td><td>Set up the Veramo CLI and required packages to use the Veramo SDK Plugin for cheqd.</td><td><a href="setup/">setup</a></td></tr><tr><td><mark style="color:blue;"><strong>Create Decentralized Identifiers (DIDs)</strong></mark></td><td>Create fully W3C conformant Decentralized Identifiers (DIDs) on cheqd.</td><td><a href="dids/">dids</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue Credentials and Presentations</strong></mark></td><td>Issue fully W3C conformant Verifiable Credentials and Presentations</td><td><a href="credentials-and-presentations/">credentials-and-presentations</a></td></tr><tr><td><mark style="color:blue;"><strong>Charge for Credentials</strong></mark></td><td>Gate encrypted Status Lists with CHEQ using Payment Conditions.</td><td><a href="payments/">payments</a></td></tr><tr><td><mark style="color:blue;"><strong>Create Status Lists</strong></mark></td><td>Create Verifiable Credential Status Lists on-ledger, using DID-Linked Resources</td><td><a href="status-list-v2021/">status-list-v2021</a></td></tr><tr><td><mark style="color:blue;"><strong>Create DID-Linked Resources</strong></mark></td><td>Create a variety of DID-Linked Resources, including schemas, status lists and trust registries on cheqd.</td><td><a href="did-linked-resources/">did-linked-resources</a></td></tr></tbody></table>
 
 ## Why did we choose Veramo?
 
@@ -84,7 +84,7 @@ Find out about [other Veramo plug-ins in their official documentation](https://v
 
 ## Supported Credential types
 
-Our [Veramo SDK Plugin](./) natively supports the following Credential formats:
+Our Veramo SDK Plugin natively supports the following Credential formats:
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>JSON (JWT)</strong></mark></td><td><strong>JSON Web Token (JWT)</strong> Credentials are a simple way to transmit Trusted Data as a JSON object.</td><td><a href="https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-verifiable-credential-vc/what-are-the-different-types-of-verifiable-credentials/json-jwt">https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-verifiable-credential-vc/what-are-the-different-types-of-verifiable-credentials/json-jwt</a></td></tr><tr><td><mark style="color:blue;"><strong>JSON-LD</strong></mark></td><td><strong>JSON-LD (Linked Data)</strong> Credentials are a richer data format, allowing applications to follow embedded links to other pieces of Linked Data across the web.</td><td><a href="https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-verifiable-credential-vc/what-are-the-different-types-of-verifiable-credentials/json-ld">https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-verifiable-credential-vc/what-are-the-different-types-of-verifiable-credentials/json-ld</a></td></tr></tbody></table>
 

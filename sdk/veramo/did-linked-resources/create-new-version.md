@@ -16,7 +16,7 @@ Follow these instructions to create a new DID and publish the associated DIDDoc 
 
 ### 1. Create a DID
 
-Follow [this](../did-operations/) tutorial to generate keys and create a DID.
+Follow [this](../dids/) tutorial to generate keys and create a DID.
 
 ### 2. Create a DID-Linked Resource
 

@@ -26,7 +26,7 @@ The _issuer_ of the credential, on the other hand, uses [an on-ledger `did:cheqd
 
 Normally, the credential holder will _provide_ a `did:key` DID they have generated themselves (usually done in the background by apps they are using). So, this step _typically_ isn't done by a credential issuer.
 
-For the purpose of this tutorial though, we recommend you [create a `did:key` subject DID](../did-operations/create-subject-did.md) for the later steps.
+For the purpose of this tutorial though, we recommend you [create a `did:key` subject DID](../dids/create-subject-did.md) for the later steps.
 
 ### 2. Begin credential creation
 
@@ -51,7 +51,7 @@ You'll be presented with an multiple options select:
 
 Select which Issuer DID stored in your local storage you'd like to issue the credential from, e.g., `did:cheqd:mainnet:zAXwwqZzhCZA1L77ZBa8fhVNjL9MQCHX`
 
-The assumption here is that you've either [created the issuer DID](../did-operations/create-did.md) or [stored the DIDDoc by querying it](../did-operations/query-did.md).
+The assumption here is that you've either [created the issuer DID](../dids/create-did.md) or [stored the DIDDoc by querying it](../dids/query-did.md).
 
 ### 5. Specify the subject DID (credential holder's DID)
 

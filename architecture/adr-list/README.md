@@ -1,3 +1,9 @@
+---
+description: >-
+  List of accepted, proposed and draft Architecture Decision Records (ADRs) on
+  cheqd.
+---
+
 # List of ADRs
 
 ## List of ADRs

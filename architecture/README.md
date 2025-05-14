@@ -1,3 +1,9 @@
+---
+description: >-
+  Process for writing and recording Architecture Decision Records (ADRs) on
+  cheqd.
+---
+
 # Architecture Decision Record (ADR) Process
 
 This is a location to record all high-level architecture decisions for **identity features and functionality** on [cheqd network](https://docs.cheqd.io/identity/).

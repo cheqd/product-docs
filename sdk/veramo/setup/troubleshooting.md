@@ -1,4 +1,8 @@
-# Troubleshooting Veramo CLI setup
+---
+description: Troubleshoot issues that may arise while using the Veramo CLI for cheqd.
+---
+
+# Troubleshooting Veramo CLI Setup
 
 This guide provides common errors and potential fixes for them if you encountered errors when [setting up Veramo CLI](./).
 
@@ -66,4 +70,4 @@ _Heads-up_: Even if you're trying it on `testnet` you still need to put `cosmosP
 ### 3. Running `wget -c https://raw.githubusercontent.com/cheqd/did-provider-cheqd/main/agent.yml` command is giving you errors
 
 * First, create `agent.yml` file at `root` directory level.
-* Second, go to this [url](https://raw.githubusercontent.com/cheqd/did-provider-cheqd/main/agent.yml), copy everything from there and paste it in your `agent.yml` file. And you're good to go. 😉
+* Second, [go to this url](https://raw.githubusercontent.com/cheqd/did-provider-cheqd/main/agent.yml), copy everything from there and paste it in your `agent.yml` file. And you're good to go. 😉

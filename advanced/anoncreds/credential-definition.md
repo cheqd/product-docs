@@ -1,5 +1,7 @@
 ---
-description: cheqd support for Ledger-Agnostic AnonCreds CredDefs
+description: >-
+  AnonCreds Object Method for supporting AnonCreds Credential Definitions
+  (CredDefs) on cheqd.
 ---
 
 # Credential Definitions

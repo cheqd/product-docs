@@ -1,5 +1,7 @@
 ---
-description: cheqd support for Ledger-Agnostic AnonCreds Revocation Status List Objects
+description: >-
+  AnonCreds Object method for supporting AnonCreds Revocation Status List
+  Objects on cheqd.
 ---
 
 # Revocation Status Lists

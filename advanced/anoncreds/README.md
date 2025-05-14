@@ -1,5 +1,5 @@
 ---
-description: cheqd AnonCreds Object Method Specification.
+description: AnonCreds Object Method Specification for cheqd.
 ---
 
 # ⚡ AnonCreds Object Method

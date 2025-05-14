@@ -1,5 +1,5 @@
 ---
-description: cheqd support for Ledger-Agnostic AnonCreds schemas
+description: AnonCreds Object Method for supporting AnonCreds Schemas on cheqd.
 ---
 
 # Schemas

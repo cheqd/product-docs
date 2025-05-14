@@ -1,5 +1,7 @@
 ---
-description: cheqd support for Ledger-Agnostic AnonCreds Revocation Registry Definitions
+description: >-
+  AnonCreds Object Method for supporting Revocation Registry Definition Objects
+  on cheqd.
 ---
 
 # Revocation Registry Definitions

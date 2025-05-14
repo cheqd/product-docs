@@ -1,14 +1,23 @@
-# Setting up Veramo CLI for cheqd
+---
+description: >-
+  Setup your Veramo CLI to start using cheqd's identity functionality, including
+  Decentralized Identifiers (DIDs), Verifiable Credentials and DID-Linked
+  Resources (DLRs).
+---
 
-If you're looking to use the Veramo CLI with cheqd or develop a proof-of-concept application, use the [official Veramo CLI setup guide](https://veramo.io/docs/veramo\_agent/cli\_tool/).
+# Setup Veramo CLI for cheqd
+
+If you're looking to use the Veramo CLI with cheqd or develop a proof-of-concept application, use the [official Veramo CLI setup guide](https://veramo.io/docs/veramo_agent/cli_tool/).
 
 ## Step 1: Install requisite packages
 
-_Node version recommended `Nodev16`_. You can install Node [here](https://nodejs.org/en/download/)
+{% hint style="info" %}
+_Node version recommended `Nodev16`_. You can [install Node here](https://nodejs.org/en/download/).
+{% endhint %}
 
 ### 1.1. Install Veramo CLI
 
-This step is exactly [as described in Veramo CLI docs](https://veramo.io/docs/veramo\_agent/cli\_tool/):
+This step is exactly [as described in Veramo CLI docs](https://veramo.io/docs/veramo_agent/cli_tool/):
 
 ```bash
 npm i @veramo/cli@latest -g
@@ -16,7 +25,7 @@ npm i @veramo/cli@latest -g
 
 _Note:_ Depending on your system permissions, you might be prompted for additional permissions. Add `sudo` to the beginning of the command in case that happens.
 
-Verify the installation was correct. Command below should output latest version of veramo you installed.
+Verify the installation was correct. Command below should output latest version of Veramo you installed.
 
 ```bash
 veramo -v
@@ -137,65 +146,15 @@ universal-resolver:
         - url: https://dev.uniresolver.io/1.0/identifiers/
 ```
 
-### 2.5. Add cheqd-testnet to your Keplr wallet
+### 2.5. Add cheqd Testnet to your Leap wallet
 
-In order to add cheqd-testnet to your Keplr extension, please follow the following instructions:
+In order to add cheqd Testnet to your Leap extension, please follow the following tutorial:
 
-Go to [Axelar to add a custom network](https://docs.axelar.dev/resources/keplr#add-your-custom-network), then replace everything with cheqd-testnet json configuration below.
-
-```json
-{
-    "chainId": "cheqd-testnet-6",
-    "chainName": "cheqd Testnet",
-    "rpc": "https://rpc.cheqd.network",
-    "rest": "https://api.cheqd.network",
-    "stakeCurrency": {
-        "coinDenom": "CHEQ",
-        "coinMinimalDenom": "ncheq",
-        "coinDecimals": 9,
-        "coinGeckoId": "cheqd-network"
-    },
-    "walletUrlForStaking": "https://wallet.cheqd.io",
-    "bip44": {
-        "coinType": 118
-    },
-    "bech32Config": {
-        "bech32PrefixAccAddr": "cheqd",
-        "bech32PrefixAccPub": "cheqdpub",
-        "bech32PrefixValAddr": "cheqdvaloper",
-        "bech32PrefixValPub": "cheqdvaloperpub",
-        "bech32PrefixConsAddr": "cheqdvalcons",
-        "bech32PrefixConsPub": "cheqdvalconspub"
-    },
-    "currencies": [
-        {
-            "coinDenom": "CHEQ",
-            "coinMinimalDenom": "ncheq",
-            "coinDecimals": 9,
-            "coinGeckoId": "cheqd-network"
-        }
-    ],
-    "feeCurrencies": [
-        {
-            "coinDenom": "CHEQ",
-            "coinMinimalDenom": "ncheq",
-            "coinDecimals": 9,
-            "coinGeckoId": "cheqd-network",
-            "gasPriceStep": {
-                "low": 25,
-                "average": 50,
-                "high": 100
-            }
-        }
-    ],
-    "coinType": 118,
-    "beta": true
-}
-```
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Configure cheqd Testnet for Leap</strong></mark></td><td>Set up a cheqd testnet account using your Leap Wallet.</td><td><a href="../../../.gitbook/assets/leap wallet.png">leap wallet.png</a></td><td><a href="../../../network/wallets/setup-leap-wallet/testnet.md">testnet.md</a></td></tr></tbody></table>
 
 ### 2.6. Configure your cheqd/Cosmos account keys and RPC endpoints
 
-While reading/querying from the cheqd ledger incurs no cost, if you want to [create/update a DID](../did-operations/) to cheqd ledger, you need to pay transaction fees for the ledger writes.
+While reading/querying from the cheqd ledger incurs no cost, if you want to [create/update a DID](../dids/) to cheqd ledger, you need to pay transaction fees for the ledger writes.
 
 ```yaml
 # DID Manager
@@ -243,4 +202,6 @@ Your Veramo configuration seems fine. An agent can be created and the 'agent.exe
 
 ## Next steps
 
-Now that your Veramo CLI installation is successfully set up to work with cheqd, try following our tutorials for [creating a new DID](../did-operations/create-did.md) or [querying existing DIDs](../did-operations/query-did.md).
+Now that your Veramo CLI installation is successfully set up to work with cheqd, try following our tutorials for:
+
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create a DID</strong></mark></td><td>Create a Decentralized Identifier (DID) on cheqd using Veramo.</td><td><a href="../dids/create-did.md">create-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue a Verifiable Credential</strong></mark></td><td>Issue a Verifiable Credential, signed by a <code>did:cheqd</code> Decentralized Identifier (DID), using Veramo.</td><td><a href="../credentials-and-presentations/issue-credential.md">issue-credential.md</a></td></tr></tbody></table>
