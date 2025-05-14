@@ -59,15 +59,6 @@ Using the `application/x-www-url-form-encoded` option, users are able to choose 
 
 <details>
 
-<summary>assertionMethod (optional)</summary>
-
-* true (recommended if used for issuing Verifiable Credentials)
-* false&#x20;
-
-</details>
-
-<details>
-
 <summary>didDocument (optional)</summary>
 
 This input field contains either a complete DID document, or an incremental change (diff) to a DID document. For example:
@@ -98,23 +89,71 @@ Alternatively, you can use the `application/json` option and pass only a few spe
 {
   "network": "testnet",
   "identifierFormatType": "uuid",
-  "assertionMethod": false
+  "options": {
+    "verificationMethodType": "Ed25519VerificationKey2018"
+  }
 }
 ```
 
-Or, if you have created a keypair already that you want to use, you can reference that in the request:
+Or, if you have [created a keypair already](create-identity-keys.md) that you want to use, you can reference the created key ID, `kid`,  in the request:
 
 ```json
 {
   "network": "testnet",
   "identifierFormatType": "uuid",
-  "assertionMethod": false,
   "options": {
-    "key": "8255ddadd75695e01f3d98fcec8ccc7861a030b317d4326b0e48a4d579ddc43a", // Pass if you have created a key separately
+    "key": "8255ddadd75695e01f3d98fcec8ccc7861a030b317d4326b0e48a4d579ddc43a", // Pass kid if you have created a key separately
     "verificationMethodType": "Ed25519VerificationKey2018"
   }
 }
 ```
+
+{% hint style="info" %}
+Note that if you are passing a `kid` that is already created, you must also specify the `verificationMethodType` within `options`.
+{% endhint %}
+
+Using the `application/json` option, users are able to choose between the following variables to compile your DID:
+
+<details>
+
+<summary>network (required)</summary>
+
+* "testnet" (recommended for testing)
+* "mainnet" (recommended for production)
+
+</details>
+
+<details>
+
+<summary>identifierFormatType (required)</summary>
+
+* "uuid" - this is a Universally Unique Identifier (recommended)
+* "base58btc" - this is an identifier which is commonly used for Hyperledger Indy transactions
+
+</details>
+
+<details>
+
+<summary>verificationMethodType (required)</summary>
+
+* "Ed25519VerificationKey2018" (recommended)
+* "Ed25519VerificationKey2020"
+* "JSONWebKey2020"
+
+_Note that this should be nested under `options`_
+
+</details>
+
+<details>
+
+<summary>key (optional)</summary>
+
+* "8255ddadd75695e01f3d98fcec8ccc7861a030b317d4326b0e48a4d579ddc43a"
+* This is a `kid` that should have been created using our [Key Create API](create-identity-keys.md).
+
+_Note that this should be nested under `options`_
+
+</details>
 
 ### Option 2. Publish a fully compiled DID Document body yourself
 
@@ -122,11 +161,11 @@ Instead of generating a DID Document using simple parameters, you can create a f
 
 #### Step 1: Create a new keypair
 
-Use the [`/key/create` API](create-subject-did.md) to generate a new keypair within the Credential Service key management store. Copy the "publicKeyHex".&#x20;
+Use the [`/key/create` API](create-subject-did.md) to generate a new keypair within the Credential Service key management store. Copy the `publicKeyHex`.&#x20;
 
-#### Step 2: Utilise the DID Document template helper&#x20;
+#### Step 2 (option 1): Utilise the DID Document template helper&#x20;
 
-To simplify this process of formatting a DID Document using your own keys, we've created a [Helper Tool in our DID Registrar here](https://did-registrar.cheqd.net/api-docs/#/Cheqd%20Helpers/get_did_document). Simply paste in your publicKeyHex and choose the variables to compile your DID Document template.
+To simplify this process of formatting a DID Document using your own keys, we've created a [Helper Tool in our DID Registrar here](https://did-registrar.cheqd.net/api-docs/#/Cheqd%20Helpers/get_did_document). Simply paste in your `publicKeyHex` and choose the variables to compile your DID Document template.
 
 #### Step 3: Paste the response
 
@@ -159,6 +198,41 @@ Within the `/did/create` JSON payload, paste the response of your DID Document t
   }
 }
 
+```
+
+#### Step 2 (option 2) Use application/json options
+
+Alternatively, you can use the `application/json` request format below.&#x20;
+
+You can use the `kid` created from Step 1 within the options section, and then compile the remainder of tour DID Document.
+
+```json
+"options": {
+    "key": "8255ddadd75695e01f3d98fcec8ccc7861a030b317d4326b0e48a4d579ddc43a",
+    "verificationMethodType": "Ed25519VerificationKey2018"
+  },
+  "didDocument": {
+    "@context": [
+      "https://www.w3.org/ns/did/v1"
+    ],
+    "id": "did:cheqd:testnet:7bf81a20-633c-4cc7-bc4a-5a45801005e0",
+    "controller": [
+      "did:cheqd:testnet:7bf81a20-633c-4cc7-bc4a-5a45801005e0"
+    ],
+    "authentication": [
+      "did:cheqd:testnet:7bf81a20-633c-4cc7-bc4a-5a45801005e0#key-1"
+    ],
+    "service": [
+      {
+        "id": "did:cheqd:testnet:7bf81a20-633c-4cc7-bc4a-5a45801005e0#service-1",
+        "type": "LinkedDomains",
+        "serviceEndpoint": [
+          "https://example.com"
+        ]
+      }
+    ]
+  }
+}
 ```
 
 ## Step 3: Hit execute on the API

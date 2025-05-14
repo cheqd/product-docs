@@ -50,7 +50,7 @@ Use the API below to create and generate your new identity key pair of either ty
 
 ## Step 3 (Alternative): Fetch Identity Key Details
 
-If you've already generated a key pair using cheqd Studio and want to **retrieve it later**, you can do so by referencing its **Key ID (`kid`)**. This is useful for:
+If you've already generated a key pair using cheqd Studio and want to **retrieve, reference or use it later**, you can do so by referencing its **Key ID (`kid`)**. This is useful for:
 
 * Recovering key material generated earlier (e.g., to construct a DID or sign a credential)
 * Working with shared or externally provisioned keys

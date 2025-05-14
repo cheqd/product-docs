@@ -12,7 +12,7 @@ If you're looking to use the Veramo CLI with cheqd or develop a proof-of-concept
 ## Step 1: Install requisite packages
 
 {% hint style="info" %}
-_Node version recommended `Nodev16`_. You can [install Node here](https://nodejs.org/en/download/).
+_Node version recommended `Nodev20` or later_. You can [install Node here](https://nodejs.org/en/download/).
 {% endhint %}
 
 ### 1.1. Install Veramo CLI
