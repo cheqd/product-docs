@@ -6,13 +6,21 @@ description: >-
 
 # Create Issuer DID
 
-To create a cheqd Decentralized Identifier (DID), `did:cheqd`, and associated DID Document there are two ways of building the payload for the request:
+In cheqd Studio, you can easily create and publish a `did:cheqd` DID to the **cheqd testnet or mainnet**, anchoring it on-ledger with associated public keys and metadata. This DID can then be used to:
+
+* Sign and issue verifiable credentials.
+* Establish a trusted identity on cheqd for entities like organisations, digital products or AI Agents.
+* Serve as the parent identifier for DID-Linked Resources (e.g. status lists, trust registries).
+
+This tutorial walks through the process of creating an Issuer DID using cheqd Studio's API or interface, including how to configure your keys, DID Document, and optional service endpoints.
+
+> 🔐 Once registered, the DID becomes publicly resolvable and forms the cryptographic foundation of your identity as an issuer in decentralized ecosystems.
 
 ## Step 1: Set up your account
 
-Make sure you have set up your account with **cheqd Studio** and are logged in, using our guide below:
+Make sure you have set up your account with **cheqd Studio** and have generated an API key to authenticate with our APIs, using our guides below:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set Up Your Account</strong></mark></td><td>Set up your account with <strong>cheqd Studio</strong> and get your API key to start using the APIs.</td><td><a href="../../getting-started/studio/set-up-account.md">set-up-account.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set Up Your Account</strong></mark></td><td>Set up your account with <strong>cheqd Studio</strong> and get your API key to start using the APIs.</td><td><a href="../../getting-started/studio/set-up-account.md">set-up-account.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create API Keys</strong></mark></td><td>Create one or more API keys used to authenticate with the cheqd Studio APIs.</td><td><a href="../../getting-started/studio/api-keys.md">api-keys.md</a></td></tr></tbody></table>
 
 ## Step 2: Create a DID and associated DID Document
 
@@ -80,6 +88,54 @@ This input field contains either a complete DID document, or an incremental chan
 </details>
 
 From this request, cheqd Studio **will automatically create and publish a DID and associated DID Document to the ledger** and return it as a response.
+
+<details>
+
+<summary>Expected response format</summary>
+
+```json
+{
+  "did": "did:cheqd:testnet:ca029356-69dc-4cb4-a4c6-13b959ffaad6",
+  "keys": [
+    {
+      "kid": "1a07cb379cd6f2d9acddf9a6d6af4e930d5696818a38020bde2b6ead5cd85039",
+      "kms": "postgres",
+      "type": "Ed25519",
+      "publicKeyHex": "1a07cb379cd6f2d9acddf9a6d6af4e930d5696818a38020bde2b6ead5cd85039",
+      "meta": {
+        "algorithms": [
+          "EdDSA",
+          "Ed25519"
+        ]
+      },
+      "controller": "did:cheqd:testnet:ca029356-69dc-4cb4-a4c6-13b959ffaad6"
+    }
+  ],
+  "services": [],
+  "provider": "did:cheqd:testnet",
+  "controllerKeyRefs": [
+    "1a07cb379cd6f2d9acddf9a6d6af4e930d5696818a38020bde2b6ead5cd85039"
+  ],
+  "controllerKeys": [
+    {
+      "kid": "1a07cb379cd6f2d9acddf9a6d6af4e930d5696818a38020bde2b6ead5cd85039",
+      "kms": "postgres",
+      "type": "Ed25519",
+      "publicKeyHex": "1a07cb379cd6f2d9acddf9a6d6af4e930d5696818a38020bde2b6ead5cd85039",
+      "meta": {
+        "algorithms": [
+          "EdDSA",
+          "Ed25519"
+        ]
+      },
+      "controller": "did:cheqd:testnet:ca029356-69dc-4cb4-a4c6-13b959ffaad6"
+    }
+  ],
+  "controllerKeyId": "1a07cb379cd6f2d9acddf9a6d6af4e930d5696818a38020bde2b6ead5cd85039"
+}
+```
+
+</details>
 
 #### Using application/json
 
@@ -255,4 +311,4 @@ After creating a DID or multiple DIDs, users can list all the created DIDs assoc
 
 Below are a list of alternatives for creating cheqd DIDs.
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Credo</strong></mark></td><td>Credo is an SDK which <strong>supports the European Architecture and Reference Framework (ARF)</strong> <strong>standards as well as AnonCreds</strong> with full cheqd support for DIDs. </td><td><a href="../../sdk/credo/">credo</a></td><td><a href="../../.gitbook/assets/Credo.png">Credo.png</a></td></tr><tr><td><mark style="color:blue;"><strong>ACA-Py</strong></mark></td><td>ACA-Py plugin supports full cheqd support for DIDs as well as Verifiable Credentials. </td><td><a href="../../sdk/aca-py/">aca-py</a></td><td><a href="../../.gitbook/assets/ACA-Py.png">ACA-Py.png</a></td></tr><tr><td><mark style="color:blue;"><strong>Veramo</strong></mark></td><td>The <strong>Veramo SDK Plugin</strong> supports JSON, JSON-LD credentials as well as cheqd Credential Payments in an SDK.</td><td><a href="../../sdk/veramo/">veramo</a></td><td><a href="../../.gitbook/assets/veramo logo.png">veramo logo.png</a></td></tr><tr><td><mark style="color:blue;"><strong>Walt.id Community Stack</strong></mark></td><td>Walt.id Community Stack is an SDK that supports the <strong>European Architecture and Reference Framework (ARF)</strong> standards for identity, with full cheqd support. </td><td><a href="../../sdk/walt-id.md">walt-id.md</a></td><td><a href="../../.gitbook/assets/walt.id logo.png">walt.id logo.png</a></td></tr><tr><td><mark style="color:blue;"><strong>DID Registrar</strong></mark></td><td>Simple setup for building cheqd DIDs into existing applications using REST APIs, building into the Universal Registrar.</td><td><a href="../../advanced/did-registrar/">did-registrar</a></td><td><a href="../../.gitbook/assets/cheqd_logo_card.jpg">cheqd_logo_card.jpg</a></td></tr><tr><td><mark style="color:blue;"><strong>cheqd Cosmos CLI</strong></mark></td><td>Cosmos CLI which directly communicates with the cheqd network. This should only be used for testing environments.</td><td><a href="../../advanced/tooling/cheqd-node-cli/">cheqd-node-cli</a></td><td><a href="../../.gitbook/assets/cosmos and cheqd.png">cosmos and cheqd.png</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Credo</strong></mark></td><td>Credo is an SDK which <strong>supports the European Architecture and Reference Framework (ARF)</strong> <strong>standards as well as AnonCreds</strong> with full cheqd support for DIDs. </td><td><a href="../../sdk/credo/">credo</a></td><td><a href="../../.gitbook/assets/Credo.png">Credo.png</a></td></tr><tr><td><mark style="color:blue;"><strong>ACA-Py</strong></mark></td><td>ACA-Py plugin supports full cheqd support for DIDs as well as Verifiable Credentials. </td><td><a href="../../sdk/aca-py/">aca-py</a></td><td><a href="../../.gitbook/assets/ACA-Py.png">ACA-Py.png</a></td></tr><tr><td><mark style="color:blue;"><strong>Veramo</strong></mark></td><td>The <strong>Veramo SDK Plugin</strong> supports JSON, JSON-LD credentials as well as cheqd Credential Payments in an SDK.</td><td><a href="../../sdk/veramo/">veramo</a></td><td><a href="../../.gitbook/assets/veramo logo.png">veramo logo.png</a></td></tr><tr><td><mark style="color:blue;"><strong>DID Registrar</strong></mark></td><td>Simple setup for building cheqd DIDs into existing applications using REST APIs, building into the Universal Registrar.</td><td><a href="../../advanced/did-registrar/">did-registrar</a></td><td><a href="../../.gitbook/assets/cheqd_logo_card.jpg">cheqd_logo_card.jpg</a></td></tr><tr><td><mark style="color:blue;"><strong>Walt.id Community Stack</strong></mark></td><td>Walt.id Community Stack is an SDK that supports the <strong>European Architecture and Reference Framework (ARF)</strong> standards for identity, with full cheqd support. </td><td><a href="../../sdk/walt-id.md">walt-id.md</a></td><td><a href="../../.gitbook/assets/walt.id logo.png">walt.id logo.png</a></td></tr><tr><td><mark style="color:blue;"><strong>cheqd Cosmos CLI</strong></mark></td><td>Cosmos CLI which directly communicates with the cheqd network. This should only be used for testing environments.</td><td><a href="../../advanced/tooling/cheqd-node-cli/">cheqd-node-cli</a></td><td><a href="../../.gitbook/assets/cosmos and cheqd.png">cosmos and cheqd.png</a></td></tr></tbody></table>
