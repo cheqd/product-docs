@@ -1,5 +1,5 @@
 ---
-description: Query a Decentralized Identifier (DID) on cheqd using Veramo.
+description: Query and resolve a Decentralized Identifier (DID) on cheqd using Veramo.
 ---
 
 # Querying a DID
