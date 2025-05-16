@@ -56,7 +56,7 @@ _**Figure 3**: Relationship between a DID and DID-linked Resource_
 
 Example of `createResource` transaction using Veramo SDK:
 
-```jsonc
+```json
 {
     "kms": "local",
     "payload": {

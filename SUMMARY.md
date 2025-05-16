@@ -82,8 +82,8 @@
     * [Context for developing DID-Linked Resources](studio/did-linked-resources/understanding-dlrs/context.md)
     * [Technical composition of DID-Linked Resources](studio/did-linked-resources/understanding-dlrs/technical-composition.md)
     * [Referencing DID-Linked Resources in VCs](studio/did-linked-resources/understanding-dlrs/referencing.md)
-  * [Create DID-Linked Resource](studio/did-linked-resources/create-dlr.md)
-  * [Search DID-Linked Resource](studio/did-linked-resources/search-dlr.md)
+  * [Create a DID-Linked Resource](studio/did-linked-resources/create-dlr.md)
+  * [Search for DID-Linked Resources](studio/did-linked-resources/search-dlr.md)
 
 ## 🛠️ Integrate an SDK <a href="#sdk" id="sdk"></a>
 

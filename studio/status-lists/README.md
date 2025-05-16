@@ -1,7 +1,7 @@
 ---
 description: >-
-  Create, update and fetch Status Lists on cheqd, stored as a DID-Linked
-  Resources (DLRs).
+  Create, update and fetch Status Lists on cheqd, stored as DID-Linked Resources
+  (DLRs).
 ---
 
 # 🎋 Create Status Lists
