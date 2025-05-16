@@ -6,22 +6,28 @@ description: >-
 
 # Referencing DID-Linked Resources in VCs
 
-Once created, issuers of Verifiable Credentials may want to reference resources within the body of issued Verifiable Credentials.
+Verifiable Credentials (VCs) often need to reference external data to provide structure, governance, or context. On the **cheqd network**, these external references can be anchored as **DID-Linked Resources**, enabling permanent, tamper-evident, and verifiable links within the credential itself.
 
-As mentioned in the section on [Context for Resources](context.md), this may be useful for referencing:
+This tutorial explains how to reference DID-Linked Resources in the body of a VC using fully qualified `did:cheqd` URLs. These references enhance trust, interoperability, and auditability of issued credentials.
 
-* **Schemas;**
-* **Status lists;**
-* **Trust registries;**
-* **Visual Representations of Verifiable Credentials;**
-* **Documents**; or
-* **Logos**
+### Common Resources to Reference in a VC
 
-within the contents of Verifiable Credentials themselves.
+The table details what types of DID-Linked Resources may commonly be included within the body of a Verifiable Credential:
 
-## IIW Example
+| Resource Type                | Use Case                                                                  |
+| ---------------------------- | ------------------------------------------------------------------------- |
+| **Credential Schemas**       | Define the expected structure and semantics of a credential               |
+| **Trust Registries**         | Prove that the issuer is authorised to issue a particular credential      |
+| **Status Lists**             | Reference revocation registries (for AnonCreds or Bitstring Status Lists) |
+| **Logos & Visuals**          | Display issuer branding or credential type icons in wallets               |
+| **Legal Terms & Governance** | Point to frameworks, policies, or usage restrictions                      |
 
-Below is an example of a Verifiable Credential for an IIW event ticket which includes a fully qualified DID URL for the **schema** and **logo, using resources on-ledger.**
+### Example: Event Ticket Credential with Schema & Logo References
+
+Below is a Verifiable Credential issued for an event ticket. It references:
+
+* A **schema**, published as a DID-Linked Resource
+* A **logo**, hosted as a visual asset under the same issuer DID
 
 ```json
 {
@@ -60,7 +66,7 @@ Below is an example of a Verifiable Credential for an IIW event ticket which inc
 
 ### Dereferencing the schema
 
-The schema in the above Credential dereferences to the following data:
+The VC references a schema hosted as a DID-Linked Resource. Resolving this DID URL returns:
 
 ```json
 {
