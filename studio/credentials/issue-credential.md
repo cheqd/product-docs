@@ -2,7 +2,7 @@
 description: Issue W3C conformant Verifiable Credentials over REST API, using cheqd Studio.
 ---
 
-# Issue Credential
+# Issue a Verifiable Credential
 
 Using the `/credential/create` API, it is possible to issue Verifiable Credentials, signed by a cheqd DID, in a few clicks or lines of code.&#x20;
 
@@ -23,6 +23,10 @@ Before you can issue a Verifiable Credential, you need to create an Issuer DID w
 Again, before you issue a Verifiable Credential, you need to know to whom you are issuing it. If you need to create a Subject DID, you can take a look at the page here:
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create a Subject DID</strong></mark></td><td>Create an off-ledger <code>did:key</code> or <code>did:vda</code> Subject DID to receive a Verifiable Credential.</td><td><a href="../dids/create-subject-did.md">create-subject-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Setup Verida Wallet</strong></mark></td><td>Learn about setting up your Verida wallet to receive a <code>did:vda</code> address.</td><td><a href="verida.md">verida.md</a></td></tr></tbody></table>
+
+{% hint style="info" %}
+It is also possible to use a `did:cheqd`  DID for holders and subjects, but this is only recommended when the holder is not a natural person (e.g. is an AI Agent, organisation or object).
+{% endhint %}
 
 ## Step 4: Compile your Credential body
 
