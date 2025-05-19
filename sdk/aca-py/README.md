@@ -71,3 +71,11 @@ The **cheqd plugin for ACA-Py** supports dynamic DID registration via the **Univ
 Get setup with your ACA-Py agent and begin using cheqd's functionality below:
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>cheqd Agent Setup</strong></mark></td><td>Setup the ACA-Py agent with cheqd plugin.</td><td></td><td><a href="setup-aca-py-agent.md">setup-aca-py-agent.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create cheqd DIDs</strong></mark></td><td>Use the ACA-Py agent to create cheqd Decentralized Identifiers (DIDs).</td><td></td><td><a href="dids/create-did.md">create-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create DID-Linked Resources</strong></mark></td><td>Create a DID-Linked Resource (DLR) linked to a cheqd Decentralized Identifier (DID).</td><td></td><td><a href="did-linked-resources/">did-linked-resources</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue a Credential</strong></mark></td><td>Issue and verify Verifiable Credential using ACA-Py agent with <code>did:cheqd</code>.</td><td></td><td><a href="credentials/">credentials</a></td></tr></tbody></table>
+
+## Enterprise Support for ACA-Py
+
+Below are a list of enterprise applications that leverage ACA-Py under the hood:
+
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Sudo Platform (Anonyome Labs)</strong></mark></td><td>API-first developer platform for cheqd DIDs and support for multiple Verifiable Credential formats.</td><td><a href="../../.gitbook/assets/Anonyome Labs.png">Anonyome Labs.png</a></td><td><a href="https://anonyome.com/businesses/decentralized-identity-for-developers/">https://anonyome.com/businesses/decentralized-identity-for-developers/</a></td></tr></tbody></table>
+
+## Get involved
