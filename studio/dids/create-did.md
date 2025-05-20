@@ -48,7 +48,7 @@ Using the `application/x-www-url-form-encoded` option, users are able to choose 
 
 <details>
 
-<summary>methodSpecificIdAlgo (required)</summary>
+<summary>identifierFormatType (required)</summary>
 
 * "uuid" - this is a Universally Unique Identifier (recommended)
 * "base58btc" - this is an identifier which is commonly used for Hyperledger Indy transactions
@@ -57,7 +57,7 @@ Using the `application/x-www-url-form-encoded` option, users are able to choose 
 
 <details>
 
-<summary>verificationMethod / type (required)</summary>
+<summary>verificationMethodType (required)</summary>
 
 * "Ed25519VerificationKey2018" (recommended)
 * "Ed25519VerificationKey2020"
@@ -67,20 +67,16 @@ Using the `application/x-www-url-form-encoded` option, users are able to choose 
 
 <details>
 
-<summary>didDocument (optional)</summary>
+<summary>service (optional)</summary>
 
-This input field contains either a complete DID document, or an incremental change (diff) to a DID document. For example:
+This input field contains the required inputs for adding in a `service` section to the DID Document upon creation.
 
 ```json
 {
-  "service": [
-    {
-      "id": "did:cheqd:testnet:7bf81a20-633c-4cc7-bc4a-5a45801005e0#service-1",
-      "type": "LinkedDomains",
-      "serviceEndpoint": [
-        "https://example.com"
-      ]
-    }
+  "idFragment": "service-1",
+  "type": "LinkedDomains",
+  "serviceEndpoint": [
+    "https://example.com"
   ]
 }
 ```
