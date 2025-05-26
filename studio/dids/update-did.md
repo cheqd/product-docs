@@ -51,14 +51,14 @@ Other sections such as `keyAgreement`, `capabilityInvocation`, `capabilityDelega
   "did": "did:cheqd:mainnet:71e24492-e62c-4e55-a581-007a6e36e881",
   "verificationMethod": [
      {
-       "id":"did:cheqd:mainnet:71e24492-e62c-4e55-a581-007a6e36e881",
+       "id":"did:cheqd:mainnet:71e24492-e62c-4e55-a581-007a6e36e881#key-2",
        "type":"Ed25519VerificationKey2018",
        "controller":"did:cheqd:mainnet:71e24492-e62c-4e55-a581-007a6e36e881",
        "publicKeyBase58":"4sjwZ3VGWupJ26ytxjhU6LhjKiPrHV5reZbaNseyHtf8"
      }
   ],
   "authentication": [
-       "did:cheqd:mainnet:71e24492-e62c-4e55-a581-007a6e36e881#key-1"
+       "did:cheqd:mainnet:71e24492-e62c-4e55-a581-007a6e36e881#key-2"
   ]
 }
 ```
