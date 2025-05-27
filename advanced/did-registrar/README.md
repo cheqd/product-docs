@@ -1,7 +1,7 @@
 ---
 description: >-
   Get started with the cheqd DID Registrar, a REST API service for creating
-  cheqd DIDs and DID-Linked Resources.
+  cheqd Decentralized Identifiers (DIDs) and DID-Linked Resources.
 ---
 
 # ➡️ DID Registrar
@@ -18,7 +18,7 @@ Therefore, the barrier for integrating cheqd DIDs into existing client applicati
 
 ## Get started
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Setup DID Registrar</strong></mark></td><td>Setup DID Registrar yourself or use the Universal Registrar interface.</td><td><a href="did-registrar-setup.md">did-registrar-setup.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create a DID</strong></mark></td><td>Create a DID simply over REST API.</td><td><a href="create-did.md">create-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create a DID-Linked Resource</strong></mark></td><td>Create a DID-Linked Resource simply over REST API.</td><td><a href="create-resource.md">create-resource.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Setup DID Registrar</strong></mark></td><td>Setup DID Registrar yourself or use the Universal Registrar interface.</td><td><a href="did-registrar-setup.md">did-registrar-setup.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create a Decentralized Identifier (DID)</strong></mark></td><td>Create a Decentralized Identifier (DID) simply over REST API.</td><td><a href="create-did.md">create-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create a DID-Linked Resource</strong></mark></td><td>Create a DID-Linked Resource simply over REST API.</td><td><a href="create-resource.md">create-resource.md</a></td></tr></tbody></table>
 
 ## Watch our demo video
 
