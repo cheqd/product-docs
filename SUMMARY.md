@@ -221,6 +221,8 @@
   * [2024](network/network-upgrades/2024/README.md)
     * [2.x](network/network-upgrades/2024/2.x.md)
     * [3.x](network/network-upgrades/2024/3.x.md)
+  * [2025](network/network-upgrades/2025/README.md)
+    * [4.x](network/network-upgrades/2025/4.x.md)
   * [Root Cause Analysis of Outages](network/network-upgrades/root-cause-analysis-of-outages/README.md)
     * [v1.x upgrade RCA](network/network-upgrades/root-cause-analysis-of-outages/v1.x-upgrade-rca.md)
 
