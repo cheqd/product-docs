@@ -4,9 +4,11 @@ description: >-
   Decentralized Identifier (DID).
 ---
 
-# Issue a Verifiable Credential (AnonCreds)
+# Issue a Verifiable Credential
 
 Using **AnonCreds** and the **Issue Credential v2 Protocol**, you can issue Verifiable Credentials signed by a **`did:cheqd`** identifier with just a few lines of code. This guide walks through the full flow using the **Credo Agent**.
+
+## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
 
 Before you begin, make sure you have:
 
