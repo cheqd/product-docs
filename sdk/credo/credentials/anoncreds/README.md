@@ -14,7 +14,7 @@ Credo allows users to issue, hold, and verify AnonCreds credentials using a rang
 
 Issue, present and revoke AnonCreds signed by cheqd Decentralized Identifiers (DIDs), using the tutorials below:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue AnonCreds Credentials</strong></mark></td><td>Issue AnonCreds Credentials signed by cheqd DIDs using Credo.</td><td><a href="issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Present AnonCreds Credentials</strong></mark></td><td>Present AnonCreds Credentials using Credo.</td><td><a href="present-credential.md">present-credential.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue AnonCreds Credentials</strong></mark></td><td>Issue AnonCreds Credentials signed by cheqd DIDs using Credo.</td><td><a href="../issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Present AnonCreds Credentials</strong></mark></td><td>Present AnonCreds Credentials using Credo.</td><td><a href="../present-credential.md">present-credential.md</a></td></tr></tbody></table>
 
 ***
 
