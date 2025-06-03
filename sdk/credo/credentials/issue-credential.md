@@ -12,14 +12,14 @@ Using **AnonCreds** and the **Issue Credential v2 Protocol**, you can issue Veri
 
 Before you begin, make sure you have:
 
-* A **registered `did:cheqd` identifier** for the Issuer
-* A **Credential Schema** and **Credential Definition** already created and published as DID-Linked Resources
-* A Credo Agent configured with:
-  * `@credo-ts/cheqd` for DID operations and resource publishing
-  * `@credo-ts/anoncreds` for AnonCreds credential handling
+* A **registered `did:cheqd`** [**Decentralized Identifier (DID)**](../dids/create-did.md) for the Issuer.
+* A [**Credential Schema**](../did-linked-resources/create-schema.md) and [**Credential Definition**](../did-linked-resources/create-cred-def.md) already created and published as DID-Linked Resources.
+* A [Credo Agent](../set-up-agent.md) configured with:
+  * `@credo-ts/cheqd` for DID operations and resource publishing.
+  * `@credo-ts/anoncreds` for AnonCreds credential handling.
   * `@credo-ts/didcomm` for DIDComm messaging
 * Two agents: an **Issuer** and a **Holder** (can be separate apps or run locally)
-* Secure connectivity between agents using **Out-of-Band (OOB)** or a supported connection method
+* Secure connectivity between agents using **Out-of-Band (OOB)** or a supported connection method.
 
 ## Step 1: Create a Connection with Holder
 
