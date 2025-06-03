@@ -12,9 +12,40 @@ description: >-
 If you want to learn more about what [Verifiable Credentials and Presentations are, please go over to our learning site here.](https://learn.cheqd.io/overview/introduction-to-decentralised-identity/what-is-a-verifiable-credential-vc)
 {% endhint %}
 
+**Credo** provides full support for working with **Verifiable Credentials (VCs)** and **Verifiable Presentations (VPs)**, based on the standards defined by the **W3C** and the **Aries RFCs**.
+
+Credo enables users to **issue**, **hold**, **present**, and **verify** credentials in a secure and interoperable way using **DIDComm messaging** and **OpenID for Verifiable Credential protocols**. This functionality forms the foundation of any Self-Sovereign Identity (SSI) ecosystem.
+
 ## Get started
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Setup Credo Agent</strong></mark></td><td>Before you get started, you need to setup your Credo Agent. </td><td><a href="../set-up-agent.md">set-up-agent.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue Credentials</strong></mark></td><td>Issue Verifiable Credentials signed by cheqd DIDs using Credo.</td><td><a href="issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Present Credentials</strong></mark></td><td>Present Verifiable Credentials using Credo.</td><td><a href="present-credential.md">present-credential.md</a></td></tr></tbody></table>
+Get started issuing and presenting credentials with your Credo agent, either with AnonCreds, JSON-LD or SD-JWT VC:
+
+## Get started
+
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Setup Credo Agent</strong></mark></td><td>Before you get started, you need to setup your Credo Agent. </td><td><a href="../set-up-agent.md">set-up-agent.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Issue Credentials</strong></mark></td><td>Issue Verifiable Credentials signed by cheqd DIDs using Credo.</td><td><a href="anoncreds/issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Present Credentials</strong></mark></td><td>Present Verifiable Credentials using Credo.</td><td><a href="anoncreds/present-credential.md">present-credential.md</a></td></tr></tbody></table>
+
+## Credential Format Support
+
+Credo supports multiple credential formats and exchange protocols out of the box, including:
+
+#### ✅ SD-JWT VC
+
+* Alignment with the European Digital Identity Wallet initiative and standards.
+* Selective disclosure baked in at credential-format level.
+* Issuance and presentation support with **OpenID4VCI** and **OpenID4VP**.&#x20;
+
+#### ✅ AnonCreds
+
+* Ideal for privacy-preserving use cases that require **zero-knowledge proofs**, **selective disclosure**, and **non-revocation proofs**
+* Backed by a **credential definition and revocation registry** stored on a supported ledger (e.g., **cheqd**, **Indy**)
+* Common in **enterprise and government** deployments
+
+#### ✅ W3C Verifiable Credentials (JSON-LD)
+
+* Standards-compliant with the **W3C VC Data Model**
+* Extensible for cheqd DID-Linked Resources and Trust Registries
+* Issuance and presentation over DIDComm v2.
+* Suitable for **web-native and mobile-first** use cases
 
 ## Alternatives
 
