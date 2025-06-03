@@ -14,7 +14,7 @@ In **Credo**, you can issue, verify, and present JSON-LD credentials over **DIDC
 
 Issue and present JSON-LD credentials with Credo using the tutorials below:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue JSON-LD Credentials</strong></mark></td><td>Issue JSON-LD Credentials signed by cheqd DIDs using Credo.</td><td></td></tr><tr><td><mark style="color:blue;"><strong>Present JSON-LD Credentials</strong></mark></td><td>Present JSON-LD Credentials using Credo.</td><td></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue JSON-LD Credentials</strong></mark></td><td>Issue JSON-LD Credentials signed by cheqd DIDs using Credo.</td><td><a href="issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Present JSON-LD Credentials</strong></mark></td><td>Present JSON-LD Credentials using Credo.</td><td><a href="present-credential.md">present-credential.md</a></td></tr></tbody></table>
 
 ***
 
