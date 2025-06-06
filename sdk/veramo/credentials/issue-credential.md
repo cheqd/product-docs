@@ -75,13 +75,7 @@ Enter the _value_ of the claim type. For example, you specified `name` as the cl
 
 In this tutorial, we will create a credential with only a single name-value pair.
 
-### 9. Define if the credential is revocable or not
-
-JSON/JWT credentials with DIDs anchored on cheqd are currently _not_ revocable, so please choose `No` at this step.
-
-[Privacy-preserving credential revocation](https://sharing.clickup.com/6600954/tl/h/69e7u-8222/6f126b298e224c8) is a major element of cheqd's roadmap.
-
-### 10. Verifiable Credential is generated
+### 9. Verifiable Credential is generated
 
 At this last step, Veramo CLI generates the credential based on the inputs above.
 
