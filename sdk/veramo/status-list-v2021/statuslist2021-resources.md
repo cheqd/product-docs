@@ -49,7 +49,7 @@ Let's assume that the following DID is created.
 
 #### Prepare encodedList content
 
-Prepare a file with the Bistring Status List bitstring `encodedList` and encode it into `base64`, following the [same generate algorithm as in the Specification](https://w3c-ccg.github.io/vc-status-list-2021/#generate-algorithm).
+Prepare a file with the Bistring Status List bitstring `encodedList` and encode it into `base64`, following the [same generate algorithm as in the Specification](https://www.w3.org/TR/vc-bitstring-status-list/).
 
 {% hint style="info" %}
 Note: The uncompressed bitstring _MUST_ be at least 16KB in size to maintain herd privacy for the holder.
