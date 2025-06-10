@@ -224,8 +224,8 @@
   * [2025](network/upgrades/2025/README.md)
     * [3.1.x](network/upgrades/2025/3.1.x.md)
     * [4.x](network/upgrades/2025/4.x.md)
-  * [Root Cause Analysis of Outages](network/upgrades/root-cause-analysis-of-outages/README.md)
-    * [v1.x upgrade RCA](network/upgrades/root-cause-analysis-of-outages/v1.x-upgrade-rca.md)
+  * [Root Cause Analysis of Outages](network/upgrades/rca/README.md)
+    * [v1.x upgrade RCA](network/upgrades/rca/v1.x.md)
 
 ## ⚖️ Legal
 

@@ -12,4 +12,4 @@ This is a list of **root cause analysis (RCA)** of major network incidents/outag
 
 ### 2023
 
-* January 2023: [v1.x Upgrade](v1.x-upgrade-rca.md)
+* January 2023: [v1.x Upgrade](v1.x.md)
