@@ -74,8 +74,7 @@ The simplest way to get started with MCP and Trust Registry verification is to u
         "command": "npx",
         "args": [
             "mcp-remote",
-            "https://remote-mcp.cheqd.io/sse",
-            "--transport", "sse-only"
+            "https://remote-mcp.cheqd.io/mcp"
         ],
     }
 }
