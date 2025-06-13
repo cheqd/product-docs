@@ -18,7 +18,7 @@ In **Credo**, SD-JWT credentials are issued using **OpenID for Verifiable Creden
 
 Issue and present SD-JWT credentials in Credo using the tutorials below:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue a Verifiable Credential</strong></mark></td><td>Issue SD-JWT Credentials signed by cheqd DIDs using Credo and OpenID4VCI.</td><td><a href="issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Present a Verifiable Credential</strong></mark></td><td>Present  SD-JWT Credentials signed by cheqd DIDs using Credo and OpenID4VP.</td><td><a href="present-credential.md">present-credential.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue a Verifiable Credential</strong></mark></td><td>Issue SD-JWT Credentials signed by cheqd DIDs using Credo and OpenID4VCI.</td><td><a href="issue-credential.md">issue-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Present a Verifiable Credential</strong></mark></td><td>Present  SD-JWT Credentials signed by cheqd DIDs using Credo and OpenID4VP.</td><td><a href="present-credential.md">present-credential.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Verify a Verifiable Credential</strong></mark></td><td>Verify SD-JWT Credentials signed by cheqd DIDs using Credo and OpenID4VCI.</td><td><a href="issue-credential-1.md">issue-credential-1.md</a></td></tr></tbody></table>
 
 ***
 

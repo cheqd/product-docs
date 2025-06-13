@@ -6,23 +6,113 @@ description: >-
 
 # Issue a Verifiable Credential
 
-Using the OpenID4VC module, you can issue OpenID compatible SD-JWT Credentials signed by a `did:cheqd` identifier. This guide walks through the full flow using the **Credo Agent**.
+Using the OpenID4VC module, you can issue OpenID compatible SD-JWT Credentials signed by a `did:cheqd` identifier. This guide walks through the flow of issuance using the **Credo Agent**.
 
 ## Prerequisites
 
-Before you being, ensire you have:
+Before you being, ensure you have:
 
-* A [Credo Agent](../../set-up-agent.md) configured with:
-  * `@credo-ts/cheqd` for DID operations and resource publishing.
-  * `@credo-ts/didcomm` for DIDComm messaging.
-  * `@credo-ts/openid4vc` for openID4vc modules.
-* Two agents: [an **Issuer**](../../set-up-agent.md#issuer-and-verifier) and [a **Holder**](../../set-up-agent.md#holder) (can be separate apps or run locally).
-* Secure connectivity between [agents using **Out-of-Band (OOB)**](../issue-credential.md#step-1-create-a-connection-with-holder) or a supported connection method.
-* **A cheqd testnet or mainnet account** with sufficient tokens for DID operations
+* Basic knowledge of [Credo Agent configuration](https://docs.cheqd.io/product/sdk/credo/set-up-agent).
+* **A cheqd testnet or mainnet account** with sufficient tokens for DID operations.
 
-## Step 1: Configure the Issuer
+## Step 1: Install dependencies
 
-Configure the issuer and the credentials that you want to issue.
+```bash
+npm install @credo-ts/core @credo-ts/node @credo-ts/cheqd
+npm install @credo-ts/openid4vc
+```
+
+## Step 2: Configure the Issuer Agent <a href="#step-2-set-up-the-issuer-agent" id="step-2-set-up-the-issuer-agent"></a>
+
+Configure the issuer with cheqd and OpenID4VC Modules
+
+```typescript
+import { Agent, DidsModule, KeyType } from '@credo-ts/core';
+import { agentDependencies } from '@credo-ts/node';
+import { CheqdModule } from '@credo-ts/cheqd';
+import express, { Router } from 'express'
+import { OpenId4VcIssuerModule, OpenId4VcVerifierModule } from '@credo-ts/openid4vc';
+
+// Create two express routers, all endpoints for the
+// issuer and verifier will be added to these routers
+const verifierRouter = Router()
+const issuerRouter = Router()
+
+// Register the routers on the express server. The path should match
+// with the baseUrl you configure in the modules below.
+const app = express()
+app.use('/oid4vci', issuerRouter)
+app.use('/siop', verifierRouter)
+
+const issuer = new Agent({
+  config,
+  dependencies: agentDependencies,
+  modules: {
+    dids: new DidsModule({
+      registrars: [new CheqdDidRegistrar()],
+      resolvers: [new CheqdDidResolver()],
+    }),
+    cheqd: new CheqdModule(
+      new CheqdModuleConfig({
+        networks: [
+          {
+            network: '<mainnet or testnet>',
+            cosmosPayerSeed: '<cosmos payer seed or mnemonic>',
+          },
+        ],
+      })
+    ),
+    openId4VcIssuer: new OpenId4VcIssuerModule({
+      baseUrl: 'https://your-issuer-host/oid4vci',
+      router: issuerRouter,
+      endpoints: {
+        // The credentialRequestToCredentialMapper is the only required endpoint
+        // configuration that must be provided. This method is called whenever a
+        // credential request has been received for an offer we created. The callback should
+        // return the issued credential to return in the credential response to the holder.
+        credential: {
+          // you'll map credential once requests come in
+          credentialRequestToCredentialMapper: async ({ credentialRequest }) => {
+            // See step 5.
+          },
+        },
+      },
+    }),
+    // openId4VcVerifier module can only be used in Node.js
+    openId4VcVerifier: new OpenId4VcVerifierModule({
+      baseUrl: 'https://your-issuer-host/siop',
+      router: verifierRouter,
+    }),
+  },
+});
+// listen on port 3000 for the openid4vc app.
+app.listen(3000)
+```
+
+This registers:
+
+* `cheqd` for did:cheqd DID creation and ledger integration
+* `openId4VcIssuer` and `openId4VcVerifier`  for OID4VC flows
+
+## Step 3: Create a cheqd DID and link it to SD‑JWT issuance
+
+```typescript
+// Create a did:cheqd that we will use for issuance
+const issuerDidResult = await issuer.dids.create({
+  method: 'cheqd',
+  options: {
+    network: 'testnet',
+    methodSpecificIdAlgo: 'uuid',
+  },
+})
+
+if (issuerDidResult.didState.state !== 'finished') {
+  throw new Error('DID creation failed.')
+}
+const issuerDid = issuerDidResult.did;
+```
+
+## Step 4: Define the Issuer with SD‑JWT + did:cheqd support
 
 ```typescript
 import { JwaSignatureAlgorithm } from '@credo-ts/core'
@@ -51,24 +141,64 @@ const openid4vcIssuer = await issuer.modules.openId4VcIssuer.createIssuer({
     },
   ],
 })
-
-// Create a did:cheqd that we will use for issuance
-const issuerDidResult = await issuer.dids.create({
-  method: 'cheqd',
-  options: {
-    network: 'testnet',
-    methodSpecificIdAlgo: 'uuid',
-  },
-})
-
-if (issuerDidResult.didState.state !== 'finished') {
-  throw new Error('DID creation failed.')
-}
 ```
+
+This declares support for:
+
+* `vc+sd-jwt` format
+* cryptographic binding with wasm-bound `did:cheqd` keys
 
 If you want to change the display metadata or the credentials supported by the issuer, you can use the `issuer.modules.openId4VcIssuer.updateIssuer` method.
 
-## Step 2: Create Credential Offer
+## Step 5: Map credential requests to SD‑JWT payloads
+
+Implement the mapper, triggered on issuance:
+
+```ts
+const credentialRequestToCredentialMapper: OpenId4VciCredentialRequestToCredentialMapper = async ({
+  // agent context for the current wallet / tenant
+  agentContext,
+  // the credential offer related to the credential request
+  credentialOffer,
+  // the received credential request
+  credentialRequest,
+  // the list of credentialsSupported entries
+  credentialsSupported,
+  // the cryptographic binding provided by the holder in the credential request proof
+  holderBinding,
+  // the issuance session associated with the credential request and offer
+  issuanceSession,
+}) => {
+  const firstSupported = credentialsSupported[0]
+  const { sub } = credentialRequest.claims;
+  const payload = {
+    vct: firstSupported.vct,
+    firstName: 'John',
+    lastName: 'Doe',
+    employeeId: 'EMP-1234',
+    role: 'engineer',
+    issuedAt: Math.floor(Date.now() / 1000),
+  };
+  return {
+    credentialSupportedId: firstSupported.id,
+    format: 'vc+sd-jwt',
+    // We can provide the holderBinding as is, if we don't want to make changes
+    holder: holderBinding,
+    payload: payload,
+    disclosureFrame: {
+      _sd: ['lastName'],
+    },
+    issuer: {
+      method: 'cheqd',
+      issuerDid,
+    },
+  };
+}
+```
+
+This constructs a standard SD‑JWT payload—structural claims ready for selective disclosure.
+
+## Step 6: Create Credential Offer
 
 Once you have configured the issuer, you can create a credential offer. The credential offer method will generate an offer URI that you can share with a holder.
 
@@ -102,4 +232,4 @@ issuer.events.on<OpenId4VcIssuanceSessionStateChangedEvent>(
 )
 ```
 
-\
+We have also added an event listener that listens for state changed events, this allows Issuer to know when the issuance session is complete.\
