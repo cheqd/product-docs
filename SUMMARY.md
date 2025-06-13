@@ -109,7 +109,7 @@
     * [SD-JWT VC](sdk/credo/credentials/sd-jwt/README.md)
       * [Issue a Verifiable Credential](sdk/credo/credentials/sd-jwt/issue-credential.md)
       * [Present a Verifiable Credential](sdk/credo/credentials/sd-jwt/present-credential.md)
-      * [Verify a Credential](sdk/credo/credentials/sd-jwt/issue-credential-1.md)
+      * [Verify a Credential](sdk/credo/credentials/sd-jwt/verify-credential.md)
 * [🍊 ACA-Py](sdk/aca-py/README.md)
   * [Setup ACA-Py Agent](sdk/aca-py/setup-aca-py-agent.md)
   * [Decentralized Identifiers (DIDs)](sdk/aca-py/dids/README.md)
