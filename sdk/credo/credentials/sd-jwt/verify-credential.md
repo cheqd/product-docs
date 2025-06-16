@@ -1,10 +1,10 @@
 ---
 description: >-
   Verify a SD-JWT Verifiable Credential, signed by a did:cheqd Decentralized
-  Identifier (DID), using Credo and OpenID4VCI.
+  Identifier (DID), using Credo and OpenID4VP.
 ---
 
-# Verify a Credential
+# Verify a Verifiable Credential
 
 Using the OpenID4VC module, you can verify OpenID compatible SD-JWT Credentials signed by a `did:cheqd` identifier. This guide walks through the flow of verification using the **Credo Agent**.
 
