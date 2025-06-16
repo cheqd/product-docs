@@ -200,10 +200,32 @@ const credentialRequestToCredentialMapper: OpenId4VciCredentialRequestToCredenti
       id: 'https://example.org/schemas/employee-passport.json',
       type: 'JsonSchemaValidator2018',
     },
+    // Credential Status
+    credentialStatus: {
+      id: 'https://status.cheqd.net/vc/123456',
+      type: 'StatusList2021Entry',
+      statusPurpose: 'revocation',
+      statusListIndex: '123456',
+      statusListCredential: 'https://status.cheqd.net/list/employee-vc.json',
+    },
     // Timestamps in numeric format
     issuedAt: Math.floor(Date.now() / 1000),
     notBefore: Math.floor(Date.now() / 1000),
     expiry: Math.floor((Date.now() + 31536000000) / 1000), // same as expirationDate
+    // Terms of Use
+    termsOfUse: [
+      {
+        type: 'OdrlPolicy2017',
+        profile: 'https://cheqd.net/policies/employee-vc-policy.json',
+        prohibition: [
+          {
+            assigner: issuerDid,
+            target: 'credential',
+            action: 'share',
+          },
+        ],
+      },
+    ],
   };
   return {
     credentialSupportedId: firstSupported.id,
@@ -212,7 +234,7 @@ const credentialRequestToCredentialMapper: OpenId4VciCredentialRequestToCredenti
     holder: holderBinding,
     payload: payload,
     disclosureFrame: {
-      _sd: ['lastName'],
+      _sd: ['lastName', 'credentialStatus', 'termsOfUse'],
     },
     issuer: {
       method: 'cheqd',
@@ -228,17 +250,19 @@ This constructs a standard SD‑JWT payload—structural claims ready for select
 #### Notes on Mapping VC Fields to SD-JWT Format
 {% endhint %}
 
-| VC Model Field      | SD-JWT Equivalent              | Comment                                           |
-| ------------------- | ------------------------------ | ------------------------------------------------- |
-| `@context`          | _Omitted in SD-JWT_            | Context is not typically included in JWT payloads |
-| `id`                | `id`                           | Use `urn:uuid:...` or full URL                    |
-| `type`              | `vct`                          | Set via `vct` (Verifiable Credential Type)        |
-| `issuer`            | `issuer`                       | Must be a valid DID                               |
-| `issuanceDate`      | `issuanceDate`                 | ISO 8601 format                                   |
-| `expirationDate`    | `expirationDate`               | Optional                                          |
-| `credentialSubject` | Flattened into individual keys | SD-JWT doesn’t nest claims                        |
-| `evidence`          | `evidence`                     | Optional, can be array of structured info         |
-| `credentialSchema`  | `credentialSchema`             | Helps verifier interpret structure                |
+| VC Model Field      | SD-JWT Equivalent              | Comment                                                                                      |
+| ------------------- | ------------------------------ | -------------------------------------------------------------------------------------------- |
+| `@context`          | _Omitted in SD-JWT_            | Context is not typically included in JWT payloads                                            |
+| `id`                | `id`                           | Use `urn:uuid:...` or full URL                                                               |
+| `type`              | `vct`                          | Set via `vct` (Verifiable Credential Type)                                                   |
+| `issuer`            | `issuer`                       | Must be a valid DID                                                                          |
+| `issuanceDate`      | `issuanceDate`                 | ISO 8601 format                                                                              |
+| `expirationDate`    | `expirationDate`               | Optional                                                                                     |
+| `credentialSubject` | Flattened into individual keys | SD-JWT doesn’t nest claims                                                                   |
+| `evidence`          | `evidence`                     | Optional, can be array of structured info                                                    |
+| `credentialSchema`  | `credentialSchema`             | Helps verifier interpret structure                                                           |
+| `credentialStatus`  | `credentialStatus`             | Optional. Enables revocation. Format should match `StatusList2021`                           |
+| `termsOfUse`        | `termsOfUse`                   | Optional. Encodes policy using ODRL or similar—can include rights, duties, and prohibitions. |
 
 {% hint style="info" %}
 #### Selective Disclosure (Optional)
@@ -248,16 +272,19 @@ With this expanded payload, you can also enhance your `disclosureFrame`:
 
 ```ts
 tsCopyEditdisclosureFrame: {
-  _sd: ['lastName', 'role', 'evidence'],
+  _sd: ['lastName', 'role', 'evidence', 'credentialStatus'],
 }
 ```
 
-This would blind `lastName`, `role`, and the `evidence` block from the issued credential. The Holder can selectively reveal these when presenting the credential.
+This configuration means:
+
+* The `lastName`, `role`, `evidence`, and `credentialStatus` claims are blinded in the signed JWT.
+* The Holder can choose to reveal these fields when presenting the credential.
 
 ***
 
 {% hint style="warning" %}
-#### ⚠️ Important Consideration
+#### ⚠️ Important Considerations
 {% endhint %}
 
 While SD-JWT allows for simple flat key-value claims, some fields from the full VC model (like `@context`, `type`, and deeply nested `credentialSubject`) are **not directly represented** due to JWT limitations. However, you can convey **semantics** through:
@@ -265,6 +292,8 @@ While SD-JWT allows for simple flat key-value claims, some fields from the full 
 * `vct` (type semantics)
 * `credentialSchema` (structure enforcement)
 * custom claim naming (e.g., `credentialSubjectId` instead of nesting)
+* Use `termsOfUse` to express legal/policy frameworks around credential usage, such as prohibitions on sharing.
+* `credentialStatus.id` should point to a status list credential or registry URL.
 
 ## Step 6: Create Credential Offer
 
