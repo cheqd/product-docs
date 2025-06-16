@@ -152,7 +152,15 @@ If you want to change the display metadata or the credentials supported by the i
 
 ## Step 5: Map credential requests to SD‑JWT payloads
 
-Implement the mapper, triggered on issuance:
+### Credential Issuance Mapper
+
+The core of the issuance process is the `credentialRequestToCredentialMapper` function. This function constructs the credential to be signed and issued to the Holder. It includes:
+
+* **Domain-specific claims**: e.g., employee ID, role.
+* **Cryptographic bindings**: Associations with the Holder.
+* **Optional selective disclosure**: Customisable elements for privacy control.
+
+Utilising `payload` and `disclosureFrame`, you have full flexibility over the credential's structure and visibility. This allows for privacy-preserving credentials that adhere to the SD-JWT specification and the OpenID for Verifiable Credential Issuance (OID4VCI) standard.
 
 ```ts
 const credentialRequestToCredentialMapper: OpenId4VciCredentialRequestToCredentialMapper = async ({
@@ -172,12 +180,30 @@ const credentialRequestToCredentialMapper: OpenId4VciCredentialRequestToCredenti
   const firstSupported = credentialsSupported[0]
   const { sub } = credentialRequest.claims;
   const payload = {
-    vct: firstSupported.vct,
+    vct: firstSupported.vct, // Verifiable Credential Type identifier
+    // Credential subject fields (flattened)
+    credentialSubjectId: sub,   // Represents subject's DID (e.g., Holder DID)
     firstName: 'John',
     lastName: 'Doe',
     employeeId: 'EMP-1234',
     role: 'engineer',
+    // Optional: evidence and schema
+    evidence: [{
+      type: 'EmployeeRecord',
+      verifier: issuerDid,
+      evidenceDocument: 'HR Database Entry 2024-Q1',
+      subjectPresence: 'Physical',
+      documentPresence: 'Digital',
+    }],
+  
+    credentialSchema: {
+      id: 'https://example.org/schemas/employee-passport.json',
+      type: 'JsonSchemaValidator2018',
+    },
+    // Timestamps in numeric format
     issuedAt: Math.floor(Date.now() / 1000),
+    notBefore: Math.floor(Date.now() / 1000),
+    expiry: Math.floor((Date.now() + 31536000000) / 1000), // same as expirationDate
   };
   return {
     credentialSupportedId: firstSupported.id,
@@ -197,6 +223,48 @@ const credentialRequestToCredentialMapper: OpenId4VciCredentialRequestToCredenti
 ```
 
 This constructs a standard SD‑JWT payload—structural claims ready for selective disclosure.
+
+{% hint style="success" %}
+#### Notes on Mapping VC Fields to SD-JWT Format
+{% endhint %}
+
+| VC Model Field      | SD-JWT Equivalent              | Comment                                           |
+| ------------------- | ------------------------------ | ------------------------------------------------- |
+| `@context`          | _Omitted in SD-JWT_            | Context is not typically included in JWT payloads |
+| `id`                | `id`                           | Use `urn:uuid:...` or full URL                    |
+| `type`              | `vct`                          | Set via `vct` (Verifiable Credential Type)        |
+| `issuer`            | `issuer`                       | Must be a valid DID                               |
+| `issuanceDate`      | `issuanceDate`                 | ISO 8601 format                                   |
+| `expirationDate`    | `expirationDate`               | Optional                                          |
+| `credentialSubject` | Flattened into individual keys | SD-JWT doesn’t nest claims                        |
+| `evidence`          | `evidence`                     | Optional, can be array of structured info         |
+| `credentialSchema`  | `credentialSchema`             | Helps verifier interpret structure                |
+
+{% hint style="info" %}
+#### Selective Disclosure (Optional)
+{% endhint %}
+
+With this expanded payload, you can also enhance your `disclosureFrame`:
+
+```ts
+tsCopyEditdisclosureFrame: {
+  _sd: ['lastName', 'role', 'evidence'],
+}
+```
+
+This would blind `lastName`, `role`, and the `evidence` block from the issued credential. The Holder can selectively reveal these when presenting the credential.
+
+***
+
+{% hint style="warning" %}
+#### ⚠️ Important Consideration
+{% endhint %}
+
+While SD-JWT allows for simple flat key-value claims, some fields from the full VC model (like `@context`, `type`, and deeply nested `credentialSubject`) are **not directly represented** due to JWT limitations. However, you can convey **semantics** through:
+
+* `vct` (type semantics)
+* `credentialSchema` (structure enforcement)
+* custom claim naming (e.g., `credentialSubjectId` instead of nesting)
 
 ## Step 6: Create Credential Offer
 
