@@ -209,9 +209,8 @@ const credentialRequestToCredentialMapper: OpenId4VciCredentialRequestToCredenti
       statusListCredential: 'https://status.cheqd.net/list/employee-vc.json',
     },
     // Timestamps in numeric format
-    issuedAt: Math.floor(Date.now() / 1000),
     notBefore: Math.floor(Date.now() / 1000),
-    expiry: Math.floor((Date.now() + 31536000000) / 1000), // same as expirationDate
+    expiry: Math.floor((Date.now() + 31536000000) / 1000),
     // Terms of Use
     termsOfUse: [
       {
@@ -250,18 +249,17 @@ This constructs a standard SD‑JWT payload—structural claims ready for select
 #### Notes on Mapping VC Fields to SD-JWT Format
 {% endhint %}
 
-| VC Model Field      | SD-JWT Equivalent              | Comment                                                                                      |
+| VC Model Field      | SD-JWT Equivalent and Custom   | Comment                                                                                      |
 | ------------------- | ------------------------------ | -------------------------------------------------------------------------------------------- |
 | `@context`          | _Omitted in SD-JWT_            | Context is not typically included in JWT payloads                                            |
 | `id`                | `id`                           | Use `urn:uuid:...` or full URL                                                               |
 | `type`              | `vct`                          | Set via `vct` (Verifiable Credential Type)                                                   |
 | `issuer`            | `issuer`                       | Must be a valid DID                                                                          |
-| `issuanceDate`      | `issuanceDate`                 | ISO 8601 format                                                                              |
-| `expirationDate`    | `expirationDate`               | Optional                                                                                     |
+| `issuanceDate`      | `iat`                          | ISO 8601 format                                                                              |
+| `expirationDate`    | `exp`                          | Optional                                                                                     |
 | `credentialSubject` | Flattened into individual keys | SD-JWT doesn’t nest claims                                                                   |
 | `evidence`          | `evidence`                     | Optional, can be array of structured info                                                    |
 | `credentialSchema`  | `credentialSchema`             | Helps verifier interpret structure                                                           |
-| `credentialStatus`  | `credentialStatus`             | Optional. Enables revocation. Format should match `StatusList2021`                           |
 | `termsOfUse`        | `termsOfUse`                   | Optional. Encodes policy using ODRL or similar—can include rights, duties, and prohibitions. |
 
 {% hint style="info" %}
@@ -272,13 +270,13 @@ With this expanded payload, you can also enhance your `disclosureFrame`:
 
 ```ts
 tsCopyEditdisclosureFrame: {
-  _sd: ['lastName', 'role', 'evidence', 'credentialStatus'],
+  _sd: ['lastName', 'role', 'evidence', 'termsOfUse'],
 }
 ```
 
 This configuration means:
 
-* The `lastName`, `role`, `evidence`, and `credentialStatus` claims are blinded in the signed JWT.
+* The `lastName`, `role`, `evidence`, and `termsOfUse` claims are blinded in the signed JWT.
 * The Holder can choose to reveal these fields when presenting the credential.
 
 ***
@@ -293,7 +291,6 @@ While SD-JWT allows for simple flat key-value claims, some fields from the full 
 * `credentialSchema` (structure enforcement)
 * custom claim naming (e.g., `credentialSubjectId` instead of nesting)
 * Use `termsOfUse` to express legal/policy frameworks around credential usage, such as prohibitions on sharing.
-* `credentialStatus.id` should point to a status list credential or registry URL.
 
 ## Step 6: Create Credential Offer
 
