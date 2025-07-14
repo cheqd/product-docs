@@ -6,9 +6,9 @@ description: Learn about Decentralized Trust Chains (DTCs) on cheqd.
 
 ## Introduction[​](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v3#introduction) <a href="#introduction" id="introduction"></a>
 
-Verifiable Credentials (VCs) are most commonly issued by legal entities to assert facts such as identity, qualifications, or authorisation. Their core purpose is to provide the **Relying Party** — the entity verifying the credential — with a **Level of Assurance (LoA)** that the claims within the credential are legitimate.
+Verifiable Credentials (VCs) are most commonly issued by legal entities to assert facts such as identity, qualifications, or authorization. Their core purpose is to provide the **Relying Party** — the entity verifying the credential — with a **Level of Assurance (LoA)** that the claims within the credential are legitimate.
 
-However, in practice, it’s often difficult for relying parties to determine whether a legal entity issuing a credential is **authentic**, or a **fraudulent impersonation**. There is no built-in mechanism in most credential ecosystems for verifying whether a DID-based issuer is recognised, authorised, or trustworthy.
+However, in practice, it’s often difficult for relying parties to determine whether a legal entity issuing a credential is **authentic**, or a **fraudulent impersonation**. There is no built-in mechanism in most credential ecosystems for verifying whether a DID-based issuer is recognised, authorized, or trustworthy.
 
 {% hint style="info" %}
 Note: This lack of trusted issuer infrastructure is a critical blocker for many digital credential ecosystems — and a common reason why solutions stall before reaching production.
@@ -17,7 +17,7 @@ Note: This lack of trusted issuer infrastructure is a critical blocker for many 
 To fully establish trust, relying parties must be able to:
 
 * Identify **who issued** a credential
-* Understand **whether the issuer was authorised** to issue it
+* Understand **whether the issuer was authorized** to issue it
 * Trace **who accredited the issuer**, and under what governance framework
 
 ### Introducing Decentralized Trust Chains (DTCs)
@@ -39,7 +39,7 @@ cheqd’s DTC model introduces both **permissions** and **policies**:
 * **Permissions** define what an entity is allowed to do (e.g. issue or accredit)
 * **Policies** define **who granted that permission**, under what framework, and with what legal or operational requirements.
 
-This infrastructure is made **publicly resolvable** by publishing all authorisations and accreditations as **DID-Linked Resources** on the cheqd ledger. This means:
+This infrastructure is made **publicly resolvable** by publishing all authorizations and accreditations as **DID-Linked Resources** on the cheqd ledger. This means:
 
 * 🧩 Trust relationships are **machine-verifiable**
 * 🔍 Verifiers do not need prior knowledge of each entity
@@ -53,17 +53,17 @@ There are many terms used within this guide, and as such, familiarise yourself o
 
 | Abbreviation    | Term                                    | Description                                                                                                                                                                                                                                                                                                |
 | --------------- | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| -               | Accreditation Policy                    | A machine-readable policy embedded in a **Verifiable Accreditation** that defines the scope, conditions, and governance under which an entity is authorised to accredit others or issue Verifiable Credentials.                                                                                            |
-| -               | Attestation Policy                      | A machine-readable policy embedded in a **Verifiable Credential** that links the credential to the issuer’s accreditation and root authorisation, enabling verifiers to validate that the issuer was authorised to make the attestation.                                                                   |
+| -               | Accreditation Policy                    | A machine-readable policy embedded in a **Verifiable Accreditation** that defines the scope, conditions, and governance under which an entity is authorized to accredit others or issue Verifiable Credentials.                                                                                            |
+| -               | Attestation Policy                      | A machine-readable policy embedded in a **Verifiable Credential** that links the credential to the issuer’s accreditation and root authorization, enabling verifiers to validate that the issuer was authorized to make the attestation.                                                                   |
 | DID             | Decentralized Identifier                | Legal entity identifier for Trust Registry, cannot be natural person in context of Trust Infrastructure                                                                                                                                                                                                    |
 | GA              | Governance Authority                    | The legal entity or consortia responsible for writing the Governance Framework. In many instances the Governance Authority is also a Root TAO                                                                                                                                                              |
 | GF              | Governance Framework                    | A policy document outlining the purpose, roles, scopes and permissions for a given ecosystem using the Trust Infrastructure.                                                                                                                                                                               |
-| Root TAO (rTAO) | Root Trusted Accreditation Organization | A **Root Trusted Accreditation Organisation (rTAO)** is the top-level authority in a Decentralized Trust Chain responsible for defining the governance framework and issuing the Root Authorisation that anchors all downstream accreditations and attestations within the trust ecosystem.                |
-| TAO             | Trusted Accreditation Organization      | A **Trusted Accreditation Organisation (TAO)** is an entity accredited by a Root Trusted Accreditation Organisation (rTAO) or another TAO to govern a segment of the trust chain by issuing accreditations to other entities or authorising the issuance of Verifiable Credentials within a defined scope. |
+| Root TAO (rTAO) | Root Trusted Accreditation Organization | A **Root Trusted Accreditation Organisation (rTAO)** is the top-level authority in a Decentralized Trust Chain responsible for defining the governance framework and issuing the Root Authorization that anchors all downstream accreditations and attestations within the trust ecosystem.                |
+| TAO             | Trusted Accreditation Organization      | A **Trusted Accreditation Organisation (TAO)** is an entity accredited by a Root Trusted Accreditation Organisation (rTAO) or another TAO to govern a segment of the trust chain by issuing accreditations to other entities or authorizing the issuance of Verifiable Credentials within a defined scope. |
 | -               | Trust Chain                             | Hierarchy of Verifiable Accreditations. Multiple Trust Chains may comprise a Trust Registry.                                                                                                                                                                                                               |
 | TI              | Trusted Issuer                          | A **Trusted Issuer** is an entity accredited within a Decentralized Trust Chain to issue domain-specific Verifiable Credentials, operating under the scope and governance defined by an upstream accreditation and the overarching trust framework.                                                        |
 | -               | Trust Infrastructure                    | The overall set of technical and governance components to establish end-to-end trust.                                                                                                                                                                                                                      |
-| -               | Verifiable Accreditation                | A **Verifiable Accreditation** is a Verifiable Credential that delegates authority from one entity to another, specifying the types of credentials they are permitted to issue or the roles they are authorised to perform within a defined trust framework.                                               |
+| -               | Verifiable Accreditation                | A **Verifiable Accreditation** is a Verifiable Credential that delegates authority from one entity to another, specifying the types of credentials they are permitted to issue or the roles they are authorized to perform within a defined trust framework.                                               |
 | -               | Verifiable Trust Model                  | Permissions with policies to either accredit, or to attest                                                                                                                                                                                                                                                 |
 
 ## Establishing a Trust Hierarchy <a href="#hierarchy-examples" id="hierarchy-examples"></a>
@@ -78,8 +78,8 @@ Trust is delegated top-down through **Verifiable Accreditations**:
 
 | Role                                         | Description                                                                                              |
 | -------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| **Root TAO (rTAO)**                          | Issues Root Authorisations and initial Accreditations to other TAOs. Sets the governance baseline.       |
-| **Trusted Accreditation Organisation (TAO)** | Can accredit other TAOs or Trusted Issuers. Acts as an intermediary layer in larger ecosystems.          |
+| **Root TAO (rTAO)**                          | Issues Root Authorizations and initial Accreditations to other TAOs. Sets the governance baseline.       |
+| **Trusted Accreditation Organization (TAO)** | Can accredit other TAOs or Trusted Issuers. Acts as an intermediary layer in larger ecosystems.          |
 | **Trusted Issuer (TI)**                      | Issues **Verifiable Credentials** to users/entities, based on permissions received from an upstream TAO. |
 
 The following diagram show how a Root TAO accredits two TAOs lower in the hierarchy:
@@ -108,24 +108,24 @@ As shown in the diagram above, legal entities can play the following roles:
 
 ### **Root Trusted Accreditation Organisation (rTAO)**
 
-The **rTAO** is the root of governance in a trust chain. It establishes the ecosystem’s rules and authorises who can issue or accredit within it.
+The **rTAO** is the root of governance in a trust chain. It establishes the ecosystem’s rules and authorizes who can issue or accredit within it.
 
 **Capabilities:**
 
-* Issue a **Root Authorisation** that defines the Trust Framework
+* Issue a **Root Authorization** that defines the Trust Framework
 * Self-accredit for governance or issuance
 * Accredit TAOs and TIs to delegate responsibility
 * Revoke accreditations from any participant in the trust chain
 
 **Credential Type:**
 
-* `VerifiableAuthorisationForTrustChain`
+* `VerifiableAuthorizationForTrustChain`
 
 **Policy Type:**
 
 * `TrustFrameworkPolicy` (included in `termsOfUse`)
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Root Authorisations</strong></mark></td><td>Learn how Root TAOs can set the governance baseline, including the governance framework for the trust chain through Root Authorisations.</td><td><a href="root-authorisations.md">root-authorisations.md</a></td></tr><tr><td><mark style="color:blue;"><strong>RTAO -> TAO</strong></mark></td><td>Learn about how Root TAOs can accredit other TAOs in the trust ecosystem with permissions and Trust Framework Policies.</td><td><a href="rtao-to-tao.md">rtao-to-tao.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Root Authorizations</strong></mark></td><td>Learn how Root TAOs can set the governance baseline, including the governance framework for the trust chain through Root Authorizations.</td><td><a href="root-authorisations.md">root-authorisations.md</a></td></tr><tr><td><mark style="color:blue;"><strong>RTAO -> TAO</strong></mark></td><td>Learn about how Root TAOs can accredit other TAOs in the trust ecosystem with permissions and Trust Framework Policies.</td><td><a href="rtao-to-tao.md">rtao-to-tao.md</a></td></tr></tbody></table>
 
 ### **Trusted Accreditation Organisation (TAO)**[**​**](https://hub.ebsi.eu/vc-framework/trust-model/issuer-trust-model-v4#trusted-accreditation-organisation-tao)
 
@@ -173,13 +173,13 @@ Policies define the **rules, permissions, and governance bindings** for each lay
 
 | Policy Type              | Used In                  | Purpose                                                                     |
 | ------------------------ | ------------------------ | --------------------------------------------------------------------------- |
-| **TrustFrameworkPolicy** | Root Authorisation       | Defines the root governance model                                           |
+| **TrustFrameworkPolicy** | Root Authorization       | Defines the root governance model                                           |
 | **AccreditationPolicy**  | Verifiable Accreditation | Constrains and describes the scope of authority                             |
 | **AttestationPolicy**    | Verifiable Credential    | Links the credential back to the issuer’s accreditation and trust framework |
 
 ### How Policies are Linked
 
-* **Root Authorisation** includes a `TrustFrameworkPolicy`
+* **Root Authorization** includes a `TrustFrameworkPolicy`
 * **Each Accreditation** must reference:
   * A parent `AccreditationPolicy`, or
   * The original `TrustFrameworkPolicy`
@@ -194,10 +194,10 @@ This layered policy model enables verifiers to **traverse and validate the entir
 
 Trust Chains are constructed from three verifiable building blocks:
 
-### 1. **Authorisations**
+### 1. **Authorizations**
 
 * Define the rules of the ecosystem
-* Issued by the rTAO as a `VerifiableAuthorisationForTrustChain`
+* Issued by the rTAO as a `VerifiableAuthorizationForTrustChain`
 * Reference the root governance framework
 
 ### 2. **Accreditations**
@@ -205,7 +205,7 @@ Trust Chains are constructed from three verifiable building blocks:
 * Grant permission to accredit or issue
 * Are always domain-specific and non-transferable
 * Must include an `AccreditationPolicy` in `termsOfUse`
-* Allow entities to govern or issue **only** within the authorised scope
+* Allow entities to govern or issue **only** within the authorized scope
 
 ### 3. **Credentials (Attestations)**
 
@@ -219,7 +219,7 @@ Trust Chains are constructed from three verifiable building blocks:
 
 | **Element**                    | **Purpose**                                                            |
 | ------------------------------ | ---------------------------------------------------------------------- |
-| **Authorisations**             | Define the governance and policy rules at the root of the trust chain  |
+| **Authorizations**             | Define the governance and policy rules at the root of the trust chain  |
 | **Accreditations**             | Delegate trust authority for accreditation or credential issuance      |
 | **Credentials (Attestations)** | Assert verifiable facts within the scope of a governed trust framework |
 
@@ -229,7 +229,7 @@ Trust Chains are constructed from three verifiable building blocks:
 
 Use **cheqd Studio APIs** to define, issue, and publish trust registry entries:
 
-* Create and manage **Root Authorisations**, **Accreditations**, and **Attestations**
+* Create and manage **Root Authorizations**, **Accreditations**, and **Attestations**
 * Resolve trust chains in real time using standard DID resolution
 * Anchor trust registries on-chain while keeping business logic off-chain
 

@@ -411,7 +411,7 @@ For example, the following schema shows how the configuration of an AI Agent can
 
 <details>
 
-<summary>AI Agent Authorisation Schema</summary>
+<summary>AI Agent Authorization Schema</summary>
 
 ```json
 {
@@ -549,19 +549,19 @@ You can follow the tutorial here to publish your schemas as DID-Linked Resources
 
 This will store the schemas securely on the cheqd Network, where they can be fetched using DID URLs.
 
-## Step 5: Issue a Root Authorisation for the Trust Chain
+## Step 5: Issue a Root Authorization for the Trust Chain
 
-The Root Authorisation in trust registries on cheqd is called a `rootAuthorisationForTrustChain`. This authorisation contains informartion about the governance framework the AI Agents will operate in, and signifies to trust registry resolvers that they have reached the intended Root.
+The Root Authorization in trust registries on cheqd is called a `rootAuthorizationForTrustChain`. This authorization contains information about the governance framework the AI Agents will operate in, and signifies to trust registry resolvers that they have reached the intended Root.
 
-Authorisations are issued between two DIDs (which may be the same). As such, if you are managing the entire ecosystem, you may need to create multiple DIDs for different roles in the ecosystem. Otherwise, you need to be aware of the DIDs of the organisations you are seeking to authorise.
+Authorizations are issued between two DIDs (which may be the same). As such, if you are managing the entire ecosystem, you may need to create multiple DIDs for different roles in the ecosystem. Otherwise, you need to be aware of the DIDs of the organisations you are seeking to authorize.
 
-Generally, the Root Authorisation also contains the schemas and types of credentials that will be issued below in the trust chain.&#x20;
+Generally, the Root Authorization also contains the schemas and types of credentials that will be issued below in the trust chain.&#x20;
 
 {% hint style="info" %}
-Note that it is common for the `rootAuthorisationForTrustChain` to be self-issued, from the same issuer DID to subject DID, authorising it to carry out other operations.
+Note that it is common for the `rootAuthorizationForTrustChain` to be self-issued, from the same issuer DID to subject DID, authorizing it to carry out other operations.
 {% endhint %}
 
-### 5.1 Verifiable Authorisation for Trust Chain
+### 5.1 Verifiable Authorization for Trust Chain
 
 Using POST [/trust-registry/accreditation/issue](https://studio-api.cheqd.net/swagger/#/Trust%20Registry/accredit-issue)
 
@@ -569,16 +569,16 @@ Use the following request format:
 
 <details>
 
-<summary>Request format for Verifiable Authorisation for Trust Chain</summary>
+<summary>Request format for Verifiable Authorization for Trust Chain</summary>
 
 ```json
 {
   "issuerDid": "did:cheqd:testnet:b003df6f-ec8e-48dd-9a2b-7011c5cf0a5e", // This is the Root DID for the Trust Chain
-  "subjectDid": "did:cheqd:testnet:6af412d7-2f04-4e12-a424-e6719db487ad", // This is the DID Authorised at a Root Level and may often be the same DID as the issuer
+  "subjectDid": "did:cheqd:testnet:6af412d7-2f04-4e12-a424-e6719db487ad", // This is the DID Authorized at a Root Level and may often be the same DID as the issuer
   "schemas": [ // enter the schemas you have created for your trust registry
     {
-      "types": "AIAgentAuthorisation",
-      "url": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:c6630f1e-9248-4af6-b7ac-5bcaf646f213?resourceName=AIAgentAuthorisation&resourceType=JSONSchemaValidator2020"
+      "types": "AIAgentAuthorization",
+      "url": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:c6630f1e-9248-4af6-b7ac-5bcaf646f213?resourceName=AIAgentAuthorization&resourceType=JSONSchemaValidator2020"
     },
     {
       "uri": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:b003df6f-ec8e-48dd-9a2b-7011c5cf0a5e?resourceName=VerifiableAccreditation&resourceType=JSONSchemaValidator2020",
@@ -598,7 +598,7 @@ Use the following request format:
       }
   ],
   "format": "jwt",
-  "accreditationName": "authoriseAccreditationTest",
+  "accreditationName": "TrustFrameworkPolicy",
   "trustFramework": "https://learn.cheqd.io/governance/start",
   "trustFrameworkId": "cheqd Governance Framework"
 }
@@ -608,7 +608,7 @@ Use the following request format:
 
 <details>
 
-<summary>Response format for Verifiable Authorisation for Trust Chain</summary>
+<summary>Response format for Verifiable Authorization for Trust Chain</summary>
 
 ```json
 {
@@ -617,7 +617,7 @@ Use the following request format:
   ],
   "type": [
     "VerifiableCredential",
-    "VerifiableAuthorisationForTrustChain"
+    "VerifiableAuthorizationForTrustChain"
   ],
   "issuer": {
     "id": "did:cheqd:testnet:b003df6f-ec8e-48dd-9a2b-7011c5cf0a5e"
@@ -633,7 +633,7 @@ Use the following request format:
   },
   "issuanceDate": "2024-10-15T04:06:47.000Z",
   "termsOfUse": {
-    "type": "VerifiableAuthorisationForTrustChain",
+    "type": "TrustFrameworkPolicy",
     "trustFramework": "https://learn.cheqd.io/governance/start",
     "trustFrameworkId": "cheqd Governance Framework"
   },
@@ -646,12 +646,12 @@ Use the following request format:
 
 </details>
 
-<table><thead><tr><th width="298">Request Parameter</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td>"issuerDid"</td><td>Yes</td><td>The DID of the Issuer of the Accreditation</td></tr><tr><td>"subjectDid"</td><td>Yes</td><td>The DID of the Recipient of the Accreditation</td></tr><tr><td>"types"</td><td>Yes</td><td>The "types" of credential you are authorising for your trust chain</td></tr><tr><td>"url"</td><td>Yes</td><td>A schema or multiple schemas that the recipient is accredited to issue</td></tr><tr><td>"format"</td><td>Optional</td><td>Defaults to "jwt" but may also be "json-ld"</td></tr><tr><td>"accreditationName"</td><td>Yes</td><td>Name of the accreditation which is used for chronological versioning of the accreditation.</td></tr><tr><td>"trustFramework"</td><td>Yes</td><td>A URL that points to an Ecosystem Governance Framework</td></tr><tr><td>"trustFrameworkId"</td><td>Yes</td><td>The name of the Ecosystem Governance Framework</td></tr><tr><td>"credentialStatus"</td><td>Optional</td><td>An object detailing the status information of the Accreditation </td></tr><tr><td></td><td></td><td></td></tr></tbody></table>
+<table><thead><tr><th width="298">Request Parameter</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td>"issuerDid"</td><td>Yes</td><td>The DID of the Issuer of the Accreditation</td></tr><tr><td>"subjectDid"</td><td>Yes</td><td>The DID of the Recipient of the Accreditation</td></tr><tr><td>"types"</td><td>Yes</td><td>The "types" of credential you are authorizing for your trust chain</td></tr><tr><td>"url"</td><td>Yes</td><td>A schema or multiple schemas that the recipient is accredited to issue</td></tr><tr><td>"format"</td><td>Optional</td><td>Defaults to "jwt" but may also be "json-ld"</td></tr><tr><td>"accreditationName"</td><td>Yes</td><td>Name of the accreditation which is used for chronological versioning of the accreditation.</td></tr><tr><td>"trustFramework"</td><td>Yes</td><td>A URL that points to an Ecosystem Governance Framework</td></tr><tr><td>"trustFrameworkId"</td><td>Yes</td><td>The name of the Ecosystem Governance Framework</td></tr><tr><td>"credentialStatus"</td><td>Optional</td><td>An object detailing the status information of the Accreditation </td></tr><tr><td></td><td></td><td></td></tr></tbody></table>
 
-You can use the API below to make this transaction, using the parameter 'authorise'.
+You can use the API below to make this transaction, using the parameter 'authorize'.
 
 {% openapi-operation spec="cheqd-studio-api" path="/trust-registry/accreditation/issue" method="post" %}
-[Broken link](broken-reference)
+[OpenAPI cheqd-studio-api](https://raw.githubusercontent.com/cheqd/studio/refs/heads/main/src/static/swagger-api.json)
 {% endopenapi-operation %}
 
 ## Step 6: Issue your next Accreditation
@@ -670,8 +670,8 @@ Depending on how many layers deep you want your trust registry, you now need to 
   "subjectDid": "did:cheqd:testnet:6af412d7-2f04-4e12-a424-e6719db487ad",
   "schemas": [
     {
-      "types": "AIAgentAuthorisation",
-      "url": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:c6630f1e-9248-4af6-b7ac-5bcaf646f213?resourceName=AIAgentAuthorisation&resourceType=JSONSchemaValidator2020"
+      "types": "AIAgentAuthorization",
+      "url": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:c6630f1e-9248-4af6-b7ac-5bcaf646f213?resourceName=AIAgentAuthorization&resourceType=JSONSchemaValidator2020"
     },
     {
       "uri": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:b003df6f-ec8e-48dd-9a2b-7011c5cf0a5e?resourceName=VerifiableAccreditation&resourceType=JSONSchemaValidator2020",
@@ -693,7 +693,7 @@ Depending on how many layers deep you want your trust registry, you now need to 
   "format": "jwt",
   "accreditationName": "accreditationToAttestTest",
   "parentAccreditation": "did:cheqd:testnet:15b74787-6e48-4fd5-8020-eab24e990578?resourceName=accreditAccreditation&resourceType=VerifiableAccreditationToAccredit",
-  "rootAuthorization": "did:cheqd:testnet:5RpEg66jhhbmASWPXJRWrA?resourceName=authorizeAccreditation&resourceType=VerifiableAuthorisationForTrustChain",
+  "rootAuthorization": "did:cheqd:testnet:5RpEg66jhhbmASWPXJRWrA?resourceName=authorizeAccreditation&resourceType=VerifiableAuthorizationForTrustChain",
 }
 ```
 
@@ -719,7 +719,7 @@ Depending on how many layers deep you want your trust registry, you now need to 
     "accreditedFor": [
       {
         "schemaId": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:0a5b94d0-a417-48ed-a6f5-4abc9e95888d?resourceName=MuseumPassCredentialSchema&resourceType=JsonSchemaValidator2018",
-        "type": "AIAgentAuthorisation"
+        "type": "AIAgentAuthorization"
       }
     ],
     "id": "did:cheqd:testnet:6af412d7-2f04-4e12-a424-e6719db487ad"
@@ -728,7 +728,7 @@ Depending on how many layers deep you want your trust registry, you now need to 
   "termsOfUse": {
     "type": "AccreditationPolicy",
     "parentAccreditation": "did:cheqd:testnet:15b74787-6e48-4fd5-8020-eab24e990578?resourceName=accreditAccreditation&resourceType=VerifiableAccreditationToAccredit",
-    "rootAuthorization": "did:cheqd:testnet:5RpEg66jhhbmASWPXJRWrA?resourceName=authorizeAccreditation&resourceType=VerifiableAuthorisationForTrustChain",
+    "rootAuthorization": "did:cheqd:testnet:5RpEg66jhhbmASWPXJRWrA?resourceName=authorizeAccreditation&resourceType=VerifiableAuthorizationForTrustChain",
   },
   "proof": {
     "type": "JwtProof2020",
@@ -739,7 +739,7 @@ Depending on how many layers deep you want your trust registry, you now need to 
 
 </details>
 
-<table><thead><tr><th width="299">Request Parameter</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td>"issuerDid"</td><td>Yes</td><td>The DID of the Issuer of the Accreditation</td></tr><tr><td>"subjectDid"</td><td>Yes</td><td>The DID of the Recipient of the Accreditation</td></tr><tr><td>"url"</td><td>Yes</td><td>A schema or multiple schemas that the recipient is accredited to issue</td></tr><tr><td>"types"</td><td>Yes</td><td>The types of credential the subject is accredited to issue</td></tr><tr><td>"format"</td><td>Optional</td><td>Defaults to "jwt" but may also be "json-ld"</td></tr><tr><td>"accreditationName"</td><td>Yes</td><td>Name of the accreditation which is used for chronological versioning of the accreditation.</td></tr><tr><td>"parentAccreditation"</td><td>Yes</td><td>A URL or DID URL of Accreditation of the Issuer  demonstrating capacity to issue this Accreditation.</td></tr><tr><td>"rootAuthorisation"</td><td>Yes</td><td>A URL or DID URL of the root authorization governing the ecosystem</td></tr><tr><td>"credentialStatus"</td><td>Optional</td><td>An object detailing the status information of the Accreditation </td></tr></tbody></table>
+<table><thead><tr><th width="299">Request Parameter</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td>"issuerDid"</td><td>Yes</td><td>The DID of the Issuer of the Accreditation</td></tr><tr><td>"subjectDid"</td><td>Yes</td><td>The DID of the Recipient of the Accreditation</td></tr><tr><td>"url"</td><td>Yes</td><td>A schema or multiple schemas that the recipient is accredited to issue</td></tr><tr><td>"types"</td><td>Yes</td><td>The types of credential the subject is accredited to issue</td></tr><tr><td>"format"</td><td>Optional</td><td>Defaults to "jwt" but may also be "json-ld"</td></tr><tr><td>"accreditationName"</td><td>Yes</td><td>Name of the accreditation which is used for chronological versioning of the accreditation.</td></tr><tr><td>"parentAccreditation"</td><td>Yes</td><td>A URL or DID URL of Accreditation of the Issuer  demonstrating capacity to issue this Accreditation.</td></tr><tr><td>"rootAuthorization"</td><td>Yes</td><td>A URL or DID URL of the root authorization governing the ecosystem</td></tr><tr><td>"credentialStatus"</td><td>Optional</td><td>An object detailing the status information of the Accreditation </td></tr></tbody></table>
 
 For a trusted ecosystem, these attestations are required to trace the legitimacy of a credential issuer to a root-of-trust.&#x20;
 
@@ -757,8 +757,8 @@ If you just want to accredit the subordinate DID to issue credentials to your AI
   "subjectDid": "did:cheqd:testnet:6af412d7-2f04-4e12-a424-e6719db487ad",
   "schemas": [
     {
-      "types": "AIAgentAuthorisation",
-      "url": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:c6630f1e-9248-4af6-b7ac-5bcaf646f213?resourceName=AIAgentAuthorisation&resourceType=JSONSchemaValidator2020"
+      "types": "AIAgentAuthorization",
+      "url": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:c6630f1e-9248-4af6-b7ac-5bcaf646f213?resourceName=AIAgentAuthorization&resourceType=JSONSchemaValidator2020"
     },
     {
       "uri": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:b003df6f-ec8e-48dd-9a2b-7011c5cf0a5e?resourceName=VerifiableAccreditation&resourceType=JSONSchemaValidator2020",
@@ -780,7 +780,7 @@ If you just want to accredit the subordinate DID to issue credentials to your AI
   "format": "jwt",
   "accreditationName": "accreditationToAttestTest",
   "parentAccreditation": "did:cheqd:testnet:15b74787-6e48-4fd5-8020-eab24e990578?resourceName=accreditAccreditation&resourceType=VerifiableAccreditationToAccredit",
-  "rootAuthorization": "did:cheqd:testnet:5RpEg66jhhbmASWPXJRWrA?resourceName=authorizeAccreditation&resourceType=VerifiableAuthorisationForTrustChain",
+  "rootAuthorization": "did:cheqd:testnet:5RpEg66jhhbmASWPXJRWrA?resourceName=authorizeAccreditation&resourceType=VerifiableAuthorizationForTrustChain",
 }
 ```
 
@@ -813,9 +813,9 @@ If you just want to accredit the subordinate DID to issue credentials to your AI
   },
   "issuanceDate": "2024-10-15T04:06:47.000Z",
   "termsOfUse": {
-    "type": "VerifiableAuthorisationForTrustChain",
+    "type": "VerifiableAuthorizationForTrustChain",
     "parentAccreditation": "did:cheqd:testnet:15b74787-6e48-4fd5-8020-eab24e990578?resourceName=accreditAccreditation&resourceType=VerifiableAccreditationToAccredit",
-    "rootAuthorization": "did:cheqd:testnet:5RpEg66jhhbmASWPXJRWrA?resourceName=authorizeAccreditation&resourceType=VerifiableAuthorisationForTrustChain",
+    "rootAuthorization": "did:cheqd:testnet:5RpEg66jhhbmASWPXJRWrA?resourceName=authorizeAccreditation&resourceType=VerifiableAuthorizationForTrustChain",
   },
   "proof": {
     "type": "JwtProof2020",
@@ -826,7 +826,7 @@ If you just want to accredit the subordinate DID to issue credentials to your AI
 
 </details>
 
-<table><thead><tr><th width="299">Request Parameter</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td>"issuerDid"</td><td>Yes</td><td>The DID of the Issuer of the Accreditation</td></tr><tr><td>"subjectDid"</td><td>Yes</td><td>The DID of the Recipient of the Accreditation</td></tr><tr><td>"url"</td><td>Yes</td><td>A schema or multiple schemas that the recipient is accredited to issue</td></tr><tr><td>"types"</td><td>Yes</td><td>The types of credential the subject is accredited to issue</td></tr><tr><td>"format"</td><td>Optional</td><td>Defaults to "jwt" but may also be "json-ld"</td></tr><tr><td>"accreditationName"</td><td>Yes</td><td>Name of the accreditation which is used for chronological versioning of the accreditation.</td></tr><tr><td>"parentAccreditation"</td><td>Yes</td><td>A URL or DID URL of Accreditation of the Issuer  demonstrating capacity to issue this Accreditation.</td></tr><tr><td>"rootAuthorisation"</td><td>Yes</td><td>A URL or DID URL of the root authorization governing the ecosystem</td></tr><tr><td>"credentialStatus"</td><td>Optional</td><td>An object detailing the status information of the Accreditation </td></tr></tbody></table>
+<table><thead><tr><th width="299">Request Parameter</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td>"issuerDid"</td><td>Yes</td><td>The DID of the Issuer of the Accreditation</td></tr><tr><td>"subjectDid"</td><td>Yes</td><td>The DID of the Recipient of the Accreditation</td></tr><tr><td>"url"</td><td>Yes</td><td>A schema or multiple schemas that the recipient is accredited to issue</td></tr><tr><td>"types"</td><td>Yes</td><td>The types of credential the subject is accredited to issue</td></tr><tr><td>"format"</td><td>Optional</td><td>Defaults to "jwt" but may also be "json-ld"</td></tr><tr><td>"accreditationName"</td><td>Yes</td><td>Name of the accreditation which is used for chronological versioning of the accreditation.</td></tr><tr><td>"parentAccreditation"</td><td>Yes</td><td>A URL or DID URL of Accreditation of the Issuer  demonstrating capacity to issue this Accreditation.</td></tr><tr><td>"rootAuthorization"</td><td>Yes</td><td>A URL or DID URL of the root authorization governing the ecosystem</td></tr><tr><td>"credentialStatus"</td><td>Optional</td><td>An object detailing the status information of the Accreditation </td></tr></tbody></table>
 
 For a trusted ecosystem, these attestations are required to trace the legitimacy of a credential issuer to a root-of-trust.&#x20;
 
@@ -838,4 +838,4 @@ Note that there MUST be an `accreditationToAttest` for credentials to be issued 
 
 Great! Now you have set up the core functionality for your trust registry. Next you will want to issue a Verifiable Attestation from the "trusted issuer" in the Trust Registry to an AI Agent:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue Verifiable Credentials to AI Agent</strong></mark></td><td>Issue a Verifiable Credential to your AI Agent referencing the <code>parentAccreditation</code> and <code>rootAuthorisation</code> for the trust chain.</td><td><a href="issue-credential.md">issue-credential.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Issue Verifiable Credentials to AI Agent</strong></mark></td><td>Issue a Verifiable Credential to your AI Agent referencing the <code>parentAccreditation</code> and <code>rootAuthorization</code> for the trust chain.</td><td><a href="issue-credential.md">issue-credential.md</a></td></tr></tbody></table>

@@ -6,12 +6,12 @@ description: >-
 
 # Referencing Trust Registry within a Verifiable Credential
 
-To ensure a Verifiable Credential (VC) is not only technically valid but also issued by an **authorised and trusted party**, it must include metadata that links back to its origin in a **trust registry**.
+To ensure a Verifiable Credential (VC) is not only technically valid but also issued by an **authorized and trusted party**, it must include metadata that links back to its origin in a **trust registry**.
 
 This is done using the `termsOfUse` property, where the **Trusted Issuer includes an `AttestationPolicy`** referencing:
 
 * The **Verifiable Accreditation** that granted them permission
-* The **Root Authorisation** that anchors the governance framework
+* The **Root Authorization** that anchors the governance framework
 
 ## Why reference a trust registry?
 
@@ -29,7 +29,7 @@ The `termsOfUse` field uses the `AttestationPolicy` type and typically includes:
 | --------------------- | ------------------------------------------------------------------------------------- |
 | `type`                | Must be `"AttestationPolicy"`                                                         |
 | `parentAccreditation` | DID URL pointing to the Verifiable Accreditation that granted authority to the issuer |
-| `rootAuthorisation`   | DID URL referencing the original Root Authorisation for the trust chain               |
+| `rootAuthorization`   | DID URL referencing the original Root Authorization for the trust chain               |
 
 ### Example: Credential referencing its trust registry via `AttestationPolicy`
 
@@ -53,7 +53,7 @@ The `termsOfUse` field uses the `AttestationPolicy` type and typically includes:
   "termsOfUse": {
     "type": "AttestationPolicy",
     "parentAccreditation": "did:cheqd:testnet:c2f18b6b-32e2-48d1-a5a8-5f5d2d9798f0/resources/58c01595-f884-4a3b-add4-8c691e16b8ee",
-    "rootAuthorisation": "did:cheqd:testnet:c2f18b6b-32e2-48d1-a5a8-5f5d2d9798f0/resources/58c01595-f884-4a3b-add4-8c691e16b8ee"
+    "rootAuthorization": "did:cheqd:testnet:c2f18b6b-32e2-48d1-a5a8-5f5d2d9798f0/resources/58c01595-f884-4a3b-add4-8c691e16b8ee"
   }
 }
 
@@ -63,7 +63,7 @@ The `termsOfUse` field uses the `AttestationPolicy` type and typically includes:
 
 This embedded trust policy allows verifiers to:
 
-* Look up the parent accreditation and root authorisation.
+* Look up the parent accreditation and root authorization.
 * Confirm that the issuer was permitted to issue the attestation type.
 * Automate or enforce policy-based trust decisions.
 
@@ -77,7 +77,7 @@ TRAIN is a trust validator that:
 
 * Accepts a credential (or its metadata) as input.
 * Resolves the **issuer’s accreditation**.
-* Traverses the trust chain to the **root authorisation**.
+* Traverses the trust chain to the **root authorization**.
 * Optionally checks **DNS anchoring** of the root DID for higher assurance.
 * Returns a result that confirms if the issuer is trusted under the specified framework.
 
@@ -98,7 +98,7 @@ Here’s a simplified example of the request body TRAIN accepts:
 ```
 
 {% hint style="info" %}
-_Note: `DNSTrustFrameworkPointers` is optional. If omitted, TRAIN will still validate trust up to the root authorisation._
+_Note: `DNSTrustFrameworkPointers` is optional. If omitted, TRAIN will still validate trust up to the root authorization._
 {% endhint %}
 
 ***

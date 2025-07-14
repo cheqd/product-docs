@@ -22,17 +22,17 @@ Before you can create a Verifiable Accreditation, you need to create a DID which
 
 Verifiable Accreditations are JSON objects that take the form of the Verifiable Credential data model. There are three types of Verifiable Accreditation:
 
-<table><thead><tr><th width="299">Type</th><th>Description</th></tr></thead><tbody><tr><td>Verifiable Authorisation for Trust Chain</td><td>This Accreditation authorises the recipient to issue Accreditations with reference to a particular governance framework.</td></tr><tr><td>Verifiable Accreditation to Accredit</td><td>This Accreditation verifies that an organisation has the permissions needed to <strong>accredit other organisations</strong> for issuing a particular type of Verifiable Accredittion.</td></tr><tr><td>Verifiable Accreditation to Attest</td><td>This Accreditation verifies that an organisation has the permissions needed to <strong>issue</strong> Verifiable Credentials, defined by a particular schema.</td></tr></tbody></table>
+<table><thead><tr><th width="299">Type</th><th>Description</th></tr></thead><tbody><tr><td>Verifiable Authorization for Trust Chain</td><td>This Accreditation authorizes the recipient to issue Accreditations with reference to a particular governance framework.</td></tr><tr><td>Verifiable Accreditation to Accredit</td><td>This Accreditation verifies that an organisation has the permissions needed to <strong>accredit other organisations</strong> for issuing a particular type of Verifiable Accreditation.</td></tr><tr><td>Verifiable Accreditation to Attest</td><td>This Accreditation verifies that an organisation has the permissions needed to <strong>issue</strong> Verifiable Credentials, defined by a particular schema.</td></tr></tbody></table>
 
 ## Step 4: Compile the appropriate request format for the API
 
 For each accreditation type, the user will need to use a different request format for the API.&#x20;
 
-### Verifiable Authorisation for Trust Chain
+### Verifiable Authorization for Trust Chain
 
 <details>
 
-<summary>Request format for Verifiable Authorisation for Trust Chain</summary>
+<summary>Request format for Verifiable Authorization for Trust Chain</summary>
 
 ```json
 {
@@ -45,7 +45,7 @@ For each accreditation type, the user will need to use a different request forma
     }
   ],
   "format": "jwt",
-  "accreditationName": "authoriseAccreditationTest",
+  "accreditationName": "authorizeAccreditationTest",
   "trustFramework": "https://learn.cheqd.io/governance/start",
   "trustFrameworkId": "cheqd Governance Framework"
 }
@@ -55,7 +55,7 @@ For each accreditation type, the user will need to use a different request forma
 
 <details>
 
-<summary>Response format for Verifiable Authorisation for Trust Chain</summary>
+<summary>Response format for Verifiable Authorization for Trust Chain</summary>
 
 ```json
 {
@@ -64,7 +64,7 @@ For each accreditation type, the user will need to use a different request forma
   ],
   "type": [
     "VerifiableCredential",
-    "VerifiableAuthorisationForTrustChain"
+    "VerifiableAuthorizationForTrustChain"
   ],
   "issuer": {
     "id": "did:cheqd:testnet:b003df6f-ec8e-48dd-9a2b-7011c5cf0a5e"
@@ -80,7 +80,7 @@ For each accreditation type, the user will need to use a different request forma
   },
   "issuanceDate": "2024-10-15T04:06:47.000Z",
   "termsOfUse": {
-    "type": "VerifiableAuthorisationForTrustChain",
+    "type": "TrustFrameworkPolicy",
     "trustFramework": "https://learn.cheqd.io/governance/start",
     "trustFrameworkId": "cheqd Governance Framework"
   },
@@ -183,7 +183,7 @@ For a trusted ecosystem, these attestations are required to trace the legitimacy
   "format": "jwt",
   "accreditationName": "accreditationToAttestTest",
   "parentAccreditation": "did:cheqd:testnet:15b74787-6e48-4fd5-8020-eab24e990578?resourceName=accreditAccreditation&resourceType=VerifiableAccreditationToAccredit",
-  "rootAuthorization": "did:cheqd:testnet:5RpEg66jhhbmASWPXJRWrA?resourceName=authorizeAccreditation&resourceType=VerifiableAuthorisationForTrustChain",
+  "rootAuthorization": "did:cheqd:testnet:5RpEg66jhhbmASWPXJRWrA?resourceName=authorizeAccreditation&resourceType=VerifiableAuthorizationForTrustChain",
 }
 ```
 
@@ -236,7 +236,7 @@ For a trusted ecosystem, these attestations are required to trace the legitimacy
 ## Step 5: Make request to the API
 
 {% openapi-operation spec="cheqd-studio-api" path="/trust-registry/accreditation/issue" method="post" %}
-[Broken link](broken-reference)
+[OpenAPI cheqd-studio-api](https://raw.githubusercontent.com/cheqd/studio/refs/heads/main/src/static/swagger-api.json)
 {% endopenapi-operation %}
 
 ## Step 7: Reference the Verifiable Accreditation

@@ -28,7 +28,7 @@ cheqd enables you to build **Decentralized Trust Chains** — a powerful model f
 
 Using cheqd’s flexible **DID** and **DID-Linked Resource** architecture, trust is established through a chain of cryptographically verifiable credentials:
 
-* **Root Authorisations** define the governance framework and root of trust
+* **Root Authorizations** define the governance framework and root of trust
 * **Verifiable Accreditations** delegate authority to trusted organisations
 * 🏷**Verifiable Attestations** **(Credentials)** are issued by accredited entities to end users
 
@@ -42,7 +42,7 @@ Before you begin building, we recommend familiarising yourself with how Decentra
 
 Use **cheqd Studio APIs** to define, issue, and publish trust registry entries:
 
-* Create and manage **Root Authorisations**, **Accreditations**, and **Attestations**
+* Create and manage **Root Authorizations**, **Accreditations**, and **Attestations**
 * Resolve trust chains in real time using standard DID resolution
 * Anchor trust registries on-chain while keeping business logic off-chain
 

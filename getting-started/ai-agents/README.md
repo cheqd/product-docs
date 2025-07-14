@@ -12,7 +12,7 @@ cheqd Trust Registries can be designed and built by companies that create AI age
 
 ## What are Trust Registries for AI Agents? <a href="#hierarchy-examples" id="hierarchy-examples"></a>
 
-Trust Registries play a critical role in establishing trust for AI Agents. Acting as authoritative databases, they can **verify the AI Agent is accredited and authorised** to carry out certain actions, ensuring transparency and accountability.
+Trust Registries play a critical role in establishing trust for AI Agents. Acting as authoritative databases, they can **verify the AI Agent is accredited and authorized** to carry out certain actions, ensuring transparency and accountability.
 
 Here’s how they support the AI ecosystem:
 
@@ -56,7 +56,7 @@ In our model for AI Agents, each organisation in the trust hierarchy is able to 
 
 The following diagram shows an example of how an AI Agent Creator can accredit two AI Agents lower in the hierarchy:
 
-<figure><img src="../../.gitbook/assets/AI Agent Trust Registries.jpg" alt=""><figcaption><p>Root DID (rTAO) accrediting or authorising sub-DIDs (TAOs)</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/AI Agent Trust Registries.jpg" alt=""><figcaption><p>Root DID (rTAO) accrediting or authorizing sub-DIDs (TAOs)</p></figcaption></figure>
 
 Through this type of relationship, an AI Agent can prove that it is accredited by an AI Agent Creator through presenting the Verifiable Accreditation, which is stored on the cheqd blockchain.
 

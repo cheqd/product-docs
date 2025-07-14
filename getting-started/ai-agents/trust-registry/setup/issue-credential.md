@@ -4,7 +4,7 @@ description: Issue a Credential to an AI Agent using cheqd's APIs.
 
 # Issue Verifiable Credentials to AI Agent
 
-Once you have created your Trust Registry for the accreditation and authorisation of the organisations in your ecosystem, you can issue a credential to your AI Agent.&#x20;
+Once you have created your Trust Registry for the accreditation and authorization of the organisations in your ecosystem, you can issue a credential to your AI Agent.&#x20;
 
 ## Step 1: Create DID for AI Agent
 
@@ -56,14 +56,14 @@ An example of the request format is below:
   "type": [
     "VerifiableCredential",
     "VerifiableAttestation",
-    "AIAgentAuthorisation"
+    "AIAgentAuthorization"
   ],
   "format": "jwt",
-  "credentialSchema": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:c6630f1e-9248-4af6-b7ac-5bcaf646f213?resourceName=AIAgentAuthorisation&resourceType=JSONSchemaValidator2020",
+  "credentialSchema": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:c6630f1e-9248-4af6-b7ac-5bcaf646f213?resourceName=AIAgentAuthorization&resourceType=JSONSchemaValidator2020",
     "termsOfUse": {
       "type": "AttestationPolicy",
       "parentAccreditation": "did:cheqd:testnet:0a35d559-00ff-41b6-81ad-f64faa522771?resourceName=AccreditationToAttest&resourceType=VerifiableAccreditationToAttest",
-      "rootAuthorisation": "did:cheqd:testnet:c6630f1e-9248-4af6-b7ac-5bcaf646f213?resourceName=OrganisationAuthorisationForAIAgents&resourceType=VerifiableAuthorisationForTrustChain"
+      "rootAuthorization": "did:cheqd:testnet:c6630f1e-9248-4af6-b7ac-5bcaf646f213?resourceName=OrganisationAuthorizationForAIAgents&resourceType=VerifiableAuthorizationForTrustChain"
     }
 }
 ```
@@ -81,14 +81,14 @@ The table below breaks down what components are required and why they are needed
 | `termsOfUse`        | Yes       | Pointers to the accreditations of the issuer                                             |
 | `type`              | Yes       | Must be `attestationPolicy`                                                              |
 | parentAccreditation | Yes       | Must point to the accreditation of the Issuer, matching the credential type and schema   |
-| rootAuthorisation   | Yes       | Must point to the root authorisation that has accredited DIDs higher in the trust chain. |
+| rootAuthorization   | Yes       | Must point to the root authorization that has accredited DIDs higher in the trust chain. |
 
 ## Step 4: Issue Verifiable Credential to AI Agent
 
 Issue the compiled credential using the cheqd studio API enpoint below:
 
 {% openapi-operation spec="cheqd-studio-api" path="/credential/issue" method="post" %}
-[Broken link](broken-reference)
+[OpenAPI cheqd-studio-api](https://raw.githubusercontent.com/cheqd/studio/refs/heads/main/src/static/swagger-api.json)
 {% endopenapi-operation %}
 
 ## (Optional) Step 5: Publish Credential Response as a DID-Linked Resource
@@ -127,14 +127,14 @@ The response format should look like the following example, including a proof (s
   "type": [
     "VerifiableCredential",
     "VerifiableAttestation",
-    "AIAgentAuthorisation"
+    "AIAgentAuthorization"
   ],
   "termsOfUse": {
     "type": "AttestationPolicy",
     "parentAccreditation": "did:cheqd:testnet:0a35d559-00ff-41b6-81ad-f64faa522771?resourceName=AccreditationToAttest&resourceType=VerifiableAccreditationToAttest",
-    "rootAuthorisation": "did:cheqd:testnet:c6630f1e-9248-4af6-b7ac-5bcaf646f213?resourceName=OrganisationAuthorisationForAIAgents&resourceType=VerifiableAuthorisationForTrustChain"
+    "rootAuthorization": "did:cheqd:testnet:c6630f1e-9248-4af6-b7ac-5bcaf646f213?resourceName=OrganisationAuthorizationForAIAgents&resourceType=VerifiableAuthorizationForTrustChain"
   },
-  "credentialSchema": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:c6630f1e-9248-4af6-b7ac-5bcaf646f213?resourceName=AIAgentAuthorisation&resourceType=JSONSchemaValidator2020",
+  "credentialSchema": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:c6630f1e-9248-4af6-b7ac-5bcaf646f213?resourceName=AIAgentAuthorization&resourceType=JSONSchemaValidator2020",
   "@context": [
     "https://www.w3.org/2018/credentials/v1"
   ],

@@ -86,7 +86,7 @@ This enables the TRAIN Trust Validator to resolve and verify the rTAO’s authen
 
 ### 4. Build the Trust Chain
 
-* Publish a **Root Authorisation for Trust Chain** from the rTAO
+* Publish a **Root Authorization for Trust Chain** from the rTAO
 * Issue **Verifiable Accreditations** from rTAO → TAOs → Trusted Issuers
 * Define governance rules and credential schema policies as needed
 

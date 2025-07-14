@@ -1,21 +1,23 @@
 ---
-description: Learn about establishing Root Authorisations for Trust Registries on cheqd.
+description: >-
+  Learn about establishing Root Authorizations for Decentralized Trust Chains
+  (DTCs) on cheqd.
 ---
 
-# Root Authorisations
+# Root Authorizations
 
-## What is a Root Authorisation?
+## What is a Root Authorization?
 
-A **Root Authorisation** — formally a **Verifiable Authorisation for Trust Chain** — defines the **governance framework and trust rules** for an entire decentralized trust ecosystem.
+A **Root Authorization** — formally a **Verifiable Authorization for Trust Chain** — defines the **governance framework and trust rules** for an entire decentralized trust ecosystem.
 
 It serves as the **starting point** for all Verifiable Accreditations and Verifiable Credentials issued within a trust chain.\
-Every accreditation and attestation must ultimately trace back to a valid Root Authorisation to establish its legitimacy.
+Every accreditation and attestation must ultimately trace back to a valid Root Authorization to establish its legitimacy.
 
-The Root Authorisation **anchors** the root entity — the **Root Trusted Accreditation Organisation (rTAO)** — to a specific **Trust Framework Policy**, and enables verifiers to traverse the full chain of trust.
+The Root Authorization **anchors** the root entity — the **Root Trusted Accreditation Organization (rTAO)** — to a specific **Trust Framework Policy**, and enables verifiers to traverse the full chain of trust.
 
 ***
 
-### Purpose of a Root Authorisation
+### Purpose of a Root Authorization
 
 | **Function**      | **Description**                                                                                         |
 | ----------------- | ------------------------------------------------------------------------------------------------------- |
@@ -28,13 +30,13 @@ The Root Authorisation **anchors** the root entity — the **Root Trusted Accred
 ### Key Characteristics
 
 * **Credential Type**:\
-  Must be of type `VerifiableAuthorisationForTrustChain`.
+  Must be of type `VerifiableAuthorizationForTrustChain`.
 * **Issuer**:\
-  The DID of the Root Trusted Accreditation Organisation (rTAO).
+  The DID of the Root Trusted Accreditation Organization (rTAO).
 * **Credential Subject**:\
-  The DID being authorised — this can either be:
-  * **The same DID as the issuer** (self-authorisation), or
-  * **A different DID** (delegated root authority to another trusted organisation).
+  The DID being authorized — this can either be:
+  * **The same DID as the issuer** (self-authorization), or
+  * **A different DID** (delegated root authority to another trusted organization).
 * **Terms of Use**:\
   Must include a **TrustFrameworkPolicy**, referencing:
   * The name of the governance framework
@@ -47,12 +49,12 @@ The Root Authorisation **anchors** the root entity — the **Root Trusted Accred
 | **Field**              | **Description**                                                                                             | **Example**                                              |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
 | **Issuer**             | DID of the rTAO                                                                                             | `did:cheqd:testnet:b003df6f-ec8e-48dd-9a2b-7011c5cf0a5e` |
-| **Credential Subject** | DID of the entity being root-authorised (same as issuer for self-authorisation, or a different trusted DID) | `did:cheqd:testnet:6af412d7-2f04-4e12-a424-e6719db487ad` |
+| **Credential Subject** | DID of the entity being root-authorized (same as issuer for self-authorization, or a different trusted DID) | `did:cheqd:testnet:6af412d7-2f04-4e12-a424-e6719db487ad` |
 | **termsOfUse**         | Must include a `TrustFrameworkPolicy` with a governance framework reference                                 | See Policies                                             |
 
 ***
 
-### Example of a Root Authorisation
+### Example of a Root Authorization
 
 ```json
 {
@@ -64,17 +66,17 @@ The Root Authorisation **anchors** the root entity — the **Root Trusted Accred
   },
   "type": [
     "VerifiableCredential",
-    "VerifiableAuthorisationForTrustChain"
+    "VerifiableAuthorizationForTrustChain"
   ],
   "issuanceDate": "2025-04-01T07:19:55.000Z",
   "credentialSubject": {
     "id": "did:cheqd:testnet:0a35d559-00ff-41b6-81ad-f64faa522771",
     "accreditedFor": [
       {
-        "schemaId": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:c6630f1e-9248-4af6-b7ac-5bcaf646f213?resourceName=AIAgentAuthorisation&resourceType=JSONSchemaValidator2020",
+        "schemaId": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:c6630f1e-9248-4af6-b7ac-5bcaf646f213?resourceName=AIAgentAuthorization&resourceType=JSONSchemaValidator2020",
         "types": [
           "VerifiableCredential",
-          "AIAgentAuthorisation"
+          "AIAgentAuthorization"
         ]
       },
       {
@@ -111,25 +113,25 @@ The Root Authorisation **anchors** the root entity — the **Root Trusted Accred
 
 ### Important Notes
 
-* **Self-Authorisation**:\
+* **Self-Authorization**:\
   When the issuer and subject are the **same DID**, the rTAO self-declares adherence to the trust framework.
-* **Delegated Root Authorisation**:\
+* **Delegated Root Authorization**:\
   When the subject is a **different DID**, the rTAO is immediately empowering another trusted entity to operate under the framework.
 * **Policy Binding**:\
-  All downstream Verifiable Accreditations and Attestations must reference a chain of authorisations and accreditations **back to this Root Authorisation**.
+  All downstream Verifiable Accreditations and Attestations must reference a chain of authorizations and accreditations **back to this Root Authorization**.
 * **DID-Linked Resource**:\
-  The Root Authorisation should be published as a **DID-Linked Resource (DLR)** attached to the rTAO’s DID for discoverability and validation.
+  The Root Authorization should be published as a **DID-Linked Resource (DLR)** attached to the rTAO’s DID for discoverability and validation.
 
 ***
 
 ### Visual Flow
 
 ```plaintext
-Root Authorisation (rTAO defines framework)
+Root Authorization (rTAO defines framework)
          ↓
-Verifiable Accreditation (TAO is authorised to operate)
+Verifiable Accreditation (TAO is authorized to operate)
          ↓
-Verifiable Accreditation (Trusted Issuer is authorised)
+Verifiable Accreditation (Trusted Issuer is authorized)
          ↓
 Verifiable Credential (End-user receives attestation)
 ```
@@ -138,10 +140,10 @@ Verifiable Credential (End-user receives attestation)
 
 ### Summary
 
-| **Concept**     | **Root Authorisation**                               |
+| **Concept**     | **Root Authorization**                               |
 | --------------- | ---------------------------------------------------- |
 | Defines         | The trust framework and governance for the ecosystem |
 | Issued by       | rTAO                                                 |
 | Subject         | Either rTAO itself or another trusted entity         |
-| Credential Type | `VerifiableAuthorisationForTrustChain`               |
+| Credential Type | `VerifiableAuthorizationForTrustChain`               |
 | Linked Policy   | Trust Framework Policy                               |

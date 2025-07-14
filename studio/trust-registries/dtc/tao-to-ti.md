@@ -44,19 +44,19 @@ Field descriptions:
 | Field               | Description                                                    |
 | ------------------- | -------------------------------------------------------------- |
 | `id`                | The DID of the Trusted Issuer receiving the accreditation      |
-| `schemaId`          | The schema the TI is authorised to use for issuing credentials |
+| `schemaId`          | The schema the TI is authorized to use for issuing credentials |
 | `types`             | Credential types the TI is allowed to issue                    |
 | `limitJurisdiction` | (Optional) Limits issuance to a specific jurisdiction          |
 
 ## Policies
 
-The `termsOfUse` field contains the **AccreditationPolicy**, which provides governance context by linking to both the TAO’s parent accreditation and the root authorisation of the trust chain.
+The `termsOfUse` field contains the **AccreditationPolicy**, which provides governance context by linking to both the TAO’s parent accreditation and the root authorization of the trust chain.
 
 ```json
 "termsOfUse": {
     "type": "AccreditationPolicy",
     "parentAccreditation": "did:cheqd:testnet:8ea036da-f340-480d-8952-f5561ea1763c/resources/18de60ec-bed1-42e5-980c-601c432bc60b",
-    "rootAuthorisation": "did:cheqd:testnet:8ea036da-f340-480d-8952-f5561ea1763c/resources/18de60ec-bed1-42e5-980c-601c432bc60b"
+    "rootAuthorization": "did:cheqd:testnet:8ea036da-f340-480d-8952-f5561ea1763c/resources/18de60ec-bed1-42e5-980c-601c432bc60b"
   }
 
 ```
@@ -67,7 +67,7 @@ Whereby:
 | ------------------- | --------------------------------------------------------------------------------- |
 | type                | Must be `AccreditationPolicy`                                                     |
 | parentAccreditation | The DID URL of the Accreditation issued by another TAO or the Root TAO to the TAO |
-| rootAuthoroisation  | The DID URL of the Root of Trust Verifiable Authorsation                          |
+| rootAuthorization   | The DID URL of the Root of Trust Verifiable Authorization                         |
 
 For all Verifiable Accreditations, the accreditations are stored as DID-Linked Resources (DLRs), linked to the DID of the Accreditor. This means that the Accreditations are publically available, fully DID resolvable and are signed by the `authentication` keys within the DID Document of the Accreditor.
 

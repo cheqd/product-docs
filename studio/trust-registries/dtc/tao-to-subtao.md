@@ -6,7 +6,7 @@ description: >-
 
 # TAO -> SubTAO
 
-A **Trusted Accreditation Organisation (TAO)** can extend trust further down the hierarchy by accrediting **Sub-Trusted Accreditation Organisations (SubTAOs)**. These SubTAOs may then be authorised to issue further **Verifiable Accreditations** or **Verifiable Attestations**, subject to defined constraints.
+A **Trusted Accreditation Organisation (TAO)** can extend trust further down the hierarchy by accrediting **Sub-Trusted Accreditation Organisations (SubTAOs)**. These SubTAOs may then be authorized to issue further **Verifiable Accreditations** or **Verifiable Attestations**, subject to defined constraints.
 
 The Verifiable Accreditation should include:
 
@@ -50,13 +50,13 @@ Whereby:
 
 ## Policies
 
-The `termsOfUse` field contains an **AccreditationPolicy**, which points back to both the parent accreditation and the original root authorisation. This maintains traceability through the full trust chain.
+The `termsOfUse` field contains an **AccreditationPolicy**, which points back to both the parent accreditation and the original root authorization. This maintains traceability through the full trust chain.
 
 ```json
 "termsOfUse": {
     "type": "AccreditationPolicy",
     "parentAccreditation": "did:cheqd:testnet:8ea036da-f340-480d-8952-f5561ea1763c/resources/18de60ec-bed1-42e5-980c-601c432bc60b",
-    "rootAuthorisation": "did:cheqd:testnet:8ea036da-f340-480d-8952-f5561ea1763c/resources/18de60ec-bed1-42e5-980c-601c432bc60b"
+    "rootAuthorization": "did:cheqd:testnet:8ea036da-f340-480d-8952-f5561ea1763c/resources/18de60ec-bed1-42e5-980c-601c432bc60b"
   }
 
 ```
@@ -67,7 +67,7 @@ Whereby:
 | ------------------- | --------------------------------------------------------------------------------- |
 | type                | Must be `AccreditationPolicy`                                                     |
 | parentAccreditation | The DID URL of the Accreditation issued by another TAO or the Root TAO to the TAO |
-| rootAuthoroisation  | The DID URL of the Root of Trust Verifiable Authorsation                          |
+| rootAuthorization   | The DID URL of the Root of Trust Verifiable Authorization                         |
 
 ### Example of fully formed Accreditation
 
@@ -105,7 +105,7 @@ The example below shows a Verifiable Accreditation that is issued by an TAO to a
   "termsOfUse": {
     "type": "AccreditationPolicy",
     "parentAccreditation": "did:cheqd:testnet:8ea036da-f340-480d-8952-f5561ea1763c/resources/18de60ec-bed1-42e5-980c-601c432bc60b",
-    "rootAuthorisation": "did:cheqd:testnet:8ea036da-f340-480d-8952-f5561ea1763c/resources/18de60ec-bed1-42e5-980c-601c432bc60b"
+    "rootAuthorization": "did:cheqd:testnet:8ea036da-f340-480d-8952-f5561ea1763c/resources/18de60ec-bed1-42e5-980c-601c432bc60b"
   },
   "proof": {
     "type": "JwtProof2020",
@@ -114,7 +114,7 @@ The example below shows a Verifiable Accreditation that is issued by an TAO to a
 }
 ```
 
-For all Verifiable Accreditations, the accreditations are stored as DID-Linked Resources (DLRs), linked to the DID of the Accreditor. This means that the Accreditations are publically available, fully DID resolvable and are signed by the `authentication` keys within the DID Document of the Accreditor.
+For all Verifiable Accreditations, the accreditations are stored as DID-Linked Resources (DLRs), linked to the DID of the Accreditor. This means that the Accreditations are publicly available, fully DID resolvable and are signed by the `authentication` keys within the DID Document of the Accreditor.
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>DID-Linked Resources</strong></mark></td><td>Learn about cheqd's approach to implementing DID-Linked Resources</td><td><a href="../../../architecture/adr-list/adr-002-did-linked-resources.md">adr-002-did-linked-resources.md</a></td></tr></tbody></table>
 

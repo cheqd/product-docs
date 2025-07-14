@@ -19,7 +19,7 @@ The Verifiable Accreditation should include:
 
 ## Permissions
 
-The `credentialSubject` of the accreditation, issued by `issuer`  defines what the TAO is authorised to do — including which credential types they can issue and in which jurisdictions.
+The `credentialSubject` of the accreditation, issued by `issuer`  defines what the TAO is authorized to do — including which credential types they can issue and in which jurisdictions.
 
 ```json
 "credentialSubject": {
@@ -43,7 +43,7 @@ The `credentialSubject` of the accreditation, issued by `issuer`  defines what t
 
 | Field               | Description                                                                           |
 | ------------------- | ------------------------------------------------------------------------------------- |
-| `schemaId`          | The schema the TAO is authorised to use when issuing accreditations or credentials    |
+| `schemaId`          | The schema the TAO is authorized to use when issuing accreditations or credentials    |
 | `types`             | Credential types the TAO is permitted to issue                                        |
 | `limitJurisdiction` | (Optional) A geographic or regulatory restriction on where the accreditation is valid |
 
@@ -55,7 +55,7 @@ The Root TAO can also set polices known as the `AccreditationPolicy` within the 
 "termsOfUse": {
     "type": "AccreditationPolicy",
     "parentAccreditation": "did:cheqd:testnet:8ea036da-f340-480d-8952-f5561ea1763c/resources/18de60ec-bed1-42e5-980c-601c432bc60b",
-    "rootAuthorisation": "did:cheqd:testnet:8ea036da-f340-480d-8952-f5561ea1763c/resources/18de60ec-bed1-42e5-980c-601c432bc60b"
+    "rootAuthorization": "did:cheqd:testnet:8ea036da-f340-480d-8952-f5561ea1763c/resources/18de60ec-bed1-42e5-980c-601c432bc60b"
   }
 
 ```
@@ -66,7 +66,7 @@ Whereby:
 | ------------------- | --------------------------------------------------------------------------------- |
 | type                | Must be `AccreditationPolicy`                                                     |
 | parentAccreditation | The DID URL of the Accreditation issued by another TAO or the Root TAO to the TAO |
-| rootAuthoroisation  | The DID URL of the Root of Trust Verifiable Authorsation                          |
+| rootAuthorization   | The DID URL of the Root of Trust Verifiable Authorization                         |
 
 ### Example of fully formed Accreditation
 
@@ -104,7 +104,7 @@ The example below shows a Verifiable Accreditation that is issued by an rTAO to 
   "termsOfUse": {
     "type": "AccreditationPolicy",
     "parentAccreditation": "did:cheqd:testnet:8ea036da-f340-480d-8952-f5561ea1763c/resources/18de60ec-bed1-42e5-980c-601c432bc60b",
-    "rootAuthorisation": "did:cheqd:testnet:8ea036da-f340-480d-8952-f5561ea1763c/resources/18de60ec-bed1-42e5-980c-601c432bc60b"
+    "rootAuthorization": "did:cheqd:testnet:8ea036da-f340-480d-8952-f5561ea1763c/resources/18de60ec-bed1-42e5-980c-601c432bc60b"
   },
   "proof": {
     "type": "JwtProof2020",
