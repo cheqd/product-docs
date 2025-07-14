@@ -2,17 +2,6 @@
 description: >-
   Anchor Decentralized Identifiers (DIDs) in DNS records and validate
   Decentralized Trust Chains (DTCs) using TRAIN.
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # Get Started with TRAIN

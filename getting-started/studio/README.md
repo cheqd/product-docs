@@ -4,20 +4,6 @@ description: >-
   registries and monetising credentials: cheqd Studio.
 cover: ../../.gitbook/assets/cheqd Studio Banner (Orange Transparent).png
 coverY: 0
-layout:
-  cover:
-    visible: true
-    size: hero
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # ➡️ Get Started with cheqd Studio

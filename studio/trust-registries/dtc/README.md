@@ -1,16 +1,5 @@
 ---
 description: Learn about Decentralized Trust Chains (DTCs) on cheqd.
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # Decentralized Trust Chains (DTCs)
@@ -95,7 +84,7 @@ Trust is delegated top-down through **Verifiable Accreditations**:
 
 The following diagram show how a Root TAO accredits two TAOs lower in the hierarchy:
 
-<figure><img src="../../../.gitbook/assets/Trust Chain Model.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/cheqd_root_of_trust_1.png" alt="Diagram showing hierarchical Decentralized Trust Chain architecture"><figcaption><p>Hierarchical Decentralized Trust Chain architecture on cheqd</p></figcaption></figure>
 
 Each role is cryptographically linked through issued Verifiable Credentials, creating a **machine-verifiable trust path**.
 
@@ -246,4 +235,4 @@ Use **cheqd Studio APIs** to define, issue, and publish trust registry entries:
 
 For verification, use TRAIN to validate the trust registry to determine whether an issuer DID is accredited, and what they are accredited for — by traversing the full trust chain to its root.&#x20;
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up Trust Chain</strong></mark></td><td>Design and build a trust chain for establishing a trust hierarchy in your ecosystem.</td><td><a href="../set-up/">set-up</a></td><td><a href="../../../.gitbook/assets/cheqd_logo_card.jpg">cheqd_logo_card.jpg</a></td></tr><tr><td><mark style="color:blue;"><strong>Get started with TRAIN</strong></mark></td><td>Deploy TRAIN and start validating trust chains with DNS-anchored roots and cryptographic accreditations.</td><td><a href="../train/">train</a></td><td><a href="../../../.gitbook/assets/fraunhofer.png">fraunhofer.png</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Set up Trust Chain</strong></mark></td><td>Design and build a trust chain for establishing a trust hierarchy in your ecosystem.</td><td><a href="../set-up/">set-up</a></td><td><a href="../../../.gitbook/assets/Set Up Trust Chain.png">Set Up Trust Chain.png</a></td></tr><tr><td><mark style="color:blue;"><strong>Get started with TRAIN</strong></mark></td><td>Deploy TRAIN and start validating trust chains with DNS-anchored roots and cryptographic accreditations.</td><td><a href="../train/">train</a></td><td><a href="../../../.gitbook/assets/fraunhofer.png">fraunhofer.png</a></td></tr></tbody></table>

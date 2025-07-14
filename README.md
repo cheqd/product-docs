@@ -1,16 +1,5 @@
 ---
 description: Get started with cheqd's identity functionality and product offerings.
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # Product Overview

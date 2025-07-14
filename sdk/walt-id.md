@@ -4,20 +4,6 @@ description: >-
   (DIDs), DID-Linked Resources (DLRs) and Credentials.
 cover: ../.gitbook/assets/walt.id logo.png
 coverY: 0
-layout:
-  cover:
-    visible: true
-    size: hero
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # 🫐 Walt.id Community Stack
