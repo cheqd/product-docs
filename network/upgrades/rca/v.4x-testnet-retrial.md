@@ -91,9 +91,8 @@ The cheqd engineering team implemented the following steps to recover from the d
 
 ## 5. Timeline (UTC)
 
-| Time (UTC)                 | Event                                                                                |
-| -------------------------- | ------------------------------------------------------------------------------------ |
 | July 2  2025, 11:00 AM UTC | Snapshot generated at upgrade height - 1(10 minutes)                                 |
+| -------------------------- | ------------------------------------------------------------------------------------ |
 | +10 minutes                | Upgrade retrial executed; migrations run successfully                                |
 | +30 minutes                | Block production begins; technical checkout initiated                                |
 | +50 minutes                | Technical checkout fails; malformed block identified from external validator         |
@@ -106,9 +105,8 @@ The cheqd engineering team implemented the following steps to recover from the d
 
 ## 6. Impact Assessment
 
-| Area                   | Status & Notes                                               |
-| ---------------------- | ------------------------------------------------------------ |
 | Testnet Availability   | Temporarily degraded; resolved after AP node reboot          |
+| ---------------------- | ------------------------------------------------------------ |
 | Validators             | Firewall-isolated cheqd validators preserved block integrity |
 | DIDs & Resources       | Temporary resolution issues; no state loss                   |
 | Partner Operations     | Coordination enabled retry with no rollback                  |
