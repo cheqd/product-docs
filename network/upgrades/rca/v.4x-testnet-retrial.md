@@ -4,7 +4,7 @@ description: >-
   network upgrade retrial.
 ---
 
-# v4.x Upgrade RCA (Testnet Partial Outage During Upgrade Retrial)
+# v4.x Upgrade RCA (Testnet Partial Outage During Retrial)
 
 ## 1. Incident Summary
 
