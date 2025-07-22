@@ -12,4 +12,9 @@ This is a list of **root cause analysis (RCA)** of major network incidents/outag
 
 ### 2023
 
-* January 2023: [v1.x Upgrade](v1.x.md)
+* January 2023: [v1.x Upgrade RCA](v1.x.md)
+
+### 2025
+
+* May 2025: [v4.x Upgrade RCA (Testnet)](v4.x-upgrade-rca-testnet.md)
+* July 2025: [v.4x Upgrade RCA (Testnet Partial Outage During Retrial)](v.4x-testnet-retrial.md)
