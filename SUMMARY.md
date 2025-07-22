@@ -228,6 +228,7 @@
   * [Root Cause Analysis of Outages](network/upgrades/rca/README.md)
     * [v1.x Upgrade RCA](network/upgrades/rca/v1.x.md)
     * [v4.x Upgrade RCA (Testnet)](network/upgrades/rca/v4.x-upgrade-rca-testnet.md)
+    * [v4.x Upgrade RCA (Testnet Partial Outage During Upgrade Retrial)](network/upgrades/rca/v4.x-upgrade-rca-testnet-partial-outage-during-upgrade-retrial.md)
 
 ## ⚖️ Legal
 
