@@ -1,5 +1,7 @@
 ---
-description: Read about historical Root Cause Analysis of Outages on cheqd.
+description: >-
+  Read about historical Root Cause Analysis (RCAs) of outages on cheqd testnet
+  and mainnet.
 ---
 
 # Root Cause Analysis of Outages
