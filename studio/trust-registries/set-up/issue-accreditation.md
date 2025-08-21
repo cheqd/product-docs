@@ -40,7 +40,10 @@ For each accreditation type, the user will need to use a different request forma
   "subjectDid": "did:cheqd:testnet:6af412d7-2f04-4e12-a424-e6719db487ad",
   "schemas": [
     {
-      "type": "MuseumPassCredential",
+      "types": [
+        "VerifiableCredential",
+        "MuseumPassCredential"
+      ],
       "url": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:0a5b94d0-a417-48ed-a6f5-4abc9e95888d?resourceName=MuseumPassCredentialSchema&resourceType=JsonSchemaValidator2018"
     }
   ],
@@ -73,7 +76,10 @@ For each accreditation type, the user will need to use a different request forma
     "accreditedFor": [
       {
         "schemaId": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:0a5b94d0-a417-48ed-a6f5-4abc9e95888d?resourceName=MuseumPassCredentialSchema&resourceType=JsonSchemaValidator2018",
-        "type": "MuseumPassCredential"
+        "types": [
+          "VerifiableCredential",
+          "MuseumPassCredential"
+        ]
       }
     ],
     "id": "did:cheqd:testnet:6af412d7-2f04-4e12-a424-e6719db487ad"
@@ -107,7 +113,10 @@ For each accreditation type, the user will need to use a different request forma
   "subjectDid": "did:cheqd:testnet:6af412d7-2f04-4e12-a424-e6719db487ad",
   "schemas": [
     {
-      "type": "MuseumPassCredential",
+      "types": [
+        "VerifiableCredential",
+        "MuseumPassCredential"
+      ],
       "url": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:0a5b94d0-a417-48ed-a6f5-4abc9e95888d?resourceName=MuseumPassCredentialSchema&resourceType=JsonSchemaValidator2018"
     }
   ],
@@ -140,7 +149,10 @@ For each accreditation type, the user will need to use a different request forma
     "accreditedFor": [
       {
         "schemaId": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:0a5b94d0-a417-48ed-a6f5-4abc9e95888d?resourceName=MuseumPassCredentialSchema&resourceType=JsonSchemaValidator2018",
-        "type": "MuseumPassCredential"
+        "types": [
+          "VerifiableCredential",
+          "MuseumPassCredential"
+        ]
       }
     ],
     "id": "did:cheqd:testnet:6af412d7-2f04-4e12-a424-e6719db487ad"
@@ -176,7 +188,10 @@ For a trusted ecosystem, these attestations are required to trace the legitimacy
   "subjectDid": "did:cheqd:testnet:6af412d7-2f04-4e12-a424-e6719db487ad",
   "schemas": [
     {
-      "type": "MuseumPassCredential",
+      "types": [
+        "VerifiableCredential",
+        "MuseumPassCredential"
+      ],
       "url": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:0a5b94d0-a417-48ed-a6f5-4abc9e95888d?resourceName=MuseumPassCredentialSchema&resourceType=JsonSchemaValidator2018"
     }
   ],
@@ -209,7 +224,10 @@ For a trusted ecosystem, these attestations are required to trace the legitimacy
     "accreditedFor": [
       {
         "schemaId": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:0a5b94d0-a417-48ed-a6f5-4abc9e95888d?resourceName=MuseumPassCredentialSchema&resourceType=JsonSchemaValidator2018",
-        "type": "MuseumPassCredential"
+        "types": [
+          "VerifiableCredential",
+          "MuseumPassCredential"
+        ]
       }
     ],
     "id": "did:cheqd:testnet:6af412d7-2f04-4e12-a424-e6719db487ad"
