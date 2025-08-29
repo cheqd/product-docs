@@ -980,6 +980,6 @@ After implementing fee abstraction:
 If you encounter issues:
 
 - Check the [cheqd SDK GitHub repository](https://github.com/cheqd/sdk) for updates
-- Review the [fee abstraction module documentation](https://docs.cheqd.io/node/architecture/adr-list/adr-007-feeabs)
+- Review the [fee abstraction module documentation](https://docs.osmosis.zone/overview/features/fee-abstraction/)
 - Join the [cheqd Community Discord](https://discord.gg/cheqd) for support
 - Consult the [Cosmos SDK documentation](https://docs.cosmos.network/) for standard transaction types
