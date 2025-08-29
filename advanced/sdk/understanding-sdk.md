@@ -9,7 +9,7 @@ The cheqd SDK is built around four core modules that work together to provide co
 ```mermaid
 graph TB
     A[cheqd SDK] --> B[DID Module]
-    A --> C[Resource Module] 
+    A --> C[Resource Module]
     A --> D[Fee Abstraction Module]
     A --> E[Feemarket Module]
     

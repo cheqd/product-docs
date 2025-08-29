@@ -373,9 +373,13 @@ The cheqd DID module maintains full compliance with:
 ## Related Documentation
 
 - [DID Creation Guide](create-did.md) - Step-by-step DID creation
-- [DID Updates](update-did.md) - Managing DID lifecycle
-- [Service Endpoints](service-endpoints.md) - Adding services to DIDs
-- [Key Management](key-management.md) - Secure key handling
+- [DID Update Examples](manage-did.md#did-update-examples) - Add verification methods, update services, rotate keys
+- [DID Deactivation Examples](manage-did.md#did-deactivation-examples) - Basic and bulk deactivation procedures
+- [Key Rotation](manage-did.md#example-3-rotate-verification-keys) - Secure key rotation procedures
+- [Service Endpoint Management](manage-did.md#example-2-update-did-services) - Adding and updating DID services
+- [Complete Working Examples](manage-did.md#complete-working-examples) - Full update and deactivation implementations
+- [Error Handling & Validation](manage-did.md#error-handling-and-validation) - Pre-update validation and status checks
+- [Best Practices](manage-did.md#best-practices) - Guidelines for secure DID management
 - [Fee Abstraction](../fee-abstraction/using-in-transactions.md) - Using alternative tokens for fees
 
 ## Getting Help
