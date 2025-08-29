@@ -168,7 +168,7 @@
 ## 💫 Advanced features and alternatives <a href="#advanced" id="advanced"></a>
 
 * [📜 SDK](advanced/sdk/README.md)
-  * [ Understanding the cheqd SDK](advanced/sdk/understanding-sdk.md)
+  * [💭 Understanding the cheqd SDK](advanced/sdk/understanding-sdk.md)
   * [🛠️ Setup the cheqd SDK](advanced/sdk/setup-cheqd-sdk.md)
   * [🆔 DID Module - Manage DIDs](advanced/sdk/did-module/README.md)
     * [Create a DID](advanced/sdk/did-module/create-did.md)
