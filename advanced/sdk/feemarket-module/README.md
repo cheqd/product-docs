@@ -285,5 +285,5 @@ When upgrading to use dynamic fees:
 
 ### Network and Tools
 
-- [Network Overview](../../../network/README.md) - cheqd network information and status
+- [Network Overview](../../../network/cheqd/README.md) - cheqd network information and status
 - [Block Explorer](../../../network/tools/block-explorer.md) - Transaction monitoring and analysis

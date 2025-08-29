@@ -278,5 +278,5 @@ When upgrading to use fee abstraction:
 
 ### Network and Infrastructure
 
-- [Network Overview](../../../network/README.md) - cheqd network information and endpoints
+- [Network Overview](../../../network/cheqd/README.md) - cheqd network information and endpoints
 - [Block Explorer](../../../network/tools/block-explorer.md) - Transaction monitoring and verification

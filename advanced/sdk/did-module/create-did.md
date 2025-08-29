@@ -607,7 +607,7 @@ console.log('✅ Authentication validation passed');
 After creating a DID, you can:
 
 - [Update the DID document](manage-did.md)
-- [Create DID-Linked Resources](../create-resource.md)
+- [Create DID-Linked Resources](../resource-module/create-resource.md)
 - [Deactivate the DID](manage-did.md#deactivating-a-did)
 - Query the DID from the ledger
 

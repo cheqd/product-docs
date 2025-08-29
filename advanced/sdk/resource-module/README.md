@@ -263,5 +263,5 @@ For debugging resource operations:
 
 ### Network and Tools
 
-- [Network Overview](../../../network/README.md) - cheqd network information
+- [Network Overview](../../../network/cheqd/README.md) - cheqd network information
 - [Block Explorer](../../../network/tools/block-explorer.md) - Transaction monitoring
