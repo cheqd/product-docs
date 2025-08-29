@@ -824,8 +824,6 @@ const customResourceTypes = [
 After creating resources, you can:
 
 - [Update DID-Linked Resources](manage-resource.md)
-- [Query resources from the ledger](query-resource.md)
-- [Resolve resources via DID URLs](resolve-resource.md)
 - Implement resource versioning strategies
 
 ## Troubleshooting
@@ -844,6 +842,6 @@ After creating resources, you can:
 If you encounter issues:
 
 - Check the [cheqd SDK GitHub repository](https://github.com/cheqd/sdk) for updates
-- Review the [test files](https://github.com/cheqd/sdk/tree/main/tests) for examples
+- Review the [test files](https://github.com/cheqd/sdk/tree/main/esm/tests) for examples
 - Consult the [cheqd documentation](https://docs.cheqd.io/) for comprehensive guides
 - Join the [cheqd Community Discord](https://discord.gg/cheqd) for support

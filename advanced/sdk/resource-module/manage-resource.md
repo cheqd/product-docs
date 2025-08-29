@@ -1008,8 +1008,6 @@ async function repairVersionChain(sdk: any, collectionId: string) {
 
 After managing resources, you can:
 
-- [Query resource versions and history](query-resource.md)
-- [Resolve resources via DID URLs](resolve-resource.md)
 - Implement automated version management workflows
 - Build version-aware applications that always use latest resources
 
@@ -1018,6 +1016,6 @@ After managing resources, you can:
 If you encounter issues:
 
 - Check the [cheqd SDK GitHub repository](https://github.com/cheqd/sdk) for updates
-- Review the [test files](https://github.com/cheqd/sdk/tree/main/tests) for examples
+- Review the [test files](https://github.com/cheqd/sdk/tree/main/esm/tests) for examples
 - Consult the [cheqd documentation](https://docs.cheqd.io/) for comprehensive guides
 - Join the [cheqd Community Discord](https://discord.gg/cheqd) for support

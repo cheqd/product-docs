@@ -625,6 +625,6 @@ After creating a DID, you can:
 If you encounter issues:
 
 - Check the [cheqd SDK GitHub repository](https://github.com/cheqd/sdk) for the latest updates
-- Review the [test files](https://github.com/cheqd/sdk/tree/main/tests) for additional examples
+- Review the [test files](https://github.com/cheqd/sdk/tree/main/esm/tests) for additional examples
 - Consult the [cheqd documentation](https://docs.cheqd.io/) for comprehensive guides
 - Join the [cheqd community](https://discord.gg/cheqd) for support and discussions
