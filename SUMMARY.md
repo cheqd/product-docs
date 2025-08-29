@@ -167,6 +167,21 @@
 
 ## 💫 Advanced features and alternatives <a href="#advanced" id="advanced"></a>
 
+* [📜 SDK](advanced/sdk/README.md)
+  * [💭 Understanding the cheqd SDK](advanced/sdk/understanding-sdk.md)
+  * [🛠️ Setup the cheqd SDK](advanced/sdk/setup-cheqd-sdk.md)
+  * [🆔 DID Module - Manage DIDs](advanced/sdk/did-module/README.md)
+    * [Create a DID](advanced/sdk/did-module/create-did.md)
+    * [Manage a DID](advanced/sdk/did-module/query-did.md)
+  * [🖼️ Resource Module - Manage DID-Linked Resources](advanced/sdk/resource-module/README.md)
+    * [Create a DID-Linked Resource](advanced/sdk/resource-module/create-resource.md)
+    * [Manage a DID-Linked Resource](advanced/sdk/resource-module/manage-resource.md)
+  * [🔧 Fee Market Module with Dynamic Fees](advanced/sdk/feemarket-module/dynamic-fees.md)
+    * [Understanding Dynamic Fees](advanced/sdk/feemarket-module/understanding-dynamic-fees.md)
+  * [💰 Fee Abstraction Module - Pay in alternative denominations](advanced/sdk/fee-abstraction/README.md)
+    * [Using in Transactions](advanced/sdk/fee-abstraction/using-in-transactions.md)
+  * [🧪 Simulation and Gas optimization](advanced/sdk/simulation-gas-optimization.md)
+    * [Built-in Transaction Retry Policy](advanced/sdk/simulation-gas-optimization.md#built-in-transaction-retry-policy)
 * [➡️ DID Registrar](advanced/did-registrar/README.md)
   * [Setup DID Registrar](advanced/did-registrar/did-registrar-setup.md)
   * [Create a DID](advanced/did-registrar/create-did.md)
