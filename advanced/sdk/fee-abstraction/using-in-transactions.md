@@ -971,7 +971,7 @@ async function handleFeeAbstractionError(error: any) {
 After implementing fee abstraction:
 
 - [Explore advanced fee market dynamics](../feemarket-module/dynamic-fees.md)
-- [Learn about cross-chain resource management](../resource-module/cross-chain-resources.md)
+- [Learn about cross-chain resource management - Example from AVIDA](https://github.com/nymlab/AVIDA/tree/main)
 - Monitor fee costs and optimize token selection
 - Implement automated fee strategy based on market conditions
 
