@@ -642,7 +642,7 @@ async function handleTransactionErrors(result: any) {
 ## Next Steps
 
 - [Implement fee abstraction for multi-token support](../fee-abstraction/using-in-transactions.md)
-- [Learn about identity transaction pricing](../did-module/pricing.md)
+- [Learn about identity transaction pricing](../did-module/README.md)
 - [Explore advanced SDK features](../sdk-setup.md)
 
 ## Getting Help
