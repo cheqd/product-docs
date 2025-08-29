@@ -1,7 +1,7 @@
 ---
 description: >-
   Get started with the cheqd DID Registrar, a REST API service for creating
-  cheqd Decentralized Identifiers (DIDs) and DID-Linked Resources.
+  cheqd Decentralized Identifiers (DIDs) and DID-Linked Resources (DLRs).
 ---
 
 # ➡️ DID Registrar
@@ -23,7 +23,7 @@ Therefore, the barrier for integrating cheqd DIDs into existing client applicati
 ## Watch our demo video
 
 {% embed url="https://www.youtube.com/watch?v=cLrgO5IY8P8" %}
-Creatbg a DID using DID Regisrar
+Create a DID using DID Regisrar
 {% endembed %}
 
 ## Alternatives

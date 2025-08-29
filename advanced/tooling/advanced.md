@@ -56,7 +56,7 @@ In general, the process building applications that work with cheqd in other lang
 
 The high-level steps are:
 
-1. **Consume Protobofs for cheqd**: Our [Buf.build packages for cheqd](https://github.com/cheqd/did-resolver) can make this take simpler for many languages. _A real-world example of this is the_ [_`@cheqd/ts-proto`_](https://github.com/cheqd/ts-proto) _TypeScript NPM package._
+1. **Consume Protobufs for cheqd**: Our [Buf.build packages for cheqd](https://github.com/cheqd/did-resolver) can make this take simpler for many languages. _A real-world example of this is the_ [_`@cheqd/ts-proto`_](https://github.com/cheqd/ts-proto) _TypeScript NPM package._
 2. **Prepare and sign the message correctly**: This relies partly on understanding general Cosmos SDK message format and transaction signing, as well as any cheqd-specific bits. _A real-world example of this is the_ [_`@cheqd/sdk`_](https://github.com/cheqd/sdk) _NPM package that consumes `@cheqd/ts-proto` NPM package._
 3. **Send the message to ledger using gRPC/RPC**: Once a message/transaction is correctly compiled and signed, standard transport libraries can be used to target the gRPC/RPC endpoints for a `cheqd-node` instance.
 
