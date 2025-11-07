@@ -4,7 +4,20 @@ description: Chronological changelog for cheqd Studio portal releases.
 
 # ♻️ Changelog
 
-### Release 6: Issue Credential and support external providers (2025-10-21)
+### Release 7: Manage and verify Credentials (07/11/2025)
+
+#### Features
+
+* Credential history Updates and Credential Details&#x20;
+* verify Credentials: both JWT and JSON-LD using file uploads and simple paste.
+
+#### Bug Fixes
+
+* Add expiry status in Credential Details Page
+* error handling for jsonld credential verification
+* minor ui bugs and test provider
+
+### Release 6: Issue Credential and support external providers (21/10/2025)
 
 #### Features
 
@@ -41,7 +54,7 @@ description: Chronological changelog for cheqd Studio portal releases.
 
 ***
 
-### Release 5: Optimisations and State management improvement (2025-09-12)
+### Release 5: Optimisations and State management improvement (12/09/2025)
 
 #### Features
 
@@ -56,7 +69,7 @@ description: Chronological changelog for cheqd Studio portal releases.
 
 ***
 
-### Release 4: Add support for Organizations and Agents (2025-09-09)
+### Release 4: Add support for Organizations and Agents (09/09/2025)
 
 #### Features
 
@@ -69,7 +82,7 @@ description: Chronological changelog for cheqd Studio portal releases.
 
 ***
 
-### Release 3: Add support for Trust Ecosystems (2025-09-03)
+### Release 3: Add support for Trust Ecosystems (03/09/2025)
 
 #### Features
 
@@ -82,7 +95,7 @@ description: Chronological changelog for cheqd Studio portal releases.
 
 ***
 
-### Release 2: Add DID-Linked Resources in UI (2025-08-21)
+### Release 2: Add DID-Linked Resources in UI (21/08/2025)
 
 #### Features
 
@@ -98,7 +111,7 @@ description: Chronological changelog for cheqd Studio portal releases.
 
 ***
 
-### Release 1: Add new dashboard for cheqd Studio metrics (2025-08-13)
+### Release 1: Add new dashboard for cheqd Studio metrics (13/08/2025)
 
 #### Features
 
