@@ -4,7 +4,7 @@ description: Chronological changelog for cheqd Studio portal releases.
 
 # ♻️ Changelog
 
-## Release 5: Issue Credential and support external providers (2025-10-21)
+### Release 5: Issue Credential and support external providers (2025-10-21)
 
 #### Features
 
@@ -41,7 +41,7 @@ description: Chronological changelog for cheqd Studio portal releases.
 
 ***
 
-### Release 4: Add DID-Linked Resources and optimisations (2025-09-12)
+### Release 4: Optimisations and State management improvement (2025-09-12)
 
 #### Features
 
@@ -82,7 +82,7 @@ description: Chronological changelog for cheqd Studio portal releases.
 
 ***
 
-### Update [1.7.0](https://github.com/cheqd/studio-portal/compare/1.6.0...1.7.0) (2025-08-21)
+### Release 2: Add DID-Linked Resources in UI (2025-08-21)
 
 #### Features
 
@@ -105,6 +105,4 @@ description: Chronological changelog for cheqd Studio portal releases.
 * Add features for Dashboard and Api access in portal
 * Add create DID option in UI
 * Improve UI for managing API keys
-
-
 
