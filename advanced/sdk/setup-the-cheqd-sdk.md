@@ -1,0 +1,2 @@
+# 🛠️ Setup the cheqd SDK
+
