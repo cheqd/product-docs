@@ -4,7 +4,7 @@ description: Chronological changelog for cheqd Studio portal releases.
 
 # ♻️ Changelog
 
-### Release 5: Issue Credential and support external providers (2025-10-21)
+### Release 6: Issue Credential and support external providers (2025-10-21)
 
 #### Features
 
@@ -41,7 +41,7 @@ description: Chronological changelog for cheqd Studio portal releases.
 
 ***
 
-### Release 4: Optimisations and State management improvement (2025-09-12)
+### Release 5: Optimisations and State management improvement (2025-09-12)
 
 #### Features
 
@@ -56,7 +56,7 @@ description: Chronological changelog for cheqd Studio portal releases.
 
 ***
 
-### Release 3: Add support for Organizations and Agents (2025-09-09)
+### Release 4: Add support for Organizations and Agents (2025-09-09)
 
 #### Features
 
@@ -69,7 +69,7 @@ description: Chronological changelog for cheqd Studio portal releases.
 
 ***
 
-### Release 2: Add support for Trust Ecosystems (2025-09-03)
+### Release 3: Add support for Trust Ecosystems (2025-09-03)
 
 #### Features
 
