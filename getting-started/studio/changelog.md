@@ -4,7 +4,7 @@ description: Chronological changelog for cheqd Studio portal releases.
 
 # ♻️ Changelog
 
-## Update [1.11.0](https://github.com/cheqd/studio-portal/releases/tag/1.11.0) (2025-10-21)
+## Release 5: Issue Credential and support external providers (2025-10-21)
 
 #### Features
 
@@ -41,7 +41,7 @@ description: Chronological changelog for cheqd Studio portal releases.
 
 ***
 
-### Update [1.10.0](https://github.com/cheqd/studio-portal/compare/1.9.0...1.10.0) (2025-09-12)
+### Release 4: Add DID-Linked Resources and optimisations (2025-09-12)
 
 #### Features
 
@@ -56,7 +56,7 @@ description: Chronological changelog for cheqd Studio portal releases.
 
 ***
 
-### Update [1.9.0](https://github.com/cheqd/studio-portal/compare/1.8.1...1.9.0) (2025-09-09)
+### Release 3: Add support for Organizations and Agents (2025-09-09)
 
 #### Features
 
@@ -69,7 +69,7 @@ description: Chronological changelog for cheqd Studio portal releases.
 
 ***
 
-### Update [1.8.0](https://github.com/cheqd/studio-portal/compare/1.7.0...1.8.0) (2025-09-03)
+### Release 2: Add support for Trust Ecosystems (2025-09-03)
 
 #### Features
 
@@ -98,12 +98,13 @@ description: Chronological changelog for cheqd Studio portal releases.
 
 ***
 
-### Update [1.6.0](https://github.com/cheqd/studio-portal/compare/1.5.1...1.6.0) (2025-08-13)
+### Release 1: Add new dashboard for cheqd Studio metrics (2025-08-13)
 
 #### Features
 
 * Add features for Dashboard and Api access in portal
 * Add create DID option in UI
+* Improve UI for managing API keys
 
 
 
