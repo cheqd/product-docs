@@ -16,27 +16,37 @@ Follow the tutorial here to create an encrypted Bitstring Status List Resource o
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Charge for Status List</strong></mark></td><td>Create an encrypted Status List on cheqd with payment conditions, unlockable on payment of CHEQ</td><td><a href="charge.md">charge.md</a></td></tr></tbody></table>
 
-### Step 2: Construct Credential Payload with Status List
+### Step 2: Choose index number for Credential
 
-{% hint style="info" %}
-With Bitstring status lists, the indices are assigned as per the current usage state of the status list. Users do not need to pass index, as it may interfere with auto-assignments and return errors if mismatched.
+Each encrypted Status List is a [bitstring](https://en.wikipedia.org/wiki/Bit_array), where each bit represents a Credential which is either revoked or unrevoked (or suspended or unsuspended).
+
+{% hint style="warning" %}
+Users should maintain and manage a list of which Credentials match with which specific bitstring indices to be able to revoke or suspend Credentials in the future, and to avoid collisions.
 {% endhint %}
+
+When issuing a Credential, you have the choice of whether to manually specify an index for the Credential within the bitstring, or randomly generate an index number anywhere in the bitstring, or within a given range.
+
+### Step 3: Construct Credential Payload with Status List
 
 When constructing the payload for issuing a Credential just specify the purpose and the encrypted status list name.
 
 The following parameters may be included:
 
-| Parameter             | Value        | Optional |
-| --------------------- | ------------ | -------- |
-| `"statusPurpose"`     | `"message"`  | No       |
-| `"statusListName"`    | string       | No       |
-| `"statusListVersion"` | string       | Yes      |
+| Parameter                | Value        | Optional |
+| ------------------------ | ------------ | -------- |
+| `"statusPurpose"`        | `"message"`  | No       |
+| `"statusListName"`       | string       | No       |
+| `"statusListVersion"`    | string       | Yes      |
+| `"statusListIndex"`      | string       | Yes      |
+| `"statusListRangeStart"` | string       | Yes      |
+| `"statusListRangeEnd"`   | string       | Yes      |
+| `"indexNotIn"`           | Array        | Yes      |
 
-Below is an example of how these parameters may be included in Credential payload files:
+Below are a set of examples of how these parameters may be included in Credential payload files for different purposes:
 
 <details>
 
-<summary>Example Request Format</summary>
+<summary>Example Request Format: Random Bitstring Index</summary>
 
 ```json
 {
@@ -69,11 +79,121 @@ Below is an example of how these parameters may be included in Credential payloa
 
 </details>
 
+<details>
+
+<summary>Example Request Format: Bitstring index within a given range</summary>
+
+```json
+{
+    "issuanceOptions": {
+        "credential": {
+            "credentialSubject": {
+                "name": "tweeddalex",
+                "id": "did:key:z6MkvG4dpKVpYwYqnwcjRdw8VZ3km4Sisgxm1igaPCFzskxe"
+            },
+            "issuer": {
+                "id": "did:cheqd:testnet:322761ea-587d-454a-a955-745200301b99"
+            },
+            "type": [
+                "VerifiableCredential"
+            ],
+            "@context": [
+                "https://www.w3.org/2018/credentials/v1",
+                "https://veramo.io/contexts/profile/v1"
+            ]
+        }
+    },
+    "statusOptions": {
+        "statusPurpose": "message",
+        "statusListName": "status-list-encrypted",
+        "statusListIndex": 1456
+    }
+}
+
+```
+
+</details>
+
+<details>
+
+<summary>Example Request Format: Bitstring including omitted bits</summary>
+
+```json
+{
+    "issuanceOptions": {
+        "credential": {
+            "credentialSubject": {
+                "name": "tweeddalex",
+                "id": "did:key:z6MkvG4dpKVpYwYqnwcjRdw8VZ3km4Sisgxm1igaPCFzskxe"
+            },
+            "issuer": {
+                "id": "did:cheqd:testnet:322761ea-587d-454a-a955-745200301b99"
+            },
+            "type": [
+                "VerifiableCredential"
+            ],
+            "@context": [
+                "https://www.w3.org/2018/credentials/v1",
+                "https://veramo.io/contexts/profile/v1"
+            ]
+        }
+    },
+    "statusOptions": {
+        "statusPurpose": "message",
+        "statusListName": "status-list-encrypted",
+        "statusListRangeStart": 2000,
+        "statusListRangeEnd": 3000
+    }
+}
+
+```
+
+</details>
+
+<details>
+
+<summary>Example Request Format: Specified Bitstring index</summary>
+
+```json
+{
+    "issuanceOptions": {
+        "credential": {
+            "credentialSubject": {
+                "name": "tweeddalex",
+                "id": "did:key:z6MkvG4dpKVpYwYqnwcjRdw8VZ3km4Sisgxm1igaPCFzskxe"
+            },
+            "issuer": {
+                "id": "did:cheqd:testnet:322761ea-587d-454a-a955-745200301b99"
+            },
+            "type": [
+                "VerifiableCredential"
+            ],
+            "@context": [
+                "https://www.w3.org/2018/credentials/v1",
+                "https://veramo.io/contexts/profile/v1"
+            ]
+        }
+    },
+    "statusOptions": {
+        "statusPurpose": "message",
+        "statusListName": "status-list-encrypted",
+        "statusListRangeStart": 10,
+        "statusListRangeEnd": 3000,
+        "indexNotIn": 13, 1807, 2434
+    }
+}
+
+```
+
+</details>
+
 {% hint style="info" %}
 Ensure that the `"statusPurpose"`  is `message` and `"statusListName"` is the same as the existing Status List on-ledger, [created in Step 1](issue-paid-credential.md#step-1-create-an-encrypted-status-list-on-ledger).&#x20;
 {% endhint %}
 
-### Step 3: Execute the transaction
+Ensure that the `"statusPurpose"` is `message` and `"statusListName"` is the same as the existing Status List on-ledger, [created in Step 1](https://app.gitbook.com/o/-MiQSPMufVJdYEwQHd2c/s/PVAMvpKH7PYzvXA6u6Cn/~/diff/~/changes/519/sdk/veramo/payments/issue-paid-credential#step-1-create-an-encrypted-status-list-on-ledger).
+
+### Step 4: Execute the transaction
 
 Once you have constructed your payload file, and have saved it as a JSON file, use the transaction below to issue the Verifiable Credential.
 
@@ -81,7 +201,7 @@ Once you have constructed your payload file, and have saved it as a JSON file, u
 veramo execute -m cheqdIssueCredentialWithStatusList --argsFile path/to/payload.json
 ```
 
-### Response format
+#### Response format
 
 If the transaction is successful, you will get returned a formatted Verifiable Credential, including a populated `"credentialStatus"` section.&#x20;
 
