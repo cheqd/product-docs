@@ -14,17 +14,15 @@ A Verifier can choose to make a payment to the Issuer if they want to obtain thi
 
 ### Step 1: Locating Issuers' payment address and conditions
 
-If a Verifier wants to unlock access to the Resource, to gain access to additional information about a Credential presented to them, such as the Credential Status, firstly, the Verifier will be presented Credential, including a link to the StatusList within the `"credentialStatus"` section of the Credential body.
+If a Verifier wants to unlock the Resource, to gain access to additional information about a Credential presented to them, such as the Credential Status, firstly, the Verifier will be presented Credential, including a link to the StatusList within the `"credentialStatus"` section of the Credential body.
 
-Through following the link in`"credentialStatus"` section of the Credential body. the The Verifier will be directed to an on-ledger Resource, identifiable through a DID URL, for example:&#x20;
+By following the link in `"credentialStatus"` section of the Credential body, the Verifier will be directed to an on-ledger Resource, identifiable through a DID URL, for example:&#x20;
 
-{% embed url="https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:322761ea-587d-454a-a955-745200301b99?resourceName=revocation-list-encrypted-inverse-timelock&resourceType=StatusList2021Revocation" %}
-Example of encrypted Status List identifiable via a DID URL
-{% endembed %}
+[https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:9c01bc05-178b-4742-a189-9b56933df971?resourceName=encrypted-test-list\&resourceType=BitstringStatusListCredential](https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:9c01bc05-178b-4742-a189-9b56933df971?resourceName=encrypted-test-list\&resourceType=BitstringStatusListCredential)
 
 This on-ledger Resource will contain:
 
-* An encrypted potion of the Resource, such as a Status List bitstring. identified by the `"encodedList"` property.
+* An encrypted potion of the Resource, such as a Bitstring Status List, identified by the `"encodedList"` property.
 * Unencrypted metadata about the Resource, including the issuers' payment address `"feePayerAddress"` and and the Payment Conditions, `"feePaymentAmount"` and `"intervalInSeconds"`.
 
 This gives the verifier requisite information they need in order to pay the Issuer to unlock the Credential Status. You can learn more about Access Control Conditions below.
@@ -73,10 +71,30 @@ This indicates that the Verifier wants to claim that they have met the Access Co
             "VerifiableCredential"
         ],
         "credentialStatus": {
-            "id": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:322761ea-587d-454a-a955-745200301b99?resourceName=revocation-list-encrypted-inverse-timelock&resourceType=StatusList2021Revocation#79444",
-            "type": "StatusList2021Entry",
-            "statusPurpose": "revocation",
-            "statusListIndex": "79444"
+            "id": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:322761ea-587d-454a-a955-745200301b99?resourceName=encrypted-test-list&resourceType=BitstringStatusListCredential#65675",
+            "type": "BitstringStatusListEntry",
+            "statusPurpose": "message",
+            "statusListIndex": "65675",
+            "statusListCredential": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:322761ea-587d-454a-a955-745200301b99?resourceName=encrypted-test-list&resourceType=BitstringStatusListCredential",
+            "statusSize": 2,
+            "statusMessage": [
+                {
+                "status": "0x0",
+                "message": "valid"
+                },
+                {
+                "status": "0x1",
+                "message": "revoked"
+                },
+                {
+                "status": "0x2",
+                "message": "suspended"
+                },
+                {
+                "status": "0x3",
+                "message": "unknown"
+                }
+            ]
         },
         "@context": [
             "https://www.w3.org/2018/credentials/v1",
@@ -98,10 +116,10 @@ This indicates that the Verifier wants to claim that they have met the Access Co
 
 ### Step 4: Submitting the Credential verify transaction
 
-Using the Veramo CLI. Verifiers can submit the following transaction, alongside the payload file to verify the Credential:
+Using the Veramo CLI Verifiers can submit the following transaction, alongside the payload file to verify the Credential:
 
 ```bash
-veramo execute -m cheqdVerifyCredential --argsFile path/to/payload.json
+veramo execute -m cheqdVerifyCredentialWithStatusList --argsFile path/to/payload.json
 ```
 
 If successful, the Verifier will obtain the keys to decrypt the Status List and access the Credential Status information. The Verifier will receive a response indicating whether the Credential:
@@ -124,16 +142,36 @@ Result : {
         "https://w3id.org/vc-status-list-2021/v1"
       ],
       "type": [
-        "VerifiableCredential"
+        "VerifiableCredential", "Profile"
       ],
       "credentialSubject": {
         "name": "tweeddalex"
       },
       "credentialStatus": {
-        "id": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:cc8e5d9f-05f8-4f09-93c5-b9dba4b45404?resourceName=testing-payment-rails&resourceType=StatusList2021Revocation#123979",
-        "type": "StatusList2021Entry",
-        "statusPurpose": "revocation",
-        "statusListIndex": "123979"
+          "id": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:322761ea-587d-454a-a955-745200301b99?resourceName=encrypted-test-list&resourceType=BitstringStatusListCredential#9815",
+          "type": "BitstringStatusListEntry",
+          "statusPurpose": "message",
+          "statusListIndex": "9815",
+          "statusListCredential": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:322761ea-587d-454a-a955-745200301b99?resourceName=encrypted-test-list&resourceType=BitstringStatusListCredential",
+          "statusSize": 2,
+          "statusMessage": [
+                    {
+                        "status": "0x0",
+                        "message": "valid"
+                    },
+                    {
+                        "status": "0x1",
+                        "message": "revoked"
+                    },
+                    {
+                        "status": "0x2",
+                        "message": "suspended"
+                    },
+                    {
+                        "status": "0x3",
+                        "message": "unknown"
+                    }
+          ]
       }
     },
     "sub": "did:key:z6MkvG4dpKVpYwYqnwcjRdw8VZ3km4Sisgxm1igaPCFzskxe",
@@ -149,7 +187,7 @@ Result : {
           "resourceURI": "did:cheqd:testnet:cc8e5d9f-05f8-4f09-93c5-b9dba4b45404/resources/08990db4-b759-4b7b-bd9b-823ccddbab83",          "resourceCollectionId": "cc8e5d9f-05f8-4f09-93c5-b9dba4b45404",
           "resourceId": "08990db4-b759-4b7b-bd9b-823ccddbab83",
           "resourceName": "testing-payment-rails",
-          "resourceType": "StatusList2021Revocation",
+          "resourceType": "BitstringStatusListCredential",
           "mediaType": "application/json",
           "resourceVersion": "2023-08-17T08:39:47.206Z",
           "created": "2023-08-17T08:39:52Z",
@@ -161,7 +199,7 @@ Result : {
           "resourceURI": "did:cheqd:testnet:cc8e5d9f-05f8-4f09-93c5-b9dba4b45404/resources/fa9ff872-64c3-4045-95fb-bba50b25fcc1",          "resourceCollectionId": "cc8e5d9f-05f8-4f09-93c5-b9dba4b45404",
           "resourceId": "fa9ff872-64c3-4045-95fb-bba50b25fcc1",
           "resourceName": "testing-payment-rails",
-          "resourceType": "StatusList2021Revocation",
+          "resourceType": "BitstringStatusListCredential",
           "mediaType": "application/json",
           "resourceVersion": "2023-08-18T03:05:52.818Z",
           "created": "2023-08-18T03:05:54Z",

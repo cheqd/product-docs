@@ -6,46 +6,37 @@ description: >-
 
 # Issue Credential with Encrypted Status List
 
-## Issue Verifiable Credential with Encrypted Status List 2021 Resource
+## Issue Verifiable Credential with Encrypted Bitstring Status List Resource
 
 There is a specific transaction type for issuing Verifiable Credentials that reference encrypted Status List Resources.&#x20;
 
 ### Step 1: Create an encrypted Status List on-ledger
 
-Follow the tutorial here to create an encrypted Status List 2021 Resource on cheqd.
+Follow the tutorial here to create an encrypted Bitstring Status List Resource on cheqd.
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Charge for Status List</strong></mark></td><td>Create an encrypted Status List on cheqd with payment conditions, unlockable on payment of CHEQ</td><td><a href="charge.md">charge.md</a></td></tr></tbody></table>
 
-### Step 2: Choose index number for Credential
-
-Each encrypted Status List is a [bitstring](https://en.wikipedia.org/wiki/Bit_array), where each bit represents a Credential which is either revoked or unrevoked (or suspended or unsuspended).
-
-{% hint style="info" %}
-Users should maintain and manage a list of which Credentials match with which specific bitstring indices to be able to revoke or suspend Credentials in the future, and to avoid collisions.
-{% endhint %}
-
-When issuing a Credential, you have the choice of whether to manually specify an index for the Credential within the bitstring, or randomly generate an index number anywhere in the bitstring, or within a given range.
-
 ### Step 2: Construct Credential Payload with Status List
 
-As mentioned above, when constructing the payload for your Credential, including the encrypted Resource, you have a choice of how you would like to specify the index.
+{% hint style="info" %}
+With Bitstring status lists, the indices are assigned as per the current usage state of the status list. Users do not need to pass index, as it may interfere with auto-assignments and return errors if mismatched.
+{% endhint %}
+
+When constructing the payload for issuing a Credential just specify the purpose and the encrypted status list name.
 
 The following parameters may be included:
 
-| Parameter                | Value                            | Optional |
-| ------------------------ | -------------------------------- | -------- |
-| `"statusPurpose"`        | `"revocation"` or `"suspension"` | No       |
-| `"statusListName"`       | string                           | No       |
-| `"statusListVersion"`    | string                           | Yes      |
-| `"statusListRangeStart"` | number                           | Yes      |
-| `"statusListRangeEnd"`   | number                           | Yes      |
-| `"statusListVersion"`    | number, or set of numbers        | Yes      |
+| Parameter             | Value        | Optional |
+| --------------------- | ------------ | -------- |
+| `"statusPurpose"`     | `"message"`  | No       |
+| `"statusListName"`    | string       | No       |
+| `"statusListVersion"` | string       | Yes      |
 
-Below are a set of examples of how these parameters may be included in Credential payload files for different purposes:
+Below is an example of how these parameters may be included in Credential payload files:
 
 <details>
 
-<summary>Example Request Format: Random Bitstring index</summary>
+<summary>Example Request Format</summary>
 
 ```json
 {
@@ -59,125 +50,18 @@ Below are a set of examples of how these parameters may be included in Credentia
                 "id": "did:cheqd:testnet:322761ea-587d-454a-a955-745200301b99"
             },
             "type": [
-                "VerifiableCredential"
+                "VerifiableCredential", "Profile"
             ],
             "@context": [
                 "https://www.w3.org/2018/credentials/v1",
                 "https://veramo.io/contexts/profile/v1"
             ]
-        }
+        },
+        "proofFormat": "jwt"
     },
     "statusOptions": {
-        "statusPurpose": "revocation",
-        "statusListName": "status-list-2021-encrypted"
-    }
-}
-
-```
-
-</details>
-
-<details>
-
-<summary>Example Request Format: Specified Bitstring index</summary>
-
-```json
-{
-    "issuanceOptions": {
-        "credential": {
-            "credentialSubject": {
-                "name": "tweeddalex",
-                "id": "did:key:z6MkvG4dpKVpYwYqnwcjRdw8VZ3km4Sisgxm1igaPCFzskxe"
-            },
-            "issuer": {
-                "id": "did:cheqd:testnet:322761ea-587d-454a-a955-745200301b99"
-            },
-            "type": [
-                "VerifiableCredential"
-            ],
-            "@context": [
-                "https://www.w3.org/2018/credentials/v1",
-                "https://veramo.io/contexts/profile/v1"
-            ]
-        }
-    },
-    "statusOptions": {
-        "statusPurpose": "revocation",
-        "statusListName": "status-list-2021-encrypted",
-        "statusListIndex": 1456
-    }
-}
-
-```
-
-</details>
-
-<details>
-
-<summary>Example Request Format: Bitstring index within a given range</summary>
-
-```json
-{
-    "issuanceOptions": {
-        "credential": {
-            "credentialSubject": {
-                "name": "tweeddalex",
-                "id": "did:key:z6MkvG4dpKVpYwYqnwcjRdw8VZ3km4Sisgxm1igaPCFzskxe"
-            },
-            "issuer": {
-                "id": "did:cheqd:testnet:322761ea-587d-454a-a955-745200301b99"
-            },
-            "type": [
-                "VerifiableCredential"
-            ],
-            "@context": [
-                "https://www.w3.org/2018/credentials/v1",
-                "https://veramo.io/contexts/profile/v1"
-            ]
-        }
-    },
-    "statusOptions": {
-        "statusPurpose": "revocation",
-        "statusListName": "status-list-2021-encrypted",
-        "statusListRangeStart": 2000,
-        "statusListRangeEnd": 3000
-    }
-}
-
-```
-
-</details>
-
-<details>
-
-<summary>Example Request Format: Bitstring including omitted bits </summary>
-
-```json
-{
-    "issuanceOptions": {
-        "credential": {
-            "credentialSubject": {
-                "name": "tweeddalex",
-                "id": "did:key:z6MkvG4dpKVpYwYqnwcjRdw8VZ3km4Sisgxm1igaPCFzskxe"
-            },
-            "issuer": {
-                "id": "did:cheqd:testnet:322761ea-587d-454a-a955-745200301b99"
-            },
-            "type": [
-                "VerifiableCredential"
-            ],
-            "@context": [
-                "https://www.w3.org/2018/credentials/v1",
-                "https://veramo.io/contexts/profile/v1"
-            ]
-        }
-    },
-    "statusOptions": {
-        "statusPurpose": "revocation",
-        "statusListName": "status-list-2021-encrypted",
-        "statusListRangeStart": 10,
-        "statusListRangeEnd": 3000,
-        "indexNotIn": 13, 1807, 2434
+        "statusPurpose": "message",
+        "statusListName": "status-list-encrypted"
     }
 }
 
@@ -186,7 +70,7 @@ Below are a set of examples of how these parameters may be included in Credentia
 </details>
 
 {% hint style="info" %}
-Ensure that the `"statusPurpose"` and `"statusListName"` is the same as the existing Status List on-ledger, [created in Step 1](issue-paid-credential.md#step-1-create-an-encrypted-status-list-on-ledger).&#x20;
+Ensure that the `"statusPurpose"`  is `message` and `"statusListName"` is the same as the existing Status List on-ledger, [created in Step 1](issue-paid-credential.md#step-1-create-an-encrypted-status-list-on-ledger).&#x20;
 {% endhint %}
 
 ### Step 3: Execute the transaction
@@ -194,7 +78,7 @@ Ensure that the `"statusPurpose"` and `"statusListName"` is the same as the exis
 Once you have constructed your payload file, and have saved it as a JSON file, use the transaction below to issue the Verifiable Credential.
 
 ```
-veramo execute -m cheqdIssueRevocableCredentialWithStatusList2021 --argsFile path/to/payload.json
+veramo execute -m cheqdIssueCredentialWithStatusList --argsFile path/to/payload.json
 ```
 
 ### Response format
@@ -215,13 +99,34 @@ Result : {
     "id": "did:cheqd:testnet:cc8e5d9f-05f8-4f09-93c5-b9dba4b45404"
   },
   "type": [
-    "VerifiableCredential"
+    "VerifiableCredential",
+     "Profile"
   ],
   "credentialStatus": {
-    "id": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:cc8e5d9f-05f8-4f09-93c5-b9dba4b45404?resourceName=testing-payment-rails&resourceType=StatusList2021Revocation#123979",
-    "type": "StatusList2021Entry",
-    "statusPurpose": "revocation",
-    "statusListIndex": "123979"
+    "id": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:322761ea-587d-454a-a955-745200301b99?resourceName=status-list-encrypted&resourceType=BitstringStatusListCredential#1211",
+    "type": "BitstringStatusListEntry",
+    "statusPurpose": "message",
+    "statusListIndex": "1211",
+    "statusListCredential": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:322761ea-587d-454a-a955-745200301b99?resourceName=status-list-encrypted&resourceType=BitstringStatusListCredential",
+    "statusSize": 2,
+    "statusMessage": [
+      {
+        "status": "0x0",
+        "message": "valid"
+      },
+      {
+        "status": "0x1",
+        "message": "revoked"
+      },
+      {
+        "status": "0x2",
+        "message": "suspended"
+      },
+      {
+        "status": "0x3",
+        "message": "unknown"
+      }
+    ]
   },
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
