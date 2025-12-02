@@ -191,8 +191,6 @@ Below are a set of examples of how these parameters may be included in Credentia
 Ensure that the `"statusPurpose"`  is `message` and `"statusListName"` is the same as the existing Status List on-ledger, [created in Step 1](issue-paid-credential.md#step-1-create-an-encrypted-status-list-on-ledger).&#x20;
 {% endhint %}
 
-Ensure that the `"statusPurpose"` is `message` and `"statusListName"` is the same as the existing Status List on-ledger, [created in Step 1](https://app.gitbook.com/o/-MiQSPMufVJdYEwQHd2c/s/PVAMvpKH7PYzvXA6u6Cn/~/diff/~/changes/519/sdk/veramo/payments/issue-paid-credential#step-1-create-an-encrypted-status-list-on-ledger).
-
 ### Step 4: Execute the transaction
 
 Once you have constructed your payload file, and have saved it as a JSON file, use the transaction below to issue the Verifiable Credential.
