@@ -1,16 +1,16 @@
-# Gas Simulation and Transaction Batching Optimization
+# 🧪 Simulation and Gas optimization
 
 This guide demonstrates advanced techniques for utilizing gas simulation to achieve better fee estimations and guarantees, as well as implementing efficient transaction batching patterns using the cheqd SDK. These techniques are based on the SDK's internal implementation and provide production-ready optimization strategies.
 
 ## Table of Contents
 
-- [Gas Simulation Overview](#gas-simulation-overview)
-- [Advanced Gas Estimation](#advanced-gas-estimation)
-- [Transaction Batching Strategies](#transaction-batching-strategies)
-- [Fee Optimization Patterns](#fee-optimization-patterns)
-- [Production Implementation](#production-implementation)
-- [Error Handling and Resilience](#error-handling-and-resilience)
-- [Built-in Transaction Retry Policy](#built-in-transaction-retry-policy)
+* [Gas Simulation Overview](simulation-gas-optimization.md#gas-simulation-overview)
+* [Advanced Gas Estimation](simulation-gas-optimization.md#advanced-gas-estimation)
+* [Transaction Batching Strategies](simulation-gas-optimization.md#transaction-batching-strategies)
+* [Fee Optimization Patterns](simulation-gas-optimization.md#fee-optimization-patterns)
+* [Production Implementation](simulation-gas-optimization.md#production-implementation)
+* [Error Handling and Resilience](simulation-gas-optimization.md#error-handling-and-resilience)
+* [Built-in Transaction Retry Policy](simulation-gas-optimization.md#built-in-transaction-retry-policy)
 
 ## Gas Simulation Overview
 
@@ -18,21 +18,21 @@ Gas simulation allows you to accurately estimate transaction costs before execut
 
 ### Core Benefits
 
-| Benefit | Description | Use Case |
-|---------|-------------|----------|
-| **Cost Prediction** | Accurate fee estimation before transaction execution | User experience, cost planning |
-| **Failure Prevention** | Early detection of insufficient gas scenarios | Transaction reliability |
-| **Optimal Gas Setting** | Avoid over/under-provisioning gas | Cost optimization |
-| **Batch Optimization** | Efficient grouping of multiple transactions | Throughput maximization |
+| Benefit                 | Description                                          | Use Case                       |
+| ----------------------- | ---------------------------------------------------- | ------------------------------ |
+| **Cost Prediction**     | Accurate fee estimation before transaction execution | User experience, cost planning |
+| **Failure Prevention**  | Early detection of insufficient gas scenarios        | Transaction reliability        |
+| **Optimal Gas Setting** | Avoid over/under-provisioning gas                    | Cost optimization              |
+| **Batch Optimization**  | Efficient grouping of multiple transactions          | Throughput maximization        |
 
 ### Simulation vs Real Execution
 
-| Aspect | Simulation | Real Execution |
-|--------|------------|----------------|
-| **Network State** | Current state snapshot | State at execution time |
-| **Gas Consumption** | Estimated usage | Actual usage |
-| **Side Effects** | None (read-only) | Permanent state changes |
-| **Cost** | Free | Consumes actual fees |
+| Aspect              | Simulation             | Real Execution          |
+| ------------------- | ---------------------- | ----------------------- |
+| **Network State**   | Current state snapshot | State at execution time |
+| **Gas Consumption** | Estimated usage        | Actual usage            |
+| **Side Effects**    | None (read-only)       | Permanent state changes |
+| **Cost**            | Free                   | Consumes actual fees    |
 
 ## Advanced Gas Estimation
 
@@ -1013,12 +1013,12 @@ The cheqd SDK includes a sophisticated retry mechanism in the `broadcastTx` meth
 
 The `CheqdSigningStargateClient.broadcastTx()` method implements an enhanced retry policy with the following features:
 
-| Feature | Description | Default Value |
-|---------|-------------|---------------|
-| **Max Retries** | Maximum number of broadcast attempts | 3 |
-| **Timeout** | Maximum wait time for transaction inclusion | 60,000 ms (60s) |
-| **Poll Interval** | Frequency of checking for transaction inclusion | 3,000 ms (3s) |
-| **Backoff Delay** | Brief delay between retry attempts | 1,000 ms (1s) |
+| Feature           | Description                                     | Default Value   |
+| ----------------- | ----------------------------------------------- | --------------- |
+| **Max Retries**   | Maximum number of broadcast attempts            | 3               |
+| **Timeout**       | Maximum wait time for transaction inclusion     | 60,000 ms (60s) |
+| **Poll Interval** | Frequency of checking for transaction inclusion | 3,000 ms (3s)   |
+| **Backoff Delay** | Brief delay between retry attempts              | 1,000 ms (1s)   |
 
 ### How the Retry Policy Works
 

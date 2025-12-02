@@ -1,4 +1,4 @@
-# Dynamic Fees with Feemarket Module
+# 🔧 Fee Market Module with Dynamic Fees
 
 This guide explains how to use the feemarket module to implement dynamic fee calculation for standard Cosmos SDK transactions on the cheqd network. The feemarket module provides real-time gas pricing based on network congestion and demand.
 
@@ -8,9 +8,9 @@ This guide explains how to use the feemarket module to implement dynamic fee cal
 
 Dynamic fees adjust transaction costs based on network conditions:
 
-- **High Network Activity**: Gas prices increase to prioritize transactions
-- **Low Network Activity**: Gas prices decrease to reduce transaction costs
-- **Real-time Pricing**: Prices update continuously based on network demand
+* **High Network Activity**: Gas prices increase to prioritize transactions
+* **Low Network Activity**: Gas prices decrease to reduce transaction costs
+* **Real-time Pricing**: Prices update continuously based on network demand
 
 ## Gas Price Endpoints
 
@@ -536,15 +536,15 @@ async function monitorFeeMarket() {
 
 ### 1. Gas Estimation
 
-- Always simulate transactions before broadcasting
-- Add 10-20% buffer to gas estimates
-- Use batch transactions to optimize gas usage
+* Always simulate transactions before broadcasting
+* Add 10-20% buffer to gas estimates
+* Use batch transactions to optimize gas usage
 
 ### 2. Fee Management
 
-- Monitor network congestion regularly
-- Consider fee abstraction for predictable costs
-- Use dynamic pricing during low-congestion periods
+* Monitor network congestion regularly
+* Consider fee abstraction for predictable costs
+* Use dynamic pricing during low-congestion periods
 
 ### 3. Error Handling
 
@@ -592,28 +592,26 @@ async function robustTransactionWithDynamicFees(messages: any[], sender: string)
 
 ### 4. Performance Tips
 
-- Cache gas prices for short periods (30-60 seconds)
-- Use WebSocket connections for real-time price updates
-- Implement circuit breakers for high-fee scenarios
+* Cache gas prices for short periods (30-60 seconds)
+* Use WebSocket connections for real-time price updates
+* Implement circuit breakers for high-fee scenarios
 
 ## Troubleshooting
 
 ### Common Issues
 
 1. **High Gas Fees**
-   - Check network congestion
-   - Consider using fee abstraction
-   - Wait for off-peak hours
-
+   * Check network congestion
+   * Consider using fee abstraction
+   * Wait for off-peak hours
 2. **Transaction Failures**
-   - Increase gas limit
-   - Verify account balance
-   - Check message formatting
-
+   * Increase gas limit
+   * Verify account balance
+   * Check message formatting
 3. **API Failures**
-   - Implement fallback pricing
-   - Use multiple RPC endpoints
-   - Handle network timeouts
+   * Implement fallback pricing
+   * Use multiple RPC endpoints
+   * Handle network timeouts
 
 ### Error Codes
 
@@ -641,15 +639,15 @@ async function handleTransactionErrors(result: any) {
 
 ## Next Steps
 
-- [Implement fee abstraction for multi-token support](../fee-abstraction/using-in-transactions.md)
-- [Learn about identity transaction pricing](../did-module/README.md)
-- [Explore advanced SDK features](../sdk-setup.md)
+* [Implement fee abstraction for multi-token support](../fee-abstraction/using-in-transactions.md)
+* [Learn about identity transaction pricing](../did-module/)
+* [Explore advanced SDK features](../sdk-setup.md)
 
 ## Getting Help
 
 If you encounter issues with dynamic fees:
 
-- Check the [cheqd SDK GitHub repository](https://github.com/cheqd/sdk) for updates
-- Review network status at [status.cheqd.io](https://status.cheqd.io)
-- Join the [cheqd Community Discord](https://discord.gg/cheqd) for support
-- Consult the [Cosmos SDK documentation](https://docs.cosmos.network/) for standard transaction types
+* Check the [cheqd SDK GitHub repository](https://github.com/cheqd/sdk) for updates
+* Review network status at [status.cheqd.io](https://status.cheqd.io)
+* Join the [cheqd Community Discord](https://discord.gg/cheqd) for support
+* Consult the [Cosmos SDK documentation](https://docs.cosmos.network/) for standard transaction types

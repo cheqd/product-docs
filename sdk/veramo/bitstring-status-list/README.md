@@ -12,7 +12,7 @@ Using DID-Linked Resources, we have been able to natively support Bitstring Stat
 
 ## Get started
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create Status List</strong></mark></td><td>Create a Status List on-ledger as a DID-Linked Resource using Veramo</td><td><a href="statuslist2021-resources.md">statuslist2021-resources.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Status List within a Verifiable Credential</strong></mark></td><td>Issue a Verifiable Credential with a cheqd Status List within the body.</td><td><a href="issuing-a-verifiable-credential-referencing-status-list.md">issuing-a-verifiable-credential-referencing-status-list.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create Status List</strong></mark></td><td>Create a Status List on-ledger as a DID-Linked Resource using Veramo</td><td><a href="bitstring-statuslist-resources.md">bitstring-statuslist-resources.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Status List within a Verifiable Credential</strong></mark></td><td>Issue a Verifiable Credential with a cheqd Status List within the body.</td><td><a href="issuing-a-verifiable-credential-referencing-status-list.md">issuing-a-verifiable-credential-referencing-status-list.md</a></td></tr></tbody></table>
 
 ## Understanding Bitstring Status List
 

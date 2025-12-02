@@ -326,4 +326,4 @@ issuer.events.on<OpenId4VcIssuanceSessionStateChangedEvent>(
 )
 ```
 
-We have also added an event listener that listens for state changed events, this allows Issuer to know when the issuance session is complete.\
+We have also added an event listener that listens for state changed events, this allows Issuer to know when the issuance session is complete.<br>
