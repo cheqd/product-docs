@@ -78,7 +78,7 @@ Below are is an example of unencrypted Status List Payload file:&#x20;
 
 The code snippet above shows a Bitstring Status List Payload file which supports both Revocation and Suspension. With Bitstring Status List with `statusSize` as 2, the same list can be used for revocation, suspension or any other message as determined by the `statusMessages` . The payload indicates to the ledger that the Resource should is unencrypted.
 
-For encrypted status list example, check [charge.md](../../../studio/payments/charge.md "mention").
+For encrypted status list example, check [charge.md](../payments/charge.md "mention")
 
 Where the fields within the payload have the following meaning:
 
