@@ -12,14 +12,14 @@ description: >-
 
 Below are a list of prices in CHEQ and approximate dollar values for carrying our identity writes to the network:
 
-| Metric                        | Amount CHEQ | Approximate cost (USD) |
-| ----------------------------- | ----------- | ---------------------- |
-| **DID write**                 | 50          | \~$2.00                |
-| **DID update**                | 25          | \~$1.00                |
-| **DID deactivate**            | 10          | \~$0.40                |
-| **Resource create (default)** | 5           | \~$0.20                |
-| **Resource create (JSON)**    | 2.5         | \~$0.10                |
-| **Resource create (image)**   | 10          | \~$0.40                |
+| Metric                        | Cost (USD) |
+| ----------------------------- | ---------- |
+| **DID write**                 | $2.00      |
+| **DID update**                | $1.00      |
+| **DID deactivate**            | $0.40      |
+| **Resource create (default)** | $0.20      |
+| **Resource create (JSON)**    | $0.10      |
+| **Resource create (image)**   | $0.40      |
 
 cheqd Identity pricing detailed above was implemented on-ledger as part of the January 2023 release - [v1.0.x](https://product.cheqd.io/network/upgrades/2021/v0.1.x)​.
 
