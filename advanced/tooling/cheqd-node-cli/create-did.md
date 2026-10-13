@@ -19,7 +19,7 @@ The purpose of this document is to describe how a DID (and associated DIDDoc) ca
 1. Access to a [`cheqd-node` Cosmos CLI binary](https://github.com/cheqd/cheqd-node/releases). You can either get this from [our Github releases](https://github.com/cheqd/cheqd-node/releases), or [download the `cheqd-cli` Docker container image](https://github.com/cheqd/cheqd-node/pkgs/container/cheqd-node).
 2. Understand how to use cheqd [accounts](https://docs.cheqd.io/node/getting-started/cheqd-cli/cheqd-cli-accounts) and [Cosmos SDK keys](https://docs.cheqd.io/node/getting-started/cheqd-cli/cheqd-cli-key-management).
 3. Tokens to pay for identity transactions, since all ledger transactions are metered.
-   1. For testing purposes, CHEQ test tokens can be acquired from [our testnet faucet](https://testnet-faucet.cheqd.io/).
+   1. For testing purposes, CHEQ test tokens can be acquired from [our testnet faucet](https://studio.cheqd.net/) (log in to cheqd Studio and go to **Account** > **Balances & Faucet**). Tokens are sent to the wallet address tied to your cheqd Studio account; to fund a different address, contact the cheqd team on [Discord](https://discord.gg/cheqd).
    2. Mainnet CHEQ tokens can be acquired from any marketplace where the $CHEQ token is traded.
 
 For the remainder of this tutorial, it's assumed that the DID and associated DID Document is being created on testnet. These commands can easily be modified for mainnet.

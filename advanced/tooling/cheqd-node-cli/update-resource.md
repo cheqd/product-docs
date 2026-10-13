@@ -13,7 +13,7 @@ This tutorial uses the [cheqd Cosmos CLI](https://docs.cheqd.io/node/getting-sta
 ## Pre-requisites
 
 1. Install the latest stable cheqd-node CLI, either as a [standalone binary](https://github.com/cheqd/cheqd-node/releases/latest) or [Docker container image](https://github.com/cheqd/cheqd-node/pkgs/container/cheqd-node).
-2. Acquire test CHEQ tokens through [our testnet faucet](https://testnet-faucet.cheqd.io) (if creating it on our testnet), or [CHEQ tokens](https://app.osmosis.zone/?from=OSMO\&to=CHEQ) (if you plan on creating it on mainnet).
+2. Acquire test CHEQ tokens through [our testnet faucet](https://studio.cheqd.net/) under **Account** > **Balances & Faucet** in cheqd Studio (if creating it on our testnet), or [CHEQ tokens](https://app.osmosis.zone/?from=OSMO\&to=CHEQ) (if you plan on creating it on mainnet). Faucet tokens are sent to the wallet address tied to your cheqd Studio account; to fund a different address, contact the cheqd team on [Discord](https://discord.gg/cheqd).
 3. An [existing DID + DIDDoc created on cheqd ledger](create-did.md)
 4. Having [a Resource already created](create-resource.md) under this DIDDoc Collection
 
