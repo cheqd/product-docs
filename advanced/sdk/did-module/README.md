@@ -25,7 +25,7 @@ The DID module supports three main operation categories:
 
 ## Quick Start Guides
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create DID</strong></mark></td><td>Step-by-step guide to create new Decentralized Identifiers with verification methods, service endpoints, and fee abstraction support for USDC, EURe, and OSMO payments.</td><td><a href="create-did.md">create-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Manage DID</strong></mark></td><td>Complete DID lifecycle management including updates, verification method changes, service endpoint modifications, and secure deactivation procedures.</td><td><a href="manage-did.md">manage-did.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Create DID</strong></mark></td><td>Step-by-step guide to create new Decentralized Identifiers with verification methods, service endpoints, and fee abstraction support for USDC, EURe, and OSMO payments.</td><td><a href="create-did.md">create-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Manage DID</strong></mark></td><td>Complete DID lifecycle management including updates, verification method changes, service endpoint modifications, and secure deactivation procedures.</td><td><a href="manage-a-did.md">manage-did.md</a></td></tr></tbody></table>
 
 ## DID Operations Reference
 
@@ -97,143 +97,86 @@ Optional transaction memo for additional context
 ### Creating a DID
 
 ```typescript
-import { 
+import {
+  CheqdNetwork,
+  MethodSpecificIdAlgo,
+  VerificationMethods,
   createDidPayload,
   createDidVerificationMethod,
   createKeyPairBase64,
   createVerificationKeys,
-  MethodSpecificIdAlgo,
-  VerificationMethods,
-  type ISignInputs
+  type ISignInputs,
 } from '@cheqd/sdk';
 
-async function createDID() {
-  // Generate key pair
-  const keyPair = createKeyPairBase64();
-  
-  // Create verification keys
-  const verificationKeys = createVerificationKeys(
-    keyPair.publicKey,
-    MethodSpecificIdAlgo.Base58,
-    'key-1'
-  );
-  
-  // Create verification methods
-  const verificationMethods = createDidVerificationMethod(
-    [VerificationMethods.Ed255192020],
-    [verificationKeys]
-  );
-  
-  // Create DID payload
-  const didPayload = createDidPayload(verificationMethods, [verificationKeys]);
-  
-  // Create sign inputs
-  const signInputs: ISignInputs[] = [
-    {
-      verificationMethodId: didPayload.verificationMethod![0].id,
-      privateKeyHex: toString(fromString(keyPair.privateKey, 'base64'), 'hex'),
-    },
-  ];
-  
-  // Create DID
-  const result = await sdk.createDidDocTx(
-    signInputs,
-    didPayload,
-    feePayer
-  );
-  
-  return result;
-}
+// `sdk` and `feePayer` come from the setup guide.
+const keyPair = createKeyPairBase64(); // keep keyPair.privateKey: it is the only key that can update or deactivate the DID
+const verificationKeys = createVerificationKeys(keyPair.publicKey, MethodSpecificIdAlgo.Base58, 'key-1', CheqdNetwork.Testnet);
+const verificationMethods = createDidVerificationMethod([VerificationMethods.Ed255192020], [verificationKeys]);
+const didPayload = createDidPayload(verificationMethods, [verificationKeys]);
+
+const signInputs: ISignInputs[] = [
+  {
+    verificationMethodId: didPayload.verificationMethod![0].id,
+    privateKeyHex: Buffer.from(keyPair.privateKey, 'base64').toString('hex'),
+  },
+];
+
+// Argument order: signInputs, didPayload, address, fee, memo, versionId, feeOptions.
+// Pass every argument: the SDK adds its own context after the last one you give.
+const result = await sdk.createDidDocTx(signInputs, didPayload, feePayer, undefined, undefined, undefined, undefined);
+if (result.code !== 0) throw new Error(`Failed to create DID: ${result.rawLog}`);
+console.log(`Created ${didPayload.id}`);
 ```
+
+See [Create a DID](create-did.md) for more examples.
 
 ### Updating a DID
 
+An update replaces the whole DID document, so read the current one, change it and send it back:
+
 ```typescript
-async function updateDID(existingDidPayload: any) {
-  // Add new verification method
-  const newKeyPair = createKeyPairBase64();
-  const newVerificationKeys = createVerificationKeys(
-    newKeyPair.publicKey,
-    MethodSpecificIdAlgo.Base58,
-    'key-2'
-  );
-  const newVerificationMethods = createDidVerificationMethod(
-    [VerificationMethods.Ed255192020],
-    [newVerificationKeys]
-  );
-  
-  // Create updated payload
-  const updatedPayload = {
-    ...existingDidPayload,
-    verificationMethod: [
-      ...existingDidPayload.verificationMethod,
-      ...newVerificationMethods
-    ],
-    authentication: [
-      ...existingDidPayload.authentication,
-      newVerificationMethods[0].id
-    ]
-  };
-  
-  // Sign with existing key
-  const signInputs: ISignInputs[] = [
-    {
-      verificationMethodId: existingDidPayload.verificationMethod[0].id,
-      privateKeyHex: 'existing-private-key-hex',
-    },
-  ];
-  
-  // Update DID
-  const result = await sdk.updateDidDocTx(
-    signInputs,
-    updatedPayload,
-    feePayer
-  );
-  
-  return result;
-}
+const current = (await sdk.queryDidDoc(did)).didDocument;
+if (!current) throw new Error(`${did} not found`);
+
+const updated = {
+  ...current,
+  service: [{ id: `${did}#website`, type: 'LinkedDomains', serviceEndpoint: ['https://example.com'] }],
+};
+
+const signInputs: ISignInputs[] = [
+  { verificationMethodId: `${did}#key-1`, privateKeyHex: '<hex private key of key-1>' },
+];
+
+const result = await sdk.updateDidDocTx(signInputs, updated, feePayer, undefined, undefined, undefined, undefined);
+if (result.code !== 0) throw new Error(`Failed to update DID: ${result.rawLog}`);
 ```
 
 ### Deactivating a DID
 
+Deactivation is permanent. The document stays resolvable, marked `deactivated`:
+
 ```typescript
-async function deactivateDID(didPayload: any) {
-  // Create deactivation payload
-  const deactivationPayload = {
-    ...didPayload,
-    // DID becomes inactive but historical records remain
-  };
-  
-  // Sign with current controller key
-  const signInputs: ISignInputs[] = [
-    {
-      verificationMethodId: didPayload.verificationMethod[0].id,
-      privateKeyHex: 'controller-private-key-hex',
-    },
-  ];
-  
-  // Deactivate DID
-  const result = await sdk.deactivateDidDocTx(
-    signInputs,
-    deactivationPayload,
-    feePayer
-  );
-  
-  return result;
-}
+const current = (await sdk.queryDidDoc(did)).didDocument;
+if (!current) throw new Error(`${did} not found`);
+
+const result = await sdk.deactivateDidDocTx(signInputs, current, feePayer, undefined, undefined, undefined, undefined);
+if (result.code !== 0) throw new Error(`Failed to deactivate DID: ${result.rawLog}`);
+
+const after = await sdk.queryDidDoc(did);
+console.log(after.didDocumentMetadata?.deactivated); // true
 ```
 
 ## Transaction Fees
 
-DID operations use a fixed pricing model independent of network congestion:
+Identity fees are fixed in US dollars and paid in CHEQ at the current exchange rate, so the amount of CHEQ changes with the CHEQ price. They do not depend on network congestion.
 
-| Operation      | Typical Gas Cost | Fee Range      |
-| -------------- | ---------------- | -------------- |
-| Create DID     | \~350,000 gas    | 0.35-0.5 CHEQ  |
-| Update DID     | \~350,000 gas    | 0.35-0.5 CHEQ  |
-| Deactivate DID | \~250,000 gas    | 0.25-0.35 CHEQ |
+| Operation      | Fee (USD) | Typical gas used |
+| -------------- | --------- | ---------------- |
+| Create DID     | $2.00     | \~150,000        |
+| Update DID     | $1.00     | \~185,000        |
+| Deactivate DID | $0.40     | \~265,000        |
 
-> **Note**: Actual fees may vary based on DID document size and complexity. The cheqd network uses fixed pricing for identity operations regardless of feemarket dynamics.
+Leave the `fee` argument as `undefined` and the SDK works out the amount for you. On testnet, where CHEQ is cheap, a DID creation costs around a thousand CHEQ, so fund your wallet with a few thousand.
 
 ## Key Types and Verification Methods
 
@@ -305,7 +248,7 @@ const serviceEndpoint = {
 ```typescript
 async function handleDidOperation() {
   try {
-    const result = await sdk.createDidDocTx(signInputs, didPayload, feePayer);
+    const result = await sdk.createDidDocTx(signInputs, didPayload, feePayer, undefined, undefined, undefined, undefined);
     
     if (result.code === 0) {
       console.log('✅ DID operation successful');
@@ -373,13 +316,7 @@ The cheqd DID module maintains full compliance with:
 ## Related Documentation
 
 * [DID Creation Guide](create-did.md) - Step-by-step DID creation
-* [DID Update Examples](manage-did.md#did-update-examples) - Add verification methods, update services, rotate keys
-* [DID Deactivation Examples](manage-did.md#did-deactivation-examples) - Basic and bulk deactivation procedures
-* [Key Rotation](manage-did.md#example-3-rotate-verification-keys) - Secure key rotation procedures
-* [Service Endpoint Management](manage-did.md#example-2-update-did-services) - Adding and updating DID services
-* [Complete Working Examples](manage-did.md#complete-working-examples) - Full update and deactivation implementations
-* [Error Handling & Validation](manage-did.md#error-handling-and-validation) - Pre-update validation and status checks
-* [Best Practices](manage-did.md#best-practices) - Guidelines for secure DID management
+* [Manage a DID](manage-a-did.md) - Update and deactivate a DID
 * [Fee Abstraction](../fee-abstraction/using-in-transactions.md) - Using alternative tokens for fees
 
 ## Getting Help

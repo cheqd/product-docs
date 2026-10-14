@@ -32,8 +32,7 @@ The Fee Abstraction module works with all cheqd transaction types:
 
 | Operation            | Method                                   | Description                                 | Required Parameters         | Optional Parameters |
 | -------------------- | ---------------------------------------- | ------------------------------------------- | --------------------------- | ------------------- |
-| **Query Host Zones** | `feeabstraction.hostZoneConfig()`        | Get supported IBC tokens and configurations | None                        | `pagination`        |
-| **Query Host Zone**  | `feeabstraction.hostZone()`              | Get specific host zone configuration        | `hostZoneId`                | None                |
+| **Query Host Zone**  | `sdk.querier.feeabs.hostChainConfig()`   | Get the host zone configuration for an IBC token | `ibcDenom`             | None                |
 | **Fee Payment**      | Transaction methods with `fee` parameter | Pay fees using alternative tokens           | `fee` object with IBC token | `memo`              |
 
 ### Transaction Integration
@@ -79,17 +78,9 @@ Each supported token has a host zone configuration that includes:
 | **Fixed Pricing**     | Predetermined fee amounts    | Identity transactions   | Primarily USDC       |
 | **Manual Conversion** | User-calculated fee amounts  | All transactions        | All supported tokens |
 
-### Fee Amount Guidelines
+### Fee Amounts
 
-| Transaction Category   | Base Fee (CHEQ) | USDC Equivalent | EURe Equivalent | OSMO Equivalent |
-| ---------------------- | --------------- | --------------- | --------------- | --------------- |
-| **Bank Transfer**      | 5,000 ncheq     | \~5,000 units   | \~5,000 units   | \~15,000 units  |
-| **DID Creation**       | 50,000 ncheq    | \~12,000 units  | \~12,000 units  | \~35,000 units  |
-| **DID Update**         | 40,000 ncheq    | \~15,000 units  | \~15,000 units  | \~45,000 units  |
-| **Resource Creation**  | 100,000 ncheq   | \~35,000 units  | \~35,000 units  | \~100,000 units |
-| **Staking Operations** | 25,000 ncheq    | \~8,000 units   | \~8,000 units   | \~25,000 units  |
-
-> **Note**: Fee amounts require manual conversion from CHEQ equivalent at current exchange rates. An upcoming SDK release will introduce USD fixed pricing and automated fee calculation.
+Identity fees are fixed in US dollars (for example about $2 to create a DID, $1 to update one and $0.40 to create a resource), and the network converts them into the fee token at the current rate. The amount in an IBC token therefore depends on that token's price. Do not hard-code amounts: query the fee for the transaction, or check the swap rate with the TWAP query, before building the `fee` object.
 
 ## Integration Patterns
 
@@ -108,24 +99,25 @@ Each supported token has a host zone configuration that includes:
 // Initialize SDK with fee abstraction
 const sdk = await createCheqdSDK({
   modules: [
-    DIDModule,
-    ResourceModule,
-    FeeabstractionModule, // Enable fee abstraction
-    FeemarketModule       // Enable dynamic fees
+    DIDModule as unknown as AbstractCheqdSDKModule,
+    ResourceModule as unknown as AbstractCheqdSDKModule,
+    FeeabstractionModule as unknown as AbstractCheqdSDKModule, // Enable fee abstraction
+    FeemarketModule as unknown as AbstractCheqdSDKModule       // Enable dynamic fees
   ],
   network: CheqdNetwork.Testnet,
+  rpcUrl: 'https://rpc.cheqd.network',
   wallet: wallet,
-  rpcEndpoint: rpcEndpoint,
-  queryClient: queryClient
 });
 
-// Query supported tokens
-const hostZones = await sdk.querier.feeabstraction.hostZoneConfig({});
+// Query the host zone configuration for an IBC token
+const hostZone = await sdk.querier.feeabs.hostChainConfig({ ibcDenom });
 
 // Use alternative token for fees
+// `amount` is in the smallest unit of the IBC token and must cover the USD-priced fee at the current rate.
 const fee = {
-  amount: [coin('12000', 'ibc/F663521BF1836B00F5F177680F74BFB9A8B5654A694D0D2BC249E03CF2509013')],
-  gas: '500000'
+  amount: [coin(amountInIbcToken, ibcDenom)],
+  gas: '500000',
+  payer: feePayer,
 };
 ```
 

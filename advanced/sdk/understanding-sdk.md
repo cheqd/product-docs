@@ -42,7 +42,7 @@ graph TB
 **Practical Use Cases**:
 
 * **Digital Identity Wallets**: Create DIDs for users with multiple authentication methods → [See DID Creation Guide](did-module/create-did.md)
-* **Enterprise Identity**: Manage corporate identities with key rotation capabilities → [See DID Management](did-module/manage-did.md)
+* **Enterprise Identity**: Manage corporate identities with key rotation capabilities → [See DID Management](did-module/manage-a-did.md)
 * **Multi-Signature Operations**: Set up DIDs with multiple controllers for organizational use → [See Multi-Controller Setup](did-module/#multi-controller-operations)
 
 ### 📁 Resource Module
