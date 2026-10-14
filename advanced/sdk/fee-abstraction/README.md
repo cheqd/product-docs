@@ -266,7 +266,7 @@ When upgrading to use fee abstraction:
 
 ### SDK Setup and Configuration
 
-* [SDK Setup Guide](../sdk-setup.md) - Initial SDK configuration and module setup
+* [SDK Setup Guide](../setup-the-cheqd-sdk.md) - Initial SDK configuration and module setup
 * [Dynamic Fees Guide](../feemarket-module/dynamic-fees.md) - Market-based fee calculation
 
 ### Transaction Modules

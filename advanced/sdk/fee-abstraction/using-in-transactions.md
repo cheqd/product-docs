@@ -8,7 +8,7 @@ Fee abstraction allows users to pay transaction fees in alternative tokens (like
 
 Before using fee abstraction, ensure you have:
 
-1. [Installed and configured the cheqd SDK](../sdk-setup.md)
+1. [Installed and configured the cheqd SDK](../setup-the-cheqd-sdk.md)
 2. A funded wallet with the alternative token for fee payment
 3. Access to a cheqd network with fee abstraction enabled
 4. Understanding of the available host zones and supported tokens

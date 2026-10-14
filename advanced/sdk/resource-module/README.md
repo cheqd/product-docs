@@ -251,7 +251,7 @@ For debugging resource operations:
 
 ### SDK Setup and Configuration
 
-* [SDK Setup Guide](../sdk-setup.md) - Initial SDK configuration
+* [SDK Setup Guide](../setup-the-cheqd-sdk.md) - Initial SDK configuration
 * [Fee Abstraction Guide](../fee-abstraction/using-in-transactions.md) - IBC token fee payment
 
 ### DID Management

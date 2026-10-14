@@ -6,7 +6,7 @@ This guide demonstrates how to create Decentralized Identifiers (DIDs) using the
 
 Before creating DIDs, ensure you have:
 
-1. [Installed and configured the cheqd SDK](../sdk-setup.md)
+1. [Installed and configured the cheqd SDK](../setup-the-cheqd-sdk.md)
 2. A funded wallet for paying transaction fees
 3. Access to a cheqd network (testnet or mainnet)
 

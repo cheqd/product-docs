@@ -6,7 +6,7 @@ This guide demonstrates how to create DID-Linked Resources using the cheqd SDK, 
 
 Before creating DID-Linked Resources, ensure you have:
 
-1. [Installed and configured the cheqd SDK](../sdk-setup.md)
+1. [Installed and configured the cheqd SDK](../setup-the-cheqd-sdk.md)
 2. [Created a DID](../did-module/create-did.md) to link resources to
 3. A funded wallet for paying transaction fees
 4. Access to a cheqd network (testnet or mainnet)

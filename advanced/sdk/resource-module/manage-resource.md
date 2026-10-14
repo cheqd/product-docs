@@ -26,7 +26,7 @@ This guide demonstrates how to manage DID-Linked Resources using the cheqd SDK. 
 
 Before managing resources, ensure you have:
 
-1. [Installed and configured the cheqd SDK](../sdk-setup.md)
+1. [Installed and configured the cheqd SDK](../setup-the-cheqd-sdk.md)
 2. [Created a DID-Linked Resource](create-resource.md) to version
 3. A funded wallet for paying transaction fees
 4. Access to a cheqd network (testnet or mainnet)

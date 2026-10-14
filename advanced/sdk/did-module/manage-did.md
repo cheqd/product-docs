@@ -6,7 +6,7 @@ This guide demonstrates how to update and deactivate Decentralized Identifiers (
 
 Before managing DIDs, ensure you have:
 
-1. [Installed and configured the cheqd SDK](../sdk-setup.md)
+1. [Installed and configured the cheqd SDK](../setup-the-cheqd-sdk.md)
 2. [Created a DID](create-did.md) that you want to update or deactivate
 3. A funded wallet for paying transaction fees
 4. Access to a cheqd network (testnet or mainnet)
