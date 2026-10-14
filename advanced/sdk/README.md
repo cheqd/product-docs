@@ -29,7 +29,7 @@ The cheqd SDK provides advanced modules for comprehensive identity and transacti
 
 ### Fee Management Modules
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Fee Abstraction Module</strong></mark></td><td>Pay transaction fees using alternative IBC tokens (USDC, EURe, OSMO) instead of native CHEQ tokens. Enables cross-chain fee payment and stablecoin fee strategies.</td><td><a href="fee-abstraction/">fee-abstraction</a></td></tr><tr><td><mark style="color:blue;"><strong>Feemarket Module</strong></mark></td><td>Dynamic fee calculation based on network congestion for standard Cosmos SDK transactions. Provides real-time gas pricing and fee optimization strategies.</td><td><a href="feemarket-module/">feemarket-module</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Fee Abstraction Module</strong></mark></td><td>Pay transaction fees using alternative IBC tokens (USDC, EURe, OSMO) instead of native CHEQ tokens. Enables cross-chain fee payment and stablecoin fee strategies.</td><td><a href="fee-abstraction/">fee-abstraction</a></td></tr><tr><td><mark style="color:blue;"><strong>Feemarket Module</strong></mark></td><td>Dynamic fee calculation based on network congestion for standard Cosmos SDK transactions. Provides real-time gas pricing and fee optimization strategies.</td><td><a href="feemarket-module/dynamic-fees.md">feemarket-module</a></td></tr></tbody></table>
 
 ### Module Integration Patterns
 
@@ -89,7 +89,7 @@ await sdk.signer.signAndBroadcast(sender, [transferMsg], fee);
 3. Integrate [Fee Abstraction](fee-abstraction/) for stablecoin payments
 
 #### For DeFi Applications  
-1. Use [Feemarket Module](feemarket-module/) for optimal transaction costs
+1. Use [Feemarket Module](feemarket-module/dynamic-fees.md) for optimal transaction costs
 2. Add [Fee Abstraction](fee-abstraction/) for multi-token support
 3. Implement dynamic fee strategies based on market conditions
 
