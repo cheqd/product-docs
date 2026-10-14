@@ -641,7 +641,7 @@ async function handleTransactionErrors(result: any) {
 
 * [Implement fee abstraction for multi-token support](../fee-abstraction/using-in-transactions.md)
 * [Learn about identity transaction pricing](../did-module/)
-* [Explore advanced SDK features](../sdk-setup.md)
+* [Explore advanced SDK features](../setup-the-cheqd-sdk.md)
 
 ## Getting Help
 

@@ -275,7 +275,7 @@ When upgrading to use dynamic fees:
 
 ### SDK Setup and Configuration
 
-- [SDK Setup Guide](../sdk-setup.md) - Initial SDK configuration and module setup
+- [SDK Setup Guide](../setup-the-cheqd-sdk.md) - Initial SDK configuration and module setup
 - [Fee Abstraction Guide](../fee-abstraction/README.md) - Multi-token fee payment options
 
 ### Transaction Modules

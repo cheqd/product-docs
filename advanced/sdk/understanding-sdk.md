@@ -206,7 +206,7 @@ Use this matrix to quickly identify which modules you need:
 
 ## Getting Started
 
-1. **Start Here**: [SDK Setup Guide](sdk-setup.md) - Install and configure the SDK
+1. **Start Here**: [SDK Setup Guide](setup-the-cheqd-sdk.md) - Install and configure the SDK
 2. **Choose Your Path**:
    * **Identity First**: Begin with [DID Module](did-module/)
    * **Cost Control**: Start with [Fee Abstraction](fee-abstraction/)
