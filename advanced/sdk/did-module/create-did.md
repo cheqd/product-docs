@@ -1,630 +1,160 @@
 # Create DIDs with cheqd SDK
 
-This guide demonstrates how to create Decentralized Identifiers (DIDs) using the cheqd SDK, with examples based on the SDK's test suite and common usage patterns.
+This guide shows how to create a `did:cheqd` DID with the cheqd SDK and check that it exists. Every example below was run against the cheqd testnet with `@cheqd/sdk@5.5.1`.
 
 ## Prerequisites
 
-Before creating DIDs, ensure you have:
+1. [Set up the cheqd SDK](../setup-the-cheqd-sdk.md), which gives you `sdk` and `feePayer`.
+2. A funded fee-payer wallet. Creating a DID costs about $2 in CHEQ; see [Transaction fees](README.md#transaction-fees). On testnet, request a few thousand CHEQ from the [Testnet Faucet](../../../network/tools/testnet-faucet.md).
 
-1. [Installed and configured the cheqd SDK](../setup-the-cheqd-sdk.md)
-2. A funded wallet for paying transaction fees
-3. Access to a cheqd network (testnet or mainnet)
+## Two kinds of key
 
-## SDK Initialization
+* The **fee payer** is the Cosmos wallet (`cheqd1…` address) that pays for the transaction.
+* The **DID key** is a separate Ed25519 key pair that controls the DID. You generate it below. **Keep its private key**: it is the only way to update or deactivate the DID, and cheqd cannot recover it.
 
-First, initialize the SDK with the required modules:
-
-### Basic SDK Setup
+## Create a DID
 
 ```typescript
-import { createCheqdSDK, DIDModule, CheqdNetwork, AbstractCheqdSDKModule } from '@cheqd/sdk';
-import { DirectSecp256k1HdWallet } from '@cosmjs/proto-signing';
+import {
+  CheqdNetwork,
+  MethodSpecificIdAlgo,
+  VerificationMethods,
+  createDidPayload,
+  createDidVerificationMethod,
+  createKeyPairBase64,
+  createVerificationKeys,
+  type ISignInputs,
+} from '@cheqd/sdk';
 
-// Initialize wallet from mnemonic
-const wallet = await DirectSecp256k1HdWallet.fromMnemonic(
-  'your twelve word mnemonic phrase goes here like this example', 
-  { prefix: 'cheqd' }
+// 1. Generate the DID's key pair
+const keyPair = createKeyPairBase64();
+
+// 2. Build the verification key, method and DID document
+const verificationKeys = createVerificationKeys(
+  keyPair.publicKey,
+  MethodSpecificIdAlgo.Base58,
+  'key-1',
+  CheqdNetwork.Testnet, // must match the network of your SDK instance
 );
+const verificationMethods = createDidVerificationMethod([VerificationMethods.Ed255192020], [verificationKeys]);
+const didPayload = createDidPayload(verificationMethods, [verificationKeys]);
 
-// Create SDK instance
-const sdk = await createCheqdSDK({
-  modules: [DIDModule as unknown as AbstractCheqdSDKModule],
-  rpcUrl: 'https://rpc.cheqd.network', // testnet
-  network: CheqdNetwork.Testnet,
-  wallet: wallet
-});
-```
+// 3. Sign with the DID key
+const signInputs: ISignInputs[] = [
+  {
+    verificationMethodId: didPayload.verificationMethod![0].id,
+    privateKeyHex: Buffer.from(keyPair.privateKey, 'base64').toString('hex'),
+  },
+];
 
-### Advanced SDK Setup with Custom Configuration
-
-```typescript
-import { 
-  createCheqdSDK, 
-  DIDModule, 
-  FeemarketModule,
-  CheqdNetwork,
-  createDefaultCheqdRegistry,
-  CheqdSigningStargateClient,
-  CheqdQuerier,
-  setupDidExtension,
-  AbstractCheqdSDKModule,
-  type ICheqdSDKOptions 
-} from '@cheqd/sdk';
-
-async function initializeAdvancedSDK() {
-  const wallet = await DirectSecp256k1HdWallet.fromMnemonic(mnemonic, { 
-    prefix: 'cheqd' 
-  });
-  
-  const options: ICheqdSDKOptions = {
-    modules: [
-      DIDModule as unknown as AbstractCheqdSDKModule, 
-      FeemarketModule as unknown as AbstractCheqdSDKModule
-    ],
-    rpcUrl: 'https://rpc.cheqd.network',
-    network: CheqdNetwork.Testnet,
-    wallet: wallet
-  };
-  
-  const sdk = await createCheqdSDK(options);
-  
-  // Initialize module instances for direct usage
-  const registry = createDefaultCheqdRegistry(DIDModule.registryTypes);
-  const signer = await CheqdSigningStargateClient.connectWithSigner(
-    'https://rpc.cheqd.network', 
-    wallet, 
-    { registry }
-  );
-  const querier = await CheqdQuerier.connectWithExtension(
-    'https://rpc.cheqd.network', 
-    setupDidExtension
-  );
-  
-  const didModule = new DIDModule(signer, querier);
-  
-  return { sdk, didModule, wallet };
-}
-```
-
-## DID Creation Examples
-
-### Example 1: Basic DID Creation with Ed25519VerificationKey2020
-
-This example creates a DID with a single Ed25519 key using the 2020 verification method:
-
-```typescript
-import { 
-  createKeyPairBase64,
-  createVerificationKeys,
-  createDidVerificationMethod,
-  createDidPayload,
-  MethodSpecificIdAlgo,
-  VerificationMethods,
-  CheqdNetwork,
-  toString,
-  fromString,
-  type ISignInputs
-} from '@cheqd/sdk';
-
-async function createBasicDID() {
-  // Initialize SDK (see SDK setup above)
-  const { didModule, wallet } = await initializeAdvancedSDK();
-  
-  // Step 1: Generate key pair
-  const keyPair = createKeyPairBase64();
-  
-  // Step 2: Create verification keys
-  const verificationKeys = createVerificationKeys(
-    keyPair.publicKey,
-    MethodSpecificIdAlgo.Base58,
-    'key-1',
-    CheqdNetwork.Testnet
-  );
-  
-  // Step 3: Create verification methods
-  const verificationMethods = createDidVerificationMethod(
-    [VerificationMethods.Ed255192020],
-    [verificationKeys]
-  );
-  
-  // Step 4: Create DID payload
-  const didPayload = createDidPayload(verificationMethods, [verificationKeys]);
-  
-  // Step 5: Create sign inputs
-  const signInputs: ISignInputs[] = [
-    {
-      verificationMethodId: didPayload.verificationMethod![0].id,
-      privateKeyHex: toString(fromString(keyPair.privateKey, 'base64'), 'hex'),
-    },
-  ];
-  
-  // Step 6: Get fee payer address
-  const feePayer = (await wallet.getAccounts())[0].address;
-  
-  // Step 7: Calculate transaction fees
-  const fee = await DIDModule.generateCreateDidDocFees(feePayer);
-  
-  // Step 8: Create the DID
-  // Note: This can also be called as sdk.createDidDocTx(signInputs, didPayload, feePayer, fee)
-  const didTx = await didModule.createDidDocTx(
-    signInputs, 
-    didPayload, 
-    feePayer, 
-    fee
-  );
-  
-  if (didTx.code === 0) {
-    console.log('✅ DID created successfully!');
-    console.log(`DID: ${didPayload.id}`);
-    console.log(`Transaction hash: ${didTx.transactionHash}`);
-    return {
-      did: didPayload.id,
-      didDocument: didPayload,
-      transaction: didTx,
-      keyPair
-    };
-  } else {
-    throw new Error(`Failed to create DID: ${didTx.rawLog}`);
-  }
-}
-```
-
-### Example 2: DID Creation with JsonWebKey2020
-
-This example creates a DID using the JsonWebKey2020 verification method:
-
-```typescript
-async function createDIDWithJWK() {
-  const { didModule, wallet } = await initializeAdvancedSDK();
-  
-  // Generate key pair
-  const keyPair = createKeyPairBase64();
-  
-  // Create verification keys with Base58 algorithm
-  const verificationKeys = createVerificationKeys(
-    keyPair.publicKey,
-    MethodSpecificIdAlgo.Base58,
-    'key-1',
-    CheqdNetwork.Testnet
-  );
-  
-  // Create verification methods with JsonWebKey2020
-  const verificationMethods = createDidVerificationMethod(
-    [VerificationMethods.JWK],
-    [verificationKeys]
-  );
-  
-  // Create DID payload
-  const didPayload = createDidPayload(verificationMethods, [verificationKeys]);
-  
-  // Create sign inputs
-  const signInputs: ISignInputs[] = [
-    {
-      verificationMethodId: didPayload.verificationMethod![0].id,
-      privateKeyHex: toString(fromString(keyPair.privateKey, 'base64'), 'hex'),
-    },
-  ];
-  
-  // Execute transaction
-  const feePayer = (await wallet.getAccounts())[0].address;
-  const fee = await DIDModule.generateCreateDidDocFees(feePayer);
-  // Note: This can also be called as sdk.createDidDocTx(signInputs, didPayload, feePayer, fee)
-  const didTx = await didModule.createDidDocTx(signInputs, didPayload, feePayer, fee);
-  
-  console.log(`JWK DID created: ${didPayload.id}`);
-  return { didPayload, didTx, keyPair };
-}
-```
-
-### Example 3: DID Creation with UUID Method Specific Identifier
-
-This example creates a DID using UUID as the method-specific identifier instead of Base58:
-
-```typescript
-async function createDIDWithUUID() {
-  const { didModule, wallet } = await initializeAdvancedSDK();
-  
-  // Generate key pair
-  const keyPair = createKeyPairBase64();
-  
-  // Create verification keys with UUID algorithm
-  const verificationKeys = createVerificationKeys(
-    keyPair.publicKey,
-    MethodSpecificIdAlgo.Uuid, // Using UUID instead of Base58
-    'key-1',
-    CheqdNetwork.Testnet
-  );
-  
-  // Create verification methods
-  const verificationMethods = createDidVerificationMethod(
-    [VerificationMethods.Ed255192018],
-    [verificationKeys]
-  );
-  
-  // Create DID payload
-  const didPayload = createDidPayload(verificationMethods, [verificationKeys]);
-  
-  // Create sign inputs
-  const signInputs: ISignInputs[] = [
-    {
-      verificationMethodId: didPayload.verificationMethod![0].id,
-      privateKeyHex: toString(fromString(keyPair.privateKey, 'base64'), 'hex'),
-    },
-  ];
-  
-  // Execute transaction
-  const feePayer = (await wallet.getAccounts())[0].address;
-  const fee = await DIDModule.generateCreateDidDocFees(feePayer);
-  // Note: This can also be called as sdk.createDidDocTx(signInputs, didPayload, feePayer, fee)
-  const didTx = await didModule.createDidDocTx(signInputs, didPayload, feePayer, fee);
-  
-  console.log(`UUID-based DID created: ${didPayload.id}`);
-  return { didPayload, didTx, keyPair };
-}
-```
-
-### Example 4: Multi-Key DID Creation
-
-This example creates a DID with multiple verification methods:
-
-```typescript
-async function createMultiKeyDID() {
-  const { didModule, wallet } = await initializeAdvancedSDK();
-  
-  // Generate multiple key pairs
-  const keyPair1 = createKeyPairBase64();
-  const keyPair2 = createKeyPairBase64();
-  
-  // Create verification keys for both key pairs
-  const verificationKeys1 = createVerificationKeys(
-    keyPair1.publicKey,
-    MethodSpecificIdAlgo.Base58,
-    'key-1',
-    CheqdNetwork.Testnet
-  );
-  
-  const verificationKeys2 = createVerificationKeys(
-    keyPair2.publicKey,
-    MethodSpecificIdAlgo.Base58,
-    'key-2',
-    CheqdNetwork.Testnet,
-    verificationKeys1.methodSpecificId, // Share same DID
-    verificationKeys1.didUrl
-  );
-  
-  // Create verification methods for both keys
-  const verificationMethods = createDidVerificationMethod(
-    [VerificationMethods.Ed255192020, VerificationMethods.JWK],
-    [verificationKeys1, verificationKeys2]
-  );
-  
-  // Create DID payload with both keys
-  const didPayload = createDidPayload(
-    verificationMethods, 
-    [verificationKeys1, verificationKeys2]
-  );
-  
-  // Create sign inputs for both keys
-  const signInputs: ISignInputs[] = [
-    {
-      verificationMethodId: didPayload.verificationMethod![0].id,
-      privateKeyHex: toString(fromString(keyPair1.privateKey, 'base64'), 'hex'),
-    },
-    {
-      verificationMethodId: didPayload.verificationMethod![1].id,
-      privateKeyHex: toString(fromString(keyPair2.privateKey, 'base64'), 'hex'),
-    },
-  ];
-  
-  // Execute transaction
-  const feePayer = (await wallet.getAccounts())[0].address;
-  const fee = await DIDModule.generateCreateDidDocFees(feePayer);
-  // Note: This can also be called as sdk.createDidDocTx(signInputs, didPayload, feePayer, fee)
-  const didTx = await didModule.createDidDocTx(signInputs, didPayload, feePayer, fee);
-  
-  console.log(`Multi-key DID created: ${didPayload.id}`);
-  console.log(`Number of verification methods: ${didPayload.verificationMethod?.length}`);
-  
-  return { 
-    didPayload, 
-    didTx, 
-    keyPairs: [keyPair1, keyPair2],
-    verificationKeys: [verificationKeys1, verificationKeys2]
-  };
-}
-```
-
-### Example 5: DID Creation with Services
-
-This example creates a DID with service endpoints:
-
-```typescript
-async function createDIDWithServices() {
-  const { didModule, wallet } = await initializeAdvancedSDK();
-  
-  // Generate key pair
-  const keyPair = createKeyPairBase64();
-  
-  // Create verification keys
-  const verificationKeys = createVerificationKeys(
-    keyPair.publicKey,
-    MethodSpecificIdAlgo.Base58,
-    'key-1',
-    CheqdNetwork.Testnet
-  );
-  
-  // Create verification methods
-  const verificationMethods = createDidVerificationMethod(
-    [VerificationMethods.Ed255192020],
-    [verificationKeys]
-  );
-  
-  // Create DID payload
-  const didPayload = createDidPayload(verificationMethods, [verificationKeys]);
-  
-  // Add service endpoints
-  didPayload.service = [
-    {
-      id: `${didPayload.id}#service-1`,
-      type: 'LinkedDomains',
-      serviceEndpoint: 'https://example.com'
-    },
-    {
-      id: `${didPayload.id}#service-2`,
-      type: 'DIDCommMessaging',
-      serviceEndpoint: 'https://example.com/didcomm',
-      accept: ['didcomm/v2'],
-      routingKeys: []
-    }
-  ];
-  
-  // Create sign inputs
-  const signInputs: ISignInputs[] = [
-    {
-      verificationMethodId: didPayload.verificationMethod![0].id,
-      privateKeyHex: toString(fromString(keyPair.privateKey, 'base64'), 'hex'),
-    },
-  ];
-  
-  // Execute transaction
-  const feePayer = (await wallet.getAccounts())[0].address;
-  const fee = await DIDModule.generateCreateDidDocFees(feePayer);
-  // Note: This can also be called as sdk.createDidDocTx(signInputs, didPayload, feePayer, fee)
-  const didTx = await didModule.createDidDocTx(signInputs, didPayload, feePayer, fee);
-  
-  console.log(`DID with services created: ${didPayload.id}`);
-  console.log(`Number of services: ${didPayload.service?.length}`);
-  
-  return { didPayload, didTx, keyPair };
-}
-```
-
-### Example 6: DID Creation with Custom Version ID
-
-This example creates a DID with a custom version identifier:
-
-```typescript
-import { v4 as uuidv4 } from 'uuid';
-
-async function createDIDWithVersionId() {
-  const { didModule, wallet } = await initializeAdvancedSDK();
-  
-  // Generate key pair
-  const keyPair = createKeyPairBase64();
-  
-  // Create verification keys
-  const verificationKeys = createVerificationKeys(
-    keyPair.publicKey,
-    MethodSpecificIdAlgo.Base58,
-    'key-1',
-    CheqdNetwork.Testnet
-  );
-  
-  // Create verification methods
-  const verificationMethods = createDidVerificationMethod(
-    [VerificationMethods.Ed255192020],
-    [verificationKeys]
-  );
-  
-  // Create DID payload
-  const didPayload = createDidPayload(verificationMethods, [verificationKeys]);
-  
-  // Create sign inputs
-  const signInputs: ISignInputs[] = [
-    {
-      verificationMethodId: didPayload.verificationMethod![0].id,
-      privateKeyHex: toString(fromString(keyPair.privateKey, 'base64'), 'hex'),
-    },
-  ];
-  
-  // Generate custom version ID
-  const versionId = uuidv4();
-  
-  // Execute transaction with version ID
-  const feePayer = (await wallet.getAccounts())[0].address;
-  const fee = await DIDModule.generateCreateDidDocFees(feePayer);
-  // Note: This can also be called as sdk.createDidDocTx(signInputs, didPayload, feePayer, fee, undefined, versionId)
-  const didTx = await didModule.createDidDocTx(
-    signInputs, 
-    didPayload, 
-    feePayer, 
-    fee,
-    undefined,
-    versionId
-  );
-  
-  console.log(`DID created with version ID: ${versionId}`);
-  console.log(`DID: ${didPayload.id}`);
-  
-  return { didPayload, didTx, keyPair, versionId };
-}
-```
-
-## Complete Working Example
-
-Here's a complete example you can run:
-
-```typescript
-import { 
-  createCheqdSDK, 
-  DIDModule,
-  CheqdNetwork,
-  AbstractCheqdSDKModule,
-  createKeyPairBase64,
-  createVerificationKeys,
-  createDidVerificationMethod,
-  createDidPayload,
-  MethodSpecificIdAlgo,
-  VerificationMethods,
-  toString,
-  fromString,
-  type ISignInputs
-} from '@cheqd/sdk';
-import { DirectSecp256k1HdWallet } from '@cosmjs/proto-signing';
-
-async function main() {
-  try {
-    // Replace with your mnemonic
-    const mnemonic = 'abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about';
-    
-    // Initialize wallet
-    const wallet = await DirectSecp256k1HdWallet.fromMnemonic(mnemonic, { 
-      prefix: 'cheqd' 
-    });
-    
-    // Create SDK instance
-    const sdk = await createCheqdSDK({
-      modules: [DIDModule as unknown as AbstractCheqdSDKModule],
-      rpcUrl: 'https://rpc.cheqd.network', // testnet
-      network: CheqdNetwork.Testnet,
-      wallet: wallet
-    });
-    
-    // Generate key pair
-    const keyPair = createKeyPairBase64();
-    console.log(`Generated key pair`);
-    
-    // Create verification keys
-    const verificationKeys = createVerificationKeys(
-      keyPair.publicKey,
-      MethodSpecificIdAlgo.Base58,
-      'key-1',
-      CheqdNetwork.Testnet
-    );
-    console.log(`Created verification keys for DID: ${verificationKeys.didUrl}`);
-    
-    // Create verification methods
-    const verificationMethods = createDidVerificationMethod(
-      [VerificationMethods.Ed255192020],
-      [verificationKeys]
-    );
-    
-    // Create DID payload
-    const didPayload = createDidPayload(verificationMethods, [verificationKeys]);
-    console.log(`Created DID payload`);
-    
-    // Create sign inputs
-    const signInputs: ISignInputs[] = [
-      {
-        verificationMethodId: didPayload.verificationMethod![0].id,
-        privateKeyHex: toString(fromString(keyPair.privateKey, 'base64'), 'hex'),
-      },
-    ];
-    
-    // Get fee payer
-    const feePayer = (await wallet.getAccounts())[0].address;
-    console.log(`Fee payer: ${feePayer}`);
-    
-    // Calculate fees
-    const fee = await DIDModule.generateCreateDidDocFees(feePayer);
-    console.log(`Calculated fee: ${JSON.stringify(fee)}`);
-    
-    // Create DID using SDK dot notation
-    const result = await sdk.createDidDocTx(signInputs, didPayload, feePayer, fee);
-    
-    if (result.code === 0) {
-      console.log('✅ DID created successfully!');
-      console.log(`🆔 DID: ${didPayload.id}`);
-      console.log(`📄 Transaction hash: ${result.transactionHash}`);
-      console.log(`⛽ Gas used: ${result.gasUsed}`);
-    } else {
-      console.error(`❌ Failed to create DID: ${result.rawLog}`);
-    }
-    
-  } catch (error) {
-    console.error('Error creating DID:', error);
-  }
-}
-
-// Run the example
-main();
-```
-
-## Error Handling and Validation
-
-### Client-side Validation
-
-Before submitting to the ledger, you can validate your DID payload:
-
-```typescript
-import { validateSpecCompliantPayload } from '@cheqd/sdk';
-
-// Validate DID payload before submission
-const validation = validateSpecCompliantPayload(didPayload);
-console.log('Validation result:', validation);
-```
-
-### Authentication Validation
-
-Validate that your sign inputs match the DID document authentication requirements:
-
-```typescript
-const authValidation = await DIDModule.validateAuthenticationAgainstSignatures(
+// 4. Submit. Argument order: signInputs, didPayload, address, fee, memo, versionId, feeOptions.
+const result = await sdk.createDidDocTx(
+  signInputs,
   didPayload,
-  signInputs.map(input => ({
-    verificationMethodId: input.verificationMethodId,
-    signature: new Uint8Array() // Empty for validation
-  }))
+  feePayer,
+  undefined, // fee: omit to let the SDK price it
+  undefined, // memo
+  undefined, // versionId
+  undefined, // feeOptions
 );
 
-if (!authValidation.valid) {
-  throw new Error(`Authentication validation failed: ${authValidation.error}`);
-}
-console.log('✅ Authentication validation passed');
+if (result.code !== 0) throw new Error(`Failed to create DID: ${result.rawLog}`);
+console.log(`Created ${didPayload.id} in tx ${result.transactionHash}`);
+// Store keyPair.privateKey securely now.
 ```
 
-## Best Practices
+{% hint style="warning" %}
+**Pass every argument.** The SDK appends its own context object after the last argument you pass. Calling `sdk.createDidDocTx(signInputs, didPayload, feePayer)` with fewer arguments throws `Cannot read properties of undefined (reading 'sdk')`, and TypeScript does not warn about it. Use `undefined` for the optional arguments you do not need.
+{% endhint %}
 
-1. **Key Management**: Store private keys securely and never expose them in client-side code
-2. **Fee Estimation**: Always check fee requirements before submitting transactions
-3. **Network Selection**: Use testnet for development and testing
-4. **Error Handling**: Implement proper error handling for network and transaction failures
-5. **Validation**: Validate DID documents and signatures before submitting to the ledger
-6. **Gas Limits**: Be aware of gas limits when creating complex DID documents
+### Fees
 
-## Next Steps
+Leave `fee` as `undefined` and the SDK prices the transaction from the network's current gas price and the USD-fixed identity fee. You do not need to calculate anything.
 
-After creating a DID, you can:
+## Check that it worked
 
-- [Update the DID document](manage-did.md)
-- [Create DID-Linked Resources](../resource-module/create-resource.md)
-- [Deactivate the DID](manage-did.md#deactivating-a-did)
-- Query the DID from the ledger
+Read the DID back through the SDK:
 
-## Troubleshooting
+```typescript
+const { didDocument, didDocumentMetadata } = await sdk.queryDidDoc(didPayload.id!);
+console.log(didDocument?.id, didDocumentMetadata?.versionId);
+```
 
-### Common Issues
+Or resolve it over HTTP with the cheqd DID resolver, which also works for DIDs you do not own:
 
-1. **Insufficient Funds**: Ensure your wallet has enough CHEQ tokens for transaction fees
-2. **Network Connectivity**: Verify connection to the cheqd network RPC endpoint
-3. **Key Format Errors**: Ensure keys are in the correct format (base64 or hex)
-4. **Authentication Mismatches**: Verify that sign inputs match the DID's authentication methods
+```bash
+curl -sL -H 'Accept: application/ld+json;profile="https://w3id.org/did-resolution"' \
+  "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:testnet:<id>"
+```
 
-### Getting Help
+With that `Accept` header the response is `{ didDocument, didDocumentMetadata, … }`. With `Accept: application/did+ld+json` you get the bare DID document instead.
 
-If you encounter issues:
+## More examples
 
-- Check the [cheqd SDK GitHub repository](https://github.com/cheqd/sdk) for the latest updates
-- Review the [test files](https://github.com/cheqd/sdk/tree/main/esm/tests) for additional examples
-- Consult the [cheqd documentation](https://docs.cheqd.io/) for comprehensive guides
-- Join the [cheqd community](https://discord.gg/cheqd) for support and discussions
+### Two keys and a service endpoint
+
+Additional keys must be attached to the **first key's DID**. Pass the first key's `didUrl` as the last argument of `createVerificationKeys` for each extra key; otherwise each key creates its own DID and the transaction fails with a "not found" error.
+
+```typescript
+const key1 = createKeyPairBase64();
+const key2 = createKeyPairBase64();
+
+const keys1 = createVerificationKeys(key1.publicKey, MethodSpecificIdAlgo.Base58, 'key-1', CheqdNetwork.Testnet);
+const keys2 = createVerificationKeys(
+  key2.publicKey,
+  MethodSpecificIdAlgo.Base58,
+  'key-2',
+  CheqdNetwork.Testnet,
+  undefined, // methodSpecificId
+  keys1.didUrl, // attach to the same DID
+);
+
+const methods = createDidVerificationMethod(
+  [VerificationMethods.Ed255192020, VerificationMethods.Ed255192020],
+  [keys1, keys2],
+);
+
+const payload = {
+  ...createDidPayload(methods, [keys1, keys2]),
+  service: [{ id: `${keys1.didUrl}#website`, type: 'LinkedDomains', serviceEndpoint: ['https://example.com'] }],
+};
+
+// createDidPayload lists both keys in `authentication`, so both must sign.
+const signInputs: ISignInputs[] = [
+  { verificationMethodId: payload.verificationMethod![0].id, privateKeyHex: Buffer.from(key1.privateKey, 'base64').toString('hex') },
+  { verificationMethodId: payload.verificationMethod![1].id, privateKeyHex: Buffer.from(key2.privateKey, 'base64').toString('hex') },
+];
+
+await sdk.createDidDocTx(signInputs, payload, feePayer, undefined, undefined, undefined, undefined);
+```
+
+### JsonWebKey2020
+
+Use `VerificationMethods.JWK` in place of `VerificationMethods.Ed255192020`; everything else is the same:
+
+```typescript
+const methods = createDidVerificationMethod([VerificationMethods.JWK], [verificationKeys]);
+```
+
+### UUID-style identifier
+
+By default the method-specific id is derived from the public key (Base58). To get a UUID instead, use `MethodSpecificIdAlgo.Uuid`:
+
+```typescript
+const verificationKeys = createVerificationKeys(keyPair.publicKey, MethodSpecificIdAlgo.Uuid, 'key-1', CheqdNetwork.Testnet);
+```
+
+## Common errors
+
+| Error                                                 | Cause and fix                                                                                                    |
+| ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `Cannot read properties of undefined (reading 'sdk')` | Fewer arguments than the full signature. Pass every argument.                                                    |
+| `Account 'cheqd1…' does not exist on chain`           | The fee-payer wallet has never been funded. See [Testnet Faucet](../../../network/tools/testnet-faucet.md).      |
+| `<did>: not found`                                    | An extra key was not attached to the first key's DID (see above).                                                |
+| `insufficient fees`                                   | A hand-written `fee` is too low. Omit `fee` so the SDK prices it.                                                |
+| Type error on `wallet`                                | A second `@cosmjs/*` copy is installed; see [Setup the cheqd SDK](../setup-the-cheqd-sdk.md).                    |
+
+## Next steps
+
+* [Manage a DID](manage-a-did.md): update and deactivate.
+* [Create a DID-Linked Resource](../resource-module/create-resource.md)
