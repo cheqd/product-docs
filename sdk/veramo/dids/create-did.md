@@ -337,7 +337,7 @@ If your transaction is successful, you'll receive a success message along with t
 
 ### Troubleshooting
 
-1. If you are using testnet, you can top-up your testnet balance using our [testnet faucet](https://testnet-faucet.cheqd.io/).
+1. If you are using testnet, you can top-up your testnet balance using our [testnet faucet](https://studio.cheqd.net/) (log in to cheqd Studio and go to **Account** > **Balances & Faucet**). Tokens are sent to the wallet address tied to your cheqd Studio account; to fund a different address, contact the cheqd team on [Discord](https://discord.gg/cheqd).
 2. You can also configure your Leap wallet to [support cheqd testnet using the instructions here](../../../network/wallets/setup-leap-wallet/testnet.md).
 3. If you are using mainnet, you can [purchase CHEQ tokens here](https://cheqd.io/buy).
 4. Check out our [troubleshooting guide for DID Operations](troubleshooting.md) to see common errors and fixes.

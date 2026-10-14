@@ -105,9 +105,11 @@ In order to see $CHEQ in your Keplr wallet, you’ll need to follow the steps be
 
 ### Requesting CHEQ Testnet tokens
 
-1. Go to the [cheqd testnet faucet](https://testnet-faucet.cheqd.io/)
-2. Select `start`
-3. Enter the cheqd wallet address you'd like to use
-4. Select `continue`
-5. You'll now recieve cheqd testnet tokens
-6. You can also go to the [cheqd testnet explorer](https://testnet-explorer.cheqd.io/) to confirm the tokens have been sent
+1. Log in to [cheqd Studio](https://studio.cheqd.net/).
+2. In the left sidebar, open the **Account** tab and select **Balances & Faucet**.
+3. Request testnet CHEQ tokens. They are sent to the wallet address tied to your cheqd Studio account.
+4. You can also go to the [cheqd testnet explorer](https://testnet-explorer.cheqd.io/) to confirm the tokens have been sent
+
+{% hint style="info" %}
+The faucet can only send tokens to the wallet address tied to your cheqd Studio account. If you need testnet tokens on your Keplr wallet address, get in touch with the cheqd team on [Discord](https://discord.gg/cheqd).
+{% endhint %}

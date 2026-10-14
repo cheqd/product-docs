@@ -219,6 +219,7 @@
 * [↪️ Useful Tools and APIs](network/tools/README.md)
   * [Block Explorer](network/tools/block-explorer.md)
   * [Testnet Faucet](network/tools/testnet-faucet.md)
+    * [Legacy Testnet Faucet (archived)](network/tools/testnet-faucet-legacy.md)
   * [Validator Status API](network/tools/validator-status-api.md)
   * [Cheqd x Cosmos Data APIs](network/tools/data-apis.md)
   * [Cosmos Airdrop Helpers](network/tools/airdrop.md)

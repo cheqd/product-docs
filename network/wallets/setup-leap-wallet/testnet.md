@@ -65,6 +65,6 @@ This is your cheqd testnet acount address.
 {% step %}
 ### Top up testnet tokens
 
-To get testnet tokens go to the faucet at [https://testnet-faucet.cheqd.io/](https://testnet-faucet.cheqd.io/), enter your address and the faucet will send you 100,000 $CHEQ testnet tokens.
+To get testnet tokens, log in to [cheqd Studio](https://studio.cheqd.net/), open the **Account** tab in the left sidebar, select **Balances & Faucet** and request testnet tokens. The faucet sends tokens to the wallet address tied to your cheqd Studio account. If you need testnet tokens on your Leap wallet address, get in touch with the cheqd team on [Discord](https://discord.gg/cheqd).
 {% endstep %}
 {% endstepper %}
