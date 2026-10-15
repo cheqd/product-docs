@@ -117,7 +117,7 @@ TRAIN_ENDPOINT="https://dev-train.trust-scheme.de/tcr/v1/"    # The TRAIN endpoi
 ```
 {% endcode %}
 
-Replace `your-testnet-mnemonic` with a valid mnemonic for the cheqd testnet. You can generate one using the cheqd CLI or get one from the cheqd faucet.
+Replace `your-testnet-mnemonic` with a valid mnemonic for the cheqd testnet. You can generate one using the cheqd CLI. A mnemonic only creates an address: for the Credo agent to pay for transactions, that address must hold testnet CHEQ, which you can request as described on the [Testnet Faucet](../../../../network/tools/testnet-faucet.md) page.
 
 #### Server Configuration Options
 

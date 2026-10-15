@@ -21,7 +21,7 @@ You should run your own registrar to perform DID Operations on the Mainnet.
 Environment variables needed for the Registrar are
 
 1. `FEE_PAYER_MAINNET_MNEMONIC` : The cosmos payer mnemonic for the Cheqd Mainnet
-2. `FEE_PAYER_TESTNET_MNEMONIC` : The cosmos payer mnemonic for the Cheqd Testnet, By default it's the Testnet Faucet
+2. `FEE_PAYER_TESTNET_MNEMONIC` : The cosmos payer mnemonic for the Cheqd Testnet. Set your own: the account must hold testnet CHEQ to pay fees, see [Testnet Faucet](../../network/tools/testnet-faucet.md).
 3. `LOCAL_STORE_TTL` (default: `600`): The time in seconds for the registrar to store data in cache
 4. `PORT` (default: `3000`): The port number
 
