@@ -169,6 +169,10 @@ The `cosmosPayerSeed` can be a 32-bit seed value or mnemonic. It can be managed 
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Leap Wallet</strong></mark></td><td>Manage your CHEQ natively through the Leap Wallet with full support on desktop, browser and mobile.</td><td><a href="../../.gitbook/assets/leap wallet.png">leap wallet.png</a></td><td><a href="../../network/wallets/setup-leap-wallet/">setup-leap-wallet</a></td></tr></tbody></table>
 
+{% hint style="info" %}
+**Fund the account behind `cosmosPayerSeed` on testnet.** A new address does not exist on chain until it holds CHEQ. Request testnet CHEQ for its `cheqd1…` address from the [Testnet Faucet](../../network/tools/testnet-faucet.md) in cheqd Studio, which funds any cheqd testnet address.
+{% endhint %}
+
 ## Next steps
 
 Now that your Credo agent is successfully set up to work with cheqd, try following our tutorials for creating a new DID or issuing Verifiable Credentials.
