@@ -2,6 +2,10 @@
 
 This guide takes you from an empty folder to a connected cheqd SDK with a funded testnet wallet, ready to [create a DID](did-module/create-did.md). It uses TypeScript and ES modules; a CommonJS note is at the end.
 
+{% hint style="info" %}
+**Want a working project instead?** The [cheqd SDK quickstart](https://github.com/cheqd/cheqd-sdk-quickstart) runs the whole journey on testnet with one script per step: create a wallet, fund it from the [Testnet Faucet](../../network/tools/testnet-faucet.md), then create, resolve, update and deactivate a DID and create a DID-Linked Resource. It also includes instructions for coding agents. See [Use with a coding agent](#use-with-a-coding-agent).
+{% endhint %}
+
 ## Prerequisites
 
 * **Node.js 22 or later.** `@cheqd/sdk` declares `"engines": { "node": ">=22.0.0" }`. Check with `node --version`.
@@ -104,6 +108,16 @@ The `as unknown as AbstractCheqdSDKModule` cast is needed for the types to line 
 * [Create a DID-Linked Resource](resource-module/create-resource.md)
 * [Manage a DID-Linked Resource](resource-module/manage-resource.md)
 * [Pay fees with other tokens](fee-abstraction/README.md)
+
+## Use with a coding agent
+
+The [cheqd SDK quickstart](https://github.com/cheqd/cheqd-sdk-quickstart) is set up for coding agents that read `AGENTS.md`, and for Claude Code:
+
+* `AGENTS.md` tells an agent how to use `@cheqd/sdk` safely: testnet only, never print the mnemonic, and the current SDK behaviours to work around.
+* A Claude Code skill (`.claude/skills/cheqd-sdk-quickstart`) runs the journey and reports the DID it created.
+* `node bin/create-cheqd-sdk-app.mjs <folder>` copies the scripts and agent files into a new project, without any keys.
+
+You still create the cheqd Studio account and API key yourself: the agent stops at the funding step and prints what to do.
 
 ## CommonJS
 
