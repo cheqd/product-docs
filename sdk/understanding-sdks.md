@@ -21,7 +21,7 @@ There are three ways to build on cheqd. Pick the one that matches how much of th
 | **Issue and verify credentials**             | ❌ (not part of the SDK; use a framework or Studio)                   | ✔️ VC-JWT and JSON-LD                                                                            | See the table below                                     |
 | **Status lists, trust registries, payments** | ❌                                                                    | ✔️                                                                                               | See the table below                                     |
 | **Best for**                                 | Custom integrations, minimal dependencies, full control of keys       | The fastest start, and backends that should not handle keys or blockchain code                   | Wallet, agent and protocol flows (DIDComm, OpenID4VC)   |
-| **Start with**                               | [Setup the cheqd SDK](../advanced/sdk/setup-the-cheqd-sdk.md)         | [Set up your Studio account](../getting-started/studio/set-up-account.md)                        | The SDK pages linked under "Get started"                |
+| **Start with**                               | [Setup the cheqd SDK](../advanced/sdk/setup-the-cheqd-sdk.md), or clone the [quickstart](https://github.com/cheqd/cheqd-sdk-quickstart) | [Set up your Studio account](../getting-started/studio/set-up-account.md)                        | The SDK pages linked under "Get started"                |
 
 If you are unsure, start with Studio to see results in a few API calls, and move to the SDK when you need to hold your own keys. Both can create the same `did:cheqd` DIDs and DID-Linked Resources, so you can use them side by side.
 
