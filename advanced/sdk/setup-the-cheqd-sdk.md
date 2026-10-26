@@ -111,13 +111,27 @@ The `as unknown as AbstractCheqdSDKModule` cast is needed for the types to line 
 
 ## Use with a coding agent
 
-The [cheqd SDK quickstart](https://github.com/cheqd/cheqd-sdk-quickstart) is set up for coding agents that read `AGENTS.md`, and for Claude Code:
+The [cheqd SDK quickstart](https://github.com/cheqd/cheqd-sdk-quickstart) works with coding agents. Open it in your agent and ask it to create a cheqd DID on testnet:
+
+| Agent | Instructions it reads | Skill it reads |
+| --- | --- | --- |
+| Claude Code | `CLAUDE.md`, which imports `AGENTS.md` | `.claude/skills/` |
+| OpenAI Codex (CLI, IDE, app) | `AGENTS.md` | `.agents/skills/` |
+| Cursor | `AGENTS.md` | `.agents/skills/` |
+| GitHub Copilot (VS Code agent mode, CLI, cloud agent) | `AGENTS.md` | `.agents/skills/` |
+| Gemini CLI | `AGENTS.md`, via `.gemini/settings.json` | `.agents/skills/` |
 
 * `AGENTS.md` tells an agent how to use `@cheqd/sdk` safely: testnet only, never print the mnemonic, and the current SDK behaviours to work around.
-* A Claude Code skill (`.claude/skills/cheqd-sdk-quickstart`) runs the journey and reports the DID it created.
+* The `cheqd-sdk-quickstart` skill runs the journey and reports the DID it created.
 * `node bin/create-cheqd-sdk-app.mjs <folder>` copies the scripts and agent files into a new project, without any keys.
 
-You still create the cheqd Studio account and API key yourself: the agent stops at the funding step and prints what to do.
+You still create the cheqd Studio account and API key yourself: the funding step stops and prints what to do if `STUDIO_API_KEY` is missing.
+
+{% hint style="info" %}
+**Cloud agents** (Codex cloud, Copilot cloud agent, Jules) run in a remote sandbox with limited internet access. Allow `rpc.cheqd.network`, `studio-api.cheqd.net` and `resolver.cheqd.net`, and give the agent `STUDIO_API_KEY` as an environment variable. See the quickstart [README](https://github.com/cheqd/cheqd-sdk-quickstart#use-with-a-coding-agent).
+
+The ChatGPT chat app cannot run the quickstart, because it has no shell. Use Codex instead.
+{% endhint %}
 
 ## CommonJS
 
