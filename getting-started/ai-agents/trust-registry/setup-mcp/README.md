@@ -56,40 +56,9 @@ The Cheqd MCP Server is particularly well-suited for scenarios requiring trusted
 * **Node.js 20 or higher** (if running using npx).
 * **Docker Desktop** (if running using docker). This is preferred when running the ACA-Py demo.
 
-### Quick Start: Use the Remote MCP Server
+### Run the MCP server locally
 
-The simplest way to get started with MCP and Trust Registry verification is to use our hosted remote MCP server.
-
-#### Configuration
-
-* Open your Claude Desktop configuration file:
-  * **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-  * **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-* Or, for Cursor `.cursor/mcp.json`&#x20;
-* Add the following configuration:
-
-```json
-"mcpServers": {
-    "cheqd-mcp": {
-        "command": "npx",
-        "args": [
-            "mcp-remote",
-            "https://remote-mcp.cheqd.io/mcp"
-        ],
-    }
-}
-```
-
-* Save the file and restart Claude Desktop.
-* You should now see the Trust Registry verification tools available in Claude Desktop/ Cursor.
-
-<figure><img src="../../../../.gitbook/assets/Screenshot 2025-05-08 at 16.24.19.png" alt=""><figcaption></figcaption></figure>
-
-{% embed url="https://youtu.be/sT6soNmMGIs" %}
-
-### Alternative: Local Installation (For Developers)
-
-If you prefer to run the MCP server locally, with more control on the configuration and environment variables, you can run locally using docker.
+Run the cheqd MCP server on your own machine with Docker, using your own configuration and keys.
 
 #### 1. Get the code
 
