@@ -42,6 +42,8 @@ To enable DID registration on Cheqd, you must deploy the Cheqd DID Registrar dri
     export FEE_PAYER_TESTNET_MNEMONIC="your testnet mnemonic phrase ..."
     export FEE_PAYER_MAINNET_MNEMONIC="your mainnet mnemonic phrase ..."
     ```
+
+    The testnet mnemonic's account pays for testnet transactions, so it needs testnet CHEQ. Request it for that account's `cheqd1…` address from the [Testnet Faucet](../../network/tools/testnet-faucet.md) in cheqd Studio, which funds any cheqd testnet address.
 3.  Run the driver.
 
     ```bash

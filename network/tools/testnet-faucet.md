@@ -1,38 +1,69 @@
 ---
 description: >-
-  Use the testnet faucet to top up your testnet wallet and start using cheqd's
-  identity functionality.
+  Request testnet CHEQ for any cheqd testnet address from cheqd Studio, in the
+  portal or through the API.
 ---
 
 # Testnet Faucet
 
-The cheqd testnet faucet allows app developers and node operators who want to try out our identity functionality or node operations to request test CHEQ tokens, without having to spend money to acquire “real” CHEQ tokens on mainnet.
+The cheqd testnet faucet gives app developers and node operators free testnet CHEQ, so they can try cheqd's identity functionality without buying mainnet CHEQ.
 
-The testnet faucet is available in [cheqd Studio](https://studio.cheqd.net/).
+The faucet is part of [cheqd Studio](https://studio.cheqd.net/). It can fund **any cheqd testnet address**, including a wallet you created yourself for the cheqd SDK, Veramo, Credo or ACA-Py, not only the address tied to your Studio account.
 
-## Get started
+## Before you start
 
-To request testnet tokens:
+* **A cheqd Studio account.** [Sign up for cheqd Studio](https://studio.cheqd.net/). New accounts start on a 30-day trial of the Basic plan, with no card needed.
+* **An active Basic or Build plan, or that trial.** Without one, faucet requests return `403`.
+* **A cheqd testnet address** (`cheqd1…`) if you want to fund your own wallet. See [Setup the cheqd SDK](../../advanced/sdk/setup-the-cheqd-sdk.md), or set up a [Leap](../wallets/setup-leap-wallet/testnet.md) or [Keplr](../wallets/keplr-setup.md) wallet.
+
+## Request tokens in cheqd Studio
 
 1. Log in to [cheqd Studio](https://studio.cheqd.net/).
 2. In the left sidebar, open the **Account** tab and select **Balances & Faucet**.
-3. Request testnet CHEQ tokens. They are sent to the wallet address tied to your cheqd Studio account.
+3. The address is filled in with your Studio testnet account. Replace it with your own `cheqd1…` address if you want to fund that instead.
+4. Choose an amount, or leave the suggested one, and request the tokens.
 
-{% hint style="info" %}
-The faucet sends tokens to the wallet address tied to your cheqd Studio account. If you need testnet tokens on a different address, get in touch with the cheqd team on [Discord](https://discord.gg/cheqd).
-{% endhint %}
+## Request tokens through the API
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Testnet Faucet</strong></mark></td><td>Log in to cheqd Studio and go to Account > Balances & Faucet to request test CHEQ tokens.</td><td><a href="https://studio.cheqd.net/">https://studio.cheqd.net/</a></td></tr></tbody></table>
+Call `POST /account/faucet` with an API key from your Studio account (see [API keys](../../getting-started/studio/api-keys.md)):
 
-## **Why is this valuable?**
+```bash
+curl -X POST https://studio-api.cheqd.net/account/faucet \
+  -H "x-api-key: $STUDIO_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"address": "cheqd1...", "amount": 10000}'
+```
 
-This solution:
+Both fields are optional:
 
-1. Helps to keep the team focused on building, as no longer do we need to dedicate time for manually responding to requests for tokens.
-2. Creates a far more cost effective way of handling tesnet token distributions
-3. Can be utilised by developers to test cheqd functionality far more efficiently
-4. Can be used by other Cosmos projects to reduce operational overheads and reduce headaches around distributing testnet tokens
+* `address`: the cheqd testnet address to fund. If you leave it out, your Studio testnet account is funded.
+* `amount`: in CHEQ. If you leave it out, 10,000 CHEQ is sent, or less if a limit below leaves less room.
+
+The response shows the amount sent and the quota you have left.
+
+## Limits
+
+| Limit | Value |
+| --- | --- |
+| Testnet CHEQ per Studio account per calendar month (UTC), across all addresses | 100,000 |
+| Most an address can hold for the faucet to top it up | 100,000 |
+| Amount sent when none is requested | 10,000 |
+| Time between requests from one account | 10 seconds |
+
+New Studio accounts also receive a one-time top-up of their own testnet account when they are created.
+
+## Errors
+
+| Status | Meaning |
+| --- | --- |
+| `400` | The address is not a valid cheqd address, or the amount is not a positive number |
+| `401` | No valid login or API key |
+| `403` | No active Basic or Build plan or trial, or the plan does not include the faucet |
+| `429` | Monthly quota used up, or a request too soon after the last one. The `Retry-After` header gives the seconds to wait |
+| `502` or `504` | The faucet did not answer. A `504` request may still have been processed, so check the balance before retrying |
+
+The full reference is in the [cheqd Studio API documentation](https://studio-api.cheqd.net/swagger/).
 
 ## Legacy faucet
 
-The testnet faucet was previously a standalone site at `testnet-faucet.cheqd.io`. Information about it is kept in the [Legacy Testnet Faucet (archived)](testnet-faucet-legacy.md) page.
+The testnet faucet used to be a standalone site at `testnet-faucet.cheqd.io`. That site is no longer public. Information about it is kept in the [Legacy Testnet Faucet (archived)](testnet-faucet-legacy.md) page.

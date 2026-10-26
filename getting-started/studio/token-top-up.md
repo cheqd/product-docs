@@ -42,8 +42,8 @@ If you need to add CHEQ tokens to your cheqd Studio `cheqd_account`, there are a
 
 <summary>Testnet</summary>
 
-* It is unlikely that you will ever need to top up your Testnet account, as this is handled automatically. However, in the event that your Testnet account runs out of tokens, you can follow the step below.
-* This is super simple. You can add free CHEQ tokens to your cheqd\_account [via our Testnet Faucet](../../network/tools/testnet-faucet.md). Log in to [cheqd Studio](https://studio.cheqd.net/), open the **Account** tab in the left sidebar, select **Balances & Faucet** and request testnet tokens. The tokens are sent to the wallet address tied to your cheqd Studio account.
+* A new cheqd Studio account receives a one-time top-up of testnet CHEQ when it is created. If your Testnet account runs out of tokens, follow the step below.
+* Add free CHEQ tokens to your cheqd\_account [via our Testnet Faucet](../../network/tools/testnet-faucet.md). Log in to [cheqd Studio](https://studio.cheqd.net/), open the **Account** tab in the left sidebar, select **Balances & Faucet** and request testnet tokens. The address is filled in with your cheqd Studio testnet account; you can change it to fund another cheqd testnet address. The faucet needs an active Basic or Build plan, or the trial.
 
 </details>
 
