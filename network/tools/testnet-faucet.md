@@ -50,7 +50,7 @@ The response shows the amount sent and the quota you have left.
 | Amount sent when none is requested | 10,000 |
 | Time between requests from one account | 10 seconds |
 
-New Studio accounts also receive a one-time top-up of their own testnet account when they are created.
+New Studio accounts start with no testnet CHEQ. Nothing is sent automatically, because you may want to fund a wallet of your own instead. The Studio dashboard tells you when your testnet account is empty and links to **Balances & Faucet**.
 
 ## Errors
 

@@ -33,12 +33,16 @@ This key is required to authenticate with **cheqd Studio APIs** and protects you
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>API keys</strong></mark></td><td>Create a new API key to authenticate with the cheqd Studio APIs.</td><td><a href="api-keys.md">api-keys.md</a></td></tr></tbody></table>
 
-## Step 4: Start using cheqd
+## Step 4: Get testnet CHEQ
+
+New accounts start with no testnet CHEQ, so Studio calls that write to testnet, such as creating a DID, fail until you request some. The dashboard shows a notice with a **Get testnet CHEQ** button while your testnet account is empty. It takes you to **Account** > **Balances & Faucet**, where you request tokens for your Studio account or for any other cheqd testnet address. See [Testnet Faucet](../../network/tools/testnet-faucet.md).
+
+## Step 5: Start using cheqd
 
 Get started with our tutorials for cheqd Studio functionality. If you are building with the [cheqd SDK](../../advanced/sdk/setup-the-cheqd-sdk.md) or another SDK instead, your Studio account also gives you free testnet CHEQ for any wallet: see [Testnet Faucet](../../network/tools/testnet-faucet.md).
 
 <table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>DIDs and Identity Keys</strong></mark></td><td>Create <code>did:cheqd</code> DIDs for credential issuers and for DID-Linked Resources</td><td><a href="../../studio/dids/create-did.md">create-did.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Trust Registries</strong></mark></td><td>Create an end-to-end trusted ecosystem, using Trust Chains to build a full Trust Registry.</td><td><a href="../../studio/trust-registries/">trust-registries</a></td></tr><tr><td><mark style="color:blue;"><strong>Payments</strong></mark></td><td>Create commercial models for verifiable credentials, such as verifier-pays-issuer</td><td><a href="../../studio/payments/">payments</a></td></tr><tr><td><mark style="color:blue;"><strong>Status Lists</strong></mark></td><td>Create status lists, including Status List v2021 and Token Status List</td><td><a href="../../studio/status-lists/">status-lists</a></td></tr><tr><td><mark style="color:blue;"><strong>Credentials</strong></mark></td><td>Issue any type of credential, including SD-JWT, VCDM and AnonCreds via our partners, including trust registries, status lists and payments.</td><td><a href="../../studio/credentials/">credentials</a></td></tr><tr><td><mark style="color:blue;"><strong>Resources</strong></mark></td><td>Create custom resources for policies, presentation definitions, schemas and visual representations of credentials</td><td><a href="../../studio/did-linked-resources/">did-linked-resources</a></td></tr></tbody></table>
 
-## Step 5: Choose a billing plan
+## Step 6: Choose a billing plan
 
 New accounts start on a free 30-day trial of the Basic plan, which includes testnet access and the [testnet faucet](../../network/tools/testnet-faucet.md). To keep using cheqd Studio after the trial, choose a plan on the **Billing** page. cheqd Studio billing uses [Stripe](https://stripe.com/au) as a payments processor, and you will be asked for card details when you choose a plan.

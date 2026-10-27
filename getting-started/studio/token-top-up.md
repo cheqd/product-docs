@@ -42,7 +42,7 @@ If you need to add CHEQ tokens to your cheqd Studio `cheqd_account`, there are a
 
 <summary>Testnet</summary>
 
-* A new cheqd Studio account receives a one-time top-up of testnet CHEQ when it is created. If your Testnet account runs out of tokens, follow the step below.
+* A new cheqd Studio account starts with no testnet CHEQ, and nothing is sent automatically. Until you request some, Studio calls that write to testnet, such as creating a DID, fail. The dashboard tells you when your testnet account is empty. Follow the step below to fund it.
 * Add free CHEQ tokens to your cheqd\_account [via our Testnet Faucet](../../network/tools/testnet-faucet.md). Log in to [cheqd Studio](https://studio.cheqd.net/), open the **Account** tab in the left sidebar, select **Balances & Faucet** and request testnet tokens. The address is filled in with your cheqd Studio testnet account; you can change it to fund another cheqd testnet address. The faucet needs an active Basic or Build plan, or the trial.
 
 </details>
