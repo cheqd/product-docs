@@ -4,7 +4,7 @@ This guide shows how to create a `did:cheqd` DID with the cheqd SDK and check th
 
 ## Prerequisites
 
-1. [Set up the cheqd SDK](../setup-the-cheqd-sdk.md), which gives you `sdk` and `feePayer`.
+1. [Set up the cheqd SDK](../setup-the-cheqd-sdk.md), which gives you `sdk` and `feePayer`. Put `import { sdk, feePayer } from './connect.js';` at the top of your file.
 2. A funded fee-payer wallet. Creating a DID costs about $2 in CHEQ; see [Transaction fees](README.md#transaction-fees). On testnet, request a few thousand CHEQ from the [Testnet Faucet](../../../network/tools/testnet-faucet.md).
 
 ## Two kinds of key

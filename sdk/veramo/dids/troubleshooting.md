@@ -198,7 +198,7 @@ If the above `cmd` resulted something like this:
 
 This means you don't have enough tokens in your wallet.
 
-You can go to cheqd's [testnet faucet](https://studio.cheqd.net/) (log in to cheqd Studio and go to **Account** > **Balances & Faucet**) to get your account some test tokens. Tokens are sent to the wallet address tied to your cheqd Studio account; to fund a different address, contact the cheqd team on [Discord](https://discord.gg/cheqd).
+You can go to cheqd's [testnet faucet](https://studio.cheqd.net/) (log in to cheqd Studio and go to **Account** > **Balances & Faucet**) to get your account some test tokens. It funds any cheqd testnet address: change the address in the form to your own. See [Testnet Faucet](../../../network/tools/testnet-faucet.md).
 
 After successfully creating your DID, you should see something like this:
 

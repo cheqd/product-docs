@@ -146,13 +146,7 @@ universal-resolver:
         - url: https://dev.uniresolver.io/1.0/identifiers/
 ```
 
-### 2.5. Add cheqd Testnet to your Leap wallet
-
-In order to add cheqd Testnet to your Leap extension, please follow the following tutorial:
-
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Configure cheqd Testnet for Leap</strong></mark></td><td>Set up a cheqd testnet account using your Leap Wallet.</td><td><a href="../../../.gitbook/assets/leap wallet.png">leap wallet.png</a></td><td><a href="../../../network/wallets/setup-leap-wallet/testnet.md">testnet.md</a></td></tr></tbody></table>
-
-### 2.6. Configure your cheqd/Cosmos account keys and RPC endpoints
+### 2.5. Configure your cheqd/Cosmos account keys and RPC endpoints
 
 While reading/querying from the cheqd ledger incurs no cost, if you want to [create/update a DID](../dids/) to cheqd ledger, you need to pay transaction fees for the ledger writes.
 
@@ -183,6 +177,10 @@ You need to configure this in under `didManager` section as shown above, where y
 1. `cosmosPayerMnemonic`: [Mnemonic associated with your cheqd/Cosmos SDK account](https://docs.cheqd.io/node/getting-started/cheqd-cli/cheqd-cli-key-management). This is only stored locally, and the mnemonic is used to reconstitute the account address and keys used to pay for the transaction. On testnet, fund that account's `cheqd1…` address from the [Testnet Faucet](../../../network/tools/testnet-faucet.md) in cheqd Studio, which funds any cheqd testnet address.
 2. `rpcUrl`: For both `did:cheqd:mainnet:` as well as `did:cheqd:testnet:` sections, you can specify a Cosmos SDK RPC endpoint. This endpoint is where transactions are sent to. By default, this is populated with `rpc.cheqd.net` (for _mainnet_) and `rpc.cheqd.network` (for _testnet_), but you can can modify this to [a different hosted RPC endpoint for cheqd](https://cosmos.directory/cheqd/nodes) or even your own local/private RPC endpoint.
 3. `defaultProvider`: The default cheqd network is set to `did:cheqd:testnet` to allow developers to test out network functionality. However, if you prefer, you can switch this out to `did:cheqd:mainnet` instead.
+
+### 2.6. Fund your testnet account
+
+The account behind `cosmosPayerMnemonic` pays for every transaction, so it needs testnet CHEQ. Request it from the [Testnet Faucet](../../../network/tools/testnet-faucet.md) in cheqd Studio, using that account's `cheqd1…` address. To see the account in a wallet, [add cheqd Testnet to Keplr](../../../network/wallets/keplr-setup.md#setup-up-a-testnet-wallet-and-get-testnet-tokens) with the same mnemonic.
 
 ### 2.7. Save the `agent.yml` file and exit
 

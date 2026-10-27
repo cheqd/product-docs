@@ -4,7 +4,7 @@ This guide shows how to update and deactivate a `did:cheqd` DID with the cheqd S
 
 ## Prerequisites
 
-1. [Set up the cheqd SDK](../setup-the-cheqd-sdk.md) (`sdk`, `feePayer`) and [create a DID](create-did.md).
+1. [Set up the cheqd SDK](../setup-the-cheqd-sdk.md) (`import { sdk, feePayer } from './connect.js';`) and [create a DID](create-did.md).
 2. The DID's **private key** (the Ed25519 key you generated when you created it) and the id of one of its verification methods, for example `did:cheqd:testnet:<id>#key-1`.
 3. A funded fee-payer wallet. An update costs about $1 and a deactivation about $0.40; see [Transaction fees](README.md#transaction-fees).
 

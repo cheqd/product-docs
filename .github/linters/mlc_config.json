@@ -1,5 +1,12 @@
 {
-  "aliveStatusCodes": [0, 200, 206, 403, 501, 999],
+  "aliveStatusCodes": [
+    0,
+    200,
+    206,
+    403,
+    501,
+    999
+  ],
   "replacementPatterns": [
     {
       "pattern": "\" %}",
@@ -16,6 +23,12 @@
     },
     {
       "pattern": "^https://docs.cosmos.network/v0.46/"
+    },
+    {
+      "pattern": "^broken-reference$"
+    },
+    {
+      "pattern": "^https://gateway.ipfs.io/"
     }
   ],
   "retryOn429": true

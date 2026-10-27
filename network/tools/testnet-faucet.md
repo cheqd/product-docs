@@ -14,7 +14,7 @@ The faucet is part of [cheqd Studio](https://studio.cheqd.net/). It can fund **a
 
 * **A cheqd Studio account.** [Sign up for cheqd Studio](https://studio.cheqd.net/). New accounts start on a 30-day trial of the Basic plan, with no card needed.
 * **An active Basic or Build plan, or that trial.** Without one, faucet requests return `403`.
-* **A cheqd testnet address** (`cheqd1…`) if you want to fund your own wallet. See [Setup the cheqd SDK](../../advanced/sdk/setup-the-cheqd-sdk.md), or set up a [Leap](../wallets/setup-leap-wallet/testnet.md) or [Keplr](../wallets/keplr-setup.md) wallet.
+* **A cheqd testnet address** (`cheqd1…`) if you want to fund your own wallet. See [Setup the cheqd SDK](../../advanced/sdk/setup-the-cheqd-sdk.md), or set up a [Keplr](../wallets/keplr-setup.md) wallet.
 
 ## Request tokens in cheqd Studio
 

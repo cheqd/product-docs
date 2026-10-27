@@ -6,7 +6,7 @@ Every example below was run against the cheqd testnet with `@cheqd/sdk@5.5.1`.
 
 ## Prerequisites
 
-1. [Set up the cheqd SDK](../setup-the-cheqd-sdk.md) and fund a fee-payer wallet.
+1. [Set up the cheqd SDK](../setup-the-cheqd-sdk.md) and fund a fee-payer wallet. Put `import { sdk, feePayer } from './connect.js';` at the top of your file.
 2. [Create a DID](../did-module/create-did.md) to own the resource, and keep its Ed25519 private key. Resources must be signed with a key listed in the DID document.
 
 ## Create a resource

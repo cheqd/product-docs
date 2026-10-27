@@ -32,7 +32,7 @@ If you need to add CHEQ tokens to your cheqd Studio `cheqd_account`, there are a
 
 <summary>Mainnet</summary>
 
-* First you need to [setup your wallet](../../network/wallets/) which is able to hold CHEQ tokens. We recommend using [Leap Wallet](https://www.leapwallet.io/) which natively supports all CHEQ transactions in a browser plugin or on mobile. Alternatively, follow the [tutorial here to setup your Keplr wallet](../../network/wallets/keplr-setup.md).
+* First you need to [setup your wallet](../../network/wallets/) which is able to hold CHEQ tokens. Follow the [tutorial here to set up your Keplr wallet](../../network/wallets/keplr-setup.md).
 * You will then need to [get CHEQ tokens from any of the listed providers here](https://cheqd.io/get-involved/).
 * You will need to send CHEQ tokens from your new cheqd Wallet account to your `cheqd_account` address for using the Credential Service.
 

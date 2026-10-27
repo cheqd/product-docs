@@ -17,12 +17,13 @@ This guide takes you from an empty folder to a connected cheqd SDK with a funded
 mkdir my-cheqd-app && cd my-cheqd-app
 npm init -y
 npm pkg set type=module
-npm install @cheqd/sdk
+npm install @cheqd/sdk @cosmjs/proto-signing@^0.36.2
 npm install --save-dev typescript tsx @types/node
+echo ".env" >> .gitignore
 ```
 
 {% hint style="warning" %}
-Do not install `@cosmjs/*` packages separately unless you need them. `@cheqd/sdk` depends on `@cosmjs/*@^0.36.2`. CosmJS is a 0.x library, so a newer version (for example 0.39) is installed as a second, incompatible copy and your `wallet` will stop type-checking with an error such as `Type '"eth_secp256k1"' is not assignable to type 'Algo'`. If you need one, pin it: `npm install @cosmjs/proto-signing@^0.36.2`.
+Install `@cosmjs/*` packages only at the version the SDK uses, as above. `@cheqd/sdk` depends on `@cosmjs/*@^0.36.2`. CosmJS is a 0.x library, so a newer version (for example 0.39) is installed as a second, incompatible copy and your `wallet` will stop type-checking with an error such as `Type '"eth_secp256k1"' is not assignable to type 'Algo'`. Pin any other `@cosmjs/*` package you need to `^0.36.2` too.
 {% endhint %}
 
 ## Choose a network
@@ -40,21 +41,28 @@ The two domains differ by one word: `.network` is testnet and `.net` is mainnet.
 
 Every transaction is paid for by a **fee payer**: a standard Cosmos wallet with a `cheqd1…` address. This is separate from the keys that control your DIDs, which you create later.
 
-Generate a mnemonic and print the address (`wallet.ts`):
+Generate a wallet and save its mnemonic to `.env` (`wallet.ts`):
 
 ```typescript
+import { appendFileSync } from 'node:fs';
 import { DirectSecp256k1HdWallet } from '@cosmjs/proto-signing';
 
 const wallet = await DirectSecp256k1HdWallet.generate(24, { prefix: 'cheqd' });
 const [{ address }] = await wallet.getAccounts();
 
-console.log(`Mnemonic (store it safely, never commit it): ${wallet.mnemonic}`);
-console.log(`Address: ${address}`);
+// The mnemonic controls the wallet. It goes in .env, which the install step added to .gitignore.
+appendFileSync('.env', `CHEQD_MNEMONIC="${wallet.mnemonic}"\n`);
+console.log(`Saved the mnemonic to .env. Address: ${address}`);
 ```
 
-This needs `npm install @cosmjs/proto-signing@^0.36.2` (the version the SDK uses). Save the mnemonic in an environment variable such as `CHEQD_MNEMONIC`, and keep it out of source control.
+Run it once with `npx tsx wallet.ts`. Never commit `.env`, and never paste its contents into a chat or a ticket.
 
-Then fund the address with testnet CHEQ: see [Testnet Faucet](../../network/tools/testnet-faucet.md). A new account does not exist on chain until it has received tokens; until then the SDK throws `Account 'cheqd1…' does not exist on chain`.
+Then fund the address with testnet CHEQ:
+
+1. [Sign up for cheqd Studio](https://studio.cheqd.net/?action=register) if you have not already. New accounts start a 30-day trial that includes the faucet.
+2. Open **Account** > **Balances & Faucet**, paste the address printed above and request tokens. The [Testnet Faucet](../../network/tools/testnet-faucet.md) page also covers the API.
+
+A new account does not exist on chain until it has received tokens; until then the SDK throws `Account 'cheqd1…' does not exist on chain`.
 
 {% hint style="info" %}
 Fees are priced in USD and paid in CHEQ at the current rate, so the CHEQ amount changes with the CHEQ price. Testnet CHEQ is cheap, so request a few thousand to start.
@@ -62,26 +70,30 @@ Fees are priced in USD and paid in CHEQ at the current rate, so the CHEQ amount 
 
 ## Connect to the network
 
-`connect.ts`:
+`connect.ts` creates the `sdk` and `feePayer` that the other guides use:
 
 ```typescript
 import {
   CheqdNetwork,
   DIDModule,
   ResourceModule,
-  checkBalance,
   createCheqdSDK,
   createCosmosPayerWallet,
   type AbstractCheqdSDKModule,
 } from '@cheqd/sdk';
 
-const rpcUrl = 'https://rpc.cheqd.network'; // testnet
+process.loadEnvFile('.env'); // loads CHEQD_MNEMONIC, saved by wallet.ts
+
+export const rpcUrl = 'https://rpc.cheqd.network'; // testnet
 
 // createCosmosPayerWallet accepts a mnemonic (or a hex private key) and uses the 'cheqd' prefix.
 const wallet = await createCosmosPayerWallet(process.env.CHEQD_MNEMONIC!);
 const [{ address }] = await wallet.getAccounts();
 
-const sdk = await createCheqdSDK({
+// The fee payer is the wallet address that pays for transactions.
+export const feePayer = address;
+
+export const sdk = await createCheqdSDK({
   modules: [
     DIDModule as unknown as AbstractCheqdSDKModule,
     ResourceModule as unknown as AbstractCheqdSDKModule,
@@ -90,12 +102,21 @@ const sdk = await createCheqdSDK({
   network: CheqdNetwork.Testnet,
   wallet,
 });
-
-console.log('cheqd SDK initialised for', address);
-console.log('Balances:', await checkBalance(address, rpcUrl));
 ```
 
-Run it with `npx tsx connect.ts`. You should see your address and a balance in `ncheq` (1 CHEQ = 10^9 ncheq).
+Check that it works with `check.ts`:
+
+```typescript
+import { checkBalance } from '@cheqd/sdk';
+import { feePayer, rpcUrl } from './connect.js';
+
+console.log('Fee payer:', feePayer);
+console.log('Balances:', await checkBalance(feePayer, rpcUrl));
+```
+
+Run it with `npx tsx check.ts`. You should see your address and a balance in `ncheq` (1 CHEQ = 10^9 ncheq). An empty list means the wallet has not been funded yet.
+
+In the other guides, add `import { sdk, feePayer } from './connect.js';` at the top of your file.
 
 {% hint style="info" %}
 The `as unknown as AbstractCheqdSDKModule` cast is needed for the types to line up with the current SDK version.
@@ -141,7 +162,7 @@ The package also ships a CommonJS build, so `require` works with the same instal
 const { createCheqdSDK, createCosmosPayerWallet, DIDModule, CheqdNetwork } = require('@cheqd/sdk');
 ```
 
-The rest of the setup is the same. If you are not sure which module system your project uses, check for `"type": "module"` in `package.json`.
+The examples in this guide use ES modules, `import` and top-level `await`. In a CommonJS project, put the code inside an `async` function, replace `import` with `require` and drop the `!` after `process.env.CHEQD_MNEMONIC` (it is TypeScript-only). If you are not sure which module system your project uses, check for `"type": "module"` in `package.json`.
 
 ## Troubleshooting
 
