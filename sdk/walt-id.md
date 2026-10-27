@@ -8,7 +8,7 @@ coverY: 0
 
 # 🫐 Walt.id Community Stack
 
-Community Stack[ is an Open Source SDK from walt.id](https://walt.id/ssi-kit) which supports cheqd functionality, and other identity networks, via REST API calls or through a native CLI tool. &#x20;
+Community Stack[ is an Open Source SDK from walt.id](https://walt.id/community-stack) which supports cheqd functionality, and other identity networks, via REST API calls or through a native CLI tool. &#x20;
 
 ## Key Features
 

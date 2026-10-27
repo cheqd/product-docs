@@ -3,3 +3,8 @@ root: ./
 structure:  
     readme: README.md  
     summary: SUMMARY.md
+
+redirects:
+    network/wallets/setup-leap-wallet: network/wallets/keplr-setup.md
+    network/wallets/setup-leap-wallet/testnet: network/wallets/keplr-setup.md
+    network/wallets/migrate: network/wallets/keplr-setup.md
