@@ -155,6 +155,7 @@
     * [Create a DID-Linked Resource](sdk/veramo/did-linked-resources/create-resource.md)
     * [Create a new Resource version within existing Collection](sdk/veramo/did-linked-resources/create-new-version.md)
 * [🫐 Walt.id Community Stack](sdk/walt-id.md)
+* [🤖 Agent Identity (A2A / AP2)](sdk/agent-identity.md)
 
 ## 🏗️ Architecture
 
