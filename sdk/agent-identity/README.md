@@ -10,7 +10,7 @@ description: >-
 
 [`cheqd/agent-toolkit`](https://github.com/cheqd/agent-toolkit) binds `did:cheqd` identity directly into two agentic protocols, so that a message or a payment mandate between agents carries a verifiable, DID-anchored proof of who sent it — not just who an agent claims to be in its profile.
 
-This is a different layer to the [Trust Registries for AI Agents](../getting-started/ai-agents/) above: a trust registry proves an agent is *accredited*; Agent Identity proves that *this specific message, right now* came from the key that accreditation points to.
+This is a different layer to the [Trust Registries for AI Agents](../../getting-started/ai-agents/) above: a trust registry proves an agent is *accredited*; Agent Identity proves that *this specific message, right now* came from the key that accreditation points to.
 
 ## Key Features
 
@@ -23,7 +23,7 @@ This is a different layer to the [Trust Registries for AI Agents](../getting-sta
 ## Ideal for Developers Who
 
 * Are building agents on the A2A or AP2 protocols and need the other side to be able to verify *which DID* sent a given message or mandate, not just trust a self-asserted identity.
-* Want DID-anchored proof-of-possession on individual protocol messages, as a complement to (not a replacement for) a [Trust Registry](../getting-started/ai-agents/) that governs what an accredited agent is allowed to do.
+* Want DID-anchored proof-of-possession on individual protocol messages, as a complement to (not a replacement for) a [Trust Registry](../../getting-started/ai-agents/) that governs what an accredited agent is allowed to do.
 * Need the same guarantees from both a TypeScript and a Python agent in the same system.
 
 ## Get started
@@ -47,6 +47,12 @@ pip install cheqd-agent-identity-ap2   # for AP2
 ```
 
 > Python packages are not yet published — this is the install command to use once they are.
+
+## Tutorials
+
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Setup</strong></mark></td><td>Configure DID resolution and Agent Card verification — the shared setup both bindings build on.</td><td><a href="setup.md">setup.md</a></td></tr><tr><td><mark style="color:blue;"><strong>A2A: Sign outgoing requests</strong></mark></td><td>Add a DID-anchored, per-request proof to every <code>SendMessage</code> call from an A2A client.</td><td><a href="a2a/sign-outgoing-requests.md">sign-outgoing-requests.md</a></td></tr><tr><td><mark style="color:blue;"><strong>A2A: Verify incoming requests</strong></mark></td><td>Reject any A2A request without a verified, DID-anchored proof before your executor runs.</td><td><a href="a2a/verify-incoming-requests.md">verify-incoming-requests.md</a></td></tr><tr><td><mark style="color:blue;"><strong>AP2: Issue a mandate presentation</strong></mark></td><td>Issue an Open Payment Mandate as a compact SD-JWT-VC, bound to a holder's key.</td><td><a href="ap2/issue-mandate-presentation.md">issue-mandate-presentation.md</a></td></tr><tr><td><mark style="color:blue;"><strong>AP2: Verify a mandate presentation</strong></mark></td><td>Verify a presented mandate, its key binding, and that it covers the transaction actually being made.</td><td><a href="ap2/verify-mandate-presentation.md">verify-mandate-presentation.md</a></td></tr></tbody></table>
+
+> **Draft tutorials.** These walk through the packages' real, current APIs (the same code paths the conformance suite runs), but the API is not frozen — expect it to change before a stable release.
 
 ## Architecture
 
