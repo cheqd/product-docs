@@ -155,6 +155,12 @@
     * [Create a DID-Linked Resource](sdk/veramo/did-linked-resources/create-resource.md)
     * [Create a new Resource version within existing Collection](sdk/veramo/did-linked-resources/create-new-version.md)
 * [🫐 Walt.id Community Stack](sdk/walt-id.md)
+* [🤖 Agent Identity (A2A / AP2)](sdk/agent-identity/README.md)
+  * [Setup](sdk/agent-identity/setup.md)
+  * [A2A: Sign outgoing requests](sdk/agent-identity/a2a/sign-outgoing-requests.md)
+  * [A2A: Verify incoming requests](sdk/agent-identity/a2a/verify-incoming-requests.md)
+  * [AP2: Issue a mandate presentation](sdk/agent-identity/ap2/issue-mandate-presentation.md)
+  * [AP2: Verify a mandate presentation](sdk/agent-identity/ap2/verify-mandate-presentation.md)
 
 ## 🏗️ Architecture
 

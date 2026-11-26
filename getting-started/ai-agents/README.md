@@ -60,6 +60,8 @@ The following diagram shows an example of how an AI Agent Creator can accredit t
 
 Through this type of relationship, an AI Agent can prove that it is accredited by an AI Agent Creator through presenting the Verifiable Accreditation, which is stored on the cheqd blockchain.
 
+A Trust Registry establishes that an agent is accredited. It does not, by itself, prove that any single message or payment mandate in transit actually came from that accredited agent's key. For that per-message, per-mandate proof, see [Agent Identity (A2A / AP2)](../../sdk/agent-identity/) — a DID-anchored binding for the A2A and AP2 protocols, complementary to the Trust Registry model above.
+
 Similarly, an AI Agent creator can prove that it is also trustworthy, demonstrating that it is a real actor rather than a fraudulent actor. In the diagram below, a Governance Authority (such as an accreditation body for AI Agent Creators) can accredit AI Agent Creators directly.
 
 <figure><img src="../../.gitbook/assets/AI Agent Trust Registries (Governance Authority).jpg" alt=""><figcaption><p>Full tree diagram of root DID accrediting DIDs, that accredit AI Agents.</p></figcaption></figure>
