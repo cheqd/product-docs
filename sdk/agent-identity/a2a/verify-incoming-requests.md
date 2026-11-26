@@ -8,6 +8,8 @@ description: Reject any A2A request without a verified, DID-anchored proof befor
 
 This wraps an [A2A](https://github.com/a2aproject/A2A) server's request handler so that no request reaches your executor without a verified caller identity, and so the response proof covers the *final* result the client actually receives — not whatever the executor produced before the SDK's own event-merge and history trimming.
 
+Verification itself is checked against [KYA-OS](https://github.com/decentralized-identity/kya-os-mcp) (`@kya-os/mcp`)'s own proof profile — see [What this builds on](../README.md#what-this-builds-on).
+
 ## Install
 
 ```bash

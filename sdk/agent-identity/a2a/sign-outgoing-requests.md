@@ -8,6 +8,8 @@ description: Add a DID-anchored, per-request proof to every SendMessage call.
 
 This adds a `CallInterceptor` to an [A2A](https://github.com/a2aproject/A2A) client ([`@a2a-js/sdk`](https://github.com/a2aproject/a2a-js)) that signs every outgoing `SendMessage` with a holder-of-key proof (`org.kya-os/proof.v1`) before it leaves the client, and verifies the server's response proof on the way back — failing the call itself if that check fails, not just recording a result for you to remember to check.
 
+The proof itself — its signing, canonicalisation and the `signer`/provider objects below — comes from [KYA-OS](https://github.com/decentralized-identity/kya-os-mcp) (`@kya-os/mcp`), the DIF reference implementation this package binds to `did:cheqd`. See [What this builds on](../README.md#what-this-builds-on) for what KYA-OS provides versus what this package adds.
+
 ## Install
 
 ```bash

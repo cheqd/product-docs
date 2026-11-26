@@ -14,7 +14,7 @@ This is a different layer to the [Trust Registries for AI Agents](../../getting-
 
 ## Key Features
 
-* **A2A trust binding** — a client interceptor and server executor gate for the [A2A protocol](https://github.com/a2aproject/A2A), adding a per-request, holder-of-key proof (`org.kya-os/proof.v1`) over the request, plus an RFC 9421 HTTP Message Signature sibling.
+* **A2A trust binding** — a client interceptor and server executor gate for the [A2A protocol](https://github.com/a2aproject/A2A), adding a per-request, holder-of-key proof (KYA-OS's `org.kya-os/proof.v1`) over the request, plus an RFC 9421 HTTP Message Signature sibling.
 * **AP2 binding** — DID-anchored `cnf` key continuity and mandate-chain verification for the [AP2 protocol](https://github.com/google-agentic-commerce/AP2)'s payment mandates, as a compact SD-JWT-VC + Key Binding JWT presentation.
 * **DID-anchored throughout** — agent identity, delegation and revocation all resolve through `did:cheqd`, including reciprocal `did:web` ↔ `did:cheqd` linkage and DID-Linked Resource-based credential status.
 * **Cross-language conformance** — the TypeScript and Python implementations are verified interoperable with each other on every push, not just internally consistent.
@@ -57,6 +57,13 @@ pip install cheqd-agent-identity-ap2   # for AP2
 ## Architecture
 
 The core package (`@cheqd/agent-identity` / `cheqd-agent-identity`) handles DID resolution, reciprocal `did:web` ↔ `did:cheqd` linkage, DID-Linked Resource policy, credential status and key resolution. The A2A and AP2 bindings both depend on the core package and not on each other, so an AP2 integration never needs to install the A2A SDK, and vice versa.
+
+## What this builds on
+
+No new cryptography is proposed here. The A2A binding's proof profile, its canonicalisation and its conformance vectors already exist upstream and are reused unchanged:
+
+* [**KYA-OS**](https://github.com/decentralized-identity/kya-os-mcp) (`@kya-os/mcp`) — the [DIF Trusted AI Agents Working Group](https://identity.foundation/working-groups/trusted-agents.html)'s reference implementation of the `org.kya-os/proof.v1` holder-of-key profile: RFC 8785 (JCS) canonicalisation, SHA-256 request binding, a detached JWS alongside an RFC 9421 HTTP Message Signature, and RFC 7638 `cnf` thumbprint fusion. `@cheqd/agent-identity-a2a` is a DID-anchored binding on top of KYA-OS, not a replacement for it — the signer, clock, nonce-cache and fetch providers used in the [setup](setup.md) and [A2A](a2a/sign-outgoing-requests.md) tutorials all come from `@kya-os/mcp` directly.
+* [**`@a2a-js/sdk`**](https://github.com/a2aproject/a2a-js) — the A2A protocol's own client/server SDK: `CallInterceptor` on the client, the `AgentExecutor` decorator on the server, `A2A-Extensions` header negotiation, and the pluggable key-resolution seam on `verifyAgentCardSignature`.
 
 ## Known gaps
 
